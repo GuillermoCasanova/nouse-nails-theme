@@ -1,0 +1,25 @@
+<iframe src="{{ section.settings.video_url }}">
+
+</iframe>
+
+
+{% schema %}
+{
+"name": "Video custom",
+"settings": [
+  {
+    "id": "video_url",
+    "type": "video_url",
+    "label": "Video URL",
+    "accept": ["youtube", "vimeo"],
+    "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+  }
+],
+"presets": [
+  {
+    "name": "Video custom",
+    "category": "Hae custom"
+  }
+]
+}
+{% endschema %}

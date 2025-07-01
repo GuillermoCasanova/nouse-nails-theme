@@ -1,0 +1,67 @@
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+<li class="col-mlg-6 d-flex-column flex-justify-center p-40-gutters flex-justify-start" style="background-color: {{ product.metafields.global.color_background }};">
+  <div class="{% unless product.available %} grid-view-item--sold-out{% endunless %}">
+    <a href="{{ product.url | within: collection }}">
+
+    {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {%- assign preview_image = product.featured_media.preview_image -%}
+    {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+    {% unless preview_image == blank %}
+      {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+    {% endunless %}
+
+    <div class="product-card__image-with-placeholder-wrapper">
+      <div class="product-card__image-wrapper js">
+        <div class="photo-reveal">
+          <img
+            class="home-two-product-callout-photo photo-cover width-full big-img-b-radius big-img-b-radius--hover mb-32-gutters"
+            alt="{{ preview_image.alt }}"
+            src="{{ preview_image }}"
+            srcset=
+            "{{ preview_image | img_url: "1440x", scale: 2 }} 2560w",
+            "{{ preview_image | img_url: "400x", scale: 2 }} 1024w",
+            "{{ preview_image | img_url: "768x", scale: 2 }} 768w",
+            "{{ preview_image | img_url: "425x", scale: 2 }} 425w"
+            sizes="50vw"
+            >
+          <img
+            class="hidden home-two-product-callout-photo photo-cover width-full big-img-b-radius big-img-b-radius--hover mb-32-gutters"
+            src="{{ product.images[1] }}"
+            srcset=
+            "{{ product.images[1] | img_url: "1440x", scale: 2 }} 2560w",
+            "{{ product.images[1] | img_url: "400x", scale: 2 }} 1024w",
+            "{{ product.images[1] | img_url: "768x", scale: 2 }} 768w",
+            "{{ product.images[1] | img_url: "425x", scale: 2 }} 425w"
+            sizes="50vw"
+            alt="{{ product.images.last.alt | escape }}" />
+        </div>
+      </div>
+    </div>
+
+    <p class="fs-24" style="color: {{ product.metafields.global.color_text_pdp }};">{{ product.metafields.global.title_subtitle }}</p>
+
+    <div class="d-md-flex-row flex-justify-space-between">
+      <h2 class="product-card-title-main fs-60" aria-hidden="true" style="color: {{ product.metafields.global.color_text }}">{{ product.metafields.global.title_main }}</h2>
+<!-- Start of Judge.me code -->
+      <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
+        {{ product.metafields.judgeme.badge }}
+      </div>
+      <!-- End of Judge.me code -->
+
+      {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+    </div>
+  </a>
+
+  </div>
+</li>
