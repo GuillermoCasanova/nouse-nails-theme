@@ -1,3 +1,5 @@
+{{ 'section-header.css' | asset_url | stylesheet_tag }}
+
 {% if section.settings.message %}
   <style>
     {% if section.settings.logo != blank %}
@@ -45,16 +47,18 @@
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
-            <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+        <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
         {%- unless section.settings.message_link == blank -%}
           </a>
         {%- endunless -%}
       </div>
-
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner">
+  <header
+    class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}"
+    role="banner"
+  >
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
         {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
@@ -72,35 +76,28 @@
         {% else %}
           <div class="h2 site-header__logo">
         {% endif %}
-          {% if section.settings.logo %}
-            {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            <a href="{{ routes.root_url }}" class="p-relative site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
-              {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+        {% if section.settings.logo %}
+          {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          <a
+            href="{{ routes.root_url }}"
+            class="p-relative site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}"
+          >
+            {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
 
-              {% if request.page_type == 'index' %}
-              <svg class="hae-home-logo p-absolute" fill="none" height="264" viewBox="0 0 402 264" width="402" xmlns="http://www.w3.org/2000/svg"><g fill="#000"><path d="m245.213 165.998v1.618h-20.258c-.588-2.353-1.322-5.442-1.909-9.12h-.587c-5.432 6.325-15.561 10.591-29.947 10.591-17.176 0-30.535-6.913-30.535-22.506 0-14.122 13.359-24.419 35.82-24.419 10.276 0 17.175 2.354 24.222 6.326v-2.648c0-12.651-11.157-16.77-20.259-16.77-8.074 0-14.827 2.501-17.909 8.532l-22.314-2.501c3.266-15.298 21.726-22.5059 39.636-22.5059 19.965 0 41.838 6.9137 41.838 33.2449v18.535c0 9.708.734 18.387 2.202 21.623zm-24.075-23.83c-6.9-2.942-14.093-4.707-20.993-4.707-10.569 0-16.735 3.236-16.735 8.532 0 5.737 6.019 6.766 13.065 6.766 9.396 0 21.433-2.206 24.663-10.591z"/><path d="m148.303 131.558h-20.772v-32.5828h-43.8566v32.5828h-20.7722l.1101-73.1826h20.7722l-.1101 25.8897h43.8566l.11-25.8897h20.772z"/><path d="m325.689 181.592 21.873 2.353c-3.964 14.71-22.314 23.242-42.719 23.242-26.571 0-46.682-14.71-46.682-37.658.036-23.241 19.708-38.687 45.067-38.687 24.369 0 44.334 13.975 44.334 34.422 0 2.942-.441 5.884-1.175 7.796h-67.197c2.202 11.768 13.799 17.358 25.543 17.358 9.358 0 16.552-2.207 20.956-8.826zm-44.444-22.948h44.15c-2.349-7.355-10.863-11.768-22.167-11.768-10.423 0-18.166 4.413-21.983 11.768z"/><path clip-rule="evenodd" d="m331.745 109.433-216.821-78.5177c-34.0619-12.3349-71.6739 5.2782-84.0088 39.3401-12.3349 34.0616 5.2783 71.6736 39.3401 84.0086l216.8207 78.518c34.062 12.335 71.674-5.278 84.009-39.34s-5.279-71.674-39.34-84.009zm-214.54-84.8174c-37.5408-13.5948-78.9946 5.8174-92.5894 43.3585-13.5948 37.5409 5.8174 78.9949 43.3584 92.5899l216.821 78.518c37.541 13.594 78.995-5.818 92.589-43.359 13.595-37.541-5.817-78.995-43.358-92.59z" fill-rule="evenodd"/></g></svg>
-              {% else %}
-              <img
-                   src="{{ section.settings.logo | img_url: '240x' }}"
-                   data-src="{{ img_url }}"
-                   data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
-                   data-sizes="auto"
-                   alt="{{ logo_alt | escape }}">
-              {% endif %}
+            <svg class="nous-logo">
+              <use href="#nous-logo"></use>
+            </svg>
 
-
-
-              <noscript>
-                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
-                <img src="{{ section.settings.logo | img_url: image_size }}"
-                     srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                     alt="{{ section.settings.logo.alt | default: shop.name }}"
-                     style="max-width: {{ section.settings.logo_max_width }}px;">
-              </noscript>
-            </a>
-          {% else %}
-            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
-          {% endif %}
+            <noscript>
+              {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+              <svg class="nous-logo">
+                <use href="#nous-logo"></use>
+              </svg>
+            </noscript>
+          </a>
+        {% else %}
+          <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }}</a>
+        {% endif %}
         {% if request.page_type == 'index' %}
           </h1>
         {% else %}
@@ -116,8 +113,11 @@
 
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
-
-          <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top" data-predictive-search-open-drawer>
+          <button
+            type="button"
+            class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top"
+            data-predictive-search-open-drawer
+          >
             {% include 'icon-search' %}
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
           </button>
@@ -139,20 +139,31 @@
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
             {% include 'icon-cart' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
-            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
+            <div
+              id="CartCount"
+              class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden"
+              data-cart-count-bubble
+            >
               <span data-cart-count>{{ cart.item_count }}</span>
-              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+              <span class="icon__fallback-text medium-up--hide">
+                {{- 'layout.cart.items_count' | t: count: cart.item_count -}}
+              </span>
             </div>
           </a>
 
           {% unless linklists[section.settings.main_linklist] == blank %}
-            <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+            <button
+              type="button"
+              class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open"
+              aria-controls="MobileNav"
+              aria-expanded="false"
+              aria-label="{{ 'layout.navigation.menu' | t }}"
+            >
               {% include 'icon-hamburger' %}
               {% include 'icon-close' %}
             </button>
           {% endunless %}
         </div>
-
       </div>
     </div>
 
@@ -164,7 +175,13 @@
           <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
             {% if link.links != blank %}
               {% capture child_list_handle %}{{ link.handle }}-{{ outerLoopIndex }}{% endcapture %}
-              <button type="button" class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %}" data-target="{{ child_list_handle }}" data-level="1" aria-expanded="false">
+              <button
+                type="button"
+                class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %}"
+                data-target="{{ child_list_handle }}"
+                data-level="1"
+                aria-expanded="false"
+              >
                 <span class="mobile-nav__label">{{ link.title | escape }}</span>
                 <div class="mobile-nav__icon">
                   {% include 'icon-chevron-right' %}
@@ -172,12 +189,18 @@
               </button>
               <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
                 <li class="visually-hidden" tabindex="-1" data-menu-title="2">
-                  {{- link.title }} {{ 'layout.navigation.menu' | t -}}
+                  {{- link.title }}
+                  {{ 'layout.navigation.menu' | t -}}
                 </li>
                 <li class="mobile-nav__item border-bottom">
                   <div class="mobile-nav__table">
                     <div class="mobile-nav__table-cell mobile-nav__return">
-                      <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button" aria-expanded="true" aria-label="{{ link.title }}">
+                      <button
+                        class="btn--link js-toggle-submenu mobile-nav__return-btn"
+                        type="button"
+                        aria-expanded="true"
+                        aria-label="{{ link.title }}"
+                      >
                         {% include 'icon-chevron-left' %}
                       </button>
                     </div>
@@ -191,7 +214,12 @@
                   <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
                     {% if childlink.links != blank %}
                       {% capture grandchild_list_handle %}{{ childlink.handle }}-{{ outerLoopIndex }}-{{ forloop.index }}{% endcapture %}
-                      <button type="button" class="btn--link js-toggle-submenu mobile-nav__link mobile-nav__sublist-link" data-target="{{ grandchild_list_handle }}" aria-expanded="false">
+                      <button
+                        type="button"
+                        class="btn--link js-toggle-submenu mobile-nav__link mobile-nav__sublist-link"
+                        data-target="{{ grandchild_list_handle }}"
+                        aria-expanded="false"
+                      >
                         <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
                         <div class="mobile-nav__icon">
                           {% include 'icon-chevron-right' %}
@@ -199,18 +227,28 @@
                       </button>
                       <ul class="mobile-nav__dropdown" data-parent="{{ grandchild_list_handle }}" data-level="3">
                         <li class="visually-hidden" tabindex="-1" data-menu-title="3">
-                          {{- childlink.title }} {{ 'layout.navigation.menu' | t -}}
+                          {{- childlink.title }}
+                          {{ 'layout.navigation.menu' | t -}}
                         </li>
                         <li class="mobile-nav__item border-bottom">
                           <div class="mobile-nav__table">
                             <div class="mobile-nav__table-cell mobile-nav__return">
-                              <button type="button" class="btn--link js-toggle-submenu mobile-nav__return-btn" data-target="{{ child_list_handle }}" aria-expanded="true" aria-label="{{ childlink.title }}">
+                              <button
+                                type="button"
+                                class="btn--link js-toggle-submenu mobile-nav__return-btn"
+                                data-target="{{ child_list_handle }}"
+                                aria-expanded="true"
+                                aria-label="{{ childlink.title }}"
+                              >
                                 {% include 'icon-chevron-left' %}
                               </button>
                             </div>
-                            <a href="{{ childlink.url }}"
+                            <a
+                              href="{{ childlink.url }}"
                               class="mobile-nav__sublist-link mobile-nav__sublist-header"
-                              {% if childlink.current %} aria-current="page"{% endif %}
+                              {% if childlink.current %}
+                                aria-current="page"
+                              {% endif %}
                             >
                               <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
                             </a>
@@ -218,9 +256,12 @@
                         </li>
                         {% for grandchildlink in childlink.links %}
                           <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
-                            <a href="{{ grandchildlink.url }}"
+                            <a
+                              href="{{ grandchildlink.url }}"
                               class="mobile-nav__sublist-link"
-                              {% if grandchildlink.current %} aria-current="page"{% endif %}
+                              {% if grandchildlink.current %}
+                                aria-current="page"
+                              {% endif %}
                             >
                               <span class="mobile-nav__label">{{ grandchildlink.title | escape }}</span>
                             </a>
@@ -228,9 +269,12 @@
                         {% endfor %}
                       </ul>
                     {% else %}
-                      <a href="{{ childlink.url }}"
+                      <a
+                        href="{{ childlink.url }}"
                         class="mobile-nav__sublist-link"
-                        {% if childlink.current %} aria-current="page"{% endif %}
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
                       >
                         <span class="mobile-nav__label type-link ls-bigger">{{ childlink.title | escape }}</span>
                       </a>
@@ -239,10 +283,13 @@
                 {% endfor %}
               </ul>
             {% else %}
-            <!-- top level links "shop, why hae, journal, about" -->
-              <a href="{{ link.url }}"
+              <!-- top level links "shop, why hae, journal, about" -->
+              <a
+                href="{{ link.url }}"
                 class="mobile-nav__link{% if link.active %} mobile-nav__link--active{% endif %}"
-                {% if link.current %} aria-current="page"{% endif %}
+                {% if link.current %}
+                  aria-current="page"
+                {% endif %}
               >
                 <span class="mobile-nav__label type-link ls-bigger">{{ link.title | escape }}</span>
               </a>
@@ -254,39 +301,37 @@
   </header>
 
   {% if section.settings.align_logo == 'center' %}
-  <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
-    {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
-  </nav>
+    <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
+      {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
+    </nav>
   {% endif %}
 </div>
 
-
-
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": {{ shop.name | json }},
-  {% if section.settings.logo %}
-    {% assign image_size = section.settings.logo.width | append:'x' %}
-    "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
-  {% endif %}
-  "sameAs": [
-    {{ settings.social_twitter_link | json }},
-    {{ settings.social_facebook_link | json }},
-    {{ settings.social_pinterest_link | json }},
-    {{ settings.social_instagram_link | json }},
-    {{ settings.social_tumblr_link | json }},
-    {{ settings.social_snapchat_link | json }},
-    {{ settings.social_youtube_link | json }},
-    {{ settings.social_vimeo_link | json }}
-  ],
-  "url": {{ shop.url | append: page.url | json }}
-}
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width | append:'x' %}
+      "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ shop.url | append: page.url | json }}
+  }
 </script>
 
 {% if request.page_type == 'index' %}
-  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: '?q={search_term_string}' %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",

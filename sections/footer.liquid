@@ -1,3 +1,5 @@
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+
 {%- assign social_icons = false -%}
 {%- assign inline_list = false -%}
 {%- assign locale_selector = false -%}
@@ -23,8 +25,7 @@
   {%- assign show_selectors = true -%}
 {%- endif -%}
 
-{%- if
-  settings.social_twitter_link != blank
+{%- if settings.social_twitter_link != blank
   or settings.social_facebook_link != blank
   or settings.social_pinterest_link != blank
   or settings.social_instagram_link != blank
@@ -38,17 +39,17 @@
   {%- assign social_icons = true -%}
 {%- endif -%}
 
-{%- assign payment_width_class = "one-half" -%}
+{%- assign payment_width_class = 'one-half' -%}
 {%- if show_selectors -%}
   {%- unless social_icons -%}
-    {%- assign payment_width_class = "" -%}
+    {%- assign payment_width_class = '' -%}
   {%- endunless -%}
 {%- endif -%}
 
-{%- assign copyright_show_class = "medium-up--hide" -%}
+{%- assign copyright_show_class = 'medium-up--hide' -%}
 {%- if social_icons -%}
   {%- unless show_selectors -%}
-    {%- assign copyright_show_class = "" -%}
+    {%- assign copyright_show_class = '' -%}
   {%- endunless -%}
 {%- endif -%}
 
@@ -117,7 +118,6 @@
   }
 </style>
 
-
 {%- capture payment_icon_markup -%}
   {%- if show_payment_icons -%}
     <div class="grid__item site-footer__payment-icons">
@@ -133,26 +133,37 @@
   {%- endif -%}
 {%- endcapture -%}
 
-<footer class="site-footer critical-hidden" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
+<footer
+  class="site-footer critical-hidden"
+  role="contentinfo"
+  data-section-id="{{ section.id }}"
+  data-section-type="footer-section"
+>
   <div>
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
-
-        <div class="site-footer__item
-                    {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
-                    {{ footer_item }}
-                    {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}"
-             {{ block.shopify_attributes }}>
+        <div
+          class="
+            site-footer__item
+            {% if section.blocks.size == 1 %} site-footer__item--center{% endif %}
+            {{ footer_item }}
+            {% if block.type == 'newsletter' and section.blocks.size == 3 %}site-footer-newsletter__one-half{% endif %}
+          "
+          {{ block.shopify_attributes }}
+        >
           <div class="site-footer__item-inner site-footer__item-inner--{{ block.type }}">
-
             {%- if block.settings.title -%}
               <p class="h4">{{ block.settings.title | escape }}</p>
             {%- endif -%}
 
             {%- case block.type -%}
               {%- when 'newsletter' -%}
-                <div class="site-footer__newsletter
-                          {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
+                <div
+                  class="
+                    site-footer__newsletter
+                    {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}
+                  "
+                >
                   {%- assign formId = 'ContactFooter' -%}
                   {% form 'customer', id: formId, novalidate: 'novalidate' %}
                     {%- if form.posted_successfully? -%}
@@ -162,7 +173,8 @@
                     {%- endif -%}
                     <input type="hidden" name="contact[tags]" value="newsletter">
                     <div class="input-group {% if form.errors %} input-group--error{% endif %}">
-                      <input type="email"
+                      <input
+                        type="email"
                         name="contact[email]"
                         id="{{ formId }}-email"
                         class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
@@ -177,9 +189,10 @@
                           aria-invalid="true"
                           aria-describedby="{{ formId }}-email-error"
                           data-form-status
-                        {% endif %}>
+                        {% endif %}
+                      >
                       <span class="input-group__btn">
-                        <button type="submit" class="btn newsletter__submit" name="commit" >
+                        <button type="submit" class="btn newsletter__submit" name="commit">
                           <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
                         </button>
                       </span>
@@ -188,7 +201,10 @@
                       <span id="{{ formId }}-email-error" class="input-error-message">
                         <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
                         {% include 'icon-error' %}
-                        <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                        <span class="site-footer__newsletter-error">
+                          {{- form.errors.translated_fields.email | capitalize }}
+                          {{ form.errors.messages.email }}.</span
+                        >
                       </span>
                     {% endif %}
                   {% endform %}
@@ -196,36 +212,45 @@
 
               {%- when 'text' -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="site-footer__rte
-                              {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
-                      {{ block.settings.text }}
+                  <div
+                    class="
+                      site-footer__rte
+                      {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}
+                    "
+                  >
+                    {{ block.settings.text }}
                   </div>
                 {%- endif -%}
 
               {%- when 'link_list' -%}
                 {%- assign footer_linklist = block.settings.menu -%}
-                  <ul class="site-footer__linklist
-                            {% if inline_list %}list--inline{% endif %}">
-                    {%- for link in linklists[footer_linklist].links -%}
-                      <li class="site-footer__linklist-item">
-                        <a href="{{ link.url }}"
-                          {% if link.current %} aria-current="page"{% endif %}
-                        >
-                          {{ link.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-
+                <ul
+                  class="
+                    site-footer__linklist
+                    {% if inline_list %}list--inline{% endif %}
+                  "
+                >
+                  {%- for link in linklists[footer_linklist].links -%}
+                    <li class="site-footer__linklist-item">
+                      <a
+                        href="{{ link.url }}"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ link.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
             {%- endcase -%}
-
           </div>
         </div>
       {%- endfor -%}
     </div>
   </div>
 
-  {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+  {%- assign socials = 'Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo' | split: ' ' -%}
 
   <div class="page-width">
     <div class="grid grid--no-gutters small--text-center grid--footer-float-right">
@@ -239,19 +264,41 @@
                 </h2>
 
                 <div class="disclosure" data-disclosure-locale>
-                  <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-disclosure-toggle>
+                  <button
+                    type="button"
+                    class="disclosure__toggle"
+                    aria-expanded="false"
+                    aria-controls="lang-list"
+                    aria-describedby="lang-heading"
+                    data-disclosure-toggle
+                  >
                     {{ form.current_locale.endonym_name }}
                   </button>
                   <ul id="lang-list" class="disclosure-list" data-disclosure-list>
                     {% for locale in form.available_locales %}
                       <li class="disclosure-list__item {% if locale.iso_code == form.current_locale.iso_code %}disclosure-list__item--current{% endif %}">
-                        <a class="disclosure-list__option" href="#" lang="{{ locale.iso_code }}" {% if locale.iso_code == form.current_locale.iso_code %}aria-current="true"{% endif %} data-value="{{ locale.iso_code }}" data-disclosure-option>
+                        <a
+                          class="disclosure-list__option"
+                          href="#"
+                          lang="{{ locale.iso_code }}"
+                          {% if locale.iso_code == form.current_locale.iso_code %}
+                            aria-current="true"
+                          {% endif %}
+                          data-value="{{ locale.iso_code }}"
+                          data-disclosure-option
+                        >
                           {{ locale.endonym_name }}
                         </a>
                       </li>
                     {%- endfor -%}
                   </ul>
-                  <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ form.current_locale.iso_code }}" data-disclosure-input/>
+                  <input
+                    type="hidden"
+                    name="locale_code"
+                    id="LocaleSelector"
+                    value="{{ form.current_locale.iso_code }}"
+                    data-disclosure-input
+                  >
                 </div>
               </div>
             {%- endif -%}
@@ -263,26 +310,51 @@
                 </h2>
 
                 <div class="disclosure" data-disclosure-currency>
-                  <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="currency-list" aria-describedby="currency-heading" data-disclosure-toggle>
-                    {{ form.current_currency.iso_code }} {%- if form.current_currency.symbol -%}{{ form.current_currency.symbol }}{%- endif -%}
+                  <button
+                    type="button"
+                    class="disclosure__toggle"
+                    aria-expanded="false"
+                    aria-controls="currency-list"
+                    aria-describedby="currency-heading"
+                    data-disclosure-toggle
+                  >
+                    {{ form.current_currency.iso_code }}
+                    {%- if form.current_currency.symbol -%}{{ form.current_currency.symbol }}{%- endif -%}
                   </button>
                   <ul id="currency-list" class="disclosure-list" data-disclosure-list>
                     {% for currency in form.available_currencies %}
                       <li class="disclosure-list__item {% if currency.iso_code == form.current_currency.iso_code %}disclosure-list__item--current{% endif %}">
-                        <a class="disclosure-list__option" href="#" {% if currency.iso_code == form.current_currency.iso_code %}aria-current="true"{% endif %} data-value="{{ currency.iso_code }}" data-disclosure-option>
-                          {{ currency.iso_code }} {%- if currency.symbol -%}{{ currency.symbol }}{%- endif -%}
+                        <a
+                          class="disclosure-list__option"
+                          href="#"
+                          {% if currency.iso_code == form.current_currency.iso_code %}
+                            aria-current="true"
+                          {% endif %}
+                          data-value="{{ currency.iso_code }}"
+                          data-disclosure-option
+                        >
+                          {{ currency.iso_code }}
+                          {%- if currency.symbol -%}{{ currency.symbol }}{%- endif -%}
                         </a>
                       </li>
                     {%- endfor -%}
                   </ul>
-                  <input type="hidden" name="currency_code" id="CurrencySelector" value="{{ form.current_currency.iso_code }}" data-disclosure-input/>
+                  <input
+                    type="hidden"
+                    name="currency_code"
+                    id="CurrencySelector"
+                    value="{{ form.current_currency.iso_code }}"
+                    data-disclosure-input
+                  >
                 </div>
               </div>
             {%- endif -%}
           {%- endform -%}
         </div>
       {%- else -%}
-        <div class="grid__item small--hide {{ payment_width_class }} {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">{{ payment_icon_markup }}</div>
+        <div class="grid__item small--hide {{ payment_width_class }} {% if show_payment_icons %}site-footer-item-center-vertically{% endif %}">
+          {{ payment_icon_markup }}
+        </div>
       {%- endif -%}
 
       <div class="grid__item {% if show_selectors or show_payment_icons %}one-half{% endif %} small--one-whole site-footer-item-tall">
@@ -293,7 +365,11 @@
               {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
               {%- if settings[social_link] != blank -%}
                 <li class="social-icons__item">
-                  <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
+                  <a
+                    class="social-icons__link"
+                    href="{{ settings[social_link] | escape }}"
+                    aria-describedby="a11y-external-message"
+                  >
                     {%- include icon_link -%}
                     <span class="icon__fallback-text">{{ social }}</span>
                   </a>
@@ -312,8 +388,12 @@
           </ul>
         {%- else -%}
           <div class="small--hide site-footer-item-align-right {% if show_selectors or show_payment_icons %}site-footer-item-center-vertically{% endif %}">
-            <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
+            <small class="site-footer__copyright-content"
+              >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+            </small>
+            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">
+              {{- powered_by_link -}}
+            </small>
           </div>
         {%- endif -%}
       </div>
@@ -326,20 +406,26 @@
 
       {%- if social_icons and show_selectors -%}
         <div class="grid__item small--hide site-footer-item-align-right {% if show_payment_icons %}one-half{% endif %}">
-          <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
+          <small class="site-footer__copyright-content"
+            >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+          </small>
+          <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">
+            {{- powered_by_link -}}
+          </small>
         </div>
       {%- endif -%}
 
       <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
-        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-        <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
+        <small class="site-footer__copyright-content"
+          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+        </small>
+        <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">
+          {{- powered_by_link -}}
+        </small>
       </div>
     </div>
   </div>
 </footer>
-
-
 
 {% schema %}
 {
@@ -974,24 +1060,24 @@
             "cs": "Odběratelé budou přidáni do vašeho [seznamu zákazníků, kteří přijímají marketing.](/admin/customers?query=&accepts_marketing=1)",
             "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
             "de": "Abonnenten werden zu deiner Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
-            "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
+            "en": "Subscribers will be added to your "accepts marketing" [customer list.](/admin/customers?query=&accepts_marketing=1)",
             "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
             "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
-            "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
-            "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
-            "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
+            "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
+            "hi": "सदस्यों को आपकी "मार्केटिंग स्वीकार करता है" [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
+            "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) "accetta marketing"",
             "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
             "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
             "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
-            "nl": "Abonnees worden toegevoegd aan je \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
-            "pl": "Subskrybenci zostaną dodani do Twojej [listy klientów \"akceptujących marketing\".](/admin/customers?query=&accepts_marketing=1)",
-            "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
-            "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
-            "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
-            "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
-            "tr": "Aboneler \"pazarlama kabul ediyor\" [müşteri listenize](/admin/customers?query=&accepts_marketing=1) eklenir.",
-            "vi": "Người đăng ký sẽ được thêm vào [danh sách khách hàng](/admin/customers?query=&accepts_marketing=1) \"chấp nhận tiếp thị\".",
-            "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
+            "nl": "Abonnees worden toegevoegd aan je "accepteert marketing" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
+            "pl": "Subskrybenci zostaną dodani do Twojej [listy klientów "akceptujących marketing".](/admin/customers?query=&accepts_marketing=1)",
+            "pt-BR": "Os assinantes serão adicionados à "aceita marketing" [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
+            "pt-PT": "Os subscritores serão adicionados à sua lista de "aceitam marketing" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
+            "sv": "Prenumeranter läggs till i din "accepterar marknadsföring" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
+            "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน "ยอมรับการตลาด" ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
+            "tr": "Aboneler "pazarlama kabul ediyor" [müşteri listenize](/admin/customers?query=&accepts_marketing=1) eklenir.",
+            "vi": "Người đăng ký sẽ được thêm vào [danh sách khách hàng](/admin/customers?query=&accepts_marketing=1) "chấp nhận tiếp thị".",
+            "zh-CN": "订阅者将被添加到您的"接受营销"[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
             "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
           },
           "default": {
