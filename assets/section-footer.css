@@ -1,2 +1,306 @@
-/*================ FOOTER SECTION ================*/
-// ... all .site-footer, .site-footer__*, .hae-footer, and related rules from theme.css ... 
+
+
+
+
+
+/*------------------------------------*\
+    #Site Footer Layout
+\*------------------------------------*/
+
+.site-footer__content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 767px) {
+  .site-footer__content {
+    padding: 0 18px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__content {
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    #Site Footer Items
+\*------------------------------------*/
+
+.site-footer__item {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex: 1 1 100%;
+  -moz-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  margin-bottom: 55px;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__item {
+    padding: 0 15px 0 15px;
+    margin-bottom: 45px;
+  }
+}
+.site-footer__item:first-of-type {
+  padding-left: 0;
+}
+.site-footer__item:last-of-type {
+  padding-right: 0;
+}
+@media only screen and (max-width: 767px) {
+  .site-footer__item:last-of-type {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__item--full-width {
+    -webkit-flex: 1 1 100%;
+    -moz-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+  .site-footer__item--one-half {
+    -webkit-flex: 1 1 50%;
+    -moz-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+  }
+  .site-footer__item--one-third {
+    -webkit-flex: 1 1 33%;
+    -moz-flex: 1 1 33%;
+    -ms-flex: 1 1 33%;
+    flex: 1 1 33%;
+  }
+  .site-footer__item--one-quarter {
+    -webkit-flex: 1 1 25%;
+    -moz-flex: 1 1 25%;
+    -ms-flex: 1 1 25%;
+    flex: 1 1 25%;
+  }
+  .site-footer__item--one-fifth {
+    -webkit-flex: 1 1 20%;
+    -moz-flex: 1 1 20%;
+    -ms-flex: 1 1 20%;
+    flex: 1 1 20%;
+  }
+  .site-footer-newsletter__one-half {
+    -webkit-flex: 1 1 50%;
+    -moz-flex: 1 1 50%;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__item--center {
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+  }
+  .site-footer__item--center > * {
+    text-align: center;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    #Site Footer Newsletter
+\*------------------------------------*/
+
+.site-footer__item-inner--newsletter {
+  width: 100%;
+}
+.site-footer__item-inner--newsletter .newsletter__submit {
+  margin-top: 5px;
+}
+.site-footer__item-inner--newsletter .newsletter__input {
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__item--full-width .site-footer__item-inner--newsletter {
+    max-width: 50%;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    #Site Footer Linklists & Icons
+\*------------------------------------*/
+
+@media only screen and (min-width: 768px) {
+  .site-footer__centered--single-block {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .site-footer__linklist.list--inline > li {
+    display: block;
+  }
+}
+.site-footer__linklist-item {
+  display: block;
+  padding: 15px 0;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__linklist-item {
+    padding: 0 30px 5px 0;
+  }
+}
+.site-footer__linklist-item:last-of-type {
+  padding-right: 0;
+}
+.site-footer__icon-list {
+  padding-bottom: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__icon-list {
+    padding-bottom: 15px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .site-footer__social-icons {
+    padding-top: 7.5px;
+    text-align: right;
+  }
+}
+.social-icons__item {
+  padding: 0 15px;
+}
+@media only screen and (min-width: 768px) {
+  .social-icons__item:last-of-type {
+    padding-right: 0;
+  }
+}
+.social-icons__link {
+  display: block;
+}
+
+
+
+
+/*------------------------------------*\
+    #Site Footer Subwrapper & Copyright
+\*------------------------------------*/
+
+.site-footer__subwrapper {
+  margin-top: 35px;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer-item-align-right {
+    text-align: right;
+  }
+}
+.site-footer__copyright-content {
+  font-size: calc(((var(--font-size-base) - 3) / (var(--font-size-base))) * 1em);
+}
+.site-footer__payment-icons .payment-icon {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.site-footer__payment-icons .payment-icon:first-child {
+  margin-left: 0;
+}
+.site-footer-item-center-vertically {
+  padding-top: 7.5px;
+}
+@media only screen and (min-width: 768px) {
+  .site-footer-item-tall {
+    margin-bottom: 15px;
+    height: 46px;
+  }
+  .site-footer-item-tall .site-footer__icon-list {
+    padding-bottom: 0;
+  }
+}
+
+
+
+
+/*------------------------------------*\
+    #Hae Footer Custom Styles
+\*------------------------------------*/
+
+.hae-footer {
+  background-image: url('footer-gradient-mobile.jpg');
+  background-size: cover;
+  background-position: top;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.hae-footer-logo {
+  width: 80px;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .hae-footer {
+    background-image: url('footer-gradient-desktop.jpg');
+  }
+}
+.hae-footer a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .hae-footer-links-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (min-width: 1440px) {
+  .hae-footer-logo {
+    width: 5.556vw;
+  }
+  .hae-footer {
+    border-top-left-radius: 2.778vw;
+    border-top-right-radius: 2.778vw;
+    padding: 2.778vw 1.667vw;
+    background-position: center;
+  }
+}
+.hae-footer-email-input {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+.hae-footer-email-input::placeholder {
+  color: white;
+}
+@media (min-width: 1024px) {
+  .hae-footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .hae-footer-lg-right-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  }
+  .hae-footer-terms {
+    text-align: right;
+  }
+}
+

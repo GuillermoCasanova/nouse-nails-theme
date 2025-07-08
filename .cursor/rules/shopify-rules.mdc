@@ -1,9 +1,3 @@
----
-description:
-globs:
-alwaysApply: false
----
-
 Liquid templating:
 
 Always use proper Liquid syntax with {{ and {% tags
@@ -35,10 +29,464 @@ Use TypeScript for better type safety in complex themes
 
 CSS/SCSS:
 
-Use BEM methodology for class naming
+Use BEM methodology for class naming and provided example as base. 5 breaks before comments that split up sections.
 Implement CSS custom properties for theming
 Follow mobile-first responsive design
-Use Shopify's CSS reset and utility classes
+
+#### Examples:
+
+```
+/*------------------------------------*\
+    #Header
+\*------------------------------------*/
+
+
+[data-sticky-header] {
+    z-index: 2;
+}
+
+/*
+height: 8rem;
+background: #f7f6f347;
+backdrop-filter: blur(30px);
+} */
+
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    height: 6rem;
+    transition: all .3s var(--default-easing);
+}
+
+@media screen and (min-width: 940px) {
+.scrolled-past-header:not(.shopify-section-header-hidden) .header-wrapper {
+    height: 8rem
+}
+}
+
+.scrolled-past-header  .header-wrapper {
+-webkit-backdrop-filter: blur(15px);
+backdrop-filter: blur(15px);
+}
+
+
+
+.shopify-section-header-hidden .header__inner {
+    padding-top: 0;
+}
+
+.shopify-section-header-hidden .header__mega-menu {
+    top: 6rem;
+}
+.scrolled-past-header:not(.shopify-section-header-hidden) .header__mega-menu {
+    top: 8rem;
+}
+
+@media screen and (min-width: 940px) {
+    .shopify-section-header-hidden .header__inner {
+        padding-top: var(--level5);
+    }
+}
+
+.shopify-section-header-hidden .search-modal {
+    top: 6rem;
+}
+
+
+.shopify-section-header-hidden .header__logo {
+    max-width: 19rem;
+}
+
+
+
+@media screen and (min-width: 940px) {
+    .shopify-section-header-hidden .header__icons {
+    opacity: 0;
+    }
+}
+
+.header {
+    position: relative;
+    transition: all .6s var(--default-easing);
+}
+
+
+
+@media screen and (min-width: 940px) {
+    .header {
+        border-bottom: 0;
+    }
+}
+
+
+.header__inner {
+    align-items: center;
+    display: grid;
+    grid-template-areas: 'menu  heading cart-drawer';
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: space-between;
+    margin: auto;
+    position: relative;
+    padding-left: var(--level2);
+    padding-right: var(--level2);
+    transition: all .2s var(--default-easing);
+}
+
+@media screen and (min-width: 940px) {
+    .header__inner {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: var(--level9);
+        width: 100%;
+        position: static;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .header__inner {
+        max-width: 115rem;
+        padding-left: var(--level8);
+        padding-right: var(--level8);
+    }
+}
+
+.header header-drawer {
+    justify-self: start;
+}
+
+.header *[tabindex='-1']:focus {
+    outline: none;
+}
+
+.header__inline-menu {
+    display: none;
+}
+
+@media screen and (min-width: 940px) {
+    .header__inline-menu {
+        display: flex;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Header Heading
+\*------------------------------------*/
+
+
+.header__heading {
+    grid-area: heading;
+    justify-self: center;
+    line-height: 0;
+    margin: 0;
+    z-index: 2;
+    width: auto;
+}
+
+.header__heading-link  {
+    display: block;
+    width: 100%;
+}
+
+@media screen and (min-width: 940px) {
+    .header__heading {
+        position: absolute;
+    }
+}
+
+
+.header__logo {
+    fill: rgb(var(--color-base-text-1));
+    height: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 19rem;
+    transition: all var(--duration-default) var(--default-easing);
+    z-index: 0;
+    width: 47vw;
+    min-width: 16rem;
+    margin-top: 1rem;
+}
+
+
+@media screen and (min-width: 1100px) {
+    .header__logo {
+        max-width: 20rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .header__logo {
+        max-width: 25rem;
+    }
+}
+
+
+.header__logo svg {
+    height: 100%;
+    width: 100%;
+}
+
+.menu-open .header__logo {
+    fill: rgb(var(--color-base-text-2));
+}
+
+@media screen and (min-width: 940px) {
+    .header__logo {
+        position: relative;
+    }
+
+}
+
+
+.header__localization {
+    display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Header Drawer Blocker
+\*------------------------------------*/
+
+.header-drawer-blocker {
+    background: rgb(var(--color-base-background-1));
+    border-bottom: 1px solid rgb(var(--color-base-text-2));
+    bottom: 0;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    z-index: 1;
+}
+
+.menu-open .header-drawer-blocker {
+    background: rgb(var(--color-base-background-2));
+}
+
+@media screen and (min-width: 940px) {
+    header-drawer {
+        display: none;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Header Icons
+\*------------------------------------*/
+
+.header__icons {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-right: 0;
+    column-gap: var(--level3);
+}
+
+@media screen and (min-width: 940px) {
+    .header__icons {
+        position: absolute;
+        right: 0;
+        top: 0;
+        position: absolute;
+        top: .75rem;
+        color: rgb(var(--color-base-text-1));
+        margin-left: auto;
+        margin-right: auto;
+        left: auto;
+        right: auto;
+        column-gap: var(--level3);
+        max-width: 115rem;;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .header__icons {
+        padding-right: var(--level8);
+        padding-left: var(--level8);
+    }
+}
+
+@media screen and (max-width: 989px) {
+    menu-drawer~.header__icons .header__icon--account {
+        display: none;
+    }
+}
+
+.header__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: rgb(var(--color-base-text-1));
+    display: block;
+    padding: 0;
+    margin-bottom: 0;
+    transition: all 200ms ease-in-out;
+}
+
+@media screen and (min-width: 940px) {
+    .header__icon:hover,
+    .header__icon:focus {
+        cursor: pointer;
+        opacity: .5;
+    }
+
+}
+
+.header__icon .icon {
+    fill: rgb(var(--color-base-text-1));
+    color: rgb(var(--color-base-text-1));
+    vertical-align: middle;
+}
+
+.header__icon svg {
+    height: 100%;
+    width: 100%;
+}
+
+
+.header__icon--search {
+    display: none;
+}
+
+@media screen and (min-width: 989px) {
+    .header__icon--search {
+        display: block;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    #Header Icons - Cart Toggle
+\*------------------------------------*/
+
+
+@media only screen and (min-width: 940px) {
+    .header__icon--cart  {
+        margin-right: 0;
+    }
+
+    .header__icon--cart .icon {
+        margin-right: 0;
+        color: rgb(var(--color-base-text-1));
+        height: 80%;
+        width: 80%;
+    }
+}
+
+
+.header__cart-button {
+    background: transparent;
+    border: none;
+    color: rgb(var(--color-base-text-1));
+    cursor: pointer;
+    display: inline-block;
+    font-size: var(--h4);
+    height: auto;
+    line-height: 1;
+    list-style: none;
+    margin-right: 0;
+    padding: var(--level3);
+    padding-bottom: var(--level1);
+    text-decoration: none;
+    text-transform: uppercase;
+    top: 0;
+    transition: all var(--duration-default) ease 0s;
+    width: auto;
+}
+
+@media only screen and (min-width: 940px) {
+    .header__cart-button  {
+        font-size: var(--h5);
+        padding-top: var(--level1);
+    }
+}
+
+
+
+.header__cart-button:hover,
+.header__cart-button:focus {
+    text-decoration: underline;
+}
+
+
+/*
+.header__icon--cart.is-open {
+    opacity: .5;
+}
+
+@media screen and (min-width: 940px) {
+    .header__icon--cart.is-open {
+        opacity: 1;
+    }
+} */
+
+
+
+
+
+/*------------------------------------*\
+    #Header Cart - Cart Count
+\*------------------------------------*/
+
+
+# CSS Section Comment Formatting Rule
+
+All major CSS/SCSS section separators **must** use the following format:
+
+/*------------------------------------*\
+    #Section Name
+\*------------------------------------*/
+
+There must be **exactly 5 blank lines before** each section separator comment, and **exactly 1 blank line after** the comment before the next CSS rule or comment.
+
+**Example:**
+
+
+
+
+
+/*------------------------------------*\
+    #Header Cart - Cart Count
+\*------------------------------------*/
+
+.header__cart-count {
+    display: flex;
+    align-items: center;
+    /* ... */
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Header Cart - Cart Count
+\*------------------------------------*/
+
+etc.
 
 Security and best practices:
 
@@ -61,3 +509,9 @@ Include console.log statements for development debugging
 Test across different browsers and devices
 Use Shopify's theme inspector for performance monitoring
 Implement proper error boundaries for JavaScript
+
+Include console.log statements for development debugging
+Test across different browsers and devices
+Use Shopify's theme inspector for performance monitoring
+Implement proper error boundaries for JavaScript
+```
