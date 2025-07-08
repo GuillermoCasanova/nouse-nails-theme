@@ -1,0 +1,63 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+Liquid templating:
+
+Always use proper Liquid syntax with {{ and {% tags
+Include null checks for object properties: {{ product.title | default: 'No title' }}
+Use {% liquid %} tags for cleaner multi-line logic
+Follow Shopify's naming conventions for variables and handles
+
+Theme development:
+
+Structure files according to Shopify's theme architecture (templates, sections, snippets, assets)
+Use semantic section names and settings in schema tags
+Include proper {% comment %} blocks for documentation
+Follow responsive design patterns with Shopify's CSS framework
+
+Performance optimization:
+
+Minimize liquid loops and database queries
+Use {% paginate %} for large collections
+Implement lazy loading for images with loading="lazy"
+Optimize asset delivery with {{ 'style.css' | asset_url }}
+
+Code Quality Rules
+JavaScript/TypeScript:
+
+Use modern ES6+ syntax
+Implement proper error handling for API calls
+Follow Shopify's AJAX API patterns for cart updates
+Use TypeScript for better type safety in complex themes
+
+CSS/SCSS:
+
+Use BEM methodology for class naming
+Implement CSS custom properties for theming
+Follow mobile-first responsive design
+Use Shopify's CSS reset and utility classes
+
+Security and best practices:
+
+Sanitize user inputs in forms
+Use HTTPS for all external resources
+Implement proper CSRF protection
+Follow Shopify's content security policy guidelines
+
+Development Workflow
+File organization:
+
+Keep sections modular and reusable
+Use descriptive filenames following Shopify conventions
+Organize assets by type (scripts, styles, images)
+Maintain clean separation between logic and presentation
+
+Testing and debugging:
+
+Include console.log statements for development debugging
+Test across different browsers and devices
+Use Shopify's theme inspector for performance monitoring
+Implement proper error boundaries for JavaScript
