@@ -1,4 +1,18 @@
-<section class="d-mlg-flex-row">
+<style>
+  @media (min-width: 1024px) {
+  .d-lg-flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .d-lg-flex-row .hero-section {
+    min-height: 560px;
+  }
+}
+
+</style>
+
+<section class="d-mlg-flex-row color-{{ section.settings.color_scheme }}" >
   <div class="hero-section col-mlg-6 d-flex-column flex-justify-center bg-condensed-milk p-40-gutters">
     <h2 class="fs-60 mt-60 mt-lg-0 lh-110">{{ section.settings.header-text }}</h2>
     <a class="button-pill mt-16 mt-md-32 width-fit-content" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
@@ -31,6 +45,16 @@
 {
 "name": "Hero - half photo",
 "settings": [
+  {
+    "type": "header",
+    "content": "Colors"
+  },
+  {
+    "type": "color_scheme",
+    "id": "color_scheme",
+    "label": "Color scheme",
+    "default": "background-1"
+  },
   {
     "type": "header",
     "content": "Content"
