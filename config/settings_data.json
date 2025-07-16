@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "show_announcement_bar": true,
     "color_text": "#000000",
     "color_body_text": "#000000",
     "color_sale_text": "#ea0606",
@@ -1208,15 +1209,7 @@
       "sections": {
         "header": {
           "type": "header",
-          "settings": {
-            "align_logo": "left",
-            "logo": "",
-            "logo_max_width": 135,
-            "main_linklist": "main-menu",
-            "message": true,
-            "color_bg": "#162950",
-            "color_text": "#ffffff"
-          }
+          "settings": {}
         },
         "hero": {
           "type": "hero",
