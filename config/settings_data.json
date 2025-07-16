@@ -1021,8 +1021,11 @@
         "settings": {
           "colors_text": "#6d0506",
           "colors_text_2": "#6d0506",
-          "colors_text_3": "#6d0506",
           "color_links": "#6d0506",
+          "color_button_primary_background": "#faeee1",
+          "color_button_primary_text": "#6d0506",
+          "color_button_secondary_background": "#6d0506",
+          "color_button_secondary_text": "#faeee1",
           "color_accent": "#efbdfc",
           "colors_background_1": "#faeee1",
           "colors_background_2": "#fbf8f4",
