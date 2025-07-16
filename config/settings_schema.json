@@ -113,7 +113,7 @@
           "text": "colors_text",
           "background": {
             "solid": "colors_background_1",
-            "gradient": "colors_background_3"
+            "gradient": ""
           },
           "links": "color_links",
           "icons": "colors_text",
