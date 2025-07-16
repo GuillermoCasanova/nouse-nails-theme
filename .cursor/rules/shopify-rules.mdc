@@ -487,6 +487,7 @@ There must be **exactly 5 blank lines before** each section separator comment, a
 \*------------------------------------*/
 
 etc.
+```
 
 Security and best practices:
 
@@ -509,9 +510,3 @@ Include console.log statements for development debugging
 Test across different browsers and devices
 Use Shopify's theme inspector for performance monitoring
 Implement proper error boundaries for JavaScript
-
-Include console.log statements for development debugging
-Test across different browsers and devices
-Use Shopify's theme inspector for performance monitoring
-Implement proper error boundaries for JavaScript
-```
