@@ -57,6 +57,20 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "colors_text": "#2f3078",
+          "colors_text_2": "#1c84c1",
+          "colors_text_3": "#ffffff",
+          "color_links": "#7294a8",
+          "color_accent": "#feea58",
+          "colors_background_1": "#ffffff",
+          "colors_background_2": "#2c97f5",
+          "colors_background_3": "#f5fbfe"
+        }
+      }
+    },
     "sections": {
       "header": {
         "type": "header",
