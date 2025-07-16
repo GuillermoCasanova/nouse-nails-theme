@@ -8,54 +8,13 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
-    "name": "t:settings_schema.colors.name",
+    "name": "Announcement Bar",
     "settings": [
       {
-        "type": "header",
-        "content": "Primary Colors"
-      },
-      {
-        "type": "color",
-        "id": "colors_text",
-        "default": "#FFFFFF",
-        "label": "Text Color 1",
-        "info": "Color used for text site-wide"
-      },
-      {
-        "type": "color",
-        "id": "colors_text_2",
-        "default": "#EEEDE8",
-        "label": "Text Color 2",
-        "info": "Color used for text site-wide"
-      },
-      {
-        "type": "color",
-        "id": "colors_link",
-        "default": "#8A8A8A",
-        "label": "Link Color",
-        "info": "Color used for links site-wide"
-      },
-      {
-        "type": "header",
-        "content": "Background Colors"
-      },
-      {
-        "type": "color",
-        "id": "colors_background_1",
-        "default": "#FFFFFF",
-        "label": "Background Color 1"
-      },
-      {
-        "type": "color",
-        "id": "colors_background_2",
-        "default": "#EEEDE8",
-        "label": "Background Color 2"
-      },
-      {
-        "type": "color",
-        "id": "colors_background_3",
-        "default": "#DFDFDE",
-        "label": "Background Color 3"
+        "type": "checkbox",
+        "id": "show_announcement_bar",
+        "label": "Show Announcement Bar",
+        "default": false
       }
     ]
   },
