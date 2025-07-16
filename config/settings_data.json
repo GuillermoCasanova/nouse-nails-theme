@@ -58,20 +58,6 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
-    "color_schemes": {
-      "background-1": {
-        "settings": {
-          "colors_text": "#2f3078",
-          "colors_text_2": "#1c84c1",
-          "colors_text_3": "#ffffff",
-          "color_links": "#7294a8",
-          "color_accent": "#feea58",
-          "colors_background_1": "#ffffff",
-          "colors_background_2": "#2c97f5",
-          "colors_background_3": "#f5fbfe"
-        }
-      }
-    },
     "sections": {
       "header": {
         "type": "header",
@@ -946,6 +932,10 @@
           "title": "Text columns with images",
           "align_text": "left"
         }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {}
       }
     },
     "content_for_index": [
@@ -1024,6 +1014,20 @@
         "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
         "disabled": false,
         "settings": {}
+      }
+    },
+    "color_schemes": {
+      "background-1": {
+        "settings": {
+          "colors_text": "#6d0506",
+          "colors_text_2": "#6d0506",
+          "colors_text_3": "#6d0506",
+          "color_links": "#6d0506",
+          "color_accent": "#efbdfc",
+          "colors_background_1": "#faeee1",
+          "colors_background_2": "#fbf8f4",
+          "colors_background_3": "#f5fbfe"
+        }
       }
     }
   },
