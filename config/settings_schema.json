@@ -33,22 +33,47 @@
             "info": "Color used for text site-wide"
           },
           {
-            "type": "color",
-            "id": "colors_text_3",
-            "default": "#EEEDE8",
-            "label": "Text Color 3",
-            "info": "Color used for text site-wide"
-          },
-          {
             "type": "header",
-            "content": "Link Color"
+            "content": "Primary Link Color"
           },
           {
             "type": "color",
             "id": "color_links",
             "default": "#7294A8",
-            "label": "Accent Color",
+            "label": "Link Color",
             "info": "Color used for links in most instancees"
+          },
+          {
+            "type": "header",
+            "content": "Button Color"
+          },
+          {
+            "type": "color",
+            "id": "color_button_primary_background",
+            "default": "#7294A8",
+            "label": "Button Primary Background Color",
+            "info": "Used for primary button background"
+          },
+          {
+            "type": "color",
+            "id": "color_button_primary_text",
+            "default": "#7294A8",
+            "label": "Button Primary Text Color",
+            "info": "Used for primary button text."
+          },
+          {
+            "type": "color",
+            "id": "color_button_secondary_background",
+            "default": "#7294A8",
+            "label": "Button Secondary Background Color",
+            "info": "Used for secondary button background"
+          },
+          {
+            "type": "color",
+            "id": "color_button_secondary_text",
+            "default": "#7294A8",
+            "label": "Button Secondary Text Color",
+            "info": "Used for secondary button text."
           },
           {
             "type": "header",
@@ -78,25 +103,26 @@
             "label": "Background Color 2"
           },
           {
-            "type": "color",
+            "type": "color_background",
             "id": "colors_background_3",
-            "default": "#DFDFDE",
-            "label": "Background Color 3"
-          }
+            "default": "#EEEDE8",
+            "label": "Gradient Background Color"
+          },
         ],
         "role": {
           "text": "colors_text",
           "background": {
-            "solid": "colors_background_1"
+            "solid": "colors_background_1",
+            "gradient": "colors_background_3"
           },
-          "links": "color_accent",
+          "links": "color_links",
           "icons": "colors_text",
-          "primary_button": "color_accent",
-          "on_primary_button": "color_accent",
-          "primary_button_border": "color_accent",
-          "secondary_button": "colors_background_2",
-          "on_secondary_button": "colors_background_2",
-          "secondary_button_border": "colors_background_2"
+          "primary_button": "color_button_primary_background",
+          "on_primary_button": "color_button_primary_text",
+          "primary_button_border": "color_button_primary_background",
+          "secondary_button": "color_button_secondary_background",
+          "on_secondary_button": "color_button_secondary_text",
+          "secondary_button_border": "color_button_secondary_background"
         }
       }
     ]
