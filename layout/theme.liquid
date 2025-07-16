@@ -32,6 +32,12 @@
     <script type="text/javascript" src="{{ 'slick.min.js' | asset_url }}"></script>
     <script type="text/javascript" src="{{ 'hae-custom.js' | asset_url }}"></script>
 
+    {% comment %}
+      <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    {% endcomment %}
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+
     {%- if canonical_url != blank -%}
       <link rel="canonical" href="{{ canonical_url }}">
     {%- endif -%}
