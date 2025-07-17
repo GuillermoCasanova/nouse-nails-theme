@@ -5,28 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_button }}">
-
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
-    {% comment %} <link rel="preconnect" href="https://monorail-edge.shopifysvc.com"> {% endcomment %}
-
-    {%- assign header_font = settings.type_header_font -%}
-    {%- assign base_font = settings.type_base_font -%}
-    {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
-    {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
-    {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
-    {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
-
-    {% comment %} <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style"> {% endcomment %}
-    <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
-    {% comment %}
-      <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
-      <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
-    {% endcomment %}
-
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if canonical_url != blank -%}
       <link rel="canonical" href="{{ canonical_url }}">
@@ -35,6 +14,11 @@
     {%- if settings.favicon != blank -%}
       <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
     {%- endif -%}
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    {% comment %} <link rel="preconnect" href="https://monorail-edge.shopifysvc.com"> {% endcomment %}
+
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
     {%- capture seo_title -%}
       {%- if request.page_type == 'search' and search.performed == true -%}
@@ -54,16 +38,40 @@
       {%- endunless -%}
     {%- endcapture -%}
 
-    <title>{{ seo_title | strip }}</title>
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
 
-    {%- if page_description -%}
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
-    {%- endif -%}
+    {% endif %}
 
     <!-- CSS LOADING BASE + VARIABLES -->
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
     {% render 'social-meta-tags' %}
+
+    {{ content_for_header }}
+
+    {%- assign header_font = settings.type_header_font -%}
+    {%- assign base_font = settings.type_base_font -%}
+    {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
+    {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
+    {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
+    {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
 
     {% render 'css-variables' %}
 

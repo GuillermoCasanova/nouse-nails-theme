@@ -1,16 +1,78 @@
+/* CSS VARIABLES - DO NOT REMOVE THIS FILE */
+
 {% style %}
+    {{ settings.type_body_font | font_face: font_display: 'swap' }}
+    {{ body_font_bold | font_face: font_display: 'swap' }}
+    {{ body_font_italic | font_face: font_display: 'swap' }}
+    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+    {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+    {% for scheme in settings.color_schemes -%}
+    {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+    {% if forloop.index == 1 -%}
+      :root,
+    {%- endif %}
+    .color-{{ scheme.id }} {
+      /* Background Colors */
+      --color-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
+      --color-background-2: {{ scheme.settings.colors_background_2.red }}, {{ scheme.settings.colors_background_2.green }}, {{ scheme.settings.colors_background_2.blue }};
+      --color-background-3: {{ scheme.settings.colors_background_3.red }}, {{ scheme.settings.colors_background_3.green }}, {{ scheme.settings.colors_background_3.blue }};
+
+      /* Text Colors */
+      --color-text: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+      --color-text-2: {{ scheme.settings.colors_text_2.red }}, {{ scheme.settings.colors_text_2.green }}, {{ scheme.settings.colors_text_2.blue }};
+
+      /* Link Colors */
+      --color-link: {{ scheme.settings.color_links.red }}, {{ scheme.settings.color_links.green }}, {{ scheme.settings.color_links.blue }};
+
+      /* Button Colors */
+      --color-button-primary-background: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
+      --color-button-primary-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
+      --color-button-secondary-background: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
+      --color-button-secondary-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
+
+      /* Accent Color */
+      --color-accent: {{ scheme.settings.color_accent.red }}, {{ scheme.settings.color_accent.green }}, {{ scheme.settings.color_accent.blue }};
+
+      /* Legacy compatibility variables */
+      --color-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+      --color-button: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
+      --color-button-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
+      --color-secondary-button: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
+      --color-secondary-button-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
+
+      /* Shadow and badge colors (using text color for consistency) */
+      --color-shadow: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+      --color-badge-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+      --color-badge-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
+      --color-badge-border: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+
+      /* Payment terms background */
+      --payment-terms-background-color: rgb({{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }});
+    }
+    {% endfor %}
+
+    {{ scheme_classes | prepend: 'body' }} {
+      color: rgba(var(--color-foreground), 0.75);
+      background-color: rgb(var(--color-background));
+    }
+
   :root {
-    --color-base-text-1: {{ settings.color_body_text.red }}, {{ settings.color_body_text.green }}, {{ settings.color_body_text.blue }};
+    /* Base color variables for sections without color schemes */
+    --color-base-text-1: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
     --color-base-text-2: {{ settings.colors_text_2.red }}, {{ settings.colors_text_2.green }}, {{ settings.colors_text_2.blue }};
-    --color-base-link: {{ settings.colors_link.red }}, {{ settings.colors_link.green }}, {{ settings.colors_link.blue }};
-    --color-base-accent: #F9EFB2;
-    --color-error: 192, 76, 76;
-
-    --default-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
-
+    --color-base-link: {{ settings.color_links.red }}, {{ settings.color_links.green }}, {{ settings.color_links.blue }};
+    --color-base-accent: {{ settings.color_accent.red }}, {{ settings.color_accent.green }}, {{ settings.color_accent.blue }};
     --color-base-background-1: {{ settings.colors_background_1.red }}, {{ settings.colors_background_1.green }}, {{ settings.colors_background_1.blue }};
     --color-base-background-2: {{ settings.colors_background_2.red }}, {{ settings.colors_background_2.green }}, {{ settings.colors_background_2.blue }};
     --color-base-background-3: {{ settings.colors_background_3.red }}, {{ settings.colors_background_3.green }}, {{ settings.colors_background_3.blue }};
+    --color-button-primary-background: {{ settings.color_button_primary_background.red }}, {{ settings.color_button_primary_background.green }}, {{ settings.color_button_primary_background.blue }};
+    --color-button-primary-text: {{ settings.color_button_primary_text.red }}, {{ settings.color_button_primary_text.green }}, {{ settings.color_button_primary_text.blue }};
+    --color-button-secondary-background: {{ settings.color_button_secondary_background.red }}, {{ settings.color_button_secondary_background.green }}, {{ settings.color_button_secondary_background.blue }};
+    --color-button-secondary-text: {{ settings.color_button_secondary_text.red }}, {{ settings.color_button_secondary_text.green }}, {{ settings.color_button_secondary_text.blue }};
+
+    --color-error: 192, 76, 76;
+    --default-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
     --payment-terms-background-color: {{ settings.colors_background_1 }};
 
     --media-padding: {{ settings.media_padding }}px;
