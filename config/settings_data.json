@@ -309,7 +309,7 @@
         "type": "hae-hero-half-photo",
         "settings": {
           "color_scheme": "background-1",
-          "header-text": "",
+          "header-text": "<p>Redefining the <em>nous</em> standard for nails.</p>",
           "button-text": "Shop",
           "button-url": "shopify://collections/all",
           "media_type": "image",
