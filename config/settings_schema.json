@@ -63,6 +63,13 @@
           },
           {
             "type": "color",
+            "id": "color_button_primary_border",
+            "default": "#7294A8",
+            "label": "Button Primary Border Color",
+            "info": "Used for primary button border."
+          },
+          {
+            "type": "color",
             "id": "color_button_secondary_background",
             "default": "#7294A8",
             "label": "Button Secondary Background Color",
@@ -74,6 +81,13 @@
             "default": "#7294A8",
             "label": "Button Secondary Text Color",
             "info": "Used for secondary button text."
+          },
+          {
+            "type": "color",
+            "id": "color_button_secondary_border",
+            "default": "#7294A8",
+            "label": "Button Secondary Border Color",
+            "info": "Used for secondary button border."
           },
           {
             "type": "header",
