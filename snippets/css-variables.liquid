@@ -1,223 +1,212 @@
 /* CSS VARIABLES - DO NOT REMOVE THIS FILE */
 
 {% style %}
-    {{ settings.type_body_font | font_face: font_display: 'swap' }}
-    {{ body_font_bold | font_face: font_display: 'swap' }}
-    {{ body_font_italic | font_face: font_display: 'swap' }}
-    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-    {{ settings.type_header_font | font_face: font_display: 'swap' }}
+     {{ settings.type_body_font | font_face: font_display: 'swap' }}
+     {{ body_font_bold | font_face: font_display: 'swap' }}
+     {{ body_font_italic | font_face: font_display: 'swap' }}
+     {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+     {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
-    {% for scheme in settings.color_schemes -%}
-    {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
-    {% if forloop.index == 1 -%}
-      :root,
-    {%- endif %}
-    .color-{{ scheme.id }} {
-      /* Background Colors */
-      --color-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
-      --color-background-2: {{ scheme.settings.colors_background_2.red }}, {{ scheme.settings.colors_background_2.green }}, {{ scheme.settings.colors_background_2.blue }};
-      --color-background-3: {{ scheme.settings.colors_background_3.red }}, {{ scheme.settings.colors_background_3.green }}, {{ scheme.settings.colors_background_3.blue }};
+     {% for scheme in settings.color_schemes -%}
+     {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+     {% if forloop.index == 1 -%}
+       :root,
+     {%- endif %}
+     .color-{{ scheme.id }} {
+       /* Background Colors */
+       --color-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
+       --color-background-2: {{ scheme.settings.colors_background_2.red }}, {{ scheme.settings.colors_background_2.green }}, {{ scheme.settings.colors_background_2.blue }};
+       --color-background-3: {{ scheme.settings.colors_background_3.red }}, {{ scheme.settings.colors_background_3.green }}, {{ scheme.settings.colors_background_3.blue }};
 
-      /* Text Colors */
-      --color-text: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
-      --color-text-2: {{ scheme.settings.colors_text_2.red }}, {{ scheme.settings.colors_text_2.green }}, {{ scheme.settings.colors_text_2.blue }};
+       /* Text Colors */
+       --color-text: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+       --color-text-2: {{ scheme.settings.colors_text_2.red }}, {{ scheme.settings.colors_text_2.green }}, {{ scheme.settings.colors_text_2.blue }};
 
-      /* Link Colors */
-      --color-link: {{ scheme.settings.color_links.red }}, {{ scheme.settings.color_links.green }}, {{ scheme.settings.color_links.blue }};
+       /* Link Colors */
+       --color-link: {{ scheme.settings.color_links.red }}, {{ scheme.settings.color_links.green }}, {{ scheme.settings.color_links.blue }};
 
-      /* Button Colors */
-      --color-button-primary-background: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
-      --color-button-primary-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
-      --color-button-primary-border: {{ scheme.settings.color_button_primary_border.red }}, {{ scheme.settings.color_button_primary_border.green }}, {{ scheme.settings.color_button_primary_border.blue }};
-      --color-button-secondary-background: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
-      --color-button-secondary-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
-      --color-button-secondary-border: {{ scheme.settings.color_button_secondary_border.red }}, {{ scheme.settings.color_button_secondary_border.green }}, {{ scheme.settings.color_button_secondary_border.blue }};
+       /* Button Colors */
+       --color-button-primary-background: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
+       --color-button-primary-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
+       --color-button-primary-border: {{ scheme.settings.color_button_primary_border.red }}, {{ scheme.settings.color_button_primary_border.green }}, {{ scheme.settings.color_button_primary_border.blue }};
+       --color-button-secondary-background: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
+       --color-button-secondary-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
+       --color-button-secondary-border: {{ scheme.settings.color_button_secondary_border.red }}, {{ scheme.settings.color_button_secondary_border.green }}, {{ scheme.settings.color_button_secondary_border.blue }};
 
-      /* Accent Color */
-      --color-accent: {{ scheme.settings.color_accent.red }}, {{ scheme.settings.color_accent.green }}, {{ scheme.settings.color_accent.blue }};
+       /* Accent Color */
+       --color-accent: {{ scheme.settings.color_accent.red }}, {{ scheme.settings.color_accent.green }}, {{ scheme.settings.color_accent.blue }};
 
-      /* Legacy compatibility variables */
-      --color-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
-      --color-button: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
-      --color-button-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
-      --color-secondary-button: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
-      --color-secondary-button-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
+       /* Legacy compatibility variables */
+       --color-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+       --color-button: {{ scheme.settings.color_button_primary_background.red }}, {{ scheme.settings.color_button_primary_background.green }}, {{ scheme.settings.color_button_primary_background.blue }};
+       --color-button-text: {{ scheme.settings.color_button_primary_text.red }}, {{ scheme.settings.color_button_primary_text.green }}, {{ scheme.settings.color_button_primary_text.blue }};
+       --color-secondary-button: {{ scheme.settings.color_button_secondary_background.red }}, {{ scheme.settings.color_button_secondary_background.green }}, {{ scheme.settings.color_button_secondary_background.blue }};
+       --color-secondary-button-text: {{ scheme.settings.color_button_secondary_text.red }}, {{ scheme.settings.color_button_secondary_text.green }}, {{ scheme.settings.color_button_secondary_text.blue }};
 
-      /* Shadow and badge colors (using text color for consistency) */
-      --color-shadow: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
-      --color-badge-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
-      --color-badge-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
-      --color-badge-border: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+       /* Shadow and badge colors (using text color for consistency) */
+       --color-shadow: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+       --color-badge-foreground: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
+       --color-badge-background: {{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }};
+       --color-badge-border: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
 
-      /* Payment terms background */
-      --payment-terms-background-color: rgb({{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }});
-    }
-    {% endfor %}
+       /* Payment terms background */
+       --payment-terms-background-color: rgb({{ scheme.settings.colors_background_1.red }}, {{ scheme.settings.colors_background_1.green }}, {{ scheme.settings.colors_background_1.blue }});
+     }
+     {% endfor %}
 
-    {{ scheme_classes | prepend: 'body' }} {
-      color: rgba(var(--color-foreground), 0.75);
-      background-color: rgb(var(--color-background));
-    }
+     {{ scheme_classes | prepend: 'body' }} {
+       color: rgba(var(--color-foreground), 0.75);
+       background-color: rgb(var(--color-background));
+     }
 
-  :root {
-    /* Base color variables for sections without color schemes */
-    --color-base-text-1: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
-    --color-base-text-2: {{ settings.colors_text_2.red }}, {{ settings.colors_text_2.green }}, {{ settings.colors_text_2.blue }};
-    --color-base-link: {{ settings.color_links.red }}, {{ settings.color_links.green }}, {{ settings.color_links.blue }};
-    --color-base-accent: {{ settings.color_accent.red }}, {{ settings.color_accent.green }}, {{ settings.color_accent.blue }};
-    --color-base-background-1: {{ settings.colors_background_1.red }}, {{ settings.colors_background_1.green }}, {{ settings.colors_background_1.blue }};
-    --color-base-background-2: {{ settings.colors_background_2.red }}, {{ settings.colors_background_2.green }}, {{ settings.colors_background_2.blue }};
-    --color-base-background-3: {{ settings.colors_background_3.red }}, {{ settings.colors_background_3.green }}, {{ settings.colors_background_3.blue }};
-    --color-button-primary-background: {{ settings.color_button_primary_background.red }}, {{ settings.color_button_primary_background.green }}, {{ settings.color_button_primary_background.blue }};
-    --color-button-primary-text: {{ settings.color_button_primary_text.red }}, {{ settings.color_button_primary_text.green }}, {{ settings.color_button_primary_text.blue }};
-    --color-button-secondary-background: {{ settings.color_button_secondary_background.red }}, {{ settings.color_button_secondary_background.green }}, {{ settings.color_button_secondary_background.blue }};
-    --color-button-secondary-text: {{ settings.color_button_secondary_text.red }}, {{ settings.color_button_secondary_text.green }}, {{ settings.color_button_secondary_text.blue }};
+   :root {
+     /* Base color variables for sections without color schemes */
+     --color-base-text-1: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
+     --color-base-text-2: {{ settings.colors_text_2.red }}, {{ settings.colors_text_2.green }}, {{ settings.colors_text_2.blue }};
+     --color-base-link: {{ settings.color_links.red }}, {{ settings.color_links.green }}, {{ settings.color_links.blue }};
+     --color-base-accent: {{ settings.color_accent.red }}, {{ settings.color_accent.green }}, {{ settings.color_accent.blue }};
+     --color-base-background-1: {{ settings.colors_background_1.red }}, {{ settings.colors_background_1.green }}, {{ settings.colors_background_1.blue }};
+     --color-base-background-2: {{ settings.colors_background_2.red }}, {{ settings.colors_background_2.green }}, {{ settings.colors_background_2.blue }};
+     --color-base-background-3: {{ settings.colors_background_3.red }}, {{ settings.colors_background_3.green }}, {{ settings.colors_background_3.blue }};
+     --color-button-primary-background: {{ settings.color_button_primary_background.red }}, {{ settings.color_button_primary_background.green }}, {{ settings.color_button_primary_background.blue }};
+     --color-button-primary-text: {{ settings.color_button_primary_text.red }}, {{ settings.color_button_primary_text.green }}, {{ settings.color_button_primary_text.blue }};
+     --color-button-secondary-background: {{ settings.color_button_secondary_background.red }}, {{ settings.color_button_secondary_background.green }}, {{ settings.color_button_secondary_background.blue }};
+     --color-button-secondary-text: {{ settings.color_button_secondary_text.red }}, {{ settings.color_button_secondary_text.green }}, {{ settings.color_button_secondary_text.blue }};
 
-    --color-error: 192, 76, 76;
-    --default-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
-    --payment-terms-background-color: {{ settings.colors_background_1 }};
+     --color-error: 192, 76, 76;
+     --default-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
+     --payment-terms-background-color: {{ settings.colors_background_1 }};
 
-    --media-padding: {{ settings.media_padding }}px;
-    --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
-    --media-border-width: {{ settings.media_border_thickness }}px;
-    --media-radius: {{ settings.media_radius }}px;
-    --media-shadow-opacity: {{ settings.media_shadow_opacity | divided_by: 100.0 }};
-    --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
-    --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
-    --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
+     --media-padding: {{ settings.media_padding }}px;
+     --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
+     --media-border-width: {{ settings.media_border_thickness }}px;
+     --media-radius: {{ settings.media_radius }}px;
+     --media-shadow-opacity: {{ settings.media_shadow_opacity | divided_by: 100.0 }};
+     --media-shadow-horizontal-offset: {{ settings.media_shadow_horizontal_offset }}px;
+     --media-shadow-vertical-offset: {{ settings.media_shadow_vertical_offset }}px;
+     --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
 
-    --page-width: {{ settings.page_width | divided_by: 10 }}rem;
-    --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+     --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+     --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
 
-    --card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
-    --card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
-    --card-text-alignment: {{ settings.card_text_alignment }};
-    --card-border-width: {{ settings.card_border_thickness | divided_by: 10.0 }}rem;
-    --card-border-opacity: {{ settings.card_border_opacity | divided_by: 100.0 }};
-    --card-shadow-opacity: {{ settings.card_shadow_opacity | divided_by: 100.0 }};
-    --card-shadow-horizontal-offset: {{ settings.card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
-    --card-shadow-vertical-offset: {{ settings.card_shadow_vertical_offset | divided_by: 10.0 }}rem;
-    --card-shadow-blur-radius: {{ settings.card_shadow_blur | divided_by: 10.0 }}rem;
+     --card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
+     --card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
+     --card-text-alignment: {{ settings.card_text_alignment }};
+     --card-border-width: {{ settings.card_border_thickness | divided_by: 10.0 }}rem;
+     --card-border-opacity: {{ settings.card_border_opacity | divided_by: 100.0 }};
+     --card-shadow-opacity: {{ settings.card_shadow_opacity | divided_by: 100.0 }};
+     --card-shadow-horizontal-offset: {{ settings.card_shadow_horizontal_offset | divided_by: 10.0 }}rem;
+     --card-shadow-vertical-offset: {{ settings.card_shadow_vertical_offset | divided_by: 10.0 }}rem;
+     --card-shadow-blur-radius: {{ settings.card_shadow_blur | divided_by: 10.0 }}rem;
 
-    --badge-corner-radius: {{ settings.badge_corner_radius | divided_by: 10.0 }}rem;
+     --badge-corner-radius: {{ settings.badge_corner_radius | divided_by: 10.0 }}rem;
 
-    --popup-border-width: {{ settings.popup_border_thickness }}px;
-    --popup-border-opacity: {{ settings.popup_border_opacity | divided_by: 100.0 }};
-    --popup-corner-radius: {{ settings.popup_corner_radius }}px;
-    --popup-shadow-opacity: {{ settings.popup_shadow_opacity | divided_by: 100.0 }};
-    --popup-shadow-horizontal-offset: {{ settings.popup_shadow_horizontal_offset }}px;
-    --popup-shadow-vertical-offset: {{ settings.popup_shadow_vertical_offset }}px;
-    --popup-shadow-blur-radius: {{ settings.popup_shadow_blur }}px;
+     --popup-border-width: {{ settings.popup_border_thickness }}px;
+     --popup-border-opacity: {{ settings.popup_border_opacity | divided_by: 100.0 }};
+     --popup-corner-radius: {{ settings.popup_corner_radius }}px;
+     --popup-shadow-opacity: {{ settings.popup_shadow_opacity | divided_by: 100.0 }};
+     --popup-shadow-horizontal-offset: {{ settings.popup_shadow_horizontal_offset }}px;
+     --popup-shadow-vertical-offset: {{ settings.popup_shadow_vertical_offset }}px;
+     --popup-shadow-blur-radius: {{ settings.popup_shadow_blur }}px;
 
-    --drawer-border-width: {{ settings.drawer_border_thickness }}px;
-    --drawer-border-opacity: {{ settings.drawer_border_opacity | divided_by: 100.0 }};
-    --drawer-shadow-opacity: {{ settings.drawer_shadow_opacity | divided_by: 100.0 }};
-    --drawer-shadow-horizontal-offset: {{ settings.drawer_shadow_horizontal_offset }}px;
-    --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
-    --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
+     --drawer-border-width: {{ settings.drawer_border_thickness }}px;
+     --drawer-border-opacity: {{ settings.drawer_border_opacity | divided_by: 100.0 }};
+     --drawer-shadow-opacity: {{ settings.drawer_shadow_opacity | divided_by: 100.0 }};
+     --drawer-shadow-horizontal-offset: {{ settings.drawer_shadow_horizontal_offset }}px;
+     --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
+     --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
 
-    --spacing-sections-desktop: {{ settings.spacing_sections }}px;
-    --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
+     --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+     --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
 
-    --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
-    --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
-    --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
-    --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
+     --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
+     --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
+     --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
+     --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
 
-    --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
-    --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
-    --text-boxes-radius: {{ settings.text_boxes_radius }}px;
-    --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
-    --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
-    --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
-    --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
+     --text-boxes-border-opacity: {{ settings.text_boxes_border_opacity | divided_by: 100.0 }};
+     --text-boxes-border-width: {{ settings.text_boxes_border_thickness }}px;
+     --text-boxes-radius: {{ settings.text_boxes_radius }}px;
+     --text-boxes-shadow-opacity: {{ settings.text_boxes_shadow_opacity | divided_by: 100.0 }};
+     --text-boxes-shadow-horizontal-offset: {{ settings.text_boxes_shadow_horizontal_offset }}px;
+     --text-boxes-shadow-vertical-offset: {{ settings.text_boxes_shadow_vertical_offset }}px;
+     --text-boxes-shadow-blur-radius: {{ settings.text_boxes_shadow_blur }}px;
 
-    --buttons-radius: {{ settings.buttons_radius }}px;
-    --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
-    --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
-    --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
-    --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
-    --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
-    --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
-    --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
-    --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
+     --buttons-radius: {{ settings.buttons_radius }}px;
+     --buttons-radius-outset: {% if settings.buttons_radius > 0 %}{{ settings.buttons_radius | plus: settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+     --buttons-border-width: {% if settings.buttons_border_opacity > 0 %}{{ settings.buttons_border_thickness }}{% else %}0{% endif %}px;
+     --buttons-border-opacity: {{ settings.buttons_border_opacity | divided_by: 100.0 }};
+     --buttons-shadow-opacity: {{ settings.buttons_shadow_opacity | divided_by: 100.0 }};
+     --buttons-shadow-horizontal-offset: {{ settings.buttons_shadow_horizontal_offset }}px;
+     --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
+     --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
+     --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
 
-    --inputs-radius: {{ settings.inputs_radius }}px;
-    --inputs-border-width: {{ settings.inputs_border_thickness }}px;
-    --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
-    --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
-    --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
-    --inputs-margin-offset: {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_opacity > 0 %}{{ settings.inputs_shadow_vertical_offset | abs }}{% else %}0{% endif %}px;
-    --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
-    --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
-    --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
+     --inputs-radius: {{ settings.inputs_radius }}px;
+     --inputs-border-width: {{ settings.inputs_border_thickness }}px;
+     --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
+     --inputs-shadow-opacity: {{ settings.inputs_shadow_opacity | divided_by: 100.0 }};
+     --inputs-shadow-horizontal-offset: {{ settings.inputs_shadow_horizontal_offset }}px;
+     --inputs-margin-offset: {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_opacity > 0 %}{{ settings.inputs_shadow_vertical_offset | abs }}{% else %}0{% endif %}px;
+     --inputs-shadow-vertical-offset: {{ settings.inputs_shadow_vertical_offset }}px;
+     --inputs-shadow-blur-radius: {{ settings.inputs_shadow_blur }}px;
+     --inputs-radius-outset: {% if settings.inputs_radius > 0 %}{{ settings.inputs_radius | plus: settings.inputs_border_thickness }}{% else %}0{% endif %}px;
 
-    --variant-pills-radius: {{ settings.variant_pills_radius }}px;
-    --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
-    --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
-    --variant-pills-shadow-opacity: {{ settings.variant_pills_shadow_opacity | divided_by: 100.0 }};
-    --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
-    --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
-    --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
-  }
+     --variant-pills-radius: {{ settings.variant_pills_radius }}px;
+     --variant-pills-border-width: {{ settings.variant_pills_border_thickness }}px;
+     --variant-pills-border-opacity: {{ settings.variant_pills_border_opacity | divided_by: 100.0 }};
+     --variant-pills-shadow-opacity: {{ settings.variant_pills_shadow_opacity | divided_by: 100.0 }};
+     --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
+     --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
+     --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  html {
-    box-sizing: border-box;
-    height: 100%;
-    height: -webkit-fill-available;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    min-height: -webkit-fill-available;
-  }
-
-  /*
-  .js img {
-    opacity: 0;
-    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
-  } */
 
   /*------------------------------------*\
-      #Typography Settings: DO NOT REMOVE
+     #Levels
   \*------------------------------------*/
 
-  :root {
-    --primary-font-family: "Helvetica", sans-serif;
-    --secondary-font-family: "ivypresto-display", serif;
-    --tertiary-font-family: "TRAFFIC5", sans-serif;
-    --quaternary-font-family: "sweet-sans-pro", sans-serif;
-    --font-weight-regular: 600;
-    --font-weight-bold: 800;
-    --letter-spacing-1: 1.5px;
-    --letter-spacing-2: 1px;
-    --letter-spacing-3: 3px;
-    --letter-spacing-4: 5px;
-    --giga: 8.25rem;
-    --mega: 4.25rem;
-    --kilo: 3.25rem;
-    --h1: 2.5rem;
-    --h2: 2rem;
-    --h3: 1.5rem;
-    --h4: 1.35rem;
-    --h5: 1.25rem;
-    --h6: 1.15rem;
-    --normal: 1rem;
-    --micro: .87rem;
-    --mini: .8rem;
-    --minimini: .6rem;
-    --line-height-normal: 1.25;
-    --line-height-double: 1.5;
-  }
+   :root {
+     --level0: .25rem;
+     --level1: .5rem;
+     --level2: .75rem;
+     --level3: 1rem;
+     --level4: 1.15rem;
+     --level5: 1.5rem;
+     --level6: 1.75rem;
+     --level7: 2.25rem;
+     --level8: 2.5rem;
+     --level9: 3rem;
+     --level10: 4rem;
+     --level11: 6rem;
+     --level12: 8rem;
+   }
+   *,
+   *::before,
+   *::after {
+     box-sizing: inherit;
+   }
 
-  {% comment %}Inline Normalize.css {% endcomment %}
+   html {
+     box-sizing: border-box;
+     height: 100%;
+     height: -webkit-fill-available;
+   }
 
-  {% comment %}Inline base.css {% endcomment %}
+   body {
+     margin: 0;
+     padding: 0;
+     min-height: -webkit-fill-available;
+   }
+
+   /*
+   .js img {
+     opacity: 0;
+     transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+   } */
+
+
+   {% comment %}Inline Normalize.css {% endcomment %}
+
+   {% comment %}Inline base.css {% endcomment %}
 {% endstyle %}

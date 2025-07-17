@@ -106,30 +106,41 @@ summary::before {
   }
 }
 
-/*------------------------------------*\
-    #Levels
-\*------------------------------------*/
 
-:root {
-  --level0: .25rem;
-  --level1: .5rem;
-  --level2: .75rem;
-  --level3: 1rem;
-  --level4: 1.15rem;
-  --level5: 1.5rem;
-  --level6: 1.75rem;
-  --level7: 2.25rem;
-  --level8: 2.5rem;
-  --level9: 3rem;
-  --level10: 4rem;
-}
 
 /*------------------------------------*\
     #Typography
 \*------------------------------------*/
 
 :root {
-  font-size: .85rem;
+   font-size: .85rem;
+    --primary-font-family: "Helvetica", sans-serif;
+    --secondary-font-family: "ivypresto-display", serif;
+    --tertiary-font-family: "TRAFFIC5", sans-serif;
+    --quaternary-font-family: "sweet-sans-pro", sans-serif;
+    --font-weight-regular: 600;
+    --font-weight-bold: 800;
+    --letter-spacing-1: 1.5px;
+    --letter-spacing-2: 1px;
+    --letter-spacing-3: 3px;
+    --letter-spacing-4: 5px;
+    --giga: 8.25rem;
+    --mega: 6.5rem;
+    --kilo: 3.25rem;
+    --h1: 2.5rem;
+    --h2: 2rem;
+    --h3: 1.5rem;
+    --h4: 1.35rem;
+    --h5: 1.25rem;
+    --h6: 1.15rem;
+    --normal: 1rem;
+    --micro: .87rem;
+    --mini: .8rem;
+    --minimini: .6rem;
+    --line-height-normal: 1.25;
+    --line-height-double: 1.5;
+    --site--min: 20;
+    --site--max: 90;
 }
 
 /* Responsive typography */
@@ -141,37 +152,19 @@ summary::before {
   :root { font-size: .8rem; }
 }
 
-@media screen and (min-width: 500px) {
-  :root { font-size: .8rem; }
+
+
+.heading-style-display {
+  font-family: var(--primary-font-family);
+  font-weight: 400;
+  font-size: var(--mega);
 }
 
-@media screen and (min-width: 700px) {
-  :root { font-size: .8rem; }
-}
 
-@media screen and (min-width: 800px) {
-  :root { font-size: .8rem; }
-}
+  .heading-style-display {
+    font-size: clamp(2.31 * 1rem, ((2.31 - ((4.65 - 2.31) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4.65 - 2.31) / (var(--site--max) - var(--site--min))) * 100vw), 4.65 * 1rem)
+  }
 
-@media screen and (min-width: 940px) {
-  :root { font-size: .75rem; }
-}
-
-@media screen and (min-width: 1000px) {
-  :root { font-size: .75rem; }
-}
-
-@media screen and (min-width: 1200px) {
-  :root { font-size: .75rem; }
-}
-
-@media screen and (min-width: 1681px) {
-  :root { font-size: .75rem; }
-}
-
-@media screen and (min-width: 2000px) {
-  :root { font-size: .82rem; }
-}
 
 /*------------------------------------*\
     #Default Text Selection Color 
@@ -251,7 +244,42 @@ a {
 \*------------------------------------*/
 
 section {
-  padding: var(--level10) 0;
+}
+
+.section-padding-small {
+  padding-top: var(--level4);
+  padding-bottom: var(--level4);
+}
+
+.section-padding-medium {
+  padding-top: var(--level10);
+  padding-bottom: var(--level10); 
+}
+
+.section-padding-large {
+  padding-top: var(--level12);
+  padding-bottom: var(--level12);
+}
+
+
+/*------------------------------------*\
+    #Paddings
+\*------------------------------------*/
+
+.padding-xsmall {
+  padding: var(--level1);
+}
+
+.padding-small {
+  padding: var(--level2);
+}
+
+.padding-medium {
+  padding: var(--level10);
+}
+
+.padding-large {
+  padding: var(--level10);
 }
 
 /*------------------------------------*\
@@ -360,12 +388,6 @@ h6:empty {
 main {
   min-height: calc(70vh - 300px);
   position: relative;
-}
-
-@media screen and (min-width: 940px) {
-  main {
-    padding-top: calc(var(--level10) + var(--level5) + var(--level8));
-  }
 }
 
 .master-padding-top {
@@ -585,6 +607,8 @@ button,
   text-decoration: none;
   color: rgb(var(--color-base-text-1));
   letter-spacing: var(--button-letter-spacing);
+  text-transform: uppercase;
+  border-radius: 100vw;
 }
 
 button:hover,
@@ -621,7 +645,8 @@ button:hover,
 .button--primary:focus,
 .button--primary:hover {
   background-color: rgb(var(--color-button-primary-border));
-  color: rgb(var(--color-button-primary-text));
+  background-color: rgb(var(--color-button-primary-text));
+  color: rgb(var(--color-button-primary-background));
 }
 
 .button--secondary {
@@ -645,7 +670,7 @@ button:hover,
 }
 
 .button--medium {
-  font-size: var(--normal);
+  font-size: var(--h4);
   padding: 0.75rem var(--level6);
   line-height: 1.7;
 }
@@ -656,7 +681,8 @@ button:hover,
 
 .button--large {
   font-size: var(--normal);
-  padding: 1rem var(--level7);
+  font-size: var(--h3);
+  padding: var(--level2) var(--level9);
   line-height: 1.55;
 }
 
