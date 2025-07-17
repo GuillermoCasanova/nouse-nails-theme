@@ -309,10 +309,12 @@
         "type": "hae-hero-half-photo",
         "settings": {
           "color_scheme": "background-1",
-          "header-text": "Clean ingredients because we care for you and the planet.",
+          "header-text": "",
           "button-text": "Shop",
           "button-url": "shopify://collections/all",
+          "media_type": "image",
           "hero-image": "shopify://shop_images/hero-shot-1.png",
+          "video_url": "",
           "floating-sticker": "stars"
         }
       },
@@ -788,6 +790,8 @@
           "header-text": "",
           "button-text": "Shop",
           "button-url": "",
+          "media_type": "image",
+          "video_url": "",
           "floating-sticker": "none"
         }
       },
