@@ -1,4 +1,59 @@
-<section class="ticker-container bg-wine-dark text-white fs-40 type-link">
+<style>
+  /* TICKER */
+  /* -------------------------------*/
+  @-webkit-keyframes ticker {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  @keyframes ticker {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .ticker-container {
+    overflow: hidden;
+    padding-left: 100%;
+  }
+
+  .ticker {
+    display: inline-block;
+    padding: 26px 0;
+    padding-right: 100%;
+    white-space: nowrap;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+  }
+
+  .ticker span {
+    display: inline-block;
+  }
+</style>
+
+<section class="ticker-container bg-wine-dark text-white fs-40 type-link color-{{ section.settings.color_scheme }}">
   <div class="ticker">
     <span>{{ section.settings.text }}</span>
     <span style="color: #FDF130;">☀</span>
@@ -15,24 +70,34 @@
   </div>
 </section>
 
-
 {% schema %}
 {
-"name": "News ticker banner",
-"settings": [
-  {
-    "type": "text",
-    "id": "text",
-    "label": "Banner text",
-    "info": "Enter text once - text will auto repeat"
-  }
-],
+  "name": "News ticker banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
 
-"presets": [
-  {
-    "name": "News ticker banner",
-    "category": "Hae custom"
-  }
-]
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Banner text",
+      "info": "Enter text once - text will auto repeat"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "News ticker banner",
+      "category": "Hae custom"
+    }
+  ]
 }
 {% endschema %}
