@@ -1,10 +1,11 @@
 <style>
+
 .hero-section__media {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  aspect-ratio: 1/1.11;
+  aspect-ratio: 1/1.055;
   width: 100%; 
 }
 
@@ -20,30 +21,33 @@
 @media (min-width: 768px) {
   .hero-half-sticker {
     max-width: 100%;
-    right: 32px;
-    top: 72px;
+    right: calc(var(--level2) * 1rem);
+    top: calc(var(--level12) * 1rem);
   }
 }
 
 @media (min-width: 1440px) {
   .hero-half-sticker {
-    right: var(--level2);
+    right: calc(var(--level2) * 1rem);
     top: 10rem;
+  }
+
+  .hero-section__heading {
+    max-width: 30rem;
+    width: 100%;
   }
 }
 
 </style>
 
 <section class="hero-section   d-mlg-flex-row color-{{ section.settings.color_scheme }}" >
-  <div class="hero-sectio__left-column  col-mlg-6 d-flex-column flex-justify-center bg-condensed-milk padding-medium">
-    <h2 class="hero-section__heading heading-style-display  fs-60 mt-60 mt-lg-0 lh-110">{{ section.settings.header-text }}</h2>
-    <a class="button  button--primary button--large mt-16 mt-md-32 width-fit-content" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
+  <div class="hero-sectio__left-column  padding-section-small  col-mlg-6 d-flex-column flex-justify-center bg-condensed-milk padding-large">
+    <h2 class="hero-section__heading heading-style-display">{{ section.settings.header-text }}</h2>
+    <a class="button  button--primary button--large  width-fit-content" href="{{ section.settings.button-url }}">{{ section.settings.button-text }}</a>
   </div>
 
   <div class="hero-section__right-column col-mlg-6  p-relative">
     <div class="hero-section__media">
-
-
     {% if section.settings.floating-sticker == "stars" %}
       <svg class="hero-half-sticker" fill="none" height="110" viewBox="0 0 111 110" width="111" xmlns="http://www.w3.org/2000/svg"><g fill="#fdf130" stroke="#000" stroke-width="2"><path d="m95.9404 16.8057-.0003.0004c-2.4395 4.419-3.6745 8.1053-3.5607 11.899.1136 3.7835 1.5651 7.5322 4.2013 12.0831v.0001l.0055.0092c.5126.8634-.4799 1.8559-1.3433 1.3433l-.0066-.0039c-4.6622-2.7196-8.4872-4.1898-12.3777-4.2375-3.894-.0477-7.703 1.3313-12.3309 3.9853-1.039.5848-2.0769-.5582-1.5218-1.5019v.0001l.0055-.0095c2.6553-4.6295 4.0348-8.4394 3.9871-12.341-.0476-3.8963-1.5172-7.7346-4.2362-12.4233l-.0028-.0048c-.492-.8379.4797-1.8096 1.3176-1.3176l.0043.0026c4.5638 2.6495 8.326 4.1151 12.1164 4.236 3.8018.1212 7.489-1.1143 11.8958-3.5685 1.2047-.6642 2.5124.6443 1.8468 1.8489z"/><path d="m77.9044 69.0556v-.0001l-.0129.003c-11.9912 2.7605-19.8123 5.9556-25.2877 11.7955-5.4624 5.8261-8.4587 14.1474-11.1787 26.799-.1769.787-1.3312.787-1.509.001-2.7538-12.9224-5.8021-21.3395-11.5061-27.1959-5.7088-5.8612-13.9394-9.017-26.66054-11.8078-.999223-.2386-.999279-1.6828-.00017-1.9215 12.75301-2.7903 21.00201-5.9288 26.72011-11.7993 5.7133-5.8657 8.7612-14.318 11.5147-27.3412.1781-.7847 1.2636-.7844 1.4409.001 2.7195 12.7177 5.6982 21.0731 11.1513 26.9251 5.4667 5.8666 13.2885 9.0792 25.3132 11.8737l.0074.0017.0075.0016c1.4608.316 1.4608 2.3482 0 2.6642z"/></g></svg>
     {% elsif section.settings.floating-sticker == "sun-blue" %}

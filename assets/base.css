@@ -125,7 +125,7 @@ summary::before {
     --letter-spacing-3: 3px;
     --letter-spacing-4: 5px;
     --giga: 8.25rem;
-    --mega: 6.5rem;
+    --mega: 7;
     --kilo: 3.25rem;
     --h1: 2.5rem;
     --h2: 2rem;
@@ -153,17 +153,19 @@ summary::before {
 }
 
 
-
 .heading-style-display {
   font-family: var(--primary-font-family);
   font-weight: 400;
-  font-size: var(--mega);
+  margin-bottom: calc(var(--level7) * 1rem);
+  font-size: clamp(2.31 * 1rem, ((2.31 - ((var(--mega) - 2.31) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--mega)  - 2.31) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--mega) * 1rem))
+}
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-bottom: 0; 
 }
 
 
-  .heading-style-display {
-    font-size: clamp(2.31 * 1rem, ((2.31 - ((4.65 - 2.31) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4.65 - 2.31) / (var(--site--max) - var(--site--min))) * 100vw), 4.65 * 1rem)
-  }
+
 
 
 /*------------------------------------*\
@@ -179,6 +181,10 @@ summary::before {
   background-color: rgb(var(--color-base-background-2));
   color: rgb(var(--color-base-text-1));
 }
+
+
+
+
 
 /*------------------------------------*\
     #Headlines
@@ -247,18 +253,18 @@ section {
 }
 
 .section-padding-small {
-  padding-top: var(--level4);
-  padding-bottom: var(--level4);
+  padding-top: clamp(calc(var(--level2) * 1rem), calc((var(--level2) - ((var(--level4) - var(--level2)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level4) - var(--level2)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level4) * 1rem));
+  padding-bottom: clamp(calc(var(--level2) * 1rem), calc((var(--level2) - ((var(--level4) - var(--level2)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level4) - var(--level2)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level4) * 1rem));
 }
 
 .section-padding-medium {
-  padding-top: var(--level10);
-  padding-bottom: var(--level10); 
+  padding-top: clamp(calc(var(--level4) * 1rem), calc((var(--level4) - ((var(--level10) - var(--level4)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level10) - var(--level4)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level10) * 1rem));
+  padding-bottom: clamp(calc(var(--level4) * 1rem), calc((var(--level4) - ((var(--level10) - var(--level4)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level10) - var(--level4)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level10) * 1rem));
 }
 
 .section-padding-large {
-  padding-top: var(--level12);
-  padding-bottom: var(--level12);
+  padding-top: clamp(calc(var(--level6) * 1rem), calc((var(--level6) - ((var(--level12) - var(--level6)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level12) - var(--level6)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level12) * 1rem));
+  padding-bottom: clamp(calc(var(--level6) * 1rem), calc((var(--level6) - ((var(--level12) - var(--level6)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level12) - var(--level6)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level12) * 1rem));
 }
 
 
@@ -267,19 +273,19 @@ section {
 \*------------------------------------*/
 
 .padding-xsmall {
-  padding: var(--level1);
+  padding: clamp(calc(var(--level0) * 1rem), calc((var(--level0) - ((var(--level2) - var(--level0)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level2) - var(--level0)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level2) * 1rem));
 }
 
 .padding-small {
-  padding: var(--level2);
+  padding: clamp(calc(var(--level1) * 1rem), calc((var(--level1) - ((var(--level3) - var(--level1)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level3) - var(--level1)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level3) * 1rem));
 }
 
 .padding-medium {
-  padding: var(--level10);
+  padding: clamp(calc(var(--level3) * 1rem), calc((var(--level3) - ((var(--level10) - var(--level3)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level10) - var(--level3)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level10) * 1rem));
 }
 
 .padding-large {
-  padding: var(--level10);
+  padding: clamp(calc(var(--level4) * 1rem), calc((var(--level4) - ((var(--level11) - var(--level4)) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((var(--level11) - var(--level4)) / (var(--site--max) - var(--site--min))) * 100vw), calc(var(--level11) * 1rem));
 }
 
 /*------------------------------------*\
@@ -625,7 +631,7 @@ button:hover,
 }
 
 .button__icon {
-  margin-left: var(--level2);
+  margin-left: calc(var(--level2) * 1rem);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -637,7 +643,7 @@ button:hover,
 
 /* Button Styles */
 .button--primary {
-  border: 1px solid rgb(var(--color-button-primary-border));
+  border: 2px solid rgb(var(--color-button-primary-border));
   background-color: rgb(var(--color-button-primary-background));
   color: rgb(var(--color-button-primary-text));
 }
@@ -651,7 +657,7 @@ button:hover,
 
 .button--secondary {
   background-color: rgb(var(--color-button-secondary-border));
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: rgb(var(--color-button-secondary-text));
   background-color: rgb(var(--color-button-secondary-background));
 }
@@ -665,13 +671,13 @@ button:hover,
 /* Button Sizes */
 .button--small {
   font-size: var(--micro);
-  padding: 0.75rem var(--level3);
+  padding: calc(var(--level1) * 1rem) calc(var(--level3) * 1rem);
   line-height: 1.5;
 }
 
 .button--medium {
   font-size: var(--h4);
-  padding: 0.75rem var(--level6);
+  padding: calc(var(--level1) * 1rem) calc(var(--level6) * 1rem);
   line-height: 1.7;
 }
 
@@ -682,7 +688,7 @@ button:hover,
 .button--large {
   font-size: var(--normal);
   font-size: var(--h3);
-  padding: var(--level2) var(--level9);
+  padding: calc(var(--level2) * 1rem) calc(var(--level9) * 1rem);
   line-height: 1.55;
 }
 
