@@ -614,7 +614,7 @@ button:hover,
 /* Button Styles */
 .button--primary {
   border: 1px solid rgb(var(--color-button-primary-border));
-  background-color: transparent;
+  background-color: rgb(var(--color-button-primary-background));
   color: rgb(var(--color-button-primary-text));
 }
 
@@ -628,6 +628,7 @@ button:hover,
   background-color: rgb(var(--color-button-secondary-border));
   border: 1px solid transparent;
   color: rgb(var(--color-button-secondary-text));
+  background-color: rgb(var(--color-button-secondary-background));
 }
 
 .button--secondary:focus,
