@@ -326,8 +326,8 @@
             "settings": {
               "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
               "collection": "frontpage",
-              "headline": "",
-              "button_text": "",
+              "headline": "Subscribe & Save",
+              "button_text": "Shop Now",
               "button_url": "",
               "media_type": "image",
               "video_url": "",
@@ -340,8 +340,8 @@
             "settings": {
               "color_scheme": "background-1",
               "collection": "glow-spf-mist",
-              "headline": "",
-              "button_text": "",
+              "headline": "@MeechyNails",
+              "button_text": "Shop Now",
               "button_url": "",
               "media_type": "image",
               "video_url": "",
