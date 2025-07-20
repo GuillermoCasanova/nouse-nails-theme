@@ -328,9 +328,9 @@
               "collection": "frontpage",
               "headline": "Subscribe & Save",
               "button_text": "Shop Now",
-              "button_url": "",
               "media_type": "image",
               "video_url": "",
+              "image": "shopify://shop_images/false-nails-natural-5-middle.jpg",
               "floating_sticker": "sun-blue",
               "background_color": "#ffffff"
             }
@@ -342,9 +342,9 @@
               "collection": "glow-spf-mist",
               "headline": "@MeechyNails",
               "button_text": "Shop Now",
-              "button_url": "",
               "media_type": "image",
               "video_url": "",
+              "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
               "floating_sticker": "sun-pink",
               "background_color": "#ffffff"
             }
