@@ -1,0 +1,100 @@
+
+/*------------------------------------*\
+    #Hero Half Photo
+\*------------------------------------*/
+
+
+.hero-section__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    aspect-ratio: 1/1.055;
+    width: 100%;
+}
+
+
+.hero-section__layout {
+    display: flex;
+    flex-direction: column-reverse; 
+    width: 100%; 
+}
+
+
+@media (min-width: 768px) {
+    .hero-section__layout {
+        flex-direction: row; 
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    #Hero Left Column
+\*------------------------------------*/
+
+
+.hero-section__left-column {
+    width: 100%;
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+}
+
+
+.hero-section__text {
+    margin: auto; 
+    max-width: 38rem;
+    width: 100%;
+}
+
+.hero-section__heading {
+
+    margin-bottom: var(--space-7);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Hero Right Column
+\*------------------------------------*/
+
+
+.hero-section__right-column {
+    width: 100%; 
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #Hero Stickers
+\*------------------------------------*/
+
+.hero-half-sticker {
+    max-width: 80px;
+    right: 24px;
+    position: absolute;
+    z-index: 1;
+    bottom: auto;
+}
+
+@media (min-width: 768px) {
+    .hero-half-sticker {
+        max-width: 100%;
+        right: calc(var(--level2) * 1rem);
+        top: calc(var(--level12) * 1rem);
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero-half-sticker {
+        right: calc(var(--level2) * 1rem);
+        top: 10rem;
+    }
+}
+
