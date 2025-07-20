@@ -164,7 +164,7 @@ h6 p {
   line-height: var(--headline-line-height)
 }
 
-.heading-style-display {
+.headline-style-display {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-display);
@@ -172,14 +172,14 @@ h6 p {
 }
 
 
-.heading-style-h1 {
+.headline-style-h1 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h1); 
   margin-bottom: var(--space-6);
 }
 
-.heading-style-h2 {
+.headline-style-h2 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h2); 
@@ -187,21 +187,21 @@ h6 p {
 
 }
 
-.heading-style-h3 {
+.headline-style-h3 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h3); 
   margin-bottom: var(--space-5);
 }
 
-.heading-styleh-h4 {
+.headline-styleh-h4 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h4); 
   margin-bottom: var(--space-5);
 }
 
-.heading-style-h5 {
+.headline-style-h5 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h5); 
@@ -776,11 +776,17 @@ button:hover,
 
 /* Button Sizes */
 .button--small {
-  line-height: 1.5;
+  padding: var(--space-2);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+ font-size: var(--text-size-small);
 }
 
 .button--medium {
-  line-height: 1.7;
+  padding: var(--space-2);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+ font-size: var(--text-size-main);
 }
 
 .button--large{

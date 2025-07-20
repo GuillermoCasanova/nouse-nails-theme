@@ -8,14 +8,16 @@
       >
         <a class="featured-collections__column__layout" href="{{ block.settings.collection.url }}">
           <div class="featured-collections__column__media">
-            {% render 'floating-sticker',
-              sticker_type: block.settings.floating_sticker,
-              custom_class: 'product-sticker-hover'
-            %}
+            <div class="featured-collections__column__sticker">
+              {% render 'floating-sticker',
+                sticker_type: block.settings.floating_sticker,
+                custom_class: 'product-sticker-hover'
+              %}
+            </div>
 
             {% if block.settings.media_type == 'video' and block.settings.video_url != blank %}
               <video
-                class="home-two-product-callout-photo photo-cover width-full big-img-b-radius big-img-b-radius--hover mb-32-gutters"
+                class="responsive-image"
                 autoplay
                 loop
                 muted
@@ -25,13 +27,12 @@
               </video>
             {% else %}
               <img
-                class="home-two-product-callout-photo photo-cover width-full big-img-b-radius big-img-b-radius--hover mb-32-gutters"
-                src="{{ block.settings.collection.image | image_url }}"
+                src="{{ block.settings.image | image_url }}"
                 srcset="
-                  {{ block.settings.collection.image | image_url: width: 1440, scale: 2 }} 2560w,
-                  {{ block.settings.collection.image | image_url: width: 400, scale: 2 }} 1024w,
-                  {{ block.settings.collection.image | image_url: width: 768, scale: 2 }} 768w,
-                  {{ block.settings.collection.image | image_url: width: 425, scale: 2 }} 425w
+                  {{ block.settings.image | image_url: width: 1440, scale: 2 }} 2560w,
+                  {{ block.settings.image | image_url: width: 400, scale: 2 }} 1024w,
+                  {{ block.settings.image | image_url: width: 768, scale: 2 }} 768w,
+                  {{ block.settings.image | image_url: width: 425, scale: 2 }} 425w
                 "
                 sizes="50vw"
                 class="responsive-image"
@@ -42,12 +43,15 @@
             {% endif %}
           </div>
 
-          <div class="d-md-flex-row flex-justify-space-between">
-            <h2 class="fs-60 product-card-title-main">
-              {{ block.settings.headline }}
+          <div class="featured-collections__column__text">
+            <h2 class="text-size-medium">
+              {{ block.settings.collection.title }}
             </h2>
+            <p class="featured-collections__column__headline headline-style-h2">
+              {{ block.settings.headline }}
+            </p>
 
-            <div class="button  button--primary  button--medium">
+            <div class="button  button--primary  button--small">
               {{ block.settings.button_text }}
             </div>
           </div>
