@@ -331,7 +331,7 @@
               "button_url": "",
               "media_type": "image",
               "video_url": "",
-              "floating_sticker": "none",
+              "floating_sticker": "sun-blue",
               "background_color": "#ffffff"
             }
           },
@@ -345,7 +345,7 @@
               "button_url": "",
               "media_type": "image",
               "video_url": "",
-              "floating_sticker": "none",
+              "floating_sticker": "sun-pink",
               "background_color": "#ffffff"
             }
           }
