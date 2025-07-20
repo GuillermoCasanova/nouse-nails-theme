@@ -320,12 +320,41 @@
       },
       "1606088182cf23b23a": {
         "type": "hae-featured-collections",
-        "settings": {
-          "product_1": "blue-algae-spf-dew-mist",
-          "hover_sticker_1": "sun-blue",
-          "product_2": "strawberry-seed-dew-mist-spf-50-pa",
-          "hover_sticker_2": "sun-pink"
-        }
+        "blocks": {
+          "collection_wCCpKy": {
+            "type": "collection",
+            "settings": {
+              "color_scheme": "background-1",
+              "collection": "frontpage",
+              "headline": "",
+              "button_text": "",
+              "button_url": "",
+              "media_type": "image",
+              "video_url": "",
+              "floating_sticker": "none",
+              "background_color": "#ffffff"
+            }
+          },
+          "collection_wJTPLQ": {
+            "type": "collection",
+            "settings": {
+              "color_scheme": "background-1",
+              "collection": "glow-spf-mist",
+              "headline": "",
+              "button_text": "",
+              "button_url": "",
+              "media_type": "image",
+              "video_url": "",
+              "floating_sticker": "none",
+              "background_color": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "collection_wCCpKy",
+          "collection_wJTPLQ"
+        ],
+        "settings": {}
       },
       "1606088197e736fabb": {
         "type": "hae-home-about",
