@@ -76,25 +76,19 @@
 \*------------------------------------*/
 
 .hero-half-sticker {
-    max-width: 80px;
+    max-width: 15rem;
     right: 24px;
     position: absolute;
     z-index: 1;
     bottom: auto;
+    max-width: 100%;
+    right: var(--space-2);
+    top: var(--space-8);
 }
 
 @media (min-width: 768px) {
     .hero-half-sticker {
-        max-width: 100%;
-        right: calc(var(--level2) * 1rem);
-        top: calc(var(--level12) * 1rem);
+        right: var(--space-5);
+        top: var(--space-10);
     }
 }
-
-@media (min-width: 1440px) {
-    .hero-half-sticker {
-        right: calc(var(--level2) * 1rem);
-        top: 10rem;
-    }
-}
-
