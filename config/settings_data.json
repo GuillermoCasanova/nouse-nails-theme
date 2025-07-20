@@ -1087,6 +1087,23 @@
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
         }
+      },
+      "scheme-94eb6821-3c93-4727-b9e1-be4096d276ce": {
+        "settings": {
+          "colors_text": "#faeee1",
+          "colors_text_2": "#faeee1",
+          "color_links": "#6d0506",
+          "color_button_primary_background": "#faeee1",
+          "color_button_primary_text": "#6d0506",
+          "color_button_primary_border": "#6d0506",
+          "color_button_secondary_background": "#6d0506",
+          "color_button_secondary_text": "#faeee1",
+          "color_button_secondary_border": "#6d0506",
+          "color_accent": "#efbdfc",
+          "colors_background_1": "#854418",
+          "colors_background_2": "#fbf8f4",
+          "colors_background_3": "#f5fbfe"
+        }
       }
     }
   },
