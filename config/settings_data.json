@@ -306,7 +306,7 @@
         }
       },
       "1605316310afd292ce": {
-        "type": "hae-hero-half-photo",
+        "type": "hae-hero",
         "settings": {
           "color_scheme": "background-1",
           "header-text": "<p>Redefining the <em>nous</em> standard for nails.</p>",
@@ -319,7 +319,7 @@
         }
       },
       "1606088182cf23b23a": {
-        "type": "hae-home-two-product-callouts",
+        "type": "hae-featured-collections",
         "settings": {
           "product_1": "blue-algae-spf-dew-mist",
           "hover_sticker_1": "sun-blue",
@@ -388,7 +388,7 @@
         }
       },
       "1607135984834dab41": {
-        "type": "hae-ticker-banner",
+        "type": "hae-marquee-banner",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "text": "Sun care is self care"
@@ -784,7 +784,7 @@
         }
       },
       "hae_hero_half_photo_CBRQYt": {
-        "type": "hae-hero-half-photo",
+        "type": "hae-hero",
         "settings": {
           "color_scheme": "",
           "header-text": "",
@@ -857,7 +857,7 @@
         }
       },
       "hae_ticker_banner_8e747N": {
-        "type": "hae-ticker-banner",
+        "type": "hae-marquee-banner",
         "settings": {
           "color_scheme": "",
           "text": "hi hello bing bong"
