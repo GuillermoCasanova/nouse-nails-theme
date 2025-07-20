@@ -1,0 +1,23 @@
+/*------------------------------------*/
+/* Featured Collections */
+/*------------------------------------*/
+
+
+.featured-collections__column__media {
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%; 
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+}
+
+.featured-collections__column  {
+    padding: var(--space-6);
+    background-color: var(--color-background);
+}
+
+@media screen and (min-width: 748px) {
+    .featured-collections__column  {
+        padding: var(--space-11);
+    }
+}
