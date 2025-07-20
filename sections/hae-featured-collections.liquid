@@ -1,6 +1,7 @@
 {{ 'hae-featured-collections.css' | asset_url | stylesheet_tag }}
 
 <section class="featured-collections">
+  <h2 class="visually-hidden">Featured Collections</h2>
   <div class="featured-collections__layout d-mlg-flex-row">
     {% for block in section.blocks %}
       <div
@@ -44,9 +45,9 @@
           </div>
 
           <div class="featured-collections__column__text">
-            <h2 class="text-size-medium">
+            <h3 class="text-size-medium">
               {{ block.settings.collection.title }}
-            </h2>
+            </h3>
             <p class="featured-collections__column__headline headline-style-h2">
               {{ block.settings.headline }}
             </p>

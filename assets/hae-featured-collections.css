@@ -9,7 +9,7 @@
 
 .featured-collections__column__media {
     position: relative;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/.9;
     width: 100%; 
     border-radius: var(--border-radius-main);
     overflow: hidden;
