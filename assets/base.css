@@ -353,28 +353,24 @@ a {
     #Sections
 \*------------------------------------*/
 
-section {
-}
-
-
 .section-padding-x-small {
-  padding-top: var(--section-space-x-small);
-  padding-bottom: var(--section-space-x-small);
+  padding-top: var(--section-padding-x-small);
+  padding-bottom: var(--section-padding-x-small);
 }
 
 .section-padding-small {
-  padding-top: var(--section-space-small);
-  padding-bottom: var(--section-space-small);
+  padding-top: var(--section-padding-small);
+  padding-bottom: var(--section-padding-small);
 }
 
 .section-padding-main {
-  padding-top: var(--section-space-main);
-  padding-bottom: var(--section-space-main);
+  padding-top: var(--section-padding-main);
+  padding-bottom: var(--section-padding-main);
 }
 
 .section-padding-large {
-  padding-top: var(--section-space-large);
-  padding-bottom: var(--section-space-large);
+  padding-top: var(--section-padding-large);
+  padding-bottom: var(--section-padding-large);
 }
 
 
@@ -788,7 +784,7 @@ button:hover,
 }
 
 .button--medium {
-  padding: var(--space-2);
+  padding: var(--space-4);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
  font-size: var(--text-size-main);
@@ -796,7 +792,7 @@ button:hover,
 
 .button--large{
  font-size: var(--text-size-large);
- padding: var(--space-3);
+ padding: var(--space-4);
  padding-left: var(--space-5);
  padding-right: var(--space-5);
 }

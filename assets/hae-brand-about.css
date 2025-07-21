@@ -1,0 +1,40 @@
+
+
+/* Hae Brand About */
+
+
+
+@media screen and (min-width: 748px) {
+    .brand-about__intro {
+        padding-top: var(--section-padding-small);
+        padding-bottom: var(--section-padding-small);
+    }
+}
+
+
+
+.brand-about__callout-image-wrapper {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: var(--space-5);
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.brand-about__callout-image {
+    width: 100%;
+    object-fit: contain; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+}
+
+
+.brand-about__callout__content {
+    padding: var(--padding-main); 
+}

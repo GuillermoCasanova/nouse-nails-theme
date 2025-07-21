@@ -1,14 +1,14 @@
 {{ 'hae-brand-about.css' | asset_url | stylesheet_tag }}
 
 <section class="brand-about color-{{ section.settings.color_scheme }}">
-  <div class="brand-about__intro container-main padding-section-medium">
+  <div class="brand-about__intro container-main section-padding-small">
     <h2 class="brand-about__subtitle headline-style-h4">{{ section.settings.subtitle }}</h2>
 
-    <div class="brand-about__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center mt-40">
-      <p class="brand-about__text col-mlg-6">{{ section.settings.text }}</p>
+    <div class="brand-about__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center">
+      <p class="brand-about__text col-mlg-6 text-size-large">{{ section.settings.text }}</p>
 
-      <div class="brand-about__buttons mt-16 mt-mlg-0">
-        <a class="button button--primary button--medium mr-12" href="{{ section.settings.button_link_1 }}">
+      <div class="brand-about__buttons  mt-mlg-0">
+        <a class="button button--primary button--medium " href="{{ section.settings.button_link_1 }}">
           {{- section.settings.button_text_1 -}}
         </a>
         <a class="button button--primary button--medium" href="{{ section.settings.button_link_2 }}">
@@ -21,22 +21,25 @@
   <div class="brand-about__callouts d-mlg-flex-row">
     {%- for block in section.blocks -%}
       <div
-        class="brand-about__callout col-mlg-4 padding-large"
-        style="background-color: {{ block.settings.callout_bg }};"
+        class="brand-about__callout col-mlg-4 color-{{ block.settings.color_scheme }}"
         {{ block.shopify_attributes }}
       >
-        {% if block.settings.callout_image != blank %}
-          <img
-            class="brand-about__callout-image"
-            height="64"
-            width="64"
-            src="{{ block.settings.callout_image | img_url: '128x' }}"
-            alt="{{ block.settings.callout_image.alt | default: block.settings.callout_header }}"
-          >
-        {% endif %}
+        <div class="brand-about__callout__content">
+          {% if block.settings.callout_image != blank %}
+            <div class="brand-about__callout-image-wrapper">
+              <img
+                class="brand-about__callout-image"
+                height="64"
+                width="64"
+                src="{{ block.settings.callout_image | img_url: '128x' }}"
+                alt="{{ block.settings.callout_image.alt | default: block.settings.callout_header }}"
+              >
+            </div>
+          {% endif %}
 
-        <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
-        <p class="brand-about__callout-text">{{ block.settings.callout_text }}</p>
+          <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
+          <p class="brand-about__callout-text text-size-main">{{ block.settings.callout_text }}</p>
+        </div>
       </div>
     {%- endfor -%}
   </div>

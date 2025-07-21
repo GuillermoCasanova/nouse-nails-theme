@@ -48,7 +48,8 @@
 .featured-collections__column__layout {
     text-decoration: none;
     position: relative;
-    padding: var(--space-6);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
     display: block;
 }
 
