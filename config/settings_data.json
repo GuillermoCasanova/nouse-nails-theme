@@ -346,25 +346,27 @@
       },
       "1606088197e736fabb": {
         "type": "hae-brand-about",
+        "blocks": {
+          "callout_QUEkYB": {
+            "type": "callout",
+            "settings": {
+              "callout_header": "",
+              "callout_text": "",
+              "callout_bg": "#F6DC76"
+            }
+          }
+        },
+        "block_order": [
+          "callout_QUEkYB"
+        ],
         "settings": {
+          "color_scheme": "",
           "subtitle": "The Nous Standard in Nail Beauty.",
           "text": "We’re building a future where nail care is clean, expressive, and affordable. Our gel strips skip the toxins, cost less, and save you time—because beauty shouldn’t come at your health or schedule.",
           "button_text_1": "HOW TO APPLY NAILS",
           "button_link_1": "about",
           "button_text_2": "FREE LED LAMP",
-          "button_link_2": "why-hae",
-          "callout_image_1": "shopify://shop_images/icon-natural.png",
-          "callout_header_1": "Clean ingredients only",
-          "callout_text_1": "No Nasties, Just Nail Magic.We left out the top 10 most questionable ingredients—so you can shine without worry.That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.",
-          "callout_bg_1": "#FF8A64",
-          "callout_image_2": "shopify://shop_images/icon-smiley.png",
-          "callout_header_2": "Salon-Quality, Done in Minutes",
-          "callout_text_2": "Ditch the 2-hour waits, awkward small talk, tipping stress, and funky fumes. No nail drama. Just fast, flawless, feel-good nails that love you back.",
-          "callout_bg_2": "#EFBDFC",
-          "callout_image_3": "shopify://shop_images/icon-animal.png",
-          "callout_header_3": "Effortless Luxury, Without the Price",
-          "callout_text_3": "Get salon-quality nails for just $38/month (or less), compared to $80+ with tipping at the salon. Save time, money and bye to nail breakage—all without sacrificing style or shine.",
-          "callout_bg_3": "#F6DC76"
+          "button_link_2": "why-hae"
         }
       },
       "1607135984834dab41": {
@@ -752,7 +754,7 @@
           "color_button_primary_background": "#faeee1",
           "color_button_primary_text": "#6d0506",
           "color_button_primary_border": "#6d0506",
-          "color_button_primary_hover_background": "#7294A8",
+          "color_button_primary_hover_background": "#7294a8",
           "color_button_secondary_background": "#6d0506",
           "color_button_secondary_text": "#faeee1",
           "color_button_secondary_border": "#6d0506",
@@ -770,7 +772,7 @@
           "color_button_primary_background": "#faeee1",
           "color_button_primary_text": "#6d0506",
           "color_button_primary_border": "#faeee1",
-          "color_button_primary_hover_background": "#7294A8",
+          "color_button_primary_hover_background": "#7294a8",
           "color_button_secondary_background": "#6d0506",
           "color_button_secondary_text": "#faeee1",
           "color_button_secondary_border": "#333232",
@@ -788,7 +790,7 @@
           "color_button_primary_background": "#faeee1",
           "color_button_primary_text": "#6d0506",
           "color_button_primary_border": "#6d0506",
-          "color_button_primary_hover_background": "#7294A8",
+          "color_button_primary_hover_background": "#7294a8",
           "color_button_secondary_background": "#6d0506",
           "color_button_secondary_text": "#faeee1",
           "color_button_secondary_border": "#6d0506",
@@ -806,7 +808,7 @@
           "color_button_primary_background": "#faeee1",
           "color_button_primary_text": "#6d0506",
           "color_button_primary_border": "#6d0506",
-          "color_button_primary_hover_background": "#7294A8",
+          "color_button_primary_hover_background": "#7294a8",
           "color_button_secondary_background": "#6d0506",
           "color_button_secondary_text": "#faeee1",
           "color_button_secondary_border": "#6d0506",
