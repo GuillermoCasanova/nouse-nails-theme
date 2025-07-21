@@ -247,18 +247,6 @@
           "show_currency_selector": true
         }
       },
-      "1602969309835": {
-        "type": "video",
-        "settings": {
-          "image_position": "center center",
-          "video_link": "https://www.youtube.com/watch?v=wzMXsl9n9k4&controls=0",
-          "show_overlay": false,
-          "style": "background",
-          "height": "small",
-          "video_title": "",
-          "text_size": "medium"
-        }
-      },
       "hae-footer": {
         "type": "hae-footer",
         "blocks": {
@@ -377,43 +365,6 @@
           "callout_header_3": "Effortless Luxury, Without the Price",
           "callout_text_3": "Get salon-quality nails for just $38/month (or less), compared to $80+ with tipping at the salon. Save time, money and bye to nail breakage—all without sacrificing style or shine.",
           "callout_bg_3": "#F6DC76"
-        }
-      },
-      "1606088343b4cd68d9": {
-        "type": "hae-home-press",
-        "blocks": {
-          "1606088343b4cd68d9-0": {
-            "type": "quote",
-            "settings": {
-              "quote": "",
-              "logo": "shopify://shop_images/logo-hypebae_61ddc8ba-a1b3-4d85-b170-5f5ea30070d8.png",
-              "link": "press"
-            }
-          },
-          "1606088343b4cd68d9-1": {
-            "type": "quote",
-            "settings": {
-              "quote": "",
-              "logo": "shopify://shop_images/logo-refinery.png",
-              "link": "press"
-            }
-          },
-          "1606088343b4cd68d9-2": {
-            "type": "quote",
-            "settings": {
-              "quote": "",
-              "logo": "shopify://shop_images/logo-allure.png",
-              "link": "press"
-            }
-          }
-        },
-        "block_order": [
-          "1606088343b4cd68d9-0",
-          "1606088343b4cd68d9-1",
-          "1606088343b4cd68d9-2"
-        ],
-        "settings": {
-          "title": "What people have been saying"
         }
       },
       "1607135984834dab41": {
@@ -613,215 +564,12 @@
         "type": "product-below-hero",
         "settings": {}
       },
-      "featured_product_pNVMQG": {
-        "type": "featured-product",
-        "settings": {
-          "featured_product": "",
-          "show_quantity_selector": false,
-          "show_vendor": false,
-          "enable_payment_button": true,
-          "show_share_buttons": true,
-          "media_size": "medium",
-          "enable_image_zoom": true,
-          "enable_video_looping": false
-        }
-      },
-      "collection_list_PLrBWm": {
-        "type": "collection-list",
-        "blocks": {
-          "featured_collection_9NcR6j": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured_collection_FrTDzx": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": ""
-            }
-          },
-          "featured_collection_7LHPT6": {
-            "type": "featured_collection",
-            "settings": {
-              "collection": ""
-            }
-          }
-        },
-        "block_order": [
-          "featured_collection_9NcR6j",
-          "featured_collection_FrTDzx",
-          "featured_collection_7LHPT6"
-        ],
-        "settings": {
-          "title": "Collection list",
-          "grid": 3
-        }
-      },
-      "rich_text_XiaDXw": {
-        "type": "rich-text",
-        "settings": {
-          "full_width": false,
-          "section_title": "Talk about your brand",
-          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-          "text_size": "medium"
-        }
-      },
-      "slideshow_CLECVc": {
-        "type": "slideshow",
-        "blocks": {
-          "image_YKyWma": {
-            "type": "image",
-            "settings": {
-              "alignment": "center center",
-              "slide_title": "Image slide",
-              "subheading": "Tell your brand's story through images",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "image_GTmgt4": {
-            "type": "image",
-            "settings": {
-              "alignment": "center center",
-              "slide_title": "Image slide",
-              "subheading": "Tell your brand's story through images",
-              "button_label": "",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "image_YKyWma",
-          "image_GTmgt4"
-        ],
-        "settings": {
-          "slideshow_height": "adapt",
-          "text_size": "medium",
-          "text_alignment": "center center",
-          "show_overlay": true,
-          "autorotate": false,
-          "autorotate_speed": 5
-        }
-      },
       "newsletter_qwtx4B": {
         "type": "newsletter",
         "settings": {
           "section_title": "Subscribe to our newsletter",
           "subheading": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
           "show_background": true
-        }
-      },
-      "video_YBRL3A": {
-        "type": "video",
-        "settings": {
-          "image_position": "center center",
-          "video_link": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-          "show_overlay": true,
-          "style": "image_with_play",
-          "height": "medium",
-          "video_title": "",
-          "text_size": "medium"
-        }
-      },
-      "featured_blog_hUQTCN": {
-        "type": "featured-blog",
-        "settings": {
-          "title": "Blog posts",
-          "blog": "news",
-          "post_limit": 3,
-          "blog_show_author": false,
-          "blog_show_date": true,
-          "show_view_all": false
-        }
-      },
-      "custom_content_tWL8c8": {
-        "type": "custom-content",
-        "blocks": {
-          "text_7beCCW": {
-            "type": "text",
-            "settings": {
-              "title": "Talk about your brand",
-              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-              "width": "50%",
-              "alignment": "center",
-              "align_text": "left"
-            }
-          },
-          "image_kzfReT": {
-            "type": "image",
-            "settings": {
-              "width": "50%",
-              "alignment": "center"
-            }
-          }
-        },
-        "block_order": [
-          "text_7beCCW",
-          "image_kzfReT"
-        ],
-        "settings": {
-          "title": "Custom content"
-        }
-      },
-      "collection_7HBjfD": {
-        "type": "collection",
-        "settings": {
-          "title": "Featured collection",
-          "collection": "",
-          "grid": 3,
-          "rows": 2,
-          "show_vendor": false,
-          "show_view_all": false
-        }
-      },
-      "image_bar_8F4jpU": {
-        "type": "image-bar",
-        "blocks": {
-          "image_zfPwED": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          },
-          "image_TWWGa9": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          },
-          "image_egPM7e": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          }
-        },
-        "block_order": [
-          "image_zfPwED",
-          "image_TWWGa9",
-          "image_egPM7e"
-        ],
-        "settings": {
-          "section_height": "medium"
-        }
-      },
-      "hae_hero_half_photo_CBRQYt": {
-        "type": "hae-hero",
-        "settings": {
-          "color_scheme": "",
-          "header-text": "",
-          "button-text": "Shop",
-          "button-url": "",
-          "media_type": "image",
-          "video_url": "",
-          "floating-sticker": "none"
         }
       },
       "feature_row_nNgUqr": {
@@ -832,64 +580,6 @@
           "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
           "button_label": "",
           "button_link": ""
-        }
-      },
-      "hero_YXnw9W": {
-        "type": "hero",
-        "settings": {
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "medium",
-          "title": "Image with text overlay",
-          "text": "<p>Use overlay text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "logo_bar_RbA6wp": {
-        "type": "logo-bar",
-        "blocks": {
-          "logo_image_fUmMrd": {
-            "type": "logo_image",
-            "settings": {
-              "link": ""
-            }
-          },
-          "logo_image_zjVTQM": {
-            "type": "logo_image",
-            "settings": {
-              "link": ""
-            }
-          },
-          "logo_image_aDQEEE": {
-            "type": "logo_image",
-            "settings": {
-              "link": ""
-            }
-          },
-          "logo_image_fbRTpF": {
-            "type": "logo_image",
-            "settings": {
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "logo_image_fUmMrd",
-          "logo_image_zjVTQM",
-          "logo_image_aDQEEE",
-          "logo_image_fbRTpF"
-        ],
-        "settings": {
-          "title": "Logo list"
-        }
-      },
-      "hae_ticker_banner_8e747N": {
-        "type": "hae-marquee-banner",
-        "settings": {
-          "color_scheme": "",
-          "text": "hi hello bing bong"
         }
       },
       "quotes_QLWVBC": {
@@ -966,13 +656,25 @@
           "text_block_GTT7fp"
         ],
         "settings": {
-          "title": "Text columns with images",
+          "title": "Tips & Trikcs",
           "align_text": "left"
         }
       },
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {}
+      },
+      "featured_blog_WPc99D": {
+        "type": "featured-blog",
+        "name": "Blog posts",
+        "settings": {
+          "title": "Tips & Trikcs",
+          "blog": "news",
+          "post_limit": 3,
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "show_view_all": false
+        }
       }
     },
     "content_for_index": [
@@ -980,25 +682,11 @@
       "1607135984834dab41",
       "1606088182cf23b23a",
       "1606088197e736fabb",
-      "1602969309835",
-      "1606088343b4cd68d9",
-      "featured_product_pNVMQG",
-      "collection_list_PLrBWm",
-      "rich_text_XiaDXw",
-      "slideshow_CLECVc",
-      "newsletter_qwtx4B",
-      "video_YBRL3A",
-      "featured_blog_hUQTCN",
-      "custom_content_tWL8c8",
-      "collection_7HBjfD",
-      "image_bar_8F4jpU",
-      "hae_hero_half_photo_CBRQYt",
+      "quotes_QLWVBC",
       "feature_row_nNgUqr",
-      "hero_YXnw9W",
-      "logo_bar_RbA6wp",
-      "hae_ticker_banner_8e747N",
       "feature_columns_cex6VK",
-      "quotes_QLWVBC"
+      "newsletter_qwtx4B",
+      "featured_blog_WPc99D"
     ],
     "blocks": {
       "855628211100114053": {
