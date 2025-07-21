@@ -781,10 +781,10 @@ button:hover,
 
 /* Button Sizes */
 .button--small {
-  padding: var(--space-2);
+  padding: var(--space-3);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
- font-size: var(--text-size-small);
+ font-size: var(--text-size-x-small);
 }
 
 .button--medium {

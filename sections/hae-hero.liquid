@@ -1,22 +1,24 @@
 {{ 'hae-hero.css' | asset_url | stylesheet_tag }}
 
-<section class="hero-section  color-{{ section.settings.color_scheme }}">
-  <div class="hero-section__layout  d-mlg-flex-row ">
-    <div class="hero-section__left-column  padding-section-small  col-mlg-6 d-flex-column flex-justify-center">
-      <div class="hero-section__text  container-main">
-        <h2 class="hero-section__heading headline-style-display">{{ section.settings['header-text'] }}</h2>
+<section class="hero-header  color-{{ section.settings.color_scheme }}">
+  <div class="hero-header__layout  d-mlg-flex-row ">
+    <div class="hero-header__left-column  padding-section-small  col-mlg-6 d-flex-column flex-justify-center">
+      <div class="hero-header__text  container-main">
+        <h2 class="hero-header__heading headline-style-display">{{ section.settings['header-text'] }}</h2>
         <a class="button  button--primary button--large  width-fit-content" href="{{ section.settings.button-url }}">
           {{- section.settings['button-text'] -}}
         </a>
       </div>
     </div>
 
-    <div class="hero-section__right-column col-mlg-6  p-relative">
-      <div class="hero-section__media">
-        {% render 'floating-sticker',
-          sticker_type: section.settings['floating-sticker'],
-          custom_class: 'hero-half-sticker'
-        %}
+    <div class="hero-header__right-column col-mlg-6  p-relative">
+      <div class="hero-header__media">
+        <div class="hero-header__sticker">
+          {% render 'floating-sticker',
+            sticker_type: section.settings['floating-sticker'],
+            custom_class: 'hero-half-sticker'
+          %}
+        </div>
 
         {% if section.settings.media_type == 'image' %}
           <img

@@ -4,7 +4,7 @@
 \*------------------------------------*/
 
 
-.hero-section__media {
+.hero-header__media {
     position: relative;
     width: 100%;
     height: 100%;
@@ -14,7 +14,7 @@
 }
 
 
-.hero-section__layout {
+.hero-header__layout {
     display: flex;
     flex-direction: column-reverse; 
     width: 100%; 
@@ -22,7 +22,7 @@
 
 
 @media (min-width: 768px) {
-    .hero-section__layout {
+    .hero-header__layout {
         flex-direction: row; 
     }
 }
@@ -35,20 +35,20 @@
 \*------------------------------------*/
 
 
-.hero-section__left-column {
+.hero-header__left-column {
     width: 100%;
     padding-top: var(--space-9);
     padding-bottom: var(--space-9);
 }
 
 
-.hero-section__text {
+.hero-header__text {
     margin: auto; 
     max-width: 38rem;
     width: 100%;
 }
 
-.hero-section__heading {
+.hero-header__heading {
 
     margin-bottom: var(--space-7);
 }
@@ -62,7 +62,7 @@
 \*------------------------------------*/
 
 
-.hero-section__right-column {
+.hero-header__right-column {
     width: 100%; 
 }
 
@@ -75,7 +75,7 @@
     #Hero Stickers
 \*------------------------------------*/
 
-.hero-half-sticker {
+.hero-header__sticker {
     max-width: 15rem;
     right: 24px;
     position: absolute;
@@ -84,11 +84,15 @@
     max-width: 100%;
     right: var(--space-2);
     top: var(--space-8);
+    max-width: 5rem;
+    width: 100%; 
+    height: 100%;
 }
 
 @media (min-width: 768px) {
-    .hero-half-sticker {
-        right: var(--space-5);
+    .hero-header__sticker {
+        right: var(--space-4);
         top: var(--space-10);
+        max-width: 7rem;
     }
 }
