@@ -350,25 +350,25 @@
           "callout_pBYmHY": {
             "type": "callout",
             "settings": {
+              "color_scheme": "scheme-2119b851-9410-4357-b9dd-7adf10307b8e",
               "callout_header": "",
-              "callout_text": "",
-              "callout_bg": "#F6DC76"
+              "callout_text": ""
             }
           },
           "callout_rh8czt": {
             "type": "callout",
             "settings": {
+              "color_scheme": "scheme-6628b2c5-2a6e-43ae-9f30-7d31869aa0c7",
               "callout_header": "",
-              "callout_text": "",
-              "callout_bg": "#F6DC76"
+              "callout_text": ""
             }
           },
           "callout_QUEkYB": {
             "type": "callout",
             "settings": {
+              "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
               "callout_header": "",
-              "callout_text": "",
-              "callout_bg": "#AEC1FB"
+              "callout_text": ""
             }
           }
         },
