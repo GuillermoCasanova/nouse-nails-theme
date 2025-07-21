@@ -566,6 +566,7 @@
       },
       "newsletter_qwtx4B": {
         "type": "newsletter",
+        "disabled": true,
         "settings": {
           "section_title": "Subscribe to our newsletter",
           "subheading": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
@@ -655,6 +656,7 @@
           "text_block_rWafnY",
           "text_block_GTT7fp"
         ],
+        "disabled": true,
         "settings": {
           "title": "Tips & Trikcs",
           "align_text": "left"
@@ -682,11 +684,11 @@
       "1607135984834dab41",
       "1606088182cf23b23a",
       "1606088197e736fabb",
+      "feature_row_nNgUqr",
       "quotes_QLWVBC",
       "featured_blog_WPc99D",
-      "newsletter_qwtx4B",
       "feature_columns_cex6VK",
-      "feature_row_nNgUqr"
+      "newsletter_qwtx4B"
     ],
     "blocks": {
       "855628211100114053": {
