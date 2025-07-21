@@ -1,0 +1,153 @@
+{{ 'hae-brand-about.css' | asset_url | stylesheet_tag }}
+
+<section class="brand-about color-{{ section.settings.color_scheme }}">
+  <div class="brand-about__intro container-main padding-section-medium">
+    <h2 class="brand-about__subtitle headline-style-h4">{{ section.settings.subtitle }}</h2>
+
+    <div class="brand-about__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center mt-40">
+      <p class="brand-about__text col-mlg-6">{{ section.settings.text }}</p>
+
+      <div class="brand-about__buttons mt-16 mt-mlg-0">
+        <a class="button button--primary button--medium mr-12" href="{{ section.settings.button_link_1 }}">
+          {{- section.settings.button_text_1 -}}
+        </a>
+        <a class="button button--primary button--medium" href="{{ section.settings.button_link_2 }}">
+          {{- section.settings.button_text_2 -}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="brand-about__callouts d-mlg-flex-row">
+    {%- for block in section.blocks -%}
+      <div
+        class="brand-about__callout col-mlg-4 padding-large"
+        style="background-color: {{ block.settings.callout_bg }};"
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.callout_image != blank %}
+          <img
+            class="brand-about__callout-image"
+            height="64"
+            width="64"
+            src="{{ block.settings.callout_image | img_url: '128x' }}"
+            alt="{{ block.settings.callout_image.alt | default: block.settings.callout_header }}"
+          >
+        {% endif %}
+
+        <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
+        <p class="brand-about__callout-text">{{ block.settings.callout_text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "About intro"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Description",
+      "info": "Keep to 2 sentences or less; max about 150 characters"
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button 1 text",
+      "placeholder": "More about Hae"
+    },
+    {
+      "type": "page",
+      "id": "button_link_1",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Button 2 text"
+    },
+    {
+      "type": "page",
+      "id": "button_link_2",
+      "label": "Button 2 link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "callout",
+      "name": "Callout",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "callout_image",
+          "label": "Image",
+          "info": "Upload PNG (transparent bg) 128x128 at 72res"
+        },
+        {
+          "type": "text",
+          "id": "callout_header",
+          "label": "Header"
+        },
+        {
+          "type": "text",
+          "id": "callout_text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "callout_bg",
+          "info": "Use only lighter colors, text is black",
+          "options": [
+            { "value": "#F6DC76", "label": "Yellow" },
+            { "value": "#FF8A64", "label": "Orange" },
+            { "value": "#AEC1FB", "label": "Blue" },
+            { "value": "#EFBDFC", "label": "Pink" },
+            { "value": "#904003", "label": "Brown" },
+            { "value": "#6D0506", "label": "Wine" },
+            { "value": "#FAEEE2", "label": "Cream dark" },
+            { "value": "#FCF8F4", "label": "Cream light" },
+            { "value": "#000000", "label": "Black" },
+            { "value": "#FFFFFF", "label": "White" }
+          ],
+          "label": "Background color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About and 3 callouts",
+      "category": "Hae custom",
+      "blocks": [
+        {
+          "type": "callout"
+        },
+        {
+          "type": "callout"
+        },
+        {
+          "type": "callout"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

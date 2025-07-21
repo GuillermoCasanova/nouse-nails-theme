@@ -345,7 +345,7 @@
         "settings": {}
       },
       "1606088197e736fabb": {
-        "type": "hae-home-about",
+        "type": "hae-brand-about",
         "settings": {
           "subtitle": "The Nous Standard in Nail Beauty.",
           "text": "We’re building a future where nail care is clean, expressive, and affordable. Our gel strips skip the toxins, cost less, and save you time—because beauty shouldn’t come at your health or schedule.",
@@ -355,7 +355,7 @@
           "button_link_2": "why-hae",
           "callout_image_1": "shopify://shop_images/icon-natural.png",
           "callout_header_1": "Clean ingredients only",
-          "callout_text_1": "No Nasties, Just Nail Magic. We left out the top 10 most questionable ingredients—so you can shine without worry. That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.",
+          "callout_text_1": "No Nasties, Just Nail Magic.We left out the top 10 most questionable ingredients—so you can shine without worry.That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.",
           "callout_bg_1": "#FF8A64",
           "callout_image_2": "shopify://shop_images/icon-smiley.png",
           "callout_header_2": "Salon-Quality, Done in Minutes",
