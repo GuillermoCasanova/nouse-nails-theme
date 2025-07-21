@@ -70,6 +70,13 @@
           },
           {
             "type": "color",
+            "id": "color_button_primary_hover_background",
+            "default": "#7294A8",
+            "label": "Button Primary Hover Background Color",
+            "info": "Used for primary button hover background"
+          },
+          {
+            "type": "color",
             "id": "color_button_secondary_background",
             "default": "#7294A8",
             "label": "Button Secondary Background Color",

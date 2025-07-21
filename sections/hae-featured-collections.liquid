@@ -8,52 +8,57 @@
         class="featured-collections__column col-mlg-6 color-{{ block.settings.color_scheme }}"
       >
         <a class="featured-collections__column__layout" href="{{ block.settings.collection.url }}">
-          <div class="featured-collections__column__media">
+          <div class="featured-collections__column__media-wrapper">
             <div class="featured-collections__column__sticker">
               {% render 'floating-sticker',
                 sticker_type: block.settings.floating_sticker,
                 custom_class: 'product-sticker-hover'
               %}
             </div>
-
-            {% if block.settings.media_type == 'video' and block.settings.video_url != blank %}
-              <video
-                class="responsive-image"
-                autoplay
-                loop
-                muted
-                playsinline
-              >
-                <source src="{{ block.settings.video_url }}" type="video/mp4">
-              </video>
-            {% else %}
-              <img
-                src="{{ block.settings.image | image_url }}"
-                srcset="
-                  {{ block.settings.image | image_url: width: 1440, scale: 2 }} 2560w,
-                  {{ block.settings.image | image_url: width: 400, scale: 2 }} 1024w,
-                  {{ block.settings.image | image_url: width: 768, scale: 2 }} 768w,
-                  {{ block.settings.image | image_url: width: 425, scale: 2 }} 425w
-                "
-                sizes="50vw"
-                class="responsive-image"
-                alt="{{ block.settings.collection.title | escape }}"
-                width="800"
-                height="800"
-              >
-            {% endif %}
+            <div class="featured-collections__column__media">
+              {% if block.settings.media_type == 'video' and block.settings.video_url != blank %}
+                <video
+                  class="responsive-image"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                >
+                  <source src="{{ block.settings.video_url }}" type="video/mp4">
+                </video>
+              {% else %}
+                <img
+                  src="{{ block.settings.image | image_url }}"
+                  srcset="
+                    {{ block.settings.image | image_url: width: 1440, scale: 2 }} 2560w,
+                    {{ block.settings.image | image_url: width: 400, scale: 2 }} 1024w,
+                    {{ block.settings.image | image_url: width: 768, scale: 2 }} 768w,
+                    {{ block.settings.image | image_url: width: 425, scale: 2 }} 425w
+                  "
+                  sizes="50vw"
+                  class="responsive-image"
+                  alt="{{ block.settings.collection.title | escape }}"
+                  width="800"
+                  height="800"
+                >
+              {% endif %}
+            </div>
           </div>
 
-          <div class="featured-collections__column__text">
-            <h3 class="text-size-medium">
-              {{ block.settings.collection.title }}
-            </h3>
-            <p class="featured-collections__column__headline headline-style-h2">
-              {{ block.settings.headline }}
-            </p>
+          <div class="featured-collections__column__text-wrapper">
+            <div class="featured-collections__column__text">
+              <h3 class="featured-collections__column__eyebrow   text-size-medium">
+                {{ block.settings.collection.title }}
+              </h3>
+              <p class="featured-collections__column__headline headline-style-h1">
+                {{ block.settings.headline }}
+              </p>
+            </div>
 
-            <div class="button  button--primary  button--small">
-              {{ block.settings.button_text }}
+            <div class="featured-collections__column__button-wrapper">
+              <div class="button  button--primary  button--small">
+                {{ block.settings.button_text }}
+              </div>
             </div>
           </div>
         </a>

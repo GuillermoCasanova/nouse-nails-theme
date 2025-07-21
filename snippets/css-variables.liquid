@@ -172,7 +172,7 @@
     --site--min: 20;
     --site--max: 90;
     --headline-font-family: var(--primary-font-family);
-    --headline-line-height: 1;
+    --headline-line-height: 1.1;
     --headline-font-weight: 500;
     --text-font-family: var(--primary-font-family);
     --text-letter-spacing: 0;
@@ -258,6 +258,11 @@
 
     /*--Mobile: 25px (1.56rem) → Desktop: 35px (2.19rem)--*/
     --text-size-x-large:  clamp(1.5625 * 1rem, ((1.5625 - ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 2.1875 * 1rem);
+
+    /* Buttons */
+    --button-font-weight: 500;
+    --button-letter-spacing: .05rem;
+    --button-line-height: 1;
   }
 
   *,

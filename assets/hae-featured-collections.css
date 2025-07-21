@@ -3,8 +3,15 @@
 /*------------------------------------*/
 
 
-.featured-collections__column__layout {
-    text-decoration: none;
+
+/*------------------------------------*/
+/* Media Wrapper                        */
+/*------------------------------------*/
+
+
+.featured-collections__column__media-wrapper {
+    position: relative;
+    width: 100%; 
 }
 
 .featured-collections__column__media {
@@ -19,29 +26,105 @@
 @media screen and (min-width: 748px) {
     .featured-collections__column__media {
         border-radius: var(--border-radius-large);
+        margin-bottom: var(--space-10);
     }
 }
 
+
+
+
+
+/*------------------------------------*/
+/* Column */
+/*------------------------------------*/
+
+
 .featured-collections__column  {
-    padding: var(--space-6);
     background-color: rgb(var(--color-background));
     color: rgb(var(--color-text));
 }
 
+
+.featured-collections__column__layout {
+    text-decoration: none;
+    position: relative;
+    padding: var(--space-6);
+    display: block;
+}
+
+
 @media screen and (min-width: 748px) {
-    .featured-collections__column  {
+    .featured-collections__column__layout  {
         padding: var(--space-11);
+        height: 100%; 
     }
 }
+
+
+
+
+
+/*------------------------------------*/
+/* Sticker */
+/*------------------------------------*/
 
 
 .featured-collections__column__sticker {
     position: absolute;
     left: 0; 
-    top: 0; 
+    bottom: 0; 
+    z-index: 1;
+    max-width: 3rem; 
+    width: 100%; 
+    aspect-ratio: 1/1; 
+    left: calc(-1 * var(--space-5));
+    bottom: calc(-1 * var(--space-4));
 }
+
+@media screen and (min-width: 748px) {
+    .featured-collections__column__sticker {
+        max-width: 6rem; 
+        left: calc(-1 * var(--space-6));
+        bottom: calc(-1 * var(--space-6));
+    }
+}
+
+
+
 
 
 .featured-collections__column__headline {
     color: rgb(var(--color-accent));
 }
+
+.featured-collections__column__eyebrow {
+    margin-bottom: var(--space-2);
+}
+
+
+@media screen and (min-width: 748px) {
+    .featured-collections__column__text-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end
+    }
+}
+
+.featured-collections__column__text {
+    flex-basis: min-content; 
+    max-width: 20rem; 
+}
+
+
+@media screen and (min-width: 748px) {
+    .featured-collections__column__button-wrapper {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        padding: inherit; 
+        padding-right: var(--space-10);
+        padding-bottom: var(--space-10);
+    }
+}
+
