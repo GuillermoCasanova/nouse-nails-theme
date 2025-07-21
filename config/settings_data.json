@@ -324,7 +324,7 @@
           "collection_wCCpKy": {
             "type": "collection",
             "settings": {
-              "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+              "color_scheme": "scheme-a1f75e04-1da9-4fbd-831b-96f4b8dc69e2",
               "collection": "frontpage",
               "headline": "Subscribe & Save",
               "button_text": "Shop Now",
@@ -1101,6 +1101,23 @@
           "color_button_secondary_border": "#6d0506",
           "color_accent": "#efbdfc",
           "colors_background_1": "#854418",
+          "colors_background_2": "#fbf8f4",
+          "colors_background_3": "#f5fbfe"
+        }
+      },
+      "scheme-a1f75e04-1da9-4fbd-831b-96f4b8dc69e2": {
+        "settings": {
+          "colors_text": "#faeee1",
+          "colors_text_2": "#854418",
+          "color_links": "#6d0506",
+          "color_button_primary_background": "#faeee1",
+          "color_button_primary_text": "#6d0506",
+          "color_button_primary_border": "#6d0506",
+          "color_button_secondary_background": "#6d0506",
+          "color_button_secondary_text": "#faeee1",
+          "color_button_secondary_border": "#6d0506",
+          "color_accent": "#efbdfc",
+          "colors_background_1": "#62130e",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
         }
