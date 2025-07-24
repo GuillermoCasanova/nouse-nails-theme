@@ -706,7 +706,7 @@
         "name": "Featured collection",
         "settings": {
           "title": "Featured collection",
-          "collection": "glow-spf-mist",
+          "collection": "new-arrivals",
           "grid": 3,
           "rows": 2,
           "show_vendor": false,
