@@ -1,41 +1,22 @@
 {{ 'image-with-text.css' | asset_url | stylesheet_tag }}
 
 <section class="image-with-text color-{{ section.settings.color_scheme }}">
-  <div class="image-with-text__container container-main padding-section-medium">
+  <div class="image-with-text__container container-main section-padding-small">
     <div class="image-with-text__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center">
-      <div class="image-with-text__media col-mlg-6 {% if section.settings.layout == 'right' %}order-mlg-2{% endif %}">
+      <div class="image-with-text__media-wrapper col-mlg-6 padding-medium {% if section.settings.layout == 'right' %}order-mlg-2{% endif %}">
         {% if section.settings.media_type == 'image' %}
           {% if section.settings.image != blank %}
-            {% capture img_id %}ImageWithText-{{ section.id }}{% endcapture %}
-            {% capture wrapper_id %}ImageWithTextWrapper-{{ section.id }}{% endcapture %}
-            {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-            <div id="{{ wrapper_id }}" class="image-with-text__media-wrapper">
-              <div
-                class="image-with-text__media-container"
-                style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;"
+            <div class="image-with-text__media">
+              <img
+                class="responsive-image"
+                src="{{ section.settings.image | img_url }}"
+                srcset="{{ section.settings.image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.image | img_url: '425x', scale: 2 }} 425w"
+                sizes="50vw"
+                alt="{{ section.settings.image.alt | escape }}"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
               >
-                <img
-                  id="{{ img_id }}"
-                  class="image-with-text__image lazyload"
-                  data-src="{{ img_url }}"
-                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                  data-sizes="auto"
-                  width="{{ section.settings.image.width }}"
-                  height="{{ section.settings.image.height }}"
-                  alt="{{ section.settings.image.alt | escape }}"
-                >
-              </div>
             </div>
-
-            <noscript>
-              {{
-                section.settings.image
-                | img_url: '600x600', scale: 2
-                | img_tag: section.settings.image.alt, 'image-with-text__image'
-              }}
-            </noscript>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
