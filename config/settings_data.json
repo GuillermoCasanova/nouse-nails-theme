@@ -599,7 +599,9 @@
       "feature_row_nNgUqr": {
         "type": "hae-image-with-text",
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "background-1",
+          "media_type": "image",
+          "video_url": "",
           "layout": "left",
           "title": "Professional Nails at home",
           "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous. It’s the Nous way of doing things.</p>",
@@ -706,7 +708,7 @@
         "type": "collection",
         "name": "Featured collection",
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
           "title": "Featured collection",
           "collection": "new-arrivals",
           "grid": 4,
@@ -904,6 +906,24 @@
           "color_button_secondary_border": "#6d0506",
           "color_accent": "#efbdfc",
           "colors_background_1": "#efbdfc",
+          "colors_background_2": "#fbf8f4",
+          "colors_background_3": "#f5fbfe"
+        }
+      },
+      "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778": {
+        "settings": {
+          "colors_text": "#6d0506",
+          "colors_text_2": "#6d0506",
+          "color_links": "#6d0506",
+          "color_button_primary_background": "#faeee1",
+          "color_button_primary_text": "#6d0506",
+          "color_button_primary_border": "#6d0506",
+          "color_button_primary_hover_background": "#7294a8",
+          "color_button_secondary_background": "#6d0506",
+          "color_button_secondary_text": "#faeee1",
+          "color_button_secondary_border": "#6d0506",
+          "color_accent": "#efbdfc",
+          "colors_background_1": "#fbf8f4",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
         }
