@@ -1,13 +1,13 @@
 {% comment %}
-    Renders a list of product's price (regular, sale, unit)
-    Accompanies product forms and meant to be updated dynamically
-    Accepts:
-    - variant: {Object} Variant Liquid object (optional)
-    - product: {Object} Product Liquid object (optional)
-    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+  Renders a list of product's price (regular, sale, unit)
+  Accompanies product forms and meant to be updated dynamically
+  Accepts:
+  - variant: {Object} Variant Liquid object (optional)
+  - product: {Object} Product Liquid object (optional)
+  - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
 
-    Usage:
-    {% include 'product-price', variant: current_variant, product: product %}
+  Usage:
+  {% include 'product-price', variant: current_variant, product: product %}
 {% endcomment %}
 {%- liquid
   if variant.title
@@ -23,13 +23,15 @@
   assign money_price = price | money_without_trailing_zeros
 -%}
 
-<dl class="price
-  {% if available == false %} price--sold-out {% endif %}
-  {% if compare_at_price > price %} price--on-sale {% endif %}
-  {% if variant.unit_price_measurement %} price--unit-available {% endif %}"
+<dl
+  class="
+    price
+    {% if available == false %} price--sold-out {% endif %}
+    {% if compare_at_price > price %} price--on-sale {% endif %}
+    {% if variant.unit_price_measurement %} price--unit-available {% endif %}
+  "
   data-price
 >
-
   {% if show_vendor and product %}
     <div class="price__vendor">
       <dt>
@@ -48,7 +50,7 @@
       - div.price__unit: Displayed when the first variant has a unit price
       - div.price__availability: Displayed when the product is sold out
   {%- endcomment -%}
-  <div class="price__pricing-group fs-24">
+  <div class="price__pricing-group">
     <div class="price__regular">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
@@ -105,7 +107,9 @@
         </span>
       {%- endcapture -%}
 
-      <span data-unit-price>{{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
+      <span data-unit-price>{{ variant.unit_price | money }}</span>
+      {{- unit_price_separator -}}
+      {{- unit_price_base_unit -}}
     </dd>
   </div>
 </dl>

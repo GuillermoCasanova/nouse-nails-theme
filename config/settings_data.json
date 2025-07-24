@@ -89,8 +89,8 @@
           "enable_language_selector": false
         }
       },
-      "feature-row": {
-        "type": "feature-row",
+      "hae-image-with-text": {
+        "type": "hae-image-with-text",
         "settings": {
           "layout": "left",
           "title": "Image with text",
@@ -597,7 +597,7 @@
         }
       },
       "feature_row_nNgUqr": {
-        "type": "feature-row",
+        "type": "hae-image-with-text",
         "settings": {
           "layout": "left",
           "title": "Image with text",
@@ -923,8 +923,8 @@
             "text_size": "large"
           }
         },
-        "feature-row": {
-          "type": "feature-row",
+        "hae-image-with-text": {
+          "type": "hae-image-with-text",
           "settings": {}
         },
         "feature-columns": {
@@ -1035,7 +1035,7 @@
       },
       "content_for_index": [
         "hero-1",
-        "feature-row",
+        "hae-image-with-text",
         "feature-columns",
         "collection",
         "hero-2",

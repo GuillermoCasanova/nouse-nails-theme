@@ -1,7 +1,5 @@
 /*------------------------------------*\
     #Product Card Grid
-    Styles for product cards in grid layouts
-    with square, responsive thumbnails
 \*------------------------------------*/
 
 .product-card-grid {
@@ -9,9 +7,7 @@
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease;
-  border-radius: var(--space-4);
   overflow: hidden;
-  padding: var(--space-4);
 }
 
 
@@ -20,7 +16,13 @@
 }
 
 
-/* Image container with square aspect ratio */
+
+
+
+/*------------------------------------*\
+    #Image 
+\*------------------------------------*/
+
 .product-card-grid__image-container {
   position: relative;
   width: 100%;
@@ -29,7 +31,6 @@
   margin-bottom: var(--space-4);
 }
 
-/* Image styling */
 .product-card-grid__image {
   position: absolute;
   top: 0;
@@ -39,7 +40,6 @@
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 
 
 /* Hover image (second image) */
@@ -58,7 +58,14 @@
   opacity: 1;
 }
 
-/* Content styling */
+
+
+
+
+/*------------------------------------*\
+    #Content
+\*------------------------------------*/
+
 .product-card-grid__content {
   display: flex;
   justify-content: space-between;
@@ -125,7 +132,13 @@
 }
 
 
-/* Sold out state */
+
+
+
+/*------------------------------------*\
+    #Sold Out
+\*------------------------------------*/
+
 .product-card-grid--sold-out .product-card-grid__image-container::after {
   content: 'Sold Out';
   position: absolute;
@@ -144,6 +157,16 @@
   filter: grayscale(100%);
   opacity: 0.6;
 }
+
+
+
+
+
+
+/*------------------------------------*\
+    #Judge Me App
+\*------------------------------------*/
+
 
 .jdgm-preview-badge .jdgm-star {
   color: rgb(var(--color-accent)) !important;

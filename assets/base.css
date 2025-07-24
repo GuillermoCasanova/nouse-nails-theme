@@ -1010,6 +1010,7 @@ button:hover,
 }
 
 @media (min-width: 960px) {
+  .col-mlg-3 { width: 33.3333%; }
   .col-mlg-4 { width: 33.3333%; }
   .col-mlg-6 { width: 50%; }
   .col-mlg-7 { width: 58.33%; }
@@ -1018,6 +1019,7 @@ button:hover,
 }
 
 @media (min-width: 1024px) {
+  .col-mlg-3 { width: 25%; }
   .col-lg-4 { width: 33.3333%; }
   .col-lg-6 { width: 50%; }
   .col-lg-7 { width: 58.33%; }
