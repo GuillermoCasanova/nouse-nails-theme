@@ -601,6 +601,7 @@
         "settings": {
           "color_scheme": "background-1",
           "media_type": "image",
+          "image": "shopify://shop_images/image.png",
           "video_url": "",
           "layout": "left",
           "title": "Professional Nails at home",
