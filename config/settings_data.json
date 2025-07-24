@@ -705,10 +705,11 @@
         "type": "collection",
         "name": "Featured collection",
         "settings": {
+          "color_scheme": "",
           "title": "Featured collection",
           "collection": "new-arrivals",
           "grid": 4,
-          "rows": 4,
+          "rows": 3,
           "show_vendor": false,
           "show_view_all": true
         }
