@@ -4,39 +4,53 @@
   <div class="image-with-text__container container-main padding-section-medium">
     <div class="image-with-text__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center">
       <div class="image-with-text__media col-mlg-6 {% if section.settings.layout == 'right' %}order-mlg-2{% endif %}">
-        {% if section.settings.image != blank %}
-          {% capture img_id %}ImageWithText-{{ section.id }}{% endcapture %}
-          {% capture wrapper_id %}ImageWithTextWrapper-{{ section.id }}{% endcapture %}
-          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {% if section.settings.media_type == 'image' %}
+          {% if section.settings.image != blank %}
+            {% capture img_id %}ImageWithText-{{ section.id }}{% endcapture %}
+            {% capture wrapper_id %}ImageWithTextWrapper-{{ section.id }}{% endcapture %}
+            {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-          <div id="{{ wrapper_id }}" class="image-with-text__media-wrapper">
-            <div
-              class="image-with-text__media-container"
-              style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;"
-            >
-              <img
-                id="{{ img_id }}"
-                class="image-with-text__image lazyload"
-                data-src="{{ img_url }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                data-sizes="auto"
-                width="{{ section.settings.image.width }}"
-                height="{{ section.settings.image.height }}"
-                alt="{{ section.settings.image.alt | escape }}"
+            <div id="{{ wrapper_id }}" class="image-with-text__media-wrapper">
+              <div
+                class="image-with-text__media-container"
+                style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;"
               >
+                <img
+                  id="{{ img_id }}"
+                  class="image-with-text__image lazyload"
+                  data-src="{{ img_url }}"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                  data-sizes="auto"
+                  width="{{ section.settings.image.width }}"
+                  height="{{ section.settings.image.height }}"
+                  alt="{{ section.settings.image.alt | escape }}"
+                >
+              </div>
             </div>
-          </div>
 
-          <noscript>
-            {{
-              section.settings.image
-              | img_url: '600x600', scale: 2
-              | img_tag: section.settings.image.alt, 'image-with-text__image'
-            }}
-          </noscript>
+            <noscript>
+              {{
+                section.settings.image
+                | img_url: '600x600', scale: 2
+                | img_tag: section.settings.image.alt, 'image-with-text__image'
+              }}
+            </noscript>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
         {% else %}
-          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          <video
+            class="responsive-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="{{ section.settings.video_poster | img_url }}"
+          >
+            <source src="{{ section.settings.video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         {% endif %}
       </div>
 
@@ -81,14 +95,41 @@
       "default": "background-1"
     },
     {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
       "type": "image_picker",
       "id": "image",
       "label": "Image"
     },
     {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "MP4 format required"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Video poster image"
+    },
+    {
       "type": "select",
       "id": "layout",
-      "label": "Image alignment",
+      "label": "Media alignment",
       "default": "left",
       "options": [
         {
