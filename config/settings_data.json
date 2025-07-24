@@ -700,6 +700,18 @@
           "blog_show_date": true,
           "show_view_all": false
         }
+      },
+      "collection_YjrU49": {
+        "type": "collection",
+        "name": "Featured collection",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "glow-spf-mist",
+          "grid": 3,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
       }
     },
     "content_for_index": [
@@ -711,7 +723,8 @@
       "quotes_QLWVBC",
       "featured_blog_WPc99D",
       "feature_columns_cex6VK",
-      "newsletter_qwtx4B"
+      "newsletter_qwtx4B",
+      "collection_YjrU49"
     ],
     "blocks": {
       "855628211100114053": {
