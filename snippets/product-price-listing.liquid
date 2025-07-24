@@ -1,13 +1,13 @@
 {% comment %}
-    Renders a list of product's price (regular, sale, unit)
-    Accompanies product listings (collection page, search result) and not updated dynamically
-    Accepts:
-    - variant: {Object} Variant Liquid object (optional)
-    - product: {Object} Product Liquid object (optional)
-    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+  Renders a list of product's price (regular, sale, unit)
+  Accompanies product listings (collection page, search result) and not updated dynamically
+  Accepts:
+  - variant: {Object} Variant Liquid object (optional)
+  - product: {Object} Product Liquid object (optional)
+  - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
 
-    Usage:
-    {% include 'product-price-listing', product: product %}
+  Usage:
+  {% include 'product-price-listing', product: product %}
 {% endcomment %}
 {%- liquid
   if product.title
@@ -24,11 +24,14 @@
   assign money_price = price | money_without_trailing_zeros
 -%}
 
-<dl class="price price--listing button-pill mt-16 flex-align-self-end button-with-price
-  {%- if available == false %} price--sold-out {% endif -%}
-  {%- if compare_at_price > price %} price--on-sale {% endif -%}
-  {%- if product.price_varies == false and product.compare_at_price_varies %} price--compare-price-hidden {% endif -%}
-  {%- if variant.unit_price_measurement %} price--unit-available {% endif -%}"
+<dl
+  class="
+    price price--listing button-pill  flex-align-self-end button-with-price
+    {%- if available == false %} price--sold-out {% endif -%}
+    {%- if compare_at_price > price %} price--on-sale {% endif -%}
+    {%- if product.price_varies == false and product.compare_at_price_varies %} price--compare-price-hidden {% endif -%}
+    {%- if variant.unit_price_measurement %} price--unit-available {% endif -%}
+  "
 >
   <span class="mr-4">Shop</span>
   {% if show_vendor and product %}
@@ -106,7 +109,9 @@
         </span>
       {%- endcapture -%}
 
-      <span>{{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
+      <span>{{ variant.unit_price | money }}</span>
+      {{- unit_price_separator -}}
+      {{- unit_price_base_unit -}}
     </dd>
   </div>
   <div class="price__badges price__badges--listing">

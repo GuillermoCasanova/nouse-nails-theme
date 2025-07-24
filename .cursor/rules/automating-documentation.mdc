@@ -18,3 +18,5 @@ Help draft documentation by:
 Extracting code comments
 Analyzing README.md
 Generating markdown documentation
+
+write CSS mobile-first and use the project's variables, semantics and css conventions

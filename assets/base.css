@@ -323,6 +323,7 @@ a {
 .container-large {
   max-width: var(--max-width-large);
   width: 100%;
+  margin: auto; 
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
@@ -330,6 +331,7 @@ a {
 .container-main {
   max-width: var(--max-width-medium);
   width: 100%;
+  margin: auto; 
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
@@ -337,6 +339,7 @@ a {
 .container-small {
   max-width: var(--max-width-small);
   width: 100%;
+  margin: auto; 
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
@@ -344,6 +347,7 @@ a {
 .container-x-small {
   max-width: var(--max-width-x-small);
   width: 100%; 
+  margin: auto; 
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }
