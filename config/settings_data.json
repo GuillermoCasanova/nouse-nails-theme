@@ -705,7 +705,7 @@
         "type": "collection",
         "name": "Featured collection",
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "background-1",
           "title": "Featured collection",
           "collection": "new-arrivals",
           "grid": 4,
