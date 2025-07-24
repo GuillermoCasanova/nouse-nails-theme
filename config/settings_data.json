@@ -707,10 +707,10 @@
         "settings": {
           "title": "Featured collection",
           "collection": "new-arrivals",
-          "grid": 3,
-          "rows": 2,
+          "grid": 4,
+          "rows": 4,
           "show_vendor": false,
-          "show_view_all": false
+          "show_view_all": true
         }
       }
     },
