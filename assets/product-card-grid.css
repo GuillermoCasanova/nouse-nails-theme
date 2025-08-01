@@ -12,6 +12,7 @@
 
 
 .product-card-grid__link {
+  position: relative;
   text-decoration: none;
 }
 
@@ -139,28 +140,40 @@
     #Sold Out
 \*------------------------------------*/
 
-.product-card-grid--sold-out .product-card-grid__image-container::after {
-  content: 'Sold Out';
+
+.product-card-grid__sold-out-badge {
+  display: none; 
+}
+.product-card-grid--sold-out .product-card-grid__sold-out-badge {
+  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(var(--color-text), 0.7);
-  color: rgb(var(--color-background));
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--space-1);
-  font-weight: 600;
-  z-index: 2;
+  right: var(--space-2);
+  left: auto;
+  top: var(--space-3);
+  z-index: 1;
+  width: 5.5rem;
+  height: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.product-card-grid--sold-out .product-card-grid__image {
-  filter: grayscale(100%);
-  opacity: 0.6;
+.product-card-grid__sold-out-badge__text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 4rem;
+  height: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  margin: auto;
+  line-height: 1;
 }
-
-
-
-
 
 
 /*------------------------------------*\

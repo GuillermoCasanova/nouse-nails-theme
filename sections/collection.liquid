@@ -31,7 +31,7 @@
     <ul class="collection-grid d-mlg-flex-row flex-wrap">
       {% for product in collection.products limit: product_limit %}
         <li class="collection-grid-item {{ grid_class }}">
-          {% include 'product-card-grid',
+          {% render 'product-card-grid',
             max_height: max_height,
             product: product,
             show_vendor: section.settings.show_vendor

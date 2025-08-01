@@ -259,6 +259,14 @@ h6 p {
   line-height: var(--text-line-height);
 }
 
+.text-size-tiny {
+  font-family: var(--text-font-family);
+  font-weight: 400;
+  font-size: var(--text-size-tiny);
+  letter-spacing: var(--text-letter-spacing);
+  line-height: var(--text-line-height);
+}
+
 h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
   margin-bottom: 0; 
 }
@@ -784,7 +792,7 @@ button:hover,
   padding: var(--space-3);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
- font-size: var(--text-size-x-small);
+ font-size: var(--text-size-tiny);
 }
 
 .button--medium {
