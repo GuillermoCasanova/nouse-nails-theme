@@ -717,6 +717,46 @@
           "show_vendor": false,
           "show_view_all": true
         }
+      },
+      "instagram_slideshow_TcQky6": {
+        "type": "instagram-slideshow",
+        "blocks": {
+          "image_FPYfp8": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/other-natural-4.jpg",
+              "caption": ""
+            }
+          },
+          "image_64wnUC": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/false-nails-natural-5-middle.jpg",
+              "caption": ""
+            }
+          },
+          "image_rTrCp4": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/false-nails-natural-3-middle.jpg",
+              "caption": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_FPYfp8",
+          "image_64wnUC",
+          "image_rTrCp4"
+        ],
+        "name": "Instagram Slideshow",
+        "settings": {
+          "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+          "title": "Stick. Cure. Slay.",
+          "subtitle": "",
+          "slides_to_show": 4,
+          "autoplay": true,
+          "autoplay_speed": 5
+        }
       }
     },
     "content_for_index": [
@@ -725,6 +765,7 @@
       "1606088182cf23b23a",
       "collection_YjrU49",
       "feature_row_nNgUqr",
+      "instagram_slideshow_TcQky6",
       "1606088197e736fabb",
       "quotes_QLWVBC",
       "featured_blog_WPc99D",
