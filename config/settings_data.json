@@ -623,13 +623,45 @@
               "text": "3 easy steps – apply, cure, buff.",
               "text_size": "text-size-large"
             }
+          },
+          "text_with_icon_crywC8": {
+            "type": "text_with_icon",
+            "settings": {
+              "text": "Non Toxic",
+              "text_size": "text-size-large"
+            }
+          },
+          "text_with_icon_iq3WXG": {
+            "type": "text_with_icon",
+            "settings": {
+              "text": "Lasts 14 Days",
+              "text_size": "text-size-large"
+            }
+          },
+          "text_with_icon_p4GFwP": {
+            "type": "text_with_icon",
+            "settings": {
+              "text": "No nail damage",
+              "text_size": "text-size-large"
+            }
+          },
+          "text_with_icon_DFiWLa": {
+            "type": "text_with_icon",
+            "settings": {
+              "text": "Easy removal",
+              "text_size": "text-size-large"
+            }
           }
         },
         "block_order": [
           "text_cqJXU9",
           "heading_fAAqwm",
           "text_d77ywb",
-          "text_with_icon_EAXUTn"
+          "text_with_icon_EAXUTn",
+          "text_with_icon_crywC8",
+          "text_with_icon_iq3WXG",
+          "text_with_icon_p4GFwP",
+          "text_with_icon_DFiWLa"
         ],
         "settings": {
           "color_scheme": "background-1",
