@@ -713,7 +713,7 @@
           "title": "Featured collection",
           "collection": "new-arrivals",
           "grid": 4,
-          "rows": 3,
+          "rows": 2,
           "show_vendor": false,
           "show_view_all": true
         }
