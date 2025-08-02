@@ -13,7 +13,7 @@
   <a href="{{ product.url | within: collection }}" class="product-card-grid__link">
     {% unless product.available %}
       <span class="product-card-grid__sold-out-badge">
-        <span class="product-card-grid__sold-out-badge__text text-size-tiny">
+        <span class="product-card-grid__sold-out-badge__text">
           {{- 'products.product.sold_out' | t -}}
         </span>
         <svg xmlns="http://www.w3.org/2000/svg" width="98" height="109" viewBox="0 0 98 109" fill="none">
@@ -59,25 +59,21 @@
           {{ product.title }}
         </h2>
 
-        {% if show_vendor and product.vendor %}
-          <p class="product-card-grid__vendor">{{ product.vendor }}</p>
-        {% endif %}
-
         <div class="product-card-grid__price-wrapper">
           {% render 'product-price-listing', product: product, show_vendor: show_vendor %}
-        </div>
-      </div>
 
-      <!-- Rating section -->
-      <div class="product-card-grid__rating">
-        <!-- Start of Judge.me code -->
-        <div
-          style="{{ jm_style }}"
-          class="jdgm-widget jdgm-preview-badge"
-          data-id="{{ product.id }}"
-          data-auto-install="false"
-        >
-          {{ product.metafields.judgeme.badge }}
+          <!-- Rating section -->
+          <div class="product-card-grid__rating">
+            <!-- Start of Judge.me code -->
+            <div
+              style="{{ jm_style }}"
+              class="jdgm-widget jdgm-preview-badge"
+              data-id="{{ product.id }}"
+              data-auto-install="false"
+            >
+              {{ product.metafields.judgeme.badge }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

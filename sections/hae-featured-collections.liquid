@@ -2,10 +2,10 @@
 
 <section class="featured-collections">
   <h2 class="visually-hidden">Featured Collections</h2>
-  <div class="featured-collections__layout d-mlg-flex-row">
+  <div class="featured-collections__layout grid grid-2 grid-gap-0">
     {% for block in section.blocks %}
       <div
-        class="featured-collections__column col-mlg-6 color-{{ block.settings.color_scheme }}"
+        class="featured-collections__column color-{{ block.settings.color_scheme }}"
       >
         <a
           class="featured-collections__column__layout section-padding-small"

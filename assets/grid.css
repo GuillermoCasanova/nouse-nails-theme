@@ -1,0 +1,107 @@
+/*------------------------------------*\
+    #Grid
+\*------------------------------------*/
+
+
+/* Grid System - 12 columns */
+.grid {
+  display: grid;
+}
+
+/* Basic 12 column layout */
+.grid-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(2,  minmax(0, 1fr));
+}
+
+@media screen and (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .grid-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}   
+
+
+/* Column spans */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Responsive grid layouts */
+@media (max-width: 768px) {
+  .grid-md-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .col-md-1 { grid-column: span 1; }
+  .col-md-2 { grid-column: span 2; }
+  .col-md-3 { grid-column: span 3; }
+  .col-md-4 { grid-column: span 4; }
+  .col-md-5 { grid-column: span 5; }
+  .col-md-6 { grid-column: span 6; }
+}
+
+@media (max-width: 480px) {
+  .grid-sm-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .col-sm-1 { grid-column: span 1; }
+  .col-sm-2 { grid-column: span 2; }
+  .col-sm-3 { grid-column: span 3; }
+}
+
+/* Grid alignment */
+.grid-center {
+  justify-items: center;
+  align-items: center;
+}
+
+.grid-start {
+  justify-items: start;
+  align-items: start;
+}
+
+.grid-end {
+  justify-items: end;
+  align-items: end;
+}
+
+/* Grid gaps */
+.grid-gap-sm { gap: var(--space-2); }
+.grid-gap-md { gap: var(--space-4); }
+.grid-gap-lg { gap: var(--space-6); }
+.grid-gap-0 { gap: 0; }

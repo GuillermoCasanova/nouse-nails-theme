@@ -158,9 +158,9 @@
     --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
     --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
 
-    --primary-font-family: "Mabry", sans-serif;
-    --secondary-font-family: "Mabry", serif;
-    --tertiary-font-family: "Mabry", sans-serif;
+    --primary-font-family: "Mabry-Medium", sans-serif;
+    --secondary-font-family: "Mabry-Regular", serif;
+    --tertiary-font-family: "Mabry-Bold", sans-serif;
     --font-weight-regular: 600;
     --font-weight-bold: 800;
     --letter-spacing-1: 1.5px;
@@ -236,8 +236,8 @@
     /*--Mobile: 20px (1.25rem) → Desktop: 25px (1.56rem)--*/
     --headline-size-h4: clamp(1.25 * 1rem, ((1.25 - ((1.5625 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.5625 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 1.5625 * 1rem);
 
-    /*--Mobile: 18px (1.13rem) → Desktop: 20px (1.25rem)--*/
-    --headline-size-h5: clamp(1.125 * 1rem, ((1.125 - ((1.25 - 1.125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.25 - 1.125) / (var(--site--max) - var(--site--min))) * 100vw), 1.25 * 1rem);
+    /*--Mobile: 18px (1.13rem) → Desktop: 22px (1.25rem)--*/
+    --headline-size-h5: clamp(1.125 * 1rem, ((1.125 - ((1.375 - 1.125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.375 - 1.125) / (var(--site--max) - var(--site--min))) * 100vw), 1.375 * 1rem);
 
     /*--Mobile: 16px (1.00rem) → Desktop: 18px (1.13rem)--*/
     --headline-size-h6:  clamp(1 * 1rem, ((1 - ((1.125 - 1) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.125 - 1) / (var(--site--max) - var(--site--min))) * 100vw), 1.125 * 1rem);
@@ -246,10 +246,10 @@
     /* Text sizes */
 
     /*--Mobile: 14px (1.00rem) → Desktop: 14px (1.00rem)--*/
-    --text-size-tiny: clamp(0.875 * 1rem, ((0.875 - ((1 - 0.875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.875) / (var(--site--max) - var(--site--min))) * 100vw), .875 * 1rem);
+    --text-size-tiny: clamp(0.7 * 1rem, ((0.7 - ((0.875 - 0.7) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.875 - 0.7) / (var(--site--max) - var(--site--min))) * 100vw), 0.875 * 1rem);
 
     /*--Mobile: 16px (1.00rem) → Desktop: 16px (1.00rem)--*/
-    --text-size-small: clamp(1 * 1rem, ((1 - ((1 - 1) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 1) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem);
+    --text-size-small: clamp(0.875 * 1rem, ((0.875 - ((1 - 0.875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.875) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem)
 
     /*--Mobile: 18px (1.13rem) → Desktop: 18px (1.13rem)--*/
     --text-size-main: clamp(1.125 * 1rem, ((1.125 - ((1.125 - 1.125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.125 - 1.125) / (var(--site--max) - var(--site--min))) * 100vw), 1.125 * 1rem);
