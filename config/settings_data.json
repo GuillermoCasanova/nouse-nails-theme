@@ -607,7 +607,7 @@
             "type": "text",
             "settings": {
               "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
-              "text_size": "text-style-body-lg"
+              "text_size": "text-size-large"
             }
           },
           "button_h9iJFg": {
