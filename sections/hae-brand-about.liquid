@@ -18,10 +18,10 @@
     </div>
   </div>
 
-  <div class="brand-about__callouts d-mlg-flex-row">
+  <div class="brand-about__callouts grid grid-3">
     {%- for block in section.blocks -%}
       <div
-        class="brand-about__callout col-mlg-4 color-{{ block.settings.color_scheme }}"
+        class="brand-about__callout color-{{ block.settings.color_scheme }}"
         {{ block.shopify_attributes }}
       >
         <div class="brand-about__callout__content">
@@ -37,7 +37,7 @@
             </div>
           {% endif %}
 
-          <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
+          <h3 class="brand-about__callout-heading headline-style-h5">{{ block.settings.callout_header }}</h3>
           <p class="brand-about__callout-text text-size-main">{{ block.settings.callout_text }}</p>
         </div>
       </div>
