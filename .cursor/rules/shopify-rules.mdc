@@ -29,6 +29,8 @@ Use TypeScript for better type safety in complex themes
 
 CSS/SCSS:
 
+Always check base.css first before creating new utility / base classes
+
 Use BEM methodology for class naming and provided example as base. 5 breaks before comments that split up sections.
 Implement CSS custom properties for theming
 Follow mobile-first responsive design

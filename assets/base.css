@@ -89,6 +89,10 @@ summary::before {
   object-fit: cover;
 }
 
+p, ul, li {
+  font-size: inherit;
+}
+
 /*------------------------------------*\
     #Animations
 \*------------------------------------*/
@@ -305,7 +309,6 @@ body {
 p {
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  font-size: inherit;
 }
 
 .screen-readers-only {
