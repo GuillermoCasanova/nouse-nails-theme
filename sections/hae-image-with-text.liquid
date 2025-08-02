@@ -3,7 +3,7 @@
 <section class="image-with-text color-{{ section.settings.color_scheme }}">
   <div class="image-with-text__container container-main section-padding-small">
     <div class="image-with-text__content grid grid-2 grid-gap-lg">
-      <div class="image-with-text__media-wrapper  padding-medium">
+      <div class="image-with-text__media-wrapper">
         {% if section.settings.media_type == 'image' %}
           {% if section.settings.image != blank %}
             <div class="image-with-text__media">
@@ -31,25 +31,24 @@
         {% endif %}
       </div>
       <div class="image-with-text__text">
-        {% if section.settings.title != blank %}
-          <h2 class="image-with-text__heading headline-style-h2">{{ section.settings.title | escape }}</h2>
-        {% endif %}
-
-        {% if section.settings.text != blank %}
-          <div class="image-with-text__description mt-16">{{ section.settings.text }}</div>
-        {% endif %}
-
-        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-          <div class="image-with-text__button-wrapper mt-40">
-            <a
-              href="{{ section.settings.button_link }}"
-              class="button button--primary button--medium"
-              aria-label="{{ section.settings.button_label | escape }}"
-            >
-              {{- section.settings.button_label | escape -}}
-            </a>
-          </div>
-        {% endif %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'heading' %}
+              <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading | escape }}</h2>
+            {% when 'text' %}
+              <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+            {% when 'button' %}
+              <div class="image-with-text__button-wrapper">
+                <a
+                  href="{{ block.settings.button_link }}"
+                  class="button {{ block.settings.button_size }}"
+                  aria-label="{{ block.settings.button_label | escape }}"
+                >
+                  {{- block.settings.button_label | escape -}}
+                </a>
+              </div>
+          {% endcase %}
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -145,34 +144,130 @@
           "label": "Right"
         }
       ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Image with text"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "headline-style-h1",
+              "label": "H1"
+            },
+            {
+              "value": "headline-style-h2",
+              "label": "H2"
+            },
+            {
+              "value": "headline-style-h3",
+              "label": "H3"
+            },
+            {
+              "value": "headline-style-h4",
+              "label": "H4"
+            }
+          ],
+          "default": "headline-style-h2"
+        }
+      ]
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Image with text"
+      "name": "Rich text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "text-style-body-sm",
+              "label": "Small"
+            },
+            {
+              "value": "text-style-body",
+              "label": "Regular"
+            },
+            {
+              "value": "text-style-body-lg",
+              "label": "Large"
+            }
+          ],
+          "default": "text-style-body"
+        }
+      ]
     },
     {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text",
-      "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button label"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button link"
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "label": "Button size",
+          "options": [
+            {
+              "value": "button--small",
+              "label": "Small"
+            },
+            {
+              "value": "button--medium",
+              "label": "Medium"
+            },
+            {
+              "value": "button--large",
+              "label": "Large"
+            }
+          ],
+          "default": "button--medium"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "Image with text",
-      "category": "Image"
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
     }
   ]
 }
