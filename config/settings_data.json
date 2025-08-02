@@ -777,7 +777,7 @@
         "name": "Featured collection",
         "settings": {
           "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
-          "title": "Featured collection",
+          "title": "New Arrivals",
           "collection": "new-arrivals",
           "grid": 4,
           "rows": 2,
@@ -787,34 +787,6 @@
       },
       "instagram_slideshow_TcQky6": {
         "type": "instagram-slideshow",
-        "blocks": {
-          "image_FPYfp8": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/other-natural-4.jpg",
-              "caption": ""
-            }
-          },
-          "image_64wnUC": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/false-nails-natural-5-middle.jpg",
-              "caption": ""
-            }
-          },
-          "image_rTrCp4": {
-            "type": "image",
-            "settings": {
-              "image": "shopify://shop_images/false-nails-natural-3-middle.jpg",
-              "caption": ""
-            }
-          }
-        },
-        "block_order": [
-          "image_FPYfp8",
-          "image_64wnUC",
-          "image_rTrCp4"
-        ],
         "name": "Instagram Slideshow",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
