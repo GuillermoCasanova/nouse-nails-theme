@@ -170,13 +170,15 @@
     --line-height-normal: 1.25;
     --line-height-double: 1.5;
     --site--min: 20;
-    --site--max: 90;
+    --site--max: 110;
     --headline-font-family: var(--primary-font-family);
     --headline-line-height: 1.1;
     --headline-font-weight: 500;
     --text-font-family: var(--primary-font-family);
     --text-letter-spacing: 0;
     --text-line-height: 1.25;
+    --text-large-line-height: 1;
+
 
     /*Border Radius*/
     --border-radius-small: .75rem;
@@ -193,9 +195,9 @@
     --space-7: clamp(1.75 * 1rem, ((1.75 - ((2.25 - 1.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.25 - 1.75) / (var(--site--max) - var(--site--min))) * 100vw), 2.25 * 1rem);
     --space-8: clamp(2 * 1rem, ((2 - ((2.5 - 2) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.5 - 2) / (var(--site--max) - var(--site--min))) * 100vw), 2.5 * 1rem);
     --space-9: clamp(2.5 * 1rem, ((2.5 - ((3 - 2.5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3 - 2.5) / (var(--site--max) - var(--site--min))) * 100vw), 3 * 1rem);
-    --space-10: clamp(3 * 1rem, ((3 - ((3.5 - 3) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.5 - 3) / (var(--site--max) - var(--site--min))) * 100vw), 3.5 * 1rem);
-    --space-11: clamp(3.75 * 1rem, ((3.75 - ((4 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 3.75 * 1rem);
-    --space-12: clamp(5.5 * 1rem, ((5.5 - ((10 - 5.5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((10 - 5.5) / (var(--site--max) - var(--site--min))) * 100vw), 10 * 1rem);
+    --space-10: clamp(3.75 * 1rem, ((3.75 - ((5 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 5 * 1rem);
+    --space-11: clamp(4 * 1rem, ((3.75 - ((4 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 4 * 1rem);
+    --space-12: clamp(5 * 1rem, ((5 - ((7 - 5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((7 - 5) / (var(--site--max) - var(--site--min))) * 100vw), 7 * 1rem);
 
     --section-padding-x-small: clamp(1.5 * 1rem, ((1.5 - ((2.5 - 1.5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.5 - 1.5) / (var(--site--max) - var(--site--min))) * 100vw), 2.5 * 1rem);
     --section-padding-small: clamp(3 * 1rem, ((3 - ((5 - 3) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5 - 3) / (var(--site--max) - var(--site--min))) * 100vw), 5 * 1rem);
@@ -204,7 +206,7 @@
 
     --padding-x-small: clamp(0.4 * 1rem, ((0.4 - ((0.75 - 0.4) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.75 - 0.4) / (var(--site--max) - var(--site--min))) * 100vw), 0.75 * 1rem);
     --padding-small: clamp(0.6 * 1rem, ((0.6 - ((1 - 0.6) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.6) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem);
-    --padding-main: clamp(1 * 1rem, ((1 - ((2 - 1) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2 - 1) / (var(--site--max) - var(--site--min))) * 100vw), 2 * 1rem);
+    --padding-main: clamp(1.5625 * 1rem, ((1.5625 - ((3.4375 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.4375 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 3.4375 * 1rem);
     --padding-large: clamp(1.25 * 1rem, ((1.25 - ((3 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 3 * 1rem);
 
 
@@ -261,9 +263,8 @@
     /*--Mobile: 20px (1.25rem) → Desktop: 25px (1.56rem)--*/
     --text-size-large:  clamp(1.25 * 1rem, ((1.25 - ((1.5625 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.5625 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 1.5625 * 1rem);
 
-    /*--Mobile: 25px (1.56rem) → Desktop: 30px (2.19rem)--*/
-    --text-size-x-large: clamp(1.5625 * 1rem, ((1.5625 - ((1.875 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.875 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 1.875 * 1rem);
-
+    /*--Mobile: 20px (1.56rem) → Desktop: 30px (2.19rem)--*/
+    --text-size-x-large: clamp(1.25 * 1rem, ((1.25 - ((1.875 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.875 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 1.875 * 1rem);
 
     /*--Mobile: 25px (1.56rem) → Desktop: 35px (2.19rem)--*/
     --text-size-xx-large:  clamp(1.5625 * 1rem, ((1.5625 - ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 2.1875 * 1rem);

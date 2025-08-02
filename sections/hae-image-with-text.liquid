@@ -34,21 +34,26 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'eyebrow' %}
-              <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+              <div class="text-eyebrow {{ block.settings.text_size }}">{{ block.settings.text }}</div>
             {% when 'heading' %}
               <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading | escape }}</h2>
             {% when 'text' %}
               <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
             {% when 'text_with_icon' %}
-              <div class="image-with-text__text-icon">
+              <div class="text-with-icon">
                 {% if block.settings.icon != blank %}
-                  <img
-                    src="{{ block.settings.icon | img_url: '50x' }}"
-                    alt="{{ block.settings.icon.alt | escape }}"
-                    class="image-with-text__icon"
-                  >
+                  <div class="text-with-icon_icon icon-medium icon">
+                    <img
+                      src="{{ block.settings.icon | img_url: '50x' }}"
+                      alt="{{ block.settings.icon.alt | escape }}"
+                      class="image-with-text__icon"
+                      width="24"
+                      height="24"
+                      loading="lazy"
+                    >
+                  </div>
                 {% endif %}
-                <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+                <div class="text-with-icon_text {{ block.settings.text_size }}">{{ block.settings.text }}</div>
               </div>
             {% when 'button' %}
               <div class="image-with-text__button-wrapper">
@@ -182,6 +187,18 @@
             {
               "value": "text-size-medium",
               "label": "Regular"
+            },
+            {
+              "value": "text-size-large",
+              "label": "Large"
+            },
+            {
+              "value": "text-size-x-large",
+              "label": "X-Large"
+            },
+            {
+              "value": "text-size-xx-large",
+              "label": "XX-Large"
             }
           ],
           "default": "text-size-small"
@@ -295,6 +312,14 @@
             {
               "value": "text-size-large",
               "label": "Large"
+            },
+            {
+              "value": "text-size-x-large",
+              "label": "X-Large"
+            },
+            {
+              "value": "text-size-xx-large",
+              "label": "XX-Large"
             }
           ],
           "default": "text-size-medium"
