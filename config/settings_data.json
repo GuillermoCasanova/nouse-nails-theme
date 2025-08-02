@@ -713,7 +713,7 @@
           "title": "Featured collection",
           "collection": "new-arrivals",
           "grid": 4,
-          "rows": 3,
+          "rows": 2,
           "show_vendor": false,
           "show_view_all": true
         }
@@ -964,7 +964,7 @@
           "color_button_secondary_background": "#6d0506",
           "color_button_secondary_text": "#faeee1",
           "color_button_secondary_border": "#6d0506",
-          "color_accent": "#efbdfc",
+          "color_accent": "#ff6100",
           "colors_background_1": "#fbf8f4",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
