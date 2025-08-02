@@ -792,12 +792,20 @@
             "type": "slide",
             "settings": {
               "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
-              "product": ""
+              "product": "15-wellesley"
+            }
+          },
+          "slide_8FFdhN": {
+            "type": "slide",
+            "settings": {
+              "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
+              "product": "blue-algae-spf-dew-mist"
             }
           }
         },
         "block_order": [
-          "slide_tKAU3H"
+          "slide_tKAU3H",
+          "slide_8FFdhN"
         ],
         "name": "Instagram Slideshow",
         "settings": {
