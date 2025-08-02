@@ -33,10 +33,23 @@
       <div class="image-with-text__text">
         {% for block in section.blocks %}
           {% case block.type %}
+            {% when 'eyebrow' %}
+              <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
             {% when 'heading' %}
               <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading | escape }}</h2>
             {% when 'text' %}
               <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+            {% when 'text_with_icon' %}
+              <div class="image-with-text__text-icon">
+                {% if block.settings.icon != blank %}
+                  <img
+                    src="{{ block.settings.icon | img_url: '50x' }}"
+                    alt="{{ block.settings.icon.alt | escape }}"
+                    class="image-with-text__icon"
+                  >
+                {% endif %}
+                <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+              </div>
             {% when 'button' %}
               <div class="image-with-text__button-wrapper">
                 <a
@@ -148,6 +161,34 @@
   ],
   "blocks": [
     {
+      "type": "eyebrow",
+      "name": "Eyebrow Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Eyebrow text"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "text-size-small",
+              "label": "Small"
+            },
+            {
+              "value": "text-size-medium",
+              "label": "Regular"
+            }
+          ],
+          "default": "text-size-small"
+        }
+      ]
+    },
+    {
       "type": "heading",
       "name": "Heading",
       "settings": [
@@ -217,6 +258,43 @@
             {
               "value": "text-size-xx-large",
               "label": "XX-Large"
+            }
+          ],
+          "default": "text-size-medium"
+        }
+      ]
+    },
+    {
+      "type": "text_with_icon",
+      "name": "Text with Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Text with icon"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text size",
+          "options": [
+            {
+              "value": "text-size-small",
+              "label": "Small"
+            },
+            {
+              "value": "text-size-medium",
+              "label": "Regular"
+            },
+            {
+              "value": "text-size-large",
+              "label": "Large"
             }
           ],
           "default": "text-size-medium"
