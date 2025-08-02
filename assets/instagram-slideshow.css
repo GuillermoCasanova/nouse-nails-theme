@@ -251,38 +251,3 @@
   color: rgba(var(--color-text), 0.6);
 }
 
-/*------------------------------------*\
-    #Responsive
-\*------------------------------------*/
-
-@media (min-width: 768px) {
-  .instagram-slideshow__slide {
-    padding: 0 var(--space-4);
-  }
-  
-  .instagram-slideshow__nav-button {
-    width: 56px;
-    height: 56px;
-  }
-  
-  .instagram-slideshow__nav-button svg {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .instagram-slideshow__slide {
-    padding: 0 var(--space-6);
-  }
-  
-  .instagram-slideshow__nav-button {
-    width: 64px;
-    height: 64px;
-  }
-  
-  .instagram-slideshow__nav-button svg {
-    width: 28px;
-    height: 28px;
-  }
-} 
