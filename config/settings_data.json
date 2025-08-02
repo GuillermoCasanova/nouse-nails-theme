@@ -809,12 +809,20 @@
               "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
               "product": "2"
             }
+          },
+          "slide_AMcXKr": {
+            "type": "slide",
+            "settings": {
+              "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
+              "product": "blue-algae-spf-dew-mist"
+            }
           }
         },
         "block_order": [
           "slide_tKAU3H",
           "slide_8FFdhN",
-          "slide_dVekCU"
+          "slide_dVekCU",
+          "slide_AMcXKr"
         ],
         "name": "Instagram Slideshow",
         "settings": {
