@@ -596,11 +596,11 @@
       "feature_row_nNgUqr": {
         "type": "hae-image-with-text",
         "blocks": {
-          "text_cqJXU9": {
-            "type": "text",
+          "eyebrow_LbaFPY": {
+            "type": "eyebrow",
             "settings": {
-              "text": "<p>The Nous Way</p>",
-              "text_size": "text-size-large"
+              "text": "The Nous Way",
+              "text_size": "text-size-medium"
             }
           },
           "heading_fAAqwm": {
@@ -654,7 +654,7 @@
           }
         },
         "block_order": [
-          "text_cqJXU9",
+          "eyebrow_LbaFPY",
           "heading_fAAqwm",
           "text_d77ywb",
           "text_with_icon_EAXUTn",
