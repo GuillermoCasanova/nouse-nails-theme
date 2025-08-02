@@ -2,20 +2,16 @@
 
 <section class="image-with-text color-{{ section.settings.color_scheme }}">
   <div class="image-with-text__container container-main section-padding-small">
-    <div class="image-with-text__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center">
-      <div class="image-with-text__media-wrapper col-mlg-6 padding-medium {% if section.settings.layout == 'right' %}order-mlg-2{% endif %}">
+    <div class="image-with-text__content grid grid-2 grid-gap-lg">
+      <div class="image-with-text__media-wrapper  padding-medium">
         {% if section.settings.media_type == 'image' %}
           {% if section.settings.image != blank %}
             <div class="image-with-text__media">
-              <img
-                class="responsive-image"
-                src="{{ section.settings.image | img_url }}"
-                srcset="{{ section.settings.image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.image | img_url: '425x', scale: 2 }} 425w"
-                sizes="50vw"
-                alt="{{ section.settings.image.alt | escape }}"
-                width="{{ section.settings.image.width }}"
-                height="{{ section.settings.image.height }}"
-              >
+              {% render 'image-with-aspect-ratio',
+                image: section.settings.image,
+                aspect_ratio: section.settings.media_aspect_ratio,
+                alt: product.title
+              %}
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -34,8 +30,7 @@
           </video>
         {% endif %}
       </div>
-
-      <div class="image-with-text__text col-mlg-6 {% if section.settings.layout == 'right' %}order-mlg-1{% endif %}">
+      <div class="image-with-text__text">
         {% if section.settings.title != blank %}
           <h2 class="image-with-text__heading headline-style-h2">{{ section.settings.title | escape }}</h2>
         {% endif %}
@@ -90,6 +85,34 @@
         }
       ],
       "default": "image"
+    },
+    {
+      "type": "select",
+      "id": "media_aspect_ratio",
+      "label": "Media aspect ratio",
+      "options": [
+        {
+          "value": "16/9",
+          "label": "16:9 (Landscape)"
+        },
+        {
+          "value": "4/3",
+          "label": "4:3 (Portrait)"
+        },
+        {
+          "value": "1/1",
+          "label": "1:1 (Square)"
+        },
+        {
+          "value": "1/.8",
+          "label": "1:0.8 (Shorter Square)"
+        },
+        {
+          "value": "3/4",
+          "label": "3:4 (Portrait)"
+        }
+      ],
+      "default": "1/1"
     },
     {
       "type": "image_picker",

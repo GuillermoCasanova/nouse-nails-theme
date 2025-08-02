@@ -1,0 +1,95 @@
+{% comment %}
+  Renders an image with a configurable aspect ratio
+  Accepts:
+  - image: {Object} Image object
+  - aspect_ratio: {String} Aspect ratio (e.g., '16/9', '4/3', '1/1', '3/4')
+  - alt: {String} Alt text for the image
+  - class: {String} Additional CSS classes
+  - loading: {String} Loading attribute ('lazy', 'eager', 'auto')
+  - sizes: {String} Sizes attribute for responsive images
+  - placeholder: {Boolean} Show placeholder if no image
+
+  Usage:
+  {% render 'image-with-aspect-ratio',
+    image: product.featured_image,
+    aspect_ratio: '4/3',
+    alt: product.title,
+    class: 'product-image'
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign aspect_ratio = aspect_ratio | default: '16/9'
+  assign loading = loading | default: 'lazy'
+  assign class = class | default: ''
+  assign sizes = sizes | default: '(min-width: 768px) 50vw, 100vw'
+
+  # Calculate aspect ratio percentage
+  assign ratio_parts = aspect_ratio | split: '/'
+  assign width = ratio_parts[0] | plus: 0
+  assign height = ratio_parts[1] | plus: 0
+-%}
+
+<div class="image-with-aspect-ratio {{ class }}" style="--aspect-ratio: {{ aspect_ratio }};">
+  {%- if image -%}
+    <img
+      src="{{ image | image_url: width: 800 }}"
+      srcset="
+        {{ image | image_url: width: 400 }} 400w,
+        {{ image | image_url: width: 600 }} 600w,
+        {{ image | image_url: width: 800 }} 800w,
+        {{ image | image_url: width: 1200 }} 1200w
+      "
+      sizes="{{ sizes }}"
+      alt="{{ alt | default: image.alt | escape }}"
+      loading="{{ loading }}"
+      width="{{ image.width }}"
+      height="{{ image.height }}"
+      class="image-with-aspect-ratio__image"
+    >
+  {%- else -%}
+    <div class="image-with-aspect-ratio__placeholder">
+      {%- if placeholder != false -%}
+        <svg class="placeholder-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" fill="#f4f4f4"/>
+          <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#999" font-size="16">Image</text>
+        </svg>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  .image-with-aspect-ratio {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--aspect-ratio);
+  }
+
+  .image-with-aspect-ratio__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .image-with-aspect-ratio__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .image-with-aspect-ratio__placeholder .placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>

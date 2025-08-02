@@ -21,7 +21,7 @@
   .grid-2 {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
     .grid-3 {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -106,3 +106,10 @@
 .grid-gap-md { gap: var(--space-4); }
 .grid-gap-lg { gap: var(--space-6); }
 .grid-gap-0 { gap: 0; }
+
+
+@media screen and (min-width: 768px) {
+  .grid-gap-md { gap: var(--space-8); }
+  .grid-gap-lg { gap: var(--space-10); }
+
+}
