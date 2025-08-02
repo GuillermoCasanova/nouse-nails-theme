@@ -223,6 +223,14 @@ h6 p {
   margin-bottom: var(--space-4);
 }
 
+.text-size-xx-large {
+  font-family: var(--text-font-family);
+  font-weight: 400;
+  font-size: var(--text-size-xx-large); 
+  letter-spacing: var(--text-letter-spacing);
+  line-height: var(--text-line-height);
+}
+
 .text-size-x-large {
   font-family: var(--text-font-family);
   font-weight: 400;
