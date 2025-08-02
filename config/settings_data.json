@@ -644,6 +644,7 @@
           "text_with_icon_p4GFwP": {
             "type": "text_with_icon",
             "settings": {
+              "icon": "shopify://shop_images/0ee9af4c0a5b1a829cf3abacf1cf0a0d.svg",
               "text": "No nail damage",
               "text_size": "text-size-large"
             }
@@ -651,6 +652,7 @@
           "text_with_icon_DFiWLa": {
             "type": "text_with_icon",
             "settings": {
+              "icon": "shopify://shop_images/52e95258835c6343d583074b3a79ba14.svg",
               "text": "Easy removal",
               "text_size": "text-size-large"
             }
