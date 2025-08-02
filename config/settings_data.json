@@ -617,12 +617,11 @@
               "text_size": "text-size-x-large"
             }
           },
-          "button_h9iJFg": {
-            "type": "button",
+          "text_with_icon_EAXUTn": {
+            "type": "text_with_icon",
             "settings": {
-              "button_label": "Shop All",
-              "button_link": "shopify://collections/new-arrivals",
-              "button_size": "button--medium"
+              "text": "3 easy steps – apply, cure, buff.",
+              "text_size": "text-size-large"
             }
           }
         },
@@ -630,7 +629,7 @@
           "text_cqJXU9",
           "heading_fAAqwm",
           "text_d77ywb",
-          "button_h9iJFg"
+          "text_with_icon_EAXUTn"
         ],
         "settings": {
           "color_scheme": "background-1",
