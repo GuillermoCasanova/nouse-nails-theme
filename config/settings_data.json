@@ -787,6 +787,18 @@
       },
       "instagram_slideshow_TcQky6": {
         "type": "instagram-slideshow",
+        "blocks": {
+          "slide_tKAU3H": {
+            "type": "slide",
+            "settings": {
+              "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
+              "product": ""
+            }
+          }
+        },
+        "block_order": [
+          "slide_tKAU3H"
+        ],
         "name": "Instagram Slideshow",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
