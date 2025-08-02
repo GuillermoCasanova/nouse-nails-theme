@@ -6,6 +6,10 @@
 \*------------------------------------*/
 
 
+.image-with-text__content  {
+    align-items: center;
+}
+
 .image-with-text__media-wrapper {
     border-radius: var(--border-radius-large); 
     overflow: hidden;
