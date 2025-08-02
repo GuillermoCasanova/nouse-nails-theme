@@ -620,6 +620,7 @@
           "text_with_icon_EAXUTn": {
             "type": "text_with_icon",
             "settings": {
+              "icon": "shopify://shop_images/0e17a53162a56d8cf9794ffeeb9326c1.svg",
               "text": "3 easy steps – apply, cure, buff.",
               "text_size": "text-size-large"
             }
@@ -627,6 +628,7 @@
           "text_with_icon_crywC8": {
             "type": "text_with_icon",
             "settings": {
+              "icon": "shopify://shop_images/c8e8a3162fda8fb7050dd3c651695e2a.svg",
               "text": "Non Toxic",
               "text_size": "text-size-large"
             }
@@ -634,6 +636,7 @@
           "text_with_icon_iq3WXG": {
             "type": "text_with_icon",
             "settings": {
+              "icon": "shopify://shop_images/ca0e36cc52a03559d35034ca36d41412.svg",
               "text": "Lasts 14 Days",
               "text_size": "text-size-large"
             }
