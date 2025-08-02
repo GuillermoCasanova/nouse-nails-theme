@@ -92,10 +92,7 @@
       "hae-image-with-text": {
         "type": "hae-image-with-text",
         "settings": {
-          "layout": "left",
-          "title": "Image with text",
-          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-          "button_label": ""
+          "layout": "left"
         }
       },
       "feature-columns": {
@@ -598,17 +595,42 @@
       },
       "feature_row_nNgUqr": {
         "type": "hae-image-with-text",
+        "blocks": {
+          "heading_fAAqwm": {
+            "type": "heading",
+            "settings": {
+              "heading": "Image with text",
+              "heading_size": "headline-style-h2"
+            }
+          },
+          "text_d77ywb": {
+            "type": "text",
+            "settings": {
+              "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+              "text_size": "text-style-body-lg"
+            }
+          },
+          "button_h9iJFg": {
+            "type": "button",
+            "settings": {
+              "button_label": "Shop All",
+              "button_link": "shopify://collections/new-arrivals",
+              "button_size": "button--medium"
+            }
+          }
+        },
+        "block_order": [
+          "heading_fAAqwm",
+          "text_d77ywb",
+          "button_h9iJFg"
+        ],
         "settings": {
           "color_scheme": "background-1",
           "media_type": "image",
           "media_aspect_ratio": "1/.8",
           "image": "shopify://shop_images/image.png",
           "video_url": "",
-          "layout": "left",
-          "title": "Professional Nails at home",
-          "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous. It’s the Nous way of doing things.</p>",
-          "button_label": "",
-          "button_link": ""
+          "layout": "left"
         }
       },
       "quotes_QLWVBC": {
