@@ -27,6 +27,10 @@
 .testimonials__grid {}
 
 
+.testimonials__grid .testimonials__item:last-child {
+  margin-bottom: 0;
+}
+
 
 /*------------------------------------*\
     #Testimonial Items
@@ -36,8 +40,15 @@
   background: transparent;
   border: none;
   box-shadow: none;
-  padding: var(--space-6);
   position: relative;
+  margin-bottom: var(--space-9);
+}
+
+@media screen and (min-width: 768px) {
+  .testimonials__item, 
+  .testimonials__grid .testimonials__item:last-child {
+    margin-bottom: var(--space-5);
+  }
 }
 
 .testimonials__item:hover {
@@ -101,6 +112,7 @@
   display: block;
   margin: 0;
   text-transform: uppercase;
+  font-family: var(--primary-font-family);
 }
 
 
