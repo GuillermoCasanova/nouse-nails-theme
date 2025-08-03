@@ -147,40 +147,6 @@
           "show_view_all": false
         }
       },
-      "quotes": {
-        "type": "quotes",
-        "blocks": {
-          "quotes-0": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quotes-1": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quotes-2": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          }
-        },
-        "block_order": [
-          "quotes-0",
-          "quotes-1",
-          "quotes-2"
-        ],
-        "settings": {
-          "title": ""
-        }
-      },
       "image-bar": {
         "type": "image-bar",
         "blocks": {
@@ -682,40 +648,6 @@
           "layout": "left"
         }
       },
-      "quotes_QLWVBC": {
-        "type": "quotes",
-        "blocks": {
-          "quote_E944MU": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quote_DB7GGr": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quote_YgYn9q": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          }
-        },
-        "block_order": [
-          "quote_E944MU",
-          "quote_DB7GGr",
-          "quote_YgYn9q"
-        ],
-        "settings": {
-          "title": "Testimonials"
-        }
-      },
       "feature_columns_cex6VK": {
         "type": "feature-columns",
         "blocks": {
@@ -849,6 +781,46 @@
           "social_url": "",
           "social_text": "@GetNousNails"
         }
+      },
+      "hae_testimonials_b9iNgC": {
+        "type": "hae-testimonials",
+        "blocks": {
+          "quote_jHzEpU": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          },
+          "quote_4BinWi": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          },
+          "quote_LCeqTH": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          }
+        },
+        "block_order": [
+          "quote_jHzEpU",
+          "quote_4BinWi",
+          "quote_LCeqTH"
+        ],
+        "name": "HAE Testimonials",
+        "settings": {
+          "color_scheme": "",
+          "title": "What Our Customers Say",
+          "headline_size": "headline-style-h3"
+        }
       }
     },
     "content_for_index": [
@@ -859,10 +831,10 @@
       "feature_row_nNgUqr",
       "instagram_slideshow_TcQky6",
       "1606088197e736fabb",
-      "quotes_QLWVBC",
       "featured_blog_WPc99D",
       "feature_columns_cex6VK",
-      "newsletter_qwtx4B"
+      "newsletter_qwtx4B",
+      "hae_testimonials_b9iNgC"
     ],
     "blocks": {
       "855628211100114053": {
