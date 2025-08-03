@@ -47,7 +47,9 @@
             </div>
           {% endif %}
           <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
-          <p class="brand-about__callout-text text-size-main">{{ block.settings.callout_text }}</p>
+          <div class="brand-about__callout-text {{ block.settings.text_size }}">
+            {{ block.settings.callout_text }}
+          </div>
         </div>
       </div>
     {%- endfor -%}
@@ -132,7 +134,8 @@
           "label": "X-Large"
         },
         {
-          "value": "text-size-xx-large"
+          "value": "text-size-xx-large",
+          "label": "XX-Large"
         }
       ],
       "default": "text-size-xx-large"
@@ -187,9 +190,36 @@
           "label": "Headline"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "callout_text",
-          "label": "Text"
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Paragraph Text size",
+          "options": [
+            {
+              "value": "text-size-small",
+              "label": "Small"
+            },
+            {
+              "value": "text-size-main",
+              "label": "Medium"
+            },
+            {
+              "value": "text-size-large",
+              "label": "Large"
+            },
+            {
+              "value": "text-size-x-large",
+              "label": "X-Large"
+            },
+            {
+              "value": "text-size-xx-large",
+              "label": "XX-Large"
+            }
+          ]
         }
       ]
     }
