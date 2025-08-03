@@ -199,19 +199,24 @@
     --space-11: clamp(4 * 1rem, ((3.75 - ((4 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 4 * 1rem);
     --space-12: clamp(5 * 1rem, ((5 - ((7 - 5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((7 - 5) / (var(--site--max) - var(--site--min))) * 100vw), 7 * 1rem);
 
-    --section-padding-x-small: clamp(1.5 * 1rem, ((1.5 - ((2.5 - 1.5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.5 - 1.5) / (var(--site--max) - var(--site--min))) * 100vw), 2.5 * 1rem);
+    /*-- Mobile 35px (0.75rem) → Desktop: 50px (1rem)--*/
+    --section-padding-x-small: clamp(2.1875 * 1rem, ((2.1875 - ((3.125 - 2.1875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.125 - 2.1875) / (var(--site--max) - var(--site--min))) * 100vw), 3.125 * 1rem);
     --section-padding-small: clamp(3 * 1rem, ((3 - ((5 - 3) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5 - 3) / (var(--site--max) - var(--site--min))) * 100vw), 5 * 1rem);
     --section-padding-main: clamp(4 * 1rem, ((4 - ((7 - 4) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((7 - 4) / (var(--site--max) - var(--site--min))) * 100vw), 7 * 1rem);
     --section-padding-large: clamp(5.5 * 1rem, ((5.5 - ((10 - 5.5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((10 - 5.5) / (var(--site--max) - var(--site--min))) * 100vw), 10 * 1rem);
 
     --padding-x-small: clamp(0.4 * 1rem, ((0.4 - ((0.75 - 0.4) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.75 - 0.4) / (var(--site--max) - var(--site--min))) * 100vw), 0.75 * 1rem);
     --padding-small: clamp(0.6 * 1rem, ((0.6 - ((1 - 0.6) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.6) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem);
-    --padding-main: clamp(1.5625 * 1rem, ((1.5625 - ((3.4375 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.4375 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 3.4375 * 1rem);
-    --padding-large: clamp(1.25 * 1rem, ((1.25 - ((3 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 3 * 1rem);
+
+    /*---Mobile: 25 (0.75rem) → Desktop: 35px (1rem)--*/
+    --padding-main: clamp(1.5625 * 1rem, ((1.5625 - ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.1875 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 2.1875 * 1rem);
+
+    /*---Mobile: 35px (0.75rem) → Desktop: 50px (1rem)--*/
+    --padding-large: clamp(2.1875 * 1rem, ((2.1875 - ((3.125 - 2.1875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.125 - 2.1875) / (var(--site--max) - var(--site--min))) * 100vw), 3.125 * 1rem);
 
 
     /*Container sizes*/
-    --container-padding: var(--padding-main);
+    --container-padding: var(--padding-large);
     --container-small: 40rem;
     --container-medium: 60rem;
     --container-large: 90rem;
@@ -246,13 +251,14 @@
     --headline-size-h6:  clamp(1 * 1rem, ((1 - ((1.125 - 1) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.125 - 1) / (var(--site--max) - var(--site--min))) * 100vw), 1.125 * 1rem);
 
 
+
     /* Text sizes */
 
     /*--Mobile: 14px (1.00rem) → Desktop: 14px (1.00rem)--*/
     --text-size-tiny: clamp(0.7 * 1rem, ((0.7 - ((0.875 - 0.7) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.875 - 0.7) / (var(--site--max) - var(--site--min))) * 100vw), 0.875 * 1rem);
 
     /*--Mobile: 16px (1.00rem) → Desktop: 16px (1.00rem)--*/
-    --text-size-small: clamp(0.875 * 1rem, ((0.875 - ((1 - 0.875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.875) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem)
+    --text-size-small: clamp(0.875 * 1rem, ((0.875 - ((1 - 0.875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1 - 0.875) / (var(--site--max) - var(--site--min))) * 100vw), 1 * 1rem);
 
     /*--Mobile: 18px (1.13rem) → Desktop: 18px (1.13rem)--*/
     --text-size-main: clamp(1.125 * 1rem, ((1.125 - ((1.125 - 1.125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.125 - 1.125) / (var(--site--max) - var(--site--min))) * 100vw), 1.125 * 1rem);

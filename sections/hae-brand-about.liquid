@@ -1,19 +1,28 @@
 {{ 'hae-brand-about.css' | asset_url | stylesheet_tag }}
 
 <section class="brand-about color-{{ section.settings.color_scheme }}">
-  <div class="brand-about__intro container-main section-padding-small">
-    <h2 class="brand-about__subtitle headline-style-h4">{{ section.settings.subtitle }}</h2>
+  <div class="brand-about__intro ">
+    <div class="brand-about__intro__contain container-main section-padding-x-small">
+      <div class="brand-about__intro__layout grid grid-2 grid-end">
+        <div class="brand-about__intro__text">
+          <h2 class="brand-about__subtitle {{ section.settings.headline_size }}">{{ section.settings.subtitle }}</h2>
+          <div class="brand-about__text {{ section.settings.text_size }}">
+            {{ section.settings.text }}
+          </div>
+        </div>
 
-    <div class="brand-about__content d-mlg-flex-row flex-justify-space-between flex-mlg-align-items-center">
-      <p class="brand-about__text col-mlg-6 text-size-large">{{ section.settings.text }}</p>
-
-      <div class="brand-about__buttons  mt-mlg-0">
-        <a class="button button--primary button--medium " href="{{ section.settings.button_link_1 }}">
-          {{- section.settings.button_text_1 -}}
-        </a>
-        <a class="button button--primary button--medium" href="{{ section.settings.button_link_2 }}">
-          {{- section.settings.button_text_2 -}}
-        </a>
+        <div class="brand-about__intro__ctas">
+          {% if section.settings.button_link_1 != blank and section.settings.button_text_1 != blank %}
+            <a class="button button--primary button--medium" href="{{ section.settings.button_link_1 }}">
+              {{- section.settings.button_text_1 -}}
+            </a>
+          {% endif %}
+          {% if section.settings.button_link_2 != blank and section.settings.button_text_2 != blank %}
+            <a class="button button--primary button--medium" href="{{ section.settings.button_link_2 }}">
+              {{- section.settings.button_text_2 -}}
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -24,20 +33,20 @@
         class="brand-about__callout color-{{ block.settings.color_scheme }}"
         {{ block.shopify_attributes }}
       >
-        <div class="brand-about__callout__content">
+        <div class="brand-about__callout__contain">
           {% if block.settings.callout_image != blank %}
             <div class="brand-about__callout-image-wrapper">
               <img
                 class="brand-about__callout-image"
                 height="64"
                 width="64"
+                loading="lazy"
                 src="{{ block.settings.callout_image | img_url: '128x' }}"
                 alt="{{ block.settings.callout_image.alt | default: block.settings.callout_header }}"
               >
             </div>
           {% endif %}
-
-          <h3 class="brand-about__callout-heading headline-style-h5">{{ block.settings.callout_header }}</h3>
+          <h3 class="brand-about__callout-heading headline-style-h4">{{ block.settings.callout_header }}</h3>
           <p class="brand-about__callout-text text-size-main">{{ block.settings.callout_text }}</p>
         </div>
       </div>
@@ -51,7 +60,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "About intro"
+      "content": "About Intro"
     },
     {
       "type": "color_scheme",
@@ -65,10 +74,72 @@
       "label": "Headline"
     },
     {
-      "type": "text",
+      "type": "select",
+      "id": "headline_size",
+      "label": "Headline size",
+      "options": [
+        {
+          "value": "headline-style-h1",
+          "label": "H1"
+        },
+        {
+          "value": "headline-style-h2",
+          "label": "H2"
+        },
+        {
+          "value": "headline-style-h3",
+          "label": "H3"
+        },
+        {
+          "value": "headline-style-h4",
+          "label": "H4"
+        },
+        {
+          "value": "headline-style-h5",
+          "label": "H5"
+        },
+        {
+          "value": "headline-style-h6",
+          "label": "H6"
+        }
+      ],
+      "default": "headline-style-h4"
+    },
+    {
+      "type": "richtext",
       "id": "text",
-      "label": "Description",
-      "info": "Keep to 2 sentences or less; max about 150 characters"
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Paragraph text size",
+      "options": [
+        {
+          "value": "text-size-small",
+          "label": "Small"
+        },
+        {
+          "value": "text-size-main",
+          "label": "Medium"
+        },
+        {
+          "value": "text-size-large",
+          "label": "Large"
+        },
+        {
+          "value": "text-size-x-large",
+          "label": "X-Large"
+        },
+        {
+          "value": "text-size-xx-large"
+        }
+      ],
+      "default": "text-size-xx-large"
+    },
+    {
+      "type": "header",
+      "content": "CTAs"
     },
     {
       "type": "text",

@@ -1,26 +1,71 @@
 
 
-/* Hae Brand About */
+/*------------------------------------*\
+    #Hae Brand About
+\*------------------------------------*/
+
+
+.brand-about__intro__text {
+    max-width: 50rem;
+}
 
 
 
-@media screen and (min-width: 748px) {
-    .brand-about__intro {
-        padding-top: var(--section-padding-small);
-        padding-bottom: var(--section-padding-small);
+@media screen and (min-width: 768px) {
+    .brand-about__intro__ctas {
+        text-align: right;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: var(--space-3);
+    }
+}
+
+.brand-about__intro__ctas .button {
+    margin-bottom: var(--space-5);
+}
+
+@media screen and (min-width: 768px) {
+    .brand-about__intro__ctas .button {
+        margin-bottom: 0; 
     }
 }
 
 
 
+
+@media screen and (min-width: 768px) {
+    .brand-about__intro__layout {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    #Hae Brand About Callouts
+\*------------------------------------*/
+
+
+
 .brand-about__callout-image-wrapper {
-    width: 5rem;
-    height: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin-bottom: var(--space-5);
     position: relative; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
+}
+
+@media screen and (min-width: 768px) {
+    .brand-about__callout-image-wrapper {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
 }
 
 .brand-about__callout-image {
@@ -34,7 +79,11 @@
     margin: auto; 
 }
 
-
-.brand-about__callout__content {
+.brand-about__callout__contain {
     padding: var(--padding-main); 
+}
+
+
+.brand-about__callout__content *:last-child {
+    margin-bottom: 0;
 }

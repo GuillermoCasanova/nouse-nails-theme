@@ -87,20 +87,28 @@
 
 /* Grid alignment */
 .grid-center {
-  justify-items: center;
   align-items: center;
 }
 
 .grid-start {
-  justify-items: start;
   align-items: start;
 }
 
 .grid-end {
-  justify-items: end;
   align-items: end;
 }
 
+.grid-justify-center {
+  justify-content: center;
+}
+
+.grid-justify-start {
+  justify-content: start;
+}
+
+.grid-justify-end {
+  justify-content: end;
+}
 /* Grid gaps */
 .grid-gap-sm { gap: var(--space-2); }
 .grid-gap-md { gap: var(--space-4); }
