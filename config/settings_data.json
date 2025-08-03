@@ -648,51 +648,6 @@
           "layout": "left"
         }
       },
-      "feature_columns_cex6VK": {
-        "type": "feature-columns",
-        "blocks": {
-          "text_block_NJjWr4": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "text_block_rWafnY": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "text_block_GTT7fp": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "text_block_NJjWr4",
-          "text_block_rWafnY",
-          "text_block_GTT7fp"
-        ],
-        "disabled": true,
-        "settings": {
-          "title": "Tips & Trikcs",
-          "align_text": "left"
-        }
-      },
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {}
@@ -831,10 +786,9 @@
       "feature_row_nNgUqr",
       "instagram_slideshow_TcQky6",
       "1606088197e736fabb",
+      "hae_testimonials_b9iNgC",
       "featured_blog_WPc99D",
-      "feature_columns_cex6VK",
-      "newsletter_qwtx4B",
-      "hae_testimonials_b9iNgC"
+      "newsletter_qwtx4B"
     ],
     "blocks": {
       "855628211100114053": {
