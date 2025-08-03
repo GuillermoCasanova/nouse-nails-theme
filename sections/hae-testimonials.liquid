@@ -5,7 +5,7 @@
   data-section-id="{{ section.id }}"
   data-section-type="testimonials"
 >
-  <div class="container-main section-padding-small">
+  <div class="testinmonials__contain container-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="testimonials__header">
         <h2 class="testimonials__title {{ section.settings.headline_size }}">{{ section.settings.title | escape }}</h2>
@@ -17,26 +17,16 @@
         {% for block in section.blocks limit: 3 %}
           <div class="testimonials__item" {{ block.shopify_attributes }}>
             <div class="testimonials__content">
-              <div class="testimonials__quote-icon">
+              <div class="testimonials__quote-icon icon icon-small">
                 {% render 'icon-quote' %}
               </div>
               {% if block.settings.quote != blank %}
-                <blockquote class="testimonials__quote">
+                <blockquote class="testimonials__quote  text-size-main">
                   {{ block.settings.quote }}
                 </blockquote>
               {% endif %}
               {% if block.settings.author != blank %}
-                <cite class="testimonials__author">{{ block.settings.author | escape }}</cite>
-              {% endif %}
-              {% if block.settings.rating != blank %}
-                <div class="testimonials__rating">
-                  {% assign rating = block.settings.rating | plus: 0 %}
-                  {% for i in (1..5) %}
-                    <span class="testimonials__star {% if i <= rating %}testimonials__star--filled{% endif %}">
-                      ★
-                    </span>
-                  {% endfor %}
-                </div>
+                <cite class="testimonials__author text-size-main">{{ block.settings.author | escape }}</cite>
               {% endif %}
             </div>
           </div>
@@ -122,15 +112,6 @@
           "id": "author",
           "label": "Author name",
           "default": "Customer Name"
-        },
-        {
-          "type": "range",
-          "id": "rating",
-          "label": "Rating",
-          "min": 1,
-          "max": 5,
-          "step": 1,
-          "default": 5
         }
       ]
     }
