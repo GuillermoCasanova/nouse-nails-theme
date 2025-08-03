@@ -1,6 +1,6 @@
 {{ 'testimonials.css' | asset_url | stylesheet_tag }}
 
-<div
+<section
   class="testimonials color-{{ section.settings.color_scheme }}"
   data-section-id="{{ section.id }}"
   data-section-type="testimonials"
@@ -40,7 +40,7 @@
       </div>
     {% endif %}
   </div>
-</div>
+</section>
 
 {% schema %}
 {

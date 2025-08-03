@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #Featured Blog Posts
+\*------------------------------------*/
+
+.featured-blog-posts__contain {
+    max-width: 100rem;
+    margin: auto;
+}
+
+.featured-blog-posts__header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.featured-blog-posts__grid {
+    gap: var(--space-10);
+}
+
+
+.blog-card__image-wrapper {
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+}

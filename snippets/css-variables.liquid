@@ -195,7 +195,7 @@
     --space-7: clamp(1.75 * 1rem, ((1.75 - ((2.25 - 1.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.25 - 1.75) / (var(--site--max) - var(--site--min))) * 100vw), 2.25 * 1rem);
     --space-8: clamp(2 * 1rem, ((2 - ((2.5 - 2) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.5 - 2) / (var(--site--max) - var(--site--min))) * 100vw), 2.5 * 1rem);
     --space-9: clamp(3 * 1rem, ((2.5 - ((3.25 - 3) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.25 - 3) / (var(--site--max) - var(--site--min))) * 100vw), 3.25 * 1rem);
-    --space-10: clamp(3.75 * 1rem, ((3.75 - ((5 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 5 * 1rem);
+    --space-10: clamp(3 * 1rem, ((3 - ((5 - 3) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5 - 3) / (var(--site--max) - var(--site--min))) * 100vw), 5 * 1rem);
     --space-11: clamp(4 * 1rem, ((3.75 - ((4 - 3.75) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4 - 3.75) / (var(--site--max) - var(--site--min))) * 100vw), 4 * 1rem);
     --space-12: clamp(5 * 1rem, ((5 - ((7 - 5) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((7 - 5) / (var(--site--max) - var(--site--min))) * 100vw), 7 * 1rem);
 
@@ -216,17 +216,23 @@
 
     /*Container sizes*/
     --container-padding: var(--padding-large);
-    --container-small: 40rem;
-    --container-medium: 60rem;
-    --container-large: 90rem;
-    --container-x-large: 100rem;
+    --container-x-small: 75rem;
+    --container-small: 90rem;
+    --container-medium: 100rem;
+    --container-large: 125rem;
+    --container-x-large: 130rem;
 
+    --max-width-x-small: 75rem;
+    --max-width-small: 92rem;
+    --max-width-medium: 100rem;
+    --max-width-large: 125rem;
+    --max-width-xlarge: 130rem;
 
     /* Headline sizes */
     /*Website to get CLAMP functions: https://ms-clamp-function-builder.lovable.app/ */
 
     /*--Mobile: 65px (4.06rem) → Desktop: 100px (6.25rem)--*/
-    --headline-size-display: clamp(2.8125 * 1rem, ((2.8125 - ((6.25 - 2.8125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((6.25 - 2.8125) / (var(--site--max) - var(--site--min))) * 100vw), 6.25 * 1rem);
+    --headline-size-display: clamp(2.8125 * 1rem, ((2.8125 - ((7 - 2.8125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((7 - 2.8125) / (var(--site--max) - var(--site--min))) * 100vw), 7 * 1rem);
 
     /*--Mobile: 45px (2.81rem) → Desktop: 60px (3.75rem)--*/
     --headline-size-h1: clamp(2.8125 * 1rem, ((2.8125 - ((3.75 - 2.8125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((3.75 - 2.8125) / (var(--site--max) - var(--site--min))) * 100vw), 3.75 * 1rem);

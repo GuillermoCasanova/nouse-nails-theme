@@ -184,7 +184,7 @@ h6 p {
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-display);
   margin-bottom: var(--space-7);
-  line-height: var(--headline-line-height);
+  line-height: 1.05;
 }
 
 
@@ -594,68 +594,9 @@ main {
   }
 }
 
-/*------------------------------------*\
-    #Page Width Container
-\*------------------------------------*/
 
-:root {
-  --max-width-x-small: 70rem;
-  --max-width-small: 85rem;
-  --max-width-medium: 98rem;
-  --max-width-large: 125rem;
-  --max-width-xlarge: 130rem;
-}
 
-.page-width {
-  max-width: var(--max-width-medium);
-  margin: 0 auto;
-  padding: 0 var(--level4);
-  width: 100%;
-  position: relative;
-}
 
-.page-width.is-full-width {
-  padding: 0 !important;
-}
-
-@media screen and (min-width: 700px) {
-  .page-width {
-    padding: 0 var(--level8);
-  }
-}
-
-@media screen and (min-width: 940px) {
-  .page-width {
-    max-width: var(--max-width-medium);
-    margin: 0 auto;
-  }
-
-  .page-width.is-small {
-    max-width: var(--max-width-small);
-  }
-
-  .page-width.is-x-small {
-    max-width: var(--max-width-x-small);
-  }
-
-  .page-width.is-full {
-    max-width: 100%;
-  }
-
-  .is-large {
-    max-width: var(--max-width-large);
-  }
-
-  .page-width.is-xlarge {
-    max-width: var(--max-width-xlarge);
-  }
-
-  .page-width-on-medium-up {
-    padding: 0 var(--level8);
-    max-width: var(--max-width-large);
-    margin: 0 auto;
-  }
-}
 
 /*------------------------------------*\
     #Media Component

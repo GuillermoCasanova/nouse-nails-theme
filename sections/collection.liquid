@@ -1,7 +1,7 @@
 {{ 'collection.css' | asset_url | stylesheet_tag }}
 {{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
 
-<div class="collection-section color-{{ section.settings.color_scheme }}">
+<section class="collection-section color-{{ section.settings.color_scheme }}">
   <div class="container-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="collection-section__header">
@@ -72,7 +72,7 @@
       </div>
     {% endif %}
   </div>
-</div>
+</section>
 
 {% schema %}
 {
