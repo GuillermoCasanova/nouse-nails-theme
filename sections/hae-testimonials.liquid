@@ -1,37 +1,38 @@
-{{ 'hae-testimonials.css' | asset_url | stylesheet_tag }}
+{{ 'testimonials.css' | asset_url | stylesheet_tag }}
 
-<div class="hae-testimonials" data-section-id="{{ section.id }}" data-section-type="hae-testimonials">
+<div
+  class="testimonials color-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="testimonials"
+>
   <div class="container-main section-padding-small">
     {% if section.settings.title != blank %}
-      <div class="hae-testimonials__header">
-        <h2 class="hae-testimonials__title headline-style-h3">{{ section.settings.title | escape }}</h2>
-        {% if section.settings.subtitle != blank %}
-          <p class="hae-testimonials__subtitle">{{ section.settings.subtitle | escape }}</p>
-        {% endif %}
+      <div class="testimonials__header">
+        <h2 class="testimonials__title {{ section.settings.headline_size }}">{{ section.settings.title | escape }}</h2>
       </div>
     {% endif %}
 
     {% if section.blocks.size > 0 %}
-      <div class="hae-testimonials__grid">
+      <div class="testimonials__grid grid grid-3">
         {% for block in section.blocks limit: 3 %}
-          <div class="hae-testimonials__item" {{ block.shopify_attributes }}>
-            <div class="hae-testimonials__content">
-              <div class="hae-testimonials__quote-icon">
+          <div class="testimonials__item" {{ block.shopify_attributes }}>
+            <div class="testimonials__content">
+              <div class="testimonials__quote-icon">
                 {% render 'icon-quote' %}
               </div>
               {% if block.settings.quote != blank %}
-                <blockquote class="hae-testimonials__quote">
+                <blockquote class="testimonials__quote">
                   {{ block.settings.quote }}
                 </blockquote>
               {% endif %}
               {% if block.settings.author != blank %}
-                <cite class="hae-testimonials__author">{{ block.settings.author | escape }}</cite>
+                <cite class="testimonials__author">{{ block.settings.author | escape }}</cite>
               {% endif %}
               {% if block.settings.rating != blank %}
-                <div class="hae-testimonials__rating">
+                <div class="testimonials__rating">
                   {% assign rating = block.settings.rating | plus: 0 %}
                   {% for i in (1..5) %}
-                    <span class="hae-testimonials__star {% if i <= rating %}hae-testimonials__star--filled{% endif %}">
+                    <span class="testimonials__star {% if i <= rating %}testimonials__star--filled{% endif %}">
                       ★
                     </span>
                   {% endfor %}
@@ -44,7 +45,7 @@
     {% endif %}
 
     {% if section.blocks.size == 0 %}
-      <div class="hae-testimonials__empty">
+      <div class="testimonials__empty">
         <p>Add testimonial blocks to showcase customer reviews</p>
       </div>
     {% endif %}
@@ -58,7 +59,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Colors"
+      "content": "Color Scheme"
     },
     {
       "type": "color_scheme",
@@ -67,20 +68,42 @@
       "default": "background-1"
     },
     {
-      "type": "header",
-      "content": "Content"
-    },
-    {
       "type": "text",
       "id": "title",
-      "label": "Heading",
+      "label": "Headline",
       "default": "What Our Customers Say"
     },
     {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Real reviews from real customers"
+      "type": "select",
+      "id": "headline_size",
+      "label": "Headline size",
+      "options": [
+        {
+          "value": "headline-style-h1",
+          "label": "H1"
+        },
+        {
+          "value": "headline-style-h2",
+          "label": "H2"
+        },
+        {
+          "value": "headline-style-h3",
+          "label": "H3"
+        },
+        {
+          "value": "headline-style-h4",
+          "label": "H4"
+        },
+        {
+          "value": "headline-style-h5",
+          "label": "H5"
+        },
+        {
+          "value": "headline-style-h6",
+          "label": "H6"
+        }
+      ],
+      "default": "headline-style-h3"
     }
   ],
   "blocks": [
