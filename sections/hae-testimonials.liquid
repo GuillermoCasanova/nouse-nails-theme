@@ -1,0 +1,133 @@
+{{ 'hae-testimonials.css' | asset_url | stylesheet_tag }}
+
+<div class="hae-testimonials" data-section-id="{{ section.id }}" data-section-type="hae-testimonials">
+  <div class="container-main section-padding-small">
+    {% if section.settings.title != blank %}
+      <div class="hae-testimonials__header">
+        <h2 class="hae-testimonials__title headline-style-h3">{{ section.settings.title | escape }}</h2>
+        {% if section.settings.subtitle != blank %}
+          <p class="hae-testimonials__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="hae-testimonials__grid">
+        {% for block in section.blocks limit: 3 %}
+          <div class="hae-testimonials__item" {{ block.shopify_attributes }}>
+            <div class="hae-testimonials__content">
+              <div class="hae-testimonials__quote-icon">
+                {% render 'icon-quote' %}
+              </div>
+              {% if block.settings.quote != blank %}
+                <blockquote class="hae-testimonials__quote">
+                  {{ block.settings.quote }}
+                </blockquote>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite class="hae-testimonials__author">{{ block.settings.author | escape }}</cite>
+              {% endif %}
+              {% if block.settings.rating != blank %}
+                <div class="hae-testimonials__rating">
+                  {% assign rating = block.settings.rating | plus: 0 %}
+                  {% for i in (1..5) %}
+                    <span class="hae-testimonials__star {% if i <= rating %}hae-testimonials__star--filled{% endif %}">
+                      ★
+                    </span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size == 0 %}
+      <div class="hae-testimonials__empty">
+        <p>Add testimonial blocks to showcase customer reviews</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real reviews from real customers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Testimonial",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author name",
+          "default": "Customer Name"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HAE Testimonials",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
