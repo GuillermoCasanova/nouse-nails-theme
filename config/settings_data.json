@@ -147,40 +147,6 @@
           "show_view_all": false
         }
       },
-      "quotes": {
-        "type": "quotes",
-        "blocks": {
-          "quotes-0": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quotes-1": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quotes-2": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          }
-        },
-        "block_order": [
-          "quotes-0",
-          "quotes-1",
-          "quotes-2"
-        ],
-        "settings": {
-          "title": ""
-        }
-      },
       "image-bar": {
         "type": "image-bar",
         "blocks": {
@@ -682,85 +648,6 @@
           "layout": "left"
         }
       },
-      "quotes_QLWVBC": {
-        "type": "quotes",
-        "blocks": {
-          "quote_E944MU": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quote_DB7GGr": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          },
-          "quote_YgYn9q": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-              "author": "Author's name"
-            }
-          }
-        },
-        "block_order": [
-          "quote_E944MU",
-          "quote_DB7GGr",
-          "quote_YgYn9q"
-        ],
-        "settings": {
-          "title": "Testimonials"
-        }
-      },
-      "feature_columns_cex6VK": {
-        "type": "feature-columns",
-        "blocks": {
-          "text_block_NJjWr4": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "text_block_rWafnY": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "text_block_GTT7fp": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "title": "Add a title or tagline",
-              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "text_block_NJjWr4",
-          "text_block_rWafnY",
-          "text_block_GTT7fp"
-        ],
-        "disabled": true,
-        "settings": {
-          "title": "Tips & Trikcs",
-          "align_text": "left"
-        }
-      },
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {}
@@ -849,6 +736,46 @@
           "social_url": "",
           "social_text": "@GetNousNails"
         }
+      },
+      "hae_testimonials_b9iNgC": {
+        "type": "hae-testimonials",
+        "blocks": {
+          "quote_jHzEpU": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          },
+          "quote_4BinWi": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          },
+          "quote_LCeqTH": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
+              "author": "Customer Name",
+              "rating": 5
+            }
+          }
+        },
+        "block_order": [
+          "quote_jHzEpU",
+          "quote_4BinWi",
+          "quote_LCeqTH"
+        ],
+        "name": "HAE Testimonials",
+        "settings": {
+          "color_scheme": "",
+          "title": "What Our Customers Say",
+          "headline_size": "headline-style-h3"
+        }
       }
     },
     "content_for_index": [
@@ -859,9 +786,8 @@
       "feature_row_nNgUqr",
       "instagram_slideshow_TcQky6",
       "1606088197e736fabb",
-      "quotes_QLWVBC",
+      "hae_testimonials_b9iNgC",
       "featured_blog_WPc99D",
-      "feature_columns_cex6VK",
       "newsletter_qwtx4B"
     ],
     "blocks": {
