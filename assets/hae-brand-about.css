@@ -87,3 +87,7 @@
 .brand-about__callout__content *:last-child {
     margin-bottom: 0;
 }
+
+.brand-about__callout-text p:last-child {
+    margin-bottom: 0;
+}
