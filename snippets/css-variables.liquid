@@ -170,7 +170,7 @@
     --line-height-normal: 1.25;
     --line-height-double: 1.5;
     --site--min: 15;
-    --site--max: 110;
+    --site--max: 100;
     --headline-font-family: var(--primary-font-family);
     --headline-line-height: 1.1;
     --headline-font-weight: 500;
@@ -189,8 +189,8 @@
     --space-1: .3125rem; /* 5px */
     --space-2: clamp(0.3125 * 1rem, ((0.3125 - ((0.625 - 0.3125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.625 - 0.3125) / (var(--site--max) - var(--site--min))) * 100vw), 0.625 * 1rem); /* 5px / 10px */
     --space-3: clamp(0.625 * 1rem, ((0.625 - ((0.9375 - 0.625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((0.9375 - 0.625) / (var(--site--max) - var(--site--min))) * 100vw), 0.9375 * 1rem); /* 10px / 15px */
-    --space-4: clamp(0.78125 * 1rem, ((0.78125 - ((1.5625 - 0.78125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.5625 - 0.78125) / (var(--site--max) - var(--site--min))) * 100vw), 1.5625 * 1rem); /* 12.px / 25px*/
-    --space-5: clamp(0.9375 * 1rem, ((0.9375 - ((2.1875 - 0.9375) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.1875 - 0.9375) / (var(--site--max) - var(--site--min))) * 100vw), 2.1875 * 1rem); /* 15px / 40px */
+    --space-4: clamp(0.78125 * 1rem, ((0.78125 - ((1.5625 - 0.78125) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((1.5625 - 0.78125) / (var(--site--max) - var(--site--min))) * 100vw), 1.5625 * 1rem); /* 10px / 25px*/
+    --space-5: clamp(0.9375 * 1rem, ((0.9375 - ((2.5 - 0.9375) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.5 - 0.9375) / (var(--site--max) - var(--site--min))) * 100vw), 2.5 * 1rem); /* 15px / 40px */
     --space-6: clamp(1.25 * 1rem, ((1.25 - ((2.8125 - 1.25) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((2.8125 - 1.25) / (var(--site--max) - var(--site--min))) * 100vw), 2.8125 * 1rem); /* 20px / 45px */
     --space-7: clamp(1.5625 * 1rem, ((1.5625 - ((4.0625 - 1.5625) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4.0625 - 1.5625) / (var(--site--max) - var(--site--min))) * 100vw), 4.0625 * 1rem); /* 25px / 65px */
     --space-8: clamp(1.875 * 1rem, ((1.875 - ((5.625 - 1.875) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((5.625 - 1.875) / (var(--site--max) - var(--site--min))) * 100vw), 5.625 * 1rem); /* 30px / 90px */
@@ -216,7 +216,7 @@
     --container-padding: var(--padding-large);
     --container-x-small: 75rem;
     --container-small: 90rem;
-    --container-medium: 100rem;
+    --container-medium: calc(var(--site--max) * 1rem);
     --container-large: 125rem;
     --container-x-large: 130rem;
 

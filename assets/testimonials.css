@@ -10,7 +10,7 @@
 
 .testimonials__header {
   text-align: center;
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-10);
 }
 
 .testimonials__title {
@@ -41,7 +41,7 @@
   border: none;
   box-shadow: none;
   position: relative;
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-10);
 }
 
 @media screen and (min-width: 768px) {

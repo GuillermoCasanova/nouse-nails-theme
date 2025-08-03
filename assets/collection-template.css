@@ -175,6 +175,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-bottom: var(--space-7);
 }
 
 @media (min-width: 960px) {
@@ -188,77 +189,6 @@
 .collection-grid-item {
   flex: 1;
   min-width: 0;
-}
-
-/* Grid configurations based on schema settings */
-.collection-grid--2-cols .collection-grid-item {
-  width: 100%;
-}
-
-@media (min-width: 960px) {
-  .collection-grid--2-cols .collection-grid-item {
-    width: calc(50% - 20px);
-  }
-}
-
-.collection-grid--3-cols .collection-grid-item {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .collection-grid--3-cols .collection-grid-item {
-    width: calc(50% - 16px);
-  }
-}
-
-@media (min-width: 960px) {
-  .collection-grid--3-cols .collection-grid-item {
-    width: calc(33.333% - 27px);
-  }
-}
-
-.collection-grid--4-cols .collection-grid-item {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .collection-grid--4-cols .collection-grid-item {
-    width: calc(50% - 16px);
-  }
-}
-
-@media (min-width: 960px) {
-  .collection-grid--4-cols .collection-grid-item {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .collection-grid--4-cols .collection-grid-item {
-    width: calc(25% - 30px);
-  }
-}
-
-.collection-grid--5-cols .collection-grid-item {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .collection-grid--5-cols .collection-grid-item {
-    width: calc(50% - 16px);
-  }
-}
-
-@media (min-width: 960px) {
-  .collection-grid--5-cols .collection-grid-item {
-    width: calc(33.333% - 27px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .collection-grid--5-cols .collection-grid-item {
-    width: calc(20% - 32px);
-  }
 }
 
 .collection-list {
