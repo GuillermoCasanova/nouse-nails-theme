@@ -684,9 +684,9 @@
         ],
         "name": "Blog posts",
         "settings": {
-          "title": "Tips & Trikcs",
-          "show_view_all": false,
-          "view_all_url": ""
+          "title": "Tips & Tricks",
+          "show_view_all": true,
+          "view_all_url": "shopify://blogs/news"
         }
       },
       "collection_YjrU49": {
