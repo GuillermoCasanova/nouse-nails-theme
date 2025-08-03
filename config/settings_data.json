@@ -654,14 +654,39 @@
       },
       "featured_blog_WPc99D": {
         "type": "featured-blog",
+        "blocks": {
+          "article_dkkCUP": {
+            "type": "article",
+            "settings": {
+              "article": "news/tester-blog-here-woo-wow-cool",
+              "media_aspect_ratio": "4/3"
+            }
+          },
+          "article_LqD8Dd": {
+            "type": "article",
+            "settings": {
+              "article": "news/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing",
+              "media_aspect_ratio": "4/3"
+            }
+          },
+          "article_FTwhxE": {
+            "type": "article",
+            "settings": {
+              "article": "news/tester-blog-here-woo-wow-cool",
+              "media_aspect_ratio": "4/3"
+            }
+          }
+        },
+        "block_order": [
+          "article_dkkCUP",
+          "article_LqD8Dd",
+          "article_FTwhxE"
+        ],
         "name": "Blog posts",
         "settings": {
-          "title": "Tips & Trikcs",
-          "blog": "news",
-          "post_limit": 3,
-          "blog_show_author": false,
-          "blog_show_date": true,
-          "show_view_all": false
+          "title": "Tips & Tricks",
+          "show_view_all": true,
+          "view_all_url": "shopify://blogs/news"
         }
       },
       "collection_YjrU49": {
