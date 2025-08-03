@@ -118,5 +118,5 @@
 
 @media screen and (min-width: 1024px) {
   .grid-gap-md { gap: var(--space-8); }
-  .grid-gap-lg { gap: var(--space-10); }
+  .grid-gap-lg { gap: var(--space-8); }
 }

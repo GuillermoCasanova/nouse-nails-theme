@@ -3,17 +3,16 @@
 \*------------------------------------*/
 
 .featured-blog-posts__contain {
-    max-width: 100rem;
     margin: auto;
 }
 
 .featured-blog-posts__header {
     text-align: center;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-8);
 }
 
 .featured-blog-posts__grid {
-    gap: var(--space-10);
+    gap: var(--space-8);
 }
 
 

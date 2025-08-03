@@ -1,7 +1,7 @@
 {{ 'featured-blog-posts.css' | asset_url | stylesheet_tag }}
 
 <section class="featured-blog-posts">
-  <div class="featured-blog-posts__contain container-x-small section-padding-small">
+  <div class="featured-blog-posts__contain container-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="featured-blog-posts__header">
         <h2 class="featured-blog-posts__title headline-style-h3">{{ section.settings.title | escape }}</h2>

@@ -26,7 +26,7 @@
 @media screen and (min-width: 748px) {
     .featured-collections__column__media {
         border-radius: var(--border-radius-large);
-        margin-bottom: var(--space-10);
+        margin-bottom: var(--space-8);
     }
 }
 
@@ -55,7 +55,7 @@
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__layout  {
-        padding: var(--space-11);
+        padding: var(--space-8);
         height: 100%; 
     }
 }
@@ -99,7 +99,7 @@
 
 @media screen and (min-width: 748px) {
     .featured-collections__layout .featured-collections__column:nth-child(2) .featured-collections__column__layout  .featured-collections__column__sticker{
-        top: var(--space-10);
+        top: var(--space-8);
         left: auto; 
         right: calc(-1 * var(--space-8));
         bottom: auto; 
@@ -140,7 +140,7 @@
         right: 0;
         z-index: 1;
         padding: inherit; 
-        padding-right: var(--space-10);
+        padding-right: var(--space-8);
         padding-bottom: var(--space-9);
     }
 }

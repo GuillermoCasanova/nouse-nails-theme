@@ -325,21 +325,7 @@ h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
   margin-bottom: var(--space-8);
 }
 
-.margin-bottom-9 {
-  margin-bottom: var(--space-9);
-}
 
-.margin-bottom-10 {
-  margin-bottom: var(--space-10);
-}
-
-.margin-bottom-11 {
-  margin-bottom: var(--space-11);
-}
-
-.margin-bottom-12 {
-  margin-bottom: var(--space-12);
-}
 
 
 /*------------------------------------*\
@@ -411,7 +397,7 @@ a {
 }
 
 .container-small {
-  max-width: var(--max-width-small);
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
   width: 100%;
   margin: auto; 
   padding-left: var(--container-padding);
