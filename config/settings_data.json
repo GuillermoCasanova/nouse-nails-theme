@@ -744,24 +744,21 @@
             "type": "quote",
             "settings": {
               "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
-              "author": "Customer Name",
-              "rating": 5
+              "author": "Customer Name"
             }
           },
           "quote_4BinWi": {
             "type": "quote",
             "settings": {
               "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
-              "author": "Customer Name",
-              "rating": 5
+              "author": "Customer Name"
             }
           },
           "quote_LCeqTH": {
             "type": "quote",
             "settings": {
               "quote": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>",
-              "author": "Customer Name",
-              "rating": 5
+              "author": "Customer Name"
             }
           }
         },
@@ -772,7 +769,7 @@
         ],
         "name": "HAE Testimonials",
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "title": "What Our Customers Say",
           "headline_size": "headline-style-h3"
         }
