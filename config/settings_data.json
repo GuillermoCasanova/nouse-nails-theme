@@ -378,7 +378,7 @@
           "callout_QUEkYB"
         ],
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
           "subtitle": "The Nous Standard in Nail Beauty.",
           "text": "We’re building a future where nail care is clean, expressive, and affordable. Our gel strips skip the toxins, cost less, and save you time—because beauty shouldn’t come at your health or schedule.",
           "button_text_1": "HOW TO APPLY NAILS",
@@ -837,10 +837,12 @@
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "title": "Stick. Cure. Slay.",
-          "subtitle": "@getnousnails",
+          "subtitle": "",
           "slides_to_show": 4,
           "autoplay": true,
-          "autoplay_speed": 5
+          "autoplay_speed": 5,
+          "social_url": "",
+          "social_text": "@GetNousNails"
         }
       }
     },
