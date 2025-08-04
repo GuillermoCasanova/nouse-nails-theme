@@ -811,14 +811,14 @@
           "faq_block_jqBhUU": {
             "type": "faq_block",
             "settings": {
-              "question": "What is your question?",
+              "question": "How long do they last and how many sets provided?",
               "answer": "<p>Provide your answer here.</p>"
             }
           },
           "faq_block_enKfmd": {
             "type": "faq_block",
             "settings": {
-              "question": "What is your question?",
+              "question": "Do I need a LED lamp?",
               "answer": "<p>Provide your answer here.</p>"
             }
           },
