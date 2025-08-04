@@ -1,6 +1,6 @@
 {{ 'featured-blog-posts.css' | asset_url | stylesheet_tag }}
 
-<section class="featured-blog-posts">
+<section class="featured-blog-posts color-{{ section.settings.color_scheme }}">
   <div class="featured-blog-posts__contain container-x-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="featured-blog-posts__header">
