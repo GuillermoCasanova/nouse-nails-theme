@@ -797,6 +797,42 @@
           "title": "Testimonials",
           "headline_size": "headline-style-h3"
         }
+      },
+      "hae_faqs_KXBwzm": {
+        "type": "hae-faqs",
+        "blocks": {
+          "faq_block_hrWaUk": {
+            "type": "faq_block",
+            "settings": {
+              "question": "What is your question?",
+              "answer": "<p>Provide your answer here.</p>"
+            }
+          },
+          "faq_block_enKfmd": {
+            "type": "faq_block",
+            "settings": {
+              "question": "What is your question?",
+              "answer": "<p>Provide your answer here.</p>"
+            }
+          },
+          "faq_block_y6YEq6": {
+            "type": "faq_block",
+            "settings": {
+              "question": "What is your question?",
+              "answer": "<p>Provide your answer here.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "faq_block_hrWaUk",
+          "faq_block_enKfmd",
+          "faq_block_y6YEq6"
+        ],
+        "name": "FAQ Section",
+        "settings": {
+          "heading": "Frequently Asked Questions",
+          "page": ""
+        }
       }
     },
     "content_for_index": [
@@ -807,6 +843,7 @@
       "feature_row_nNgUqr",
       "instagram_slideshow_TcQky6",
       "1606088197e736fabb",
+      "hae_faqs_KXBwzm",
       "hae_testimonials_b9iNgC",
       "featured_blog_WPc99D",
       "newsletter_qwtx4B"
