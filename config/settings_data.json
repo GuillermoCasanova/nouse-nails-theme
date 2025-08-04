@@ -818,14 +818,14 @@
           "faq_block_enKfmd": {
             "type": "faq_block",
             "settings": {
-              "question": "Do I need a LED lamp?",
+              "question": "How do I apply and remove Nous Nails?",
               "answer": "<p>Provide your answer here.</p>"
             }
           },
           "faq_block_y6YEq6": {
             "type": "faq_block",
             "settings": {
-              "question": "What is your question?",
+              "question": "How should I store the unused strips?",
               "answer": "<p>Provide your answer here.</p>"
             }
           }
