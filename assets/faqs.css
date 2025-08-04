@@ -1,0 +1,200 @@
+
+<style>
+  /*------------------------------------*\
+    #Section FAQ
+\*------------------------------------*/
+
+  .faqs-list__inner {
+    padding-bottom: var(--level10);
+    padding-left: var(--level8);
+    padding-right: var(--level8);
+    max-width: 76rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faqs-list__heading {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: var(--level7);
+    font-family: var(--tertiary-font-family);
+    font-size: var(--h6);
+    line-height: 1.5;
+    letter-spacing: 3px;
+    max-width: 27rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 940px) {
+    .faqs-list__heading {
+      margin-bottom: var(--level8);
+    }
+  }
+
+  /*------------------------------------*\
+    #Faq Item
+\*------------------------------------*/
+
+  .faq-item {
+    border-bottom: 1px solid black;
+  }
+
+  .faq-item .close-icon {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+
+  .faq-item__icon {
+    position: relative;
+  }
+
+  .faq-item .open-icon,
+  .faq-item .open-icon {
+    position: absolute;
+    top: 0;
+    transition: all 0.2s linear;
+  }
+
+  .faq-item[open] .faq-item__icon .open-icon {
+    opacity: 0;
+  }
+
+  .faq-item[open] .faq-item__icon .close-icon {
+    opacity: 1;
+  }
+
+  .faq-item__question {
+    padding-top: var(--level3);
+    padding-bottom: var(--level3);
+    padding-left: var(--level2);
+    padding-right: var(--level2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--h5);
+  }
+
+  .faq-item__question:hover .faq-item__icon svg,
+  .faq-item__question:focus .faq-item__icon svg {
+    transform: rotate(180deg);
+  }
+
+  @media screen and (min-width: 940px) {
+    .faq-item__question {
+      padding-left: var(--level7);
+      padding-right: var(--level7);
+      padding-top: var(--level5);
+      padding-bottom: var(--level5);
+    }
+  }
+
+  @media screen and (min-width: 1800px) {
+    .faq-item__question {
+      font-size: var(--h5);
+    }
+  }
+
+  .faq-item__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+  }
+
+  @media screen and (min-width: 940px) {
+    .faq-item__icon {
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+  }
+
+  .faq-item__icon svg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .faq-item__answer {
+    transition: all 0.4s cubic-bezier(0.5, 1, 0.89, 1);
+    position: relative;
+    overflow: hidden;
+    padding-left: var(--level2);
+    padding-right: var(--level2);
+    font-size: var(--h6);
+  }
+
+  @media screen and (min-width: 940px) {
+    .faq-item__answer {
+      padding-left: var(--level7);
+      padding-right: var(--level10);
+    }
+  }
+
+  .faq-item__answer p {
+    margin-bottom: var(--level10);
+    padding-bottom: var(--level10);
+  }
+
+  /*------------------------------------*\
+    #FAQ Layout
+\*------------------------------------*/
+
+  .faqs-list__container {
+    display: grid;
+    gap: var(--level8);
+  }
+
+  @media screen and (min-width: 940px) {
+    .faqs-list__container {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--level10);
+    }
+  }
+
+  .faqs-list__page-content {
+    order: 2;
+  }
+
+  @media screen and (min-width: 940px) {
+    .faqs-list__page-content {
+      order: 1;
+    }
+  }
+
+  .faqs-list__questions-list {
+    order: 1;
+  }
+
+  @media screen and (min-width: 940px) {
+    .faqs-list__questions-list {
+      order: 2;
+    }
+  }
+
+  .faqs-list__page-content h2 {
+    margin-bottom: var(--level5);
+    font-family: var(--tertiary-font-family);
+    font-size: var(--h4);
+    line-height: 1.3;
+  }
+
+  .faqs-list__page-content p {
+    margin-bottom: var(--level4);
+    font-size: var(--text-size-main);
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 940px) {
+    .faqs-list__page-content h2 {
+      font-size: var(--h3);
+      margin-bottom: var(--level6);
+    }
+
+    .faqs-list__page-content p {
+      font-size: var(--text-size-large);
+      margin-bottom: var(--level5);
+    }
+  }
+</style>
