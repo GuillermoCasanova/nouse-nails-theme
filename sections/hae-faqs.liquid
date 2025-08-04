@@ -26,24 +26,19 @@
           {% for block in section.blocks %}
             {% if block.type == 'faq_block' %}
               <drawer-disclosure>
-                <details class="faq-item" data-id="faq-{{ forloop.index }}" {{ block.shopify_attributes }}>
+                <details class="faq-list__item" data-id="faq-{{ forloop.index }}" {{ block.shopify_attributes }}>
                   <summary
-                    class="faq-item__question"
+                    class="faq-list__item__question"
                     aria-expanded="false"
                     aria-label="Open FAQ answer for question {{ forloop.index }}"
                     data-id="{{ forloop.index }}"
                   >
                     {{ block.settings.question }}
-                    <span class="faq-item__icon">
-                      <svg class="open-icon">
-                        <use href="#icon-plus-sign"/>
-                      </svg>
-                      <svg class="close-icon">
-                        <use href="#icon-negative-sign"/>
-                      </svg>
+                    <span class="faq-list__item__icon">
+                      <span class="open-icon"> → </span>
                     </span>
                   </summary>
-                  <div class="faq-item__answer" data-drawer-content data-id="{{ forloop.index }}">
+                  <div class="faq-list__item__answer" data-drawer-content data-id="{{ forloop.index }}">
                     <div data-drawer-content-inner>
                       {{ block.settings.answer }}
                     </div>

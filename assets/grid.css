@@ -34,9 +34,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .grid-2 {
+      /* grid-auto-columns: minmax(0, 2fr);
+      grid-auto-flow: column; */
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     .grid-3 {
         grid-template-columns: repeat(3, 1fr);
