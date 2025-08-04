@@ -3,51 +3,56 @@
 {{ 'faqs.css' | asset_url | stylesheet_tag }}
 
 <!-- FAQs Section -->
-<section class="faqs-list-section color-{{ section.settings.color_scheme }}">
-  <div class="faqs-list__contain container-main section-padding-small" data-tabs-panel>
-    <div class="faqs-list__layout grid grid-2">
+<section class="faqs-section color-{{ section.settings.color_scheme }}">
+  <div class="faqs-section__contain container-main section-padding-small" data-tabs-panel>
+    <div class="faqs-section__layout grid grid-2 grid-gap-lg">
       <!-- Table Content -->
       {% if section.settings.page != blank %}
-        <div class="faqs-list__page-content">
-          {{ pages[section.settings.page].content }}
+        <div class="faqs-section__page-content">
+          <div class="table-wrapper">
+            <div class="comparison-table">
+              {{ pages[section.settings.page].content }}
+            </div>
+          </div>
         </div>
       {% endif %}
 
       <!-- FAQ Questions -->
-      <div class="faqs-list__questions-list">
+      <div class="faqs-section__questions-list">
         {% if section.settings.heading != blank %}
-          <h2 class="faqs-list__heading headline-style-h3">{{ section.settings.heading }}</h2>
+          <h2 class="faqs-section__heading headline-style-h3">{{ section.settings.heading }}</h2>
         {% endif %}
-
-        {% for block in section.blocks %}
-          {% if block.type == 'faq_block' %}
-            <drawer-disclosure>
-              <details class="faq-item" data-id="faq-{{ forloop.index }}" {{ block.shopify_attributes }}>
-                <summary
-                  class="faq-item__question"
-                  aria-expanded="false"
-                  aria-label="Open FAQ answer for question {{ forloop.index }}"
-                  data-id="{{ forloop.index }}"
-                >
-                  {{ block.settings.question }}
-                  <span class="faq-item__icon">
-                    <svg class="open-icon">
-                      <use href="#icon-plus-sign"/>
-                    </svg>
-                    <svg class="close-icon">
-                      <use href="#icon-negative-sign"/>
-                    </svg>
-                  </span>
-                </summary>
-                <div class="faq-item__answer" data-drawer-content data-id="{{ forloop.index }}">
-                  <div data-drawer-content-inner>
-                    {{ block.settings.answer }}
+        <div class="faqs-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq_block' %}
+              <drawer-disclosure>
+                <details class="faq-item" data-id="faq-{{ forloop.index }}" {{ block.shopify_attributes }}>
+                  <summary
+                    class="faq-item__question"
+                    aria-expanded="false"
+                    aria-label="Open FAQ answer for question {{ forloop.index }}"
+                    data-id="{{ forloop.index }}"
+                  >
+                    {{ block.settings.question }}
+                    <span class="faq-item__icon">
+                      <svg class="open-icon">
+                        <use href="#icon-plus-sign"/>
+                      </svg>
+                      <svg class="close-icon">
+                        <use href="#icon-negative-sign"/>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="faq-item__answer" data-drawer-content data-id="{{ forloop.index }}">
+                    <div data-drawer-content-inner>
+                      {{ block.settings.answer }}
+                    </div>
                   </div>
-                </div>
-              </details>
-            </drawer-disclosure>
-          {% endif %}
-        {% endfor %}
+                </details>
+              </drawer-disclosure>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
