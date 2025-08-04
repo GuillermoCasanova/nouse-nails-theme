@@ -846,6 +846,7 @@
         ],
         "name": "FAQ Section",
         "settings": {
+          "color_scheme": "background-1",
           "heading": "FAQs",
           "page": "nous-difference"
         }
