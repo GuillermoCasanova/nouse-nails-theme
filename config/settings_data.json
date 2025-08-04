@@ -804,6 +804,13 @@
           "faq_block_hrWaUk": {
             "type": "faq_block",
             "settings": {
+              "question": "What makes Nous Nails different?",
+              "answer": "<p>Provide your answer here.</p>"
+            }
+          },
+          "faq_block_jqBhUU": {
+            "type": "faq_block",
+            "settings": {
               "question": "What is your question?",
               "answer": "<p>Provide your answer here.</p>"
             }
@@ -825,6 +832,7 @@
         },
         "block_order": [
           "faq_block_hrWaUk",
+          "faq_block_jqBhUU",
           "faq_block_enKfmd",
           "faq_block_y6YEq6"
         ],
