@@ -8,65 +8,48 @@
       </div>
     {% endif %}
 
-    <div class="featured-blog-posts__grid grid grid-3">
+    <div class="featured-blog-posts__grid grid grid-3 grid-gap-lg">
       {% for block in section.blocks %}
         {% assign article = articles[block.settings.article] %}
         {% if article != blank %}
           <div class="grid__item">
             <article class="blog-card" aria-labelledby="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-              {% if article.image %}
-                <div class="blog-card__image-container">
-                  {% render 'image-with-aspect-ratio',
-                    image: article.image,
-                    aspect_ratio: section.settings.media_aspect_ratio,
-                    alt: article.title,
-                    widths: '180, 360, 540, 720, 900, 1080, 1296'
-                  %}
-                </div>
-              {% endif %}
-
               <div class="blog-card__content">
+                {% if article.image %}
+                  <div class="blog-card__image-container">
+                    {% render 'image-with-aspect-ratio',
+                      image: article.image,
+                      aspect_ratio: section.settings.media_aspect_ratio,
+                      alt: article.title,
+                      widths: '180, 360, 540, 720, 900, 1080, 1296'
+                    %}
+                  </div>
+                {% endif %}
+
                 <h3 class="blog-card__title headline-style-h3" id="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
                   {{ article.title }}
                 </h3>
 
-                <div class="blog-card__excerpt rte">
+                <p class="blog-card__excerpt text-size-large">
                   {% if article.excerpt.size > 0 %}
                     {{ article.excerpt }}
                   {% else %}
                     {{ article.content | strip_html | truncate: 150 }}
                   {% endif %}
-                </div>
-
-                <a href="{{ article.url }}" class="btn btn--secondary">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
+                </p>
               </div>
+              <a href="{{ article.url }}" class="blog-card__button button button--small button--primary">
+                {{ 'blogs.article.read_more' | t }}
+              </a>
             </article>
-          </div>
-        {% else %}
-          <div class="grid__item">
-            <div class="blog-card">
-              <div class="blog-card__content">
-                <h3 class="blog-card__title headline-style-h4">
-                  {{ 'homepage.onboarding.blog_title' | t }}
-                </h3>
-                <div class="blog-card__excerpt rte">
-                  {{ 'homepage.onboarding.blog_excerpt' | t }}
-                </div>
-                <a href="#" class="btn btn--secondary">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
-              </div>
-            </div>
           </div>
         {% endif %}
       {% endfor %}
     </div>
 
     {% if section.settings.show_view_all and section.settings.view_all_url != blank %}
-      <div class="text-center" style="margin-top: 3rem;">
-        <a href="{{ section.settings.view_all_url }}" class="btn">
+      <div class="featured-blog-posts__view-all">
+        <a href="{{ section.settings.view_all_url }}" class="text-link text-size-xx-large">
           {{ 'blogs.article.view_all' | t }}
         </a>
       </div>
@@ -106,8 +89,16 @@
           "label": "16:9 (Landscape)"
         },
         {
+          "value": "9/16",
+          "label": "16:9 (Portrait)"
+        },
+        {
           "value": "4/3",
-          "label": "4:3 (Portrait)"
+          "label": "4:3 (Portrait Horizontal)"
+        },
+        {
+          "value": "3/4",
+          "label": "3:4 (Portrait)"
         },
         {
           "value": "1/1",
@@ -116,10 +107,6 @@
         {
           "value": "1/.85",
           "label": "1:0.8 (Shorter Square)"
-        },
-        {
-          "value": "3/4",
-          "label": "3:4 (Portrait)"
         }
       ],
       "default": "4/3"

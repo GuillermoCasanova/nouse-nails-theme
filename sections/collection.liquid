@@ -28,7 +28,7 @@
 
     {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-    <ul class="collection-grid grid {{ grid_class }}">
+    <ul class="collection-grid grid {{ grid_class }} grid-gap-sm">
       {% for product in collection.products limit: product_limit %}
         <li class="collection-grid-item">
           {% render 'product-card-grid',

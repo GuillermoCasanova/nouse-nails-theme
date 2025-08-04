@@ -3,6 +3,22 @@
 \*------------------------------------*/
 
 
+/*------------------------------------*\
+    #Grid Gaps
+\*------------------------------------*/
+
+.grid-gap-sm { gap: var(--grid-padding-small); }
+.grid-gap-md { gap: var(--grid-padding-main); }
+.grid-gap-lg { gap: var(--grid-padding-large); }
+.grid-gap-0 { gap: 0; }
+
+
+
+/*------------------------------------*\
+    #Grid System
+\*------------------------------------*/
+
+
 /* Grid System - 12 columns */
 .grid {
   display: grid;
@@ -109,14 +125,7 @@
 .grid-justify-end {
   justify-content: end;
 }
-/* Grid gaps */
-.grid-gap-sm { gap: var(--space-2); }
-.grid-gap-md { gap: var(--space-4); }
-.grid-gap-lg { gap: var(--space-8); }
-.grid-gap-0 { gap: 0; }
 
 
-@media screen and (min-width: 1024px) {
-  .grid-gap-md { gap: var(--space-8); }
-  .grid-gap-lg { gap: var(--space-8); }
-}
+
+
