@@ -658,22 +658,19 @@
           "article_dkkCUP": {
             "type": "article",
             "settings": {
-              "article": "news/tester-blog-here-woo-wow-cool",
-              "media_aspect_ratio": "4/3"
+              "article": "news/tester-blog-here-woo-wow-cool"
             }
           },
           "article_LqD8Dd": {
             "type": "article",
             "settings": {
-              "article": "news/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing",
-              "media_aspect_ratio": "4/3"
+              "article": "news/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing"
             }
           },
           "article_FTwhxE": {
             "type": "article",
             "settings": {
-              "article": "news/tester-blog-here-woo-wow-cool",
-              "media_aspect_ratio": "4/3"
+              "article": "news/tester-blog-here-woo-wow-cool"
             }
           }
         },
@@ -684,7 +681,9 @@
         ],
         "name": "Blog posts",
         "settings": {
+          "color_scheme": "",
           "title": "Tips & Tricks",
+          "media_aspect_ratio": "3/4",
           "show_view_all": true,
           "view_all_url": "shopify://blogs/news"
         }
