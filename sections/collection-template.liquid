@@ -1,14 +1,19 @@
 {{ 'collection-template.css' | asset_url | stylesheet_tag }}
+{{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
 
 {% case section.settings.grid %}
   {% when 2 %}
     {%- assign max_height = 530 -%}
+    {%- assign grid_class = 'grid-6' -%}
   {% when 3 %}
     {%- assign max_height = 345 -%}
+    {%- assign grid_class = 'grid-3' -%}
   {% when 4 %}
     {%- assign max_height = 250 -%}
+    {%- assign grid_class = 'grid-4' -%}
   {% when 5 %}
     {%- assign max_height = 195 -%}
+    {%- assign grid_class = 'grid-5' -%}
 {% endcase %}
 
 {% if section.settings.layout == 'grid' %}
@@ -18,276 +23,299 @@
 {% endif %}
 
 {% paginate collection.products by limit %}
-  <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="collection-template">
-    <header class="collection-header">
-      {%- assign is_filter_by_available = false -%}
-      {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
-        {%- assign is_filter_by_available = true -%}
-      {%- endif -%}
+  <section class="collection-template-section color-{{ section.settings.color_scheme }}">
+    <div class="container-small section-padding-small">
+      <div data-section-id="{{ section.id }}" data-section-type="collection-template">
+        <!-- Collection Header -->
+        <header class="collection-template__header">
+          {%- assign is_filter_by_available = false -%}
+          {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
+            {%- assign is_filter_by_available = true -%}
+          {%- endif -%}
 
-      {% if section.settings.show_collection_image and collection.image %}
-        <div class="collection-hero">
-          <div
-            class="collection-hero__image ratio-container lazyload js"
-            data-bgset="{% include 'bgset', image: collection.image %}"
-            data-sizes="auto"
-            data-parent-fit="cover"
-            data-image-loading-animation
-          ></div>
-          <noscript>
-            <div
-              class="collection-hero__image"
-              style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"
-            ></div>
-          </noscript>
-          <div class="collection-hero__title-wrapper">
-            <h1 class="collection-hero__title page-width">
-              <span class="visually-hidden">Collection: </span>
-              {{ collection.title }}
-            </h1>
-          </div>
-        </div>
-        {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-          <div class="page-width">
-            <span class="filters-toolbar__product-count"> {{ collection.products_count }} items </span>
-          </div>
-        {% endif %}
-        {% if collection.description != blank %}
-          <div class="rte collection-description page-width">
-            {{ collection.description }}
-          </div>
-        {% endif %}
-      {% else %}
-        <div>
-          <div class="hae-gradient-header text-center py-40 px-40-gutters d-flex-column flex-justify-center">
-            <h1 class="fs-60">
-              <span class="visually-hidden">Collection: </span>
-              {{ collection.title }}
-            </h1>
+          {% if section.settings.show_collection_image and collection.image %}
+            <div class="collection-template__hero">
+              <div
+                class="collection-template__hero-image ratio-container lazyload js"
+                data-bgset="{% include 'bgset', image: collection.image %}"
+                data-sizes="auto"
+                data-parent-fit="cover"
+                data-image-loading-animation
+              ></div>
+              <noscript>
+                <div
+                  class="collection-template__hero-image"
+                  style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"
+                ></div>
+              </noscript>
+              <div class="collection-template__hero-title-wrapper">
+                <h1 class="collection-template__hero-title">
+                  <span class="visually-hidden">Collection: </span>
+                  {{ collection.title }}
+                </h1>
+              </div>
+            </div>
+            {% if is_filter_by_available == false and section.settings.sort_enable == false %}
+              <div class="collection-template__product-count">
+                <span class="filters-toolbar__product-count">{{ collection.products_count }} items</span>
+              </div>
+            {% endif %}
             {% if collection.description != blank %}
-              <div class="rte">
+              <div class="collection-template__description">
                 {{ collection.description }}
               </div>
             {% endif %}
-            {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-              <span class="filters-toolbar__product-count"> {{ collection.products_count }} items </span>
-            {% endif %}
-          </div>
-        </div>
-      {% endif %}
+          {% else %}
+            <div class="collection-template__header-content">
+              <h1 class="collection-template__title headline-style-h3">
+                <span class="visually-hidden">Collection: </span>
+                {{ collection.title }}
+              </h1>
+              {% if collection.description != blank %}
+                <div class="collection-template__description">
+                  {{ collection.description }}
+                </div>
+              {% endif %}
+              {% if is_filter_by_available == false and section.settings.sort_enable == false %}
+                <div class="collection-template__product-count">
+                  <span class="filters-toolbar__product-count">{{ collection.products_count }} items</span>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
 
-      {% if is_filter_by_available or section.settings.sort_enable %}
-        <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %} px-40-gutters">
-          <div>
-            <div class="filters-toolbar">
-              <div class="filters-toolbar__item-wrapper">
-                {% if section.settings.tags_enable %}
-                  {% unless collection.all_tags.size == 0 %}
+          <!-- Filters Toolbar -->
+          {% if is_filter_by_available or section.settings.sort_enable %}
+            <div class="collection-template__filters{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
+              <div class="filters-toolbar">
+                <div class="filters-toolbar__item-wrapper">
+                  {% if section.settings.tags_enable %}
+                    {% unless collection.all_tags.size == 0 %}
+                      <div class="filters-toolbar__item-child">
+                        <label class="filters-toolbar__label select-label" for="FilterTags">Filter by tags</label>
+                        <div class="filters-toolbar__input-wrapper select-group">
+                          <select
+                            class="filters-toolbar__input hidden"
+                            name="FilterTags"
+                            id="FilterTags"
+                            aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                            data-select-input
+                          >
+                            <option value="{{ collection.url }}">All tags</option>
+                            {% for tag in collection.all_tags %}
+                              {%- assign new_url = tag
+                                | link_to_tag: tag
+                                | split: 'href="'
+                                | last
+                                | split: '"'
+                                | first
+                              -%}
+                              <option
+                                value="{{ new_url }}"
+                                {% if current_tags contains tag %}
+                                  selected="selected"
+                                {% endif %}
+                              >
+                                {{ tag }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                          {% include 'icon-chevron-down' %}
+                        </div>
+                      </div>
+                    {% endunless %}
+                  {% endif %}
+
+                  {% if section.settings.sort_enable %}
                     <div class="filters-toolbar__item-child">
-                      <label class="filters-toolbar__label select-label" for="FilterTags"> Filter by tags </label>
+                      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                      <label class="filters-toolbar__label select-label" for="SortBy">Sort by</label>
                       <div class="filters-toolbar__input-wrapper select-group">
                         <select
+                          name="sort_by"
+                          id="SortBy"
                           class="filters-toolbar__input hidden"
-                          name="FilterTags"
-                          id="FilterTags"
                           aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                          data-default-sortby="{{ collection.default_sort_by }}"
                           data-select-input
                         >
-                          <option value="{{ collection.url }}">All tags</option>
-                          {% for tag in collection.all_tags %}
-                            {%- assign new_url = tag
-                              | link_to_tag: tag
-                              | split: 'href="'
-                              | last
-                              | split: '"'
-                              | first
-                            -%}
+                          {%- for option in collection.sort_options -%}
                             <option
-                              value="{{ new_url }}"
-                              {% if current_tags contains tag %}
+                              value="{{ option.value }}"
+                              {% if option.value == sort_by %}
                                 selected="selected"
                               {% endif %}
                             >
-                              {{ tag }}
+                              {{ option.name }}
                             </option>
-                          {% endfor %}
+                          {%- endfor -%}
                         </select>
                         {% include 'icon-chevron-down' %}
                       </div>
                     </div>
-                  {% endunless %}
-                {% endif %}
-
-                {% if section.settings.sort_enable %}
-                  <div class="filters-toolbar__item-child">
-                    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                    <label class="filters-toolbar__label select-label" for="SortBy"> Sort by </label>
-                    <div class="filters-toolbar__input-wrapper select-group">
-                      <select
-                        name="sort_by"
-                        id="SortBy"
-                        class="filters-toolbar__input hidden"
-                        aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                        data-default-sortby="{{ collection.default_sort_by }}"
-                        data-select-input
-                      >
-                        {%- for option in collection.sort_options -%}
-                          <option
-                            value="{{ option.value }}"
-                            {% if option.value == sort_by %}
-                              selected="selected"
-                            {% endif %}
-                          >
-                            {{ option.name }}
-                          </option>
-                        {%- endfor -%}
-                      </select>
-                      {% include 'icon-chevron-down' %}
-                    </div>
-                  </div>
-                {% endif %}
-              </div>
-
-              <div class="filters-toolbar__item filters-toolbar__item--count">
-                <span class="filters-toolbar__product-count"> {{ collection.products_count }} items </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    </header>
-
-    <div id="Collection">
-      {% if section.settings.layout == 'grid' %}
-        <ul class="collection-grid">
-          {% for product in collection.products %}
-            <li class="collection-grid-item">
-              {% include 'product-card-grid',
-                max_height: max_height,
-                product: product,
-                show_vendor: section.settings.show_vendor
-              %}
-            </li>
-          {% else %}
-            {% comment %}
-              Add default products to help with onboarding for collections/all only.
-
-              The onboarding styles and products are only loaded if the
-              store has no products.
-            {% endcomment %}
-            {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-              {% for i in (1..limit) %}
-                <li class="collection-grid-item">
-                  <div class="grid-view-item">
-                    <a href="#" class="grid-view-item__link">
-                      <div class="grid-view-item__image">
-                        {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                      </div>
-                      <div class="h4 grid-view-item__title">Sample Product</div>
-                      <div class="grid-view-item__meta">
-                        <span class="product-price__price">$19.99</span>
-                      </div>
-                    </a>
-                  </div>
-                </li>
-              {% endfor %}
-            {% else %}
-              {%- assign is_empty_collection = true -%}
-            {% endif %}
-          {% endfor %}
-        </ul>
-      {% else %}
-        <ul class="collection-list">
-          {% for product in collection.products %}
-            <li class="list-view-item">
-              <a href="{{ product.url | within: collection }}" class="list-view-item__link">
-                <div class="list-view-item__image-column">
-                  <div class="list-view-item__image-wrapper">
-                    <div class="list-view-item__image">
-                      {% if product.featured_media.preview_image %}
-                        <img
-                          src="{{ product.featured_media.preview_image | img_url: '300x300', crop: 'center' }}"
-                          alt="{{ product.featured_media.preview_image.alt | escape }}"
-                          width="300"
-                          height="300"
-                        >
-                      {% else %}
-                        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                      {% endif %}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="list-view-item__title-column">
-                  <div class="list-view-item__title">{{ product.title }}</div>
-                  {% if section.settings.show_vendor and product.vendor %}
-                    <p class="product-vendor">{{ product.vendor }}</p>
                   {% endif %}
                 </div>
 
-                <div class="list-view-item__price-column">
-                  {% include 'product-price', product: product %}
+                <div class="filters-toolbar__item filters-toolbar__item--count">
+                  <span class="filters-toolbar__product-count">{{ collection.products_count }} items</span>
                 </div>
-              </a>
-            </li>
-          {% else %}
-            {% comment %}
-              Add default products to help with onboarding for collections/all only.
+              </div>
+            </div>
+          {% endif %}
+        </header>
 
-              The onboarding styles and products are only loaded if the
-              store has no products.
-            {% endcomment %}
-            {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-              {% for i in (1..4) %}
+        <!-- Collection Products -->
+        <div id="Collection">
+          {% if section.settings.layout == 'grid' %}
+            <ul class="collection-grid grid {{ grid_class }} grid-gap-sm">
+              {% for product in collection.products %}
+                <li class="collection-grid-item">
+                  {% render 'product-card-grid',
+                    max_height: max_height,
+                    product: product,
+                    show_vendor: section.settings.show_vendor
+                  %}
+                </li>
+              {% else %}
+                {% comment %}
+                  Add default products to help with onboarding for collections/all only.
+                  The onboarding styles and products are only loaded if the
+                  store has no products.
+                {% endcomment %}
+                {% if collection.handle == 'all'
+                  and collection.all_vendors.size == 0
+                  and collection.all_types.size == 0
+                %}
+                  {% for i in (1..limit) %}
+                    <li class="collection-grid-item">
+                      <div class="product-card">
+                        <a class="product-card__link" href="#">
+                          <div class="product-card__image">
+                            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                          </div>
+                          <div class="product-card__content">
+                            <h3 class="product-card__title">Sample Product</h3>
+                            <p class="product-card__price">$19.99</p>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                  {% endfor %}
+                {% else %}
+                  {%- assign is_empty_collection = true -%}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% else %}
+            <ul class="collection-list">
+              {% for product in collection.products %}
                 <li class="list-view-item">
-                  <a href="#" class="list-view-item__link">
+                  <a href="{{ product.url | within: collection }}" class="list-view-item__link">
                     <div class="list-view-item__image-column">
                       <div class="list-view-item__image-wrapper">
                         <div class="list-view-item__image">
-                          {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
-                          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                          {% if product.featured_media.preview_image %}
+                            <img
+                              src="{{ product.featured_media.preview_image | img_url: '300x300', crop: 'center' }}"
+                              alt="{{ product.featured_media.preview_image.alt | escape }}"
+                              width="300"
+                              height="300"
+                            >
+                          {% else %}
+                            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {% endif %}
                         </div>
                       </div>
                     </div>
 
                     <div class="list-view-item__title-column">
-                      <div class="list-view-item__title">Sample Product</div>
+                      <div class="list-view-item__title">{{ product.title }}</div>
+                      {% if section.settings.show_vendor and product.vendor %}
+                        <p class="product-vendor">{{ product.vendor }}</p>
+                      {% endif %}
                     </div>
 
                     <div class="list-view-item__price-column">
-                      <span class="product-price__price">$19.99</span>
+                      {% include 'product-price', product: product %}
                     </div>
                   </a>
                 </li>
+              {% else %}
+                {% comment %}
+                  Add default products to help with onboarding for collections/all only.
+                  The onboarding styles and products are only loaded if the
+                  store has no products.
+                {% endcomment %}
+                {% if collection.handle == 'all'
+                  and collection.all_vendors.size == 0
+                  and collection.all_types.size == 0
+                %}
+                  {% for i in (1..4) %}
+                    <li class="list-view-item">
+                      <a href="#" class="list-view-item__link">
+                        <div class="list-view-item__image-column">
+                          <div class="list-view-item__image-wrapper">
+                            <div class="list-view-item__image">
+                              {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
+                              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="list-view-item__title-column">
+                          <div class="list-view-item__title">Sample Product</div>
+                        </div>
+
+                        <div class="list-view-item__price-column">
+                          <span class="product-price__price">$19.99</span>
+                        </div>
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% else %}
+                  {%- assign is_empty_collection = true -%}
+                {% endif %}
               {% endfor %}
-            {% else %}
-              {%- assign is_empty_collection = true -%}
-            {% endif %}
-          {% endfor %}
-        </ul>
-      {% endif %}
+            </ul>
+          {% endif %}
 
-      {% if is_empty_collection %}
-        <div class="collection-empty">
-          <p>No products found in this collection.</p>
+          {% if is_empty_collection %}
+            <div class="collection-empty">
+              <p>No products found in this collection.</p>
+            </div>
+          {% endif %}
+
+          {%- if paginate.pages > 1 -%}
+            {% include 'pagination', paginate: paginate %}
+          {%- endif -%}
         </div>
-      {% endif %}
 
-      {%- if paginate.pages > 1 -%}
-        {% include 'pagination', paginate: paginate %}
-      {%- endif -%}
+        {% include 'hae-ticker' %}
+        {% include 'hae-about' %}
+      </div>
     </div>
-
-    {% include 'hae-ticker' %}
-    {% include 'hae-about' %}
-  </div>
+  </section>
 {% endpaginate %}
 
 {% schema %}
 {
   "name": "Collection pages",
   "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
     {
       "type": "select",
       "id": "layout",
@@ -321,6 +349,10 @@
       "min": 2,
       "max": 8,
       "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "checkbox",
