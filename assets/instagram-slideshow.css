@@ -37,7 +37,7 @@
 .instagram-slideshow__container {
   position: relative;
   width: 100%;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .instagram-slideshow__slider {

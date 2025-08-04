@@ -1,7 +1,7 @@
 {{ 'featured-blog-posts.css' | asset_url | stylesheet_tag }}
 
 <section class="featured-blog-posts">
-  <div class="featured-blog-posts__contain container-small section-padding-small">
+  <div class="featured-blog-posts__contain container-x-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="featured-blog-posts__header">
         <h2 class="featured-blog-posts__title headline-style-h3">{{ section.settings.title | escape }}</h2>
@@ -15,20 +15,18 @@
           <div class="grid__item">
             <article class="blog-card" aria-labelledby="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
               {% if article.image %}
-                <div class="blog-card__image-wrapper">
-                  <div class="blog-card__image-container">
-                    {% render 'image-with-aspect-ratio',
-                      image: article.image,
-                      aspect_ratio: article.image.aspect_ratio,
-                      alt: article.title,
-                      widths: '180, 360, 540, 720, 900, 1080, 1296'
-                    %}
-                  </div>
+                <div class="blog-card__image-container">
+                  {% render 'image-with-aspect-ratio',
+                    image: article.image,
+                    aspect_ratio: article.media_aspect_ratio,
+                    alt: article.title,
+                    widths: '180, 360, 540, 720, 900, 1080, 1296'
+                  %}
                 </div>
               {% endif %}
 
               <div class="blog-card__content">
-                <h3 class="blog-card__title h4" id="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
+                <h3 class="blog-card__title headline-style-h3" id="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
                   {{ article.title }}
                 </h3>
 
@@ -50,7 +48,7 @@
           <div class="grid__item">
             <div class="blog-card">
               <div class="blog-card__content">
-                <h3 class="blog-card__title h4">
+                <h3 class="blog-card__title headline-style-h4">
                   {{ 'homepage.onboarding.blog_title' | t }}
                 </h3>
                 <div class="blog-card__excerpt rte">

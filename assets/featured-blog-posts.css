@@ -15,8 +15,8 @@
     gap: var(--space-8);
 }
 
-
-.blog-card__image-wrapper {
+.blog-card__image-container {
+    margin-bottom: var(--space-5);
     border-radius: var(--border-radius-large);
     overflow: hidden;
 }

@@ -200,7 +200,7 @@ h6 p {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h2); 
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 
 }
 
@@ -355,8 +355,12 @@ body {
     #Paragraphs
 \*------------------------------------*/
 
+
+.text-size-xx-large p {
+  margin-bottom: var(--space-7);
+}
 p {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5);
 }
 
 .screen-readers-only {
@@ -397,7 +401,7 @@ a {
 }
 
 .container-small {
-  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 2));
   width: 100%;
   margin: auto; 
   padding-left: var(--container-padding);
@@ -405,7 +409,7 @@ a {
 }
 
 .container-x-small {
-  max-width: var(--max-width-x-small);
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
   width: 100%; 
   margin: auto; 
   padding-left: var(--container-padding);

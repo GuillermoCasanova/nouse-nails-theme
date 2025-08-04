@@ -98,6 +98,12 @@
       "email_placeholder": "Email address",
       "submit": "Subscribe",
       "confirmation": "Thanks for subscribing"
+    },
+    "homepage": {
+      "onboarding": {
+        "blog_title": "Blog post title",
+        "blog_excerpt": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
+      }
     }
   },
   "newsletter": {

@@ -13,7 +13,7 @@
 }
 
 .collection-grid {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-6);
   gap: var(--space-5);
 }
 @media screen and (min-width: 768px) {
@@ -25,7 +25,10 @@
 
 .collection-view-all {
   text-align: center;
-  margin-top: var(--space-6);
+}
+
+.collection-view-all .button {
+  min-width: 12rem;
 }
 
 .collection-grid-item {
