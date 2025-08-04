@@ -828,17 +828,25 @@
               "question": "How should I store the unused strips?",
               "answer": "<p>Provide your answer here.</p>"
             }
+          },
+          "faq_block_rb9HTG": {
+            "type": "faq_block",
+            "settings": {
+              "question": "Are they safe, vegan, and cruelty-free?",
+              "answer": "<p>Provide your answer here.</p>"
+            }
           }
         },
         "block_order": [
           "faq_block_hrWaUk",
           "faq_block_jqBhUU",
           "faq_block_enKfmd",
-          "faq_block_y6YEq6"
+          "faq_block_y6YEq6",
+          "faq_block_rb9HTG"
         ],
         "name": "FAQ Section",
         "settings": {
-          "heading": "Frequently Asked Questions",
+          "heading": "FAQs",
           "page": "nous-difference"
         }
       }
