@@ -5,17 +5,13 @@
 #shopify-section-announcement-bar {
     z-index: 4;
     position: relative;
+    background-color: rgb(var(--color-background));
 }
 
 .announcement-bar {
-    border-bottom: 1px solid rgb(var(--color-base-text));
-    color: rgb(var(--color-base-text));
-    background-color: rgb(var(--color-base-background-1));
-}
-
-.announcement-bar--dark {
-    background-color: rgb(var(--color-base-background-2));
-    color: rgb(var(--color-base-text));
+    border-bottom: 1px solid rgb(var(--color-text));
+    color: rgb(var(--color-text));
+    background-color: rgb(var(--color-background-2));
 }
 
 .announcement-bar__link {
@@ -23,10 +19,13 @@
     width: 100%;
     padding: .75rem 2rem;
     text-decoration: none;
+    color: rgb(var(--color-text));
+    background-color: rgb(var(--color-background));
 }
 
 .announcement-bar__link:hover {
-    color: rgb(var(--color-base-text));
+    color: rgb(var(--color-text));
+    background-color: rgba(var(--color-text), 0.05);
 }
 
 .announcement-bar__link .icon-arrow {
@@ -46,15 +45,22 @@
     padding: .75rem 2rem;
     margin: 0;
     font-family: var(--primary-font-family);
+    color: rgb(var(--color-text));
 }
 
 
-#shopify-section-announcement-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
 
-#shopify-section-announcement-bar+#shopify-section-header sticky-header {
-    top: 2.5rem;
-}
+.announcement-bar__close {
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+  }
+
+  .announcement-bar__close:hover {
+    opacity: 0.8;
+  }

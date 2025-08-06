@@ -1,1 +1,57 @@
-<div>hello</div>
+{{ 'component-announcement-bar.css' | asset_url | stylesheet_tag }}
+
+<announcement-bar lass="announcement-bar">
+  <div class="announcement-bar__inner">
+    <div class="announcement-bar__text">
+      <p>hello</p>
+    </div>
+  </div>
+</announcement-bar>
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "<p>Welcome to our store</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close_button",
+      "label": "Show close button",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  class AnnouncementBar extends HTMLElement {
+    constructor() {
+      super();
+      this.closeButton = this.querySelector('.announcement-bar__close');
+
+      if (this.closeButton) {
+        this.closeButton.addEventListener('click', this.close.bind(this));
+      }
+    }
+
+    close() {
+      this.style.display = 'none';
+      document.documentElement.style.setProperty('--announcement-bar-height', '0px');
+
+      // Store closed state
+      localStorage.setItem('announcement-bar-closed', 'true');
+    }
+  }
+
+  customElements.define('announcement-bar', AnnouncementBar);
+</script>

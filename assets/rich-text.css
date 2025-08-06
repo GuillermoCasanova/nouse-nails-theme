@@ -14,7 +14,7 @@
 }
 
 .metafield-rich_text_field li {
-  margin-bottom: var(--level3);
+  margin-bottom: var(--space-3);
 }
 
 
@@ -61,7 +61,7 @@
 }
 
 .rte p {
-  margin-bottom: var(--level8)
+  margin-bottom: var(--space-8)
 }
 
 .rte>p:first-child {
@@ -91,7 +91,7 @@
 
 .rte h2 {
   font-size: var(--h3);
-  margin-bottom: var(--level5);
+  margin-bottom: var(--space-5);
 }
 
 .rte h3 {
@@ -99,5 +99,5 @@
 }
 
 .rte p+h3 {
-  margin-top: var(--level7);
+  margin-top: var(--space-7);
 }

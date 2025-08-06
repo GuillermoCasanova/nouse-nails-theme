@@ -8,7 +8,7 @@
   }
   
   .card__heading {
-    margin-bottom: var(--level4); 
+    margin-bottom: var(--space-4); 
     font-weight: 300;
   }
   
@@ -17,7 +17,7 @@
   }
   
   .card__inner {
-    padding: var(--level6);
+    padding: var(--space-6);
   }
   
   .card {

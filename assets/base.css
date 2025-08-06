@@ -576,12 +576,12 @@ main {
 }
 
 .master-padding-top {
-  padding-top: var(--level6);
+  padding-top: var(--space-6);
 }
 
 @media screen and (min-width: 940px) {
   .master-padding-top {
-    padding-top: var(--level7);
+    padding-top: var(--space-7);
   }
 }
 
@@ -723,7 +723,7 @@ button,
   font-weight: var(--button-font-weight);
   justify-content: center;
   line-height: 1;
-  margin: 0 0 var(--level3) 0;
+  margin: 0 0 var(--space-3) 0;
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -749,7 +749,7 @@ button:hover,
 }
 
 .button__icon {
-  margin-left: calc(var(--level2) * 1rem);
+      margin-left: calc(var(--space-2) * 1rem);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -868,7 +868,7 @@ button:hover,
 .shopify-policy__title {
   text-align: center; 
   text-transform: uppercase; 
-  margin-bottom: var(--level8);
+  margin-bottom: var(--space-8);
   font-family: var(--secondary-font-family);
 }
 
@@ -885,12 +885,12 @@ button:hover,
 
 .shopify-policy__container {    
   max-width: var(--max-width-x-small); 
-  margin-top: var(--level8);
+  margin-top: var(--space-8);
 }
 
 
 .shopify-policy__body {
-  margin-bottom: calc(var(--level10) * 3);
+  margin-bottom: calc(var(--space-10) * 3);
 }
 
 @media screen and (min-width: 700px) {
@@ -907,7 +907,7 @@ button:hover,
   font-family: var(--tertiary-font-family);
   font-weight: 300;
   font-size: var(--normal);
-  margin-bottom: var(--level1);
+  margin-bottom: var(--space-1);
   display: inline-block;
 }
 
