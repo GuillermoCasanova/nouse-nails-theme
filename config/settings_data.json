@@ -650,7 +650,11 @@
       },
       "announcement-bar": {
         "type": "announcement-bar",
-        "settings": {}
+        "settings": {
+          "announcement_text": "<p>Header Bar for Free Shipping Over $100+ | Use Code: FREESHIP</p>",
+          "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+          "show_close_button": true
+        }
       },
       "featured_blog_WPc99D": {
         "type": "featured-blog",
