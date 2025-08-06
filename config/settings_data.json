@@ -11,7 +11,8 @@
   "current": {
     "colors_brand_1": "#6d0506",
     "colors_brand_2": "#f8eee3",
-    "colors_text_1": "#6d0506",
+    "colors_base_text_1": "#6d0506",
+    "colors_base_text_2": "#f8eee3",
     "show_announcement_bar": true,
     "type_header_font": "helvetica_n7",
     "type_header_base_size": 26,
@@ -33,6 +34,7 @@
     "social_vimeo_link": "",
     "favicon": "",
     "enable_ajax": true,
+    "colors_text_1": "#6d0506",
     "color_text": "#000000",
     "color_body_text": "#000000",
     "color_sale_text": "#ea0606",
