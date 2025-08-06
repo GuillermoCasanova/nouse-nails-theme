@@ -157,6 +157,20 @@
         "default": "#7294A8",
         "label": "Brand Color 1",
         "info": "Colors used for components not using color schemes"
+      },
+      {
+        "type": "color",
+        "id": "colors_brand_2",
+        "default": "#7294A8",
+        "label": "Brand Color 2",
+        "info": "Colors used for components not using color schemes"
+      },
+      {
+        "type": "color",
+        "id": "colors_text_1",
+        "default": "#7294A8",
+        "label": "Text Color 1",
+        "info": "Colors used for components not using color schemes"
       }
     ]
   },
