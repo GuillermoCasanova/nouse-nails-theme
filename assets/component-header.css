@@ -8,17 +8,16 @@
     top: 0;
     width: 100%;
     z-index: 5;
-    background-color: rgb(var(--color-base-background-1));
+    background-color: rgb(var(--color-background));
     height: var(--space-9);
     transition: all 0.3s var(--default-easing);
   }
 
   .header-wrapper {
-    position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
-    background-color: rgb(var(--color-base-background-1));
+    background-color: #FFFFFF;
     height: var(--space-9);
     transition: all 0.3s var(--default-easing);
   }
@@ -33,33 +32,6 @@
     }
   }
 
-  .shopify-section-header-hidden {
-    /* .header__inner {
-      padding-top: 0;
-    }
-
-    .header__mega-menu {
-      top: 6rem;
-    }
-
-    .search-modal {
-      top: 6rem;
-    }
-
-    .header__logo {
-      max-width: 19rem;
-    }
-
-    @media screen and (min-width: 940px) {
-      .header__inner {
-        padding-top: var(--space-5);
-      }
-
-      .header__icons {
-        opacity: 0;
-      }
-    } */
-  }
 
   .scrolled-past-header:not(.shopify-section-header-hidden) .header__mega-menu {
     top: var(--space-10);
@@ -68,8 +40,13 @@
   .header {
     position: relative;
     transition: all 0.6s var(--default-easing);
-    background-color: rgb(var(--color-base-background-1));
+    background-color: #FFFFFF;
   }
+
+  .header.menu-open {
+    background-color: rgb(var(--color-background-2));
+  }
+
 
   .header__inner {
     align-items: center;
@@ -253,6 +230,10 @@
     }
   }
 
+
+
+
+
   /*------------------------------------*\
     #Header Icons - Cart Toggle
   \*------------------------------------*/
@@ -290,12 +271,6 @@
     width: auto;
   }
 
-  @media only screen and (min-width: 940px) {
-    .header__cart-button {
-      font-size: var(--headline-size-h5);
-      padding-top: var(--space-1);
-    }
-  }
 
   .header__cart-button:hover,
   .header__cart-button:focus {
@@ -308,10 +283,10 @@
 
   .cart-count-bubble {
     align-items: center;
-    background-color: rgb(var(--color-base-background-3));
+    background-color: rgb(var(--color-accent));
     border-radius: 100%;
     bottom: 30%;
-    color: #fff;
+    color: red;
     display: flex;
     font-size: var(--text-size-tiny);
     height: 1.25rem;

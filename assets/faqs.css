@@ -61,7 +61,6 @@
 .faq-list__item__answer {
   position: relative;
   overflow: hidden;
-  padding: var(--space-4) var(--space-2);
   font-size: var(--text-size-main);
   transition: all 0.3s var(--main-easing);
   padding-left: var(--space-4);
@@ -81,7 +80,6 @@
 
 .faqs-list__container {
   display: grid;
-  gap: var(--space-8);
 }
 
 

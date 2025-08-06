@@ -149,6 +149,18 @@
     ]
   },
   {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_brand_1",
+        "default": "#7294A8",
+        "label": "Brand Color 1",
+        "info": "Colors used for components not using color schemes"
+      }
+    ]
+  },
+  {
     "name": "Announcement Bar",
     "settings": [
       {

@@ -1,10 +1,16 @@
 {{ 'component-announcement-bar.css' | asset_url | stylesheet_tag }}
 
-<announcement-bar lass="announcement-bar">
-  <div class="announcement-bar__inner">
+<announcement-bar class="announcement-bar color-{{ section.settings.color_scheme }}">
+  <div class="announcement-bar__contain container-main">
     <div class="announcement-bar__text">
-      <p>hello</p>
+      {{ section.settings.announcement_text }}
     </div>
+    {% if section.settings.show_close_button %}
+      <button class="announcement-bar__close">
+        <span class="visually-hidden">Close</span>
+        {% render 'icon-close' %}
+      </button>
+    {% endif %}
   </div>
 </announcement-bar>
 {% schema %}
