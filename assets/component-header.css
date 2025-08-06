@@ -41,6 +41,7 @@
     position: relative;
     transition: all 0.6s var(--default-easing);
     background-color: #FFFFFF;
+    t
   }
 
   .header.menu-open {
@@ -106,6 +107,11 @@
     width: 50vw;
     z-index: 0;
   }
+
+ .menu-open .header__logo {
+  color: rgb(var(--color-base-text-2));
+  fill: rgb(var(--color-base-text-2));
+ }
 
   .header__logo svg {
     height: 100%;

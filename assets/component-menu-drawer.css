@@ -42,7 +42,7 @@ header-drawer {
 .header.menu-open .header__icon--menu:after,
 .header.menu-open .header__icon--menu .header__icon__inner:after,
 .header.menu-open .header__icon--menu .header__icon__inner:before {
-  background-color: rgb(var(--color-text-2));
+  background-color: rgb(var(--color-base-text-2));
 }
 
 .header__icon--menu:after,
@@ -220,13 +220,11 @@ menu-drawer>details[open]>summary::before {
   text-decoration: none;
   text-transform: uppercase;
   list-style: none;
-  font-family: var(--primary-font-family);
-  font-size: var(--headline-size-h6);
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-1);
   margin-bottom: var(--space-7);
   display: block;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
   width: 100%; 
   transition: all 0.3s var(--default-easing);
   position: relative;
@@ -238,7 +236,7 @@ menu-drawer>details[open]>summary::before {
 
 .menu-drawer__menu-link {
   text-decoration: none;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
   transition: color 0.2s var(--default-easing);
   display: block;
   width: 100%;
@@ -275,7 +273,7 @@ a.menu-drawer__menu-item:focus {
 .menu-drawer__close-button:focus,
 .menu-drawer__menu-item:hover,
 .menu-drawer__close-button:hover {
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
 }
 
 .menu-drawer__menu-link.button-join:hover,
@@ -308,7 +306,7 @@ a.menu-drawer__menu-item:focus {
   text-decoration: none;
   opacity: .7;
   font-size: var(--text-size-main);
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
   transition: all 0.2s var(--default-easing);
   display: block;
   padding: var(--space-1) 0;
