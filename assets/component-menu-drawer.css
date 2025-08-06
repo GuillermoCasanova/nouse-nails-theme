@@ -39,6 +39,12 @@ header-drawer {
   height: 100%;
 }
 
+.header.menu-open .header__icon--menu:after,
+.header.menu-open .header__icon--menu .header__icon__inner:after,
+.header.menu-open .header__icon--menu .header__icon__inner:before {
+  background-color: rgb(var(--color-text-2));
+}
+
 .header__icon--menu:after,
 .header__icon--menu .header__icon__inner:after,
 .header__icon--menu .header__icon__inner:before {
@@ -107,7 +113,7 @@ menu-drawer>details[open]>summary::before {
 
  .menu-drawer {
   position: absolute;
-  background-color: #FFFFFF;
+  background-color: rgb(var(--color-brand-1));
   width: 100%;
   z-index: 3;
   left: 0;
