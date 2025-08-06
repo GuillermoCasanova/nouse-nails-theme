@@ -10,6 +10,8 @@
 {
   "current": {
     "colors_brand_1": "#6d0506",
+    "colors_brand_2": "#f8eee3",
+    "colors_text_1": "#6d0506",
     "show_announcement_bar": true,
     "type_header_font": "helvetica_n7",
     "type_header_base_size": 26,
