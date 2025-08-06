@@ -169,14 +169,14 @@
         "type": "color",
         "id": "colors_base_text_1",
         "default": "#7294A8",
-        "label": "Base Text Color 1",
+        "label": "Text Color 1",
         "info": "Colors used for components not using color schemes"
       },
       {
         "type": "color",
         "id": "colors_base_text_2",
         "default": "#7294A8",
-        "label": "Base Text Color 2",
+        "label": "Text Color 2",
         "info": "Colors used for components not using color schemes"
       }
     ]

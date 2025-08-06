@@ -687,12 +687,10 @@ function getFocusableElements(container) {
         `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
       );
   
-      setTimeout(() => {
-        this.mainDetailsToggle.classList.remove('menu-close');
-        this.mainDetailsToggle.classList.add('menu-open');
-        this.header.classList.add('menu-open');
-        this.header.classList.remove('menu-close');
-      });
+      this.mainDetailsToggle.classList.remove('menu-close');
+      this.mainDetailsToggle.classList.add('menu-open');
+      this.header.classList.add('menu-open');
+      this.header.classList.remove('menu-close');
   
       summaryElement.setAttribute('aria-expanded', true);
       window.addEventListener('resize', this.onResize);
