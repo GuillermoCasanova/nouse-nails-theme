@@ -15,7 +15,8 @@
             <div class="featured-collections__column__sticker">
               {% render 'floating-sticker',
                 sticker_type: block.settings.floating_sticker,
-                custom_class: 'product-sticker-hover'
+                custom_class: 'product-sticker-hover',
+                color: block.settings.sticker_color
               %}
             </div>
             <div class="featured-collections__column__media">
@@ -134,9 +135,9 @@
         },
         {
           "type": "color",
-          "id": "background_color",
-          "label": "Background color",
-          "default": "#FFFFFF"
+          "id": "sticker_color",
+          "label": "Sticker color",
+          "default": "#000000"
         }
       ]
     }

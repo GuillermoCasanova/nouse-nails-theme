@@ -53,6 +53,12 @@
 }
 
 
+.featured-collections__column__layout:hover .featured-collections__column__sticker, 
+.featured-collections__column__layout:focus  .featured-collections__column__sticker {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
 
 
 
@@ -71,6 +77,8 @@
     aspect-ratio: 1/1; 
     left: calc(-1 * var(--space-5));
     bottom: calc(-1 * var(--space-5));
+    opacity: 0;
+    transition: all 0.4s var(--default-easing);
 }
 
 @media screen and (min-width: 748px) {
