@@ -47,7 +47,7 @@
     -webkit-animation-duration: 60s;
     animation-duration: 60s;
     color: var(--color-text); 
-    font-size: var(--headline-size-h3);
+    font-size: var(--headline-size-h4);
     text-transform: uppercase; 
     font-weight: 500;
   }

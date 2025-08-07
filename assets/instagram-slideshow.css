@@ -9,7 +9,7 @@
 
 .instagram-slideshow__header {
   text-align: center;
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-8);
 }
 
 @media screen and (min-width: 768px) {

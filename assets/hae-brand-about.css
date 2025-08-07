@@ -6,7 +6,7 @@
 
 
 .brand-about__intro__text {
-    max-width: 49rem;
+    max-width: 46rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -51,8 +51,6 @@
     #Hae Brand About Callouts
 \*------------------------------------*/
 
-
-
 .brand-about__callout-image-wrapper {
     width: 3.5rem;
     height: 3.5rem;
@@ -65,8 +63,8 @@
 
 @media screen and (min-width: 768px) {
     .brand-about__callout-image-wrapper {
-        width: 5.5rem;
-        height: 5.5rem;
+        width: 4rem;
+        height: 4rem;
     }
 }
 
@@ -86,7 +84,6 @@
     max-width: 38rem;
     margin: auto;
 }
-
 
 .brand-about__callout__content *:last-child {
     margin-bottom: 0;

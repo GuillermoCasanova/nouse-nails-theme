@@ -1,7 +1,7 @@
 {{ 'image-with-text.css' | asset_url | stylesheet_tag }}
 
 <section class="image-with-text color-{{ section.settings.color_scheme }}">
-  <div class="image-with-text__container container-main section-padding-small">
+  <div class="image-with-text__container container-small section-padding-small">
     <div class="image-with-text__content grid grid-2 grid-gap-lg">
       <div class="image-with-text__media-wrapper">
         {% if section.settings.media_type == 'image' %}

@@ -20,7 +20,7 @@
     width: 100%; 
     border-radius: var(--border-radius-main);
     overflow: hidden;
-    margin-bottom: var(--space-9);
+    margin-bottom: var(--space-8);
 }
 
 
@@ -69,19 +69,19 @@
     max-width: 3rem; 
     width: 100%; 
     aspect-ratio: 1/1; 
-    left: calc(-1 * var(--space-7));
-    bottom: calc(-1 * var(--space-7));
+    left: calc(-1 * var(--space-5));
+    bottom: calc(-1 * var(--space-5));
 }
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__sticker {
-        max-width: 6rem; 
-    };
+        max-width: 4rem; 
+    }
 }
 
 .featured-collections__layout .featured-collections__column:nth-child(2) .featured-collections__column__layout  .featured-collections__column__sticker{
     top: var(--space-9);
-    right: calc(-1 * var(--space-7));
+    right: calc(-1 * var(--space-6));
     left: auto; 
     bottom: auto; 
 }

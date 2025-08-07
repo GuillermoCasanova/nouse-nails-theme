@@ -13,6 +13,12 @@
     width: 100%;
 }
 
+@media screen and (min-width: 1024px) {
+    .hero-header__media {
+        aspect-ratio: 1/.85;
+    }
+}
+
 
 .hero-header__layout {
     display: flex;
@@ -38,8 +44,6 @@
 
 .hero-header__left-column {
     width: 100%;
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-8);
     align-items: center;
 }
 

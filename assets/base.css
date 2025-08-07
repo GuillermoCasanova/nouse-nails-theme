@@ -351,10 +351,12 @@ body {
 }
 
 
+
+
+
 /*------------------------------------*\
     #Paragraphs
 \*------------------------------------*/
-
 
 .text-size-xx-large p {
   margin-bottom: var(--space-8);
@@ -371,6 +373,10 @@ p {
   position: fixed;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Links
 \*------------------------------------*/
@@ -378,6 +384,9 @@ p {
 a {
   color: rgb(var(--color-base-text));
 }
+
+
+
 
 
 /*------------------------------------*\
@@ -394,7 +403,7 @@ a {
 }
 
 .container-main {
-  max-width: var(--max-width-medium);
+  max-width: calc(var(--max-width-medium) - (var(--container-padding) * 4));
   width: 100%;
   margin: auto; 
   padding-left: var(--container-padding);
@@ -402,7 +411,7 @@ a {
 }
 
 .container-small {
-  max-width: calc(var(--max-width-small) - (var(--container-padding) * 2));
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
   width: 100%;
   margin: auto; 
   padding-left: var(--container-padding);
@@ -795,7 +804,7 @@ button:hover,
 }
 
 .button--medium {
-  padding: var(--space-4);
+  padding: var(--space-3);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
  font-size: var(--text-size-small);
