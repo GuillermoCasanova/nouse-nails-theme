@@ -747,7 +747,7 @@ button:hover,
 }
 
 .button--secondary {
-  border: 2px solid transparent;
+  border: 2px solid rgb(var(--color-button-secondary-border));
   color: rgb(var(--color-button-secondary-text));
   background-color: rgb(var(--color-button-secondary-background));
 }
