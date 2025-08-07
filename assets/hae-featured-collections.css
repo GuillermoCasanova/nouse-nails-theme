@@ -40,15 +40,20 @@
 .featured-collections__column__layout {
     text-decoration: none;
     position: relative;
-    padding-left: var(--space-9);
-    padding-right: var(--space-9);
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
     display: block;
 }
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__layout  {
-        padding: var(--space-9);
         height: 100%; 
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .featured-collections__column__layout  {
+        padding: var(--space-9);
     }
 }
 

@@ -9,6 +9,7 @@ class SocialVideoPlayer extends HTMLElement {
     this.isPlaying = false;
     this.isTouchDevice = false;
     this.hasInteracted = false;
+    this.observer = null;
   }
 
   connectedCallback() {
@@ -35,6 +36,11 @@ class SocialVideoPlayer extends HTMLElement {
     this.video.addEventListener('play', this.handleVideoPlay.bind(this));
     this.video.addEventListener('pause', this.handleVideoPause.bind(this));
     this.video.addEventListener('ended', this.handleVideoEnded.bind(this));
+
+    // Setup autoplay if enabled
+    if (this.hasAttribute('data-autoplay')) {
+      this.setupAutoplay();
+    }
   }
 
   disconnectedCallback() {
@@ -51,6 +57,27 @@ class SocialVideoPlayer extends HTMLElement {
       this.video.removeEventListener('pause', this.handleVideoPause.bind(this));
       this.video.removeEventListener('ended', this.handleVideoEnded.bind(this));
     }
+
+    // Disconnect observer if it exists
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  setupAutoplay() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.playVideo();
+        } else {
+          this.pauseVideo();
+        }
+      });
+    }, {
+      threshold: 0.5 // Trigger when 50% of element is visible
+    });
+
+    this.observer.observe(this);
   }
 
   detectTouchDevice() {

@@ -31,20 +31,11 @@
                   <source src="{{ block.settings.video_url }}" type="video/mp4">
                 </video>
               {% else %}
-                <img
-                  src="{{ block.settings.image | image_url }}"
-                  srcset="
-                    {{ block.settings.image | image_url: width: 1440, scale: 2 }} 2560w,
-                    {{ block.settings.image | image_url: width: 400, scale: 2 }} 1024w,
-                    {{ block.settings.image | image_url: width: 768, scale: 2 }} 768w,
-                    {{ block.settings.image | image_url: width: 425, scale: 2 }} 425w
-                  "
-                  sizes="50vw"
-                  class="responsive-image"
-                  alt="{{ block.settings.collection.title | escape }}"
-                  width="800"
-                  height="800"
-                >
+                {% render 'image-with-aspect-ratio',
+                  image: block.settings.image,
+                  aspect_ratio: '1/1',
+                  alt: block.settings.image.alt
+                %}
               {% endif %}
             </div>
           </div>

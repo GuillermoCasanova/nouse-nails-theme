@@ -44,7 +44,12 @@
                     </div>
                   {% endif %}
                   {% if block.settings.video_url != blank %}
-                    <social-video-player class="instagram-slideshow__video-block">
+                    <social-video-player
+                      class="instagram-slideshow__video-block"
+                      {% if section.settings.autoplay_video %}
+                        data-autoplay
+                      {% endif %}
+                    >
                       <div class="instagram-slideshow__video-container">
                         <video
                           class="instagram-slideshow__video"
@@ -280,6 +285,13 @@
       "max": 10,
       "step": 1,
       "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_video",
+      "label": "Auto-play video",
+      "default": true,
+      "info": "When enabled, videos will automatically play when visible"
     },
     {
       "type": "header",

@@ -131,3 +131,47 @@
 
 
 
+
+/*------------------------------------*\
+    #Containers
+\*------------------------------------*/
+
+
+.container-large {
+  max-width: var(--max-width-large);
+  width: 100%;
+  margin: auto; 
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-main {
+  max-width: calc(var(--max-width-medium) - (var(--container-padding) * 6));
+  width: 100%;
+  margin: auto; 
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-small {
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
+  width: 100%;
+  margin: auto; 
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-x-small {
+  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
+  width: 100%; 
+  margin: auto; 
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+
+
+.page-wrapper {
+  overflow: hidden;
+  position: relative;
+}
