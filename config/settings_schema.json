@@ -56,10 +56,24 @@
           },
           {
             "type": "color",
+            "id": "color_button_primary_hover_background",
+            "default": "#7294A8",
+            "label": "Button Primary Hover Background Color",
+            "info": "Used for primary button hover background"
+          },
+          {
+            "type": "color",
             "id": "color_button_primary_text",
             "default": "#7294A8",
             "label": "Button Primary Text Color",
             "info": "Used for primary button text."
+          },
+          {
+            "type": "color",
+            "id": "color_button_primary_hover_text",
+            "default": "#7294A8",
+            "label": "Button Primary Hover Text Color",
+            "info": "Used for primary button hover text"
           },
           {
             "type": "color",
@@ -70,10 +84,10 @@
           },
           {
             "type": "color",
-            "id": "color_button_primary_hover_background",
+            "id": "color_button_primary_hover_border",
             "default": "#7294A8",
-            "label": "Button Primary Hover Background Color",
-            "info": "Used for primary button hover background"
+            "label": "Button Primary Hover Border Color",
+            "info": "Used for primary button hover border"
           },
           {
             "type": "color",
@@ -84,6 +98,13 @@
           },
           {
             "type": "color",
+            "id": "color_button_secondary_hover_background",
+            "default": "#7294A8",
+            "label": "Button Secondary Hover Background Color",
+            "info": "Used for secondary button hover background"
+          },
+          {
+            "type": "color",
             "id": "color_button_secondary_text",
             "default": "#7294A8",
             "label": "Button Secondary Text Color",
@@ -91,10 +112,24 @@
           },
           {
             "type": "color",
+            "id": "color_button_secondary_hover_text",
+            "default": "#7294A8",
+            "label": "Button Secondary Hover Text Color",
+            "info": "Used for secondary button hover text"
+          },
+          {
+            "type": "color",
             "id": "color_button_secondary_border",
             "default": "#7294A8",
             "label": "Button Secondary Border Color",
             "info": "Used for secondary button border."
+          },
+          {
+            "type": "color",
+            "id": "color_button_secondary_hover_border",
+            "default": "#7294A8",
+            "label": "Button Secondary Hover Border Color",
+            "info": "Used for secondary button hover border"
           },
           {
             "type": "header",
