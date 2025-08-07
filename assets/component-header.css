@@ -9,7 +9,6 @@
     width: 100%;
     z-index: 5;
     background-color: rgb(var(--color-background));
-    height: var(--space-9);
     transition: all 0.3s var(--default-easing);
   }
 
@@ -18,18 +17,11 @@
     width: 100%;
     z-index: 5;
     background-color: #FFFFFF;
-    height: var(--space-9);
     transition: all 0.3s var(--default-easing);
   }
 
   .scrolled-past-header .header-wrapper {
 
-  }
-
-  @media screen and (min-width: 940px) {
-    .scrolled-past-header:not(.shopify-section-header-hidden) .header-wrapper {
-      height: var(--space-10);
-    }
   }
 
 
