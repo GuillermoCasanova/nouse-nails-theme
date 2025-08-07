@@ -16,7 +16,8 @@
         <div class="hero-header__sticker">
           {% render 'floating-sticker',
             sticker_type: section.settings['floating-sticker'],
-            custom_class: 'hero-half-sticker'
+            custom_class: 'hero-half-sticker',
+            sticker_color: section.settings.sticker_color
           %}
         </div>
 
@@ -124,6 +125,12 @@
         { "value": "sun-pink", "label": "Sun Pink" }
       ],
       "label": "Floating sticker"
+    },
+    {
+      "type": "color",
+      "id": "sticker_color",
+      "label": "Sticker color",
+      "default": "#FDF130"
     }
   ],
 
