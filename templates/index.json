@@ -1,4 +1,3 @@
-
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -10,8 +9,23 @@
  */
 {
   "sections": {
-
+    "hae_hero_JXfJYD": {
+      "type": "hae-hero",
+      "name": "Hero - half photo",
+      "settings": {
+        "color_scheme": "",
+        "header-text": "<p>Redefining the <em>nous</em> standard for nails. </p>",
+        "button-text": "Shop",
+        "button-url": "",
+        "media_type": "image",
+        "hero-image": "shopify://shop_images/hero-shot-1.png",
+        "video_url": "",
+        "floating-sticker": "none",
+        "sticker_color": "#FDF130"
+      }
+    }
   },
   "order": [
+    "hae_hero_JXfJYD"
   ]
 }
