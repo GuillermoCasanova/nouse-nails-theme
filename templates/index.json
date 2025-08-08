@@ -15,12 +15,12 @@
       "settings": {
         "color_scheme": "",
         "header-text": "<p>Redefining the <em>nous</em> standard for nails. </p>",
-        "button-text": "Shop",
+        "button-text": "Shop Now",
         "button-url": "",
         "media_type": "image",
         "hero-image": "shopify://shop_images/hero-shot-1.png",
         "video_url": "",
-        "floating-sticker": "none",
+        "floating-sticker": "stars",
         "sticker_color": "#FDF130"
       }
     },
