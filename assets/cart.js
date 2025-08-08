@@ -95,11 +95,11 @@ class CartRemoveButton extends HTMLElement {
           section: 'cart-live-region-text',
           selector: '.shopify-section',
         },
-        {
-          id: 'main-cart-footer',
-          section: document.getElementById('main-cart-footer').dataset.id,
-          selector: '.js-contents',
-        },
+        // {
+        //   id: 'main-cart-footer',
+        //   section: document.getElementById('main-cart-footer').dataset.id,
+        //   selector: '.js-contents',
+        // },
       ];
     }
   
@@ -133,23 +133,28 @@ class CartRemoveButton extends HTMLElement {
           const cartDrawerWrapper = document.querySelector('cart-drawer');
           const cartFooter = document.getElementById('main-cart-footer');
           
-          console.log(cartDrawerWrapper);
-          console.log(cartFooter);
           if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
-  
+          
+          console.log(this.getSectionsToRender());
+
           this.getSectionsToRender().forEach((section) => {
             const elementToReplace =
               document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-  
-            console.log(elementToReplace);
+            
+            console.log(section.section); 
+            console.log(parsedState.sections); 
+            console.log( parsedState.sections[section.section]);
+            console.log(section.selector); 
+            
             elementToReplace.innerHTML = this.getSectionInnerHTML(
               parsedState.sections[section.section],
               section.selector
             );
+            console.log('hello')
           });
 
-          console.log(parsedState);
+          console.log('hello again');
 
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
