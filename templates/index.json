@@ -157,6 +157,46 @@
         "heading": "Frequently Asked Questions",
         "page": "nous-difference"
       }
+    },
+    "hae_image_with_text_cijUpU": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_fWDNn7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_BkXNpA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_hyjFkP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fWDNn7",
+        "text_BkXNpA",
+        "button_hyjFkP"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "color_scheme": "",
+        "media_type": "image",
+        "media_aspect_ratio": "1/1",
+        "video_url": "",
+        "layout": "left"
+      }
     }
   },
   "order": [
@@ -165,6 +205,7 @@
     "hae_featured_collections_n8rk6P",
     "collection_qMBnrM",
     "hae_testimonials_tLEp99",
-    "hae_faqs_ACNzbj"
+    "hae_faqs_ACNzbj",
+    "hae_image_with_text_cijUpU"
   ]
 }
