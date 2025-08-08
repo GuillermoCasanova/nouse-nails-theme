@@ -193,7 +193,8 @@
       "settings": {
         "color_scheme": "",
         "media_type": "image",
-        "media_aspect_ratio": "1/1",
+        "media_aspect_ratio": "1/.85",
+        "image": "shopify://shop_images/image.png",
         "video_url": "",
         "layout": "left"
       }
