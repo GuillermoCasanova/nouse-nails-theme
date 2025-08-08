@@ -21,7 +21,7 @@
         "hero-image": "shopify://shop_images/hero-shot-1.png",
         "video_url": "",
         "floating-sticker": "stars",
-        "sticker_color": "#FDF130"
+        "sticker_color": "#fdf130"
       }
     },
     "hae_marquee_banner_QJ6KwN": {
@@ -175,21 +175,28 @@
         "slide_exknKT": {
           "type": "slide",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
             "product": ""
           }
         },
         "slide_6Ww976": {
           "type": "slide",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
             "product": ""
           }
         },
         "slide_kxFa6w": {
           "type": "slide",
           "settings": {
-            "video_url": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
+            "product": ""
+          }
+        },
+        "slide_fPd6er": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
             "product": ""
           }
         }
@@ -197,7 +204,8 @@
       "block_order": [
         "slide_exknKT",
         "slide_6Ww976",
-        "slide_kxFa6w"
+        "slide_kxFa6w",
+        "slide_fPd6er"
       ],
       "name": "Instagram Slideshow",
       "settings": {
