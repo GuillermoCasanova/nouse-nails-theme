@@ -68,11 +68,25 @@
         "title": "What Our Customers Say",
         "headline_size": "headline-style-h3"
       }
+    },
+    "collection_qMBnrM": {
+      "type": "collection",
+      "name": "Featured collection",
+      "settings": {
+        "color_scheme": "",
+        "title": "Featured collection",
+        "collection": "new-arrivals",
+        "grid": 3,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": true
+      }
     }
   },
   "order": [
     "hae_hero_JXfJYD",
     "hae_marquee_banner_QJ6KwN",
-    "hae_testimonials_tLEp99"
+    "hae_testimonials_tLEp99",
+    "collection_qMBnrM"
   ]
 }
