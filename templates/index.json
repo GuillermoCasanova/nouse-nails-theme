@@ -169,6 +169,48 @@
         "layout": "left"
       }
     },
+    "instagram_slideshow_FWNLT6": {
+      "type": "instagram-slideshow",
+      "blocks": {
+        "slide_exknKT": {
+          "type": "slide",
+          "settings": {
+            "video_url": "",
+            "product": ""
+          }
+        },
+        "slide_6Ww976": {
+          "type": "slide",
+          "settings": {
+            "video_url": "",
+            "product": ""
+          }
+        },
+        "slide_kxFa6w": {
+          "type": "slide",
+          "settings": {
+            "video_url": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_exknKT",
+        "slide_6Ww976",
+        "slide_kxFa6w"
+      ],
+      "name": "Instagram Slideshow",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "title": "Stick. Cure. Slay.",
+        "subtitle": "",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "autoplay_video": true,
+        "social_url": "",
+        "social_text": "@GetNousNails"
+      }
+    },
     "hae_testimonials_tLEp99": {
       "type": "hae-testimonials",
       "blocks": {
@@ -250,6 +292,7 @@
     "hae_featured_collections_n8rk6P",
     "collection_qMBnrM",
     "hae_image_with_text_cijUpU",
+    "instagram_slideshow_FWNLT6",
     "hae_testimonials_tLEp99",
     "hae_faqs_ACNzbj"
   ]
