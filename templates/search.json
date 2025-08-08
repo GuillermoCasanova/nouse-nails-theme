@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "heading": "Search",
+        "heading_size": "h1",
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_padding": 20,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": false,
+        "enable_quick_view": false,
+        "enable_quick_buy": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

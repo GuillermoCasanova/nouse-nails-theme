@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "heading": "404 page not found",
+        "subtext": "The page you requested does not exist.",
+        "link_label": "Continue shopping",
+        "link_url": "/",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

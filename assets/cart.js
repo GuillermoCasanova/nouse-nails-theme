@@ -132,7 +132,9 @@ class CartRemoveButton extends HTMLElement {
           this.classList.toggle('is-empty', parsedState.item_count === 0);
           const cartDrawerWrapper = document.querySelector('cart-drawer');
           const cartFooter = document.getElementById('main-cart-footer');
-  
+          
+          console.log(cartDrawerWrapper);
+          console.log(cartFooter);
           if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
   
@@ -146,6 +148,9 @@ class CartRemoveButton extends HTMLElement {
               section.selector
             );
           });
+
+          console.log(parsedState);
+
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
           if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
@@ -159,6 +164,9 @@ class CartRemoveButton extends HTMLElement {
   
           const lineItem =
             document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
+          
+
+            console.log(lineItem);
           if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
             cartDrawerWrapper
               ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`))
@@ -168,7 +176,8 @@ class CartRemoveButton extends HTMLElement {
           } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
             trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'));
           }
-  
+          
+          console.log(parsedState);
           publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
         })
         .catch(() => {
