@@ -246,8 +246,9 @@
           "type": "callout",
           "settings": {
             "color_scheme": "",
-            "callout_header": "",
-            "callout_text": "",
+            "callout_image": "shopify://shop_images/Sun_Shape.svg",
+            "callout_header": "Effortless Luxury, Without the Price",
+            "callout_text": "<p>Get salon-quality nails for just $38/month (or less), compared to $80+ with tipping at the salon. Save time, money and bye to nail breakage—all without sacrificing style or shine.</p>",
             "text_size": "text-size-small"
           }
         }
