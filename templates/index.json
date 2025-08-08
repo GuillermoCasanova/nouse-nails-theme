@@ -98,15 +98,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous. It’s the <em><strong>Nous way of doing things.</strong></em></p>",
-            "text_size": "text-size-medium"
-          }
-        },
-        "text_with_icon_CcfNk9": {
-          "type": "text_with_icon",
-          "settings": {
-            "icon": "shopify://shop_images/c8e8a3162fda8fb7050dd3c651695e2a.svg",
-            "text": "Non Toxic",
-            "text_size": "text-size-medium"
+            "text_size": "text-size-large"
           }
         },
         "text_with_icon_W9xJfL": {
@@ -117,17 +109,35 @@
             "text_size": "text-size-medium"
           }
         },
+        "text_with_icon_CcfNk9": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/c8e8a3162fda8fb7050dd3c651695e2a.svg",
+            "text": "Non Toxic",
+            "text_size": "text-size-large"
+          }
+        },
         "text_with_icon_CTxiK4": {
           "type": "text_with_icon",
           "settings": {
-            "text": "Text with icon",
-            "text_size": "text-size-medium"
+            "icon": "shopify://shop_images/ca0e36cc52a03559d35034ca36d41412.svg",
+            "text": "Lasts 14 Days",
+            "text_size": "text-size-large"
           }
         },
         "text_with_icon_KgNHp7": {
           "type": "text_with_icon",
           "settings": {
-            "text": "Text with icon",
+            "icon": "shopify://shop_images/0ee9af4c0a5b1a829cf3abacf1cf0a0d.svg",
+            "text": "No nail damage",
+            "text_size": "text-size-large"
+          }
+        },
+        "text_with_icon_QfE8jK": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/52e95258835c6343d583074b3a79ba14.svg",
+            "text": "Easy removal",
             "text_size": "text-size-medium"
           }
         }
@@ -135,10 +145,11 @@
       "block_order": [
         "heading_fWDNn7",
         "text_BkXNpA",
-        "text_with_icon_CcfNk9",
         "text_with_icon_W9xJfL",
+        "text_with_icon_CcfNk9",
         "text_with_icon_CTxiK4",
-        "text_with_icon_KgNHp7"
+        "text_with_icon_KgNHp7",
+        "text_with_icon_QfE8jK"
       ],
       "name": "Image with text",
       "settings": {
