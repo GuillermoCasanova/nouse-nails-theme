@@ -70,6 +70,7 @@
         </div>
       {%- endif -%}
       <div class="cart-drawer__header">
+        <h2 class="cart-drawer__heading">{{ 'sections.cart.title' | t }}</h2>
         <button
           class="cart-drawer__close"
           type="button"
@@ -82,7 +83,6 @@
       <cart-drawer-items
         class="cart-drawer-items {%if cart == empty%} is-empty {%endif -%}"
       >
-        <h2 class="cart-drawer__heading">{{ 'sections.cart.title' | t }}</h2>
         <form
           action="{{ routes.cart_url }}"
           id="CartDrawer-Form"
@@ -259,7 +259,7 @@
                           <quantity-popover>
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                               <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
-                                <quantity-input class="quantity cart-quantity">
+                                <quantity-input class="quantity cart-item__quantity">
                                   <button class="quantity__button no-js-hidden" name="minus" type="button">
                                     <span class="visually-hidden">
                                       {{-
@@ -301,7 +301,6 @@
                                 </quantity-input>
                               </div>
                               <cart-remove-button
-                                class="visually-hidden"
                                 id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
                               >
@@ -311,18 +310,7 @@
                                   aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}"
                                   data-variant-id="{{ item.variant.id }}"
                                 >
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                    focusable="false"
-                                    role="presentation"
-                                    class="icon icon-close"
-                                    fill="none"
-                                    viewBox="0 0 18 17"
-                                  >
-                                      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
-                                    </path>
-                                  </svg>
+                                  {% render 'icon-close' %}
                                   <span class="visually-hidden">Remove </span>
                                 </button>
                               </cart-remove-button>
@@ -384,7 +372,7 @@
                                   type="button"
                                   aria-label="{{ 'accessibility.close' | t }}"
                                 >
-                                  {%- render 'icon-close' -%}
+                                  {% render 'icon-close' %}
                                 </button>
                                 {%- if item.variant.quantity_price_breaks.size > 0 -%}
                                   <volume-pricing class="parent-display">

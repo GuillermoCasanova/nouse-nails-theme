@@ -336,6 +336,7 @@ label {
   display: flex;
   border-radius: var(--inputs-radius);
   border: none;
+  display: flex;
 }
 
 /* Checkbox */

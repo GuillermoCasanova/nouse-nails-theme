@@ -144,15 +144,6 @@ div .button:last-child {
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Mabry-Bold';
-  src: url('./mabry-bold-pro.woff2') format('woff2'),
-       url('./mabry-bold-pro.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 
 
 

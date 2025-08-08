@@ -50,7 +50,7 @@
 <sticky-header class="header-wrapper">
   <header class="header">
     <div class="header__inner  page-width">
-      {% comment %} {%- render 'cart-drawer' -%} {% endcomment %}
+      {%- render 'cart-drawer' -%}
 
       {%- render 'header-drawer' -%}
 
@@ -124,10 +124,13 @@
           </a>
         </div>
 
-        <a href="{{ routes.cart_url }}" class="header__icon link focus-inset" id="cart-icon-bubble" data-cart-toggle>
-          <svg class="icon icon-cart" aria-hidden="true" focusable="false" role="presentation">
-            <use href="#icon-bag"></use>
-          </svg>
+        <a
+          href="{{ routes.cart_url }}"
+          class="header__icon header__icon--cart link focus-inset"
+          id="cart-icon-bubble"
+          data-cart-toggle
+        >
+          {% render 'icon-bag' %}
           <span data-cart-toggle-text class="visually-hidden  header__cart-button__text">
             {{- 'templates.cart.cart' | t -}}
           </span>
@@ -191,9 +194,7 @@
                   aria-label="{{ 'accessibility.close' | t }}"
                   data-modal-close
                 >
-                  <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
-                    <use href="#icon-close"></use>
-                  </svg>
+                  {% render 'icon-close' %}
                   <span class="visually-hidden">
                     {{ 'accessibility.close' | t }}
                   </span>

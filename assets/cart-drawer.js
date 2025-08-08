@@ -9,8 +9,8 @@ class CartDrawer extends HTMLElement {
   
     setHeaderCartIconAccessibility() {
       document.querySelectorAll('[data-cart-toggle').forEach((elem)=> {
-  
-         let cartLink = elem; 
+        console.log('elem', elem);
+         let cartLink = elem;   
   
          cartLink.setAttribute('role', 'button');
          cartLink.setAttribute('aria-haspopup', 'dialog');
