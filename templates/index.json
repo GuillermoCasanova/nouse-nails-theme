@@ -24,6 +24,14 @@
         "sticker_color": "#FDF130"
       }
     },
+    "hae_marquee_banner_QJ6KwN": {
+      "type": "hae-marquee-banner",
+      "name": "News ticker banner",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "text": "LOREM UPSUM SECLORUM"
+      }
+    },
     "hae_testimonials_tLEp99": {
       "type": "hae-testimonials",
       "blocks": {
@@ -64,6 +72,7 @@
   },
   "order": [
     "hae_hero_JXfJYD",
+    "hae_marquee_banner_QJ6KwN",
     "hae_testimonials_tLEp99"
   ]
 }
