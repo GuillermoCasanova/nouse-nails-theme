@@ -245,7 +245,7 @@
         "callout_yfVKj4": {
           "type": "callout",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
             "callout_image": "shopify://shop_images/Sun_Shape.svg",
             "callout_header": "Effortless Luxury, Without the Price",
             "callout_text": "<p>Get salon-quality nails for just $38/month (or less), compared to $80+ with tipping at the salon. Save time, money and bye to nail breakage—all without sacrificing style or shine.</p>",
@@ -269,6 +269,43 @@
         "button_link_1": "how-to",
         "button_text_2": "FREE LED LAMP",
         "button_link_2": "why-hae"
+      }
+    },
+    "hae_faqs_ACNzbj": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_jRAPtz": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_43ptYe": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_QL3tzy": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_jRAPtz",
+        "faq_block_43ptYe",
+        "faq_block_QL3tzy"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Frequently Asked Questions",
+        "page": "nous-difference"
       }
     },
     "hae_testimonials_tLEp99": {
@@ -308,41 +345,40 @@
         "headline_size": "headline-style-h3"
       }
     },
-    "hae_faqs_ACNzbj": {
-      "type": "hae-faqs",
+    "featured_blog_FFNppk": {
+      "type": "featured-blog",
       "blocks": {
-        "faq_block_jRAPtz": {
-          "type": "faq_block",
+        "article_RQpGmT": {
+          "type": "article",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "article": "news/tester-blog-here-woo-wow-cool"
           }
         },
-        "faq_block_43ptYe": {
-          "type": "faq_block",
+        "article_g33qnH": {
+          "type": "article",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "article": "news/dolor-sit-amet-consectetur-adipiscing"
           }
         },
-        "faq_block_QL3tzy": {
-          "type": "faq_block",
+        "article_eJh9RM": {
+          "type": "article",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "article": "news/dolor-sit-amet-consectetur-adipiscing"
           }
         }
       },
       "block_order": [
-        "faq_block_jRAPtz",
-        "faq_block_43ptYe",
-        "faq_block_QL3tzy"
+        "article_RQpGmT",
+        "article_g33qnH",
+        "article_eJh9RM"
       ],
-      "name": "FAQ Section",
+      "name": "Blog posts",
       "settings": {
         "color_scheme": "",
-        "heading": "Frequently Asked Questions",
-        "page": "nous-difference"
+        "title": "Tips & Tricks",
+        "media_aspect_ratio": "3/4",
+        "show_view_all": false,
+        "view_all_url": ""
       }
     }
   },
@@ -354,7 +390,8 @@
     "hae_image_with_text_cijUpU",
     "instagram_slideshow_FWNLT6",
     "hae_brand_about_zarK7i",
+    "hae_faqs_ACNzbj",
     "hae_testimonials_tLEp99",
-    "hae_faqs_ACNzbj"
+    "featured_blog_FFNppk"
   ]
 }
