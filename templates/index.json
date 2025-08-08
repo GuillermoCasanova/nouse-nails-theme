@@ -225,18 +225,20 @@
         "callout_cHjVC3": {
           "type": "callout",
           "settings": {
-            "color_scheme": "",
-            "callout_header": "",
-            "callout_text": "",
+            "color_scheme": "scheme-2119b851-9410-4357-b9dd-7adf10307b8e",
+            "callout_image": "shopify://shop_images/Star_Shape.svg",
+            "callout_header": "Clean ingredients only.",
+            "callout_text": "<p>No Nasties, Just Nail Magic. We left out the top 10 most questionable ingredients—so you can shine without worry. That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.</p>",
             "text_size": "text-size-small"
           }
         },
         "callout_jQDiLk": {
           "type": "callout",
           "settings": {
-            "color_scheme": "",
-            "callout_header": "",
-            "callout_text": "",
+            "color_scheme": "scheme-6628b2c5-2a6e-43ae-9f30-7d31869aa0c7",
+            "callout_image": "shopify://shop_images/Springy_Shape.svg",
+            "callout_header": "Salon-Quality, Done in Minutes",
+            "callout_text": "<p>Ditch the 2-hour waits, awkward small talk, tipping stress, and funky fumes. No nail drama. Just fast, flawless, feel-good nails that love you back.</p>",
             "text_size": "text-size-small"
           }
         },
