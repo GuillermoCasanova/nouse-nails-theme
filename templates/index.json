@@ -32,6 +32,45 @@
         "text": "LOREM UPSUM SECLORUM"
       }
     },
+    "hae_featured_collections_n8rk6P": {
+      "type": "hae-featured-collections",
+      "blocks": {
+        "collection_x6rP3q": {
+          "type": "collection",
+          "settings": {
+            "color_scheme": "scheme-a1f75e04-1da9-4fbd-831b-96f4b8dc69e2",
+            "collection": "glow-spf-mist",
+            "headline": "Subscribe & Save",
+            "button_text": "Shop",
+            "media_type": "image",
+            "video_url": "",
+            "image": "shopify://shop_images/false-nails-natural-5-middle.jpg",
+            "floating_sticker": "none",
+            "sticker_color": "#000000"
+          }
+        },
+        "collection_FRgbHV": {
+          "type": "collection",
+          "settings": {
+            "color_scheme": "scheme-94eb6821-3c93-4727-b9e1-be4096d276ce",
+            "collection": "glow-spf-mist",
+            "headline": "@MeechyNails",
+            "button_text": "Shop",
+            "media_type": "image",
+            "video_url": "",
+            "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
+            "floating_sticker": "none",
+            "sticker_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "collection_x6rP3q",
+        "collection_FRgbHV"
+      ],
+      "name": "Collection Callouts",
+      "settings": {}
+    },
     "collection_qMBnrM": {
       "type": "collection",
       "name": "Featured collection",
@@ -123,6 +162,7 @@
   "order": [
     "hae_hero_JXfJYD",
     "hae_marquee_banner_QJ6KwN",
+    "hae_featured_collections_n8rk6P",
     "collection_qMBnrM",
     "hae_testimonials_tLEp99",
     "hae_faqs_ACNzbj"
