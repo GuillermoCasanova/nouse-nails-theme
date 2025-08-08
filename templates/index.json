@@ -377,8 +377,8 @@
         "color_scheme": "",
         "title": "Tips & Tricks",
         "media_aspect_ratio": "3/4",
-        "show_view_all": false,
-        "view_all_url": ""
+        "show_view_all": true,
+        "view_all_url": "shopify://blogs/news"
       }
     }
   },
