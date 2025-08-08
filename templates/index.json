@@ -87,11 +87,18 @@
     "hae_image_with_text_cijUpU": {
       "type": "hae-image-with-text",
       "blocks": {
+        "eyebrow_F8CptN": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "The Nous Way",
+            "text_size": "text-size-medium"
+          }
+        },
         "heading_fWDNn7": {
           "type": "heading",
           "settings": {
             "heading": "Professional Nails at home",
-            "heading_size": "headline-style-h2"
+            "heading_size": "headline-style-h3"
           }
         },
         "text_BkXNpA": {
@@ -143,6 +150,7 @@
         }
       },
       "block_order": [
+        "eyebrow_F8CptN",
         "heading_fWDNn7",
         "text_BkXNpA",
         "text_with_icon_W9xJfL",
