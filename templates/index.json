@@ -32,6 +32,19 @@
         "text": "LOREM UPSUM SECLORUM"
       }
     },
+    "collection_qMBnrM": {
+      "type": "collection",
+      "name": "Featured collection",
+      "settings": {
+        "color_scheme": "",
+        "title": "Featured collection",
+        "collection": "new-arrivals",
+        "grid": 3,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": true
+      }
+    },
     "hae_testimonials_tLEp99": {
       "type": "hae-testimonials",
       "blocks": {
@@ -69,24 +82,49 @@
         "headline_size": "headline-style-h3"
       }
     },
-    "collection_qMBnrM": {
-      "type": "collection",
-      "name": "Featured collection",
+    "hae_faqs_ACNzbj": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_jRAPtz": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_43ptYe": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_QL3tzy": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_jRAPtz",
+        "faq_block_43ptYe",
+        "faq_block_QL3tzy"
+      ],
+      "name": "FAQ Section",
       "settings": {
         "color_scheme": "",
-        "title": "Featured collection",
-        "collection": "new-arrivals",
-        "grid": 3,
-        "rows": 2,
-        "show_vendor": false,
-        "show_view_all": true
+        "heading": "Frequently Asked Questions",
+        "page": "nous-difference"
       }
     }
   },
   "order": [
     "hae_hero_JXfJYD",
     "hae_marquee_banner_QJ6KwN",
+    "collection_qMBnrM",
     "hae_testimonials_tLEp99",
-    "collection_qMBnrM"
+    "hae_faqs_ACNzbj"
   ]
 }
