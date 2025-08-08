@@ -90,30 +90,21 @@
         "heading_fWDNn7": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Professional Nails at home",
             "heading_size": "headline-style-h2"
           }
         },
         "text_BkXNpA": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous. It’s the <em><strong>Nous way of doing things.</strong></em></p>",
             "text_size": "text-size-medium"
-          }
-        },
-        "button_hyjFkP": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button",
-            "button_link": "",
-            "button_size": "button--medium"
           }
         }
       },
       "block_order": [
         "heading_fWDNn7",
-        "text_BkXNpA",
-        "button_hyjFkP"
+        "text_BkXNpA"
       ],
       "name": "Image with text",
       "settings": {
