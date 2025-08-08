@@ -176,28 +176,28 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
-            "product": ""
+            "product": "12-geometric-jelly"
           }
         },
         "slide_6Ww976": {
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
-            "product": ""
+            "product": "blue-algae-spf-dew-mist"
           }
         },
         "slide_kxFa6w": {
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
-            "product": ""
+            "product": "blue-algae-spf-dew-mist"
           }
         },
-        "slide_fPd6er": {
+        "slide_tfqyEz": {
           "type": "slide",
           "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/7f8e17b3efae4494a643c5aa073e7a77.mp4",
-            "product": ""
+            "video_url": "",
+            "product": "10"
           }
         }
       },
@@ -205,7 +205,7 @@
         "slide_exknKT",
         "slide_6Ww976",
         "slide_kxFa6w",
-        "slide_fPd6er"
+        "slide_tfqyEz"
       ],
       "name": "Instagram Slideshow",
       "settings": {
