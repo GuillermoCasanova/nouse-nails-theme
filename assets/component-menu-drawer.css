@@ -302,21 +302,34 @@ a.menu-drawer__menu-item:focus {
   text-decoration: none;
 }
 
+.menu-drawer__submenu-title {
+  color: rgb(var(--color-base-text-2));
+  font-size: var(--text-size-main);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-1);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
 .menu-drawer__submenu__menu-link {
   text-decoration: none;
   opacity: .7;
   font-size: var(--text-size-main);
-  color: rgb(var(--color-base-text-2));
   transition: all 0.2s var(--default-easing);
   display: block;
   padding: var(--space-1) 0;
+  color: rgb(var(--color-base-accent-1));
 }
 
 .menu-drawer__submenu__menu-link:hover,
 .menu-drawer__submenu__menu-link:focus {
   text-decoration: none;
   opacity: 1;
-  color: rgb(var(--color-base-accent));
+  color: rgb(var(--color-base-accent-1));
+}
+
+.menu-drawer__submenu-title[aria-expanded="true"] {
+  color: rgb(var(--color-base-accent-1));
 }
 
 /*------------------------------------*\

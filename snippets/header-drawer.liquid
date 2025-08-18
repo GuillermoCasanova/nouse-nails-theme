@@ -35,28 +35,176 @@
                       >
                         {{ link.title | escape }}
                       </summary>
-                      <div
-                        id="link-{{ link.handle | escape }}"
-                        class="menu-drawer__submenu-wrapper"
-                        tabindex="-1"
-                      >
-                        <ul class="menu-drawer__submenu__list list-menu" role="list" tabindex="-1">
-                          {%- for childlink in link.links -%}
-                            <li class="menu-drawer__submenu__menu-item">
-                              <a
-                                id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                href="{{ childlink.url }}"
-                                class="menu-drawer__submenu__menu-link {% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                {% if childlink.current %}
-                                  aria-current="page"
+
+                      {% assign is_mega_menu = false %}
+                      {% for block in section.blocks %}
+                        {% if block.type == 'block' and link.title == block.settings.top_level_link %}
+                          {% assign is_mega_menu = true %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if is_mega_menu %}
+                        <div
+                          class="header__mega-menu"
+                          role="region"
+                        >
+                          <div class="header__mega-menu__inner page-width">
+                            <div class="header__mega-menu__links">
+                              <span class="header__mega-menu__title">
+                                {{- link.title | escape -}}
+                              </span>
+                              <ol class="header__mega-menu__list-menu   motion-reduce">
+                                {%- for childlink in link.links -%}
+                                  <li>
+                                    {%- if childlink.links == blank -%}
+                                      <a
+                                        href="{{ childlink.url }}"
+                                        data-green-dot-cursor
+                                        class="header__mega-menu__list-item    focus-inset {% if childlink.current %} header__mega-menu__list-item--active{% endif %}"
+                                        {% if childlink.current %}
+                                          aria-current="page"
+                                        {% endif %}
+                                      >
+                                        {{ childlink.title | escape }}
+                                      </a>
+                                    {%- else -%}
+                                      <div
+                                        class="header__mega-menu__list-item  focus-inset"
+                                        id="{{ childlink.title | escape }}"
+                                      >
+                                        {{ childlink.title | escape }}
+                                      </div>
+                                      <div class="header__childmenu">
+                                        <ul
+                                          class="header__mega-menu__list-menu  header__childmenu__list-menu"
+                                          aria-describedby="{{ childlink.title | escape }}"
+                                        >
+                                          {%- for grandchildlink in childlink.links -%}
+                                            <li>
+                                              <a
+                                                href="{{ grandchildlink.url }}"
+                                                data-green-dot-cursor
+                                                class="header__mega-menu__list-item  header__childmenu__list-item focus-inset {% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                                {% if grandchildlink.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                {{ grandchildlink.title | escape }}
+                                              </a>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </div>
+                                    {%- endif -%}
+                                  </li>
+                                {%- endfor -%}
+                              </ol>
+                            </div>
+                            <div class="header__mega-menu__promotions">
+                              {% for block in section.blocks %}
+                                {% if block.type == 'block' and block.settings.top_level_link == link.title %}
+                                  {% if block.settings.promotion_1_image %}
+                                    <a href="{{ block.settings.promotion_1_url }}" class="mega-menu-promotion">
+                                      <div class="mega-menu-promotion__image">
+                                        <div class="mega-menu-promotion__image__inner">
+                                          <img
+                                            srcset="
+                                              {% if block.settings.promotion_1_image.width >= 493 %}{{ block.settings.promotion_1_image | image_url: width: 493 }} 493w,{% endif %}
+                                              {% if block.settings.promotion_1_image.width >= 600 %}{{ block.settings.promotion_1_image | image_url: width: 600 }} 600w,{% endif %}
+                                              {{ block.settings.promotion_1_image | image_url }} {{ block.settings.promotion_1_image.width }}w
+                                            "
+                                            src="{{ block.settings.promotion_1_image | image_url: width: block.settings.promotion_1_image.width }}"
+                                            sizes="(min-width: 940px) 20rem, 100vw"
+                                            loading="lazy"
+                                            width="{{ block.settings.promotion_1_image.width}}"
+                                            height="{{  block.settings.promotion_1_image.width | divided_by: block.settings.promotion_1_image.aspect_ratio | ceil }}"
+                                            class="responsive-image"
+                                          >
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu-promotion__name">
+                                        {{ block.settings.promotion_1_text }}
+                                      </div>
+                                    </a>
+                                  {% endif %}
+                                  {% if block.settings.promotion_2_image %}
+                                    <a href="{{ block.settings.promotion_2_url }}" class="mega-menu-promotion">
+                                      <div class="mega-menu-promotion__image">
+                                        <div class="mega-menu-promotion__image__inner">
+                                          <img
+                                            srcset="
+                                              {% if block.settings.promotion_2_image.width >= 493 %}{{ block.settings.promotion_2_image | image_url: width: 493 }} 493w,{% endif %}
+                                              {% if block.settings.promotion_2_image.width >= 600 %}{{ block.settings.promotion_2_image | image_url: width: 600 }} 600w,{% endif %}
+                                              {{ block.settings.promotion_2_image | image_url }} {{ block.settings.promotion_2_image.width }}w
+                                            "
+                                            src="{{ block.settings.promotion_2_image | image_url: width: block.settings.promotion_2_image.width }}"
+                                            sizes="(min-width: 940px) 20rem, 100vw"
+                                            loading="lazy"
+                                            width="{{ block.settings.promotion_2_image.width}}"
+                                            height="{{  block.settings.promotion_2_image.width | divided_by: block.settings.promotion_2_image.aspect_ratio | ceil }}"
+                                            class="responsive-image"
+                                          >
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu-promotion__name">
+                                        {{ block.settings.promotion_2_text }}
+                                      </div>
+                                    </a>
+                                  {% endif %}
+                                  {% if block.settings.promotion_3_image %}
+                                    <a href="{{ block.settings.promotion_3_url }}" class="mega-menu-promotion">
+                                      <div class="mega-menu-promotion__image">
+                                        <div class="mega-menu-promotion__image__inner">
+                                          <img
+                                            srcset="
+                                              {% if block.settings.promotion_3_image.width >= 493 %}{{ block.settings.promotion_3_image | image_url: width: 493 }} 493w,{% endif %}
+                                              {% if block.settings.promotion_3_image.width >= 600 %}{{ block.settings.promotion_3_image | image_url: width: 600 }} 600w,{% endif %}
+                                              {{ block.settings.promotion_3_image | image_url }} {{ block.settings.promotion_3_image.width }}w
+                                            "
+                                            src="{{ block.settings.promotion_3_image | image_url: width: block.settings.promotion_3_image.width }}"
+                                            sizes="(min-width: 940px) 20rem, 100vw"
+                                            loading="lazy"
+                                            width="{{ block.settings.promotion_3_image.width}}"
+                                            height="{{  block.settings.promotion_3_image.width | divided_by: block.settings.promotion_3_image.aspect_ratio | ceil }}"
+                                            class="responsive-image"
+                                          >
+                                        </div>
+                                      </div>
+                                      <div class="mega-menu-promotion__name">
+                                        {{ block.settings.promotion_3_text }}
+                                      </div>
+                                    </a>
+                                  {% endif %}
                                 {% endif %}
-                              >
-                                {{ childlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                      {% else %}
+                        <div
+                          id="link-{{ link.handle | escape }}"
+                          class="menu-drawer__submenu-wrapper"
+                          tabindex="-1"
+                        >
+                          <ul class="menu-drawer__submenu__list list-menu" role="list" tabindex="-1">
+                            {%- for childlink in link.links -%}
+                              <li class="menu-drawer__submenu__menu-item">
+                                <a
+                                  id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                  href="{{ childlink.url }}"
+                                  class="menu-drawer__submenu__menu-link {% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                  {% if childlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {{ childlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      {% endif %}
                     </details>
                   {%- else -%}
                     <a
@@ -67,19 +215,6 @@
                         aria-current="page"
                       {% endif %}
                     >
-                      {% if link.type == 'product_link' %}
-                        {% capture image %}{{ link.object.images[0].src | image_url: width: 100 }}{% endcapture %}
-                        <div class="menu-drawer__menu-item__image">
-                          <div class="menu-drawer__menu-item__image-inner">
-                            <img
-                              src="{{ image }}"
-                              alt="{{ link.title }}"
-                              loading="lazy"
-                              class="responsive-image"
-                            >
-                          </div>
-                        </div>
-                      {% endif %}
                       <span class="">
                         {{ link.title | escape }}
                       </span>
