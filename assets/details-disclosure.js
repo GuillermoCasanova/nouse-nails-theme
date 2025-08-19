@@ -1,3 +1,7 @@
+/*------------------------------------*\
+  #Details Disclosure
+\*------------------------------------*/
+
 class DetailsDisclosure extends HTMLElement {
   constructor() {
     super();
@@ -35,6 +39,14 @@ class DetailsDisclosure extends HTMLElement {
 }
 
 customElements.define('details-disclosure', DetailsDisclosure);
+
+
+
+
+
+/*------------------------------------*\
+  #Header Menu
+\*------------------------------------*/
 
 class HeaderMenu extends DetailsDisclosure {
   constructor() {
@@ -98,7 +110,8 @@ if (!customElements.get('drawer-disclosure')) {
     closeDrawer(pElem) {
       if (!pElem) return;
 
-      pElem.querySelector('[data-drawer-content]').style.height = 0;
+      const contentElement = pElem.querySelector('[data-drawer-content]');
+      contentElement.style.height = 0;
       pElem.querySelector('summary').setAttribute('aria-expanded', false);
 
       setTimeout(() => {
@@ -107,13 +120,24 @@ if (!customElements.get('drawer-disclosure')) {
     }
 
     openDrawer(pDrawer) {
+      console.log(pDrawer);
       const parentDetails = pDrawer.closest('details');
 
       if (parentDetails && !parentDetails.getAttribute('open')) {
         parentDetails.setAttribute('open', true);
         const contentAnswer = parentDetails.querySelector('[data-drawer-content]');
-        contentAnswer.style.height = `${contentAnswer.querySelector('[data-drawer-content-inner]').offsetHeight}px`;
-        pDrawer.setAttribute('aria-expanded', true);
+        
+        requestAnimationFrame(() => {
+          const innerContent = contentAnswer.querySelector('[data-drawer-content-inner]');
+
+          console.log(innerContent);
+          if (innerContent) {
+            const height = innerContent.offsetHeight;
+            contentAnswer.style.height = `${height}px`;
+          }
+        });
+        
+        parentDetails.querySelector('summary').setAttribute('aria-expanded', true);
         this.activeDrawer = parentDetails.dataset.id;
       }
     }
@@ -125,4 +149,4 @@ if (!customElements.get('drawer-disclosure')) {
   }
 
   customElements.define('drawer-disclosure', DrawerDisclosure);
-}
+} 

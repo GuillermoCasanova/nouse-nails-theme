@@ -40,7 +40,9 @@
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 
-<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+{% comment %}
+  <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+{% endcomment %}
 
 {%- liquid
   for block in section.blocks
@@ -49,7 +51,7 @@
   endfor
 -%}
 
-<sticky-header class="header-wrapper">
+<sticky-header class="header-wrapper {% if settings.show_announcement_bar %} announcement-bar-active{% endif %}">
   <header class="header">
     <div class="header__inner  page-width">
       {%- render 'cart-drawer' -%}
@@ -73,7 +75,7 @@
             <path d="M155.275 0L154.188 10.7625L164.981 7.62983L166 14.9685L156.135 15.7671L162.695 24.3694L156.146 27.9686L151.549 18.8764L147.665 28.0129L140.814 24.6041L147.145 15.8835L137.334 15.1983L138.386 7.90789L148.998 10.8438L147.71 0.103237L155.275 0.0336009V0Z" fill="currentColor"/>
           </svg>
         </div>
-        <span class="visually-hidden">Alyssa Kristin</span>
+        <span class="visually-hidden">{{ shop.name }}</span>
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -224,7 +226,16 @@
       </div>
     </div>
   </header>
+  <div class="header-border-mobile"></div>
 </sticky-header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const announcementBar = document.querySelector('.announcement-bar');
+    const headerBorderMobile = document.querySelector('.header-border-mobile');
+    headerBorderMobile.style.top = announcementBar.offsetHeight + 'px';
+  });
+</script>
 
 {% schema %}
 {

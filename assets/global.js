@@ -11,6 +11,9 @@ function getFocusableElements(container) {
 
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
+  // Skip if this summary is inside a drawer-disclosure component
+  if (summary.closest('drawer-disclosure')) return;
+  
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
 
@@ -485,7 +488,7 @@ class MenuDrawer extends HTMLElement {
     const activateOnHover = this.activateOnHover;
 
     if (!activateOnHover) {
-      this.querySelectorAll('summary').forEach(summary => summary.addEventListener('click', this.onSummaryClick.bind(this)));
+      this.querySelectorAll('summary')[0].addEventListener('click', this.onSummaryClick.bind(this));
       this.querySelectorAll(
         'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
       ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));
@@ -494,40 +497,10 @@ class MenuDrawer extends HTMLElement {
 
     this.querySelectorAll('summary').forEach(summary => {
 
-      if (activateOnHover) {
+      if (false ) {
 
-        let hoverTimeout;
 
-        summary.addEventListener('mouseenter', (event) => {
-          clearTimeout(hoverTimeout);
-          this.onSummaryClick(event, true);
-        });
 
-        summary.addEventListener('mouseleave', (event) => {
-          hoverTimeout = setTimeout(() => {
-            if (summary.parentNode && summary.parentNode.hasAttribute('open') && !document.querySelector('.header__mega-menu:hover')) {
-              this.closeMenuDrawer(event, false, true);
-            }
-          }, 500);
-        });
-
-        const megaMenu = summary.closest('details').querySelector('.header__mega-menu');
-        if (megaMenu) {
-          megaMenu.addEventListener('mouseenter', () => {
-            clearTimeout(hoverTimeout);
-            this.openMenuDrawer(summary);
-          });
-
-          megaMenu.addEventListener('mouseleave', () => {
-            if (!document.querySelector('.header__mega-menu:hover')) {
-              this.closeMenuDrawer();
-            }
-          });
-        }
-
-        summary.addEventListener('click', (event) => {
-          event.preventDefault();
-        });
 
       } else {
       }
@@ -579,7 +552,8 @@ class MenuDrawer extends HTMLElement {
         setTimeout(() => {
           this.mainDetailsToggle.classList.remove('menu-close');
           detailsElement.classList.add('menu-open');
-          summaryElement.setAttribute('aria-expanded', true);
+          // Remove this line - let DrawerDisclosure handle aria-expanded
+          // summaryElement.setAttribute('aria-expanded', true);
           parentMenuElement && parentMenuElement.classList.add('submenu-open');
 
           if (!this.activateOnHover) {
@@ -605,7 +579,8 @@ class MenuDrawer extends HTMLElement {
       this.mainDetailsToggle.classList.add('menu-open');
     });
 
-    summaryElement.setAttribute('aria-expanded', true);
+    // Remove this line - let DrawerDisclosure handle aria-expanded
+    // summaryElement.setAttribute('aria-expanded', true);
 
     if (!this.activateOnHover) {
       trapFocus(this.mainDetailsToggle, summaryElement);

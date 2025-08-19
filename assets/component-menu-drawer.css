@@ -191,7 +191,7 @@ menu-drawer>details[open]>summary::before {
 .menu-drawer__navigation-wrapper {
   overflow-y: auto;
   height: 100%;
-  padding-top: var(--space-8);
+  padding-top: var(--space-3);
 }
 
 .menu-drawer__navigation {
@@ -222,7 +222,7 @@ menu-drawer>details[open]>summary::before {
   list-style: none;
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-1);
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-6);
   display: block;
   color: rgb(var(--color-base-text-2));
   width: 100%; 
@@ -230,9 +230,7 @@ menu-drawer>details[open]>summary::before {
   position: relative;
 }
 
-.menu-drawer__menu-item:hover {
-  transform: translateX(var(--space-2));
-}
+
 
 .menu-drawer__menu-link {
   text-decoration: none;
@@ -318,14 +316,12 @@ a.menu-drawer__menu-item:focus {
   transition: all 0.2s var(--default-easing);
   display: block;
   padding: var(--space-1) 0;
-  color: rgb(var(--color-base-accent-1));
 }
 
 .menu-drawer__submenu__menu-link:hover,
 .menu-drawer__submenu__menu-link:focus {
   text-decoration: none;
   opacity: 1;
-  color: rgb(var(--color-base-accent-1));
 }
 
 .menu-drawer__submenu-title[aria-expanded="true"] {

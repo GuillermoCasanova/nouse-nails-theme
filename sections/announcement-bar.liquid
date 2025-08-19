@@ -53,6 +53,8 @@
     close() {
       this.style.display = 'none';
       document.documentElement.style.setProperty('--announcement-bar-height', '0px');
+      document.querySelector('sticky-header').querySelector('.header-border-mobile').style.top = '0px';
+      document.querySelector('sticky-header').classList.remove('announcement-bar-active');
 
       // Store closed state
       localStorage.setItem('announcement-bar-closed', 'true');
