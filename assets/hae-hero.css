@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 1024px) {
     .hero-header__media {
-        aspect-ratio: 1/.85;
+        aspect-ratio: 1/1;
     }
 }
 
