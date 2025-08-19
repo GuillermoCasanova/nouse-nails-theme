@@ -310,8 +310,6 @@
   }
   
   .header__icon {
-    width: 1.75rem;
-    height: 1.75rem;
     position: relative;
     background-color: transparent;
     border: none;
@@ -320,6 +318,12 @@
     padding: 0;
     margin-bottom: 0;
     transition: all 200ms var(--default-easing);
+  }
+
+  .header__icon--menu {
+    width: 1.5rem;
+    height: 1.5rem;
+      .header__icon
   }
 
   @media screen and (min-width: 940px) {

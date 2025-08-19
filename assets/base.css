@@ -935,3 +935,16 @@ button:hover,
 .text-eyebrow {
   margin-bottom: var(--space-3);
 }
+
+
+
+
+/*------------------------------------*\
+  #Icons
+\*------------------------------------*/
+
+.icon-small {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+}

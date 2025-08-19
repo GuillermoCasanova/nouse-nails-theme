@@ -93,40 +93,32 @@
             aria-haspopup="dialog"
             aria-controls="search-modal"
           >
-            <span>
-              <svg class="icon" aria-hidden="true" focusable="false" role="presentation">
-                <use href="#icon-search"></use>
-              </svg>
+            <span class="icon-small">
+              {% render 'icon-search' %}
             </span>
           </button>
         </search-toggle>
-
-        <div class="show-for-medium-up">
-          <a href="/pages/swym-wishlist" class="header__icon link focus-inset">
-            <span class="visually-hidden"> View Favorites </span>
-            <span class="svg-wrapper">{{ 'icon-favorite.svg' | inline_asset_content }}</span>
-          </a>
-        </div>
-
-        <div class="show-for-large-up">
-          <a
-            href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-            class="header__icon link focus-inset"
-          >
-            <svg class="icon" aria-hidden="true" focusable="false" role="presentation">
-              <use href="#icon-account"></use>
-            </svg>
-            <span class="visually-hidden">
-              {%- liquid
-                if customer
-                  echo 'customer.account_fallback' | t
-                else
-                  echo 'customer.log_in' | t
-                endif
-              -%}
-            </span>
-          </a>
-        </div>
+        {% comment %}
+          <div class="show-for-large-up">
+            <a
+              href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+              class="header__icon link focus-inset"
+            >
+              <svg class="icon" aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-account"></use>
+              </svg>
+              <span class="visually-hidden">
+                {%- liquid
+                  if customer
+                    echo 'customer.account_fallback' | t
+                  else
+                    echo 'customer.log_in' | t
+                  endif
+                -%}
+              </span>
+            </a>
+          </div>
+        {% endcomment %}
 
         <a
           href="{{ routes.cart_url }}"

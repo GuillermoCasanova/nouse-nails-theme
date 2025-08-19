@@ -492,21 +492,24 @@ class MenuDrawer extends HTMLElement {
       this.querySelectorAll(
         'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
       ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));
-    }
+    } else {
 
 
     this.querySelectorAll('summary').forEach(summary => {
+      if (activateOnHover) {
+        summary.addEventListener('mouseenter', (event) => {
+          this.onSummaryClick(event, true);
+        });
 
-      if (false ) {
-
-
-
-
-      } else {
+        summary.closest('details').addEventListener('mouseleave', (event) => {
+          if (summary.closest('details').hasAttribute('open')) {
+            this.closeMenuDrawer(event);
+          }
+        });
       }
-
-
     });
+    }
+
   }
 
   onKeyUp(event) {
