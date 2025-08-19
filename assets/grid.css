@@ -162,7 +162,7 @@
 }
 
 .container-x-small {
-  max-width: calc(var(--max-width-small) - (var(--container-padding) * 4));
+  max-width: calc(var(--max-width-x-small) - (var(--container-padding) * 4));
   width: 100%; 
   margin: auto; 
   padding-left: var(--container-padding);

@@ -24,23 +24,22 @@
   }
 
   .text-page__body {
-    max-width: 50rem;
-    margin-right: auto;
-    margin-left: auto;
     margin-bottom: var(--level10);
   }
 
   @media only screen and (min-width: 940px) {
     .text-page__body {
       font-size: var(--normal);
+      max-width: 50rem;
     }
   }
 {% endstyle %}
 
 <div class="page-width text-page master-padding-top">
-  {% if section.settings.hide_body == 'true' %}
+  the stuff
+  {% if section.settings.hide_body == 'false' %}
     {% if page.content != blank %}
-      <div class="rte text-page__body">
+      <div class="rte  text-page__body container-x-small">
         {{ page.content }}
       </div>
     {% endif %}
