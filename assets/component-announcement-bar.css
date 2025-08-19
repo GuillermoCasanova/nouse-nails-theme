@@ -41,4 +41,25 @@
     cursor: pointer;
     color: rgb(var(--color-text)); 
     padding: var(--space-2);
+    transition: all 0.4s var(--default-easing);
+  }
+
+  .announcement-bar__close:hover,
+  .announcement-bar__close:focus {
+    transform: scale(1.1) rotate(180deg);
+  }
+
+  @media screen and (min-width: 940px) {
+    .announcement-bar__text {
+      font-size: var(--text-size-regular);
+    }
+  }
+  
+
+
+  @media screen and (min-width: 940px) {
+    .announcement-bar__close {
+        width: 2rem;
+      
+    }
   }

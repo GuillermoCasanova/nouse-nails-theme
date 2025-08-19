@@ -54,12 +54,6 @@
 <sticky-header class="header-wrapper {% if settings.show_announcement_bar %} announcement-bar-active{% endif %}">
   <header class="header">
     <div class="header__inner  page-width">
-      {%- render 'cart-drawer' -%}
-
-      {%- render 'header-drawer' -%}
-
-      {% render 'header-mega-menu' %}
-
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- else -%}
@@ -82,6 +76,12 @@
       {%- else -%}
         </div>
       {%- endif -%}
+
+      {%- render 'cart-drawer' -%}
+
+      {%- render 'header-drawer' -%}
+
+      {% render 'header-mega-menu' %}
 
       <div class="header__icons page-width">
         <search-toggle class="show-for-medium-up">
