@@ -191,77 +191,30 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "footer-0": {
-            "type": "link_list",
-            "settings": {
-              "title": "Quick links",
-              "menu": "footer"
-            }
-          },
-          "footer-1": {
-            "type": "newsletter",
-            "settings": {
-              "title": "Newsletter"
-            }
-          }
-        },
-        "block_order": [
-          "footer-0",
-          "footer-1"
-        ],
         "settings": {
-          "show_payment_icons": true,
-          "color_footer_bg": "#f6f6f6",
-          "color_footer_text": "#333232",
-          "show_locale_selector": true,
-          "show_currency_selector": true
+          "show_payment_icons": true
         }
       },
       "hae-footer": {
         "type": "hae-footer",
-        "blocks": {
-          "81d73074-9a34-4185-ae0c-17f2d5cfe96a": {
-            "type": "link_list",
-            "settings": {
-              "title": "",
-              "menu": "footer"
-            }
-          },
-          "0f740a17-357b-4b8c-9276-e259ae017e05": {
-            "type": "link_list",
-            "settings": {
-              "title": "",
-              "menu": "footer-menu-2"
-            }
-          },
-          "956dbcfa-95d8-46bb-991a-d812d6674ecb": {
-            "type": "link_list",
-            "settings": {
-              "title": "",
-              "menu": "footer-menu-3"
-            }
-          },
-          "5f9f7e15-7bd6-4f0e-ba74-4ca399bf399a": {
-            "type": "newsletter",
-            "settings": {
-              "title": "Sign up for Hae updates"
-            }
-          }
-        },
-        "block_order": [
-          "81d73074-9a34-4185-ae0c-17f2d5cfe96a",
-          "0f740a17-357b-4b8c-9276-e259ae017e05",
-          "956dbcfa-95d8-46bb-991a-d812d6674ecb",
-          "5f9f7e15-7bd6-4f0e-ba74-4ca399bf399a"
-        ],
         "settings": {
-          "color_footer_text": "#333232",
-          "small_text": "© 2020 Hae Beauty. All rights reserved.",
-          "page_link_1": "privacy-policy",
-          "text_link_1": "Privacy Policy",
-          "page_link_2": "terms",
-          "text_link_2": "Terms"
+          "color_scheme": "",
+          "footer_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
+          "show_company_info": true,
+          "company_description": "<p>Share your brand story and mission with your customers.</p>",
+          "show_social_icons": true,
+          "show_quick_links": true,
+          "quick_links_title": "Quick Links",
+          "quick_links_menu": "footer",
+          "show_newsletter": true,
+          "newsletter_title": "Stay Updated",
+          "newsletter_description": "<p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>",
+          "newsletter_placeholder": "Enter your email",
+          "newsletter_button_text": "Subscribe",
+          "copyright_text": "All rights reserved.",
+          "show_payment_icons": true,
+          "show_bottom_menu": true,
+          "bottom_menu": ""
         }
       },
       "1605316310afd292ce": {
@@ -649,12 +602,12 @@
           "text_with_icon_DFiWLa"
         ],
         "settings": {
+          "layout": "left",
           "color_scheme": "background-1",
           "media_type": "image",
           "media_aspect_ratio": "1/.8",
           "image": "shopify://shop_images/image.png",
-          "video_url": "",
-          "layout": "left"
+          "video_url": ""
         }
       },
       "announcement-bar": {
