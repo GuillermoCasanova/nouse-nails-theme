@@ -2,7 +2,7 @@
 
 <article class="article-template" itemscope itemtype="http://schema.org/Article">
   <!-- Hero Header Section -->
-  <header class="article-hero color-{{ section.settings.color_scheme }}">
+  <header class="article-hero color-{{ section.settings.header_color_scheme }}">
     <div class="article-hero__container container-main">
       <div class="article-hero__content">
         {% if section.settings.blog_show_date %}
@@ -35,7 +35,7 @@
 
   <!-- Main Content Section -->
   <div class="article-content color-{{ section.settings.body_color_scheme }}">
-    <div class="article-content__container container-main">
+    <div class="article-content__container container-main {{ section.settings.body_padding_size }}">
       <div class="article-content__wrapper">
         <div class="article-content__body" itemprop="articleBody">
           {{ article.content }}
@@ -108,7 +108,7 @@
     },
     {
       "type": "color_scheme",
-      "id": "color_scheme",
+      "id": "header_color_scheme",
       "label": "Color scheme",
       "default": "background-1"
     },
@@ -182,6 +182,30 @@
       "label": "Back button text",
       "default": "BACK TO JOURNAL",
       "info": "Text displayed on the back to journal button"
+    },
+    {
+      "type": "select",
+      "id": "body_padding_size",
+      "label": "Padding Size",
+      "options": [
+        {
+          "value": "section-padding-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-small"
     }
   ]
 }
