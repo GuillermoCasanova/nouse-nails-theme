@@ -27,8 +27,8 @@
     "share_pinterest": true,
     "social_twitter_link": "",
     "social_facebook_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
+    "social_pinterest_link": "https://nousnails.com/",
+    "social_instagram_link": "https://nousnails.com/",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
     "social_youtube_link": "",
@@ -200,6 +200,7 @@
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "footer_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
+          "background_color_scheme": "",
           "show_company_info": true,
           "company_logo": "shopify://shop_images/Group.png",
           "company_description": "",
@@ -1357,10 +1358,7 @@
         },
         "footer": {
           "type": "footer",
-          "settings": {
-            "color_footer_bg": "#f8f8f8",
-            "color_footer_text": "#6d6d6d"
-          }
+          "settings": {}
         }
       },
       "content_for_index": [
