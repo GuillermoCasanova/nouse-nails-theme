@@ -11,10 +11,111 @@
   "sections": {
     "main": {
       "type": "why-hae",
+      "blocks": {
+        "left_photo_DHyjHh": {
+          "type": "left_photo",
+          "settings": {
+            "header": "",
+            "text": "",
+            "background_color": "#FCF8F4"
+          }
+        }
+      },
+      "block_order": [
+        "left_photo_DHyjHh"
+      ],
+      "disabled": true,
       "settings": {}
+    },
+    "main_page_header_NxbEKK": {
+      "type": "main-page-header",
+      "name": "Main Page Header",
+      "settings": {
+        "custom_title": "",
+        "subtitle": "",
+        "padding_size": "section-padding-x-small",
+        "heading_size": "headline-style-h1",
+        "color_scheme": ""
+      }
+    },
+    "hae_image_with_text_QkqYCm": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_BfqzRc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Story",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_xnWTc7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BfqzRc",
+        "text_xnWTc7"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "color_scheme": "",
+        "media_type": "image",
+        "media_aspect_ratio": "1/.85",
+        "image": "shopify://shop_images/Screenshot_2025-08-19_at_9.06.19_PM.png",
+        "video_url": "",
+        "layout": "left"
+      }
+    },
+    "hae_image_with_text_U476HJ": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_JmywqJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_thQjBN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_MFqtfE": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JmywqJ",
+        "text_thQjBN",
+        "button_MFqtfE"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
+        "media_type": "image",
+        "media_aspect_ratio": "1/1",
+        "image": "shopify://shop_images/Screenshot_2025-08-19_at_9.06.16_PM.png",
+        "video_url": "",
+        "layout": "left"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "main_page_header_NxbEKK",
+    "hae_image_with_text_QkqYCm",
+    "hae_image_with_text_U476HJ"
   ]
 }
