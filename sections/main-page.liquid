@@ -18,12 +18,10 @@
 {% endstyle %}
 
 <section class="page-width text-page master-padding-top">
-  {% if section.settings.hide_body == 'false' %}
-    {% if page.content != blank %}
-      <div class="rte  text-page__body container-x-small">
-        {{ page.content }}
-      </div>
-    {% endif %}
+  {% if page.content != blank %}
+    <div class="rte  text-page__body container-x-small {{ section.settings.padding_size }}">
+      {{ page.content }}
+    </div>
   {% endif %}
 </section>
 
@@ -34,19 +32,33 @@
   "class": "section",
   "settings": [
     {
-      "type": "radio",
-      "id": "hide_body",
-      "label": "Hide main page body?",
+      "type": "select",
+      "id": "padding_size",
+      "label": "Padding Size",
       "options": [
         {
-          "value": "false",
-          "label": "Yes"
+          "value": "section-padding-x-small",
+          "label": "Extra Small"
         },
         {
-          "value": "true",
-          "label": "No"
+          "value": "section-padding-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-large",
+          "label": "Large"
         }
-      ]
+      ],
+      "default": "section-padding-small"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Text Page"
     }
   ]
 }

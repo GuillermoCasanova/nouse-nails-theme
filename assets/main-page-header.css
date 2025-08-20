@@ -40,7 +40,6 @@
 
   .text-page__header__heading {
     margin: 0 0 var(--space-4) 0;
-    font-weight: var(--font-weight-bold);
   }
 
   .text-page__header__subtitle {

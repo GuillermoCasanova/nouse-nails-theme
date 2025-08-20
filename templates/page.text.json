@@ -21,10 +21,7 @@
       }
     },
     "main": {
-      "type": "main-page",
-      "settings": {
-        "hide_body": "false"
-      }
+      "type": "main-page"
     }
   },
   "order": [
