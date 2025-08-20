@@ -4,7 +4,7 @@
  *
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
- * made to this file may be overwrittegit n.
+ * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
 {
@@ -12,9 +12,7 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36,
-         "hide_body": "false"
+        "hide_body": "false"
       }
     }
   },
