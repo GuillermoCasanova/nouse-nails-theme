@@ -2,7 +2,7 @@
 
 <section class="image-with-text color-{{ section.settings.color_scheme }}">
   <div class="image-with-text__container container-small section-padding-small">
-    <div class="image-with-text__content grid grid-2 grid-gap-lg {% if section.settings.layout == 'right' %}image-with-text--media-right{% endif %}">
+    <div class="image-with-text__content grid grid-2 grid-gap-lg {% if section.settings.layout == 'right' %} reverse-desktop-up {% endif %}">
       <div class="image-with-text__media-wrapper">
         {% if section.settings.media_type == 'image' %}
           {% if section.settings.image != blank %}
