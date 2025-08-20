@@ -4,18 +4,21 @@
 
 <!-- FAQs Section -->
 <section class="faqs-section color-{{ section.settings.color_scheme }}">
-  <div class="faqs-section__contain container-small section-padding-small" data-tabs-panel>
+  <div class="faqs-section__contain container-main section-padding-main" data-tabs-panel>
     <div class="faqs-section__layout grid grid-2 grid-gap-lg">
       <!-- Table Content -->
       {% if section.settings.page != blank %}
         <div class="faqs-section__page-content">
           <div class="table-wrapper">
-            <div class="comparison-table">
-              {% if section.settings.table_image != blank %}
-                <div class="comparison-table__image">
-                  {% render 'image-with-aspect-ratio', image: section.settings.table_image, aspect_ratio: '16/9' %}
-                </div>
-              {% endif %}
+            {% if section.settings.table_image != blank %}
+              <div class="comparison-table__image">
+                <img
+                  src="{{ section.settings.table_image | img_url: 'master' }}"
+                  alt="{{ section.settings.table_image.alt }}"
+                >
+              </div>
+            {% endif %}
+            <div class="comparison-table visually-hidden">
               {{ pages[section.settings.page].content }}
             </div>
           </div>
