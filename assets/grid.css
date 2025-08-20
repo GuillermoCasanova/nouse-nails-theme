@@ -124,11 +124,16 @@
   justify-content: start;
 }
 
-.grid-justify-end {
+.grid-justify-end { 
   justify-content: end;
 }
 
 
+@media screen and (min-width: 940px) {
+  .reverse-desktop-up > div:last-child {
+    order: -1;
+  }
+}
 
 
 
