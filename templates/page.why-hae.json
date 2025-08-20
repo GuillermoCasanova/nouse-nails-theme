@@ -104,7 +104,7 @@
       ],
       "name": "Image with text",
       "settings": {
-        "layout": "left",
+        "layout": "right",
         "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
         "media_type": "image",
         "media_aspect_ratio": "1/1",
