@@ -611,30 +611,7 @@
       {
         "type": "checkbox",
         "id": "share_tiktok",
-        "label": {
-          "cs": "Sdílet na TikToku",
-          "da": "Del på TikTok",
-          "de": "Auf TikTok teilen",
-          "en": "Share on TikTok",
-          "es": "Compartir en TikTok",
-          "fi": "Jaa TikTokissa",
-          "fr": "Partager sur TikTok",
-          "hi": "TikTok पर शेयर करें",
-          "it": "Condividi su TikTok",
-          "ja": "TikTokでシェアする",
-          "ko": "TikTok에서 공유하기",
-          "nb": "Del på TikTok",
-          "nl": "Delen op TikTok",
-          "pl": "Udostępnij na TikToku",
-          "pt-BR": "Compartilhar no TikTok",
-          "pt-PT": "Partilhar no TikTok",
-          "sv": "Dela på TikTok",
-          "th": "แชร์บน TikTok",
-          "tr": "TikTok'ta paylaş",
-          "vi": "Chia sẻ trên TikTok",
-          "zh-CN": "在TikTok上分享",
-          "zh-TW": "在TikTok上分享"
-        },
+        "label": "Share on TikTok",
         "default": true
       },
       {
