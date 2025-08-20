@@ -747,6 +747,12 @@
       },
       {
         "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok",
+        "info": "https://www.tiktok.com/@shopify"
+      },  
+      {
+        "type": "text",
         "id": "social_pinterest_link",
         "label": {
           "cs": "Pinterest",
