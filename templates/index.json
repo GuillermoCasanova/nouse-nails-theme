@@ -54,7 +54,7 @@
           "settings": {
             "color_scheme": "scheme-94eb6821-3c93-4727-b9e1-be4096d276ce",
             "collection": "glow-spf-mist",
-            "headline": "@MeechyNails",
+            "headline": "@MeNails",
             "button_text": "Shop",
             "media_type": "image",
             "video_url": "",
@@ -161,12 +161,12 @@
       ],
       "name": "Image with text",
       "settings": {
+        "layout": "left",
         "color_scheme": "",
         "media_type": "image",
         "media_aspect_ratio": "1/.85",
         "image": "shopify://shop_images/image.png",
-        "video_url": "",
-        "layout": "left"
+        "video_url": ""
       }
     },
     "instagram_slideshow_FWNLT6": {
