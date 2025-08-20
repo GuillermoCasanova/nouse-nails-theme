@@ -13,9 +13,9 @@
       "type": "article-template",
       "settings": {
         "color_scheme": "background-1",
-        "blog_show_author": true,
+        "blog_show_author": false,
         "blog_show_date": false,
-        "show_share_buttons": true,
+        "show_share_buttons": false,
         "media_aspect_ratio": "3/4",
         "body_color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
         "back_button_text": "BACK TO JOURNAL"
