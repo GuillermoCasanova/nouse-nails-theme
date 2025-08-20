@@ -66,7 +66,7 @@
         "layout": "left",
         "color_scheme": "",
         "media_type": "image",
-        "media_aspect_ratio": "1/.85",
+        "media_aspect_ratio": "3/4",
         "image": "shopify://shop_images/false-nails-natural-3-middle.jpg",
         "video_url": ""
       }
@@ -90,6 +90,7 @@
         },
         "button_MFqtfE": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Button",
             "button_link": "",
@@ -132,8 +133,8 @@
         "button_CLq8dU": {
           "type": "button",
           "settings": {
-            "button_label": "Button",
-            "button_link": "",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/new-arrivals",
             "button_size": "button--medium"
           }
         }
@@ -148,7 +149,7 @@
         "layout": "right",
         "color_scheme": "background-1",
         "media_type": "image",
-        "media_aspect_ratio": "1/1",
+        "media_aspect_ratio": "3/4",
         "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
         "video_url": ""
       }
