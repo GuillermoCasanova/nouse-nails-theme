@@ -4,7 +4,15 @@
   <div class="text-page-header">
     {% if section.settings.header_background_image != blank %}
       <div class="text-page-header_background">
-        {% render 'responsive-image' with section.settings.header_background_image as image %}
+        <img
+          src="{{ section.settings.header_background_image | img_url }}"
+          srcset="{{ section.settings.header_background_image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.header_background_image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.header_background_image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.header_background_image | img_url: '425x', scale: 2 }} 425w"
+          sizes="100vw"
+          alt="Background Image"
+          class="responsive-image"
+          width="1440"
+          height="800"
+        >
       </div>
     {% endif %}
 

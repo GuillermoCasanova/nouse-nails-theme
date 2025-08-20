@@ -40,22 +40,13 @@
 
   .text-page__header__heading {
     margin: 0 0 var(--space-4) 0;
-    text-transform: uppercase;
     font-weight: var(--font-weight-bold);
-    letter-spacing: var(--letter-spacing-1);
   }
 
   .text-page__header__subtitle {
     margin: 0;
-    font-size: var(--text-size-main);
     line-height: var(--line-height-double);
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media screen and (min-width: 700px) {
-
-    .text-page__header__subtitle {
-      font-size: var(--text-size-medium);
-    }
-  }
