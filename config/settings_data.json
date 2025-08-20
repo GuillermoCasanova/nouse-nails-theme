@@ -198,10 +198,11 @@
       "hae-footer": {
         "type": "hae-footer",
         "settings": {
-          "color_scheme": "",
+          "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "footer_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
           "show_company_info": true,
-          "company_description": "<p>Share your brand story and mission with your customers.</p>",
+          "company_logo": "shopify://shop_images/Group.png",
+          "company_description": "",
           "show_social_icons": true,
           "show_quick_links": true,
           "quick_links_title": "Quick Links",
@@ -212,8 +213,8 @@
           "newsletter_placeholder": "Enter your email",
           "newsletter_button_text": "Subscribe",
           "copyright_text": "All rights reserved.",
-          "show_payment_icons": true,
-          "show_bottom_menu": true,
+          "show_payment_icons": false,
+          "show_bottom_menu": false,
           "bottom_menu": ""
         }
       },
