@@ -16,10 +16,20 @@
           "padding_bottom": 36,
            "hide_body": "false"
         }
+      },
+      "main-page-header": {
+        "type": "main-page-header",
+        "settings": {
+          "color_scheme": "background-1",
+          "header_background_image": "",
+          "custom_title": "",
+          "subtitle": "",
+          "padding_size": "section-padding-small"
+        }
       }
     },
     "order": [
+      "main-page-header",
       "main"
     ]
-  }
-  
+  }  
