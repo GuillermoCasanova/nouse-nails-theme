@@ -294,12 +294,36 @@
             "question": "What is your question?",
             "answer": "<p>Provide your answer here.</p>"
           }
+        },
+        "faq_block_6tw8qU": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I apply and remove Nous Nails?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_Uj7d8K": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_pBNyaQ": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Do I need a LED lamp?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_jRAPtz",
         "faq_block_43ptYe",
-        "faq_block_QL3tzy"
+        "faq_block_QL3tzy",
+        "faq_block_6tw8qU",
+        "faq_block_Uj7d8K",
+        "faq_block_pBNyaQ"
       ],
       "name": "FAQ Section",
       "settings": {
