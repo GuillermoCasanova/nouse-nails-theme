@@ -105,7 +105,48 @@
       "name": "Image with text",
       "settings": {
         "layout": "right",
-        "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
+        "color_scheme": "scheme-6628b2c5-2a6e-43ae-9f30-7d31869aa0c7",
+        "media_type": "image",
+        "media_aspect_ratio": "1/1",
+        "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
+        "video_url": ""
+      }
+    },
+    "hae_image_with_text_7T7qcP": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_BPrWXA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nail the Perfect Look",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_W7cg4q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nail the Perfect Look with Organic Stick-Ons for a Polished Finish!</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_CLq8dU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BPrWXA",
+        "text_W7cg4q",
+        "button_CLq8dU"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "right",
+        "color_scheme": "background-1",
         "media_type": "image",
         "media_aspect_ratio": "1/1",
         "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
@@ -117,6 +158,7 @@
     "main",
     "main_page_header_NxbEKK",
     "hae_image_with_text_QkqYCm",
-    "hae_image_with_text_U476HJ"
+    "hae_image_with_text_U476HJ",
+    "hae_image_with_text_7T7qcP"
   ]
 }
