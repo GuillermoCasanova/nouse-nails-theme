@@ -187,6 +187,8 @@
     --border-radius-small: .5rem;
     --border-radius-main: 1.25rem;
     --border-radius-large: 2rem;
+    --border-radius-x-large: clamp(2rem, ((2 - ((4.5 - 2) / (var(--site--max) - var(--site--min)) * var(--site--min))) * 1rem + ((4.5 - 2) / (var(--site--max) - var(--site--min))) * 100vw), 4.5rem);
+
 
     --space-0: 0;
     --space-1: .3125rem; /* 5px */

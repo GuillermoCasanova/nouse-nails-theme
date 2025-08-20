@@ -5,10 +5,18 @@
 .footer {
   width: 100%;
   padding: var(--space-10) 0 var(--space-8) 0;
+  position: relative;
+  border-radius: var(--border-radius-x-large) var(--border-radius-x-large) 0 0;
+  overflow: hidden;
 }
 
 .footer__container {
   width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.footer__background-image {
+  z-index: 0;
 }
 
 /*------------------------------------*\

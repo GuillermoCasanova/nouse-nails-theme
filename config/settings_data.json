@@ -1357,25 +1357,6 @@
         },
         "footer": {
           "type": "footer",
-          "blocks": {
-            "link_list": {
-              "type": "link_list",
-              "settings": {}
-            },
-            "text": {
-              "type": "text",
-              "settings": {}
-            },
-            "newsletter": {
-              "type": "newsletter",
-              "settings": {}
-            }
-          },
-          "block_order": [
-            "link_list",
-            "text",
-            "newsletter"
-          ],
           "settings": {
             "color_footer_bg": "#f8f8f8",
             "color_footer_text": "#6d6d6d"
