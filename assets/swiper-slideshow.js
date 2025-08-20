@@ -33,7 +33,7 @@ class SwiperSlideshow extends HTMLElement {
     return {
       mobileSlidesPerView: this.getAttribute('mobile-slides-per-view') || 1.25,
       mobileSpaceBetween: parseInt(this.getAttribute('mobile-space-between')) || 20,
-      mobileCenteredSlides: this.getAttribute('mobile-centered-slides') !== 'false',
+      mobileCenteredSlides: false,
       mobileLoop: this.getAttribute('mobile-loop') !== 'false',
       mobileAutoplay: this.getAttribute('mobile-autoplay') === 'true',
       mobileAutoplayDelay: parseInt(this.getAttribute('mobile-autoplay-delay')) || 5000,
@@ -91,7 +91,7 @@ class SwiperSlideshow extends HTMLElement {
       slidesPerView: this.config.mobileSlidesPerView,
       spaceBetween: this.config.mobileSpaceBetween,
       loop: this.config.mobileLoop,
-      centeredSlides: this.config.mobileCenteredSlides,
+      centeredSlides: false,
       freeMode: false,
       autoplay: this.config.mobileAutoplay ? {
         delay: this.config.mobileAutoplayDelay,

@@ -11,6 +11,11 @@
         <div class="faqs-section__page-content">
           <div class="table-wrapper">
             <div class="comparison-table">
+              {% if section.settings.table_image != blank %}
+                <div class="comparison-table__image">
+                  {% render 'image-with-aspect-ratio', image: section.settings.table_image, aspect_ratio: '16/9' %}
+                </div>
+              {% endif %}
               {{ pages[section.settings.page].content }}
             </div>
           </div>
@@ -74,6 +79,11 @@
       "id": "page",
       "label": "Select Page",
       "info": "Select a page that host the table element."
+    },
+    {
+      "type": "image_picker",
+      "id": "table_image",
+      "label": "Table Image"
     }
   ],
   "blocks": [

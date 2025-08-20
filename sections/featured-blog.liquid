@@ -1,51 +1,75 @@
 {{ 'featured-blog-posts.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="{{ 'swiper-slideshow.js' | asset_url }}" defer></script>
 
 <section class="featured-blog-posts color-{{ section.settings.color_scheme }}">
-  <div class="featured-blog-posts__contain container-x-small section-padding-small">
+  <div class="featured-blog-posts__contain container-small section-padding-small">
     {% if section.settings.title != blank %}
       <div class="featured-blog-posts__header">
         <h2 class="featured-blog-posts__title headline-style-h3">{{ section.settings.title | escape }}</h2>
       </div>
     {% endif %}
 
-    <div class="featured-blog-posts__grid grid grid-3 grid-gap-lg">
-      {% for block in section.blocks %}
-        {% assign article = articles[block.settings.article] %}
-        {% if article != blank %}
-          <div class="grid__item">
-            <article class="blog-card" aria-labelledby="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-              <div class="blog-card__content">
-                {% if article.image %}
-                  <div class="blog-card__image-container">
-                    {% render 'image-with-aspect-ratio',
-                      image: article.image,
-                      aspect_ratio: section.settings.media_aspect_ratio,
-                      alt: article.title,
-                      widths: '180, 360, 540, 720, 900, 1080, 1296'
-                    %}
-                  </div>
-                {% endif %}
+    {% if section.blocks.size > 0 %}
+      <swiper-slideshow
+        class="featured-blog-posts__swiper"
+        mobile-slides-per-view="1.25"
+        mobile-space-between="20"
+        mobile-loop="true"
+        mobile-autoplay="false"
+        desktop-breakpoint="768"
+        show-navigation="true"
+        show-pagination="false"
+        effect="slide"
+        speed="800"
+        create-elements="true"
+      >
+        <div class="featured-blog-posts__grid grid grid-3 grid-gap-lg swiper" data-swiper-slideshow>
+          <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
+            {% for block in section.blocks %}
+              {% assign article = articles[block.settings.article] %}
+              {% if article != blank %}
+                <div class="grid__item swiper-slide" {{ block.shopify_attributes }} data-swiper-slide>
+                  <article class="blog-card" aria-labelledby="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
+                    <div class="blog-card__content">
+                      {% if article.image %}
+                        <div class="blog-card__image-container">
+                          {% render 'image-with-aspect-ratio',
+                            image: article.image,
+                            aspect_ratio: section.settings.media_aspect_ratio,
+                            alt: article.title,
+                            widths: '180, 360, 540, 720, 900, 1080, 1296'
+                          %}
+                        </div>
+                      {% endif %}
 
-                <h3 class="blog-card__title headline-style-h4" id="BlogTitle-{{ forloop.index0 }}-{{ section.id }}">
-                  {{ article.title }}
-                </h3>
+                      <h3
+                        class="blog-card__title headline-style-h4"
+                        id="BlogTitle-{{ forloop.index0 }}-{{ section.id }}"
+                      >
+                        {{ article.title }}
+                      </h3>
 
-                <p class="blog-card__excerpt text-size-regular">
-                  {% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                    {{ article.content | strip_html | truncate: 150 }}
-                  {% endif %}
-                </p>
-              </div>
-              <a href="{{ article.url }}" class="blog-card__button button button--small button--primary">
-                {{ 'blogs.article.read_more' | t }}
-              </a>
-            </article>
+                      <p class="blog-card__excerpt text-size-regular">
+                        {% if article.excerpt.size > 0 %}
+                          {{ article.excerpt }}
+                        {% else %}
+                          {{ article.content | strip_html | truncate: 150 }}
+                        {% endif %}
+                      </p>
+                    </div>
+                    <a href="{{ article.url }}" class="blog-card__button button button--small button--primary">
+                      {{ 'blogs.article.read_more' | t }}
+                    </a>
+                  </article>
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
-        {% endif %}
-      {% endfor %}
-    </div>
+        </div>
+      </swiper-slideshow>
+    {% endif %}
 
     {% if section.settings.show_view_all and section.settings.view_all_url != blank %}
       <div class="featured-blog-posts__view-all">
@@ -61,7 +85,7 @@
 {
   "name": "Blog posts",
   "class": "index-section",
-  "max_blocks": 3,
+  "max_blocks": 6,
   "settings": [
     {
       "type": "header",
@@ -139,7 +163,18 @@
   "presets": [
     {
       "name": "Blog posts",
-      "category": "Blog"
+      "category": "Blog",
+      "blocks": [
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        }
+      ]
     }
   ]
 }
