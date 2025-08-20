@@ -9,6 +9,12 @@
   grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(20rem + var(--grid-padding-large))), 1fr));
 }
 
+@media screen and (min-width: 768px) {
+  .faqs-section__layout {
+    align-items: center;
+  }
+}
+
 
 /*------------------------------------*\
   #FAQ List Component
