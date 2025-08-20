@@ -61,7 +61,7 @@ class InstagramSlideshow extends HTMLElement {
       freeMode: false,
       autoplay: false,
       grabCursor: true,
-      simulateTouch: false,
+      simulateTouch: true,
       preventClicks: true,
       preventClicksPropagation: true,
       a11y: {

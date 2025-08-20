@@ -1,4 +1,8 @@
 {{ 'testimonials.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<script src="{{ 'swiper-slideshow.js' | asset_url }}" defer></script>
 
 <section
   class="testimonials color-{{ section.settings.color_scheme }}"
@@ -13,25 +17,43 @@
     {% endif %}
 
     {% if section.blocks.size > 0 %}
-      <div class="testimonials__grid grid grid-3">
-        {% for block in section.blocks limit: 3 %}
-          <div class="testimonials__item" {{ block.shopify_attributes }}>
-            <div class="testimonials__content">
-              <div class="testimonials__quote-icon icon icon-small">
-                {% render 'icon-quote' %}
+      <swiper-slideshow
+        class="testimonials__swiper"
+        mobile-slides-per-view="1"
+        mobile-space-between="25"
+        mobile-centered-slides="true"
+        mobile-loop="true"
+        mobile-autoplay="true"
+        mobile-autoplay-delay="2000"
+        desktop-breakpoint="768"
+        show-navigation="true"
+        show-pagination="false"
+        effect="slide"
+        speed="800"
+        create-elements="true"
+      >
+        <div class="testimonials__grid grid grid-3 swiper" data-swiper-slideshow>
+          <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
+            {% for block in section.blocks limit: 3 %}
+              <div class="testimonials__item swiper-slide" {{ block.shopify_attributes }} data-swiper-slide>
+                <div class="testimonials__content">
+                  <div class="testimonials__quote-icon icon icon-small">
+                    {% render 'icon-quote' %}
+                  </div>
+                  {% if block.settings.quote != blank %}
+                    <blockquote class="testimonials__quote  text-size-main">
+                      {{ block.settings.quote }}
+                    </blockquote>
+                  {% endif %}
+                  {% if block.settings.author != blank %}
+                    <cite class="testimonials__author text-size-main">{{ block.settings.author | escape }}</cite>
+                  {% endif %}
+                </div>
               </div>
-              {% if block.settings.quote != blank %}
-                <blockquote class="testimonials__quote  text-size-main">
-                  {{ block.settings.quote }}
-                </blockquote>
-              {% endif %}
-              {% if block.settings.author != blank %}
-                <cite class="testimonials__author text-size-main">{{ block.settings.author | escape }}</cite>
-              {% endif %}
-            </div>
+            {% endfor %}
           </div>
-        {% endfor %}
-      </div>
+        </div>
+      </swiper-slideshow>
     {% endif %}
 
     {% if section.blocks.size == 0 %}
