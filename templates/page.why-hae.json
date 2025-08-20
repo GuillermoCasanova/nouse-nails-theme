@@ -33,9 +33,10 @@
       "settings": {
         "custom_title": "",
         "subtitle": "",
+        "header_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
         "padding_size": "section-padding-main",
         "heading_size": "headline-style-h1",
-        "color_scheme": ""
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a"
       }
     },
     "hae_image_with_text_QkqYCm": {
@@ -62,12 +63,12 @@
       ],
       "name": "Image with text",
       "settings": {
+        "layout": "left",
         "color_scheme": "",
         "media_type": "image",
         "media_aspect_ratio": "1/.85",
-        "image": "shopify://shop_images/Screenshot_2025-08-19_at_9.06.19_PM.png",
-        "video_url": "",
-        "layout": "left"
+        "image": "shopify://shop_images/false-nails-natural-3-middle.jpg",
+        "video_url": ""
       }
     },
     "hae_image_with_text_U476HJ": {
@@ -76,14 +77,14 @@
         "heading_JmywqJ": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Nail the Perfect Look",
             "heading_size": "headline-style-h2"
           }
         },
         "text_thQjBN": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text": "<p>Nail the Perfect Look with Organic Stick-Ons for a Polished Finish!</p>",
             "text_size": "text-size-medium"
           }
         },
@@ -103,12 +104,12 @@
       ],
       "name": "Image with text",
       "settings": {
+        "layout": "left",
         "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
         "media_type": "image",
         "media_aspect_ratio": "1/1",
-        "image": "shopify://shop_images/Screenshot_2025-08-19_at_9.06.16_PM.png",
-        "video_url": "",
-        "layout": "left"
+        "image": "shopify://shop_images/false-nails-natural-2-middle.jpg",
+        "video_url": ""
       }
     }
   },
