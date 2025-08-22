@@ -72,9 +72,50 @@
         "show_custom_size_picker": false,
         "show_compact_quick_add": false
       }
+    },
+    "hae_image_with_text_x3hJdB": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_8Ci3GE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_ccnU96": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_7XrxbM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8Ci3GE",
+        "text_ccnU96",
+        "button_7XrxbM"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "left",
+        "color_scheme": "",
+        "media_type": "image",
+        "media_aspect_ratio": "1/1",
+        "video_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "hae_image_with_text_x3hJdB"
   ]
 }
