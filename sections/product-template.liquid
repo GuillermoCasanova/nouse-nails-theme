@@ -748,21 +748,10 @@
 {% schema %}
 {
   "name": "t:sections.main-product.name",
+
   "blocks": [
     {
       "type": "@app"
-    },
-    {
-      "type": "color_scheme",
-      "name": "t:sections.main-product.blocks.color_scheme.name",
-      "settings": [
-        {
-          "type": "color_scheme",
-          "id": "color_scheme",
-          "label": "t:sections.main-product.blocks.color_scheme.settings.color_scheme.label",
-          "default": "background-1"
-        }
-      ]
     },
 
     {
@@ -2189,6 +2178,12 @@
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
     },
     {
       "type": "header",
