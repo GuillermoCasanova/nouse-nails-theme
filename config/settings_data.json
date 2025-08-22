@@ -344,12 +344,7 @@
       "product-template": {
         "type": "product-template",
         "settings": {
-          "show_quantity_selector": true,
-          "show_vendor": false,
-          "enable_payment_button": false,
-          "show_share_buttons": false,
           "media_size": "medium",
-          "enable_image_zoom": true,
           "enable_video_looping": true
         }
       },
@@ -927,7 +922,7 @@
           "color_button_secondary_hover_text": "#7294a8",
           "color_button_secondary_border": "#333232",
           "color_button_secondary_hover_border": "#7294a8",
-          "color_accent": "#efbdfc",
+          "color_accent": "#7294a8",
           "colors_background_1": "#6d0506",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
