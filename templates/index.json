@@ -20,7 +20,7 @@
         "media_type": "image",
         "hero-image": "shopify://shop_images/hero-shot-1.png",
         "video_url": "",
-        "floating-sticker": "stars",
+        "floating-sticker": "sun-pink",
         "sticker_color": "#fdf130"
       }
     },
@@ -121,7 +121,7 @@
           "settings": {
             "icon": "shopify://shop_images/c8e8a3162fda8fb7050dd3c651695e2a.svg",
             "text": "Non Toxic",
-            "text_size": "text-size-large"
+            "text_size": "text-size-medium"
           }
         },
         "text_with_icon_CTxiK4": {
@@ -129,7 +129,7 @@
           "settings": {
             "icon": "shopify://shop_images/ca0e36cc52a03559d35034ca36d41412.svg",
             "text": "Lasts 14 Days",
-            "text_size": "text-size-large"
+            "text_size": "text-size-medium"
           }
         },
         "text_with_icon_KgNHp7": {
@@ -137,7 +137,7 @@
           "settings": {
             "icon": "shopify://shop_images/0ee9af4c0a5b1a829cf3abacf1cf0a0d.svg",
             "text": "No nail damage",
-            "text_size": "text-size-large"
+            "text_size": "text-size-medium"
           }
         },
         "text_with_icon_QfE8jK": {
