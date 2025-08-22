@@ -107,6 +107,11 @@
                   <div class="product__title headline-style-h1" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
                   </div>
+
+                {%- when 'type' -%}
+                  <div class="product__type" {{ block.shopify_attributes }}>
+                    <p>{{ product.type | escape }}</p>
+                  </div>
                 {%- when 'price' -%}
                   <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                     {%- render 'price',
@@ -789,6 +794,11 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "type",
+      "name": "Type",
       "limit": 1
     },
     {
