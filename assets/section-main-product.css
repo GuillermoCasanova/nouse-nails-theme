@@ -301,17 +301,10 @@ a.product__text {
   .product__title {
     word-break: break-word;
     font-family: var(--secondary-font-family);
-    text-transform: uppercase;
-    font-size: var(--headline-size-h6);
-    margin-bottom: var(--space-5);
-    padding-right: 5.5rem;
+    margin-bottom: var(--space-4);
   }
 
-@media screen and (min-width: 700px) {
-  .product__title {
-    margin-bottom: var(--space-8);
-  }
-}
+
 
 .product__title h1 {
   font-weight: 300;
@@ -342,20 +335,17 @@ a.product__text {
 }
 
   .product__info-container .price {
-    position: absolute;
-    top: 1.25rem;
     right: 0;
-    font-size: var(--text-size-main);
-    font-family: var(--tertiary-font-family);
+    font-size: var(--text-size-large);
   }
 
 .product .price__container {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-3);
 }
 
 .product .price dl {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
 }
 
 .product .price--sold-out .price__badge-sale {
@@ -375,10 +365,6 @@ a.product__text {
 @media screen and (min-width: 700px) {
   .product__info-container {
     max-width: 60rem;
-  }
-
-  .product__info-container .price--on-sale .price-item--regular {
-    font-size: 1.6rem;
   }
 
   .product__info-container > *:first-child {
@@ -469,8 +455,6 @@ a.product__text {
   margin-left: auto;
  margin-right: auto;
  margin-top: var(--space-8);
- display: flex;
- justify-content: center;
  margin-bottom: var(--space-5);
 }
 
@@ -490,12 +474,11 @@ a.product__text {
 
   shopify-payment-terms {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 32rem;
-    text-align: center;
+    text-align: left;
+    margin-left: 0; 
+    padding-left: 0;
     font-size: var(--text-size-tiny);
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-4);
   }
 
 
