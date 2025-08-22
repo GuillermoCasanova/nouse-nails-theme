@@ -11,10 +11,55 @@
   "sections": {
     "main": {
       "type": "product-template",
-      "settings": {}
+      "blocks": {
+        "title_4a3Ed6": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_GLyApW": {
+          "type": "price",
+          "settings": {}
+        },
+        "description_rh9JAT": {
+          "type": "description",
+          "settings": {}
+        },
+        "quantity_selector_g6nGM9": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_B47i49": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_4a3Ed6",
+        "price_GLyApW",
+        "description_rh9JAT",
+        "quantity_selector_g6nGM9",
+        "buy_buttons_B47i49"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "show_custom_size_picker": false,
+        "show_compact_quick_add": false
+      }
     }
   },
   "order": [
-    "main",
+    "main"
   ]
 }
