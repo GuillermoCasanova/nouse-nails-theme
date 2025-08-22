@@ -7,7 +7,7 @@
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
-<section class="product-section">
+<section class="product-section color-{{ section.settings.color_scheme }}">
   <product-info
     id="MainProduct-{{ section.id }}"
     data-section="{{ section.id }}"
