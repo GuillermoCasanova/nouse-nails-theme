@@ -61,6 +61,7 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "product_images_position": "right",
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "media_size": "large",
         "constrain_to_viewport": true,
