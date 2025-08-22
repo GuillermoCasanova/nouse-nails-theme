@@ -12,22 +12,9 @@
     "main": {
       "type": "product-template",
       "settings": {}
-    },
-    "product-below-hero": {
-      "type": "product-below-hero",
-      "settings": {}
-    },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "heading": "You may also like",
-        "show_vendor": false
-      }
     }
   },
   "order": [
     "main",
-    "product-below-hero",
-    "product-recommendations"
   ]
 }
