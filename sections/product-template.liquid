@@ -80,7 +80,7 @@
         {% render 'breadcrumbs' %}
       </div>
 
-      <div class="product  grid grid-2 product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
+      <div class="product  grid grid-2 {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
         <div class=" product__media-wrapper">
           {% render 'product-media-gallery', variant_images: variant_images %}
         </div>
@@ -2178,6 +2178,22 @@
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "select",
+      "id": "product_images_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Image Position"
     },
     {
       "type": "color_scheme",
