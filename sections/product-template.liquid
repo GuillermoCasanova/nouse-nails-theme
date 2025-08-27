@@ -81,7 +81,10 @@
       <div class="product__contain container-small">
         <div class="product  grid grid-2 {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
           <div class=" product__media-wrapper">
-            {% render 'product-media-gallery', variant_images: variant_images %}
+            {% render 'product-media-gallery',
+              variant_images: variant_images,
+              media_aspect_ratio: section.settings.media_aspect_ratio
+            %}
           </div>
 
           <div class="product__info-wrapper ">
@@ -2052,6 +2055,34 @@
       "default": "left",
       "label": "t:sections.main-product.settings.media_position.label",
       "info": "t:sections.main-product.settings.media_position.info"
+    },
+    {
+      "type": "select",
+      "id": "media_aspect_ratio",
+      "label": "Media aspect ratio",
+      "options": [
+        {
+          "value": "16/9",
+          "label": "16:9 (Landscape)"
+        },
+        {
+          "value": "4/3",
+          "label": "4:3 (Portrait Horizontal)"
+        },
+        {
+          "value": "1/1",
+          "label": "1:1 (Square)"
+        },
+        {
+          "value": "1/.85",
+          "label": "1:0.8 (Shorter Square)"
+        },
+        {
+          "value": "3/4",
+          "label": "3:4 (Portrait)"
+        }
+      ],
+      "default": "1/1"
     },
     {
       "type": "select",

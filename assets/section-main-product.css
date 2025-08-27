@@ -7,6 +7,8 @@
   margin: 0 auto;
   max-width: var(--max-width-small);
   grid-template-columns: 1fr;
+  position: relative;
+  top: 0; 
 }
 
 @media screen and (min-width: 748px) {
@@ -30,30 +32,6 @@
   max-width: 57rem;
   margin: 0 auto;
 }
-
-
-
-/*------------------------------------*\
-    #Media
-\*------------------------------------*/
-
-
-.product__media-wrapper {
-  width: 100%;
-}
-
-@media screen and (min-width: 940px) {
-  .product__media-wrapper {
-    padding-left: 0;
-    max-width: 50%;
-  }
-}
-
-.product__media-wrapper custom-slideshow {
-  margin-bottom: var(--space-5);
-  display: block;
-}
-
 
 
 

@@ -2,9 +2,23 @@
     #Product Media Gallery
 \*------------------------------------*/
 
+
+
+
+.product__media-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0; 
+}
+
+.product__media-wrapper custom-slideshow {
+  margin-bottom: var(--space-5);
+  display: block;
+}
+
 .product__media {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1.5/1;
 }
 
 .product__media-list {
