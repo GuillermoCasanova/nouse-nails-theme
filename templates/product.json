@@ -82,7 +82,7 @@
         "product_images_position": "right",
         "slideshow_media_aspect_ratio": "9/12",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": false,
         "enable_video_looping": false,
         "show_custom_size_picker": false,
