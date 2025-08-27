@@ -78,7 +78,7 @@
         {% render 'breadcrumbs' %}
       </div>
 
-      <div class="product__contain container-small">
+      <div class="product__contain container-small {{section.settings.section_padding}}">
         <div class="product  grid grid-2 {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
           <div class=" product__media-wrapper">
             {% render 'product-media-gallery',
@@ -1912,6 +1912,10 @@
   ],
   "settings": [
     {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
       "type": "checkbox",
       "id": "enable_sticky_info",
       "default": true,
@@ -1923,6 +1927,30 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "background-1"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section Padding Size",
+      "options": [
+        {
+          "value": "section-padding-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-main"
     },
     {
       "type": "header",

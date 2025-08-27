@@ -53,9 +53,9 @@ class SwiperSlideshow extends HTMLElement {
       breakpoints,
       numberPagination,
       effect,
-      controlContainer,
       fadeOnLargeUp,
       hoverArrowNav,
+      direction,
       // Mobile specific attributes
       mobileSlidesPerView,
       mobileSpaceBetween,
@@ -64,6 +64,7 @@ class SwiperSlideshow extends HTMLElement {
       mobileAutoplay,
       mobileAutoplayDelay,
       desktopBreakpoint,
+      mobileDirection,
       showNavigation,
       showPagination,
       speed,
@@ -79,7 +80,7 @@ class SwiperSlideshow extends HTMLElement {
       centeredSlides: (centeredSlides?.value === 'true' || mobileCenteredSlides?.value === 'true') || false,
       speed: parseInt(speed?.value || 400),
       effect: effect?.value || 'slide',
-      
+      direction:  mobileDirection?.value || 'horizontal',
       // Navigation
       navigation: (navigation?.value === 'true' || showNavigation?.value !== 'false') ? {
         nextEl: '.swiper-slideshow__nav-button--next',
@@ -134,7 +135,8 @@ class SwiperSlideshow extends HTMLElement {
         768: {
           slidesPerView: 'auto',
           spaceBetween: parseInt(spaceBetween?.value || 20),
-          centeredSlides: false
+          centeredSlides: false,
+          direction: direction?.value || 'horizontal'
         }
       }
     };
@@ -153,13 +155,6 @@ class SwiperSlideshow extends HTMLElement {
         depth: 0,
         rotate: 0,
         slideShadows: false
-      };
-    }
-
-    // Add thumbs configuration if specified
-    if (thumbnails?.value) {
-      config.thumbs = {
-        swiper: null // Will be set after initialization
       };
     }
 
@@ -193,7 +188,7 @@ class SwiperSlideshow extends HTMLElement {
     }
   }
 
-  initializeSwiper() {
+  async initializeSwiper() {
     if (this.isInitialized) return;
 
     // Get the slider container
@@ -216,12 +211,74 @@ class SwiperSlideshow extends HTMLElement {
     }
 
     // Initialize Swiper
-    this.swiper = new Swiper(sliderContainer, this.getConfig());
+    const config = this.getConfig();
+
+    // Handle thumbnails
+    const { thumbnails } = this.attributes;
+    if (thumbnails) {
+      await this.setupControlledSwiper(config, thumbnails.value);
+    } else {
+      this.swiper = new Swiper(sliderContainer, config);
+    }
 
     // Set up event listeners
     this.setupEventListeners();
 
     this.isInitialized = true;
+    
+    // Dispatch initialization event
+    this.dispatchEvent(new CustomEvent('swiper:init', { 
+      detail: { swiper: this.swiper } 
+    }));
+  }
+
+  async setupControlledSwiper(config, thumbnailsSelector) {
+    const sliderContainer = this.querySelector('[data-swiper-slideshow]');
+    
+    console.log(sliderContainer)
+    // If this is a thumbnail slider, initialize with thumbnail settings
+    if (thumbnailsSelector) {
+      // Wait for the thumbnail slider to be ready
+      const thumbnailElement = document.querySelector(`[${thumbnailsSelector}]`);
+      if (thumbnailElement) {
+        const thumbnailSwiper = await this.waitForSwiperInstance(thumbnailElement);
+        if (thumbnailSwiper) {
+          config.thumbs = {
+            swiper: thumbnailSwiper,
+            multipleActiveThumbs: false
+          };
+        }
+      }
+      this.swiper = new Swiper(sliderContainer, config);
+    } else {
+      // Initialize as a thumbnail slider
+      this.swiper = new Swiper(sliderContainer, {
+        ...config,
+        watchSlidesProgress: true,
+        slideToClickedSlide: true
+      });
+    }
+  }
+
+  async waitForSwiperInstance(element) {
+    if (!element) return null;
+
+    // Try to get the swiper instance immediately
+    let swiper = element.swiper || element.getSwiper?.();
+    if (swiper) return swiper;
+
+    // Wait for the swiper to be initialized
+    return new Promise((resolve) => {
+      const checkSwiper = () => {
+        swiper = element.swiper || element.getSwiper?.();
+        if (swiper) {
+          resolve(swiper);
+        } else {
+          setTimeout(checkSwiper, 50);
+        }
+      };
+      checkSwiper();
+    });
   }
 
   setupEventListeners() {
@@ -230,13 +287,6 @@ class SwiperSlideshow extends HTMLElement {
     // Handle slide changes
     this.swiper.on('slideChange', () => {
       this.dispatchEvent(new CustomEvent('swiper:slideChange', { 
-        detail: { swiper: this.swiper } 
-      }));
-    });
-
-    // Handle initialization
-    this.swiper.on('init', () => {
-      this.dispatchEvent(new CustomEvent('swiper:init', { 
         detail: { swiper: this.swiper } 
       }));
     });

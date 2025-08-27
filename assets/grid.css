@@ -7,6 +7,7 @@
     #Grid Gaps
 \*------------------------------------*/
 
+.grid-gap-sm { gap: var(--grid-padding-tiny); }
 .grid-gap-sm { gap: var(--grid-padding-small); }
 .grid-gap-md { gap: var(--grid-padding-main); }
 .grid-gap-lg { gap: var(--grid-padding-large); }

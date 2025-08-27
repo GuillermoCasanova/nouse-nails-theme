@@ -9,14 +9,13 @@
   grid-template-columns: 1fr;
   position: relative;
   top: 0; 
-  gap: var(--grid-padding-large)
+  gap: var(--grid-padding-large);
 }
 
 @media screen and (min-width: 1024px) {
   .product {
     grid-template-columns: 1fr 1.25fr;
-    max-width: 65rem;
-    gap: calc( 2 * var(--grid-padding-large));
+    gap: calc( 1.5 * var(--grid-padding-large));
   }
 }
 
@@ -26,6 +25,9 @@
   margin: 0 auto;
 }
 
+.product__contain {
+  padding-top: var(--space-1); 
+}
 
 
 
@@ -234,6 +236,7 @@ variant-selects {
 
 .product__description p {
   font-size: var(--text-size-small); 
+  line-height: var(--text-line-height);
 }
 
 .product__info-container .product__description,

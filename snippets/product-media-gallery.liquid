@@ -47,9 +47,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-
 <script src="{{ 'swiper-slideshow.js' | asset_url }}" defer></script>
-{% comment %} <script src="{{ 'product-gallery.js' | asset_url }}" defer></script> {% endcomment %}
 
 <media-gallery
   id="MediaGallery-{{ section.id }}"
@@ -72,6 +70,7 @@
     effect="fade"
     speed="400"
     create-elements="true"
+    thumbnails="data-thumbnails-gallery"
   >
     <div class="swiper" data-swiper-slideshow>
       <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
@@ -93,6 +92,7 @@
                 constrain_to_viewport: section.settings.constrain_to_viewport,
                 lazy_load: false,
                 zoom: true,
+                a11y: true,
                 aspect_ratio: media_aspect_ratio
               %}
             </div>
@@ -117,6 +117,7 @@
                   constrain_to_viewport: section.settings.constrain_to_viewport,
                   lazy_load: true,
                   zoom: true,
+                  a11y: true,
                   aspect_ratio: media_aspect_ratio
                 %}
               </div>
@@ -138,7 +139,10 @@
     show-pagination="false"
     effect="slide"
     speed="400"
+    slides-per-view="8"
     create-elements="true"
+    data-thumbnails-gallery
+    direction="vertical"
   >
     <div class="swiper" data-swiper-slideshow>
       <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
@@ -160,7 +164,8 @@
                 constrain_to_viewport: true,
                 lazy_load: false,
                 zoom: false,
-                aspect_ratio: media_aspect_ratio
+                aspect_ratio: media_aspect_ratio,
+                class: 'product-media-gallery__thumbnail'
               %}
             </div>
           </div>
@@ -184,7 +189,8 @@
                   constrain_to_viewport: true,
                   lazy_load: true,
                   zoom: false,
-                  aspect_ratio: media_aspect_ratio
+                  aspect_ratio: media_aspect_ratio,
+                  class: 'product-media-gallery__thumbnail'
                 %}
               </div>
             </div>
