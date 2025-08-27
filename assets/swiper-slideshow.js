@@ -8,8 +8,8 @@ class SwiperSlideshow extends HTMLElement {
     this.swiper = null;
     this.isInitialized = false;
     this.mediaQueries = {
-      mediumUp: window.matchMedia('(min-width: 700px)'),
-      largeUp: window.matchMedia('(min-width: 940px)')
+      mediumUp: window.matchMedia('(min-width: 768px)'),
+      largeUp: window.matchMedia('(min-width: 1024px)')
     };
   }
 
@@ -131,7 +131,7 @@ class SwiperSlideshow extends HTMLElement {
 
       // Breakpoints for responsive design
       breakpoints: breakpoints?.value ? this.convertToObject(breakpoints.value) : {
-        700: {
+        768: {
           slidesPerView: 'auto',
           spaceBetween: parseInt(spaceBetween?.value || 20),
           centeredSlides: false

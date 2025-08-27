@@ -221,21 +221,6 @@
                           </li>
                         {%- endif -%}
 
-                        {%- if product.metafields.properties.size_and_fit != blank -%}
-                          <li role="presentation">
-                            <button id="tab3" role="tab" aria-controls="tabpanel3" aria-selected="false">
-                              Details
-                            </button>
-                          </li>
-                        {%- endif -%}
-                        {%- if product.metafields.properties.designer_tips != blank -%}
-                          <li role="presentation">
-                            <button id="tab2" role="tab" aria-controls="tabpanel2" aria-selected="false">
-                              Designer Tips
-                            </button>
-                          </li>
-                        {%- endif -%}
-
                         {%- assign return_policy_blocks = section.blocks | where: 'type', 'return_policy' -%}
                         {%- if return_policy_blocks.size > 0 -%}
                           <li role="presentation">
@@ -262,19 +247,6 @@
                         >
                           <div class="product__description">
                             {{ product.metafields.properties.designer_tips | metafield_tag }}
-                          </div>
-                        </div>
-                      {%- endif -%}
-                      {%- if product.metafields.properties.size_and_fit != blank -%}
-                        <div
-                          id="tabpanel3"
-                          class="tabbed-interface__panel"
-                          role="tabpanel"
-                          aria-labelledby="tab3"
-                          hidden
-                        >
-                          <div class="product__description">
-                            {{ product.metafields.properties.size_and_fit | metafield_tag }}
                           </div>
                         </div>
                       {%- endif -%}

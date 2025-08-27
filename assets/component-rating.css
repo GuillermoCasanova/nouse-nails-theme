@@ -9,7 +9,6 @@
     align-items: flex-start;
     gap: var(--space-1);
     flex-shrink: 0;
-    margin-bottom: var(--space-4);
 }
 
 
@@ -46,6 +45,7 @@
 .jdgm-prev-badge {
     display: flex !important;
     flex-direction: column;
+    margin-bottom: var(--space-4);
 }
 
 .jdgm-prev-badge__text {

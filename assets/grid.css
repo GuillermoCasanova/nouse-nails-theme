@@ -129,7 +129,7 @@
 }
 
 
-@media screen and (min-width: 940px) {
+@media screen and (min-width: 1024px) {
   .reverse-desktop-up > div:last-child {
     order: -1;
   }
