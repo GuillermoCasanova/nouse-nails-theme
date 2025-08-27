@@ -28,6 +28,10 @@
           "type": "rating",
           "settings": {}
         },
+        "quantity_selector_g6nGM9": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "description_rh9JAT": {
           "type": "description",
           "settings": {}
@@ -38,10 +42,6 @@
             "heading": "Return Policy",
             "description": "<p>This is our return policy.</p>"
           }
-        },
-        "quantity_selector_g6nGM9": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons_B47i49": {
           "type": "buy_buttons",
@@ -66,9 +66,9 @@
         "title_4a3Ed6",
         "price_GLyApW",
         "rating_kRcmp6",
+        "quantity_selector_g6nGM9",
         "description_rh9JAT",
         "return_policy_VABCGt",
-        "quantity_selector_g6nGM9",
         "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi"
       ],
