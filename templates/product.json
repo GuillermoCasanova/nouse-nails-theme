@@ -73,7 +73,7 @@
         "media_fit": "contain",
         "gallery_layout": "columns",
         "media_position": "right",
-        "slideshow_media_aspect_ratio": "1/1",
+        "slideshow_media_aspect_ratio": "16/9",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": false,
