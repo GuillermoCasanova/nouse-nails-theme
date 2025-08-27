@@ -471,6 +471,19 @@ class MenuDrawer extends HTMLElement {
 
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
+
+    // Capture link clicks at the earliest possible moment
+    this.mainDetailsToggle.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (link && !link.closest('summary')) {
+        // Don't let the click reach the details element
+        event.preventDefault();
+        event.stopPropagation();
+        // Navigate to the link's URL
+        window.location.href = link.href;
+      }
+    }, true); // Use capture phase to handle before other listeners
+
     this.bindEvents();
     document.addEventListener('click', (event) => {
       if (!this.contains(event.target) && this.mainDetailsToggle.hasAttribute('open')) {
@@ -527,8 +540,22 @@ class MenuDrawer extends HTMLElement {
     const parentMenuElement = detailsElement.closest('.has-submenu');
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const linkElement = event.target.closest('a');
 
-    console.log(detailsElement);
+    if (linkElement) {
+      // Don't interfere with link clicks
+      event.stopPropagation();
+      // Let the link navigation happen first, then close menus
+      requestAnimationFrame(() => {
+        const headerDrawer = this.closest('header-drawer');
+        if (headerDrawer) {
+          headerDrawer.closeMenuDrawer(event, headerDrawer.querySelector('summary'));
+        } else {
+          this.closeMenuDrawer(event, summaryElement);
+        }
+      });
+      return;
+    }
 
     if (pIsHover) {
       if (!isOpen) {
@@ -544,25 +571,25 @@ class MenuDrawer extends HTMLElement {
     }
 
     if (detailsElement === this.mainDetailsToggle) {
-
-      console.log('is aleady open!');
-      console.log(isOpen);
-
-      if (isOpen) event.preventDefault();
+      // Only prevent default if it's not a link and the menu is open
+      const isLink = event.target.closest('a');
+      if (isOpen && !isLink && event.target.tagName !== 'A') {
+        event.preventDefault();
+      }
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
     } else {
-      // if (!this.detailsElement.classList.contains('menu-open')) {
-        setTimeout(() => {
-          this.mainDetailsToggle.classList.remove('menu-close');
-          detailsElement.classList.add('menu-open');
-          // Remove this line - let DrawerDisclosure handle aria-expanded
-          // summaryElement.setAttribute('aria-expanded', true);
-          parentMenuElement && parentMenuElement.classList.add('submenu-open');
+      const isNestedLink = event.target.closest('a');
+      if (isNestedLink) return;
 
-          if (!this.activateOnHover) {
-            !reducedMotion || reducedMotion.matches ? addTrapFocus() : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
-          }
-        }, 100);
+      setTimeout(() => {
+        this.mainDetailsToggle.classList.remove('menu-close');
+        detailsElement.classList.add('menu-open');
+        parentMenuElement && parentMenuElement.classList.add('submenu-open');
+
+        if (!this.activateOnHover) {
+          !reducedMotion || reducedMotion.matches ? addTrapFocus() : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
+        }
+      }, 100);
       // } else {
       //   this.closeSubmenu(detailsElement);
       // }
@@ -592,9 +619,6 @@ class MenuDrawer extends HTMLElement {
   }
 
   closeMenuDrawer(event, elementToFocus = false, pIsHover = false) {
-    // if (event) {
-    //   event.preventDefault();
-    // }
     if (event === undefined && !this.activateOnHover) return;
 
     this.mainDetailsToggle.classList.remove('menu-open');
