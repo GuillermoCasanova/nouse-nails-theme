@@ -12,6 +12,10 @@
     "main": {
       "type": "product-template",
       "blocks": {
+        "type_Khmf7A": {
+          "type": "type",
+          "settings": {}
+        },
         "title_4a3Ed6": {
           "type": "title",
           "settings": {}
@@ -51,6 +55,7 @@
         }
       },
       "block_order": [
+        "type_Khmf7A",
         "title_4a3Ed6",
         "price_GLyApW",
         "rating_kRcmp6",
