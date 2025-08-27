@@ -215,6 +215,9 @@ variant-selects {
 }
 
 
+.product-form__quantity-wrapper {
+  margin-bottom: var(--space-4);
+}
 
 
 
