@@ -3,6 +3,11 @@
     #Quantity Popover Input
 \*------------------------------------*/
 
+
+.product-form-quantity  .quantity {
+  border: 2px solid inherit;  
+}
+
 .quantity {
   color: rgba(var(--color-foreground));
   position: relative;
@@ -10,7 +15,6 @@
   border-radius: var(--inputs-radius);
   height: 2.5rem;
   background: rgb(var(--color-base-background-1));
-  border-radius: 10rem;
 }
 
 

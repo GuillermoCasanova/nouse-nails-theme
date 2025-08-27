@@ -383,7 +383,7 @@
                     </details>
                   </div>
                 {%- when 'quantity_selector' -%}
-                  {% render 'quantity-selector', product: product %}
+                  {% render 'quantity-selector', product: product, class: 'product-form-quantity' %}
                 {%- when 'popup' -%}
                   <modal-opener
                     class="product-popup-modal__opener quick-add-hidden"
