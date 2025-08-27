@@ -62,18 +62,7 @@
         <div class="product-card-grid__price-wrapper">
           {% render 'product-price-listing', product: product, show_vendor: show_vendor %}
 
-          <!-- Rating section -->
-          <div class="product-card-grid__rating">
-            <!-- Start of Judge.me code -->
-            <div
-              style="{{ jm_style }}"
-              class="jdgm-widget jdgm-preview-badge"
-              data-id="{{ product.id }}"
-              data-auto-install="false"
-            >
-              {{ product.metafields.judgeme.badge }}
-            </div>
-          </div>
+          {% render 'product-rating', product: product, class: 'product-card-grid__rating' %}
         </div>
       </div>
     </div>

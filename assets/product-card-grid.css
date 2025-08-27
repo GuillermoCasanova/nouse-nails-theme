@@ -111,42 +111,6 @@
   margin-bottom: var(--space-1);
 }
 
-/* Rating section */
-.product-card-grid__rating {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-1);
-  flex-shrink: 0;
-}
-
-@media screen and (min-width: 768px) {
-  .product-card-grid__rating {
-    margin-top: -2rem;
-  }
-}
-
-.product-card-grid__stars {
-  display: flex;
-  gap: calc(var(--space-1) / 2);
-}
-
-.product-card-grid__star {
-  width: var(--space-4);
-  height: var(--space-4);
-  fill: rgb(var(--color-accent));
-}
-
-.product-card-grid__star--empty {
-  fill: none;
-  stroke: rgb(var(--color-accent));
-  stroke-width: 1;
-}
-
-.product-card-grid__review-count {
-  color: rgb(var(--color-text));
-  font-weight: 500;
-}
 
 /* Price wrapper */
 .product-card-grid__price-wrapper {
@@ -224,35 +188,3 @@
 
 
 
-
-
-/*------------------------------------*\
-    #Judge Me App
-\*------------------------------------*/
-
-
-.jdgm-preview-badge .jdgm-star {
-  color: rgb(var(--color-accent)) !important;
-  font-size: .75rem;
-}
-
-.jdgm-prev-badge {
-  display: flex !important;
-  flex-direction: column;
-}
-
-.jdgm-prev-badge__text {
-  text-align: right;
-  font-family: var(--text-font-family);
-  font-weight: 400;
-  font-size: var(--text-size-tiny);
-  letter-spacing: var(--text-letter-spacing);
-  line-height: var(--text-line-height);
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .jdgm-prev-badge__text {
-    display: block;
-  }
-}

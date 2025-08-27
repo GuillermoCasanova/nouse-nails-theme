@@ -328,16 +328,7 @@ label {
   list-style-position: inside;
 }
 
-/* Quantity Input */
-.quantity {
-  color: rgba(var(--color-foreground));
-  position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
-  display: flex;
-  border-radius: var(--inputs-radius);
-  border: none;
-  display: flex;
-}
+
 
 /* Checkbox */
 .custom-checkbox {
@@ -385,3 +376,6 @@ label {
   bottom: 0;
   margin: auto;
 }
+
+
+

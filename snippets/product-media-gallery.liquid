@@ -45,6 +45,7 @@
 <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 <script type="module" src="{{ 'custom-slideshow.js' | asset_url }} defer"></script>
+{{ 'component-product-media-gallery.css' | asset_url | stylesheet_tag }}
 
 {% comment %}
   <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
