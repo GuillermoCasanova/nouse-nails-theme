@@ -16,7 +16,6 @@ class SwiperSlideshow extends HTMLElement {
   connectedCallback() {
     if (this.isInitialized) return;
     
-    // Wait for Swiper to be available
     this.waitForSwiper().then(() => {
       this.initializeSwiper();
     });
@@ -31,93 +30,48 @@ class SwiperSlideshow extends HTMLElement {
   }
 
   getConfig() {
-    // Extract all possible attributes
-    const {
-      altArrows,
-      autoplay,
-      autoHeight,
-      allowTouchMove,
-      draggable,
-      zoom,
-      grabCursor,
-      slidesPerView,
-      thumbnails,
-      a11y,
-      freeMode,
-      pagination,
-      navigation,
-      loop,
-      disableOn,
-      spaceBetween,
-      centeredSlides,
-      breakpoints,
-      numberPagination,
-      effect,
-      fadeOnLargeUp,
-      hoverArrowNav,
-      direction,
-      // Mobile specific attributes
-      mobileSlidesPerView,
-      mobileSpaceBetween,
-      mobileCenteredSlides,
-      mobileLoop,
-      mobileAutoplay,
-      mobileAutoplayDelay,
-      desktopBreakpoint,
-      mobileDirection,
-      showNavigation,
-      showPagination,
-      speed,
-      createElements
-    } = this.attributes;
+    const attrs = Object.fromEntries(
+      [...this.attributes].map(attr => [attr.name, attr.value])
+    );
 
     // Set up base configuration
     const config = {
       // Basic settings
-      slidesPerView: slidesPerView?.value || mobileSlidesPerView?.value || 1,
-      spaceBetween: parseInt(spaceBetween?.value || mobileSpaceBetween?.value || 20),
-      loop: (loop?.value === 'true' || mobileLoop?.value === 'true') || false,
-      centeredSlides: (centeredSlides?.value === 'true' || mobileCenteredSlides?.value === 'true') || false,
-      speed: parseInt(speed?.value || 400),
-      effect: effect?.value || 'slide',
-      direction:  mobileDirection?.value || 'horizontal',
-      // Navigation
-      navigation: (navigation?.value === 'true' || showNavigation?.value !== 'false') ? {
+      slidesPerView: attrs.mobileSlidesPerView || attrs.slidesPerView || 1,
+      spaceBetween: parseInt(attrs.mobileSpaceBetween || attrs.spaceBetween || 20),
+      loop: attrs.mobileLoop === 'true' || attrs.loop === 'true' || false,
+      centeredSlides: attrs.mobileCenteredSlides === 'true' || attrs.centeredSlides === 'true' || false,
+      speed: parseInt(attrs.speed || 400),
+      effect: attrs.effect || 'slide',
+      direction: attrs.mobileDirection || 'horizontal',
+
+      // Navigation - Update to use our custom navigation classes
+      navigation: attrs.showNavigation === 'true' ? {
         nextEl: '.swiper-slideshow__nav-button--next',
         prevEl: '.swiper-slideshow__nav-button--prev',
+        lockClass: 'swiper-slideshow__nav-button--lock',
+        disabledClass: 'swiper-slideshow__nav-button--disabled'
       } : false,
 
       // Pagination
-      pagination: (pagination?.value === 'true' || showPagination?.value === 'true') ? {
+      pagination: (attrs.pagination?.value === 'true' || attrs.showPagination?.value === 'true') ? {
         el: '.swiper-slideshow__pagination',
         clickable: true,
-        type: numberPagination?.value === 'true' ? 'fraction' : 'bullets',
-        renderBullet: numberPagination?.value === 'true' ? 
+        type: attrs.numberPagination?.value === 'true' ? 'fraction' : 'bullets',
+        renderBullet: attrs.numberPagination?.value === 'true' ? 
           (index, className) => `<span class="${className}">0${index + 1}</span>` : undefined
       } : false,
 
       // Advanced features
-      grabCursor: grabCursor?.value !== 'false',
-      allowTouchMove: allowTouchMove?.value !== 'false',
-      autoHeight: autoHeight?.value === 'true',
+      grabCursor: attrs.grabCursor?.value !== 'false',
+      allowTouchMove: attrs.allowTouchMove?.value !== 'false',
+      autoHeight: attrs.autoHeight?.value === 'true',
       preloadImages: true,
       watchSlidesProgress: true,
 
-      // Zoom
-      zoom: zoom?.value === 'true' ? {
-        maxRatio: 3,
-        minRatio: 1
-      } : false,
-
-      // Free mode
-      freeMode: freeMode?.value === 'true' ? {
-        enabled: true,
-        sticky: false
-      } : false,
-
       // Autoplay
-      autoplay: (autoplay?.value === 'true' || mobileAutoplay?.value === 'true') ? {
-        delay: parseInt(mobileAutoplayDelay?.value || 5000),
+      autoplay: (attrs.autoplay?.value === 'true' || attrs.mobileAutoplay?.value === 'true') ? {
+        delay: parseInt(attrs.mobileAutoplayDelay?.value || 5000),
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       } : false,
@@ -131,40 +85,21 @@ class SwiperSlideshow extends HTMLElement {
       },
 
       // Breakpoints for responsive design
-      breakpoints: breakpoints?.value ? this.convertToObject(breakpoints.value) : {
+      breakpoints: attrs.breakpoints?.value ? this.convertToObject(attrs.breakpoints.value) : {
         768: {
           slidesPerView: 'auto',
-          spaceBetween: parseInt(spaceBetween?.value || 20),
+          spaceBetween: parseInt(attrs.spaceBetween || 20),
           centeredSlides: false,
-          direction: direction?.value || 'horizontal'
+          direction: attrs.direction || 'horizontal'
         }
       }
     };
-
-    // Add fade effect if specified
-    if (fadeOnLargeUp?.value === 'true' && this.mediaQueries.mediumUp.matches || config.effect === 'fade') {
-      config.effect = 'fade';
-      config.fadeEffect = {
-        crossFade: true
-      };
-    }
-
-    // Add coverflow effect settings if specified
-    if (config.effect === 'coverflow') {
-      config.coverflowEffect = {
-        depth: 0,
-        rotate: 0,
-        slideShadows: false
-      };
-    }
 
     return config;
   }
 
   async waitForSwiper() {
-    if (typeof Swiper !== 'undefined') {
-      return Promise.resolve();
-    }
+    if (typeof Swiper !== 'undefined') return;
 
     return new Promise((resolve) => {
       const checkSwiper = () => {
@@ -180,8 +115,7 @@ class SwiperSlideshow extends HTMLElement {
 
   convertToObject(stringObject) {
     try {
-      const jsonString = stringObject.replace(/'/g, '"');
-      return JSON.parse(jsonString);
+      return JSON.parse(stringObject.replace(/'/g, '"'));
     } catch (error) {
       console.error('Error parsing breakpoints:', error);
       return {};
@@ -191,52 +125,38 @@ class SwiperSlideshow extends HTMLElement {
   async initializeSwiper() {
     if (this.isInitialized) return;
 
-    // Get the slider container
     const sliderContainer = this.querySelector('[data-swiper-slideshow]');
     if (!sliderContainer) return;
 
-    // Check if we should disable on certain breakpoints
-    const disableOn = this.attributes.disableOn?.value;
+    const disableOn = this.getAttribute('disableOn');
     if (disableOn && this.mediaQueries[disableOn]?.matches) {
       this.setupDesktopLayout();
       return;
     }
 
-    // Create navigation and pagination elements if requested
-    if (this.attributes.createElements?.value === 'true') {
+    // Create navigation if needed
+    if (this.getAttribute('create-elements') === 'true' && 
+        this.getAttribute('show-navigation') === 'true') {
       this.createNavigationElements(sliderContainer);
-      if (this.attributes.showPagination?.value === 'true') {
-        this.createPaginationElement(sliderContainer);
-      }
     }
 
-    // Initialize Swiper
     const config = this.getConfig();
 
     // Handle thumbnails
-    const { thumbnails } = this.attributes;
-    if (thumbnails) {
-      await this.setupControlledSwiper(config, thumbnails.value);
+    const thumbnailsAttr = this.getAttribute('thumbnails');
+    if (thumbnailsAttr) {
+      await this.setupControlledSwiper(config, thumbnailsAttr);
     } else {
       this.swiper = new Swiper(sliderContainer, config);
     }
 
-    // Set up event listeners
     this.setupEventListeners();
-
     this.isInitialized = true;
-    
-    // Dispatch initialization event
-    this.dispatchEvent(new CustomEvent('swiper:init', { 
-      detail: { swiper: this.swiper } 
-    }));
   }
 
   async setupControlledSwiper(config, thumbnailsSelector) {
     const sliderContainer = this.querySelector('[data-swiper-slideshow]');
     
-    console.log(sliderContainer)
-    // If this is a thumbnail slider, initialize with thumbnail settings
     if (thumbnailsSelector) {
       // Wait for the thumbnail slider to be ready
       const thumbnailElement = document.querySelector(`[${thumbnailsSelector}]`);
@@ -284,19 +204,27 @@ class SwiperSlideshow extends HTMLElement {
   setupEventListeners() {
     if (!this.swiper) return;
 
-    // Handle slide changes
     this.swiper.on('slideChange', () => {
       this.dispatchEvent(new CustomEvent('swiper:slideChange', { 
         detail: { swiper: this.swiper } 
       }));
     });
 
-    // Handle resize events
     window.addEventListener('resize', this.handleResize.bind(this));
+  }
 
-    // Handle hover navigation if enabled
-    if (this.attributes.hoverArrowNav?.value === 'true') {
-      this.initHoverArrowNav();
+  handleResize() {
+    const disableOn = this.getAttribute('disableOn');
+    if (disableOn) {
+      if (this.mediaQueries[disableOn].matches) {
+        if (this.swiper) {
+          this.swiper.destroy(true, true);
+          this.swiper = null;
+        }
+        this.setupDesktopLayout();
+      } else if (!this.swiper) {
+        this.initializeSwiper();
+      }
     }
   }
 
@@ -323,64 +251,30 @@ class SwiperSlideshow extends HTMLElement {
     if (pagination) pagination.style.display = 'none';
   }
 
-  handleResize() {
-    const disableOn = this.attributes.disableOn?.value;
-    if (disableOn) {
-      if (this.mediaQueries[disableOn].matches) {
-        if (this.swiper) {
-          this.swiper.destroy(true, true);
-          this.swiper = null;
-        }
-        this.setupDesktopLayout();
-      } else if (!this.swiper) {
-        this.initializeSwiper();
-      }
-    }
-  }
-
-  initHoverArrowNav() {
-    const prevButton = this.querySelector('.swiper-slideshow__nav-button--prev');
-    const nextButton = this.querySelector('.swiper-slideshow__nav-button--next');
-
-    const setCursorToSVG = (element, svgCode) => {
-      if (element) {
-        element.style.cursor = `url("data:image/svg+xml,${encodeURIComponent(svgCode)}"), auto`;
-      }
-    };
-
-    const prevSVG = `<svg viewBox="0 0 10.8 20.9"><path fill="currentColor" d="M10.4,20.9c-.1,0-.2,0-.3-.1L.1,10.8c-.2-.2-.2-.4,0-.6L10.1.1c.2-.2.4-.2.6,0,.2.2.2.4,0,.6L1,10.5l9.7,9.7c.2.2.2.4,0,.6,0,0-.2.1-.3.1Z"/></svg>`;
-    const nextSVG = `<svg viewBox="0 0 10.8 20.9"><path fill="currentColor" d="M.4,0C.5,0,.6,0,.7.1l10,10c.2.2.2.4,0,.6L.7,20.8c-.2.2-.4.2-.6,0-.2-.2-.2-.4,0-.6l9.7-9.7L.1.7c-.2-.2-.2-.4,0-.6C.2,0,.3,0,.4,0Z"/></svg>`;
-
-    if (prevButton) {
-      prevButton.addEventListener('mouseenter', () => setCursorToSVG(prevButton, prevSVG));
-      prevButton.addEventListener('mouseleave', () => prevButton.style.cursor = 'auto');
-    }
-
-    if (nextButton) {
-      nextButton.addEventListener('mouseenter', () => setCursorToSVG(nextButton, nextSVG));
-      nextButton.addEventListener('mouseleave', () => nextButton.style.cursor = 'auto');
-    }
-  }
-
   createNavigationElements(container) {
+    // Create navigation container
     const navigation = document.createElement('div');
     navigation.className = 'swiper-slideshow__navigation';
     
+    // Create prev button
     const prevButton = document.createElement('button');
     prevButton.type = 'button';
     prevButton.className = 'swiper-slideshow__nav-button swiper-slideshow__nav-button--prev';
     prevButton.setAttribute('aria-label', 'Previous slide');
     prevButton.innerHTML = this.getChevronLeftIcon();
     
+    // Create next button
     const nextButton = document.createElement('button');
     nextButton.type = 'button';
     nextButton.className = 'swiper-slideshow__nav-button swiper-slideshow__nav-button--next';
     nextButton.setAttribute('aria-label', 'Next slide');
     nextButton.innerHTML = this.getChevronRightIcon();
     
+    // Add buttons to navigation
     navigation.appendChild(prevButton);
     navigation.appendChild(nextButton);
     
+    // Add navigation after the swiper-wrapper
     const wrapper = container.querySelector('.swiper-wrapper');
     if (wrapper) {
       wrapper.parentNode.insertBefore(navigation, wrapper.nextSibling);
@@ -403,46 +297,36 @@ class SwiperSlideshow extends HTMLElement {
   }
 
   getChevronLeftIcon() {
-    return `<svg viewBox="0 0 10.8 20.9"><path fill="currentColor" d="M10.4,20.9c-.1,0-.2,0-.3-.1L.1,10.8c-.2-.2-.2-.4,0-.6L10.1.1c.2-.2.4-.2.6,0,.2.2.2.4,0,.6L1,10.5l9.7,9.7c.2.2.2.4,0,.6,0,0-.2.1-.3.1Z"/></svg>`;
+    return ` ← `;
   }
 
   getChevronRightIcon() {
-    return `<svg viewBox="0 0 10.8 20.9"><path fill="currentColor" d="M.4,0C.5,0,.6,0,.7.1l10,10c.2.2.2.4,0,.6L.7,20.8c-.2.2-.4.2-.6,0-.2-.2-.2-.4,0-.6l9.7-9.7L.1.7c-.2-.2-.2-.4,0-.6C.2,0,.3,0,.4,0Z"/></svg>`;
+    return ` → `;
   }
 
-  // Public methods for external control
+  // Public methods
   getSwiper() {
     return this.swiper;
   }
 
   slideNext() {
-    if (this.swiper) {
-      this.swiper.slideNext();
-    }
+    this.swiper?.slideNext();
   }
 
   slidePrev() {
-    if (this.swiper) {
-      this.swiper.slidePrev();
-    }
+    this.swiper?.slidePrev();
   }
 
   slideTo(index) {
-    if (this.swiper) {
-      this.swiper.slideTo(index);
-    }
+    this.swiper?.slideTo(index);
   }
 
   startAutoplay() {
-    if (this.swiper?.autoplay) {
-      this.swiper.autoplay.start();
-    }
+    this.swiper?.autoplay?.start();
   }
 
   stopAutoplay() {
-    if (this.swiper?.autoplay) {
-      this.swiper.autoplay.stop();
-    }
+    this.swiper?.autoplay?.stop();
   }
 
   destroy() {
@@ -454,13 +338,10 @@ class SwiperSlideshow extends HTMLElement {
   }
 
   refresh() {
-    if (this.swiper) {
-      this.swiper.update();
-    }
+    this.swiper?.update();
   }
 }
 
-// Register the custom element
 if (!customElements.get('swiper-slideshow')) {
   customElements.define('swiper-slideshow', SwiperSlideshow);
 }
