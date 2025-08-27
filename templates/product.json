@@ -32,6 +32,13 @@
           "type": "description",
           "settings": {}
         },
+        "return_policy_VABCGt": {
+          "type": "return_policy",
+          "settings": {
+            "heading": "Return Policy",
+            "description": "<p>This is our return policy.</p>"
+          }
+        },
         "quantity_selector_g6nGM9": {
           "type": "quantity_selector",
           "settings": {}
@@ -60,6 +67,7 @@
         "price_GLyApW",
         "rating_kRcmp6",
         "description_rh9JAT",
+        "return_policy_VABCGt",
         "quantity_selector_g6nGM9",
         "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi"
