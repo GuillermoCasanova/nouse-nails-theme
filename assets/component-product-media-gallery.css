@@ -991,7 +991,6 @@ button.thumbnail[aria-current="true"] {
 }
 
 .product-media-gallery__main .swiper-slide {
-  aspect-ratio: 1/1;
 }
 
 .product-media-gallery__thumbnails {

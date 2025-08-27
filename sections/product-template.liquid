@@ -1945,22 +1945,7 @@
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
     },
-    {
-      "type": "select",
-      "id": "product_images_position",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left",
-      "label": "Image Position"
-    },
+
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -2041,20 +2026,19 @@
     },
     {
       "type": "select",
-      "id": "media_position",
+      "id": "product_images_position",
       "options": [
         {
           "value": "left",
-          "label": "t:sections.main-product.settings.media_position.options__1.label"
+          "label": "Left"
         },
         {
           "value": "right",
-          "label": "t:sections.main-product.settings.media_position.options__2.label"
+          "label": "Right"
         }
       ],
       "default": "left",
-      "label": "t:sections.main-product.settings.media_position.label",
-      "info": "t:sections.main-product.settings.media_position.info"
+      "label": "Media Position"
     },
     {
       "type": "select",
@@ -2066,8 +2050,8 @@
           "label": "16:9 (Landscape)"
         },
         {
-          "value": "4/3",
-          "label": "4:3 (Portrait Horizontal)"
+          "value": "9/16",
+          "label": "9:16 (Portrait)"
         },
         {
           "value": "1/1",
@@ -2080,9 +2064,17 @@
         {
           "value": "3/4",
           "label": "3:4 (Portrait)"
+        },
+        {
+          "value": "4/3",
+          "label": "4:3 (Portrait - Horizontal)"
+        },
+        {
+          "value": "9/12",
+          "label": "9:12 (Portrait)"
         }
       ],
-      "default": "1/1"
+      "default": "9/12"
     },
     {
       "type": "select",
