@@ -2,9 +2,6 @@
     #Product Media Gallery
 \*------------------------------------*/
 
-
-
-
 .product__media-wrapper {
   width: 100%;
   position: sticky;
@@ -86,6 +83,15 @@
     width: 100%;
   }
 }
+
+
+
+
+
+/*------------------------------------*\
+    #Media Icons
+\*------------------------------------*/
+
 
 .product__media-icon .icon {
   width: 1.2rem;
@@ -169,6 +175,14 @@
   }
 }
 
+
+
+
+
+/*------------------------------------*\
+    #Media Toggles
+\*------------------------------------*/
+
 .product__media-toggle {
   display: flex;
   border: none;
@@ -224,6 +238,14 @@
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0rem 0.5rem rgba(var(--color-foreground), 0.5);
   border-radius: var(--media-radius);
 }
+
+
+
+
+/*------------------------------------*\
+    #Media Modal
+\*------------------------------------*/
+
 
 .product-media-modal {
   background-color: rgb(var(--color-background));
