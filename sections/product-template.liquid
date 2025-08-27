@@ -112,8 +112,8 @@
                     </div>
 
                   {%- when 'type' -%}
-                    <div class="product__type" {{ block.shopify_attributes }}>
-                      <p>{{ product.type | escape }}</p>
+                    <div class="product__type  text-size-medium" {{ block.shopify_attributes }}>
+                      {{ product.type | escape }}
                     </div>
                   {%- when 'price' -%}
                     <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>

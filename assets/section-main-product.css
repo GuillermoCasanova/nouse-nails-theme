@@ -12,12 +12,6 @@
   gap: var(--grid-padding-large)
 }
 
-@media screen and (min-width: 748px) {
-  .product {
-    margin-top: var(--space-6);
-  }
-}
-
 @media screen and (min-width: 990px) {
   .product {
     grid-template-columns: 1fr 1.5fr;
@@ -36,7 +30,7 @@
 
 /*------------------------------------*\
       #Dynamic Checkout
-  \*------------------------------------*/
+\*------------------------------------*/
 
 
 .shopify-payment-button__button {
@@ -208,6 +202,17 @@ variant-selects {
 }
 
 
+.product-form__buttons {
+  max-width: 44rem;
+  text-align: center;
+  margin-left: auto;
+ margin-right: auto;
+ margin-top: var(--space-8);
+ margin-bottom: var(--space-5);
+}
+
+
+
 
 
 /*------------------------------------*\
@@ -256,10 +261,14 @@ a.product__text {
   }
 }
 
-
 .product__accordion .accordion__content {
   padding: 0 1rem;
 }
+
+.product__type {
+  margin-bottom: var(--space-2); 
+}
+
 
 
 
@@ -345,24 +354,11 @@ a.product__text {
 }
 
 
-
-
-
 .quantity__rules-cart {
   visibility: hidden;
   position: absolute;
 }
 
-
-
-.product-form__buttons {
-  max-width: 44rem;
-  text-align: center;
-  margin-left: auto;
- margin-right: auto;
- margin-top: var(--space-8);
- margin-bottom: var(--space-5);
-}
 
 .product--no-media .product__info-container > modal-opener {
   display: block;

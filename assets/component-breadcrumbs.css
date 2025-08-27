@@ -21,7 +21,7 @@
   @media screen and (min-width: 940px) {
     .breadcrumbs--product-page {
       display: block;
-      margin-bottom: calc(var(--space-5));
+      margin-bottom: calc(var(--space-2));
     }
   }
   
