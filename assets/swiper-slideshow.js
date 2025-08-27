@@ -30,9 +30,40 @@ class SwiperSlideshow extends HTMLElement {
   }
 
   getConfig() {
-    const attrs = Object.fromEntries(
-      [...this.attributes].map(attr => [attr.name, attr.value])
-    );
+    // Get all possible attributes from the element
+    const attrs = {
+      // Basic settings
+      slidesPerView: this.getAttribute('slides-per-view'),
+      mobileSlidesPerView: this.getAttribute('mobile-slides-per-view'),
+      spaceBetween: this.getAttribute('space-between'),
+      mobileSpaceBetween: this.getAttribute('mobile-space-between'),
+      loop: this.getAttribute('loop'),
+      mobileLoop: this.getAttribute('mobile-loop'),
+      centeredSlides: this.getAttribute('centered-slides'),
+      mobileCenteredSlides: this.getAttribute('mobile-centered-slides'),
+      speed: this.getAttribute('speed'),
+      effect: this.getAttribute('effect'),
+      direction: this.getAttribute('direction'),
+      mobileDirection: this.getAttribute('mobile-direction'),
+
+      // Navigation
+      showNavigation: this.getAttribute('show-navigation'),
+      
+      // Pagination
+      pagination: this.getAttribute('pagination'),
+      showPagination: this.getAttribute('show-pagination'),
+      numberPagination: this.getAttribute('number-pagination'),
+      
+      // Advanced features
+      grabCursor: this.getAttribute('grab-cursor'),
+      allowTouchMove: this.getAttribute('allow-touch-move'),
+      autoHeight: this.getAttribute('auto-height'),
+      
+      // Autoplay
+      autoplay: this.getAttribute('autoplay'),
+      mobileAutoplay: this.getAttribute('mobile-autoplay'),
+      mobileAutoplayDelay: this.getAttribute('mobile-autoplay-delay')
+    };
 
     // Set up base configuration
     const config = {
@@ -244,11 +275,6 @@ class SwiperSlideshow extends HTMLElement {
       wrapper.remove();
     }
 
-    // Hide navigation and pagination
-    const nav = this.querySelector('.swiper-slideshow__navigation');
-    const pagination = this.querySelector('.swiper-slideshow__pagination');
-    if (nav) nav.style.display = 'none';
-    if (pagination) pagination.style.display = 'none';
   }
 
   createNavigationElements(container) {
