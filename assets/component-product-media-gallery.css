@@ -18,7 +18,6 @@
 
 .product__media {
   width: 100%;
-  aspect-ratio: 1.5/1;
 }
 
 .product__media-list {
@@ -985,6 +984,10 @@ button.thumbnail[aria-current="true"] {
 
 .product-media-gallery__main {
   margin-bottom: var(--space-4);
+  overflow: hidden;
+  position: relative; 
+  border-radius: var(--border-radius-large);
+  display: block;
 }
 
 .product-media-gallery__main .swiper-slide {

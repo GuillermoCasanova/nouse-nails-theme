@@ -83,7 +83,7 @@
           <div class=" product__media-wrapper">
             {% render 'product-media-gallery',
               variant_images: variant_images,
-              media_aspect_ratio: section.settings.media_aspect_ratio
+              media_aspect_ratio: section.settings.slideshow_media_aspect_ratio
             %}
           </div>
 
@@ -2058,8 +2058,8 @@
     },
     {
       "type": "select",
-      "id": "media_aspect_ratio",
-      "label": "Media aspect ratio",
+      "id": "slideshow_media_aspect_ratio",
+      "label": "Slideshow Media Aspect Ratio",
       "options": [
         {
           "value": "16/9",

@@ -9,6 +9,7 @@
   grid-template-columns: 1fr;
   position: relative;
   top: 0; 
+  gap: var(--grid-padding-large)
 }
 
 @media screen and (min-width: 748px) {
@@ -24,9 +25,6 @@
   }
 }
 
-.product.grid {
-  gap: 0;
-}
 
 .product--no-media {
   max-width: 57rem;
