@@ -62,7 +62,8 @@ class SwiperSlideshow extends HTMLElement {
       // Autoplay
       autoplay: this.getAttribute('autoplay'),
       mobileAutoplay: this.getAttribute('mobile-autoplay'),
-      mobileAutoplayDelay: this.getAttribute('mobile-autoplay-delay')
+      mobileAutoplayDelay: this.getAttribute('mobile-autoplay-delay'),
+      mobileSpaceBetween: this.getAttribute('mobile-space-between'),
     };
 
     // Set up base configuration
