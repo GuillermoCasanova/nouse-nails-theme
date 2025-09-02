@@ -24,7 +24,6 @@
   display: flex;
   border-radius: var(--inputs-radius);
   height: 2.5rem;
-  background: rgb(var(--color-background));
 }
 
 .quantity.product-form_quantity {
@@ -90,10 +89,6 @@
 .quantity__input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
-}
-
-.quantity__input[type='number'] {
-  border: none;
 }
 
 /* Rules section */

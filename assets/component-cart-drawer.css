@@ -111,7 +111,7 @@
   
   @media screen and (min-width: 940px) {
     .cart-drawer__panel {
-      max-width: 33rem;
+      max-width: 37rem;
       right: 0;
       left: auto;
       position: absolute;
@@ -235,7 +235,7 @@
     width: 100%;
   }
   
-  @media screen and (max-height: 650px) {
+  @media screen and (max-height: 700px) {
     .cart-drawer__inner {
       overflow: scroll;
     }
@@ -309,6 +309,13 @@
   padding-top: var(--space-10);
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-brand-2));
+}
+
+@media screen and (min-width: 700px) {
+  .cart-drawer-items {
+    padding-left: var(--space-7);
+    padding-right: var(--space-7);
+  }
 }
 
 .cart-drawer-items.is-empty {

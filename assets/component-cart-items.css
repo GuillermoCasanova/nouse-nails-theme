@@ -1,3 +1,9 @@
+
+
+/*------------------------------------*\
+    #Cart Items
+\*------------------------------------*/
+
 .cart-items td,
 .cart-items th {
   padding: 0;
@@ -283,9 +289,7 @@ cart-remove-button .icon-remove {
     width: 50%;
   }
 
-  .cart-items th+th {
-    padding-left: 4rem;
-  }
+
 
   .cart-items td {
     vertical-align: top;
@@ -296,9 +300,6 @@ cart-remove-button .icon-remove {
     display: table-row;
   }
 
-  .cart-item>td+td {
-    padding-left: 4rem;
-  }
 
   .cart-item__details {
     width: 35rem;
@@ -319,10 +320,7 @@ cart-remove-button .icon-remove {
 
 @media screen and (min-width: 990px) {
 
-  .cart-item .cart-item__quantity,
-  .cart-items .cart-items__heading--wide {
-    padding-left: 6rem;
-  }
+
 
   .cart-item__details {
     width: 50rem;
