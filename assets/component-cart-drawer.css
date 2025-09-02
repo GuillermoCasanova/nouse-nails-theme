@@ -99,13 +99,14 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    transition: all var(--duration-default);
     width: 100vw;
     opacity: 0;
-    will-change: opacity, transform;
+    transform: translateX(100%);
+    will-change: transform, opacity;
     border: 1px solid rgb(var(--color-base-text-1));
     border-radius: var(--border-radius-small);
     overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
   }
   
   @media screen and (min-width: 940px) {
@@ -124,10 +125,8 @@
     }
   }
   
-  
   .cart-drawer.active .cart-drawer__panel {
-    transform: translateY(0) translateX(0);
-    transition: transform var(--duration-default) var(--default-easing);
+    transform: translateX(0);
     opacity: 1;
   }
   
