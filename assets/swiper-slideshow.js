@@ -174,6 +174,12 @@ class SwiperSlideshow extends HTMLElement {
 
     const config = this.getConfig();
 
+    // Add observer to handle resize and update properly
+    config.observer = true;
+    config.observeParents = true;
+    config.resizeObserver = true;
+    config.updateOnWindowResize = true;
+
     // Handle thumbnails
     const thumbnailsAttr = this.getAttribute('thumbnails');
     if (thumbnailsAttr) {
@@ -181,6 +187,13 @@ class SwiperSlideshow extends HTMLElement {
     } else {
       this.swiper = new Swiper(sliderContainer, config);
     }
+
+    // Force update after a brief delay to ensure proper sizing
+    setTimeout(() => {
+      if (this.swiper) {
+        this.swiper.update();
+      }
+    }, 100);
 
     this.setupEventListeners();
     this.isInitialized = true;
@@ -235,6 +248,15 @@ class SwiperSlideshow extends HTMLElement {
 
   setupEventListeners() {
     if (!this.swiper) return;
+
+    // Add resize observer to handle container size changes
+    const resizeObserver = new ResizeObserver(() => {
+      if (this.swiper) {
+        this.swiper.update();
+      }
+    });
+
+    resizeObserver.observe(this.swiper.el);
 
     this.swiper.on('slideChange', () => {
       this.dispatchEvent(new CustomEvent('swiper:slideChange', { 

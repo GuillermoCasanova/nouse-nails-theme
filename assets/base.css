@@ -123,7 +123,13 @@ div .button:last-child {
 
 
 :root {
-  font-size: 1rem; 
+  font-size: .9rem; 
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: .91rem; 
+  }
 }
 
 @font-face {

@@ -80,7 +80,7 @@
         "media_fit": "contain",
         "gallery_layout": "columns",
         "product_images_position": "right",
-        "slideshow_media_aspect_ratio": "9/12",
+        "slideshow_media_aspect_ratio": "9/13",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "show",
         "hide_variants": false,
