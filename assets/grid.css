@@ -23,6 +23,7 @@
 /* Grid System - 12 columns */
 .grid {
   display: grid;
+  width: 100%;
 }
 
 /* Basic 12 column layout */

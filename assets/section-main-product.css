@@ -10,11 +10,13 @@
   position: relative;
   top: 0; 
   gap: var(--grid-padding-main);
+  display: block;
 }
 
 
 @media screen and (min-width: 1024px) {
   .product {
+    display: grid;
     grid-template-columns: 1fr 1.25fr;
     gap: calc( 1.5 * var(--grid-padding-large));
   }

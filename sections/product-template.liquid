@@ -6,8 +6,6 @@
     data-update-url="true"
     data-url="{{ product.url }}"
   >
-    {{ 'vendor-swiper.css' | asset_url | stylesheet_tag: preload: true }}
-
     {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 
     <!-- Component CSS -->
@@ -79,7 +77,7 @@
       </div>
 
       <div class="product__contain container-small {{section.settings.section_padding}}">
-        <div class="product  grid grid-2 {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col{% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
+        <div class="product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
           <div class=" product__media-wrapper">
             {% render 'product-media-gallery',
               variant_images: variant_images,
