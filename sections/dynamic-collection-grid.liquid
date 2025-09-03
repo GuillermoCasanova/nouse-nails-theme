@@ -1,0 +1,142 @@
+{{ 'collection.css' | asset_url | stylesheet_tag }}
+{{ 'template-dynamic-collection.css.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
+
+<!-- Loop through and display blocks -->
+
+<section class="dynamic-collection-grid section-padding-main">
+  <div class="container-small">
+    <ul class="dynamic-product-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'product' %}
+            <li class="dynamic-product-grid__product">
+              {% render 'product-card-grid',
+                product: block.settings.product,
+                show_vendor: true,
+                show_rating: true,
+                show_quick_add: section.settings.enable_quick_add
+              %}
+            </li>
+          {% when 'video_embed' %}
+            <li class="dynamic-product-grid__video">
+              <div class="video-card">
+                <div class="video-card__inner">
+                  {% if block.settings.autoplay %}
+                    {{
+                      block.settings.video
+                      | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'motion-reduce'
+                    }}
+                  {% else %}
+                    {{ block.settings.video | video_tag: muted: true, class: 'motion-reduce' }}
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+          {% when 'image' %}
+            <li class="dynamic-product-grid__image{% if block.settings.art_direction == 'portrait' %} image--portrait{% endif %}{% if block.settings.art_direction == 'wide' %} image--wide{% endif %}">
+              <div class="image-card{% if block.settings.art_direction == 'portrait' %} image-card--portrait{% endif %}{% if block.settings.art_direction == 'wide' %} image-card--wide{% endif %}">
+                <div class="image-card__inner">
+                  <div class="media">
+                    <img
+                      srcset="
+                        {%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if block.settings.image.width >= 533 -%}{{ block.settings.image | image_url: width: 533 }} 533w,{%- endif -%}
+                        {%- if block.settings.image.width >= 720 -%}{{ block.settings.image | image_url: width: 720 }} 720w,{%- endif -%}
+                        {%- if block.settings.image.width >= 940 -%}{{ block.settings.image | image_url: width: 940 }} 940w,{%- endif -%}
+                        {%- if block.settings.image.width >= 1066 -%}{{ block.settings.image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                        {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
+                      "
+                      src="{{ block.settings.image | image_url: width: 533 }}"
+                      sizes="(min-width: 940px) 33vw, (min-width: 700px) 50vw, 100vw"
+                      alt="{{ block.settings.image.alt | escape }}"
+                      class="motion-reduce responsive-image"
+                      loading="lazy"
+                      width="{{ block.settings.image.width }}"
+                      height="{{ block.settings.image.height }}"
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+        {% endcase %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dynamic Collection Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Video Embed",
+      "type": "video_embed",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "A Shopify-hosted video"
+        },
+        {
+          "type": "radio",
+          "id": "autoplay",
+          "label": "Autoplay",
+          "options": [
+            {
+              "value": "false",
+              "label": "Off"
+            },
+            {
+              "value": "true",
+              "label": "On"
+            }
+          ],
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image or GIF"
+        },
+        {
+          "type": "radio",
+          "id": "art_direction",
+          "label": "Image Art Direction",
+          "options": [
+            {
+              "value": "portrait",
+              "label": "Portrait"
+            },
+            {
+              "value": "wide",
+              "label": "Wide"
+            }
+          ],
+          "default": "portrait"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
