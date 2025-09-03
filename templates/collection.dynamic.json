@@ -27,12 +27,14 @@
         "video_embed_D8K6qd": {
           "type": "video_embed",
           "settings": {
+            "video": "shopify://files/videos/Hands Catching Sand 1080p.mp4",
             "autoplay": "true"
           }
         },
         "image_UKfcPE": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-05_at_9.50.27_PM_1.png",
             "art_direction": "portrait"
           }
         },
