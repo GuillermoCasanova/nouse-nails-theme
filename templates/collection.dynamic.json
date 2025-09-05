@@ -60,8 +60,8 @@
         "product_XJMdtn"
       ],
       "settings": {
-        "title": "",
-        "color_scheme": "",
+        "title": "The Nous Standard",
+        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
         "grid": 4
       }
     },
@@ -122,7 +122,7 @@
       "name": "Dynamic Collection Grid",
       "settings": {
         "title": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
         "grid": 4
       }
     }
