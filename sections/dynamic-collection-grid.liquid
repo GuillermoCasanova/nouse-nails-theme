@@ -18,14 +18,16 @@
 
 <section class="dynamic-collection-grid color-{{ section.settings.color_scheme }}">
   <div class="container-main   section-padding-small">
-    {% if section.settings.title != blank %}
-      <h1 class="dynamic-collection-grid_heading  headline-style-h1">
-        {{ section.settings.title | escape }}
-      </h1>
-    {% else %}
-      <h1 class="dynamic-collection-grid_heading  headline-style-h1">
-        {{ collection.title | escape }}
-      </h1>
+    {% if section.settings.hide_title != true %}
+      {% if section.settings.title != blank %}
+        <h1 class="dynamic-collection-grid_heading  headline-style-h1">
+          {{ section.settings.title | escape }}
+        </h1>
+      {% else %}
+        <h1 class="dynamic-collection-grid_heading  headline-style-h1">
+          {{ collection.title | escape }}
+        </h1>
+      {% endif %}
     {% endif %}
     <ul class="dynamic-product-grid grid {{ grid_class }} grid-gap-md">
       {% for block in section.blocks %}
@@ -79,7 +81,13 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "info": "If left blank, the collection title will be used"
+      "info": "If left blank, the collection title will be used unless hidden"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_title",
+      "label": "Hide title",
+      "default": false
     },
     {
       "type": "color_scheme",
