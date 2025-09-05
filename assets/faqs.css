@@ -29,9 +29,11 @@
   border-bottom: 1px solid rgb(var(--color-text));
 }
 
-.faq-list__item:hover {
-  background-color: rgba(109, 5, 6, 0.02);
+.faq-list__item:hover .faq-list__item__icon, 
+.faq-list__item:focus .faq-list__item__icon {
+  transform: translateX(0.5rem);
 }
+
 
 .faq-list__item__question {
   font-size: var(--text-size-medium);
