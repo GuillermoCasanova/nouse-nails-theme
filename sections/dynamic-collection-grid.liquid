@@ -17,7 +17,7 @@
 {% endcase %}
 
 <section class="dynamic-collection-grid color-{{ section.settings.color_scheme }}">
-  <div class="container-main   section-padding-small">
+  <div class="container-main   {{ section.settings.section_padding }}">
     {% if section.settings.hide_title != true %}
       {% if section.settings.title != blank %}
         <h1 class="dynamic-collection-grid_heading  headline-style-h1">
@@ -94,6 +94,30 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "background-1"
+    },
+    {
+      "type": "select",
+      "id": "section_padding",
+      "label": "Section Padding Size",
+      "options": [
+        {
+          "value": "section-padding-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-small"
     },
     {
       "type": "header",
