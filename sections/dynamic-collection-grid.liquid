@@ -17,7 +17,7 @@
 {% endcase %}
 
 <section class="dynamic-collection-grid color-{{ section.settings.color_scheme }}">
-  <div class="container-main   {{ section.settings.section_padding }}">
+  <div class="container-main   {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}">
     {% if section.settings.hide_title != true %}
       {% if section.settings.title != blank %}
         <h1 class="dynamic-collection-grid_heading  headline-style-h1">
@@ -97,27 +97,51 @@
     },
     {
       "type": "select",
-      "id": "section_padding",
-      "label": "Section Padding Size",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
       "options": [
         {
-          "value": "section-padding-x-small",
+          "value": "section-padding-top-x-small",
           "label": "Extra Small"
         },
         {
-          "value": "section-padding-small",
+          "value": "section-padding-top-small",
           "label": "Small"
         },
         {
-          "value": "section-padding-main",
+          "value": "section-padding-top-main",
           "label": "Medium"
         },
         {
-          "value": "section-padding-large",
+          "value": "section-padding-top-large",
           "label": "Large"
         }
       ],
-      "default": "section-padding-small"
+      "default": "section-padding-top-small"
+    },
+    {
+      "type": "select",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "options": [
+        {
+          "value": "section-padding-bottom-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-bottom-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-bottom-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-bottom-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-bottom-small"
     },
     {
       "type": "header",

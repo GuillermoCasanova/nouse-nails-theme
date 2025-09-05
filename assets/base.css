@@ -409,6 +409,38 @@ a {
   padding-bottom: var(--section-padding-large);
 }
 
+.section-padding-top-x-small {
+  padding-top: var(--section-padding-x-small);
+}
+
+.section-padding-bottom-x-small {
+  padding-bottom: var(--section-padding-x-small);
+}
+
+.section-padding-top-small {
+  padding-top: var(--section-padding-small);
+}
+
+.section-padding-bottom-small {
+  padding-bottom: var(--section-padding-small);
+}
+
+.section-padding-top-main {
+  padding-top: var(--section-padding-main);
+}
+
+.section-padding-bottom-main {
+  padding-bottom: var(--section-padding-main);
+}
+
+.section-padding-top-large {
+  padding-top: var(--section-padding-large);
+}
+
+.section-padding-bottom-large {
+  padding-bottom: var(--section-padding-large);
+}
+
 
 
 
