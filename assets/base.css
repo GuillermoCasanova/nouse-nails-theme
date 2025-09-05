@@ -954,3 +954,38 @@ button:hover,
   height: 1.25rem;
   display: inline-block;
 }
+
+
+
+  .image-with-aspect-ratio {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--aspect-ratio);
+  }
+
+  .image-with-aspect-ratio__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .image-with-aspect-ratio__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .image-with-aspect-ratio__placeholder .placeholder-svg {
+    width: 100%;
+    height: 100%;
+  }

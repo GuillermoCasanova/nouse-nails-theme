@@ -46,7 +46,7 @@
     border: none;
     position: relative;
     z-index: 1;
-    font-family: var(--primary-font-family);
+    font-family: var(--secondary-font-family);
 }
 
 @media screen and (min-width: 1024px) {
@@ -67,9 +67,6 @@
     }
 }
 
-.header__menu-item:hover {
-    color: rgb(var(--color-foreground));
-}
 
 .header__menu-item span {
     transition: text-decoration var(--duration-short) ease;
@@ -109,7 +106,6 @@
 
 .header__active-menu-item {
     transition: text-decoration-thickness var(--duration-default) ease;
-    color: rgb(var(--color-foreground));
 }
 
 .header__menu .header__cart-button__text,
@@ -136,10 +132,10 @@
 \*------------------------------------*/
 
 
-.
+/* .
  {
     position: relative;
-}
+} */
 
 details.menu-open .header__mega-menu {
     opacity: 1;

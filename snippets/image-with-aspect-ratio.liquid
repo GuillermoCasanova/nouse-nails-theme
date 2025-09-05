@@ -7,6 +7,7 @@
   - class: {String} Additional CSS classes
   - loading: {String} Loading attribute ('lazy', 'eager', 'auto')
   - sizes: {String} Sizes attribute for responsive images
+  - widths: {String} Comma-separated list of widths for srcset
   - placeholder: {Boolean} Show placeholder if no image
 
   Usage:
@@ -14,7 +15,9 @@
     image: product.featured_image,
     aspect_ratio: '4/3',
     alt: product.title,
-    class: 'product-image'
+    class: 'product-image',
+    sizes: '(min-width: 940px) 33vw, (min-width: 700px) 50vw, 100vw',
+    widths: '165,360,533,720,940,1066'
   %}
 {% endcomment %}
 
@@ -23,23 +26,30 @@
   assign loading = loading | default: 'lazy'
   assign class = class | default: ''
   assign sizes = sizes | default: '(min-width: 768px) 50vw, 100vw'
+  assign widths = widths | default: '400,600,800,1200'
 
   # Calculate aspect ratio percentage
   assign ratio_parts = aspect_ratio | split: '/'
   assign width = ratio_parts[0] | plus: 0
   assign height = ratio_parts[1] | plus: 0
+
+  # Create srcset from widths
+  assign width_array = widths | split: ','
+  assign srcset = ''
+  for width in width_array
+    assign img_url = image | image_url: width: width
+    assign srcset = srcset | append: img_url | append: ' ' | append: width | append: 'w'
+    unless forloop.last
+      assign srcset = srcset | append: ', '
+    endunless
+  endfor
 -%}
 
 <div class="image-with-aspect-ratio {{ class }}" style="--aspect-ratio: {{ aspect_ratio }};">
   {%- if image -%}
     <img
-      src="{{ image | image_url: width: 800 }}"
-      srcset="
-        {{ image | image_url: width: 400 }} 400w,
-        {{ image | image_url: width: 600 }} 600w,
-        {{ image | image_url: width: 800 }} 800w,
-        {{ image | image_url: width: 1200 }} 1200w
-      "
+      src="{{ image | image_url: width: width_array.first }}"
+      srcset="{{ srcset }}"
       sizes="{{ sizes }}"
       alt="{{ alt | default: image.alt | escape }}"
       loading="{{ loading }}"
@@ -58,38 +68,3 @@
     </div>
   {%- endif -%}
 </div>
-
-<style>
-  .image-with-aspect-ratio {
-    position: relative;
-    width: 100%;
-    aspect-ratio: var(--aspect-ratio);
-  }
-
-  .image-with-aspect-ratio__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .image-with-aspect-ratio__placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
-  }
-
-  .image-with-aspect-ratio__placeholder .placeholder-svg {
-    width: 100%;
-    height: 100%;
-  }
-</style>

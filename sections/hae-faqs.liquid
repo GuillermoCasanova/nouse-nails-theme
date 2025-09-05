@@ -12,10 +12,25 @@
           <div class="table-wrapper">
             {% if section.settings.table_image != blank %}
               <div class="comparison-table__image">
-                <img
-                  src="{{ section.settings.table_image | img_url: 'master' }}"
-                  alt="{{ section.settings.table_image.alt }}"
-                >
+                {%- if section.settings.table_image != blank -%}
+                  <img
+                    srcset="
+                      {%- if section.settings.table_image_mobile != blank -%}
+                        {{ section.settings.table_image_mobile | image_url: width: 800 }} 800w,
+                      {%- endif -%}
+                      {{ section.settings.table_image | image_url: width: 1400 }} 1400w
+                    "
+                    sizes="
+                      (max-width: 767px) 800px,
+                      1400px
+                    "
+                    src="{{ section.settings.table_image | image_url: width: 1400 }}"
+                    alt="{{ section.settings.table_image.alt | escape }}"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                  >
+                {%- endif -%}
               </div>
             {% endif %}
             <div class="comparison-table visually-hidden">
@@ -78,6 +93,10 @@
       "default": "Frequently Asked Questions"
     },
     {
+      "type": "header",
+      "content": "Table Settings"
+    },
+    {
       "type": "page",
       "id": "page",
       "label": "Select Page",
@@ -86,7 +105,12 @@
     {
       "type": "image_picker",
       "id": "table_image",
-      "label": "Table Image"
+      "label": "Desktop Table Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "table_image_mobile",
+      "label": "Mobile Table Image"
     }
   ],
   "blocks": [

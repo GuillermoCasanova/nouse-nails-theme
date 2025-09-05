@@ -2,7 +2,37 @@
     #Dynamic Collection Template
 \*------------------------------------*/
 
-.dynamic-product-grid {
+
+.dynamic-collection-grid_heading {
+    margin-bottom: var(--space-8);
+}
+
+
+.dynamic-product-grid__product {
+    align-self: center;
+}
+
+.dynamic-product-grid  {
+    grid-template-columns: 1fr;
+    row-gap: var(--grid-padding-large);
+}
+
+
+@media screen and (min-width: 768px) {
+    .dynamic-product-grid  {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .dynamic-product-grid  {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* .dynamic-product-grid {
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -52,9 +82,7 @@
     .dynamic-product-grid__video {
         flex-basis: calc(66.6% - 2.5%);
     }
-}
-
-
+} */
 
 
 
@@ -62,33 +90,19 @@
     #Image Card
 \*------------------------------------*/
 
-.image-card {
-    margin-bottom: calc(var(--level9) + var(--level9));
+.dynamic-product-grid__image {
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    align-self: baseline;
+    grid-column: span 1;
 }
 
-.image-card__inner {
-    width: 100%;
-}
 
-.image-card .media {
-    position: relative;
-    padding-bottom: 100%;
-    border-radius: 20px;
-}
 
-@media screen and (min-width: 700px) {
-    .image-card .media {
-        padding-bottom: 50%;
+@media screen and (min-width: 768px) {
+    .dynamic-product-grid__video.col-2 {
+        grid-column: span 2;
     }
-}
-
- .image-card--portrait .media {
-    padding-bottom: 140%;
-} 
-
-.image-card--wide .media {
-    padding-bottom: 61%;
-    border-radius: 20px;
 }
 
 
@@ -99,36 +113,17 @@
 \*------------------------------------*/
 
 
-.video-card {
-    width: 100%;
+.dynamic-product-grid__video {
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    align-self: baseline;
+    grid-template-columns: 1fr;
+    grid-column: span 1;
 }
 
-.video-card__inner {
-    position: relative;
-    padding-bottom: 100%;
-}
 
-@media screen and (min-width: 700px) {
-    .video-card__inner {
-        position: relative;
-        padding-bottom: 60%;
+@media screen and (min-width: 768px) {
+    .dynamic-product-grid__video.col-2 {
+        grid-column: span 2;
     }
-}
-
-@media screen and (min-width: 940px) {
-    .video-card__inner {
-        position: relative;
-        padding-bottom: 60.5%;
-    }
-}
-
-
-.video-card video {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
 }

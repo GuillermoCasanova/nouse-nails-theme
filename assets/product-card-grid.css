@@ -152,8 +152,8 @@
 
 @media screen and (min-width: 768px) {
   .product-card-grid--sold-out .product-card-grid__sold-out-badge {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 
@@ -172,13 +172,12 @@
   display: block;
   margin: auto;
   line-height: 1;
-  font-size: .85rem;
+  font-size: var(--text-size-tiny);
 }
 
 @media screen and (min-width: 768px) {
   .product-card-grid__sold-out-badge__text {
-    font-size: var(--text-size-small);
-    top: 0;
+    top: .25rem;
     bottom: 0;
     z-index: 1;
     width: 2.5rem;

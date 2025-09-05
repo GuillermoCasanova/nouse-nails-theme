@@ -2,7 +2,7 @@
 {{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
 
 <section class="collection-section color-{{ section.settings.color_scheme }}">
-  <div class="container-small section-padding-small">
+  <div class="collection_contain  container-main section-padding-small">
     {% if section.settings.title != blank %}
       <div class="collection-section__header">
         <h2 class="collection-section__title headline-style-h3">{{ section.settings.title | escape }}</h2>
