@@ -1,0 +1,29 @@
+
+
+
+.related-products .swiper-slide {
+    width: auto;
+  }
+  
+  
+  .related-products .swiper-slide .card-wrapper {
+      width: 50vw; 
+  }
+  
+  
+  .related-products .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .related-products .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  
+  @media screen and (min-width: 940px ) {
+    .related-products .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
