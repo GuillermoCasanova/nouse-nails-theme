@@ -27,12 +27,14 @@
         "video_embed_D8K6qd": {
           "type": "video_embed",
           "settings": {
+            "video": "shopify://files/videos/Hands Catching Sand 1080p.mp4",
             "autoplay": "true"
           }
         },
         "image_UKfcPE": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-05-05_at_9.50.27_PM_1.png",
             "art_direction": "portrait"
           }
         },
@@ -58,9 +60,18 @@
         "product_Ug7cTU"
       ],
       "settings": {}
+    },
+    "hae_marquee_banner_33tJkG": {
+      "type": "hae-marquee-banner",
+      "name": "News ticker banner",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "text": "Hello There!"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "hae_marquee_banner_33tJkG"
   ]
 }
