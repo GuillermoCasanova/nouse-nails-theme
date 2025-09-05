@@ -72,10 +72,48 @@
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "text": "Hello There!"
       }
+    },
+    "dynamic_collection_grid_VWfNXt": {
+      "type": "dynamic-collection-grid",
+      "blocks": {
+        "image_4Y4XQG": {
+          "type": "image",
+          "settings": {
+            "art_direction": "portrait",
+            "media_aspect_ratio": "3/4"
+          }
+        },
+        "video_embed_AHF79C": {
+          "type": "video_embed",
+          "settings": {
+            "autoplay": "true",
+            "media_aspect_ratio": "1/1",
+            "controls": false
+          }
+        },
+        "product_gfx7Rr": {
+          "type": "product",
+          "settings": {
+            "product": "blue-algae-spf-dew-mist"
+          }
+        }
+      },
+      "block_order": [
+        "image_4Y4XQG",
+        "video_embed_AHF79C",
+        "product_gfx7Rr"
+      ],
+      "name": "Dynamic Collection Grid",
+      "settings": {
+        "title": "",
+        "color_scheme": "",
+        "grid": 4
+      }
     }
   },
   "order": [
     "main",
-    "hae_marquee_banner_33tJkG"
+    "hae_marquee_banner_33tJkG",
+    "dynamic_collection_grid_VWfNXt"
   ]
 }
