@@ -90,46 +90,6 @@
         "show_compact_quick_add": false
       }
     },
-    "hae_image_with_text_x3hJdB": {
-      "type": "hae-image-with-text",
-      "blocks": {
-        "heading_8Ci3GE": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "headline-style-h2"
-          }
-        },
-        "text_ccnU96": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
-            "text_size": "text-size-medium"
-          }
-        },
-        "button_7XrxbM": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button",
-            "button_link": "",
-            "button_size": "button--medium"
-          }
-        }
-      },
-      "block_order": [
-        "heading_8Ci3GE",
-        "text_ccnU96",
-        "button_7XrxbM"
-      ],
-      "name": "Image with text",
-      "settings": {
-        "layout": "left",
-        "color_scheme": "",
-        "media_type": "image",
-        "media_aspect_ratio": "1/1",
-        "video_url": ""
-      }
-    },
     "product_recommendations_e6WMRL": {
       "type": "product-recommendations",
       "name": "Product Recommendations",
@@ -150,8 +110,8 @@
         "judge_me_reviews_review_widget_Pt3FqF": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200
+            "review_data": "real_data",
+            "max_width": 1000
           }
         }
       },
@@ -163,7 +123,6 @@
   },
   "order": [
     "main",
-    "hae_image_with_text_x3hJdB",
     "product_recommendations_e6WMRL",
     "17570441195a98675a"
   ]
