@@ -13,13 +13,26 @@
 
     <div class="hero-header__right-column col-mlg-6  p-relative">
       <div class="hero-header__media">
-        <div class="hero-header__sticker">
-          {% render 'floating-sticker',
-            sticker_type: section.settings['floating-sticker'],
-            custom_class: 'hero-half-sticker',
-            color: section.settings.sticker_color
-          %}
-        </div>
+        {% if section.settings.show_sticker %}
+          <div class="hero-header__sticker">
+            {% if section.settings.sticker_image != blank %}
+              {% render 'image-with-aspect-ratio',
+                image: section.settings.sticker_image,
+                aspect_ratio: '1/1',
+                alt: 'Sticker',
+                loading: 'lazy',
+                width: 100,
+                height: 100
+              %}
+            {% else %}
+              {% render 'floating-sticker',
+                sticker_type: section.settings['floating-sticker'],
+                custom_class: 'hero-half-sticker',
+                color: section.settings.sticker_color
+              %}
+            {% endif %}
+          </div>
+        {% endif %}
 
         {% if section.settings.media_type == 'image' %}
           <img
@@ -116,6 +129,16 @@
       "info": "Shown while video loads"
     },
     {
+      "type": "header",
+      "content": "Sticker"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sticker",
+      "label": "Show sticker",
+      "default": true
+    },
+    {
       "type": "select",
       "id": "floating-sticker",
       "options": [
@@ -131,6 +154,12 @@
       "id": "sticker_color",
       "label": "Sticker color",
       "default": "#FDF130"
+    },
+    {
+      "type": "image_picker",
+      "id": "sticker_image",
+      "label": "Custom Sticker Image",
+      "info": "Upload PNG (transparent bg) or SVG if not using the default sticker types"
     }
   ],
 
