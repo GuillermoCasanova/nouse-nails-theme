@@ -82,16 +82,19 @@
             "product": "blue-algae-spf-dew-mist"
           }
         },
-        "product_BdyXQe": {
+        "product_qYHq4V": {
           "type": "product",
           "settings": {
             "product": "blue-algae-spf-dew-mist"
           }
         },
-        "product_qYHq4V": {
-          "type": "product",
+        "video_embed_jHAENQ": {
+          "type": "video_embed",
           "settings": {
-            "product": "blue-algae-spf-dew-mist"
+            "video": "shopify://files/videos/Hands Catching Sand 1080p.mp4",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
           }
         },
         "image_4Y4XQG": {
@@ -111,8 +114,8 @@
       },
       "block_order": [
         "product_gfx7Rr",
-        "product_BdyXQe",
         "product_qYHq4V",
+        "video_embed_jHAENQ",
         "image_4Y4XQG",
         "product_HNw9rm"
       ],
