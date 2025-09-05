@@ -102,12 +102,10 @@
             "media_aspect_ratio": "64/41"
           }
         },
-        "video_embed_AHF79C": {
-          "type": "video_embed",
+        "product_HNw9rm": {
+          "type": "product",
           "settings": {
-            "autoplay": "true",
-            "media_aspect_ratio": "1/1",
-            "controls": false
+            "product": "blue-algae-spf-dew-mist"
           }
         }
       },
@@ -116,7 +114,7 @@
         "product_BdyXQe",
         "product_qYHq4V",
         "image_4Y4XQG",
-        "video_embed_AHF79C"
+        "product_HNw9rm"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
