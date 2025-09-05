@@ -849,28 +849,10 @@
         "disabled": false,
         "settings": {}
       },
-      "17151115064775110295": {
-        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
-        "disabled": false,
-        "settings": {
-          "color_brand": "#467C99",
-          "contrast_color": "#FFFFFF",
-          "color_brand_secondary": "#467C99",
-          "corners": "8px",
-          "app_background": "#f9f8f4",
-          "app_container": 1200,
-          "app_vertical_padding": 32,
-          "images_aspect_ratio": "1",
-          "cards_background": "#FFFFFF",
-          "cards_border_color": "rgba(0,0,0,0)"
-        }
-      },
       "9356323809658795675": {
         "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
         "disabled": false,
         "settings": {
-          "debugging_popup_script": "",
-          "debugging_pops_script": "",
           "debugging_global_script": "",
           "enable_reelPops": true
         }
@@ -1062,6 +1044,29 @@
           "color_button_secondary_hover_border": "#6d0506",
           "color_accent": "#ff6100",
           "colors_background_1": "#fbf8f4",
+          "colors_background_2": "#fbf8f4",
+          "colors_background_3": "#f5fbfe"
+        }
+      },
+      "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26": {
+        "settings": {
+          "colors_text": "#6d0506",
+          "colors_text_2": "#6d0506",
+          "color_links": "#6d0506",
+          "color_button_primary_background": "#f8eee3",
+          "color_button_primary_hover_background": "#6d0506",
+          "color_button_primary_text": "#6d0506",
+          "color_button_primary_hover_text": "#f8eee3",
+          "color_button_primary_border": "#6d0506",
+          "color_button_primary_hover_border": "#6d0506",
+          "color_button_secondary_background": "#d1e1e8",
+          "color_button_secondary_hover_background": "#6d0506",
+          "color_button_secondary_text": "#6d0506",
+          "color_button_secondary_hover_text": "#f8eee3",
+          "color_button_secondary_border": "#6d0506",
+          "color_button_secondary_hover_border": "#6d0506",
+          "color_accent": "#efbdfc",
+          "colors_background_1": "#ffffff",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
         }
