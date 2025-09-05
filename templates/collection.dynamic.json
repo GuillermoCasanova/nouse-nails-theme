@@ -61,6 +61,7 @@
       ],
       "settings": {
         "title": "The Nous Standard",
+        "hide_title": false,
         "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
         "grid": 4
       }
@@ -122,6 +123,7 @@
       "name": "Dynamic Collection Grid",
       "settings": {
         "title": "",
+        "hide_title": true,
         "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
         "grid": 4
       }
