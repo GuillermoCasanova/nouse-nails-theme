@@ -75,6 +75,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "section_padding": "section-padding-main",
         "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "contain",
@@ -128,10 +129,25 @@
         "media_aspect_ratio": "1/1",
         "video_url": ""
       }
+    },
+    "product_recommendations_e6WMRL": {
+      "type": "product-recommendations",
+      "name": "Product Recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "hide_title": false,
+        "color_scheme": "",
+        "section_padding_top": "section-padding-top-small",
+        "section_padding_bottom": "section-padding-bottom-small",
+        "products_to_show": 4,
+        "show_vendor": false,
+        "show_rating": false
+      }
     }
   },
   "order": [
     "main",
-    "hae_image_with_text_x3hJdB"
+    "hae_image_with_text_x3hJdB",
+    "product_recommendations_e6WMRL"
   ]
 }
