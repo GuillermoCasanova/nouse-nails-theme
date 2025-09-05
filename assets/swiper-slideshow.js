@@ -119,7 +119,7 @@ class SwiperSlideshow extends HTMLElement {
       // Breakpoints for responsive design
       breakpoints: attrs.breakpoints?.value ? this.convertToObject(attrs.breakpoints.value) : {
         768: {
-          slidesPerView: 'auto',
+          slidesPerView: attrs.slidesPerView || 'auto',
           spaceBetween: parseInt(attrs.spaceBetween || 20),
           centeredSlides: false,
           direction: attrs.direction || 'horizontal'
