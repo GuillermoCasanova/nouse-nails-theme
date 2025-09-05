@@ -98,6 +98,17 @@ div .button:last-child {
   margin-bottom: 0;
 }
 
+
+
+body {
+  font-family: var(--text-font-family);
+  font-size: var(--text-size-main);
+  font-display: swap;
+  color: rgb(var(--color-base-text-1));
+}
+
+
+
 /*------------------------------------*\
     #Animations
 \*------------------------------------*/
@@ -330,22 +341,15 @@ h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
 \*------------------------------------*/
 
 ::selection {
-  background-color: rgb(var(--color-base-background-2));
-  color: rgb(var(--color-base-text-1));
+  background-color: rgb(var(--color-brand-1));
+  color: rgb(var(--color-base-text-2));
 }
 
 ::-moz-selection {
-  background-color: rgb(var(--color-base-background-2));
+  background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-base-text-1));
 }
 
-
-body {
-  font-family: var(--text-font-family);
-  font-size: var(--text-size-main);
-  font-display: fallback;
-  color: rgb(var(--color-base-text-1));
-}
 
 
 
