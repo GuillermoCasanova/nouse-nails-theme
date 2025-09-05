@@ -76,11 +76,30 @@
     "dynamic_collection_grid_VWfNXt": {
       "type": "dynamic-collection-grid",
       "blocks": {
+        "product_gfx7Rr": {
+          "type": "product",
+          "settings": {
+            "product": "blue-algae-spf-dew-mist"
+          }
+        },
+        "product_BdyXQe": {
+          "type": "product",
+          "settings": {
+            "product": "blue-algae-spf-dew-mist"
+          }
+        },
+        "product_qYHq4V": {
+          "type": "product",
+          "settings": {
+            "product": "blue-algae-spf-dew-mist"
+          }
+        },
         "image_4Y4XQG": {
           "type": "image",
           "settings": {
-            "art_direction": "portrait",
-            "media_aspect_ratio": "3/4"
+            "image": "shopify://shop_images/other-natural-1.jpg",
+            "art_direction": "wide",
+            "media_aspect_ratio": "64/41"
           }
         },
         "video_embed_AHF79C": {
@@ -90,18 +109,14 @@
             "media_aspect_ratio": "1/1",
             "controls": false
           }
-        },
-        "product_gfx7Rr": {
-          "type": "product",
-          "settings": {
-            "product": "blue-algae-spf-dew-mist"
-          }
         }
       },
       "block_order": [
+        "product_gfx7Rr",
+        "product_BdyXQe",
+        "product_qYHq4V",
         "image_4Y4XQG",
-        "video_embed_AHF79C",
-        "product_gfx7Rr"
+        "video_embed_AHF79C"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
