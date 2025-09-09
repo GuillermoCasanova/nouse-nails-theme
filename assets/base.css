@@ -726,7 +726,6 @@ button,
   align-items: center;
   display: inline-block;
   font-family: var(--primary-font-family);
-  font-weight: var(--button-font-weight);
   justify-content: center;
   line-height: 1;
   margin: 0 0 var(--space-3) 0;
@@ -951,6 +950,10 @@ button:hover,
 \*------------------------------------*/
 
 
+.icon {
+  transition: all 0.2s var(--default-easing);
+}
+
 .icon img, 
 .icon svg {
   width: 100%; 
@@ -963,8 +966,13 @@ button:hover,
 }
 
 .icon-medium {
-  width: 1.4rem; 
-  height: 1.4rem; 
+  width: 1.35rem; 
+  height: 1.35rem; 
+}
+
+.icon-large {
+  width: 2rem; 
+  height: 2rem;
 }
 
 
@@ -985,11 +993,23 @@ button:hover,
   #Icons
 \*------------------------------------*/
 
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
 .icon-small {
   width: 1.25rem;
   height: 1.25rem;
   display: inline-block;
 }
+
+.icon-medium {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-block;
+}
+
 
 
 

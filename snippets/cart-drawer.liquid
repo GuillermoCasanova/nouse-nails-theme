@@ -465,12 +465,12 @@
             {%- endif -%}
           </div>
 
-          <div class="totals" role="status">
+          <div class="cart-drawer__footer__totals" role="status">
             {% assign total_items = cart.item_count %}
-            <h2 class="totals__total">
+            <p class="totals__items">
               {{ 'sections.cart.estimated_total' | t }} ({{ total_items }}) item
               {%- if total_items > 1 -%}s{%- endif -%}
-            </h2>
+            </p>
             <p class="totals__total-value">{{ cart.total_price | money }}</p>
           </div>
         </div>
@@ -493,6 +493,9 @@
             {% endif %}
           >
             {{ 'sections.cart.checkout' | t }}
+            <div class="button_icon icon  icon-medium">
+              {% render 'icon-arrow-right' %}
+            </div>
           </button>
         </div>
       </div>
