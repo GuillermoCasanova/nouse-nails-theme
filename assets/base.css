@@ -998,6 +998,14 @@ button:hover,
   height: 100%;
 }
 
+.icon-tiny {
+  width: .85rem;
+  height: .85rem;
+  display: inline-block;
+}
+
+
+
 .icon-small {
   width: 1.25rem;
   height: 1.25rem;
