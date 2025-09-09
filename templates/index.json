@@ -20,6 +20,7 @@
         "media_type": "image",
         "hero-image": "shopify://shop_images/hero-shot-1.png",
         "video_url": "",
+        "show_sticker": true,
         "floating-sticker": "stars",
         "sticker_color": "#fdf130"
       }
@@ -229,7 +230,7 @@
             "callout_image": "shopify://shop_images/Star_Shape.svg",
             "callout_header": "Clean ingredients only.",
             "callout_text": "<p>No Nasties, Just Nail Magic. We left out the top 10 most questionable ingredients—so you can shine without worry. That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.</p>",
-            "text_size": "text-size-small"
+            "text_size": "text-size-main"
           }
         },
         "callout_jQDiLk": {
@@ -239,7 +240,7 @@
             "callout_image": "shopify://shop_images/Springy_Shape.svg",
             "callout_header": "Salon-Quality, Done in Minutes",
             "callout_text": "<p>Ditch the 2-hour waits, awkward small talk, tipping stress, and funky fumes. No nail drama. Just fast, flawless, feel-good nails that love you back.</p>",
-            "text_size": "text-size-small"
+            "text_size": "text-size-main"
           }
         },
         "callout_yfVKj4": {
@@ -249,7 +250,7 @@
             "callout_image": "shopify://shop_images/Sun_Shape.svg",
             "callout_header": "Effortless Luxury, Without the Price",
             "callout_text": "<p>Get salon-quality nails for just $38/month (or less), compared to $80+ with tipping at the salon. Save time, money and bye to nail breakage—all without sacrificing style or shine.</p>",
-            "text_size": "text-size-small"
+            "text_size": "text-size-main"
           }
         }
       },
