@@ -411,10 +411,10 @@
       "type": "floating-cta",
       "name": "Floating CTA",
       "settings": {
-        "enable_floating_cta": false,
+        "enable_floating_cta": true,
         "cta_text": "Shop Now",
         "cta_url": "shopify://products/blue-algae-spf-dew-mist",
-        "cta_color": "#000000",
+        "cta_color": "#efbdfc",
         "position": "right"
       }
     }
