@@ -43,6 +43,7 @@ class SwiperSlideshow extends HTMLElement {
       autoplay: this.getAttribute('autoplay'),
       autoplayDelay: this.getAttribute('autoplay-delay'),
       freeMode: this.getAttribute('free-mode'),
+      slidesOffsetBefore: this.getAttribute('slides-offset-before'),
 
       // Desktop overrides (desktop-* prefixed attributes)
       desktopSlidesPerView: this.getAttribute('desktop-slides-per-view'),
@@ -53,6 +54,7 @@ class SwiperSlideshow extends HTMLElement {
       desktopAutoplay: this.getAttribute('desktop-autoplay'),
       desktopAutoplayDelay: this.getAttribute('desktop-autoplay-delay'),
       desktopFreeMode: this.getAttribute('desktop-free-mode'),
+      desktopSlidesOffsetBefore: this.getAttribute('desktop-slides-offset-before'),
 
       // Navigation
       showNavigation: this.getAttribute('show-navigation'),
@@ -66,6 +68,9 @@ class SwiperSlideshow extends HTMLElement {
       grabCursor: this.getAttribute('grab-cursor'),
       allowTouchMove: this.getAttribute('allow-touch-move'),
       autoHeight: this.getAttribute('auto-height'),
+      
+      // Scrollbar
+      showScrollbar: this.getAttribute('show-scrollbar'),
     };
 
     // Set up base configuration using mobile values as defaults
@@ -79,6 +84,7 @@ class SwiperSlideshow extends HTMLElement {
       effect: attrs.effect || 'slide',
       direction: attrs.direction || 'horizontal',
       freeMode: attrs.freeMode === 'true' || false,
+      slidesOffsetBefore: parseInt(attrs.slidesOffsetBefore || 0),
 
       // Navigation - Update to use our custom navigation classes
       navigation: attrs.showNavigation === 'true' ? {
@@ -95,6 +101,14 @@ class SwiperSlideshow extends HTMLElement {
         type: attrs.numberPagination === 'true' ? 'fraction' : 'bullets',
         renderBullet: attrs.numberPagination === 'true' ? 
           (index, className) => `<span class="${className}">0${index + 1}</span>` : undefined
+      } : false,
+
+      // Scrollbar
+      scrollbar: attrs.showScrollbar === 'true' ? {
+        el: '.swiper-scrollbar',
+        draggable: false,
+        dragSize: 'auto',
+        hide: false
       } : false,
 
       // Advanced features
@@ -128,6 +142,7 @@ class SwiperSlideshow extends HTMLElement {
           centeredSlides: attrs.desktopCenteredSlides === 'true' || attrs.centeredSlides === 'true' || false,
           direction: attrs.desktopDirection || attrs.direction || 'horizontal',
           freeMode: attrs.desktopFreeMode === 'true' || attrs.freeMode === 'true' || false,
+          slidesOffsetBefore: parseInt(attrs.desktopSlidesOffsetBefore || attrs.slidesOffsetBefore || 0),
           autoplay: attrs.desktopAutoplay === 'true' ? {
             delay: parseInt(attrs.desktopAutoplayDelay || attrs.autoplayDelay || 5000),
             disableOnInteraction: false,
@@ -184,6 +199,12 @@ class SwiperSlideshow extends HTMLElement {
     if (this.getAttribute('create-elements') === 'true' && 
         this.getAttribute('show-navigation') === 'true') {
       this.createNavigationElements(sliderContainer);
+    }
+
+    // Create scrollbar if needed
+    if (this.getAttribute('create-elements') === 'true' && 
+        this.getAttribute('show-scrollbar') === 'true') {
+      this.createScrollbarElement(sliderContainer);
     }
 
     const config = this.getConfig();
@@ -341,6 +362,17 @@ class SwiperSlideshow extends HTMLElement {
     const wrapper = container.querySelector('.swiper-wrapper');
     if (wrapper) {
       wrapper.parentNode.insertBefore(navigation, wrapper.nextSibling);
+    }
+  }
+
+  createScrollbarElement(container) {
+    const scrollbar = document.createElement('div');
+    scrollbar.className = 'swiper-scrollbar';
+    
+    // Add scrollbar after the swiper-wrapper
+    const wrapper = container.querySelector('.swiper-wrapper');
+    if (wrapper) {
+      wrapper.parentNode.insertBefore(scrollbar, wrapper.nextSibling);
     }
   }
 

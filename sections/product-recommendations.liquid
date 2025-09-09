@@ -5,7 +5,7 @@
 {{ 'section-recommended-product.css' | asset_url | stylesheet_tag }}
 
 <section class="product-recommendations color-{{ section.settings.color_scheme }}">
-  <div class="product-recommendations__contain container-main {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}">
+  <div class="product-recommendations__contain {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}">
     <product-recommendations
       class="product-recommendations__layout"
       data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
@@ -13,33 +13,53 @@
       data-product-id="{{ product.id }}"
     >
       {% if recommendations.performed and recommendations.products_count > 0 %}
-        {% if section.settings.hide_title != true %}
-          <h2 class="product-recommendations__heading {{ section.settings.heading_size }}">
-            {{ section.settings.heading }}
-          </h2>
-        {% endif %}
-        <swiper-slideshow
-          slides-per-view="1.25"
-          space-between="20"
-          loop="false"
-          autoplay="false"
-          show-navigation="false"
-          show-pagination="false"
-          free-mode="true"
-          effect="slide"
-          desktop-slides-per-view="auto"
-          speed="800"
-        >
-          <div class="swiper product-recommendations-swiper" data-related-products-list data-swiper-slideshow>
-            <div class="swiper-wrapper product-recommendations__grid" data-swiper-slideshow-wrapper>
-              {% for recommendation in recommendations.products %}
-                <div class="swiper-slide product-recommendations__item" data-swiper-slide>
-                  {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
-                </div>
-              {% endfor %}
+        <div class="product-recommendations__header  container-large">
+          {% if section.settings.hide_title != true %}
+            <h2 class="product-recommendations__heading {{ section.settings.heading_size }}">
+              {{ section.settings.heading }}
+            </h2>
+          {% endif %}
+        </div>
+        <div class="product-recommendations__swiper">
+          <swiper-slideshow
+            slides-per-view="1.75"
+            space-between="26"
+            loop="false"
+            autoplay="false"
+            create-elements="true"
+            show-navigation="false"
+            show-pagination="false"
+            show-scrollbar="true"
+            effect="slide"
+            draggable="false"
+            desktop-slides-per-view="auto"
+            speed="800"
+            free-mode="true"
+            centered-slides="false"
+            slides-offset-before="30"
+            desktop-slides-offset-before="0"
+          >
+            <div class="swiper product-recommendations-swiper" data-related-products-list data-swiper-slideshow>
+              <div class="swiper-wrapper product-recommendations__grid" data-swiper-slideshow-wrapper>
+                {% for recommendation in recommendations.products %}
+                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
+                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
+                  </div>
+                {% endfor %}
+                {% for recommendation in recommendations.products %}
+                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
+                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
+                  </div>
+                {% endfor %}
+                {% for recommendation in recommendations.products %}
+                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
+                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
+                  </div>
+                {% endfor %}
+              </div>
             </div>
-          </div>
-        </swiper-slideshow>
+          </swiper-slideshow>
+        </div>
       {% endif %}
     </product-recommendations>
   </div>
