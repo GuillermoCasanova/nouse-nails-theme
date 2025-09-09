@@ -46,16 +46,6 @@
                     {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
                   </div>
                 {% endfor %}
-                {% for recommendation in recommendations.products %}
-                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
-                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
-                  </div>
-                {% endfor %}
-                {% for recommendation in recommendations.products %}
-                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
-                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
-                  </div>
-                {% endfor %}
               </div>
             </div>
           </swiper-slideshow>
