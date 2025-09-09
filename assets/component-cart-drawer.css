@@ -250,15 +250,6 @@
     }
   }
   
-  @media screen and (min-width: 940px) {
-    .cart-drawer__inner {
-      position: relative;
-      max-width: var(--max-width-large); 
-      margin-left: auto;
-      margin-right: auto;
-      height: 100%;
-    }
-  }
   
   .cart-drawer.active .cart-drawer__overlay {
     opacity: 1;
