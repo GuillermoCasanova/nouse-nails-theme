@@ -10,7 +10,7 @@
     right: var(--space-2);
     z-index: 1000;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--default-easing);
     text-align: center;
     background-color: transparent;
     color: rgb(var(--color-base-text-1));
@@ -31,7 +31,6 @@
 
 .floating-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .floating-cta--left {
