@@ -6,19 +6,27 @@
 
 .floating-cta {
     position: fixed;
-    bottom: 20px;
+    bottom: var(--space-4);
+    right: var(--space-2);
     z-index: 1000;
-    background-color: var(--floating-cta-color);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-    max-width: 200px;
     text-align: center;
+    background-color: transparent;
+    color: rgb(var(--color-base-text-1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%; 
+    max-width: 16rem;
+  }
+
+
+  .floating-cta svg  {
+    fill: var(--floating-cta-color);
+    width: 100%;
+    height: 100%;
   }
 
 .floating-cta:hover {
@@ -38,6 +46,8 @@
     color: inherit;
     text-decoration: none;
     display: block;
+    position: absolute;
+    margin: auto; 
 }
 
 @media screen and (max-width: 768px) {
