@@ -406,6 +406,17 @@
         "show_view_all": true,
         "view_all_url": "shopify://blogs/news"
       }
+    },
+    "floating_cta_z4EYG4": {
+      "type": "floating-cta",
+      "name": "Floating CTA",
+      "settings": {
+        "enable_floating_cta": false,
+        "cta_text": "Shop Now",
+        "cta_url": "shopify://products/blue-algae-spf-dew-mist",
+        "cta_color": "#000000",
+        "position": "right"
+      }
     }
   },
   "order": [
@@ -418,6 +429,7 @@
     "hae_brand_about_zarK7i",
     "hae_faqs_ACNzbj",
     "hae_testimonials_tLEp99",
-    "featured_blog_FFNppk"
+    "featured_blog_FFNppk",
+    "floating_cta_z4EYG4"
   ]
 }
