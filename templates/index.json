@@ -412,7 +412,7 @@
       "name": "Floating CTA",
       "settings": {
         "enable_floating_cta": true,
-        "cta_text": "Shop Now",
+        "cta_text": "☀ SIGN UP & GET A FREE GEL LAMP ☺",
         "cta_url": "shopify://products/blue-algae-spf-dew-mist",
         "cta_color": "#efbdfc",
         "position": "right"
