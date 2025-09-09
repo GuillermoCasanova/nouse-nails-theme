@@ -30,21 +30,29 @@ class SwiperSlideshow extends HTMLElement {
   }
 
   getConfig() {
-    // Get all possible attributes from the element
+    // Get all possible attributes from the element - Mobile-first approach
     const attrs = {
-      // Basic settings
+      // Mobile values (base attributes)
       slidesPerView: this.getAttribute('slides-per-view'),
-      mobileSlidesPerView: this.getAttribute('mobile-slides-per-view'),
       spaceBetween: this.getAttribute('space-between'),
-      mobileSpaceBetween: this.getAttribute('mobile-space-between'),
       loop: this.getAttribute('loop'),
-      mobileLoop: this.getAttribute('mobile-loop'),
       centeredSlides: this.getAttribute('centered-slides'),
-      mobileCenteredSlides: this.getAttribute('mobile-centered-slides'),
       speed: this.getAttribute('speed'),
       effect: this.getAttribute('effect'),
       direction: this.getAttribute('direction'),
-      mobileDirection: this.getAttribute('mobile-direction'),
+      autoplay: this.getAttribute('autoplay'),
+      autoplayDelay: this.getAttribute('autoplay-delay'),
+      freeMode: this.getAttribute('free-mode'),
+
+      // Desktop overrides (desktop-* prefixed attributes)
+      desktopSlidesPerView: this.getAttribute('desktop-slides-per-view'),
+      desktopSpaceBetween: this.getAttribute('desktop-space-between'),
+      desktopLoop: this.getAttribute('desktop-loop'),
+      desktopCenteredSlides: this.getAttribute('desktop-centered-slides'),
+      desktopDirection: this.getAttribute('desktop-direction'),
+      desktopAutoplay: this.getAttribute('desktop-autoplay'),
+      desktopAutoplayDelay: this.getAttribute('desktop-autoplay-delay'),
+      desktopFreeMode: this.getAttribute('desktop-free-mode'),
 
       // Navigation
       showNavigation: this.getAttribute('show-navigation'),
@@ -58,24 +66,19 @@ class SwiperSlideshow extends HTMLElement {
       grabCursor: this.getAttribute('grab-cursor'),
       allowTouchMove: this.getAttribute('allow-touch-move'),
       autoHeight: this.getAttribute('auto-height'),
-      
-      // Autoplay
-      autoplay: this.getAttribute('autoplay'),
-      mobileAutoplay: this.getAttribute('mobile-autoplay'),
-      mobileAutoplayDelay: this.getAttribute('mobile-autoplay-delay'),
-      mobileSpaceBetween: this.getAttribute('mobile-space-between'),
     };
 
-    // Set up base configuration
+    // Set up base configuration using mobile values as defaults
     const config = {
-      // Basic settings
-      slidesPerView: attrs.mobileSlidesPerView || attrs.slidesPerView || 1,
-      spaceBetween: parseInt(attrs.mobileSpaceBetween || attrs.spaceBetween || 20),
-      loop: attrs.mobileLoop === 'true' || attrs.loop === 'true' || false,
-      centeredSlides: attrs.mobileCenteredSlides === 'true' || attrs.centeredSlides === 'true' || false,
+      // Basic settings - mobile values as base
+      slidesPerView: attrs.slidesPerView || 1,
+      spaceBetween: parseInt(attrs.spaceBetween || 20),
+      loop: attrs.loop === 'true' || false,
+      centeredSlides: attrs.centeredSlides === 'true' || false,
       speed: parseInt(attrs.speed || 400),
       effect: attrs.effect || 'slide',
-      direction: attrs.mobileDirection || 'horizontal',
+      direction: attrs.direction || 'horizontal',
+      freeMode: attrs.freeMode === 'true' || false,
 
       // Navigation - Update to use our custom navigation classes
       navigation: attrs.showNavigation === 'true' ? {
@@ -86,24 +89,24 @@ class SwiperSlideshow extends HTMLElement {
       } : false,
 
       // Pagination
-      pagination: (attrs.pagination?.value === 'true' || attrs.showPagination?.value === 'true') ? {
+      pagination: (attrs.pagination === 'true' || attrs.showPagination === 'true') ? {
         el: '.swiper-slideshow__pagination',
         clickable: true,
-        type: attrs.numberPagination?.value === 'true' ? 'fraction' : 'bullets',
-        renderBullet: attrs.numberPagination?.value === 'true' ? 
+        type: attrs.numberPagination === 'true' ? 'fraction' : 'bullets',
+        renderBullet: attrs.numberPagination === 'true' ? 
           (index, className) => `<span class="${className}">0${index + 1}</span>` : undefined
       } : false,
 
       // Advanced features
-      grabCursor: attrs.grabCursor?.value !== 'false',
-      allowTouchMove: attrs.allowTouchMove?.value !== 'false',
-      autoHeight: attrs.autoHeight?.value === 'true',
+      grabCursor: attrs.grabCursor !== 'false',
+      allowTouchMove: attrs.allowTouchMove !== 'false',
+      autoHeight: attrs.autoHeight === 'true',
       preloadImages: true,
       watchSlidesProgress: true,
 
-      // Autoplay
-      autoplay: (attrs.autoplay?.value === 'true' || attrs.mobileAutoplay?.value === 'true') ? {
-        delay: parseInt(attrs.mobileAutoplayDelay?.value || 5000),
+      // Autoplay - mobile values as base
+      autoplay: attrs.autoplay === 'true' ? {
+        delay: parseInt(attrs.autoplayDelay || 5000),
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       } : false,
@@ -116,13 +119,24 @@ class SwiperSlideshow extends HTMLElement {
         lastSlideMessage: 'This is the last slide',
       },
 
-      // Breakpoints for responsive design
+      // Breakpoints for responsive design - desktop overrides at 768px+
       breakpoints: attrs.breakpoints?.value ? this.convertToObject(attrs.breakpoints.value) : {
         768: {
-          slidesPerView: attrs.slidesPerView || 'auto',
-          spaceBetween: parseInt(attrs.spaceBetween || 20),
-          centeredSlides: false,
-          direction: attrs.direction || 'horizontal'
+          slidesPerView: attrs.desktopSlidesPerView || attrs.slidesPerView || 'auto',
+          spaceBetween: parseInt(attrs.desktopSpaceBetween || attrs.spaceBetween || 20),
+          loop: attrs.desktopLoop === 'true' || attrs.loop === 'true' || false,
+          centeredSlides: attrs.desktopCenteredSlides === 'true' || attrs.centeredSlides === 'true' || false,
+          direction: attrs.desktopDirection || attrs.direction || 'horizontal',
+          freeMode: attrs.desktopFreeMode === 'true' || attrs.freeMode === 'true' || false,
+          autoplay: attrs.desktopAutoplay === 'true' ? {
+            delay: parseInt(attrs.desktopAutoplayDelay || attrs.autoplayDelay || 5000),
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          } : (attrs.autoplay === 'true' ? {
+            delay: parseInt(attrs.autoplayDelay || 5000),
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+          } : false)
         }
       }
     };

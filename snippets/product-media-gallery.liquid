@@ -60,11 +60,11 @@
 
   <swiper-slideshow
     class="product-media-gallery__main"
-    mobile-slides-per-view="1"
-    mobile-space-between="0"
-    mobile-centered-slides="false"
-    mobile-loop="true"
-    mobile-autoplay="false"
+    slides-per-view="1"
+    space-between="0"
+    centered-slides="false"
+    loop="true"
+    autoplay="false"
     show-navigation="true"
     show-pagination="true"
     effect="fade"
@@ -129,17 +129,18 @@
 
   <swiper-slideshow
     class="product-media-gallery__thumbnails"
-    mobile-slides-per-view="4"
+    slides-per-view="4"
     space-between="5"
-    mobile-centered-slides="false"
-    mobile-loop="false"
-    mobile-autoplay="false"
+    centered-slides="false"
+    loop="false"
+    autoplay="false"
     show-navigation="false"
     show-pagination="false"
     effect="slide"
     speed="400"
     data-thumbnails-gallery
-    direction="vertical"
+    desktop-direction="vertical"
+    desktop-slides-per-view="auto"
   >
     <div class="swiper" data-swiper-slideshow>
       <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
