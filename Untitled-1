@@ -1,0 +1,40 @@
+  function setupCustomInputListeners() {
+                                    const customInputContainers = document.querySelectorAll('[data-custom-input]');
+
+                                    customInputContainers.forEach(container => {
+                                        const input = container.querySelector('input');
+                                        if (!input)
+                                            return;
+
+                                        // Helper function to check if input has value
+                                        const hasValue = () => input.value.length > 0 ? true : false;
+
+                                        // Helper function to update active state
+                                        const updateActiveState = () => {
+                                            if (hasValue()) {
+                                                container.classList.add('is-active');
+                                            } else {
+                                                container.classList.remove('is-active');
+                                            }
+                                        };
+
+                                        // Set initial state based on existing value
+                                        updateActiveState();
+
+                                        // Add event listeners
+                                        input.addEventListener('focus', () => {
+                                            container.classList.add('is-active');
+                                        });
+
+                                        input.addEventListener('blur', () => {
+                                            console.log(input.value);
+                                            console.log(input.value.length);
+                                            if (!hasValue()) {
+                                                container.classList.remove('is-active');
+                                            }
+                                        });
+
+                                        // Optional: Listen for input changes to handle programmatic value changes
+                                        input.addEventListener('input', updateActiveState);
+                                    });
+                                }
