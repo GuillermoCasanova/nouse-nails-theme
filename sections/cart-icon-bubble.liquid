@@ -1,8 +1,7 @@
-<svg class="icon icon-cart" aria-hidden="true" focusable="false" role="presentation">
-  <use href="#icon-bag"></use>
-</svg>
-
-<span data-cart-toggle-text class="visually-hidden  header__cart-button__text">{{ 'templates.cart.cart' | t }}</span>
+{% render 'icon-bag' %}
+<span data-cart-toggle-text class="visually-hidden  header__cart-button__text">
+  {{- 'templates.cart.cart' | t -}}
+</span>
 {%- if cart != empty -%}
   <div class="cart-count-bubble">
     {%- if cart.item_count < 100 -%}
