@@ -12,6 +12,7 @@
     "colors_brand_1": "#6d0506",
     "colors_brand_2": "#f8eee3",
     "colors_base_accent_1": "#EFBDFC",
+    "colors_base_accent_2": "##FF8FE7",
     "colors_base_text_1": "#6d0506",
     "colors_base_text_2": "#f8eee3",
     "show_announcement_bar": true,
