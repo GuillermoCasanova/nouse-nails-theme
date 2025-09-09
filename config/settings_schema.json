@@ -209,6 +209,13 @@
       },
       {
         "type": "color",
+        "id": "colors_base_accent_2",
+        "default": "#7294A8",
+        "label": "Accent Color 2",
+        "info": "Accent color used for components not using color schemes"
+      },
+      {
+        "type": "color",
         "id": "colors_base_text_1",
         "default": "#7294A8",
         "label": "Text Color 1",
