@@ -1,0 +1,56 @@
+
+
+/*------------------------------------*\
+    #Floating CTA
+\*------------------------------------*/
+
+.floating-cta {
+    position: fixed;
+    bottom: 20px;
+    z-index: 1000;
+    background-color: var(--floating-cta-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    max-width: 200px;
+    text-align: center;
+  }
+
+.floating-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.floating-cta--left {
+    left: 20px;
+}
+
+.floating-cta--right {
+    right: 20px;
+}
+
+.floating-cta__link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .floating-cta {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        max-width: none;
+    }
+
+    .floating-cta--left,
+    .floating-cta--right {
+        left: 15px;
+        right: 15px;
+    }
+}
