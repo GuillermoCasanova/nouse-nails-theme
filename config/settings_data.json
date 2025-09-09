@@ -351,9 +351,7 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "show_product_recommendations": true,
-          "heading": "You may also like",
-          "show_vendor": false
+          "heading": "You may also like"
         }
       },
       "blog-template": {
@@ -996,7 +994,7 @@
           "color_button_secondary_hover_text": "#7294a8",
           "color_button_secondary_border": "#6d0506",
           "color_button_secondary_hover_border": "#7294a8",
-          "color_accent": "#efbdfc",
+          "color_accent": "#aec1fb",
           "colors_background_1": "#d1e1e8",
           "colors_background_2": "#fbf8f4",
           "colors_background_3": "#f5fbfe"
