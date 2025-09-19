@@ -55,13 +55,24 @@
             </li>
           {% when 'image' %}
             <li class="dynamic-collection-grid__image {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
-              {% render 'image-with-aspect-ratio',
-                image: block.settings.image,
-                aspect_ratio: block.settings.media_aspect_ratio,
-                alt: block.settings.image.alt,
-                sizes: '(min-width: 940px) 33vw, (min-width: 700px) 50vw, 100vw',
-                widths: '165,360,533,720,940,1066'
-              %}
+              {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}
+                {% render 'image-with-aspect-ratio',
+                  image: block.settings.image,
+                  aspect_ratio: block.settings.media_aspect_ratio,
+                  alt: block.settings.image.alt,
+                  sizes: '(min-width: 940px) 40vw, (min-width: 700px) 80vw, 100vw',
+                  widths: '165,360,533,720,940,1066'
+                %}
+
+              {% else %}
+                {% render 'image-with-aspect-ratio',
+                  image: block.settings.image,
+                  aspect_ratio: block.settings.media_aspect_ratio,
+                  alt: block.settings.image.alt,
+                  sizes: '(min-width: 940px) 33vw, (min-width: 700px) 33vw, 100vw',
+                  widths: '165,360,533,720,940,1066'
+                %}
+              {% endif %}
             </li>
         {% endcase %}
       {% endfor %}
@@ -94,6 +105,10 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "select",
@@ -142,19 +157,6 @@
         }
       ],
       "default": "section-padding-bottom-small"
-    },
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "range",
-      "id": "grid",
-      "label": "Items per row",
-      "default": 4,
-      "min": 2,
-      "max": 5,
-      "step": 1
     }
   ],
   "blocks": [
