@@ -1,33 +1,37 @@
 {{ 'main-page-header.css' | asset_url | stylesheet_tag }}
 
-<section class="color-background-main color-{{ section.settings.color_scheme }}">
-  <div class="text-page-header">
+<section class='color-background-main color-{{ section.settings.color_scheme }}'>
+  <div class='text-page-header'>
     {% if section.settings.header_background_image != blank %}
-      <div class="text-page-header_background">
+      <div class='text-page-header_background'>
         <img
-          src="{{ section.settings.header_background_image | img_url }}"
-          srcset="{{ section.settings.header_background_image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.header_background_image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.header_background_image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.header_background_image | img_url: '425x', scale: 2 }} 425w"
-          sizes="100vw"
-          alt="Background Image"
-          class="responsive-image"
-          width="1440"
-          height="800"
+          src='{{ section.settings.header_background_image | img_url }}'
+          srcset='{{ section.settings.header_background_image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.header_background_image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.header_background_image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.header_background_image | img_url: '425x', scale: 2 }} 425w'
+          sizes='100vw'
+          alt='Background Image'
+          class='responsive-image'
+          width='1440'
+          height='800'
         >
       </div>
     {% endif %}
 
-    <div class="text-page-header_layout">
-      <div class="text-page-header_contain container-small {{ section.settings.padding_size }}">
+    <div class='text-page-header_layout'>
+      <div class='text-page-header_contain container-small {{ section.settings.padding_size }}'>
         {% if section.settings.custom_title != blank %}
-          <h1 class="text-page__header__heading {{ section.settings.heading_size }}">
+          <h1 class='text-page__header__heading {{ section.settings.heading_size }}'>
             {{ section.settings.custom_title }}
           </h1>
         {% else %}
-          <h1 class="text-page__header__heading {{ section.settings.heading_size }}">{{ page.title }}</h1>
+          <h1 class='text-page__header__heading {{ section.settings.heading_size }}'>
+            {{ page.title }}
+          </h1>
         {% endif %}
 
         {% if section.settings.subtitle != blank %}
-          <div class="text-page__header__subtitle">{{ section.settings.subtitle }}</div>
+          <div class='text-page__header__subtitle'>
+            {{ section.settings.subtitle }}
+          </div>
         {% endif %}
       </div>
     </div>
@@ -132,7 +136,7 @@
   "presets": [
     {
       "name": "Main Page Header",
-      "category": "Page Content"
+      "category": "Templates & Pages"
     }
   ]
 }

@@ -1,13 +1,13 @@
 {{ 'component-announcement-bar.css' | asset_url | stylesheet_tag }}
 
-<announcement-bar class="announcement-bar color-{{ section.settings.color_scheme }}">
-  <div class="announcement-bar__contain container-main">
-    <div class="announcement-bar__text">
+<announcement-bar class='announcement-bar color-{{ section.settings.color_scheme }}'>
+  <div class='announcement-bar__contain container-main'>
+    <div class='announcement-bar__text'>
       {{ section.settings.announcement_text }}
     </div>
     {% if section.settings.show_close_button %}
-      <button class="announcement-bar__close">
-        <span class="visually-hidden">Close</span>
+      <button class='announcement-bar__close'>
+        <span class='visually-hidden'>Close</span>
         {% render 'icon-close' %}
       </button>
     {% endif %}
@@ -15,7 +15,7 @@
 </announcement-bar>
 {% schema %}
 {
-  "name": "Announcement bar",
+  "name": "Announcement Bar",
   "settings": [
     {
       "type": "richtext",
@@ -52,9 +52,16 @@
 
     close() {
       this.style.display = 'none';
-      document.documentElement.style.setProperty('--announcement-bar-height', '0px');
-      document.querySelector('sticky-header').querySelector('.header-border-mobile').style.top = '0px';
-      document.querySelector('sticky-header').classList.remove('announcement-bar-active');
+      document.documentElement.style.setProperty(
+        '--announcement-bar-height',
+        '0px'
+      );
+      document
+        .querySelector('sticky-header')
+        .querySelector('.header-border-mobile').style.top = '0px';
+      document
+        .querySelector('sticky-header')
+        .classList.remove('announcement-bar-active');
 
       // Store closed state
       localStorage.setItem('announcement-bar-closed', 'true');

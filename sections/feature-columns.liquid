@@ -1,11 +1,11 @@
-<div class="page-width">
+<div class='page-width'>
   {% if section.settings.title != blank %}
-    <div class="section-header text-center">
+    <div class='section-header text-center'>
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
 
-  <div class="grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %} grid--flush-bottom">
+  <div class='grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %} grid--flush-bottom'>
     {%- assign grid_item_width = 'medium-up--one-third' -%}
     {%- assign max_height = 345 -%}
     {% case section.blocks.size %}
@@ -26,27 +26,47 @@
       {% else %}
         {%- assign column_width = grid_item_width -%}
       {% endif %}
-      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }}" {{ block.shopify_attributes }}>
+      <div
+        class='grid__item {{ column_width }} text-{{ section.settings.align_text }}'
+        {{ block.shopify_attributes }}
+      >
         {% if block.settings.enable_image %}
           {% if block.settings.image != blank %}
             {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
             {% capture wrapper_id %}TextColumnImageWrapper-{{ block.id }}{% endcapture %}
-            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            {% include 'image-style', image: block.settings.image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
-            <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-              <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;" data-image-loading-animation>
-                <img id="{{ img_id }}"
-                     class="feature-row__image lazyload"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ block.settings.image.alt | escape }}">
+            {%- assign img_url = block.settings.image
+              | img_url: '1x1'
+              | replace: '_1x1.', '_{width}x.'
+            -%}
+            {% include 'image-style',
+              image: block.settings.image,
+              height: max_height,
+              wrapper_id: wrapper_id,
+              img_id: img_id
+            %}
+            <div id='{{ wrapper_id }}' class='feature-row__image-wrapper js'>
+              <div
+                style='padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;'
+                data-image-loading-animation
+              >
+                <img
+                  id='{{ img_id }}'
+                  class='feature-row__image lazyload'
+                  data-src='{{ img_url }}'
+                  data-widths='[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]'
+                  data-aspectratio='{{ block.settings.image.aspect_ratio }}'
+                  data-sizes='auto'
+                  alt='{{ block.settings.image.alt | escape }}'
+                >
               </div>
             </div>
             <noscript>
               <p>
-                {{ block.settings.image | img_url: '480x480', scale: 2 | img_tag: block.settings.image.alt, 'feature-row__image' }}
+                {{
+                  block.settings.image
+                  | img_url: '480x480', scale: 2
+                  | img_tag: block.settings.image.alt, 'feature-row__image'
+                }}
               </p>
             </noscript>
           {% else %}
@@ -56,13 +76,15 @@
           {% endif %}
         {% endif %}
         {% if block.settings.title != blank %}
-          <h3 class="h4">{{ block.settings.title | escape }}</h3>
+          <h3 class='h4'>{{ block.settings.title | escape }}</h3>
         {% endif %}
         {% if block.settings.text != blank %}
-          <div class="rte-setting">{{ block.settings.text }}</div>
+          <div class='rte-setting'>{{ block.settings.text }}</div>
         {% endif %}
 
-        {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+        {% if block.settings.button_label != blank
+          and block.settings.button_link != blank
+        %}
           {%- capture ariaLabel -%}
             {{- block.settings.button_label -}}
             {%- if block.settings.button_link.type == 'frontpage_link' -%}
@@ -74,9 +96,11 @@
             {%- endif -%}
           {%- endcapture -%}
 
-          <a href="{{ block.settings.button_link }}"
-            class="btn btn--secondary btn--small"
-            aria-label="{{ ariaLabel | escape }}">
+          <a
+            href='{{ block.settings.button_link }}'
+            class='btn btn--secondary btn--small'
+            aria-label='{{ ariaLabel | escape }}'
+          >
             {{- block.settings.button_label | escape -}}
           </a>
         {% endif %}
@@ -88,8 +112,6 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
-
-
 
 {% schema %}
 {
@@ -532,7 +554,6 @@
         "zh-TW": "附圖片的文字欄"
       },
       "category": {
-        "cs": "Text",
         "da": "Tekst",
         "de": "Text",
         "en": "Text",

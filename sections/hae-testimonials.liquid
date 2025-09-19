@@ -1,54 +1,71 @@
 {{ 'testimonials.css' | asset_url | stylesheet_tag }}
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<link
+  rel='stylesheet'
+  href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
+>
+<script
+  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  defer
+></script>
 
-<script src="{{ 'swiper-slideshow.js' | asset_url }}" defer></script>
+<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
 
 <section
-  class="testimonials color-{{ section.settings.color_scheme }}"
-  data-section-id="{{ section.id }}"
-  data-section-type="testimonials"
+  class='testimonials color-{{ section.settings.color_scheme }}'
+  data-section-id='{{ section.id }}'
+  data-section-type='testimonials'
 >
-  <div class="testinmonials__contain container-main section-padding-small">
+  <div class='testinmonials__contain container-main section-padding-small'>
     {% if section.settings.title != blank %}
-      <div class="testimonials__header">
-        <h2 class="testimonials__title {{ section.settings.headline_size }}">{{ section.settings.title | escape }}</h2>
+      <div class='testimonials__header'>
+        <h2 class='testimonials__title {{ section.settings.headline_size }}'>
+          {{ section.settings.title | escape }}
+        </h2>
       </div>
     {% endif %}
 
     {% if section.blocks.size > 0 %}
       <swiper-slideshow
-        class="testimonials__swiper"
-        slides-per-view="1"
-        space-between="25"
-        centered-slides="true"
-        loop="true"
-        autoplay="true"
-        autoplay-delay="2000"
-        show-navigation="true"
-        show-pagination="false"
-        effect="slide"
-        speed="800"
-        create-elements="true"
-        disableOn="mediumUp"
+        class='testimonials__swiper'
+        slides-per-view='1'
+        space-between='25'
+        centered-slides='true'
+        loop='true'
+        autoplay='true'
+        autoplay-delay='2000'
+        show-navigation='true'
+        show-pagination='false'
+        effect='slide'
+        speed='800'
+        create-elements='true'
+        disableOn='mediumUp'
       >
-        <div class="testimonials__grid grid grid-3 swiper" data-swiper-slideshow>
-          <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
+        <div
+          class='testimonials__grid grid grid-3 swiper'
+          data-swiper-slideshow
+        >
+          <div class='swiper-wrapper' data-swiper-slideshow-wrapper>
             {% for block in section.blocks limit: 3 %}
-              <div class="testimonials__item swiper-slide" {{ block.shopify_attributes }} data-swiper-slide>
-                <div class="testimonials__content">
-                  <div class="testimonials__quote-icon icon icon-small">
+              <div
+                class='testimonials__item swiper-slide'
+                {{ block.shopify_attributes }}
+                data-swiper-slide
+              >
+                <div class='testimonials__content'>
+                  <div class='testimonials__quote-icon icon icon-small'>
                     {% render 'icon-quote' %}
                   </div>
                   {% if block.settings.quote != blank %}
-                    <blockquote class="testimonials__quote  text-size-main">
+                    <blockquote class='testimonials__quote  text-size-main'>
                       {{ block.settings.quote }}
                     </blockquote>
                   {% endif %}
                   {% if block.settings.author != blank %}
-                    <cite class="testimonials__author text-size-main">{{ block.settings.author | escape }}</cite>
+                    <cite class='testimonials__author text-size-main'>
+                      {{- block.settings.author | escape -}}
+                    </cite>
                   {% endif %}
                 </div>
               </div>
@@ -59,7 +76,7 @@
     {% endif %}
 
     {% if section.blocks.size == 0 %}
-      <div class="testimonials__empty">
+      <div class='testimonials__empty'>
         <p>Add testimonial blocks to showcase customer reviews</p>
       </div>
     {% endif %}
@@ -143,7 +160,7 @@
   "presets": [
     {
       "name": "HAE Testimonials",
-      "category": "Content",
+      "category": "Content & Text",
       "blocks": [
         {
           "type": "quote"

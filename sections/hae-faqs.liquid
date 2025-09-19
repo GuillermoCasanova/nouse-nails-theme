@@ -1,39 +1,42 @@
 {% comment %} <link rel="stylesheet" href="{{ 'section-faqs-list.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
-<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+<script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
 {{ 'faqs.css' | asset_url | stylesheet_tag }}
 
 <!-- FAQs Section -->
-<section class="faqs-section color-{{ section.settings.color_scheme }}">
-  <div class="faqs-section__contain container-main section-padding-main" data-tabs-panel>
-    <div class="faqs-section__layout grid grid-2 grid-gap-lg">
+<section class='faqs-section color-{{ section.settings.color_scheme }}'>
+  <div
+    class='faqs-section__contain container-main section-padding-main'
+    data-tabs-panel
+  >
+    <div class='faqs-section__layout grid grid-2 grid-gap-lg'>
       <!-- Table Content -->
       {% if section.settings.page != blank %}
-        <div class="faqs-section__page-content">
-          <div class="table-wrapper">
+        <div class='faqs-section__page-content'>
+          <div class='table-wrapper'>
             {% if section.settings.table_image != blank %}
-              <div class="comparison-table__image">
+              <div class='comparison-table__image'>
                 {%- if section.settings.table_image != blank -%}
                   <img
-                    srcset="
+                    srcset='
                       {%- if section.settings.table_image_mobile != blank -%}
                         {{ section.settings.table_image_mobile | image_url: width: 800 }} 800w,
                       {%- endif -%}
                       {{ section.settings.table_image | image_url: width: 1400 }} 1400w
-                    "
-                    sizes="
+                    '
+                    sizes='
                       (max-width: 767px) 800px,
                       1400px
-                    "
-                    src="{{ section.settings.table_image | image_url: width: 1400 }}"
-                    alt="{{ section.settings.table_image.alt | escape }}"
-                    width="100%"
-                    height="100%"
-                    loading="lazy"
+                    '
+                    src='{{ section.settings.table_image | image_url: width: 1400 }}'
+                    alt='{{ section.settings.table_image.alt | escape }}'
+                    width='100%'
+                    height='100%'
+                    loading='lazy'
                   >
                 {%- endif -%}
               </div>
             {% endif %}
-            <div class="comparison-table visually-hidden">
+            <div class='comparison-table visually-hidden'>
               {{ pages[section.settings.page].content }}
             </div>
           </div>
@@ -41,27 +44,37 @@
       {% endif %}
 
       <!-- FAQ Questions -->
-      <div class="faqs-section__questions-list">
+      <div class='faqs-section__questions-list'>
         {% if section.settings.heading != blank %}
-          <h2 class="faqs-section__heading headline-style-h3">{{ section.settings.heading }}</h2>
+          <h2 class='faqs-section__heading headline-style-h3'>
+            {{ section.settings.heading }}
+          </h2>
         {% endif %}
-        <div class="faqs-list">
+        <div class='faqs-list'>
           {% for block in section.blocks %}
             {% if block.type == 'faq_block' %}
               <drawer-disclosure>
-                <details class="faq-list__item" data-id="faq-{{ forloop.index }}" {{ block.shopify_attributes }}>
+                <details
+                  class='faq-list__item'
+                  data-id='faq-{{ forloop.index }}'
+                  {{ block.shopify_attributes }}
+                >
                   <summary
-                    class="faq-list__item__question"
-                    aria-expanded="false"
-                    aria-label="Open FAQ answer for question {{ forloop.index }}"
-                    data-id="{{ forloop.index }}"
+                    class='faq-list__item__question'
+                    aria-expanded='false'
+                    aria-label='Open FAQ answer for question {{ forloop.index }}'
+                    data-id='{{ forloop.index }}'
                   >
                     {{ block.settings.question }}
-                    <span class="faq-list__item__icon">
-                      <span class="open-icon"> → </span>
+                    <span class='faq-list__item__icon'>
+                      <span class='open-icon'> → </span>
                     </span>
                   </summary>
-                  <div class="faq-list__item__answer" data-drawer-content data-id="{{ forloop.index }}">
+                  <div
+                    class='faq-list__item__answer'
+                    data-drawer-content
+                    data-id='{{ forloop.index }}'
+                  >
                     <div data-drawer-content-inner>
                       {{ block.settings.answer }}
                     </div>
@@ -136,6 +149,7 @@
   "presets": [
     {
       "name": "FAQ Section",
+      "category": "Content & Text",
       "blocks": [
         {
           "type": "faq_block"

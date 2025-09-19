@@ -1,19 +1,26 @@
-<div class="page-width">
+<div class='page-width'>
   {% if section.settings.title != blank %}
-    <div class="section-header text-center">
+    <div class='section-header text-center'>
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
 
   {% if section.blocks.size > 0 %}
-    <ul class="logo-bar{% if section.settings.title_enable %} logo-bar--large{% endif %}">
+    <ul class='logo-bar{% if section.settings.title_enable %} logo-bar--large{% endif %}'>
       {% for block in section.blocks %}
-        <li class="logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %}" {{ block.shopify_attributes }}>
+        <li
+          class='logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %}'
+          {{ block.shopify_attributes }}
+        >
           {% if block.settings.link != blank %}
-            <a href="{{ block.settings.link }}" class="logo-bar__link">
+            <a href='{{ block.settings.link }}' class='logo-bar__link'>
           {% endif %}
           {% if block.settings.image != blank %}
-            {{ block.settings.image | img_url: '160x160', scale: 2 | img_tag: block.settings.image.alt, 'logo-bar__image' }}
+            {{
+              block.settings.image
+              | img_url: '160x160', scale: 2
+              | img_tag: block.settings.image.alt, 'logo-bar__image'
+            }}
           {% else %}
             {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
@@ -29,8 +36,6 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
-
-
 
 {% schema %}
 {
@@ -252,7 +257,6 @@
         "zh-TW": "標誌清單"
       },
       "category": {
-        "cs": "Obrázek",
         "da": "Billede",
         "de": "Foto",
         "en": "Image",

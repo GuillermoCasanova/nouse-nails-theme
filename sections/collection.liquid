@@ -1,11 +1,13 @@
 {{ 'collection.css' | asset_url | stylesheet_tag }}
 {{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
 
-<section class="collection-section color-{{ section.settings.color_scheme }}">
-  <div class="collection_contain  container-main section-padding-small">
+<section class='collection-section color-{{ section.settings.color_scheme }}'>
+  <div class='collection_contain  container-main section-padding-small'>
     {% if section.settings.title != blank %}
-      <div class="collection-section__header">
-        <h2 class="collection-section__title headline-style-h3">{{ section.settings.title | escape }}</h2>
+      <div class='collection-section__header'>
+        <h2 class='collection-section__title headline-style-h3'>
+          {{ section.settings.title | escape }}
+        </h2>
       </div>
     {% endif %}
 
@@ -26,11 +28,13 @@
         {%- assign grid_class = 'grid-5' -%}
     {% endcase %}
 
-    {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+    {%- assign product_limit = section.settings.grid
+      | times: section.settings.rows
+    -%}
 
-    <ul class="collection-grid grid {{ grid_class }} grid-gap-sm">
+    <ul class='collection-grid grid {{ grid_class }} grid-gap-sm'>
       {% for product in collection.products limit: product_limit %}
-        <li class="collection-grid-item">
+        <li class='collection-grid-item'>
           {% render 'product-card-grid',
             max_height: max_height,
             product: product,
@@ -39,19 +43,23 @@
         </li>
       {% else %}
         {% for i in (1..product_limit) %}
-          <li class="collection-grid-item ">
-            <div class="product-card">
-              <a class="product-card__link" href="#">
-                <div class="product-card__image">
+          <li class='collection-grid-item '>
+            <div class='product-card'>
+              <a class='product-card__link' href='#'>
+                <div class='product-card__image'>
                   {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  {{
+                    'product-'
+                    | append: current
+                    | placeholder_svg_tag: 'placeholder-svg'
+                  }}
                 </div>
-                <div class="product-card__content">
-                  <h3 class="product-card__title">Sample Product</h3>
+                <div class='product-card__content'>
+                  <h3 class='product-card__title'>Sample Product</h3>
                   {% if section.settings.show_vendor %}
-                    <p class="product-card__vendor">Sample Vendor</p>
+                    <p class='product-card__vendor'>Sample Vendor</p>
                   {% endif %}
-                  <p class="product-card__price">$19.99</p>
+                  <p class='product-card__price'>$19.99</p>
                 </div>
               </a>
             </div>
@@ -60,12 +68,14 @@
       {% endfor %}
     </ul>
 
-    {% if section.settings.show_view_all and collection.products.size > product_limit %}
-      <div class="collection-view-all">
+    {% if section.settings.show_view_all
+      and collection.products.size > product_limit
+    %}
+      <div class='collection-view-all'>
         <a
-          href="{{ collection.url }}"
-          class="button button--secondary button--small"
-          aria-label="View all products in {{ collection.title }}"
+          href='{{ collection.url }}'
+          class='button button--secondary button--small'
+          aria-label='View all products in {{ collection.title }}'
         >
           Shop All
         </a>
@@ -142,7 +152,7 @@
   "presets": [
     {
       "name": "Featured collection",
-      "category": "Collection"
+      "category": "Collection & Catalog"
     }
   ]
 }

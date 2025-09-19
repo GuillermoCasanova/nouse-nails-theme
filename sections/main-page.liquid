@@ -1,5 +1,10 @@
 {% comment %} <link rel="stylesheet" href="{{ 'section-text-page.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel='stylesheet'
+  href='{{ 'component-rte.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 {% comment %} <noscript>{{ 'section-text-page.css' | asset_url | stylesheet_tag }}</noscript> {% endcomment %}
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
@@ -17,9 +22,9 @@
   }
 {% endstyle %}
 
-<section class="page-width text-page master-padding-top">
+<section class='page-width text-page master-padding-top'>
   {% if page.content != blank %}
-    <div class="rte  text-page__body container-x-small {{ section.settings.padding_size }}">
+    <div class='rte  text-page__body container-x-small {{ section.settings.padding_size }}'>
       {{ page.content }}
     </div>
   {% endif %}
@@ -27,7 +32,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-page.name",
+  "name": "Main Page",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -58,7 +63,8 @@
   ],
   "presets": [
     {
-      "name": "Main Text Page"
+      "name": "Main Text Page",
+      "category": "Templates & Pages"
     }
   ]
 }

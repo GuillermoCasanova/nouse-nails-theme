@@ -1,10 +1,10 @@
-<section class="product-section color-{{ section.settings.color_scheme }}">
+<section class='product-section color-{{ section.settings.color_scheme }}'>
   <product-info
-    id="MainProduct-{{ section.id }}"
-    data-section="{{ section.id }}"
-    data-product-id="{{ product.id }}"
-    data-update-url="true"
-    data-url="{{ product.url }}"
+    id='MainProduct-{{ section.id }}'
+    data-section='{{ section.id }}'
+    data-product-id='{{ product.id }}'
+    data-update-url='true'
+    data-url='{{ product.url }}'
   >
     {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 
@@ -29,68 +29,79 @@
     {%- endif -%}
 
     <!-- Custom JS -->
-    <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script src='{{ 'product-info.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'quick-add.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
 
     <!-- Custom Selects -->
-    <script src="{{'choices.min.js' |  asset_url}}" defer="defer"></script>
-    <script src="{{ 'custom-selects.js' | asset_url }}" defer="defer"></script>
+    <script src='{{'choices.min.js' |  asset_url}}' defer='defer'></script>
+    <script src='{{ 'custom-selects.js' | asset_url }}' defer='defer'></script>
     {{ 'nice-select2.css' | asset_url | stylesheet_tag }}
 
-    <script src="{{ 'magnify2.js' | asset_url }}" defer="defer"></script>
+    <script src='{{ 'magnify2.js' | asset_url }}' defer='defer'></script>
 
     {%- if product.quantity_price_breaks_configured? -%}
-      <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
-      <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+      <script src='{{ 'show-more.js' | asset_url }}' defer='defer'></script>
+      <script
+        src='{{ 'price-per-item.js' | asset_url }}'
+        defer='defer'
+      ></script>
     {%- endif -%}
 
     {%- if request.design_mode -%}
-      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+      <script src='{{ 'theme-editor.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
 
-    {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+    {%- assign first_3d_model = product.media
+      | where: 'media_type', 'model'
+      | first
+    -%}
 
     {%- if first_3d_model -%}
       {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
       <link
-        id="ModelViewerStyle"
-        rel="stylesheet"
-        href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css"
-        media="print"
+        id='ModelViewerStyle'
+        rel='stylesheet'
+        href='https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css'
+        media='print'
         onload="this.media='all'"
       >
       <link
-        id="ModelViewerOverride"
-        rel="stylesheet"
-        href="{{ 'component-model-viewer-ui.css' | asset_url }}"
-        media="print"
+        id='ModelViewerOverride'
+        rel='stylesheet'
+        href='{{ 'component-model-viewer-ui.css' | asset_url }}'
+        media='print'
         onload="this.media='all'"
       >
     {%- endif -%}
 
-    {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-    <div class="page-width  full-width">
-      <div class="quick-add-hidden">
+    {% assign variant_images = product.images
+      | where: 'attached_to_variant?', true
+      | map: 'src'
+    %}
+    <div class='page-width  full-width'>
+      <div class='quick-add-hidden'>
         {% render 'breadcrumbs' %}
       </div>
 
-      <div class="product__contain container-small {{section.settings.section_padding}}">
-        <div class="product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}">
-          <div class=" product__media-wrapper">
+      <div class='product__contain container-small {{section.settings.section_padding}}'>
+        <div class='product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}'>
+          <div class=' product__media-wrapper'>
             {% render 'product-media-gallery',
               variant_images: variant_images,
               media_aspect_ratio: section.settings.slideshow_media_aspect_ratio
             %}
           </div>
 
-          <div class="product__info-wrapper ">
+          <div class='product__info-wrapper '>
             <div
-              id="ProductInfo-{{ section.id }}"
-              class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+              id='ProductInfo-{{ section.id }}'
+              class='product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}'
             >
-              {%- assign product_form_id = 'product-form-' | append: section.id -%}
+              {%- assign product_form_id = 'product-form-'
+                | append: section.id
+              -%}
               {%- assign is_compact_quick_add = section.settings.show_compact_quick_add -%}
 
               {%- for block in section.blocks -%}
@@ -99,22 +110,34 @@
                     {% render block %}
                   {%- when 'text' -%}
                     <p
-                      class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                      class='product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}'
                       {{ block.shopify_attributes }}
                     >
                       {{- block.settings.text -}}
                     </p>
                   {%- when 'title' -%}
-                    <div class="product__title-wrapper" {{ block.shopify_attributes }}>
-                      <h1 class="product__title headline-style-h1">{{ product.title | escape }}</h1>
+                    <div
+                      class='product__title-wrapper'
+                      {{ block.shopify_attributes }}
+                    >
+                      <h1 class='product__title headline-style-h1'>
+                        {{ product.title | escape }}
+                      </h1>
                     </div>
 
                   {%- when 'type' -%}
-                    <div class="product__type  text-size-medium" {{ block.shopify_attributes }}>
+                    <div
+                      class='product__type  text-size-medium'
+                      {{ block.shopify_attributes }}
+                    >
                       {{ product.type | escape }}
                     </div>
                   {%- when 'price' -%}
-                    <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                    <div
+                      id='price-{{ section.id }}'
+                      role='status'
+                      {{ block.shopify_attributes }}
+                    >
                       {%- render 'price',
                         product: product,
                         use_variant: true,
@@ -123,8 +146,13 @@
                       -%}
                     </div>
                     {%- if product.quantity_price_breaks_configured? -%}
-                      <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
-                        <span>{{ 'products.product.volume_pricing.note' | t }}</span>
+                      <div
+                        class='volume-pricing-note'
+                        id='Volume-Note-{{ section.id }}'
+                      >
+                        <span>
+                          {{- 'products.product.volume_pricing.note' | t -}}
+                        </span>
                       </div>
                     {%- endif -%}
                     {% comment %}
@@ -144,120 +172,191 @@
                       {%- endif -%}
                     {% endcomment %}
                     <div {{ block.shopify_attributes }}>
-                      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                      {%- assign product_form_installment_id = 'product-form-installment-'
+                        | append: section.id
+                      -%}
                       {%- form 'product',
                         product,
                         id: product_form_installment_id,
                         class: 'installment caption-large'
                       -%}
-                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        <input
+                          type='hidden'
+                          name='id'
+                          value='{{ product.selected_or_first_available_variant.id }}'
+                        >
                         {{ form | payment_terms }}
                       {%- endform -%}
                     </div>
                   {%- when 'inventory' -%}
                     <p
-                      class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                      class='product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}'
                       {{ block.shopify_attributes }}
-                      id="Inventory-{{ section.id }}"
-                      role="status"
+                      id='Inventory-{{ section.id }}'
+                      role='status'
                     >
-                      {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                        {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                      {%- if product.selected_or_first_available_variant.inventory_management
+                          == 'shopify'
+                      -%}
+                        {%- if product.selected_or_first_available_variant.inventory_quantity
+                            > 0
+                        -%}
                           {%- if product.selected_or_first_available_variant.inventory_quantity
                               <= block.settings.inventory_threshold
                           -%}
-                            <span class="svg-wrapper" style="color: rgb(238, 148, 65)">
-                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                            <span
+                              class='svg-wrapper'
+                              style='color: rgb(238, 148, 65)'
+                            >
+                              {{-
+                                'icon-inventory-status.svg'
+                                | inline_asset_content
+                              -}}
                             </span>
                             {%- if block.settings.show_inventory_quantity -%}
                               {{-
                                 'products.product.inventory_low_stock_show_count'
-                                | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                                | t:
+                                  quantity: product.selected_or_first_available_variant.inventory_quantity
                               -}}
                             {%- else -%}
                               {{- 'products.product.inventory_low_stock' | t -}}
                             {%- endif -%}
                           {%- else -%}
-                            <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                            <span
+                              class='svg-wrapper'
+                              style='color: rgb(62, 214, 96)'
+                            >
+                              {{-
+                                'icon-inventory-status.svg'
+                                | inline_asset_content
+                              -}}
                             </span>
                             {%- if block.settings.show_inventory_quantity -%}
                               {{-
                                 'products.product.inventory_in_stock_show_count'
-                                | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                                | t:
+                                  quantity: product.selected_or_first_available_variant.inventory_quantity
                               -}}
                             {%- else -%}
                               {{- 'products.product.inventory_in_stock' | t -}}
                             {%- endif -%}
                           {%- endif -%}
                         {%- else -%}
-                          {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                            <span class="svg-wrapper" style="color: rgb(62, 214, 96)">
-                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                          {%- if product.selected_or_first_available_variant.inventory_policy
+                              == 'continue'
+                          -%}
+                            <span
+                              class='svg-wrapper'
+                              style='color: rgb(62, 214, 96)'
+                            >
+                              {{-
+                                'icon-inventory-status.svg'
+                                | inline_asset_content
+                              -}}
                             </span>
-                            {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
+                            {{-
+                              'products.product.inventory_out_of_stock_continue_selling'
+                              | t
+                            -}}
                           {%- else -%}
-                            <span class="svg-wrapper" style="color: rgb(200, 200, 200)">
-                              {{- 'icon-inventory-status.svg' | inline_asset_content -}}
+                            <span
+                              class='svg-wrapper'
+                              style='color: rgb(200, 200, 200)'
+                            >
+                              {{-
+                                'icon-inventory-status.svg'
+                                | inline_asset_content
+                              -}}
                             </span>
-                            {{- 'products.product.inventory_out_of_stock' | t -}}
+                            {{-
+                              'products.product.inventory_out_of_stock'
+                              | t
+                            -}}
                           {%- endif -%}
                         {%- endif -%}
                       {%- endif -%}
                     </p>
                   {%- when 'description' -%}
                     <div
-                      class="{% if is_compact_quick_add == true %} quick-add-hidden{% endif %} tabbed-interface"
+                      class='{% if is_compact_quick_add == true %} quick-add-hidden{% endif %} tabbed-interface'
                       {{ block.shopify_attributes }}
                     >
-                      <ul class="tabbed-interface__tabs" role="tablist">
+                      <ul class='tabbed-interface__tabs' role='tablist'>
                         {%- if product.description != blank -%}
-                          <li role="presentation">
-                            <button id="tab1" role="tab" aria-controls="tabpanel1" aria-selected="true">
+                          <li role='presentation'>
+                            <button
+                              id='tab1'
+                              role='tab'
+                              aria-controls='tabpanel1'
+                              aria-selected='true'
+                            >
                               Description
                             </button>
                           </li>
                         {%- endif -%}
 
-                        {%- assign return_policy_blocks = section.blocks | where: 'type', 'return_policy' -%}
+                        {%- assign return_policy_blocks = section.blocks
+                          | where: 'type', 'return_policy'
+                        -%}
                         {%- if return_policy_blocks.size > 0 -%}
-                          <li role="presentation">
-                            <button id="tab4" role="tab" aria-controls="tabpanel4" aria-selected="false">
+                          <li role='presentation'>
+                            <button
+                              id='tab4'
+                              role='tab'
+                              aria-controls='tabpanel4'
+                              aria-selected='false'
+                            >
                               {{ return_policy_blocks.first.settings.heading }}
                             </button>
                           </li>
                         {%- endif -%}
                       </ul>
                       {%- if product.description != blank -%}
-                        <div id="tabpanel1" class="tabbed-interface__panel" role="tabpanel" aria-labelledby="tab1">
-                          <div class="product__description rte " {{ block.shopify_attributes }}>
+                        <div
+                          id='tabpanel1'
+                          class='tabbed-interface__panel'
+                          role='tabpanel'
+                          aria-labelledby='tab1'
+                        >
+                          <div
+                            class='product__description rte '
+                            {{ block.shopify_attributes }}
+                          >
                             {{ product.description }}
                           </div>
                         </div>
                       {%- endif -%}
-                      {%- if product.metafields.properties.designer_tips != blank -%}
+                      {%- if product.metafields.properties.designer_tips
+                          != blank
+                      -%}
                         <div
-                          id="tabpanel2"
-                          class="tabbed-interface__panel"
-                          role="tabpanel"
-                          aria-labelledby="tab2"
+                          id='tabpanel2'
+                          class='tabbed-interface__panel'
+                          role='tabpanel'
+                          aria-labelledby='tab2'
                           hidden
                         >
-                          <div class="product__description">
-                            {{ product.metafields.properties.designer_tips | metafield_tag }}
+                          <div class='product__description'>
+                            {{
+                              product.metafields.properties.designer_tips
+                              | metafield_tag
+                            }}
                           </div>
                         </div>
                       {%- endif -%}
-                      {%- assign return_policy_blocks = section.blocks | where: 'type', 'return_policy' -%}
+                      {%- assign return_policy_blocks = section.blocks
+                        | where: 'type', 'return_policy'
+                      -%}
                       {%- if return_policy_blocks.size > 0 -%}
                         <div
-                          id="tabpanel4"
-                          class="tabbed-interface__panel"
-                          role="tabpanel"
-                          aria-labelledby="tab4"
+                          id='tabpanel4'
+                          class='tabbed-interface__panel'
+                          role='tabpanel'
+                          aria-labelledby='tab4'
                           hidden
                         >
-                          <div class="product__description">
+                          <div class='product__description'>
                             {{ return_policy_blocks.first.settings.description }}
                           </div>
                         </div>
@@ -265,31 +364,44 @@
                     </div>
 
                   {%- when 'size-guide' -%}
-                    {{ 'component-size-guide-modal.css' | asset_url | stylesheet_tag }}
-                    <div class="quick-add-hidden">
-                      <button class="button-link product__size-guide-modal-trigger" data-modal="size-guide-modal">
+                    {{
+                      'component-size-guide-modal.css'
+                      | asset_url
+                      | stylesheet_tag
+                    }}
+                    <div class='quick-add-hidden'>
+                      <button
+                        class='button-link product__size-guide-modal-trigger'
+                        data-modal='size-guide-modal'
+                      >
                         Size Guide
                       </button>
                     </div>
-                    <global-modal id="size-guide-modal">
-                      <dialog class="modal size-guide-modal">
-                        <div class="modal__cover" data-modal-close aria-hidden="true"></div>
+                    <global-modal id='size-guide-modal'>
+                      <dialog class='modal size-guide-modal'>
+                        <div
+                          class='modal__cover'
+                          data-modal-close
+                          aria-hidden='true'
+                        ></div>
 
-                        <div class="modal__inner">
-                          <div class="modal__close">
+                        <div class='modal__inner'>
+                          <div class='modal__close'>
                             <button data-modal-close>
                               {% render 'icon-close' %}
                             </button>
                           </div>
-                          <div class="modal__content">
-                            <div class="size-guide-modal__primary-content">
-                              <h2 class="size-guide-modal__headline">{{ block.settings.headline }}</h2>
+                          <div class='modal__content'>
+                            <div class='size-guide-modal__primary-content'>
+                              <h2 class='size-guide-modal__headline'>
+                                {{ block.settings.headline }}
+                              </h2>
                               <div>
                                 {% assign page_handle = product.metafields.properties.size_chart %}
                                 {% assign page = pages[page_handle] %}
 
                                 {% if page %}
-                                  <div class="page-content">
+                                  <div class='page-content'>
                                     {{ page.content }}
                                   </div>
                                 {% else %}
@@ -297,31 +409,33 @@
                                 {% endif %}
                               </div>
                             </div>
-                            <div class="size-guide-modal__secondary-content">
-                              <div class="size-guide-modal__secondary-content__body">
-                                <div class="size-guide-modal__image">
-                                  <div class="size-guide-modal__image__inner">
+                            <div class='size-guide-modal__secondary-content'>
+                              <div class='size-guide-modal__secondary-content__body'>
+                                <div class='size-guide-modal__image'>
+                                  <div class='size-guide-modal__image__inner'>
                                     <img
-                                      srcset="
+                                      srcset='
                                         {% if block.settings.image.width >= 493 %}{{ block.settings.image | image_url: width: 493 }} 493w,{% endif %}
                                         {% if block.settings.image.width >= 600 %}{{ block.settings.image | image_url: width: 600 }} 600w,{% endif %}
                                         {% if block.settings.image.width >= 713 %}{{ block.settings.image | image_url: width: 713 }} 713w,{% endif %}
                                         {% if block.settings.image.width >= 823 %}{{ block.settings.image | image_url: width: 823 }} 823w,{% endif %}
                                         {% if block.settings.image.width >= 990 %}{{ block.settings.image | image_url: width: 990 }} 990w,{% endif %}
                                         {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
-                                      "
-                                      src="{{ media | image_url: width: 1946 }}"
-                                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 700px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
-                                      loading="lazy"
-                                      width="500"
-                                      height="{{ 500 | divided_by: block.settings.image.aspect_ratio | ceil }}"
-                                      alt="{{ block.settings.image.alt | escape }}"
-                                      class="responsive-image"
+                                      '
+                                      src='{{ media | image_url: width: 1946 }}'
+                                      sizes='(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 700px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)'
+                                      loading='lazy'
+                                      width='500'
+                                      height='{{ 500 | divided_by: block.settings.image.aspect_ratio | ceil }}'
+                                      alt='{{ block.settings.image.alt | escape }}'
+                                      class='responsive-image'
                                     >
                                   </div>
                                 </div>
-                                <div class="">
-                                  <h3 class="size-guide-modal__subline">{{ block.settings.subline }}</h3>
+                                <div class=''>
+                                  <h3 class='size-guide-modal__subline'>
+                                    {{ block.settings.subline }}
+                                  </h3>
                                   {{ block.settings.body }}
                                 </div>
                               </div>
@@ -333,53 +447,74 @@
 
                   {%- when 'sku' -%}
                     <p
-                      class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
-                      id="Sku-{{ section.id }}"
-                      role="status"
+                      class='product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}'
+                      id='Sku-{{ section.id }}'
+                      role='status'
                       {{ block.shopify_attributes }}
                     >
-                      <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                      <span class='visually-hidden'>
+                        {{- 'products.product.sku' | t }}:</span
+                      >
                       {{- product.selected_or_first_available_variant.sku -}}
                     </p>
                   {%- when 'custom_liquid' -%}
                     {{ block.settings.custom_liquid }}
                   {%- when 'collapsible_tab' -%}
-                    <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                      <details id="Details-{{ block.id }}-{{ section.id }}">
+                    <div
+                      class='product__accordion accordion quick-add-hidden'
+                      {{ block.shopify_attributes }}
+                    >
+                      <details id='Details-{{ block.id }}-{{ section.id }}'>
                         <summary>
-                          <div class="summary__title">
-                            {% render 'icon-accordion', icon: block.settings.icon %}
-                            <h2 class="h4 accordion__title inline-richtext">
-                              {{ block.settings.heading | default: block.settings.page.title | escape }}
+                          <div class='summary__title'>
+                            {% render 'icon-accordion',
+                              icon: block.settings.icon
+                            %}
+                            <h2 class='h4 accordion__title inline-richtext'>
+                              {{
+                                block.settings.heading
+                                | default: block.settings.page.title
+                                | escape
+                              }}
                             </h2>
                           </div>
                           {{- 'icon-caret.svg' | inline_asset_content -}}
                         </summary>
-                        <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                        <div
+                          class='accordion__content rte'
+                          id='ProductAccordion-{{ block.id }}-{{ section.id }}'
+                        >
                           {{ block.settings.content }}
                           {{ block.settings.page.content }}
                         </div>
                       </details>
                     </div>
                   {%- when 'quantity_selector' -%}
-                    {% render 'quantity-selector', product: product, class: 'product-form-quantity' %}
+                    {% render 'quantity-selector',
+                      product: product,
+                      class: 'product-form-quantity'
+                    %}
                   {%- when 'popup' -%}
                     <modal-opener
-                      class="product-popup-modal__opener quick-add-hidden"
-                      data-modal="#PopupModal-{{ block.id }}"
+                      class='product-popup-modal__opener quick-add-hidden'
+                      data-modal='#PopupModal-{{ block.id }}'
                       {{ block.shopify_attributes }}
                     >
                       <button
-                        id="ProductPopup-{{ block.id }}"
-                        class="product-popup-modal__button link"
-                        type="button"
-                        aria-haspopup="dialog"
+                        id='ProductPopup-{{ block.id }}'
+                        class='product-popup-modal__button link'
+                        type='button'
+                        aria-haspopup='dialog'
                       >
-                        {{ block.settings.text | default: block.settings.page.title | escape }}
+                        {{
+                          block.settings.text
+                          | default: block.settings.page.title
+                          | escape
+                        }}
                       </button>
                     </modal-opener>
                   {%- when 'share' -%}
-                    <div class="{% if is_compact_quick_add == true %}quick-add-hidden{% endif %}">
+                    <div class='{% if is_compact_quick_add == true %}quick-add-hidden{% endif %}'>
                       {% liquid
                         assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                         render 'share-button', block: block, share_link: share_url
@@ -400,18 +535,26 @@
                       show_pickup_availability: true
                     -%}
                   {%- when 'rating' -%}
-                    {% render 'product-rating', product: product, class: 'product-template__rating' %}
+                    {% render 'product-rating',
+                      product: product,
+                      class: 'product-template__rating'
+                    %}
                   {%- when 'icon-with-text' -%}
                     {% render 'icon-with-text', block: block %}
                   {%- when 'product-cta' -%}
-                    <div class="product-cta-card  card quick-add-hidden">
-                      <div class="card__inner">
-                        <h2 class="product-cta-card__heading">{{ block.settings.heading }}</h2>
-                        <div class="product-cta-card__body">
+                    <div class='product-cta-card  card quick-add-hidden'>
+                      <div class='card__inner'>
+                        <h2 class='product-cta-card__heading'>
+                          {{ block.settings.heading }}
+                        </h2>
+                        <div class='product-cta-card__body'>
                           {{ block.settings.body }}
                         </div>
-                        <div class="product-cta__cta">
-                          <a href="{{ block.settings.cta_link }}" class="button button--primary button--medium">
+                        <div class='product-cta__cta'>
+                          <a
+                            href='{{ block.settings.cta_link }}'
+                            class='button button--primary button--medium'
+                          >
                             {{- block.settings.cta_text -}}
                           </a>
                         </div>
@@ -428,24 +571,28 @@
 
       {% assign popups = section.blocks | where: 'type', 'popup' %}
       {%- for block in popups -%}
-        <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+        <modal-dialog
+          id='PopupModal-{{ block.id }}'
+          class='product-popup-modal'
+          {{ block.shopify_attributes }}
+        >
           <div
-            role="dialog"
-            aria-label="{{ block.settings.text }}"
-            aria-modal="true"
-            class="product-popup-modal__content"
-            tabindex="-1"
+            role='dialog'
+            aria-label='{{ block.settings.text }}'
+            aria-modal='true'
+            class='product-popup-modal__content'
+            tabindex='-1'
           >
             <button
-              id="ModalClose-{{ block.id }}"
-              type="button"
-              class="product-popup-modal__toggle"
-              aria-label="{{ 'accessibility.close' | t }}"
+              id='ModalClose-{{ block.id }}'
+              type='button'
+              class='product-popup-modal__toggle'
+              aria-label='{{ 'accessibility.close' | t }}'
             >
               {{- 'icon-close.svg' | inline_asset_content -}}
             </button>
-            <div class="product-popup-modal__content-info">
-              <h1 class="h2">{{ block.settings.page.title | escape }}</h1>
+            <div class='product-popup-modal__content-info'>
+              <h1 class='h2'>{{ block.settings.page.title | escape }}</h1>
               {{ block.settings.page.content }}
             </div>
           </div>
@@ -453,10 +600,10 @@
       {%- endfor -%}
 
       {%- if first_3d_model -%}
-        <script type="application/json" id="ProductJSON-{{ product.id }}">
+        <script type='application/json' id='ProductJSON-{{ product.id }}'>
           {{ product.media | where: 'media_type', 'model' | json }}
         </script>
-        <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+        <script src='{{ 'product-model.js' | asset_url }}' defer></script>
       {%- endif -%}
 
       {%- liquid
@@ -468,7 +615,7 @@
       -%}
 
       {% unless template contains 'non-shoppable' %}
-        <script type="application/ld+json">
+        <script type='application/ld+json'>
           {{ product | structured_data}}
         </script>
       {% endunless %}
@@ -478,7 +625,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-product.name",
+  "name": "Product Template",
 
   "blocks": [
     {
@@ -2142,6 +2289,12 @@
       "id": "show_compact_quick_add",
       "default": false,
       "label": "Show compact quick add"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Template",
+      "category": "E-commerce"
     }
   ]
 }

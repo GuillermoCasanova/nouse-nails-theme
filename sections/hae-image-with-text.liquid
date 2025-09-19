@@ -1,12 +1,12 @@
 {{ 'image-with-text.css' | asset_url | stylesheet_tag }}
 
-<section class="image-with-text color-{{ section.settings.color_scheme }}">
-  <div class="image-with-text__container container-small section-padding-small">
-    <div class="image-with-text__content grid grid-2 grid-gap-lg {% if section.settings.layout == 'right' %} reverse-desktop-up {% endif %}">
-      <div class="image-with-text__media-wrapper">
+<section class='image-with-text color-{{ section.settings.color_scheme }}'>
+  <div class='image-with-text__container container-small section-padding-small'>
+    <div class='image-with-text__content grid grid-2 grid-gap-lg {% if section.settings.layout == 'right' %} reverse-desktop-up {% endif %}'>
+      <div class='image-with-text__media-wrapper'>
         {% if section.settings.media_type == 'image' %}
           {% if section.settings.image != blank %}
-            <div class="image-with-text__media">
+            <div class='image-with-text__media'>
               {% render 'image-with-aspect-ratio',
                 image: section.settings.image,
                 aspect_ratio: section.settings.media_aspect_ratio,
@@ -18,49 +18,57 @@
           {% endif %}
         {% else %}
           <video
-            class="responsive-video"
+            class='responsive-video'
             autoplay
             loop
             muted
             playsinline
-            poster="{{ section.settings.video_poster | img_url }}"
+            poster='{{ section.settings.video_poster | img_url }}'
           >
-            <source src="{{ section.settings.video_url }}" type="video/mp4">
+            <source src='{{ section.settings.video_url }}' type='video/mp4'>
             Your browser does not support the video tag.
           </video>
         {% endif %}
       </div>
-      <div class="image-with-text__text">
+      <div class='image-with-text__text'>
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'eyebrow' %}
-              <div class="text-eyebrow {{ block.settings.text_size }}">{{ block.settings.text }}</div>
+              <div class='text-eyebrow {{ block.settings.text_size }}'>
+                {{ block.settings.text }}
+              </div>
             {% when 'heading' %}
-              <h2 class="{{ block.settings.heading_size }}">{{ block.settings.heading | escape }}</h2>
+              <h2 class='{{ block.settings.heading_size }}'>
+                {{ block.settings.heading | escape }}
+              </h2>
             {% when 'text' %}
-              <div class="{{ block.settings.text_size }}">{{ block.settings.text }}</div>
+              <div class='{{ block.settings.text_size }}'>
+                {{ block.settings.text }}
+              </div>
             {% when 'text_with_icon' %}
-              <div class="text-with-icon">
+              <div class='text-with-icon'>
                 {% if block.settings.icon != blank %}
-                  <div class="text-with-icon_icon icon-medium icon">
+                  <div class='text-with-icon_icon icon-medium icon'>
                     <img
-                      src="{{ block.settings.icon | img_url: '50x' }}"
-                      alt="{{ block.settings.icon.alt | escape }}"
-                      class="image-with-text__icon"
-                      width="24"
-                      height="24"
-                      loading="lazy"
+                      src='{{ block.settings.icon | img_url: '50x' }}'
+                      alt='{{ block.settings.icon.alt | escape }}'
+                      class='image-with-text__icon'
+                      width='24'
+                      height='24'
+                      loading='lazy'
                     >
                   </div>
                 {% endif %}
-                <div class="text-with-icon_text {{ block.settings.text_size }}">{{ block.settings.text }}</div>
+                <div class='text-with-icon_text {{ block.settings.text_size }}'>
+                  {{ block.settings.text }}
+                </div>
               </div>
             {% when 'button' %}
-              <div class="image-with-text__button-wrapper">
+              <div class='image-with-text__button-wrapper'>
                 <a
-                  href="{{ block.settings.button_link }}"
-                  class="button {{ block.settings.button_size }} button--primary"
-                  aria-label="{{ block.settings.button_label | escape }}"
+                  href='{{ block.settings.button_link }}'
+                  class='button {{ block.settings.button_size }} button--primary'
+                  aria-label='{{ block.settings.button_label | escape }}'
                 >
                   {{- block.settings.button_label | escape -}}
                 </a>
@@ -371,7 +379,7 @@
   "presets": [
     {
       "name": "Image with text",
-      "category": "Image",
+      "category": "Media & Visual",
       "blocks": [
         {
           "type": "heading"

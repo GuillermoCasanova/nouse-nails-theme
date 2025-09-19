@@ -1,86 +1,89 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 
-<footer class="footer color-{{ section.settings.color_scheme }}" role="contentinfo">
-  <div class="footer__container container-main">
+<footer
+  class='footer color-{{ section.settings.color_scheme }}'
+  role='contentinfo'
+>
+  <div class='footer__container container-main'>
     <!-- Main Footer Content -->
-    <div class="footer__main">
-      <div class="footer__grid grid grid-3">
+    <div class='footer__main'>
+      <div class='footer__grid grid grid-3'>
         <!-- Company Info Column -->
-        <div class="footer__column">
+        <div class='footer__column'>
           {% if section.settings.show_company_info %}
-            <div class="footer__company">
+            <div class='footer__company'>
               {% if section.settings.company_logo != blank %}
-                <div class="footer__logo">
+                <div class='footer__logo'>
                   <img
-                    src="{{ section.settings.company_logo | img_url: '200x' }}"
-                    alt="{{ shop.name }}"
-                    class="footer__logo-image"
-                    loading="lazy"
+                    src='{{ section.settings.company_logo | img_url: '200x' }}'
+                    alt='{{ shop.name }}'
+                    class='footer__logo-image'
+                    loading='lazy'
                   >
                 </div>
               {% endif %}
 
               {% if section.settings.company_description != blank %}
-                <div class="footer__description">
+                <div class='footer__description'>
                   {{ section.settings.company_description }}
                 </div>
               {% endif %}
 
               {% if section.settings.show_social_icons %}
-                <div class="footer__social">
-                  <ul class="footer__social-list">
+                <div class='footer__social'>
+                  <ul class='footer__social-list'>
                     {% if settings.social_facebook_link != blank %}
-                      <li class="footer__social-item">
+                      <li class='footer__social-item'>
                         <a
-                          href="{{ settings.social_facebook_link }}"
-                          class="footer__social-link"
-                          target="_blank"
-                          rel="noopener"
+                          href='{{ settings.social_facebook_link }}'
+                          class='footer__social-link'
+                          target='_blank'
+                          rel='noopener'
                         >
                           {% render 'icon-facebook' %}
-                          <span class="visually-hidden">Facebook</span>
+                          <span class='visually-hidden'>Facebook</span>
                         </a>
                       </li>
                     {% endif %}
 
                     {% if settings.social_instagram_link != blank %}
-                      <li class="footer__social-item">
+                      <li class='footer__social-item'>
                         <a
-                          href="{{ settings.social_instagram_link }}"
-                          class="footer__social-link"
-                          target="_blank"
-                          rel="noopener"
+                          href='{{ settings.social_instagram_link }}'
+                          class='footer__social-link'
+                          target='_blank'
+                          rel='noopener'
                         >
                           {% render 'icon-instagram' %}
-                          <span class="visually-hidden">Instagram</span>
+                          <span class='visually-hidden'>Instagram</span>
                         </a>
                       </li>
                     {% endif %}
 
                     {% if settings.social_twitter_link != blank %}
-                      <li class="footer__social-item">
+                      <li class='footer__social-item'>
                         <a
-                          href="{{ settings.social_twitter_link }}"
-                          class="footer__social-link"
-                          target="_blank"
-                          rel="noopener"
+                          href='{{ settings.social_twitter_link }}'
+                          class='footer__social-link'
+                          target='_blank'
+                          rel='noopener'
                         >
                           {% render 'icon-twitter' %}
-                          <span class="visually-hidden">Twitter</span>
+                          <span class='visually-hidden'>Twitter</span>
                         </a>
                       </li>
                     {% endif %}
 
                     {% if settings.social_pinterest_link != blank %}
-                      <li class="footer__social-item">
+                      <li class='footer__social-item'>
                         <a
-                          href="{{ settings.social_pinterest_link }}"
-                          class="footer__social-link"
-                          target="_blank"
-                          rel="noopener"
+                          href='{{ settings.social_pinterest_link }}'
+                          class='footer__social-link'
+                          target='_blank'
+                          rel='noopener'
                         >
                           {% render 'icon-pinterest' %}
-                          <span class="visually-hidden">Pinterest</span>
+                          <span class='visually-hidden'>Pinterest</span>
                         </a>
                       </li>
                     {% endif %}
@@ -92,18 +95,20 @@
         </div>
 
         <!-- Quick Links Column -->
-        <div class="footer__column">
+        <div class='footer__column'>
           {% if section.settings.show_quick_links %}
-            <div class="footer__quick-links">
+            <div class='footer__quick-links'>
               {% if section.settings.quick_links_title != blank %}
-                <h3 class="footer__column-title">{{ section.settings.quick_links_title }}</h3>
+                <h3 class='footer__column-title'>
+                  {{ section.settings.quick_links_title }}
+                </h3>
               {% endif %}
 
               {% if section.settings.quick_links_menu != blank %}
-                <ul class="footer__links-list">
+                <ul class='footer__links-list'>
                   {% for link in linklists[section.settings.quick_links_menu].links %}
-                    <li class="footer__links-item">
-                      <a href="{{ link.url }}" class="footer__link">
+                    <li class='footer__links-item'>
+                      <a href='{{ link.url }}' class='footer__link'>
                         {{ link.title }}
                       </a>
                     </li>
@@ -115,49 +120,60 @@
         </div>
 
         <!-- Newsletter Column -->
-        <div class="footer__column">
+        <div class='footer__column'>
           {% if section.settings.show_newsletter %}
-            <div class="footer__newsletter">
+            <div class='footer__newsletter'>
               {% if section.settings.newsletter_title != blank %}
-                <h3 class="footer__column-title">{{ section.settings.newsletter_title }}</h3>
+                <h3 class='footer__column-title'>
+                  {{ section.settings.newsletter_title }}
+                </h3>
               {% endif %}
 
               {% if section.settings.newsletter_description != blank %}
-                <div class="footer__newsletter-description">
+                <div class='footer__newsletter-description'>
                   {{ section.settings.newsletter_description }}
                 </div>
               {% endif %}
 
-              <div class="footer__newsletter-form">
-                {% form 'customer', id: 'footer-newsletter', novalidate: 'novalidate' %}
-                  <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class='footer__newsletter-form'>
+                {% form 'customer',
+                  id: 'footer-newsletter',
+                  novalidate: 'novalidate'
+                %}
+                  <input type='hidden' name='contact[tags]' value='newsletter'>
 
-                  <div class="footer__newsletter-input-group">
+                  <div class='footer__newsletter-input-group'>
                     <input
-                      type="email"
-                      name="contact[email]"
-                      id="footer-newsletter-email"
-                      class="footer__newsletter-input"
-                      value="{{ form.email }}"
-                      placeholder="{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}"
-                      aria-label="{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}"
+                      type='email'
+                      name='contact[email]'
+                      id='footer-newsletter-email'
+                      class='footer__newsletter-input'
+                      value='{{ form.email }}'
+                      placeholder='{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}'
+                      aria-label='{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}'
                       required
-                      autocorrect="off"
-                      autocapitalize="off"
+                      autocorrect='off'
+                      autocapitalize='off'
                     >
-                    <button type="submit" class="footer__newsletter-button button button--primary">
-                      {{ section.settings.newsletter_button_text | default: 'Subscribe' }}
+                    <button
+                      type='submit'
+                      class='footer__newsletter-button button button--primary'
+                    >
+                      {{
+                        section.settings.newsletter_button_text
+                        | default: 'Subscribe'
+                      }}
                     </button>
                   </div>
 
                   {% if form.posted_successfully? %}
-                    <p class="footer__newsletter-success">
+                    <p class='footer__newsletter-success'>
                       {{ 'general.newsletter_form.confirmation' | t }}
                     </p>
                   {% endif %}
 
                   {% if form.errors contains 'email' %}
-                    <p class="footer__newsletter-error">
+                    <p class='footer__newsletter-error'>
                       {{ form.errors.messages.email }}
                     </p>
                   {% endif %}
@@ -170,25 +186,34 @@
     </div>
 
     <!-- Footer Bottom -->
-    <div class="footer__bottom">
-      <div class="footer__bottom-content">
+    <div class='footer__bottom'>
+      <div class='footer__bottom-content'>
         <!-- Copyright -->
-        <div class="footer__copyright">
-          <p class="footer__copyright-text">
+        <div class='footer__copyright'>
+          <p class='footer__copyright-text'>
             &copy; {{ 'now' | date: '%Y' }}
-            {{ shop.name }}. {{ section.settings.copyright_text | default: 'All rights reserved.' }}
+            {{ shop.name }}.
+            {{
+              section.settings.copyright_text
+              | default: 'All rights reserved.'
+            }}
           </p>
         </div>
 
         <!-- Bottom Links -->
-        <div class="footer__bottom-links">
+        <div class='footer__bottom-links'>
           {% if section.settings.show_payment_icons %}
-            <div class="footer__payment-icons">
-              <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
-              <ul class="footer__payment-list">
+            <div class='footer__payment-icons'>
+              <span class='visually-hidden'>
+                {{- 'general.payment.method' | t -}}
+              </span>
+              <ul class='footer__payment-list'>
                 {% for type in shop.enabled_payment_types %}
-                  <li class="footer__payment-item">
-                    {{ type | payment_type_svg_tag: class: 'footer__payment-icon' }}
+                  <li class='footer__payment-item'>
+                    {{
+                      type
+                      | payment_type_svg_tag: class: 'footer__payment-icon'
+                    }}
                   </li>
                 {% endfor %}
               </ul>
@@ -196,11 +221,11 @@
           {% endif %}
 
           {% if section.settings.show_bottom_menu %}
-            <nav class="footer__bottom-nav">
-              <ul class="footer__bottom-nav-list">
+            <nav class='footer__bottom-nav'>
+              <ul class='footer__bottom-nav-list'>
                 {% for link in linklists[section.settings.bottom_menu].links %}
-                  <li class="footer__bottom-nav-item">
-                    <a href="{{ link.url }}" class="footer__bottom-nav-link">
+                  <li class='footer__bottom-nav-item'>
+                    <a href='{{ link.url }}' class='footer__bottom-nav-link'>
                       {{ link.title }}
                     </a>
                   </li>
@@ -338,6 +363,12 @@
       "id": "bottom_menu",
       "label": "Bottom navigation menu",
       "info": "This menu will appear at the bottom of the footer"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "category": "Navigation & Layout"
     }
   ]
 }

@@ -4,46 +4,59 @@
 {{ 'vendor-swiper.css' | asset_url | stylesheet_tag }}
 {{ 'section-recommended-product.css' | asset_url | stylesheet_tag }}
 
-<section class="product-recommendations color-{{ section.settings.color_scheme }}">
-  <div class="product-recommendations__contain {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}">
+<section class='product-recommendations color-{{ section.settings.color_scheme }}'>
+  <div class='product-recommendations__contain {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
     <product-recommendations
-      class="product-recommendations__layout"
-      data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-      data-section-id="{{ section.id }}"
-      data-product-id="{{ product.id }}"
+      class='product-recommendations__layout'
+      data-url='{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}'
+      data-section-id='{{ section.id }}'
+      data-product-id='{{ product.id }}'
     >
       {% if recommendations.performed and recommendations.products_count > 0 %}
-        <div class="product-recommendations__header  container-large">
+        <div class='product-recommendations__header  container-large'>
           {% if section.settings.hide_title != true %}
-            <h2 class="product-recommendations__heading {{ section.settings.heading_size }}">
+            <h2 class='product-recommendations__heading {{ section.settings.heading_size }}'>
               {{ section.settings.heading }}
             </h2>
           {% endif %}
         </div>
-        <div class="product-recommendations__swiper">
+        <div class='product-recommendations__swiper'>
           <swiper-slideshow
-            slides-per-view="1.75"
-            space-between="26"
-            loop="false"
-            autoplay="false"
-            create-elements="true"
-            show-navigation="false"
-            show-pagination="false"
-            show-scrollbar="true"
-            effect="slide"
-            draggable="false"
-            desktop-slides-per-view="auto"
-            speed="800"
-            free-mode="true"
-            centered-slides="false"
-            slides-offset-before="30"
-            desktop-slides-offset-before="0"
+            slides-per-view='1.75'
+            space-between='26'
+            loop='false'
+            autoplay='false'
+            create-elements='true'
+            show-navigation='false'
+            show-pagination='false'
+            show-scrollbar='true'
+            effect='slide'
+            draggable='false'
+            desktop-slides-per-view='auto'
+            speed='800'
+            free-mode='true'
+            centered-slides='false'
+            slides-offset-before='30'
+            desktop-slides-offset-before='0'
           >
-            <div class="swiper product-recommendations-swiper" data-related-products-list data-swiper-slideshow>
-              <div class="swiper-wrapper product-recommendations__grid" data-swiper-slideshow-wrapper>
+            <div
+              class='swiper product-recommendations-swiper'
+              data-related-products-list
+              data-swiper-slideshow
+            >
+              <div
+                class='swiper-wrapper product-recommendations__grid'
+                data-swiper-slideshow-wrapper
+              >
                 {% for recommendation in recommendations.products %}
-                  <div class="swiper-slide product-recommendations__item" data-swiper-slide>
-                    {% render 'product-card-grid', product: recommendation, show_rating: section.settings.show_rating %}
+                  <div
+                    class='swiper-slide product-recommendations__item'
+                    data-swiper-slide
+                  >
+                    {% render 'product-card-grid',
+                      product: recommendation,
+                      show_rating: section.settings.show_rating
+                    %}
                   </div>
                 {% endfor %}
               </div>
@@ -55,7 +68,7 @@
   </div>
 </section>
 
-<script type="module" src="{{ 'swiper-slideshow.js' | asset_url }}"></script>
+<script type='module' src='{{ 'swiper-slideshow.js' | asset_url }}'></script>
 
 <script>
   class ProductRecommendations extends HTMLElement {
@@ -84,9 +97,11 @@
 
     loadRecommendations(productId) {
       console.log(productId);
-      fetch(`${this.dataset.url}&product_id=${productId}&section_id=${this.dataset.sectionId}`)
-        .then((response) => response.text())
-        .then((text) => {
+      fetch(
+        `${this.dataset.url}&product_id=${productId}&section_id=${this.dataset.sectionId}`
+      )
+        .then(response => response.text())
+        .then(text => {
           console.log(text);
           const html = document.createElement('div');
           html.innerHTML = text;
@@ -96,7 +111,10 @@
             this.innerHTML = recommendations.innerHTML;
           }
 
-          if (!this.querySelector('slideshow-component') && this.classList.contains('complementary-products')) {
+          if (
+            !this.querySelector('slideshow-component') &&
+            this.classList.contains('complementary-products')
+          ) {
             this.remove();
           }
 
@@ -104,7 +122,7 @@
             this.classList.add('product-recommendations--loaded');
           }
         })
-        .catch((e) => {
+        .catch(e => {
           console.error(e);
         });
     }
@@ -246,7 +264,7 @@
   "presets": [
     {
       "name": "Product Recommendations",
-      "category": "Product Page Sections"
+      "category": "Product Sections"
     }
   ],
   "enabled_on": {

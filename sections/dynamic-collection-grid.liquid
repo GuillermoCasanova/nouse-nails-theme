@@ -16,24 +16,24 @@
     {%- assign grid_class = 'grid-5' -%}
 {% endcase %}
 
-<section class="dynamic-collection-grid color-{{ section.settings.color_scheme }}">
-  <div class="container-main   {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}">
+<section class='dynamic-collection-grid color-{{ section.settings.color_scheme }}'>
+  <div class='container-main   {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
     {% if section.settings.hide_title != true %}
       {% if section.settings.title != blank %}
-        <h1 class="dynamic-collection-grid_heading  headline-style-h1">
+        <h1 class='dynamic-collection-grid_heading  headline-style-h1'>
           {{ section.settings.title | escape }}
         </h1>
       {% else %}
-        <h1 class="dynamic-collection-grid_heading  headline-style-h1">
+        <h1 class='dynamic-collection-grid_heading  headline-style-h1'>
           {{ collection.title | escape }}
         </h1>
       {% endif %}
     {% endif %}
-    <ul class="dynamic-collection-grid grid {{ grid_class }} grid-gap-md">
+    <ul class='dynamic-collection-grid grid {{ grid_class }} grid-gap-md'>
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}
-            <li class="dynamic-collection-grid__product">
+            <li class='dynamic-collection-grid__product'>
               {% render 'product-card-grid',
                 product: block.settings.product,
                 show_vendor: true,
@@ -42,7 +42,7 @@
               %}
             </li>
           {% when 'video_embed' %}
-            <li class="dynamic-collection-grid__video {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
+            <li class='dynamic-collection-grid__video {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}'>
               {% render 'video-with-aspect-ratio',
                 video: block.settings.video,
                 aspect_ratio: block.settings.media_aspect_ratio,
@@ -54,8 +54,10 @@
               %}
             </li>
           {% when 'image' %}
-            <li class="dynamic-collection-grid__image {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
-              {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}
+            <li class='dynamic-collection-grid__image {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}'>
+              {% if block.settings.media_aspect_ratio == '16/9'
+                or block.settings.media_aspect_ratio == '64/41'
+              %}
                 {% render 'image-with-aspect-ratio',
                   image: block.settings.image,
                   aspect_ratio: block.settings.media_aspect_ratio,
@@ -287,7 +289,7 @@
   "presets": [
     {
       "name": "Dynamic Collection Grid",
-      "category": "Colletion Sections",
+      "category": "Collection & Catalog",
       "blocks": [
         {
           "type": "product"

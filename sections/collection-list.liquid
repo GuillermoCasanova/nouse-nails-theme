@@ -1,6 +1,6 @@
-<div class="page-width">
+<div class='page-width'>
   {% if section.settings.title != blank %}
-    <div class="section-header text-center">
+    <div class='section-header text-center'>
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
@@ -16,10 +16,13 @@
       {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
   {% endcase %}
 
-  <div class="collection-grid">
-    <ul class="grid grid--uniform">
+  <div class='collection-grid'>
+    <ul class='grid grid--uniform'>
       {% for block in section.blocks limit: section.blocks.size %}
-        <li class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
+        <li
+          class='grid__item {{ grid_item_width }}'
+          {{ block.shopify_attributes }}
+        >
           {%- assign collection = collections[block.settings.collection] -%}
           {% include 'collection-grid-item', collection: collection %}
         </li>
@@ -31,8 +34,6 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
-
-
 
 {% schema %}
 {
@@ -234,7 +235,6 @@
         "zh-TW": "商品系列清單"
       },
       "category": {
-        "cs": "Kolekce",
         "da": "Kollektion",
         "de": "Kategorie",
         "en": "Collection",

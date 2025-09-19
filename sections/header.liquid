@@ -1,26 +1,81 @@
-<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link
-  rel="stylesheet"
-  href="{{ 'component-cart-notification.css' | asset_url }}"
-  media="print"
+  rel='stylesheet'
+  href='{{ 'component-list-menu.css' | asset_url }}'
+  media='print'
   onload="this.media='all'"
 >
-<link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-header.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-header-menu.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link
-  rel="stylesheet"
-  href="{{ 'component-predictive-search.css' | asset_url }}"
-  media="print"
+  rel='stylesheet'
+  href='{{ 'component-menu-drawer.css' | asset_url }}'
+  media='print'
   onload="this.media='all'"
 >
-<link rel="stylesheet" href="{{ 'component-cart-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-totals.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-discounts.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel='stylesheet'
+  href='{{ 'component-cart-notification.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-cart-items.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-header.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-header-menu.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-mega-menu.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-predictive-search.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-cart-drawer.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-cart.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-totals.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-price.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-discounts.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart.css' | asset_url | stylesheet_tag }}
@@ -28,17 +83,25 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
-<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>
+  {{- 'component-list-menu.css' | asset_url | stylesheet_tag -}}
+</noscript>
+<noscript>
+  {{- 'component-menu-drawer.css' | asset_url | stylesheet_tag -}}
+</noscript>
+<noscript>
+  {{- 'component-cart-notification.css' | asset_url | stylesheet_tag -}}
+</noscript>
+<noscript>
+  {{- 'component-cart-items.css' | asset_url | stylesheet_tag -}}
+</noscript>
 
-<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+<script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
+<script src='{{ 'details-modal.js' | asset_url }}' defer='defer'></script>
 
-<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+<script src='{{ 'cart-notification.js' | asset_url }}' defer='defer'></script>
+<script src='{{ 'cart.js' | asset_url }}' defer='defer'></script>
+<script src='{{ 'cart-drawer.js' | asset_url }}' defer='defer'></script>
 
 {% comment %}
   <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
@@ -51,17 +114,26 @@
   endfor
 -%}
 
-<sticky-header class="header-wrapper {% if settings.show_announcement_bar %} announcement-bar-active{% endif %}">
-  <header class="header">
-    <div class="header__inner  page-width">
+<sticky-header class='header-wrapper {% if settings.show_announcement_bar %} announcement-bar-active{% endif %}'>
+  <header class='header'>
+    <div class='header__inner  page-width'>
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
+        <h1 class='header__heading'>
       {%- else -%}
-        <div class="header__heading">
+        <div class='header__heading'>
       {%- endif -%}
-      <a href="{{ routes.root_url }}" class="header__heading-link" title="Go to homepage">
-        <div class="header__logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 166 29" fill="none" preserveAspectRatio="xMaxYMin">
+      <a
+        href='{{ routes.root_url }}'
+        class='header__heading-link'
+        title='Go to homepage'
+      >
+        <div class='header__logo'>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 166 29'
+            fill='none'
+            preserveAspectRatio='xMaxYMin'
+          >
             <path d="M0 2.02186H7.60984L20.7411 16.1941C21.4846 17.0025 22.2276 18.0578 22.7232 19.0424H22.8648V2.02186H29.342V26.9893H22.2276L8.60089 12.6417C7.89314 11.8679 6.97266 10.6018 6.61879 9.7934H6.47714V26.9888H0V2.02186Z" fill="currentColor"/>
             <path d="M34.3203 14.3875C34.3203 6.42454 40.7127 1.28214 49.8953 1.28214C58.9766 1.28214 65.4704 6.42454 65.4704 14.3875C65.4704 22.3504 58.9766 27.4937 49.8953 27.4937C40.7127 27.4937 34.3203 22.3514 34.3203 14.3875ZM57.81 14.3875C57.81 10.3554 54.7153 6.97871 49.8958 6.97871C45.0254 6.97871 41.9811 10.3558 41.9811 14.3875C41.9811 18.4191 45.0254 21.7977 49.8958 21.7977C54.7153 21.7977 57.81 18.4205 57.81 14.3875Z" fill="currentColor"/>
             <path d="M99.0061 26.4351V26.9893H91.6497C91.4468 26.0825 91.1929 24.9231 90.99 23.5113H90.7366C89.8739 24.8223 87.5404 27.4938 81.5539 27.4938C75.0601 27.4938 69.3779 24.6202 69.3779 16.2535V1.78715H76.9373V14.3373C76.9373 19.5299 79.1694 21.9993 83.3806 21.9993C87.6418 21.9993 90.6861 19.0755 90.6861 13.582V1.78715H98.1945V19.0249C98.1945 22.3514 98.4483 25.3258 99.0061 26.4351Z" fill="currentColor"/>
@@ -69,7 +141,7 @@
             <path d="M155.275 0L154.188 10.7625L164.981 7.62983L166 14.9685L156.135 15.7671L162.695 24.3694L156.146 27.9686L151.549 18.8764L147.665 28.0129L140.814 24.6041L147.145 15.8835L137.334 15.1983L138.386 7.90789L148.998 10.8438L147.71 0.103237L155.275 0.0336009V0Z" fill="currentColor"/>
           </svg>
         </div>
-        <span class="visually-hidden">{{ shop.name }}</span>
+        <span class='visually-hidden'>{{ shop.name }}</span>
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -83,17 +155,17 @@
 
       {% render 'header-mega-menu' %}
 
-      <div class="header__icons page-width">
+      <div class='header__icons page-width'>
         <search-toggle>
           <button
-            class="header__icon"
-            id="search-modal-toggle"
+            class='header__icon'
+            id='search-modal-toggle'
             data-search-modal-toggle
-            aria-expanded="false"
-            aria-haspopup="dialog"
-            aria-controls="search-modal"
+            aria-expanded='false'
+            aria-haspopup='dialog'
+            aria-controls='search-modal'
           >
-            <span class="icon-small">
+            <span class='icon-small'>
               {% render 'icon-search' %}
             </span>
           </button>
@@ -121,21 +193,26 @@
         {% endcomment %}
 
         <a
-          href="{{ routes.cart_url }}"
-          class="header__icon header__icon--cart link focus-inset"
-          id="cart-icon-bubble"
+          href='{{ routes.cart_url }}'
+          class='header__icon header__icon--cart link focus-inset'
+          id='cart-icon-bubble'
           data-cart-toggle
         >
           {% render 'icon-bag' %}
-          <span data-cart-toggle-text class="visually-hidden  header__cart-button__text">
+          <span
+            data-cart-toggle-text
+            class='visually-hidden  header__cart-button__text'
+          >
             {{- 'templates.cart.cart' | t -}}
           </span>
           {%- if cart != empty -%}
-            <div class="cart-count-bubble">
+            <div class='cart-count-bubble'>
               {%- if cart.item_count < 100 -%}
-                <span aria-hidden="true">{{ cart.item_count }}</span>
+                <span aria-hidden='true'>{{ cart.item_count }}</span>
               {%- endif -%}
-              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+              <span class='visually-hidden'>
+                {{- 'sections.header.cart_count' | t: count: cart.item_count -}}
+              </span>
             </div>
           {%- endif -%}
         </a>
@@ -143,82 +220,111 @@
     </div>
 
     <div
-      class="search-modal preload"
+      class='search-modal preload'
       data-search-modal
-      aria-hidden="true"
-      id="search-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="search-modal-toggle"
-      aria-label="{{ 'general.search.search' | t }}"
+      aria-hidden='true'
+      id='search-modal'
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='search-modal-toggle'
+      aria-label='{{ 'general.search.search' | t }}'
     >
-      <div class="search-modal__content" tabindex="-1">
-        <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
-          <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+      <div class='search-modal__content' tabindex='-1'>
+        <predictive-search
+          class='search-modal__form'
+          data-loading-text='{{ 'accessibility.loading' | t }}'
+        >
+          <form
+            action='{{ routes.search_url }}'
+            method='get'
+            role='search'
+            class='search search-modal__form'
+          >
             <custom-input-wrapper>
-              <div class="search__input-container page-width">
+              <div class='search__input-container page-width'>
                 <input
-                  class="search__input"
-                  id="Search-In-Modal-1"
-                  type="search"
-                  name="q"
-                  value=""
-                  role="combobox"
-                  aria-expanded="false"
-                  aria-owns="predictive-search-results-list"
-                  aria-controls="predictive-search-results-list"
-                  aria-haspopup="listbox"
-                  aria-autocomplete="list"
-                  autocorrect="off"
-                  autocomplete="off"
-                  autocapitalize="off"
-                  spellcheck="false"
+                  class='search__input'
+                  id='Search-In-Modal-1'
+                  type='search'
+                  name='q'
+                  value=''
+                  role='combobox'
+                  aria-expanded='false'
+                  aria-owns='predictive-search-results-list'
+                  aria-controls='predictive-search-results-list'
+                  aria-haspopup='listbox'
+                  aria-autocomplete='list'
+                  autocorrect='off'
+                  autocomplete='off'
+                  autocapitalize='off'
+                  spellcheck='false'
                 >
-                <label data-search-input-label class="search__label" for="Search-In-Modal-1">
+                <label
+                  data-search-input-label
+                  class='search__label'
+                  for='Search-In-Modal-1'
+                >
                   {{ 'general.search.search' | t }}
                 </label>
-                <input type="hidden" name="options[prefix]" value="last">
+                <input type='hidden' name='options[prefix]' value='last'>
 
-                <button class="search__button" aria-label="{{ 'general.search.search' | t }}" data-search-modal-toggle>
-                  <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                <button
+                  class='search__button'
+                  aria-label='{{ 'general.search.search' | t }}'
+                  data-search-modal-toggle
+                >
+                  <svg
+                    class='icon icon-search'
+                    aria-hidden='true'
+                    focusable='false'
+                    role='presentation'
+                  >
                     <use href="#icon-search"></use>
                   </svg>
                 </button>
                 <button
-                  class="search-modal__close button-close"
-                  type="button"
-                  aria-label="{{ 'accessibility.close' | t }}"
+                  class='search-modal__close button-close'
+                  type='button'
+                  aria-label='{{ 'accessibility.close' | t }}'
                   data-modal-close
                 >
                   {% render 'icon-close' %}
-                  <span class="visually-hidden">
+                  <span class='visually-hidden'>
                     {{ 'accessibility.close' | t }}
                   </span>
                 </button>
               </div>
             </custom-input-wrapper>
 
-            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-              <div class="predictive-search__loading-state">
+            <div
+              class='predictive-search predictive-search--header'
+              tabindex='-1'
+              data-predictive-search
+            >
+              <div class='predictive-search__loading-state'>
                 <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  role="presentation"
-                  class="spinner"
-                  viewBox="0 0 66 66"
-                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden='true'
+                  focusable='false'
+                  role='presentation'
+                  class='spinner'
+                  viewBox='0 0 66 66'
+                  xmlns='http://www.w3.org/2000/svg'
                 >
                   <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                 </svg>
               </div>
             </div>
-            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+            <span
+              class='predictive-search-status visually-hidden'
+              role='status'
+              aria-hidden='true'
+            ></span>
           </form>
         </predictive-search>
       </div>
     </div>
   </header>
-  <div class="header-border-mobile"></div>
+  <div class='header-border-mobile'></div>
 </sticky-header>
 
 <script>
@@ -231,7 +337,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "class": "section-header",
   "settings": [
     {
@@ -382,6 +488,12 @@
           "label": "Promotion 3 URL"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "category": "Navigation & Layout"
     }
   ]
 }

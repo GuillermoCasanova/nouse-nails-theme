@@ -1,33 +1,50 @@
 {{ 'instagram-slideshow.css' | asset_url | stylesheet_tag }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<link
+  rel='stylesheet'
+  href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
+>
+<script
+  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  defer
+></script>
 
-<script src="{{ 'social-video-player.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'instagram-slideshow.js' | asset_url }}" defer="defer"></script>
+<script src='{{ 'social-video-player.js' | asset_url }}' defer='defer'></script>
+<script src='{{ 'instagram-slideshow.js' | asset_url }}' defer='defer'></script>
 
-<instagram-slideshow class="instagram-slideshow color-{{ section.settings.color_scheme }}">
-  <div class="instagram-slideshow__contain  section-padding-small">
+<instagram-slideshow class='instagram-slideshow color-{{ section.settings.color_scheme }}'>
+  <div class='instagram-slideshow__contain  section-padding-small'>
     {% if section.settings.title != blank %}
-      <div class="instagram-slideshow__header container-main">
-        <h2 class="instagram-slideshow__title headline-style-h3">{{ section.settings.title | escape }}</h2>
+      <div class='instagram-slideshow__header container-main'>
+        <h2 class='instagram-slideshow__title headline-style-h3'>
+          {{ section.settings.title | escape }}
+        </h2>
         {% if section.settings.subtitle != blank %}
-          <p class="instagram-slideshow__subtitle">{{ section.settings.subtitle | escape }}</p>
+          <p class='instagram-slideshow__subtitle'>
+            {{ section.settings.subtitle | escape }}
+          </p>
         {% endif %}
       </div>
     {% endif %}
 
     {% if section.blocks.size > 0 %}
-      <div class="instagram-slideshow__container">
-        <div class="instagram-slideshow__slider swiper" data-swiper-slideshow>
-          <div class="swiper-wrapper" data-swiper-slideshow-wrapper>
+      <div class='instagram-slideshow__container'>
+        <div class='instagram-slideshow__slider swiper' data-swiper-slideshow>
+          <div class='swiper-wrapper' data-swiper-slideshow-wrapper>
             {% for block in section.blocks %}
-              <div class="instagram-slideshow__slide swiper-slide" {{ block.shopify_attributes }} data-swiper-slide>
+              <div
+                class='instagram-slideshow__slide swiper-slide'
+                {{ block.shopify_attributes }}
+                data-swiper-slide
+              >
                 {% assign product = block.settings.product %}
-                <a href="{{ product.url }}" class="instagram-slideshow__slide__inner">
-                  <div class="instagram-slideshow__slide__hover-shadow"></div>
+                <a
+                  href='{{ product.url }}'
+                  class='instagram-slideshow__slide__inner'
+                >
+                  <div class='instagram-slideshow__slide__hover-shadow'></div>
                   {% if product != blank %}
-                    <div class="instagram-slideshow__product-link">
-                      <div class="instagram-slideshow__product-link__image">
+                    <div class='instagram-slideshow__product-link'>
+                      <div class='instagram-slideshow__product-link__image'>
                         {% if product.featured_media.preview_image %}
                           {% render 'image-with-aspect-ratio',
                             image: product.featured_media.preview_image,
@@ -35,72 +52,92 @@
                             alt: product.title
                           %}
                         {% else %}
-                          {{ 'product-1' | placeholder_svg_tag: 'instagram-slideshow__product-placeholder' }}
+                          {{
+                            'product-1'
+                            | placeholder_svg_tag: 'instagram-slideshow__product-placeholder'
+                          }}
                         {% endif %}
                       </div>
-                      <div class="instagram-slideshow__product-link__info">
-                        <h3 class="instagram-slideshow__product-link__title headline-style-h6">{{ product.title }}</h3>
-                        <span class="instagram-slideshow__product-link__price">{{ product.price | money }}</span>
+                      <div class='instagram-slideshow__product-link__info'>
+                        <h3 class='instagram-slideshow__product-link__title headline-style-h6'>
+                          {{ product.title }}
+                        </h3>
+                        <span class='instagram-slideshow__product-link__price'>
+                          {{- product.price | money -}}
+                        </span>
                       </div>
                     </div>
                   {% endif %}
                   {% if block.settings.video_url != blank %}
                     <social-video-player
-                      class="instagram-slideshow__video-block"
+                      class='instagram-slideshow__video-block'
                       {% if section.settings.autoplay_video %}
                         data-autoplay
                       {% endif %}
                     >
-                      <div class="instagram-slideshow__video-container">
+                      <div class='instagram-slideshow__video-container'>
                         <video
-                          class="instagram-slideshow__video"
-                          preload="metadata"
+                          class='instagram-slideshow__video'
+                          preload='metadata'
                           data-video
-                          poster="{{ block.settings.image | img_url: '400x400', crop: 'center' }}"
+                          poster='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
                         >
-                          <source src="{{ block.settings.video_url }}" type="video/mp4">
+                          <source
+                            src='{{ block.settings.video_url }}'
+                            type='video/mp4'
+                          >
                           Your browser does not support the video tag.
                         </video>
                       </div>
                     </social-video-player>
                   {% elsif block.settings.image != blank %}
-                    <div class="instagram-slideshow__image-block">
-                      <div class="instagram-slideshow__image-container">
+                    <div class='instagram-slideshow__image-block'>
+                      <div class='instagram-slideshow__image-container'>
                         <img
-                          class="instagram-slideshow__image responsive-image"
-                          src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}"
-                          srcset="{{ block.settings.image | img_url: '200x200', crop: 'center' }} 200w, {{ block.settings.image | img_url: '400x400', crop: 'center' }} 400w, {{ block.settings.image | img_url: '600x600', crop: 'center' }} 600w"
-                          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                          alt="{{ block.settings.image.alt | escape }}"
-                          width="400"
-                          height="400"
-                          loading="lazy"
+                          class='instagram-slideshow__image responsive-image'
+                          src='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
+                          srcset='{{ block.settings.image | img_url: '200x200', crop: 'center' }} 200w, {{ block.settings.image | img_url: '400x400', crop: 'center' }} 400w, {{ block.settings.image | img_url: '600x600', crop: 'center' }} 600w'
+                          sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                          alt='{{ block.settings.image.alt | escape }}'
+                          width='400'
+                          height='400'
+                          loading='lazy'
                         >
                       </div>
                     </div>
                   {% elsif block.settings.product != blank %}
-                    <div class="instagram-slideshow__product-block">
+                    <div class='instagram-slideshow__product-block'>
                       {% assign product = block.settings.product %}
-                      <a href="{{ product.url }}" class="instagram-slideshow__product-link">
-                        <div class="instagram-slideshow__product-image-container">
+                      <a
+                        href='{{ product.url }}'
+                        class='instagram-slideshow__product-link'
+                      >
+                        <div class='instagram-slideshow__product-image-container'>
                           {% if product.featured_media.preview_image %}
                             <img
-                              class="instagram-slideshow__product-image responsive-image"
-                              src="{{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }}"
-                              srcset="{{ product.featured_media.preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ product.featured_media.preview_image | img_url: '600x600', crop: 'center' }} 600w"
-                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              alt="{{ product.featured_media.preview_image.alt | escape }}"
-                              width="400"
-                              height="400"
-                              loading="lazy"
+                              class='instagram-slideshow__product-image responsive-image'
+                              src='{{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }}'
+                              srcset='{{ product.featured_media.preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ product.featured_media.preview_image | img_url: '600x600', crop: 'center' }} 600w'
+                              sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                              alt='{{ product.featured_media.preview_image.alt | escape }}'
+                              width='400'
+                              height='400'
+                              loading='lazy'
                             >
                           {% else %}
-                            {{ 'product-1' | placeholder_svg_tag: 'instagram-slideshow__product-placeholder' }}
+                            {{
+                              'product-1'
+                              | placeholder_svg_tag: 'instagram-slideshow__product-placeholder'
+                            }}
                           {% endif %}
                         </div>
-                        <div class="instagram-slideshow__product-info">
-                          <h3 class="instagram-slideshow__product-title">{{ product.title }}</h3>
-                          {% include 'product-price-listing', product: product %}
+                        <div class='instagram-slideshow__product-info'>
+                          <h3 class='instagram-slideshow__product-title'>
+                            {{ product.title }}
+                          </h3>
+                          {% include 'product-price-listing',
+                            product: product
+                          %}
                         </div>
                       </a>
                     </div>
@@ -109,13 +146,20 @@
               </div>
             {% endfor %}
             {% for block in section.blocks %}
-              <div class="instagram-slideshow__slide swiper-slide" {{ block.shopify_attributes }} data-swiper-slide>
+              <div
+                class='instagram-slideshow__slide swiper-slide'
+                {{ block.shopify_attributes }}
+                data-swiper-slide
+              >
                 {% assign product = block.settings.product %}
-                <a href="{{ product.url }}" class="instagram-slideshow__slide__inner">
-                  <div class="instagram-slideshow__slide__hover-shadow"></div>
+                <a
+                  href='{{ product.url }}'
+                  class='instagram-slideshow__slide__inner'
+                >
+                  <div class='instagram-slideshow__slide__hover-shadow'></div>
                   {% if product != blank %}
-                    <div class="instagram-slideshow__product-link">
-                      <div class="instagram-slideshow__product-link__image">
+                    <div class='instagram-slideshow__product-link'>
+                      <div class='instagram-slideshow__product-link__image'>
                         {% if product.featured_media.preview_image %}
                           {% render 'image-with-aspect-ratio',
                             image: product.featured_media.preview_image,
@@ -123,67 +167,87 @@
                             alt: product.title
                           %}
                         {% else %}
-                          {{ 'product-1' | placeholder_svg_tag: 'instagram-slideshow__product-placeholder' }}
+                          {{
+                            'product-1'
+                            | placeholder_svg_tag: 'instagram-slideshow__product-placeholder'
+                          }}
                         {% endif %}
                       </div>
-                      <div class="instagram-slideshow__product-link__info">
-                        <h3 class="instagram-slideshow__product-link__title headline-style-h6">{{ product.title }}</h3>
-                        <span class="instagram-slideshow__product-link__price">{{ product.price | money }}</span>
+                      <div class='instagram-slideshow__product-link__info'>
+                        <h3 class='instagram-slideshow__product-link__title headline-style-h6'>
+                          {{ product.title }}
+                        </h3>
+                        <span class='instagram-slideshow__product-link__price'>
+                          {{- product.price | money -}}
+                        </span>
                       </div>
                     </div>
                   {% endif %}
                   {% if block.settings.video_url != blank %}
-                    <social-video-player class="instagram-slideshow__video-block">
-                      <div class="instagram-slideshow__video-container">
+                    <social-video-player class='instagram-slideshow__video-block'>
+                      <div class='instagram-slideshow__video-container'>
                         <video
-                          class="instagram-slideshow__video"
-                          preload="metadata"
+                          class='instagram-slideshow__video'
+                          preload='metadata'
                           data-video
-                          poster="{{ block.settings.image | img_url: '400x400', crop: 'center' }}"
+                          poster='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
                         >
-                          <source src="{{ block.settings.video_url }}" type="video/mp4">
+                          <source
+                            src='{{ block.settings.video_url }}'
+                            type='video/mp4'
+                          >
                           Your browser does not support the video tag.
                         </video>
                       </div>
                     </social-video-player>
                   {% elsif block.settings.image != blank %}
-                    <div class="instagram-slideshow__image-block">
-                      <div class="instagram-slideshow__image-container">
+                    <div class='instagram-slideshow__image-block'>
+                      <div class='instagram-slideshow__image-container'>
                         <img
-                          class="instagram-slideshow__image responsive-image"
-                          src="{{ block.settings.image | img_url: '400x400', crop: 'center' }}"
-                          srcset="{{ block.settings.image | img_url: '200x200', crop: 'center' }} 200w, {{ block.settings.image | img_url: '400x400', crop: 'center' }} 400w, {{ block.settings.image | img_url: '600x600', crop: 'center' }} 600w"
-                          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                          alt="{{ block.settings.image.alt | escape }}"
-                          width="400"
-                          height="400"
-                          loading="lazy"
+                          class='instagram-slideshow__image responsive-image'
+                          src='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
+                          srcset='{{ block.settings.image | img_url: '200x200', crop: 'center' }} 200w, {{ block.settings.image | img_url: '400x400', crop: 'center' }} 400w, {{ block.settings.image | img_url: '600x600', crop: 'center' }} 600w'
+                          sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                          alt='{{ block.settings.image.alt | escape }}'
+                          width='400'
+                          height='400'
+                          loading='lazy'
                         >
                       </div>
                     </div>
                   {% elsif block.settings.product != blank %}
-                    <div class="instagram-slideshow__product-block">
+                    <div class='instagram-slideshow__product-block'>
                       {% assign product = block.settings.product %}
-                      <a href="{{ product.url }}" class="instagram-slideshow__product-link">
-                        <div class="instagram-slideshow__product-image-container">
+                      <a
+                        href='{{ product.url }}'
+                        class='instagram-slideshow__product-link'
+                      >
+                        <div class='instagram-slideshow__product-image-container'>
                           {% if product.featured_media.preview_image %}
                             <img
-                              class="instagram-slideshow__product-image responsive-image"
-                              src="{{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }}"
-                              srcset="{{ product.featured_media.preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ product.featured_media.preview_image | img_url: '600x600', crop: 'center' }} 600w"
-                              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                              alt="{{ product.featured_media.preview_image.alt | escape }}"
-                              width="400"
-                              height="400"
-                              loading="lazy"
+                              class='instagram-slideshow__product-image responsive-image'
+                              src='{{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }}'
+                              srcset='{{ product.featured_media.preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ product.featured_media.preview_image | img_url: '600x600', crop: 'center' }} 600w'
+                              sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                              alt='{{ product.featured_media.preview_image.alt | escape }}'
+                              width='400'
+                              height='400'
+                              loading='lazy'
                             >
                           {% else %}
-                            {{ 'product-1' | placeholder_svg_tag: 'instagram-slideshow__product-placeholder' }}
+                            {{
+                              'product-1'
+                              | placeholder_svg_tag: 'instagram-slideshow__product-placeholder'
+                            }}
                           {% endif %}
                         </div>
-                        <div class="instagram-slideshow__product-info">
-                          <h3 class="instagram-slideshow__product-title">{{ product.title }}</h3>
-                          {% include 'product-price-listing', product: product %}
+                        <div class='instagram-slideshow__product-info'>
+                          <h3 class='instagram-slideshow__product-title'>
+                            {{ product.title }}
+                          </h3>
+                          {% include 'product-price-listing',
+                            product: product
+                          %}
                         </div>
                       </a>
                     </div>
@@ -194,33 +258,36 @@
           </div>
         </div>
         {% if section.blocks.size > 1 %}
-          <div class="instagram-slideshow__navigation">
+          <div class='instagram-slideshow__navigation'>
             <button
-              class="instagram-slideshow__nav-button instagram-slideshow__nav-button--prev"
-              aria-label="Previous slide"
+              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--prev'
+              aria-label='Previous slide'
             >
               {% render 'icon-chevron-left' %}
             </button>
             <button
-              class="instagram-slideshow__nav-button instagram-slideshow__nav-button--next"
-              aria-label="Next slide"
+              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--next'
+              aria-label='Next slide'
             >
               {% render 'icon-chevron-right' %}
             </button>
           </div>
-          <div class="instagram-slideshow__pagination"></div>
+          <div class='instagram-slideshow__pagination'></div>
         {% endif %}
       </div>
     {% else %}
-      <div class="instagram-slideshow__empty">
+      <div class='instagram-slideshow__empty'>
         <p>Add blocks to create your Social Media slideshow</p>
       </div>
     {% endif %}
 
-    <div class="instagram-slideshow__footer container-main">
-      <div class="instagram-slideshow__footer__inner">
-        <div class="instagram-slideshow__footer__content">
-          <a href="{{ section.settings.social_url }}" class="instagram-slideshow__footer__link text-size-xx-large">
+    <div class='instagram-slideshow__footer container-main'>
+      <div class='instagram-slideshow__footer__inner'>
+        <div class='instagram-slideshow__footer__content'>
+          <a
+            href='{{ section.settings.social_url }}'
+            class='instagram-slideshow__footer__link text-size-xx-large'
+          >
             {{ section.settings.social_text }}
           </a>
         </div>
@@ -328,6 +395,7 @@
   "presets": [
     {
       "name": "Instagram Slideshow",
+      "category": "Media & Visual",
       "blocks": [
         {
           "type": "slide"

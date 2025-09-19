@@ -1,31 +1,34 @@
 <div>
-  <div class="hae-gradient-header text-center py-40 px-40-gutters d-flex-column flex-justify-center">
-    <h1 class="fs-60">
+  <div class='hae-gradient-header text-center py-40 px-40-gutters d-flex-column flex-justify-center'>
+    <h1 class='fs-60'>
       {{ page.title }}
     </h1>
-    <p class="rte fs-18 mt-16">{{ page.content }}</p>
+    <p class='rte fs-18 mt-16'>{{ page.content }}</p>
   </div>
 
-  <div class="my-80 my-md-120 col-mlg-6 mx-auto px-40-gutters">
-    <div class="border-b-2">
+  <div class='my-80 my-md-120 col-mlg-6 mx-auto px-40-gutters'>
+    <div class='border-b-2'>
       {% for block in section.blocks %}
-      <details class="hae-pdp-collapsible py-16 border-t-2">
-        <summary class="fs-14 type-link position-relative">{{ block.settings.title }} <span class="fs-24 details-arrow d-inline-block float-right">→</span></summary>
-        <div class="collapsible-content fs-18">
-          {{ block.settings.content }}
-        </div>
-      </details>
+        <details class='hae-pdp-collapsible py-16 border-t-2'>
+          <summary class='fs-14 type-link position-relative'>
+            {{ block.settings.title }}
+            <span class='fs-24 details-arrow d-inline-block float-right'
+              >→</span
+            >
+          </summary>
+          <div class='collapsible-content fs-18'>
+            {{ block.settings.content }}
+          </div>
+        </details>
       {% endfor %}
     </div>
   </div>
 </div>
 
-
 {% schema %}
 {
-  "name": "Collapsible content page",
-  "settings": [
-],
+  "name": "Collapsible Content",
+  "settings": [],
   "blocks": [
     {
       "name": "Collapsible section",
@@ -43,6 +46,12 @@
           "label": "Content"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible Content",
+      "category": "Content & Text"
     }
   ]
 }

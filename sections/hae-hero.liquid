@@ -1,20 +1,25 @@
 {{ 'hae-hero.css' | asset_url | stylesheet_tag }}
 
-<section class="hero-header  color-{{ section.settings.color_scheme }}">
-  <div class="hero-header__layout  grid grid-2">
-    <div class="hero-header__left-column  section-padding-small">
-      <div class="hero-header__text  container-main">
-        <h2 class="hero-header__heading headline-style-display">{{ section.settings['header-text'] }}</h2>
-        <a class="button  button--primary button--large  width-fit-content" href="{{ section.settings.button-url }}">
+<section class='hero-header  color-{{ section.settings.color_scheme }}'>
+  <div class='hero-header__layout  grid grid-2'>
+    <div class='hero-header__left-column  section-padding-small'>
+      <div class='hero-header__text  container-main'>
+        <h2 class='hero-header__heading headline-style-display'>
+          {{ section.settings['header-text'] }}
+        </h2>
+        <a
+          class='button  button--primary button--large  width-fit-content'
+          href='{{ section.settings.button-url }}'
+        >
           {{- section.settings['button-text'] -}}
         </a>
       </div>
     </div>
 
-    <div class="hero-header__right-column col-mlg-6  p-relative">
-      <div class="hero-header__media">
+    <div class='hero-header__right-column col-mlg-6  p-relative'>
+      <div class='hero-header__media'>
         {% if section.settings.show_sticker %}
-          <div class="hero-header__sticker">
+          <div class='hero-header__sticker'>
             {% if section.settings.sticker_image != blank %}
               {% render 'image-with-aspect-ratio',
                 image: section.settings.sticker_image,
@@ -36,24 +41,24 @@
 
         {% if section.settings.media_type == 'image' %}
           <img
-            class="responsive-image"
-            src="{{ section.settings.hero-image | img_url }}"
-            srcset="{{ section.settings.hero-image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.hero-image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.hero-image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.hero-image | img_url: '425x', scale: 2 }} 425w"
-            sizes="50vw"
-            alt="{{ alt | default: 'Featured content' }}"
-            width="800"
-            height="600"
+            class='responsive-image'
+            src='{{ section.settings.hero-image | img_url }}'
+            srcset='{{ section.settings.hero-image | img_url: '1440x', scale: 2 }} 2560w, {{ section.settings.hero-image | img_url: '400x', scale: 2 }} 1024w, {{ section.settings.hero-image | img_url: '768x', scale: 2 }} 768w, {{ section.settings.hero-image | img_url: '425x', scale: 2 }} 425w'
+            sizes='50vw'
+            alt='{{ alt | default: 'Featured content' }}'
+            width='800'
+            height='600'
           >
         {% else %}
           <video
-            class="responsive-video"
+            class='responsive-video'
             autoplay
             loop
             muted
             playsinline
-            poster="{{ section.settings.video_poster | img_url }}"
+            poster='{{ section.settings.video_poster | img_url }}'
           >
-            <source src="{{ section.settings.video_url }}" type="video/mp4">
+            <source src='{{ section.settings.video_url }}' type='video/mp4'>
             Your browser does not support the video tag.
           </video>
         {% endif %}
@@ -166,7 +171,7 @@
   "presets": [
     {
       "name": "Hero - half photo",
-      "category": "Hae custom",
+      "category": "Hero & Banners",
       "settings": {
         "header-text": "<h1>Welcome to our store</h1>",
         "button-text": "Shop Now",

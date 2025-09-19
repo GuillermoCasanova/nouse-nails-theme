@@ -1,29 +1,36 @@
 {{ 'article-template.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" itemscope itemtype="http://schema.org/Article">
+<article
+  class='article-template'
+  itemscope
+  itemtype='http://schema.org/Article'
+>
   <!-- Hero Header Section -->
-  <header class="article-hero color-{{ section.settings.header_color_scheme }}">
-    <div class="article-hero__container container-main">
-      <div class="article-hero__content">
+  <header class='article-hero color-{{ section.settings.header_color_scheme }}'>
+    <div class='article-hero__container container-main'>
+      <div class='article-hero__content'>
         {% if section.settings.blog_show_date %}
-          <time class="article-hero__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+          <time
+            class='article-hero__date'
+            datetime='{{ article.published_at | date: '%Y-%m-%d' }}'
+          >
             {{ article.published_at | time_tag: format: 'date' }}
           </time>
         {% endif %}
 
-        <h1 class="article-hero__title" itemprop="headline">
+        <h1 class='article-hero__title' itemprop='headline'>
           {{ article.title }}
         </h1>
 
         {% if article.excerpt.size > 0 %}
-          <div class="article-hero__excerpt">
+          <div class='article-hero__excerpt'>
             {{ article.excerpt }}
           </div>
         {% endif %}
       </div>
 
       {% if article.image %}
-        <div class="article-hero__image">
+        <div class='article-hero__image'>
           {% render 'image-with-aspect-ratio',
             image: article.image,
             aspect_ratio: section.settings.media_aspect_ratio
@@ -34,50 +41,52 @@
   </header>
 
   <!-- Main Content Section -->
-  <div class="article-content color-{{ section.settings.body_color_scheme }}">
-    <div class="article-content__container container-main {{ section.settings.body_padding_size }}">
-      <div class="article-content__wrapper">
-        <div class="article-content__body" itemprop="articleBody">
+  <div class='article-content color-{{ section.settings.body_color_scheme }}'>
+    <div class='article-content__container container-main {{ section.settings.body_padding_size }}'>
+      <div class='article-content__wrapper'>
+        <div class='article-content__body' itemprop='articleBody'>
           {{ article.content }}
         </div>
 
         <!-- Article Footer -->
-        <footer class="article-footer">
+        <footer class='article-footer'>
           {% if section.settings.blog_show_author %}
-            <div class="article-footer__author">
-              <span class="article-footer__author-label">By</span>
-              <span class="article-footer__author-name">{{ article.author }}</span>
+            <div class='article-footer__author'>
+              <span class='article-footer__author-label'>By</span>
+              <span class='article-footer__author-name'>
+                {{- article.author -}}
+              </span>
             </div>
           {% endif %}
 
           {% if section.settings.show_share_buttons %}
-            <div class="article-footer__social">
-              <span class="article-footer__social-label">Share:</span>
-              <div class="article-footer__social-buttons">
+            <div class='article-footer__social'>
+              <span class='article-footer__social-label'>Share:</span>
+              <div class='article-footer__social-buttons'>
                 <a
-                  href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url | append: article.url }}"
-                  class="article-footer__social-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Share on Facebook"
+                  href='https://www.facebook.com/sharer/sharer.php?u={{ shop.url | append: article.url }}'
+                  class='article-footer__social-button'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Share on Facebook'
                 >
                   Share
                 </a>
                 <a
-                  href="https://twitter.com/intent/tweet?text={{ article.title | url_encode }}&url={{ shop.url | append: article.url | url_encode }}"
-                  class="article-footer__social-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Share on Twitter"
+                  href='https://twitter.com/intent/tweet?text={{ article.title | url_encode }}&url={{ shop.url | append: article.url | url_encode }}'
+                  class='article-footer__social-button'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Share on Twitter'
                 >
                   Tweet
                 </a>
                 <a
-                  href="https://pinterest.com/pin/create/button/?url={{ shop.url | append: article.url | url_encode }}&media={{ article.image | img_url: '1200x' | url_encode }}&description={{ article.title | url_encode }}"
-                  class="article-footer__social-button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Pin on Pinterest"
+                  href='https://pinterest.com/pin/create/button/?url={{ shop.url | append: article.url | url_encode }}&media={{ article.image | img_url: '1200x' | url_encode }}&description={{ article.title | url_encode }}'
+                  class='article-footer__social-button'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Pin on Pinterest'
                 >
                   Pin it
                 </a>
@@ -87,9 +96,12 @@
         </footer>
 
         <!-- Back to Journal Button -->
-        <div class="article-footer__navigation">
-          <a href="{{ blog.url }}" class="article-footer__back-button button button--primary button--large">
-            <span class="article-footer__back-arrow">←</span>
+        <div class='article-footer__navigation'>
+          <a
+            href='{{ blog.url }}'
+            class='article-footer__back-button button button--primary button--large'
+          >
+            <span class='article-footer__back-arrow'>←</span>
             {{ section.settings.back_button_text | default: 'BACK TO JOURNAL' }}
           </a>
         </div>
@@ -100,7 +112,7 @@
 
 {% schema %}
 {
-  "name": "Posts",
+  "name": "Article Template",
   "settings": [
     {
       "type": "header",
@@ -206,6 +218,12 @@
         }
       ],
       "default": "section-padding-small"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Template",
+      "category": "Templates & Pages"
     }
   ]
 }
