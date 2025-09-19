@@ -581,6 +581,8 @@ class MenuDrawer extends HTMLElement {
 
           // Prevent closing when hovering over mega menu content
           const megaMenuContent = summary.closest('details').querySelector('.mega-menu__content');
+          const headerMegaMenu = summary.closest('details').querySelector('.header__mega-menu');
+          
           if (megaMenuContent) {
             megaMenuContent.addEventListener('mouseenter', () => {
               // Clear any pending close timeouts
@@ -593,7 +595,24 @@ class MenuDrawer extends HTMLElement {
                 if (summary.closest('details').hasAttribute('open')) {
                   this.closeMenuDrawer();
                 }
-              }, 200);
+              }, 15);
+            });
+          }
+          
+          // Also protect header__mega-menu
+          if (headerMegaMenu) {
+            headerMegaMenu.addEventListener('mouseenter', () => {
+              // Clear any pending close timeouts
+              clearTimeout(this.closeTimeout);
+            });
+            
+            headerMegaMenu.addEventListener('mouseleave', () => {
+              // Close after a short delay when leaving mega menu
+              this.closeTimeout = setTimeout(() => {
+                if (summary.closest('details').hasAttribute('open')) {
+                  this.closeMenuDrawer();
+                }
+              }, 15);
             });
           }
         }
@@ -720,6 +739,7 @@ class MenuDrawer extends HTMLElement {
 
     // Add closing class for animation
     const megaMenu = this.mainDetailsToggle.querySelector('.mega-menu');
+    
     if (megaMenu) {
       megaMenu.classList.add('closing');
     }

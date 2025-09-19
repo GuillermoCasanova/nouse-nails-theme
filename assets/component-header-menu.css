@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\
   #Header Menu
 \*------------------------------------*/
@@ -123,10 +118,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
   #Header Sub Menus
 \*------------------------------------*/
@@ -148,7 +139,9 @@ details.menu-open .header__mega-menu {
   left: 0;
   display: block;
   flex-direction: row;
-  transition: all var(--duration-default) cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   background-color: rgb(var(--color-base-background-1));
   width: 100%;
   max-width: none;
@@ -158,6 +151,8 @@ details.menu-open .header__mega-menu {
   z-index: 0;
   top: 0;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(-1rem);
 }
 
 @media only screen and (min-width: 1024px) {
@@ -200,19 +195,32 @@ details.menu-open .header__mega-menu {
 
 .header__mega-menu[aria-hidden='true'] {
   opacity: 0;
+  transform: translateY(-1rem);
   pointer-events: none;
-  /* animation: headerDropDownClose .2s ease-in-out forwards; */
 }
 
 .header__mega-menu[aria-hidden='true'].preload {
-  /* visibility: hidden; */
-  /* opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
 }
 
 .header__mega-menu[aria-hidden='false'] {
   opacity: 1;
+  transform: translateY(0);
   pointer-events: all;
-  /* animation: headerDropDownOpen .4s cubic-bezier(0.16, 1, 0.3, 1) forwards; */
+}
+
+/* Animation classes for JavaScript control */
+.header__mega-menu.animating-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.header__mega-menu.animating-close {
+  opacity: 0;
+  transform: translateY(-1rem);
+  pointer-events: none;
 }
 
 /* Override conflicting styles for drawer content */
@@ -408,6 +416,18 @@ details.menu-open .header__mega-menu {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes animateMenuClose {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
   }
 }
 
