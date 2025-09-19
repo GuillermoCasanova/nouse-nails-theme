@@ -569,9 +569,33 @@ class MenuDrawer extends HTMLElement {
 
           summary.closest('details').addEventListener('mouseleave', event => {
             if (summary.closest('details').hasAttribute('open')) {
-              this.closeMenuDrawer(event);
+              // Add a delay to allow user to move mouse to mega menu
+              setTimeout(() => {
+                if (summary.closest('details').hasAttribute('open') && 
+                    !summary.closest('details').matches(':hover')) {
+                  this.closeMenuDrawer(event);
+                }
+              }, 300); // 300ms delay
             }
           });
+
+          // Prevent closing when hovering over mega menu content
+          const megaMenuContent = summary.closest('details').querySelector('.mega-menu__content');
+          if (megaMenuContent) {
+            megaMenuContent.addEventListener('mouseenter', () => {
+              // Clear any pending close timeouts
+              clearTimeout(this.closeTimeout);
+            });
+            
+            megaMenuContent.addEventListener('mouseleave', () => {
+              // Close after a short delay when leaving mega menu
+              this.closeTimeout = setTimeout(() => {
+                if (summary.closest('details').hasAttribute('open')) {
+                  this.closeMenuDrawer();
+                }
+              }, 200);
+            });
+          }
         }
       });
     }
@@ -694,24 +718,37 @@ class MenuDrawer extends HTMLElement {
   closeMenuDrawer(event, elementToFocus = false, pIsHover = false) {
     if (event === undefined && !this.activateOnHover) return;
 
-    this.mainDetailsToggle.classList.remove('menu-open');
-    this.mainDetailsToggle.classList.add('menu-close');
-
-    this.mainDetailsToggle.querySelectorAll('details').forEach(details => {
-      details.removeAttribute('open');
-      details.classList.remove('menu-open');
-      details.classList.add('menu-close');
-      console.log('class change');
-    });
-    this.mainDetailsToggle
-      .querySelectorAll('.submenu-open')
-      .forEach(submenu => {
-        submenu.classList.remove('submenu-open');
-      });
-    document.body.classList.remove(`overflow-hidden`);
-    if (!this.activateOnHover) {
-      removeTrapFocus(elementToFocus);
+    // Add closing class for animation
+    const megaMenu = this.mainDetailsToggle.querySelector('.mega-menu');
+    if (megaMenu) {
+      megaMenu.classList.add('closing');
     }
+
+    // Wait for animation to complete before actually closing
+    setTimeout(() => {
+      this.mainDetailsToggle.classList.remove('menu-open');
+      this.mainDetailsToggle.classList.add('menu-close');
+      
+      if (megaMenu) {
+        megaMenu.classList.remove('closing');
+      }
+
+      this.mainDetailsToggle.querySelectorAll('details').forEach(details => {
+        details.removeAttribute('open');
+        details.classList.remove('menu-open');
+        details.classList.add('menu-close');
+        console.log('class change');
+      });
+      this.mainDetailsToggle
+        .querySelectorAll('.submenu-open')
+        .forEach(submenu => {
+          submenu.classList.remove('submenu-open');
+        });
+      document.body.classList.remove(`overflow-hidden`);
+      if (!this.activateOnHover) {
+        removeTrapFocus(elementToFocus);
+      }
+    }, 300); // Match the CSS transition duration
     this.closeAnimation(this.mainDetailsToggle);
   }
 
