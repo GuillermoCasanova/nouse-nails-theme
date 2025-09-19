@@ -14,7 +14,9 @@
 .product-card-grid__link {
   position: relative;
   text-decoration: none;
+  display: block;
 }
+
 
 
 
@@ -29,6 +31,7 @@
   padding-bottom: 100%; /* Creates square aspect ratio */
   overflow: hidden;
   margin-bottom: var(--space-4);
+  border: 1px dotted transparent;
 }
 
 .product-card-grid__image {
@@ -40,6 +43,13 @@
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+
+/* Hover Image */
+.product-card-grid__link:hover  .product-card-grid__image-container,
+.product-card-grid__link:focus  .product-card-grid__image-container {
+  border: 1px dotted rgb(var(--color-text));
+}
+
 
 
 /* Hover image (second image) */

@@ -143,6 +143,18 @@ body {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  :root {
+    font-size: .96rem; 
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  :root {
+    font-size: 1rem; 
+  }
+}
+
 @font-face {
   font-family: 'Mabry-Regular';
   src: url('./mabry-regular-pro.woff2') format('woff2'),
