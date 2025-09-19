@@ -12,7 +12,6 @@
     "main": {
       "type": "article-template",
       "settings": {
-        "color_scheme": "background-1",
         "blog_show_author": false,
         "blog_show_date": false,
         "show_share_buttons": false,
