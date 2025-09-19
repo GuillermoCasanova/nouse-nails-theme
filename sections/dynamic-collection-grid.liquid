@@ -29,11 +29,11 @@
         </h1>
       {% endif %}
     {% endif %}
-    <ul class="dynamic-product-grid grid {{ grid_class }} grid-gap-md">
+    <ul class="dynamic-collection-grid grid {{ grid_class }} grid-gap-md">
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'product' %}
-            <li class="dynamic-product-grid__product">
+            <li class="dynamic-collection-grid__product">
               {% render 'product-card-grid',
                 product: block.settings.product,
                 show_vendor: true,
@@ -42,7 +42,7 @@
               %}
             </li>
           {% when 'video_embed' %}
-            <li class="dynamic-product-grid__video {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
+            <li class="dynamic-collection-grid__video {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
               {% render 'video-with-aspect-ratio',
                 video: block.settings.video,
                 aspect_ratio: block.settings.media_aspect_ratio,
@@ -54,7 +54,7 @@
               %}
             </li>
           {% when 'image' %}
-            <li class="dynamic-product-grid__image {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
+            <li class="dynamic-collection-grid__image {% if block.settings.media_aspect_ratio == '16/9' or block.settings.media_aspect_ratio == '64/41' %}col-2{% endif %}">
               {% render 'image-with-aspect-ratio',
                 image: block.settings.image,
                 aspect_ratio: block.settings.media_aspect_ratio,
