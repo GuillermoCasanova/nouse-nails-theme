@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Instagram Slideshow
 \*------------------------------------*/
@@ -30,6 +35,7 @@
 
 
 
+
 /*------------------------------------*\
     #Slider Container
 \*------------------------------------*/
@@ -49,7 +55,6 @@
 
 /* Swiper-specific styles */
 .instagram-slideshow__slider .swiper-wrapper {
- 
 }
 
 .instagram-slideshow__slider .swiper-slide {
@@ -68,11 +73,12 @@
   }
 }
 
-
 .instagram-slideshow__slide__inner {
   display: block;
-  width: 100%; 
+  width: 100%;
 }
+
+
 
 
 
@@ -93,10 +99,9 @@
 .instagram-slideshow__video-container,
 .instagram-slideshow__image-container {
   position: absolute;
-  height: 100%; 
-  width: 100%; 
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-
 }
 
 .instagram-slideshow__video {
@@ -128,8 +133,8 @@
   transition: transform 0.3s ease;
 }
 
-.instagram-slideshow__product-link__image{
-  width: 100%; 
+.instagram-slideshow__product-link__image {
+  width: 100%;
   aspect-ratio: 1/1;
   width: 4.5rem;
   border-radius: var(--border-radius-small);
@@ -137,34 +142,37 @@
 }
 
 @media screen and (min-width: 768px) {
-  .instagram-slideshow__product-link__image{
+  .instagram-slideshow__product-link__image {
     width: 4rem;
   }
 }
 
 .instagram-slideshow__product-link__title {
-  margin-bottom: var(--space-1); 
+  margin-bottom: var(--space-1);
 }
 
 .instagram-slideshow__slide__hover-shadow {
   position: absolute;
   z-index: 1;
-  left: 0; 
-  bottom: 0; 
-  background: linear-gradient(to top, rgba(0,0,0 , 1), rgba(0,0,0 , 0));
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   width: 100%;
   height: 10rem;
-  opacity: .3;
+  opacity: 0.3;
   transition: opacity 0.3s ease;
 }
 
-.instagram-slideshow__slide__inner:hover .instagram-slideshow__slide__hover-shadow {
-  opacity: .8;
+.instagram-slideshow__slide__inner:hover
+  .instagram-slideshow__slide__hover-shadow {
+  opacity: 0.8;
 }
 
 .instagram-slideshow__slide__inner:hover .instagram-slideshow__product-link {
   transform: translateY(-8px);
 }
+
+
 
 
 
@@ -195,7 +203,7 @@
   height: 3rem;
   border: none;
   border-radius: 50%;
-  background:  transparent;
+  background: transparent;
   color: rgb(var(--color-text));
   cursor: pointer;
   display: flex;
@@ -234,11 +242,15 @@
   .instagram-slideshow__nav-button--prev {
     margin-left: var(--space-5);
   }
-  
+
   .instagram-slideshow__nav-button--next {
     margin-right: var(--space-5);
   }
 }
+
+
+
+
 
 /*------------------------------------*\
     #Empty State
@@ -249,8 +261,6 @@
   padding: var(--space-10) var(--space-4);
   color: rgba(var(--color-text), 0.6);
 }
-
-
 
 .instagram-slideshow__footer {
   width: 100%;

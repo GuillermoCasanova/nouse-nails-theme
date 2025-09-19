@@ -8,7 +8,7 @@ function subscribe(eventName, callback) {
   subscribers[eventName] = [...subscribers[eventName], callback];
 
   return function unsubscribe() {
-    subscribers[eventName] = subscribers[eventName].filter((cb) => {
+    subscribers[eventName] = subscribers[eventName].filter(cb => {
       return cb !== callback;
     });
   };
@@ -16,7 +16,7 @@ function subscribe(eventName, callback) {
 
 function publish(eventName, data) {
   if (subscribers[eventName]) {
-    subscribers[eventName].forEach((callback) => {
+    subscribers[eventName].forEach(callback => {
       callback(data);
     });
   }

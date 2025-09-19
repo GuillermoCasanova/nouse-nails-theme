@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Product Media Slideshow
 \*------------------------------------*/
@@ -121,12 +126,12 @@
   .product-media-slideshow__thumbnails {
     gap: 0.25rem;
   }
-  
+
   .product-media-slideshow__thumbnail {
     width: 60px;
     height: 60px;
   }
-  
+
   .product-media-slideshow__nav-button {
     width: 2.5rem;
     height: 2.5rem;

@@ -1,17 +1,21 @@
+
+
+
+
+
 /*------------------------------------*\
     #Price
 \*------------------------------------*/
 
 .price {
-    font-size: var(--text-size-main);
-    color: inherit;
+  font-size: var(--text-size-main);
+  color: inherit;
 }
-  
-.price>* {
+
+.price > * {
   display: inline-block;
   vertical-align: top;
 }
-
 
 .price .price-item {
   margin: 0 var(--space-3) 0 0;
@@ -33,7 +37,7 @@
     #Price Classes
 \*------------------------------------*/
 
-.price--large{
+.price--large {
   font-size: var(--text-size-large);
 }
 
@@ -78,7 +82,6 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 
 .price--on-sale .price-item--regular {
   text-decoration: line-through;

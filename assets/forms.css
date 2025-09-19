@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Forms 
 \*------------------------------------*/
@@ -29,7 +34,7 @@
 
   .form-section--75 {
     display: grid;
-    grid-template-columns: .70fr .30fr;
+    grid-template-columns: 0.7fr 0.3fr;
     column-gap: var(--space-4);
   }
 }
@@ -44,20 +49,20 @@
 .select__select,
 .customer .field input,
 .customer select,
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"], 
-input[type="month"],
-input[type="week"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="color"],
+input[type='text'],
+input[type='password'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='email'],
+input[type='number'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='url'],
+input[type='color'],
 input,
 textarea {
   -webkit-appearance: none;
@@ -113,7 +118,9 @@ label {
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
-  transition: top var(--duration-short) ease, font-size var(--duration-short) ease;
+  transition:
+    top var(--duration-short) ease,
+    font-size var(--duration-short) ease;
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
   line-height: 1.5;
@@ -130,8 +137,9 @@ label {
   position: absolute;
   inset: 0;
   border-radius: var(--inputs-radius-outset);
-  box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset)
-    var(--inputs-shadow-blur-radius) rgba(var(--color-shadow), var(--inputs-shadow-opacity));
+  box-shadow: var(--inputs-shadow-horizontal-offset)
+    var(--inputs-shadow-vertical-offset) var(--inputs-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--inputs-shadow-opacity));
   z-index: -1;
 }
 
@@ -146,7 +154,8 @@ label {
   inset: var(--inputs-border-width);
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
+  box-shadow: 0 0 0 var(--inputs-border-width)
+    rgba(var(--color-foreground), var(--inputs-border-opacity));
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
 }
@@ -175,7 +184,8 @@ label {
 .customer .field input:focus,
 .customer select:focus,
 .localization-form__select:focus.localization-form__select:after {
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width))
+    rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
 }
@@ -186,7 +196,7 @@ label {
   position: relative;
   width: 100%;
   border: 1px solid rgb(var(--color-base-text-1));
-  color: #7A7A7A;
+  color: #7a7a7a;
 }
 
 .select__select {
@@ -255,9 +265,9 @@ label {
 
 .custom-field label {
   line-height: 2;
-  padding-bottom: .35rem;
+  padding-bottom: 0.35rem;
   pointer-events: none;
-  transition: all .4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   margin-bottom: 0;
   font-size: var(--h6);
   font-family: var(--primary-font-family);
@@ -272,7 +282,7 @@ label {
 }
 
 .custom-field input {
-  padding-top: .85rem;
+  padding-top: 0.85rem;
   padding-bottom: 1rem;
   padding-left: var(--space-2);
   font-size: var(--h6);
@@ -328,8 +338,6 @@ label {
   list-style-position: inside;
 }
 
-
-
 /* Checkbox */
 .custom-checkbox {
   display: flex;
@@ -376,6 +384,3 @@ label {
   bottom: 0;
   margin: auto;
 }
-
-
-

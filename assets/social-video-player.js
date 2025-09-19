@@ -30,9 +30,12 @@ class SocialVideoPlayer extends HTMLElement {
     } else {
       this.setupHoverEvents();
     }
-    
+
     // Handle video events
-    this.video.addEventListener('loadedmetadata', this.handleVideoReady.bind(this));
+    this.video.addEventListener(
+      'loadedmetadata',
+      this.handleVideoReady.bind(this)
+    );
     this.video.addEventListener('play', this.handleVideoPlay.bind(this));
     this.video.addEventListener('pause', this.handleVideoPause.bind(this));
     this.video.addEventListener('ended', this.handleVideoEnded.bind(this));
@@ -50,9 +53,12 @@ class SocialVideoPlayer extends HTMLElement {
     } else {
       this.removeHoverEvents();
     }
-    
+
     if (this.video) {
-      this.video.removeEventListener('loadedmetadata', this.handleVideoReady.bind(this));
+      this.video.removeEventListener(
+        'loadedmetadata',
+        this.handleVideoReady.bind(this)
+      );
       this.video.removeEventListener('play', this.handleVideoPlay.bind(this));
       this.video.removeEventListener('pause', this.handleVideoPause.bind(this));
       this.video.removeEventListener('ended', this.handleVideoEnded.bind(this));
@@ -65,17 +71,20 @@ class SocialVideoPlayer extends HTMLElement {
   }
 
   setupAutoplay() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.playVideo();
-        } else {
-          this.pauseVideo();
-        }
-      });
-    }, {
-      threshold: 0.5 // Trigger when 50% of element is visible
-    });
+    this.observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.playVideo();
+          } else {
+            this.pauseVideo();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of element is visible
+      }
+    );
 
     this.observer.observe(this);
   }
@@ -116,9 +125,9 @@ class SocialVideoPlayer extends HTMLElement {
 
   handleTouch(event) {
     event.preventDefault();
-    
+
     if (!this.video) return;
-    
+
     if (this.isPlaying) {
       this.pauseVideo();
     } else {
@@ -129,7 +138,7 @@ class SocialVideoPlayer extends HTMLElement {
   handleVideoReady() {
     // Video metadata is loaded
     this.classList.add('video-ready');
-    
+
     // Add touch indicator for mobile
     if (this.isTouchDevice) {
       this.classList.add('touch-device');
@@ -154,7 +163,7 @@ class SocialVideoPlayer extends HTMLElement {
       // For touch devices, don't auto-restart - let user tap again
       return;
     }
-    
+
     if (this.matches(':hover')) {
       this.video.currentTime = 0;
       this.playVideo();
@@ -169,7 +178,7 @@ class SocialVideoPlayer extends HTMLElement {
       if (this.video.ended) {
         this.video.currentTime = 0;
       }
-      
+
       await this.video.play();
     } catch (error) {
       console.warn('Could not play video:', error);
@@ -178,7 +187,7 @@ class SocialVideoPlayer extends HTMLElement {
 
   pauseVideo() {
     if (!this.video || !this.isPlaying) return;
-    
+
     this.video.pause();
   }
 
@@ -206,16 +215,16 @@ customElements.define('social-video-player', SocialVideoPlayer);
 // document.addEventListener('DOMContentLoaded', () => {
 //   // Convert existing video blocks to custom elements
 //   const videoBlocks = document.querySelectorAll('[data-video-block]');
-  
+
 //   videoBlocks.forEach(block => {
 //     // Create the custom element
 //     const socialPlayer = document.createElement('social-video-player');
-    
+
 //     // Move the content into the custom element
 //     while (block.firstChild) {
 //       socialPlayer.appendChild(block.firstChild);
 //     }
-    
+
 //     // Replace the original block with the custom element
 //     block.parentNode.replaceChild(socialPlayer, block);
 //   });
@@ -224,4 +233,4 @@ customElements.define('social-video-player', SocialVideoPlayer);
 // // Export for module usage
 // if (typeof module !== 'undefined' && module.exports) {
 //   module.exports = SocialVideoPlayer;
-// } 
+// }

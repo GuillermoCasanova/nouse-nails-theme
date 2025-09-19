@@ -34,7 +34,7 @@ theme.Sections = function Sections() {
 };
 
 theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
-  _createInstance: function(container, constructor) {
+  _createInstance: function (container, constructor) {
     var id = container.getAttribute('data-section-id');
     var type = container.getAttribute('data-section-type');
 
@@ -47,13 +47,13 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     var instance = Object.assign(new constructor(container), {
       id: id,
       type: type,
-      container: container
+      container: container,
     });
 
     this.instances.push(instance);
   },
 
-  _onSectionLoad: function(evt) {
+  _onSectionLoad: function (evt) {
     var container = document.querySelector(
       '[data-section-id="' + evt.detail.sectionId + '"]'
     );
@@ -63,8 +63,8 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     }
   },
 
-  _onSectionUnload: function(evt) {
-    this.instances = this.instances.filter(function(instance) {
+  _onSectionUnload: function (evt) {
+    this.instances = this.instances.filter(function (instance) {
       var isEventInstance = instance.id === evt.detail.sectionId;
 
       if (isEventInstance) {
@@ -77,9 +77,9 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     });
   },
 
-  _onSelect: function(evt) {
+  _onSelect: function (evt) {
     // eslint-disable-next-line no-shadow
-    var instance = this.instances.find(function(instance) {
+    var instance = this.instances.find(function (instance) {
       return instance.id === evt.detail.sectionId;
     });
 
@@ -91,9 +91,9 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     }
   },
 
-  _onDeselect: function(evt) {
+  _onDeselect: function (evt) {
     // eslint-disable-next-line no-shadow
-    var instance = this.instances.find(function(instance) {
+    var instance = this.instances.find(function (instance) {
       return instance.id === evt.detail.sectionId;
     });
 
@@ -105,9 +105,9 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     }
   },
 
-  _onBlockSelect: function(evt) {
+  _onBlockSelect: function (evt) {
     // eslint-disable-next-line no-shadow
-    var instance = this.instances.find(function(instance) {
+    var instance = this.instances.find(function (instance) {
       return instance.id === evt.detail.sectionId;
     });
 
@@ -119,9 +119,9 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     }
   },
 
-  _onBlockDeselect: function(evt) {
+  _onBlockDeselect: function (evt) {
     // eslint-disable-next-line no-shadow
-    var instance = this.instances.find(function(instance) {
+    var instance = this.instances.find(function (instance) {
       return instance.id === evt.detail.sectionId;
     });
 
@@ -133,15 +133,15 @@ theme.Sections.prototype = Object.assign({}, theme.Sections.prototype, {
     }
   },
 
-  register: function(type, constructor) {
+  register: function (type, constructor) {
     this.constructors[type] = constructor;
 
     document.querySelectorAll('[data-section-type="' + type + '"]').forEach(
-      function(container) {
+      function (container) {
         this._createInstance(container, constructor);
       }.bind(this)
     );
-  }
+  },
 });
 
 window.slate = window.slate || {};
@@ -164,7 +164,7 @@ slate.utils = {
    * getParameterByName('b') = "" (empty value)
    * getParameterByName('test') = null (absent)
    */
-  getParameterByName: function(name, url) {
+  getParameterByName: function (name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -174,8 +174,8 @@ slate.utils = {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
   },
 
-  resizeSelects: function(selects) {
-    selects.forEach(function(select) {
+  resizeSelects: function (selects) {
+    selects.forEach(function (select) {
       var arrowWidth = 55;
 
       var test = document.createElement('span');
@@ -195,8 +195,8 @@ slate.utils = {
     ENTER: 13,
     ESCAPE: 27,
     LEFTARROW: 37,
-    RIGHTARROW: 39
-  }
+    RIGHTARROW: 39,
+  },
 };
 
 window.slate = window.slate || {};
@@ -217,8 +217,8 @@ slate.rte = {
    * @param {NodeList} options.tables - Elements of the table(s) to wrap
    * @param {string} options.tableWrapperClass - table wrapper class name
    */
-  wrapTable: function(options) {
-    options.tables.forEach(function(table) {
+  wrapTable: function (options) {
+    options.tables.forEach(function (table) {
       var wrapper = document.createElement('div');
       wrapper.classList.add(options.tableWrapperClass);
 
@@ -234,8 +234,8 @@ slate.rte = {
    * @param {NodeList} options.iframes - Elements of the iframe(s) to wrap
    * @param {string} options.iframeWrapperClass - class name used on the wrapping div
    */
-  wrapIframe: function(options) {
-    options.iframes.forEach(function(iframe) {
+  wrapIframe: function (options) {
+    options.iframes.forEach(function (iframe) {
       var wrapper = document.createElement('div');
       wrapper.classList.add(options.iframeWrapperClass);
 
@@ -244,7 +244,7 @@ slate.rte = {
 
       iframe.src = iframe.src;
     });
-  }
+  },
 };
 
 window.slate = window.slate || {};
@@ -262,7 +262,7 @@ window.slate = window.slate || {};
 slate.a11y = {
   state: {
     firstFocusable: null,
-    lastFocusable: null
+    lastFocusable: null,
   },
   /**
    * For use when focus shifts to a container rather than a link
@@ -271,7 +271,7 @@ slate.a11y = {
    *
    * @param {HTMLElement} element - The element to be acted upon
    */
-  pageLinkFocus: function(element) {
+  pageLinkFocus: function (element) {
     if (!element) return;
     var focusClass = 'js-focus-hidden';
 
@@ -293,12 +293,12 @@ slate.a11y = {
    * @param {HTMLElement} options.container - Container to trap focus within
    * @param {HTMLElement} options.elementToFocus - Element to be focused when focus leaves container
    */
-  trapFocus: function(options) {
+  trapFocus: function (options) {
     var focusableElements = Array.from(
       options.container.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex^="-"])'
       )
-    ).filter(function(element) {
+    ).filter(function (element) {
       var width = element.offsetWidth;
       var height = element.offsetHeight;
 
@@ -325,7 +325,7 @@ slate.a11y = {
     document.addEventListener('focusout', this._onFocusOutHandler);
   },
 
-  _setupHandlers: function() {
+  _setupHandlers: function () {
     if (!this._onFocusInHandler) {
       this._onFocusInHandler = this._onFocusIn.bind(this);
     }
@@ -339,11 +339,11 @@ slate.a11y = {
     }
   },
 
-  _onFocusOut: function() {
+  _onFocusOut: function () {
     document.removeEventListener('keydown', this._manageFocusHandler);
   },
 
-  _onFocusIn: function(evt) {
+  _onFocusIn: function (evt) {
     if (
       evt.target !== this.state.lastFocusable &&
       evt.target !== this.state.firstFocusable
@@ -353,7 +353,7 @@ slate.a11y = {
     document.addEventListener('keydown', this._manageFocusHandler);
   },
 
-  _manageFocus: function(evt) {
+  _manageFocus: function (evt) {
     if (evt.keyCode !== slate.utils.keyboardKeys.TAB) return;
 
     /**
@@ -380,7 +380,7 @@ slate.a11y = {
    * @param {object} options - Options to be used
    * @param {HTMLElement} options.container - Container to trap focus within
    */
-  removeTrapFocus: function(options) {
+  removeTrapFocus: function (options) {
     if (options.container) {
       options.container.removeAttribute('tabindex');
     }
@@ -394,13 +394,13 @@ slate.a11y = {
    * @param {object} options.messages - Custom messages to be used
    * @param {HTMLElement} options.links - Specific links to be targeted
    */
-  accessibleLinks: function(options) {
+  accessibleLinks: function (options) {
     var body = document.querySelector('body');
 
     var idSelectors = {
       newWindow: 'a11y-new-window-message',
       external: 'a11y-external-message',
-      newWindowExternal: 'a11y-new-window-external-message'
+      newWindowExternal: 'a11y-new-window-external-message',
     };
 
     if (options.links === undefined || !options.links.length) {
@@ -418,7 +418,7 @@ slate.a11y = {
         {
           newWindow: 'Opens in a new window.',
           external: 'Opens external website.',
-          newWindowExternal: 'Opens external website in a new window.'
+          newWindowExternal: 'Opens external website in a new window.',
         },
         customMessages
       );
@@ -443,7 +443,7 @@ slate.a11y = {
       return link.hostname !== hostname;
     }
 
-    options.links.forEach(function(link) {
+    options.links.forEach(function (link) {
       var target = link.getAttribute('target');
       var rel = link.getAttribute('rel');
       var isExternal = _externalSite(link);
@@ -469,7 +469,7 @@ slate.a11y = {
     });
 
     generateHTML(options.messages);
-  }
+  },
 };
 
 /**
@@ -479,7 +479,7 @@ slate.a11y = {
  *
  */
 
-theme.Images = (function() {
+theme.Images = (function () {
   /**
    * Preloads an image in memory and uses the browsers cache to store it until needed.
    *
@@ -587,7 +587,7 @@ theme.Images = (function() {
     switchImage: switchImage,
     imageSize: imageSize,
     getSizedImageUrl: getSizedImageUrl,
-    removeProtocol: removeProtocol
+    removeProtocol: removeProtocol,
   };
 })();
 
@@ -604,7 +604,7 @@ theme.Images = (function() {
  *
  */
 
-theme.Currency = (function() {
+theme.Currency = (function () {
   var moneyFormat = '${{amount}}'; // eslint-disable-line camelcase
 
   function formatMoney(cents, format) {
@@ -660,7 +660,7 @@ theme.Currency = (function() {
   }
 
   return {
-    formatMoney: formatMoney
+    formatMoney: formatMoney,
   };
 })();
 
@@ -675,7 +675,7 @@ theme.Currency = (function() {
  * @namespace variants
  */
 
-slate.Variants = (function() {
+slate.Variants = (function () {
   /**
    * Variant constructor
    *
@@ -692,7 +692,7 @@ slate.Variants = (function() {
     this.currentVariant = this._getVariantFromOptions();
 
     this.singleOptions.forEach(
-      function(option) {
+      function (option) {
         option.addEventListener('change', this._onSelectChange.bind(this));
       }.bind(this)
     );
@@ -705,17 +705,17 @@ slate.Variants = (function() {
      *
      * @return {array} options - Values of currently selected variants
      */
-    _getCurrentOptions: function() {
+    _getCurrentOptions: function () {
       var result = [];
 
-      this.singleOptions.forEach(function(option) {
+      this.singleOptions.forEach(function (option) {
         var type = option.getAttribute('type');
         var isRadioOrCheckbox = type === 'radio' || type === 'checkbox';
 
         if (!isRadioOrCheckbox || option.checked) {
           result.push({
             value: option.value,
-            index: option.getAttribute('data-index')
+            index: option.getAttribute('data-index'),
           });
         }
       });
@@ -729,12 +729,12 @@ slate.Variants = (function() {
      * @param  {array} selectedValues - Values of variant inputs
      * @return {object || undefined} found - Variant object from product.variants
      */
-    _getVariantFromOptions: function() {
+    _getVariantFromOptions: function () {
       var selectedValues = this._getCurrentOptions();
       var variants = this.product.variants;
 
-      var found = variants.find(function(variant) {
-        return selectedValues.every(function(values) {
+      var found = variants.find(function (variant) {
+        return selectedValues.every(function (values) {
           return variant[values.index] === values.value;
         });
       });
@@ -745,16 +745,16 @@ slate.Variants = (function() {
     /**
      * Event handler for when a variant input changes.
      */
-    _onSelectChange: function() {
+    _onSelectChange: function () {
       var variant = this._getVariantFromOptions();
 
       this.container.dispatchEvent(
         new CustomEvent('variantChange', {
           detail: {
-            variant: variant
+            variant: variant,
           },
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
 
@@ -779,7 +779,7 @@ slate.Variants = (function() {
      * @param  {object} variant - Currently selected variant
      * @return {event}  variantImageChange
      */
-    _updateImages: function(variant) {
+    _updateImages: function (variant) {
       var variantImage = variant.featured_image || {};
       var currentVariantImage = this.currentVariant.featured_image || {};
 
@@ -793,10 +793,10 @@ slate.Variants = (function() {
       this.container.dispatchEvent(
         new CustomEvent('variantImageChange', {
           detail: {
-            variant: variant
+            variant: variant,
           },
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
     },
@@ -807,7 +807,7 @@ slate.Variants = (function() {
      * @param  {object} variant - Currently selected variant
      * @return {event} variantPriceChange
      */
-    _updatePrice: function(variant) {
+    _updatePrice: function (variant) {
       if (
         variant.price === this.currentVariant.price &&
         variant.compare_at_price === this.currentVariant.compare_at_price
@@ -818,10 +818,10 @@ slate.Variants = (function() {
       this.container.dispatchEvent(
         new CustomEvent('variantPriceChange', {
           detail: {
-            variant: variant
+            variant: variant,
           },
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
     },
@@ -832,7 +832,7 @@ slate.Variants = (function() {
      * @param  {object} variant - Currently selected variant
      * @return {event} variantSKUChange
      */
-    _updateSKU: function(variant) {
+    _updateSKU: function (variant) {
       if (variant.sku === this.currentVariant.sku) {
         return;
       }
@@ -840,10 +840,10 @@ slate.Variants = (function() {
       this.container.dispatchEvent(
         new CustomEvent('variantSKUChange', {
           detail: {
-            variant: variant
+            variant: variant,
           },
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
     },
@@ -854,7 +854,7 @@ slate.Variants = (function() {
      * @param  {variant} variant - Currently selected variant
      * @return {k}         [description]
      */
-    _updateHistoryState: function(variant) {
+    _updateHistoryState: function (variant) {
       if (!history.replaceState || !variant) {
         return;
       }
@@ -874,12 +874,12 @@ slate.Variants = (function() {
      *
      * @param  {variant} variant - Currently selected variant
      */
-    _updateMasterSelect: function(variant) {
+    _updateMasterSelect: function (variant) {
       var masterSelect = this.container.querySelector(this.originalSelectorId);
 
       if (!masterSelect) return;
       masterSelect.value = variant.id;
-    }
+    },
   });
 
   return Variants;
@@ -887,7 +887,7 @@ slate.Variants = (function() {
 
 this.Shopify = this.Shopify || {};
 this.Shopify.theme = this.Shopify.theme || {};
-this.Shopify.theme.PredictiveSearch = (function() {
+this.Shopify.theme.PredictiveSearch = (function () {
   'use strict';
 
   function validateQuery(query) {
@@ -990,7 +990,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
   function request(configParams, query, onSuccess, onError) {
     var xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState !== XMLHttpRequest.DONE) {
         return;
       }
@@ -1121,7 +1121,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
     }
   }
 
-  Cache.prototype.set = function(key, value) {
+  Cache.prototype.set = function (key, value) {
     if (this.count() >= this.bucketSize) {
       var deleteKey = this._keys.splice(0, 1);
       this.delete(deleteKey);
@@ -1133,19 +1133,19 @@ this.Shopify.theme.PredictiveSearch = (function() {
     return this._store;
   };
 
-  Cache.prototype.get = function(key) {
+  Cache.prototype.get = function (key) {
     return this._store[key];
   };
 
-  Cache.prototype.has = function(key) {
+  Cache.prototype.has = function (key) {
     return Boolean(this._store[key]);
   };
 
-  Cache.prototype.count = function() {
+  Cache.prototype.count = function () {
     return Object.keys(this._store).length;
   };
 
-  Cache.prototype.delete = function(key) {
+  Cache.prototype.delete = function (key) {
     var exists = Boolean(this._store[key]);
     delete this._store[key];
     return exists && !this._store[key];
@@ -1155,7 +1155,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
     this.events = {};
   }
 
-  Dispatcher.prototype.on = function(eventName, callback) {
+  Dispatcher.prototype.on = function (eventName, callback) {
     var event = this.events[eventName];
     if (!event) {
       event = new DispatcherEvent(eventName);
@@ -1164,7 +1164,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
     event.registerCallback(callback);
   };
 
-  Dispatcher.prototype.off = function(eventName, callback) {
+  Dispatcher.prototype.off = function (eventName, callback) {
     var event = this.events[eventName];
     if (event && event.callbacks.indexOf(callback) > -1) {
       event.unregisterCallback(callback);
@@ -1174,7 +1174,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
     }
   };
 
-  Dispatcher.prototype.dispatch = function(eventName, payload) {
+  Dispatcher.prototype.dispatch = function (eventName, payload) {
     var event = this.events[eventName];
     if (event) {
       event.fire(payload);
@@ -1186,31 +1186,31 @@ this.Shopify.theme.PredictiveSearch = (function() {
     this.callbacks = [];
   }
 
-  DispatcherEvent.prototype.registerCallback = function(callback) {
+  DispatcherEvent.prototype.registerCallback = function (callback) {
     this.callbacks.push(callback);
   };
 
-  DispatcherEvent.prototype.unregisterCallback = function(callback) {
+  DispatcherEvent.prototype.unregisterCallback = function (callback) {
     var index = this.callbacks.indexOf(callback);
     if (index > -1) {
       this.callbacks.splice(index, 1);
     }
   };
 
-  DispatcherEvent.prototype.fire = function(payload) {
+  DispatcherEvent.prototype.fire = function (payload) {
     var callbacks = this.callbacks.slice(0);
-    callbacks.forEach(function(callback) {
+    callbacks.forEach(function (callback) {
       callback(payload);
     });
   };
 
   function debounce(func, wait) {
     var timeout = null;
-    return function() {
+    return function () {
       var context = this;
       var args = arguments;
       clearTimeout(timeout);
-      timeout = setTimeout(function() {
+      timeout = setTimeout(function () {
         timeout = null;
         func.apply(context, args);
       }, wait || 0);
@@ -1221,7 +1221,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
     var output = '';
     parentKey = parentKey || null;
 
-    Object.keys(obj).forEach(function(key) {
+    Object.keys(obj).forEach(function (key) {
       var outputKey = key + '=';
       if (parentKey) {
         outputKey = parentKey + '[' + key + ']';
@@ -1247,10 +1247,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
   }
 
   function trueTypeOf(obj) {
-    return Object.prototype.toString
-      .call(obj)
-      .slice(8, -1)
-      .toLowerCase();
+    return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
   }
 
   var DEBOUNCE_RATE = 10;
@@ -1272,7 +1269,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
   PredictiveSearch.TYPES = {
     PRODUCT: 'product',
     PAGE: 'page',
-    ARTICLE: 'article'
+    ARTICLE: 'article',
   };
 
   PredictiveSearch.FIELDS = {
@@ -1284,13 +1281,13 @@ this.Shopify.theme.PredictiveSearch = (function() {
     VARIANTS_BARCODE: 'variants.barcode',
     VARIANTS_SKU: 'variants.sku',
     VARIANTS_TITLE: 'variants.title',
-    VENDOR: 'vendor'
+    VENDOR: 'vendor',
   };
 
   PredictiveSearch.UNAVAILABLE_PRODUCTS = {
     SHOW: 'show',
     HIDE: 'hide',
-    LAST: 'last'
+    LAST: 'last',
   };
 
   PredictiveSearch.prototype.query = function query(query) {
@@ -1315,14 +1312,14 @@ this.Shopify.theme.PredictiveSearch = (function() {
     requestDebounced(
       this.configParams,
       query,
-      function(result) {
+      function (result) {
         this.cache.set(normalizeQuery(result.query), result);
         if (normalizeQuery(result.query) === this._currentQuery) {
           this._retryAfter = null;
           this.dispatcher.dispatch('success', result);
         }
       }.bind(this),
-      function(error) {
+      function (error) {
         if (error.retryAfter) {
           this._retryAfter = error.retryAfter;
         }
@@ -1350,10 +1347,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
       return null;
     }
 
-    return query
-      .trim()
-      .replace(' ', '-')
-      .toLowerCase();
+    return query.trim().replace(' ', '-').toLowerCase();
   }
 
   return PredictiveSearch;
@@ -1361,7 +1355,7 @@ this.Shopify.theme.PredictiveSearch = (function() {
 
 this.Shopify = this.Shopify || {};
 this.Shopify.theme = this.Shopify.theme || {};
-this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
+this.Shopify.theme.PredictiveSearchComponent = (function (PredictiveSearch) {
   'use strict';
 
   PredictiveSearch =
@@ -1378,10 +1372,10 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
           PredictiveSearch.FIELDS.TITLE,
           PredictiveSearch.FIELDS.VENDOR,
           PredictiveSearch.FIELDS.PRODUCT_TYPE,
-          PredictiveSearch.FIELDS.VARIANTS_TITLE
-        ]
-      }
-    }
+          PredictiveSearch.FIELDS.VARIANTS_TITLE,
+        ],
+      },
+    },
   };
 
   function PredictiveSearchComponent(config) {
@@ -1443,13 +1437,13 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
         : 'predictive-search-item--selected',
       clearButtonVisible: config.clearButtonVisibleClass
         ? config.clearButtonVisibleClass
-        : 'predictive-search__clear-button--visible'
+        : 'predictive-search__clear-button--visible',
     };
 
     this.selectors = {
       searchResult: config.searchResult
         ? config.searchResult
-        : '[data-search-result]'
+        : '[data-search-result]',
     };
 
     // Assign callbacks
@@ -1497,7 +1491,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return {
       input: document.querySelector(selectors.input),
       reset: document.querySelector(selectors.reset),
-      result: document.querySelector(selectors.result)
+      result: document.querySelector(selectors.result),
     };
   }
 
@@ -1526,7 +1520,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
       onInputBlur: config.onInputBlur,
       onInputReset: config.onInputReset,
       onBeforeDestroy: config.onBeforeDestroy,
-      onDestroy: config.onDestroy
+      onDestroy: config.onDestroy,
     };
   }
 
@@ -1559,7 +1553,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
   /**
    * "Private" instance methods
    */
-  PredictiveSearchComponent.prototype._addInputEventListeners = function() {
+  PredictiveSearchComponent.prototype._addInputEventListeners = function () {
     var input = this.nodes.input;
     var reset = this.nodes.reset;
 
@@ -1583,7 +1577,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     }
   };
 
-  PredictiveSearchComponent.prototype._removeInputEventListeners = function() {
+  PredictiveSearchComponent.prototype._removeInputEventListeners = function () {
     var input = this.nodes.input;
 
     input.removeEventListener('focus', this._handleInputFocus);
@@ -1592,7 +1586,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     input.removeEventListener('keydown', this._handleInputKeydown);
   };
 
-  PredictiveSearchComponent.prototype._addBodyEventListener = function() {
+  PredictiveSearchComponent.prototype._addBodyEventListener = function () {
     this._handleBodyMousedown = this._handleBodyMousedown.bind(this);
 
     document
@@ -1600,26 +1594,27 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
       .addEventListener('mousedown', this._handleBodyMousedown);
   };
 
-  PredictiveSearchComponent.prototype._removeBodyEventListener = function() {
+  PredictiveSearchComponent.prototype._removeBodyEventListener = function () {
     document
       .querySelector('body')
       .removeEventListener('mousedown', this._handleBodyMousedown);
   };
 
-  PredictiveSearchComponent.prototype._removeClearButtonEventListener = function() {
-    var reset = this.nodes.reset;
+  PredictiveSearchComponent.prototype._removeClearButtonEventListener =
+    function () {
+      var reset = this.nodes.reset;
 
-    if (!reset) {
-      return;
-    }
+      if (!reset) {
+        return;
+      }
 
-    reset.removeEventListener('click', this._handleInputReset);
-  };
+      reset.removeEventListener('click', this._handleInputReset);
+    };
 
   /**
    * Event handlers
    */
-  PredictiveSearchComponent.prototype._handleBodyMousedown = function(evt) {
+  PredictiveSearchComponent.prototype._handleBodyMousedown = function (evt) {
     if (this.isResultVisible && this.nodes !== null) {
       if (
         evt.target.isEqualNode(this.nodes.input) ||
@@ -1641,7 +1636,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     }
   };
 
-  PredictiveSearchComponent.prototype._handleInputFocus = function(evt) {
+  PredictiveSearchComponent.prototype._handleInputFocus = function (evt) {
     if (isFunction(this.callbacks.onInputFocus)) {
       var returnedValue = this.callbacks.onInputFocus(this.nodes);
       if (isBoolean(returnedValue) && !returnedValue) {
@@ -1656,12 +1651,12 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype._handleInputBlur = function() {
+  PredictiveSearchComponent.prototype._handleInputBlur = function () {
     // This has to be done async, to wait for the focus to be on the next
     // element and avoid closing the results.
     // Example: Going from the input to the reset button.
     setTimeout(
-      function() {
+      function () {
         if (isFunction(this.callbacks.onInputBlur)) {
           var returnedValue = this.callbacks.onInputBlur(this.nodes);
           if (isBoolean(returnedValue) && !returnedValue) {
@@ -1685,7 +1680,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype._addAccessibilityAnnouncer = function() {
+  PredictiveSearchComponent.prototype._addAccessibilityAnnouncer = function () {
     this._accessibilityAnnouncerDiv = window.document.createElement('div');
 
     this._accessibilityAnnouncerDiv.setAttribute(
@@ -1702,36 +1697,35 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     );
   };
 
-  PredictiveSearchComponent.prototype._removeAccessibilityAnnouncer = function() {
-    this.nodes.result.parentElement.removeChild(
-      this._accessibilityAnnouncerDiv
-    );
-  };
+  PredictiveSearchComponent.prototype._removeAccessibilityAnnouncer =
+    function () {
+      this.nodes.result.parentElement.removeChild(
+        this._accessibilityAnnouncerDiv
+      );
+    };
 
-  PredictiveSearchComponent.prototype._updateAccessibilityAttributesAfterSelectingElement = function(
-    previousSelectedElement,
-    currentSelectedElement
-  ) {
-    // Update the active descendant on the search input
-    this.nodes.input.setAttribute(
-      'aria-activedescendant',
-      currentSelectedElement.id
-    );
+  PredictiveSearchComponent.prototype._updateAccessibilityAttributesAfterSelectingElement =
+    function (previousSelectedElement, currentSelectedElement) {
+      // Update the active descendant on the search input
+      this.nodes.input.setAttribute(
+        'aria-activedescendant',
+        currentSelectedElement.id
+      );
 
-    // Unmark the previousSelected elemented as selected
-    if (previousSelectedElement) {
-      previousSelectedElement.removeAttribute('aria-selected');
-    }
+      // Unmark the previousSelected elemented as selected
+      if (previousSelectedElement) {
+        previousSelectedElement.removeAttribute('aria-selected');
+      }
 
-    // Mark the element as selected
-    currentSelectedElement.setAttribute('aria-selected', true);
-  };
+      // Mark the element as selected
+      currentSelectedElement.setAttribute('aria-selected', true);
+    };
 
-  PredictiveSearchComponent.prototype._clearAriaActiveDescendant = function() {
+  PredictiveSearchComponent.prototype._clearAriaActiveDescendant = function () {
     this.nodes.input.setAttribute('aria-activedescendant', '');
   };
 
-  PredictiveSearchComponent.prototype._announceNumberOfResultsFound = function(
+  PredictiveSearchComponent.prototype._announceNumberOfResultsFound = function (
     results
   ) {
     var currentAnnouncedMessage = this._accessibilityAnnouncerDiv.innerHTML;
@@ -1746,11 +1740,12 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     this._accessibilityAnnouncerDiv.innerHTML = newMessage;
   };
 
-  PredictiveSearchComponent.prototype._announceLoadingState = function() {
-    this._accessibilityAnnouncerDiv.innerHTML = this.loadingResultsMessageTemplateFct();
+  PredictiveSearchComponent.prototype._announceLoadingState = function () {
+    this._accessibilityAnnouncerDiv.innerHTML =
+      this.loadingResultsMessageTemplateFct();
   };
 
-  PredictiveSearchComponent.prototype._handleInputKeyup = function(evt) {
+  PredictiveSearchComponent.prototype._handleInputKeyup = function (evt) {
     var UP_ARROW_KEY_CODE = 38;
     var DOWN_ARROW_KEY_CODE = 40;
     var RETURN_KEY_CODE = 13;
@@ -1796,7 +1791,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype._handleInputKeydown = function(evt) {
+  PredictiveSearchComponent.prototype._handleInputKeydown = function (evt) {
     var RETURN_KEY_CODE = 13;
     var UP_ARROW_KEY_CODE = 38;
     var DOWN_ARROW_KEY_CODE = 40;
@@ -1815,7 +1810,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     }
   };
 
-  PredictiveSearchComponent.prototype._handleInputReset = function(evt) {
+  PredictiveSearchComponent.prototype._handleInputReset = function (evt) {
     evt.preventDefault();
 
     if (isFunction(this.callbacks.onInputReset)) {
@@ -1833,7 +1828,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype._navigateOption = function(
+  PredictiveSearchComponent.prototype._navigateOption = function (
     evt,
     direction
   ) {
@@ -1873,11 +1868,11 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     }
   };
 
-  PredictiveSearchComponent.prototype._getSelectedOption = function() {
+  PredictiveSearchComponent.prototype._getSelectedOption = function () {
     return this.nodes.result.querySelector('.' + this.classes.itemSelected);
   };
 
-  PredictiveSearchComponent.prototype._selectOption = function() {
+  PredictiveSearchComponent.prototype._selectOption = function () {
     var selectedOption = this._getSelectedOption();
 
     if (selectedOption) {
@@ -1885,7 +1880,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     }
   };
 
-  PredictiveSearchComponent.prototype._search = function() {
+  PredictiveSearchComponent.prototype._search = function () {
     var newSearchKeyword = this.nodes.input.value;
 
     if (this._searchKeyword === newSearchKeyword) {
@@ -1894,7 +1889,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
 
     clearTimeout(this._latencyTimer);
     this._latencyTimer = setTimeout(
-      function() {
+      function () {
         this.results.isLoading = true;
 
         // Annonuce that we're loading the results
@@ -1912,40 +1907,40 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     this._setKeyword(newSearchKeyword);
   };
 
-  PredictiveSearchComponent.prototype._handlePredictiveSearchSuccess = function(
-    json
-  ) {
-    clearTimeout(this._latencyTimer);
-    this.results = json.resources.results;
+  PredictiveSearchComponent.prototype._handlePredictiveSearchSuccess =
+    function (json) {
+      clearTimeout(this._latencyTimer);
+      this.results = json.resources.results;
 
-    this.results.isLoading = false;
-    this.results.products = this.results.products.slice(
-      0,
-      this.numberOfResults
-    );
-    this.results.canLoadMore =
-      this.numberOfResults <= this.results.products.length;
-    this.results.searchQuery = this.nodes.input.value;
+      this.results.isLoading = false;
+      this.results.products = this.results.products.slice(
+        0,
+        this.numberOfResults
+      );
+      this.results.canLoadMore =
+        this.numberOfResults <= this.results.products.length;
+      this.results.searchQuery = this.nodes.input.value;
 
-    if (this.results.products.length > 0 || this.results.searchQuery) {
-      this.nodes.result.innerHTML = this.resultTemplateFct(this.results);
-      this._announceNumberOfResultsFound(this.results);
-      this.open();
-    } else {
+      if (this.results.products.length > 0 || this.results.searchQuery) {
+        this.nodes.result.innerHTML = this.resultTemplateFct(this.results);
+        this._announceNumberOfResultsFound(this.results);
+        this.open();
+      } else {
+        this.nodes.result.innerHTML = '';
+
+        this._closeOnNoResults();
+      }
+    };
+
+  PredictiveSearchComponent.prototype._handlePredictiveSearchError =
+    function () {
+      clearTimeout(this._latencyTimer);
       this.nodes.result.innerHTML = '';
 
       this._closeOnNoResults();
-    }
-  };
+    };
 
-  PredictiveSearchComponent.prototype._handlePredictiveSearchError = function() {
-    clearTimeout(this._latencyTimer);
-    this.nodes.result.innerHTML = '';
-
-    this._closeOnNoResults();
-  };
-
-  PredictiveSearchComponent.prototype._closeOnNoResults = function() {
+  PredictiveSearchComponent.prototype._closeOnNoResults = function () {
     if (this.nodes) {
       this.nodes.result.classList.remove(this.classes.visibleVariant);
     }
@@ -1953,26 +1948,27 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     this.isResultVisible = false;
   };
 
-  PredictiveSearchComponent.prototype._setKeyword = function(keyword) {
+  PredictiveSearchComponent.prototype._setKeyword = function (keyword) {
     this._searchKeyword = keyword;
   };
 
-  PredictiveSearchComponent.prototype._toggleClearButtonVisibility = function() {
-    if (!this.nodes.reset) {
-      return;
-    }
+  PredictiveSearchComponent.prototype._toggleClearButtonVisibility =
+    function () {
+      if (!this.nodes.reset) {
+        return;
+      }
 
-    if (this.nodes.input.value.length > 0) {
-      this.nodes.reset.classList.add(this.classes.clearButtonVisible);
-    } else {
-      this.nodes.reset.classList.remove(this.classes.clearButtonVisible);
-    }
-  };
+      if (this.nodes.input.value.length > 0) {
+        this.nodes.reset.classList.add(this.classes.clearButtonVisible);
+      } else {
+        this.nodes.reset.classList.remove(this.classes.clearButtonVisible);
+      }
+    };
 
   /**
    * Public methods
    */
-  PredictiveSearchComponent.prototype.open = function() {
+  PredictiveSearchComponent.prototype.open = function () {
     if (this.isResultVisible) {
       return;
     }
@@ -1995,7 +1991,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype.close = function() {
+  PredictiveSearchComponent.prototype.close = function () {
     if (!this.isResultVisible) {
       return true;
     }
@@ -2025,7 +2021,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype.destroy = function() {
+  PredictiveSearchComponent.prototype.destroy = function () {
     this.close();
 
     if (isFunction(this.callbacks.onBeforeDestroy)) {
@@ -2049,7 +2045,7 @@ this.Shopify.theme.PredictiveSearchComponent = (function(PredictiveSearch) {
     return true;
   };
 
-  PredictiveSearchComponent.prototype.clearAndClose = function() {
+  PredictiveSearchComponent.prototype.clearAndClose = function () {
     this.nodes.input.value = '';
     this.close();
   };
@@ -2086,7 +2082,7 @@ theme.TouchEvents = function TouchEvents(element, options) {
   this.events = [
     ['touchstart', 'touchmove', 'touchend', 'touchcancel'],
     ['pointerdown', 'pointermove', 'pointerup', 'pointercancel'],
-    ['mousedown', 'mousemove', 'mouseup']
+    ['mousedown', 'mousemove', 'mouseup'],
   ];
   this.eventType;
   this.difference = {};
@@ -2098,9 +2094,9 @@ theme.TouchEvents = function TouchEvents(element, options) {
     {},
     {
       dragThreshold: 10,
-      start: function() {}, // eslint-disable-line
-      move: function() {}, // eslint-disable-line
-      end: function() {} // eslint-disable-line
+      start: function () {}, // eslint-disable-line
+      move: function () {}, // eslint-disable-line
+      end: function () {}, // eslint-disable-line
     },
     options
   );
@@ -2112,7 +2108,7 @@ theme.TouchEvents = function TouchEvents(element, options) {
 };
 
 theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
-  destroy: function() {
+  destroy: function () {
     this.element.removeEventListener(
       'dragstart',
       this.eventHandlers.preventDefault
@@ -2133,7 +2129,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.element.removeEventListener('click', this.eventHandlers.preventClick);
   },
 
-  _setupEventHandlers: function() {
+  _setupEventHandlers: function () {
     this.eventHandlers.preventDefault = this._preventDefault.bind(this);
     this.eventHandlers.preventClick = this._preventClick.bind(this);
     this.eventHandlers.touchStart = this._touchStart.bind(this);
@@ -2164,7 +2160,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.element.addEventListener('click', this.eventHandlers.preventClick);
   },
 
-  _touchStart: function(event) {
+  _touchStart: function (event) {
     this.eventType = this.eventModel;
 
     if (event.type === 'mousedown' && !this.eventModel) {
@@ -2194,12 +2190,12 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.start = {
       xPosition: this.eventType ? event.clientX : event.touches[0].clientX,
       yPosition: this.eventType ? event.clientY : event.touches[0].clientY,
-      time: new Date().getTime()
+      time: new Date().getTime(),
     };
 
     // Ensure we empty out the this.difference object
     Object.keys(this.difference).forEach(
-      function(key) {
+      function (key) {
         delete this.difference[key];
       }.bind(this)
     );
@@ -2207,11 +2203,11 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.options.start(event);
   },
 
-  _touchMove: function(event) {
+  _touchMove: function (event) {
     this.difference = this._getDifference(event);
 
     // Prevent document from scrolling during swipe gesture
-    document['on' + this.events[this.eventType][1]] = function(event) {
+    document['on' + this.events[this.eventType][1]] = function (event) {
       this._preventDefault(event);
     }.bind(this);
 
@@ -2235,7 +2231,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.options.move(event, this.direction, this.difference);
   },
 
-  _touchEnd: function(event) {
+  _touchEnd: function (event) {
     document.removeEventListener(
       this.events[this.eventType][1],
       this.eventHandlers.touchMove
@@ -2254,7 +2250,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     }
 
     // Re-enable document scrolling
-    document['on' + this.events[this.eventType][1]] = function() {
+    document['on' + this.events[this.eventType][1]] = function () {
       return true;
     };
 
@@ -2262,7 +2258,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
     this.axis = false;
   },
 
-  _getDifference: function(event) {
+  _getDifference: function (event) {
     return {
       xPosition:
         (this.eventType ? event.clientX : event.touches[0].clientX) -
@@ -2270,14 +2266,14 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
       yPosition:
         (this.eventType ? event.clientY : event.touches[0].clientY) -
         this.start.yPosition,
-      time: new Date().getTime() - this.start.time
+      time: new Date().getTime() - this.start.time,
     };
   },
 
-  _getCheckEvents: function() {
+  _getCheckEvents: function () {
     return [
       // Touch events
-      function(event) {
+      function (event) {
         // Skip the event if it's a multi-touch or pinch move
         return (
           (event.touches && event.touches.length > 1) ||
@@ -2285,7 +2281,7 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
         );
       },
       // Pointer events
-      function(event) {
+      function (event) {
         // Skip it, if:
         // 1. The event is not primary (other pointers during multi-touch),
         // 2. Left mouse button is not pressed,
@@ -2297,34 +2293,33 @@ theme.TouchEvents.prototype = Object.assign({}, theme.TouchEvents.prototype, {
         );
       },
       // Mouse events
-      function(event) {
+      function (event) {
         // Skip the event if left mouse button is not pressed
         return event.buttons && event.buttons !== 1;
-      }
+      },
     ];
   },
 
-  _getEventModel: function() {
+  _getEventModel: function () {
     return window.navigator.pointerEnabled ? 1 : 0;
   },
 
-  _preventDefault: function(event) {
+  _preventDefault: function (event) {
     event.preventDefault ? event.preventDefault() : (event.returnValue = false);
   },
 
-  _preventClick: function(event) {
+  _preventClick: function (event) {
     if (Math.abs(this.difference.xPosition) > this.options.dragThreshold) {
       this._preventDefault(event);
     }
-  }
+  },
 });
-
 
 /* ================ GLOBAL ================ */
 /*============================================================================
   Drawer modules
 ==============================================================================*/
-theme.Drawers = (function() {
+theme.Drawers = (function () {
   function Drawer(id, position, options) {
     var DEFAULT_OPEN_CLASS = 'js-drawer-open';
     var DEFAULT_CLOSE_CLASS = 'js-drawer-close';
@@ -2332,18 +2327,18 @@ theme.Drawers = (function() {
     var defaults = {
       selectors: {
         openVariant: '.' + DEFAULT_OPEN_CLASS + '-' + position,
-        close: '.' + DEFAULT_CLOSE_CLASS
+        close: '.' + DEFAULT_CLOSE_CLASS,
       },
       classes: {
         open: DEFAULT_OPEN_CLASS,
-        openVariant: DEFAULT_OPEN_CLASS + '-' + position
+        openVariant: DEFAULT_OPEN_CLASS + '-' + position,
       },
-      withPredictiveSearch: false
+      withPredictiveSearch: false,
     };
 
     this.nodes = {
       parents: [document.documentElement, document.body],
-      page: document.getElementById('PageContainer')
+      page: document.getElementById('PageContainer'),
     };
 
     this.eventHandlers = {};
@@ -2360,7 +2355,7 @@ theme.Drawers = (function() {
     this.init();
   }
 
-  Drawer.prototype.init = function() {
+  Drawer.prototype.init = function () {
     document
       .querySelector(this.config.selectors.openVariant)
       .addEventListener('click', this.open.bind(this));
@@ -2369,7 +2364,7 @@ theme.Drawers = (function() {
       .addEventListener('click', this.close.bind(this));
   };
 
-  Drawer.prototype.open = function(evt) {
+  Drawer.prototype.open = function (evt) {
     // Keep track if drawer was opened from a click, or called by another function
     var externalCall = false;
 
@@ -2399,7 +2394,7 @@ theme.Drawers = (function() {
     }
 
     this.nodes.parents.forEach(
-      function(parent) {
+      function (parent) {
         parent.classList.add(
           this.config.classes.open,
           this.config.classes.openVariant
@@ -2425,7 +2420,7 @@ theme.Drawers = (function() {
 
     // Set focus on drawer
     var trapFocusConfig = {
-      container: this.drawer
+      container: this.drawer,
     };
 
     if (this.config.elementToFocusOnOpen) {
@@ -2439,7 +2434,7 @@ theme.Drawers = (function() {
     return this;
   };
 
-  Drawer.prototype.close = function() {
+  Drawer.prototype.close = function () {
     if (!this.drawerIsOpen) {
       // don't close a closed drawer
       return;
@@ -2456,7 +2451,7 @@ theme.Drawers = (function() {
     }
 
     this.nodes.parents.forEach(
-      function(parent) {
+      function (parent) {
         parent.classList.remove(
           this.config.classes.open,
           this.config.classes.openVariant
@@ -2472,7 +2467,7 @@ theme.Drawers = (function() {
 
     // Remove focus on drawer
     slate.a11y.removeTrapFocus({
-      container: this.drawer
+      container: this.drawer,
     });
 
     this.unbindEvents();
@@ -2486,8 +2481,8 @@ theme.Drawers = (function() {
     }
   };
 
-  Drawer.prototype.bindEvents = function() {
-    this.eventHandlers.drawerKeyupHandler = function(evt) {
+  Drawer.prototype.bindEvents = function () {
+    this.eventHandlers.drawerKeyupHandler = function (evt) {
       // close on 'esc' keypress
       if (evt.keyCode === 27) {
         this.close();
@@ -2497,11 +2492,11 @@ theme.Drawers = (function() {
       }
     }.bind(this);
 
-    this.eventHandlers.drawerTouchmoveHandler = function() {
+    this.eventHandlers.drawerTouchmoveHandler = function () {
       return false;
     };
 
-    this.eventHandlers.drawerClickHandler = function() {
+    this.eventHandlers.drawerClickHandler = function () {
       this.close();
       return false;
     }.bind(this);
@@ -2524,7 +2519,7 @@ theme.Drawers = (function() {
     );
   };
 
-  Drawer.prototype.unbindEvents = function() {
+  Drawer.prototype.unbindEvents = function () {
     this.nodes.page.removeEventListener(
       'touchmove',
       this.eventHandlers.drawerTouchmoveHandler
@@ -2542,11 +2537,11 @@ theme.Drawers = (function() {
   return Drawer;
 })();
 
-theme.Helpers = (function() {
+theme.Helpers = (function () {
   var touchDevice = false;
 
   var classes = {
-    preventScrolling: 'prevent-scrolling'
+    preventScrolling: 'prevent-scrolling',
   };
 
   var scrollPosition = window.pageYOffset;
@@ -2574,11 +2569,11 @@ theme.Helpers = (function() {
   function debounce(func, wait, immediate) {
     var timeout;
 
-    return function() {
+    return function () {
       var context = this,
         args = arguments;
 
-      var later = function() {
+      var later = function () {
         timeout = null;
         if (!immediate) func.apply(context, args);
       };
@@ -2591,7 +2586,7 @@ theme.Helpers = (function() {
   }
 
   function getScript(source, beforeEl) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       var script = document.createElement('script');
       var prior = beforeEl || document.getElementsByTagName('script')[0];
 
@@ -2630,7 +2625,7 @@ theme.Helpers = (function() {
   function prepareTransition(element) {
     element.addEventListener(
       'transitionend',
-      function(event) {
+      function (event) {
         event.currentTarget.classList.remove('is-transitioning');
       },
       { once: true }
@@ -2640,12 +2635,12 @@ theme.Helpers = (function() {
       'transition-duration',
       '-moz-transition-duration',
       '-webkit-transition-duration',
-      '-o-transition-duration'
+      '-o-transition-duration',
     ];
 
     var duration = 0;
 
-    properties.forEach(function(property) {
+    properties.forEach(function (property) {
       var computedValue = getComputedStyle(element)[property];
 
       if (computedValue) {
@@ -2668,7 +2663,7 @@ theme.Helpers = (function() {
    */
   function serialize(form) {
     var arr = [];
-    Array.prototype.slice.call(form.elements).forEach(function(field) {
+    Array.prototype.slice.call(form.elements).forEach(function (field) {
       if (
         !field.name ||
         field.disabled ||
@@ -2676,7 +2671,7 @@ theme.Helpers = (function() {
       )
         return;
       if (field.type === 'select-multiple') {
-        Array.prototype.slice.call(field.options).forEach(function(option) {
+        Array.prototype.slice.call(field.options).forEach(function (option) {
           if (!option.selected) return;
           arr.push(
             encodeURIComponent(field.name) +
@@ -2709,12 +2704,12 @@ theme.Helpers = (function() {
     var stylesheetUrl = stylesheet || theme.stylesheet;
 
     if (typeof this.stylesheetPromise === 'undefined') {
-      this.stylesheetPromise = new Promise(function(resolve) {
+      this.stylesheetPromise = new Promise(function (resolve) {
         var link = document.querySelector('link[href="' + stylesheetUrl + '"]');
 
         if (link.loaded) resolve();
 
-        link.addEventListener('load', function() {
+        link.addEventListener('load', function () {
           setTimeout(resolve, 0);
         });
       });
@@ -2733,19 +2728,19 @@ theme.Helpers = (function() {
     prepareTransition: prepareTransition,
     serialize: serialize,
     cookiesEnabled: cookiesEnabled,
-    promiseStylesheet: promiseStylesheet
+    promiseStylesheet: promiseStylesheet,
   };
 })();
 
-theme.LibraryLoader = (function() {
+theme.LibraryLoader = (function () {
   var types = {
     link: 'link',
-    script: 'script'
+    script: 'script',
   };
 
   var status = {
     requested: 'requested',
-    loaded: 'loaded'
+    loaded: 'loaded',
   };
 
   var cloudCdn = 'https://cdn.shopify.com/shopifycloud/';
@@ -2754,18 +2749,18 @@ theme.LibraryLoader = (function() {
     youtubeSdk: {
       tagId: 'youtube-sdk',
       src: 'https://www.youtube.com/iframe_api',
-      type: types.script
+      type: types.script,
     },
     plyrShopifyStyles: {
       tagId: 'plyr-shopify-styles',
       src: cloudCdn + 'shopify-plyr/v1.0/shopify-plyr.css',
-      type: types.link
+      type: types.link,
     },
     modelViewerUiStyles: {
       tagId: 'shopify-model-viewer-ui-styles',
       src: cloudCdn + 'model-viewer-ui/assets/v1.0/model-viewer-ui.css',
-      type: types.link
-    }
+      type: types.link,
+    },
   };
 
   function load(libraryName, callback) {
@@ -2774,7 +2769,7 @@ theme.LibraryLoader = (function() {
     if (!library) return;
     if (library.status === status.requested) return;
 
-    callback = callback || function() {};
+    callback = callback || function () {};
     if (library.status === status.loaded) {
       callback();
       return;
@@ -2803,7 +2798,7 @@ theme.LibraryLoader = (function() {
   function createScriptTag(library, callback) {
     var tag = document.createElement('script');
     tag.src = library.src;
-    tag.addEventListener('load', function() {
+    tag.addEventListener('load', function () {
       library.status = status.loaded;
       callback();
     });
@@ -2815,7 +2810,7 @@ theme.LibraryLoader = (function() {
     tag.href = library.src;
     tag.rel = 'stylesheet';
     tag.type = 'text/css';
-    tag.addEventListener('load', function() {
+    tag.addEventListener('load', function () {
       library.status = status.loaded;
       callback();
     });
@@ -2823,15 +2818,14 @@ theme.LibraryLoader = (function() {
   }
 
   return {
-    load: load
+    load: load,
   };
 })();
-
 
 /* ================ MODULES ================ */
 window.theme = window.theme || {};
 
-theme.Header = (function() {
+theme.Header = (function () {
   var selectors = {
     body: 'body',
     navigation: '#AccessibleNav',
@@ -2843,14 +2837,14 @@ theme.Header = (function() {
     siteNavLinkMain: '.site-nav__link--main',
     siteNavChildLink: '.site-nav__link--last',
     siteNavDropdown: '.site-nav__dropdown',
-    siteHeader: '.site-header'
+    siteHeader: '.site-header',
   };
 
   var config = {
     activeClass: 'site-nav--active-dropdown',
     childLinkClass: 'site-nav__child-link',
     rightDropdownClass: 'site-nav__dropdown--right',
-    leftDropdownClass: 'site-nav__dropdown--left'
+    leftDropdownClass: 'site-nav__dropdown--left',
   };
 
   var cache = {};
@@ -2860,20 +2854,20 @@ theme.Header = (function() {
     styleDropdowns(document.querySelectorAll(selectors.siteNavHasDropdown));
     positionFullWidthDropdowns();
 
-    cache.parents.forEach(function(element) {
+    cache.parents.forEach(function (element) {
       element.addEventListener('click', submenuParentClickHandler);
     });
 
     // check when we're leaving a dropdown and close the active dropdown
-    cache.siteNavChildLink.forEach(function(element) {
+    cache.siteNavChildLink.forEach(function (element) {
       element.addEventListener('focusout', submenuFocusoutHandler);
     });
 
-    cache.topLevel.forEach(function(element) {
+    cache.topLevel.forEach(function (element) {
       element.addEventListener('focus', hideDropdown);
     });
 
-    cache.subMenuLinks.forEach(function(element) {
+    cache.subMenuLinks.forEach(function (element) {
       element.addEventListener('click', stopImmediatePropagation);
     });
 
@@ -2894,7 +2888,7 @@ theme.Header = (function() {
       subMenuLinks: document.querySelectorAll(selectors.siteNavChildLinks),
       activeDropdown: document.querySelector(selectors.siteNavActiveDropdown),
       siteHeader: document.querySelector(selectors.siteHeader),
-      siteNavChildLink: document.querySelectorAll(selectors.siteNavChildLink)
+      siteNavChildLink: document.querySelectorAll(selectors.siteNavChildLink),
     };
   }
 
@@ -2909,7 +2903,7 @@ theme.Header = (function() {
       .querySelector(selectors.siteNavLinkMain)
       .setAttribute('aria-expanded', 'true');
 
-    setTimeout(function() {
+    setTimeout(function () {
       window.addEventListener('keyup', keyUpHandler);
       document.body.addEventListener('click', hideDropdown);
     }, 250);
@@ -2932,7 +2926,7 @@ theme.Header = (function() {
   }
 
   function styleDropdowns(dropdownListItems) {
-    dropdownListItems.forEach(function(item) {
+    dropdownListItems.forEach(function (item) {
       var dropdownLi = item.querySelector(selectors.siteNavDropdown);
 
       if (!dropdownLi) return;
@@ -2959,7 +2953,7 @@ theme.Header = (function() {
   function positionFullWidthDropdowns() {
     document
       .querySelectorAll(selectors.siteNavHasCenteredDropdown)
-      .forEach(function(el) {
+      .forEach(function (el) {
         var fullWidthDropdown = el.querySelector(
           selectors.siteNavCenteredDropdown
         );
@@ -2986,7 +2980,7 @@ theme.Header = (function() {
   }
 
   function submenuFocusoutHandler() {
-    setTimeout(function() {
+    setTimeout(function () {
       if (
         document.activeElement.classList.contains(config.childLinkClass) ||
         !cache.activeDropdown
@@ -2998,25 +2992,25 @@ theme.Header = (function() {
     });
   }
 
-  var adjustStyleAndPosition = theme.Helpers.debounce(function() {
+  var adjustStyleAndPosition = theme.Helpers.debounce(function () {
     styleDropdowns(document.querySelectorAll(selectors.siteNavHasDropdown));
     positionFullWidthDropdowns();
   }, 50);
 
   function unload() {
-    cache.topLevel.forEach(function(element) {
+    cache.topLevel.forEach(function (element) {
       element.removeEventListener('focus', hideDropdown);
     });
 
-    cache.subMenuLinks.forEach(function(element) {
+    cache.subMenuLinks.forEach(function (element) {
       element.removeEventListener('click', stopImmediatePropagation);
     });
 
-    cache.parents.forEach(function(element) {
+    cache.parents.forEach(function (element) {
       element.removeEventListener('click', submenuParentClickHandler);
     });
 
-    cache.siteNavChildLink.forEach(function(element) {
+    cache.siteNavChildLink.forEach(function (element) {
       element.removeEventListener('focusout', submenuFocusoutHandler);
     });
 
@@ -3027,13 +3021,13 @@ theme.Header = (function() {
 
   return {
     init: init,
-    unload: unload
+    unload: unload,
   };
 })();
 
 window.theme = window.theme || {};
 
-theme.MobileNav = (function() {
+theme.MobileNav = (function () {
   var classes = {
     mobileNavOpenIcon: 'mobile-nav--open',
     mobileNavCloseIcon: 'mobile-nav--close',
@@ -3046,7 +3040,7 @@ theme.MobileNav = (function() {
     navOpen: 'js-menu--is-open',
     subNavShowing: 'sub-nav--is-open',
     thirdNavShowing: 'third-nav--is-open',
-    subNavToggleBtn: 'js-toggle-submenu'
+    subNavToggleBtn: 'js-toggle-submenu',
   };
 
   var cache = {};
@@ -3062,7 +3056,7 @@ theme.MobileNav = (function() {
 
     cache.mobileNavToggle.addEventListener('click', toggleMobileNav);
 
-    cache.subNavToggleBtns.forEach(function(element) {
+    cache.subNavToggleBtns.forEach(function (element) {
       element.addEventListener('click', toggleSubNav);
     });
 
@@ -3098,7 +3092,9 @@ theme.MobileNav = (function() {
       mobileNavContainer: document.querySelector('.mobile-nav-wrapper'),
       mobileNav: document.querySelector('#MobileNav'),
       sectionHeader: document.querySelector('#shopify-section-header'),
-      subNavToggleBtns: document.querySelectorAll('.' + classes.subNavToggleBtn)
+      subNavToggleBtns: document.querySelectorAll(
+        '.' + classes.subNavToggleBtn
+      ),
     };
   }
 
@@ -3116,7 +3112,7 @@ theme.MobileNav = (function() {
 
     slate.a11y.trapFocus({
       container: cache.sectionHeader,
-      elementToFocus: cache.mobileNavToggle
+      elementToFocus: cache.mobileNavToggle,
     });
 
     cache.mobileNavToggle.classList.add(classes.mobileNavCloseIcon);
@@ -3140,7 +3136,7 @@ theme.MobileNav = (function() {
 
     slate.a11y.trapFocus({
       container: document.querySelector('html'),
-      elementToFocus: document.body
+      elementToFocus: document.body,
     });
 
     cache.mobileNavContainer.addEventListener(
@@ -3160,7 +3156,7 @@ theme.MobileNav = (function() {
 
   function mobileNavRemoveTrapFocus() {
     slate.a11y.removeTrapFocus({
-      container: cache.mobileNav
+      container: cache.mobileNav,
     });
   }
 
@@ -3177,7 +3173,7 @@ theme.MobileNav = (function() {
         '.' + classes.subNavToggleBtn + "[data-level='" + (menuLevel - 1) + "']"
       );
 
-      subNavToggleBtn.forEach(function(element) {
+      subNavToggleBtn.forEach(function (element) {
         element.classList.remove(classes.subNavActive);
       });
 
@@ -3236,7 +3232,7 @@ theme.MobileNav = (function() {
 
     function trapMobileNavFocus() {
       slate.a11y.trapFocus({
-        container: container
+        container: container,
       });
 
       cache.mobileNavContainer.removeEventListener(
@@ -3261,13 +3257,13 @@ theme.MobileNav = (function() {
   return {
     init: init,
     unload: unload,
-    closeMobileNav: closeMobileNav
+    closeMobileNav: closeMobileNav,
   };
 })();
 
-(function() {
+(function () {
   var selectors = {
-    backButton: '.return-link'
+    backButton: '.return-link',
   };
 
   var backButton = document.querySelector(selectors.backButton);
@@ -3278,7 +3274,7 @@ theme.MobileNav = (function() {
 
   backButton.addEventListener(
     'click',
-    function(evt) {
+    function (evt) {
       evt.preventDefault();
 
       var referrerDomain = urlDomain(document.referrer);
@@ -3301,7 +3297,7 @@ theme.MobileNav = (function() {
   }
 })();
 
-theme.Slideshow = (function() {
+theme.Slideshow = (function () {
   var selectors = {
     button: '[data-slider-button]',
     indicator: '[data-slider-indicator]',
@@ -3311,7 +3307,7 @@ theme.Slideshow = (function() {
     sliderItem: '[data-slider-item]',
     sliderItemLink: '[data-slider-item-link]',
     sliderTrack: '[data-slider-track]',
-    sliderContainer: '[data-slider-container]'
+    sliderContainer: '[data-slider-container]',
   };
 
   var classes = {
@@ -3320,11 +3316,11 @@ theme.Slideshow = (function() {
     indicatorActive: 'slick-active',
     sliderInitialized: 'slick-initialized',
     slideActive: 'slideshow__slide--active',
-    slideClone: 'slick-cloned'
+    slideClone: 'slick-cloned',
   };
 
   var attributes = {
-    buttonNext: 'data-slider-button-next'
+    buttonNext: 'data-slider-button-next',
   };
 
   function Slideshow(container, options) {
@@ -3348,7 +3344,7 @@ theme.Slideshow = (function() {
         slideInterval: 0,
         slidesToShow: 0,
         slidesToScroll: 1,
-        type: 'fade'
+        type: 'fade',
       },
       options
     );
@@ -3386,7 +3382,7 @@ theme.Slideshow = (function() {
       // which result wrong value when getting dimension from an element
       this.sliderItemWidthTotal = 0;
       theme.Helpers.promiseStylesheet().then(
-        function() {
+        function () {
           this._setupSlideType();
         }.bind(this)
       );
@@ -3401,14 +3397,14 @@ theme.Slideshow = (function() {
     /**
      * Moves to the previous slide
      */
-    previousSlide: function() {
+    previousSlide: function () {
       this._move();
     },
 
     /**
      * Moves to the next slide
      */
-    nextSlide: function() {
+    nextSlide: function () {
       this._move('next');
     },
 
@@ -3416,20 +3412,20 @@ theme.Slideshow = (function() {
      * Moves to the specified slide
      * @param {Number} index - The index of the slide to move to
      */
-    setSlide: function(index) {
+    setSlide: function (index) {
       this._setPosition(Number(index));
     },
 
     /**
      * Starts autoplaying the slider if autoplay is enabled
      */
-    startAutoplay: function() {
+    startAutoplay: function () {
       this.isAutoPlaying = true;
 
       window.clearTimeout(this.autoTimeOut);
 
       this.autoTimeOut = window.setTimeout(
-        function() {
+        function () {
           var nextSlideIndex = this._getNextSlideIndex('next');
           this._setPosition(nextSlideIndex);
         }.bind(this),
@@ -3440,7 +3436,7 @@ theme.Slideshow = (function() {
     /**
      * Stops autoplaying the slider if autoplay is enabled
      */
-    stopAutoplay: function() {
+    stopAutoplay: function () {
       this.isAutoPlaying = false;
 
       window.clearTimeout(this.autoTimeOut);
@@ -3450,7 +3446,7 @@ theme.Slideshow = (function() {
      * Set active states for sliders and indicators
      * @param {index} integer - Slide index to set up slider from
      */
-    setupSlider: function(index) {
+    setupSlider: function (index) {
       this.slideIndex = index;
 
       if (this.indicators.length) {
@@ -3465,7 +3461,7 @@ theme.Slideshow = (function() {
      * slider instance. This method needs to be called manually and will most
      * likely be included in a section's onUnload() method.
      */
-    destroy: function() {
+    destroy: function () {
       if (this.adaptHeight) {
         window.removeEventListener('resize', this.eventHandlers.debounceResize);
       }
@@ -3489,14 +3485,14 @@ theme.Slideshow = (function() {
 
       if (this.buttons) {
         this.buttons.forEach(
-          function(button) {
+          function (button) {
             button.removeEventListener('click', this.eventHandlers.clickButton);
           }.bind(this)
         );
       }
 
-      this.indicators.forEach(function(indicatorWrapper) {
-        indicatorWrapper.childNodes.forEach(function(indicator) {
+      this.indicators.forEach(function (indicatorWrapper) {
+        indicatorWrapper.childNodes.forEach(function (indicator) {
           indicator.firstElementChild.removeEventListener(
             'click',
             this.eventHandlers.onClickIndicator
@@ -3522,7 +3518,7 @@ theme.Slideshow = (function() {
       }
     },
 
-    _setupEventHandlers: function() {
+    _setupEventHandlers: function () {
       this.eventHandlers.focus = this._onFocus.bind(this);
       this.eventHandlers.focusIn = this._onFocusIn.bind(this);
       this.eventHandlers.focusOut = this._onFocusOut.bind(this);
@@ -3530,14 +3526,13 @@ theme.Slideshow = (function() {
       this.eventHandlers.keyUp = this._onKeyUp.bind(this);
       this.eventHandlers.clickButton = this._onClickButton.bind(this);
       this.eventHandlers.onClickIndicator = this._onClickIndicator.bind(this);
-      this.eventHandlers.onKeydownIndicator = this._onKeydownIndicator.bind(
-        this
-      );
+      this.eventHandlers.onKeydownIndicator =
+        this._onKeydownIndicator.bind(this);
       this.eventHandlers.onClickPause = this._onClickPause.bind(this);
 
       if (this.adaptHeight) {
         this.eventHandlers.debounceResize = theme.Helpers.debounce(
-          function() {
+          function () {
             this.setSlideshowHeight();
           }.bind(this),
           50
@@ -3557,7 +3552,7 @@ theme.Slideshow = (function() {
 
       if (this.buttons) {
         this.buttons.forEach(
-          function(button) {
+          function (button) {
             button.addEventListener('click', this.eventHandlers.clickButton);
           }.bind(this)
         );
@@ -3567,8 +3562,8 @@ theme.Slideshow = (function() {
         this.pause.addEventListener('click', this.eventHandlers.onClickPause);
       }
 
-      this.indicators.forEach(function(indicatorWrapper) {
-        indicatorWrapper.childNodes.forEach(function(indicator) {
+      this.indicators.forEach(function (indicatorWrapper) {
+        indicatorWrapper.childNodes.forEach(function (indicator) {
           indicator.firstElementChild.addEventListener(
             'click',
             this.eventHandlers.onClickIndicator
@@ -3583,7 +3578,7 @@ theme.Slideshow = (function() {
 
       if (this.options.type === 'slide') {
         this.eventHandlers.debounceResizeSlideIn = theme.Helpers.debounce(
-          function() {
+          function () {
             this.sliderItemWidthTotal = 0;
             this._setupSlideType(true);
           }.bind(this),
@@ -3604,17 +3599,17 @@ theme.Slideshow = (function() {
       }
     },
 
-    _setupTouchEvents: function() {
+    _setupTouchEvents: function () {
       this.touchEvents = new theme.TouchEvents(this.sliderTrack, {
-        start: function() {
+        start: function () {
           this._onTouchStart();
         }.bind(this),
-        move: function(event, direction, difference) {
+        move: function (event, direction, difference) {
           this._onTouchMove(event, direction, difference);
         }.bind(this),
-        end: function(event, direction, difference) {
+        end: function (event, direction, difference) {
           this._onTouchEnd(event, direction, difference);
-        }.bind(this)
+        }.bind(this),
       });
     },
 
@@ -3622,7 +3617,7 @@ theme.Slideshow = (function() {
      * Set slideshop for "slide-in" effect
      * @param {Boolean} onResize if function call came from resize event
      */
-    _setupSlideType: function(onResize) {
+    _setupSlideType: function (onResize) {
       this.sliderItemWidth = Math.floor(
         this.sliderContainer.offsetWidth / this.options.slidesToShow
       );
@@ -3636,7 +3631,7 @@ theme.Slideshow = (function() {
       // Loop through all slider items
       // Set width according to the number of items to show in 1 slide
       // Set container width to accomodate all items
-      this.slides.forEach(function(sliderItem, index) {
+      this.slides.forEach(function (sliderItem, index) {
         var sliderItemLink = sliderItem.querySelector(selectors.sliderItemLink);
         sliderItem.style.width = this.sliderItemWidth + 'px';
         sliderItem.setAttribute('aria-hidden', true);
@@ -3673,11 +3668,11 @@ theme.Slideshow = (function() {
       }
     },
 
-    _onTouchStart: function() {
+    _onTouchStart: function () {
       this.touchStartPosition = this._getTranslateXPosition();
     },
 
-    _onTouchMove: function(event, direction, difference) {
+    _onTouchMove: function (event, direction, difference) {
       // Fix touch events cause unexpected behaviour
       // when the dragging motion goes beyond the theme editor preview.
       var threshold = 80;
@@ -3689,7 +3684,7 @@ theme.Slideshow = (function() {
         event.target.dispatchEvent(
           new MouseEvent('mouseup', {
             bubbles: true,
-            cancelable: true
+            cancelable: true,
           })
         );
         return;
@@ -3703,7 +3698,7 @@ theme.Slideshow = (function() {
         'translateX(' + this.touchMovePosition + 'px';
     },
 
-    _onTouchEnd: function(event, direction, difference) {
+    _onTouchEnd: function (event, direction, difference) {
       var nextTranslateXPosition = 0;
 
       if (Object.keys(difference).length === 0) return;
@@ -3732,7 +3727,7 @@ theme.Slideshow = (function() {
         'translateX(' + nextTranslateXPosition + 'px';
 
       window.setTimeout(
-        function() {
+        function () {
           this.sliderTrack.style.transition = '';
         }.bind(this),
         500
@@ -3747,7 +3742,7 @@ theme.Slideshow = (function() {
      * Events handlers for next and previous button
      * @param {Object} event event handler
      */
-    _onClickButton: function(event) {
+    _onClickButton: function (event) {
       // prevent multiple clicks
       if (event.detail > 1) return;
 
@@ -3772,7 +3767,7 @@ theme.Slideshow = (function() {
       }
     },
 
-    _onClickIndicator: function(event) {
+    _onClickIndicator: function (event) {
       event.preventDefault();
 
       if (event.target.classList.contains(classes.indicatorActive)) return;
@@ -3785,7 +3780,7 @@ theme.Slideshow = (function() {
       this.goToSlideByIndex(this.slideIndex);
     },
 
-    goToSlideByIndex: function(index) {
+    goToSlideByIndex: function (index) {
       this._setPosition(index);
 
       if (this.options.type === 'slide' && this.sliderTrack) {
@@ -3809,7 +3804,7 @@ theme.Slideshow = (function() {
       }
     },
 
-    _onKeydownIndicator: function(event) {
+    _onKeydownIndicator: function (event) {
       if (event.keyCode !== slate.utils.keyboardKeys.ENTER) return;
 
       this._onClickIndicator(event);
@@ -3817,7 +3812,7 @@ theme.Slideshow = (function() {
       this.slider.focus();
     },
 
-    _onClickPause: function(event) {
+    _onClickPause: function (event) {
       if (!event.currentTarget.classList.contains(classes.isPaused)) {
         event.currentTarget.classList.add(classes.isPaused);
         this.stopAutoplay();
@@ -3827,11 +3822,11 @@ theme.Slideshow = (function() {
       }
     },
 
-    _onFocus: function() {
+    _onFocus: function () {
       this.container.addEventListener('keyup', this.eventHandlers.keyUp);
     },
 
-    _onFocusIn: function() {
+    _onFocusIn: function () {
       if (this.slider.hasAttribute('aria-live')) return;
 
       if (this.options.autoplay && this.isAutoPlaying) {
@@ -3841,18 +3836,18 @@ theme.Slideshow = (function() {
       this.slider.setAttribute('aria-live', 'polite');
     },
 
-    _onBlur: function() {
+    _onBlur: function () {
       this.container.removeEventListener('keyup', this.eventHandlers.keyUp);
     },
 
-    _onFocusOut: function() {
+    _onFocusOut: function () {
       this.slider.removeAttribute('aria-live');
 
       // Adding a setTimeout because everytime we focus out
       // It automatically goes to <body>
       // We want to resume autoplay when focus is outside of the slideshow container
       setTimeout(
-        function() {
+        function () {
           if (
             !document.activeElement.closest(
               '#' + this.slider.getAttribute('id')
@@ -3871,7 +3866,7 @@ theme.Slideshow = (function() {
       );
     },
 
-    _onKeyUp: function(event) {
+    _onKeyUp: function (event) {
       switch (event.keyCode) {
         case slate.utils.keyboardKeys.LEFTARROW:
           if (!this.options.canUseKeyboardArrows) return;
@@ -3899,7 +3894,7 @@ theme.Slideshow = (function() {
       }
     },
 
-    _move: function(direction) {
+    _move: function (direction) {
       if (this.options.type === 'slide') {
         this.slideIndex = this._getNextSlideIndex(direction);
         this._moveSlideshow(direction);
@@ -3909,7 +3904,7 @@ theme.Slideshow = (function() {
       }
     },
 
-    _moveSlideshow: function(direction) {
+    _moveSlideshow: function (direction) {
       this.direction = direction;
       var valueXToMove = 0;
 
@@ -3956,7 +3951,7 @@ theme.Slideshow = (function() {
       this._setupMultipleActiveSlide(this.nextMinIndex, this.nextMaxIndex);
     },
 
-    _setPosition: function(nextSlideIndex) {
+    _setPosition: function (nextSlideIndex) {
       this.slideIndex = nextSlideIndex;
 
       if (this.indicators.length) {
@@ -3971,13 +3966,13 @@ theme.Slideshow = (function() {
 
       this.container.dispatchEvent(
         new CustomEvent('slider_slide_changed', {
-          detail: nextSlideIndex
+          detail: nextSlideIndex,
         })
       );
     },
 
-    _setupActiveSlide: function(index) {
-      this.slides.forEach(function(slide) {
+    _setupActiveSlide: function (index) {
+      this.slides.forEach(function (slide) {
         slide.setAttribute('aria-hidden', true);
         slide.classList.remove(this.options.slideActiveClass);
       }, this);
@@ -3994,8 +3989,8 @@ theme.Slideshow = (function() {
      * @param {*} minIndex the current active minimum index
      * @param {*} maxIndex the current active maximum index
      */
-    _setupMultipleActiveSlide: function(minIndex, maxIndex) {
-      this.slides.forEach(function(slide) {
+    _setupMultipleActiveSlide: function (minIndex, maxIndex) {
+      this.slides.forEach(function (slide) {
         var sliderIndex = Number(slide.getAttribute('data-slider-slide-index'));
         var sliderItemLink = slide.querySelector(selectors.sliderItemLink);
 
@@ -4016,8 +4011,8 @@ theme.Slideshow = (function() {
       }, this);
     },
 
-    _setActiveIndicator: function(index) {
-      this.indicators.forEach(function(indicatorWrapper) {
+    _setActiveIndicator: function (index) {
+      this.indicators.forEach(function (indicatorWrapper) {
         var activeIndicator = indicatorWrapper.querySelector(
           '.' + classes.indicatorActive
         );
@@ -4036,7 +4031,7 @@ theme.Slideshow = (function() {
       }, this);
     },
 
-    setSlideshowHeight: function() {
+    setSlideshowHeight: function () {
       var minAspectRatio = this.sliderContainer.getAttribute(
         'data-min-aspect-ratio'
       );
@@ -4051,7 +4046,7 @@ theme.Slideshow = (function() {
      * - First slide goes to last slide when clicking "previous"
      * @param {String} direction "next" as a String, other empty string is previous slide
      */
-    _getNextSlideIndex: function(direction) {
+    _getNextSlideIndex: function (direction) {
       var counter = direction === 'next' ? 1 : -1;
 
       if (direction === 'next') {
@@ -4069,17 +4064,17 @@ theme.Slideshow = (function() {
      * In "slide-in" type, multiple items are active in 1 slide
      * This will return an array containing their indexes
      */
-    _getActiveSlidesIndex: function() {
-      var currentActiveSlides = this.slides.filter(function(sliderItem) {
+    _getActiveSlidesIndex: function () {
+      var currentActiveSlides = this.slides.filter(function (sliderItem) {
         if (sliderItem.classList.contains(this.options.slideActiveClass)) {
           return sliderItem;
         }
       }, this);
-      var currentActiveSlidesIndex = currentActiveSlides.map(function(
-        sliderItem
-      ) {
-        return Number(sliderItem.getAttribute('data-slider-slide-index'));
-      });
+      var currentActiveSlidesIndex = currentActiveSlides.map(
+        function (sliderItem) {
+          return Number(sliderItem.getAttribute('data-slider-slide-index'));
+        }
+      );
 
       return currentActiveSlidesIndex;
     },
@@ -4089,7 +4084,7 @@ theme.Slideshow = (function() {
      * If it's at the last slide or beginning of the slide
      * So we can disable the arrow buttons
      */
-    _disableArrows: function() {
+    _disableArrows: function () {
       if (this.buttons.length === 0) return;
 
       var previousButton = this.buttons[0];
@@ -4114,7 +4109,7 @@ theme.Slideshow = (function() {
      * Verify if translateX reaches at first or last slide
      * @param {Number} translateXValue
      */
-    _verifyFirstLastSlideTranslateX: function(translateXValue) {
+    _verifyFirstLastSlideTranslateX: function (translateXValue) {
       // first slide
       if (this._isNextTranslateXFirst(translateXValue)) {
         this.isFirstSlide = true;
@@ -4130,15 +4125,15 @@ theme.Slideshow = (function() {
       }
     },
 
-    _getTranslateXPosition: function() {
+    _getTranslateXPosition: function () {
       return Number(this.sliderTrack.style.transform.match(/(-?[0-9]+)/g)[0]);
     },
 
-    _isNextTranslateXFirst: function(translateXValue) {
+    _isNextTranslateXFirst: function (translateXValue) {
       return translateXValue === 0;
     },
 
-    _isNextTranslateXLast: function(translateXValue) {
+    _isNextTranslateXLast: function (translateXValue) {
       // because translateX values are using negative, I'm converting into positive value
       var translateXValueAbsolute = Math.abs(translateXValue);
       var nextTranslateXValue =
@@ -4147,7 +4142,7 @@ theme.Slideshow = (function() {
       return nextTranslateXValue >= this.sliderItemWidthTotal;
     },
 
-    _postTransitionEnd: function() {
+    _postTransitionEnd: function () {
       if (this.buttons.length) {
         this._disableArrows();
       }
@@ -4155,13 +4150,13 @@ theme.Slideshow = (function() {
       if (this.indicators.length) {
         this._setActiveIndicator(this.slideIndex);
       }
-    }
+    },
   });
 
   return Slideshow;
 })();
 
-theme.Video = (function() {
+theme.Video = (function () {
   var autoplayCheckComplete = false;
   var playOnClickChecked = false;
   var playOnClick = false;
@@ -4180,12 +4175,12 @@ theme.Video = (function() {
       wmode: 'opaque',
       branding: 0,
       autohide: 0,
-      rel: 0
+      rel: 0,
     },
     events: {
       onReady: onPlayerReady,
-      onStateChange: onPlayerChange
-    }
+      onStateChange: onPlayerChange,
+    },
   };
   var classes = {
     playing: 'video-is-playing',
@@ -4198,7 +4193,7 @@ theme.Video = (function() {
     userPaused: 'is-paused',
     supportsAutoplay: 'autoplay',
     supportsNoAutoplay: 'no-autoplay',
-    wrapperMinHeight: 'video-section-wrapper--min-height'
+    wrapperMinHeight: 'video-section-wrapper--min-height',
   };
 
   var selectors = {
@@ -4209,7 +4204,7 @@ theme.Video = (function() {
     pauseVideoBtn: '.video__pause',
     pauseVideoStop: '.video__pause-stop',
     pauseVideoResume: '.video__pause-resume',
-    fallbackText: '.icon__fallback-text'
+    fallbackText: '.icon__fallback-text',
   };
 
   /**
@@ -4227,7 +4222,7 @@ theme.Video = (function() {
       video: video,
       videoWrapper: video.closest(selectors.videoWrapper),
       section: video.closest(selectors.section),
-      controls: video.dataset.type === 'background' ? 0 : 1
+      controls: video.dataset.type === 'background' ? 0 : 1,
     };
 
     if (!youtubeLoaded) {
@@ -4383,7 +4378,7 @@ theme.Video = (function() {
         // Seeking on a YouTube video also fires a PAUSED state change,
         // checking the state after a delay prevents us pausing the video when
         // the user is seeking instead of pausing
-        setTimeout(function() {
+        setTimeout(function () {
           if (evt.target.getPlayerState() === YT.PlayerState.PAUSED) {
             setAsPaused(videoData);
           }
@@ -4428,7 +4423,7 @@ theme.Video = (function() {
 
     // Update focus to the close button so we stay within the video wrapper,
     // allowing time for the scroll animation
-    setTimeout(function() {
+    setTimeout(function () {
       videoWrapper.querySelector(selectors.closeVideoBtn).focus();
     }, videoOptions.scrollAnimationDuration);
   }
@@ -4517,7 +4512,7 @@ theme.Video = (function() {
 
       video.videoWrapper.style.height = newHeight + 'px';
 
-      setTimeout(function() {
+      setTimeout(function () {
         video.videoWrapper.classList.add(classes.wrapperMinHeight);
       }, 600);
       // Set focus on play button, but don't scroll page
@@ -4571,7 +4566,7 @@ theme.Video = (function() {
     document.addEventListener('keydown', handleVideoPlayerKeydown);
   }
 
-  var handleVideoPlayerKeydown = function(evt) {
+  var handleVideoPlayerKeydown = function (evt) {
     var playerId = document.activeElement.dataset.controls;
     if (evt.keyCode !== slate.utils.keyboardKeys.ESCAPE || !playerId) {
       return;
@@ -4585,7 +4580,7 @@ theme.Video = (function() {
     var backgroundVideos = document.querySelectorAll(
       '.' + classes.backgroundVideo
     );
-    backgroundVideos.forEach(function(el) {
+    backgroundVideos.forEach(function (el) {
       sizeBackgroundVideo(el);
     });
   }
@@ -4640,7 +4635,7 @@ theme.Video = (function() {
     player.classList.remove(classes.backgroundVideo);
     player.classList.add(classes.videoWithImage);
 
-    setTimeout(function() {
+    setTimeout(function () {
       document.getElementById(playerId).style.cssText = null;
     }, 600);
 
@@ -4667,7 +4662,7 @@ theme.Video = (function() {
     return window.innerWidth < theme.breakpoints.medium;
   }
 
-  var handleWindowResize = theme.Helpers.debounce(function() {
+  var handleWindowResize = theme.Helpers.debounce(function () {
     if (!youtubeLoaded) return;
     var key;
     var fullscreen = window.innerHeight === screen.height;
@@ -4702,7 +4697,7 @@ theme.Video = (function() {
     }
   }, 200);
 
-  var handleWindowScroll = theme.Helpers.debounce(function() {
+  var handleWindowScroll = theme.Helpers.debounce(function () {
     if (!youtubeLoaded) return;
 
     for (var key in videos) {
@@ -4733,15 +4728,15 @@ theme.Video = (function() {
     var closeVideoBtns = document.querySelectorAll(selectors.closeVideoBtn);
     var pauseVideoBtns = document.querySelectorAll(selectors.pauseVideoBtn);
 
-    playVideoBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(evt) {
+    playVideoBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (evt) {
         var playerId = evt.currentTarget.dataset.controls;
         startVideoOnClick(playerId);
       });
     });
 
-    closeVideoBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(evt) {
+    closeVideoBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (evt) {
         var playerId = evt.currentTarget.dataset.controls;
 
         evt.currentTarget.blur();
@@ -4750,8 +4745,8 @@ theme.Video = (function() {
       });
     });
 
-    pauseVideoBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(evt) {
+    pauseVideoBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (evt) {
         var playerId = evt.currentTarget.dataset.controls;
         togglePause(playerId);
       });
@@ -4796,7 +4791,7 @@ theme.Video = (function() {
 
     // Insert the video title retrieved from YouTube into the instructional text
     // for each button
-    playButtons.forEach(function(playButton) {
+    playButtons.forEach(function (playButton) {
       var playButtonText = playButton.querySelector(selectors.fallbackText);
 
       playButtonText.textContent = playButtonText.textContent.replace(
@@ -4812,10 +4807,8 @@ theme.Video = (function() {
       '[video_title]',
       title
     );
-    pauseButtonResumeText.textContent = pauseButtonResumeText.textContent.replace(
-      '[video_title]',
-      title
-    );
+    pauseButtonResumeText.textContent =
+      pauseButtonResumeText.textContent.replace('[video_title]', title);
   }
 
   return {
@@ -4824,25 +4817,25 @@ theme.Video = (function() {
     loadVideos: loadVideos,
     playVideo: customPlayVideo,
     pauseVideo: pauseVideo,
-    removeEvents: removeEvents
+    removeEvents: removeEvents,
   };
 })();
 
-theme.ProductVideo = (function() {
+theme.ProductVideo = (function () {
   var videos = {};
 
   var hosts = {
     html5: 'html5',
-    youtube: 'youtube'
+    youtube: 'youtube',
   };
 
   var selectors = {
-    productMediaWrapper: '[data-product-single-media-wrapper]'
+    productMediaWrapper: '[data-product-single-media-wrapper]',
   };
 
   var attributes = {
     enableVideoLooping: 'enable-video-looping',
-    videoId: 'video-id'
+    videoId: 'video-id',
   };
 
   function init(videoContainer, sectionId) {
@@ -4864,9 +4857,9 @@ theme.ProductVideo = (function() {
       host: hostFromVideoElement(videoElement),
       container: videoContainer,
       element: videoElement,
-      ready: function() {
+      ready: function () {
         createPlayer(this);
-      }
+      },
     };
 
     var video = videos[mediaId];
@@ -4877,8 +4870,8 @@ theme.ProductVideo = (function() {
           {
             name: 'video-ui',
             version: '1.0',
-            onLoad: setupPlyrVideos
-          }
+            onLoad: setupPlyrVideos,
+          },
         ]);
         theme.LibraryLoader.load('plyrShopifyStyles');
         break;
@@ -4920,7 +4913,7 @@ theme.ProductVideo = (function() {
       case hosts.html5:
         // eslint-disable-next-line no-undef
         video.player = new Shopify.Plyr(video.element, {
-          loop: { active: enableLooping }
+          loop: { active: enableLooping },
         });
         break;
       case hosts.youtube:
@@ -4931,15 +4924,15 @@ theme.ProductVideo = (function() {
         video.player = new YT.Player(video.element, {
           videoId: videoId,
           events: {
-            onStateChange: function(event) {
+            onStateChange: function (event) {
               if (event.data === 0 && enableLooping) event.target.seekTo(0);
-            }
-          }
+            },
+          },
         });
         break;
     }
 
-    var pauseVideo = function() {
+    var pauseVideo = function () {
       if (!video.player) return;
 
       if (video.host === hosts.html5) {
@@ -4954,7 +4947,7 @@ theme.ProductVideo = (function() {
     productMediaWrapper.addEventListener('mediaHidden', pauseVideo);
     productMediaWrapper.addEventListener('xrLaunch', pauseVideo);
 
-    productMediaWrapper.addEventListener('mediaVisible', function() {
+    productMediaWrapper.addEventListener('mediaVisible', function () {
       if (theme.Helpers.isTouch()) return;
       if (!video.player) return;
 
@@ -5028,30 +5021,29 @@ theme.ProductVideo = (function() {
     init: init,
     hosts: hosts,
     loadVideos: loadVideos,
-    removeSectionVideos: removeSectionVideos
+    removeSectionVideos: removeSectionVideos,
   };
 })();
 
-theme.ProductModel = (function() {
+theme.ProductModel = (function () {
   var modelJsonSections = {};
   var models = {};
   var xrButtons = {};
 
   var selectors = {
     mediaGroup: '[data-product-single-media-group]',
-    xrButton: '[data-shopify-xr]'
+    xrButton: '[data-shopify-xr]',
   };
 
   function init(modelViewerContainers, sectionId) {
     modelJsonSections[sectionId] = {
-      loaded: false
+      loaded: false,
     };
 
-    modelViewerContainers.forEach(function(modelViewerContainer, index) {
+    modelViewerContainers.forEach(function (modelViewerContainer, index) {
       var mediaId = modelViewerContainer.getAttribute('data-media-id');
-      var modelViewerElement = modelViewerContainer.querySelector(
-        'model-viewer'
-      );
+      var modelViewerElement =
+        modelViewerContainer.querySelector('model-viewer');
       var modelId = modelViewerElement.getAttribute('data-model-id');
 
       if (index === 0) {
@@ -5059,7 +5051,7 @@ theme.ProductModel = (function() {
         var xrButton = mediaGroup.querySelector(selectors.xrButton);
         xrButtons[sectionId] = {
           element: xrButton,
-          defaultId: modelId
+          defaultId: modelId,
         };
       }
 
@@ -5067,7 +5059,7 @@ theme.ProductModel = (function() {
         modelId: modelId,
         sectionId: sectionId,
         container: modelViewerContainer,
-        element: modelViewerElement
+        element: modelViewerElement,
       };
     });
 
@@ -5075,13 +5067,13 @@ theme.ProductModel = (function() {
       {
         name: 'shopify-xr',
         version: '1.0',
-        onLoad: setupShopifyXr
+        onLoad: setupShopifyXr,
       },
       {
         name: 'model-viewer-ui',
         version: '1.0',
-        onLoad: setupModelViewerUi
-      }
+        onLoad: setupModelViewerUi,
+      },
     ]);
     theme.LibraryLoader.load('modelViewerUiStyles');
   }
@@ -5090,7 +5082,7 @@ theme.ProductModel = (function() {
     if (errors) return;
 
     if (!window.ShopifyXR) {
-      document.addEventListener('shopify_xr_initialized', function() {
+      document.addEventListener('shopify_xr_initialized', function () {
         setupShopifyXr();
       });
       return;
@@ -5127,13 +5119,13 @@ theme.ProductModel = (function() {
   function setupModelViewerListeners(model) {
     var xrButton = xrButtons[model.sectionId];
 
-    model.container.addEventListener('mediaVisible', function() {
+    model.container.addEventListener('mediaVisible', function () {
       xrButton.element.setAttribute('data-shopify-model3d-id', model.modelId);
       if (theme.Helpers.isTouch()) return;
       model.modelViewerUi.play();
     });
 
-    model.container.addEventListener('mediaHidden', function() {
+    model.container.addEventListener('mediaHidden', function () {
       xrButton.element.setAttribute(
         'data-shopify-model3d-id',
         xrButton.defaultId
@@ -5141,7 +5133,7 @@ theme.ProductModel = (function() {
       model.modelViewerUi.pause();
     });
 
-    model.container.addEventListener('xrLaunch', function() {
+    model.container.addEventListener('xrLaunch', function () {
       model.modelViewerUi.pause();
     });
   }
@@ -5161,27 +5153,27 @@ theme.ProductModel = (function() {
 
   return {
     init: init,
-    removeSectionModels: removeSectionModels
+    removeSectionModels: removeSectionModels,
   };
 })();
 
 window.theme = window.theme || {};
 
-theme.FormStatus = (function() {
+theme.FormStatus = (function () {
   var selectors = {
-    statusMessage: '[data-form-status]'
+    statusMessage: '[data-form-status]',
   };
 
   function init() {
     var statusMessages = document.querySelectorAll(selectors.statusMessage);
 
-    statusMessages.forEach(function(statusMessage) {
+    statusMessages.forEach(function (statusMessage) {
       statusMessage.setAttribute('tabindex', -1);
       statusMessage.focus();
 
       statusMessage.addEventListener(
         'blur',
-        function(evt) {
+        function (evt) {
           evt.target.removeAttribute('tabindex');
         },
         { once: true }
@@ -5190,18 +5182,18 @@ theme.FormStatus = (function() {
   }
 
   return {
-    init: init
+    init: init,
   };
 })();
 
-theme.Hero = (function() {
+theme.Hero = (function () {
   var classes = {
-    indexSectionFlush: 'index-section--flush'
+    indexSectionFlush: 'index-section--flush',
   };
 
   var selectors = {
     heroFixedWidthContent: '.hero-fixed-width__content',
-    heroFixedWidthImage: '.hero-fixed-width__image'
+    heroFixedWidthImage: '.hero-fixed-width__image',
   };
 
   function hero(el, sectionId) {
@@ -5220,8 +5212,8 @@ theme.Hero = (function() {
     parentSection.classList.remove(classes.indexSectionFlush);
     heroFixedHeight();
 
-    window.addEventListener('resize', function() {
-      theme.Helpers.debounce(function() {
+    window.addEventListener('resize', function () {
+      theme.Helpers.debounce(function () {
         heroFixedHeight();
       }, 50);
     });
@@ -5250,13 +5242,13 @@ theme.Hero = (function() {
 // prettier-ignore
 window.theme = window.theme || {};
 
-theme.SearchResultsTemplate = (function() {
+theme.SearchResultsTemplate = (function () {
   function renderResults(products, isLoading, searchQuery) {
     return [
       '<div class="predictive-search">',
       renderHeader(products, isLoading),
       renderProducts(products, searchQuery),
-      '</div>'
+      '</div>',
     ].join('');
   }
 
@@ -5275,7 +5267,7 @@ theme.SearchResultsTemplate = (function() {
           ? '<span class= "icon-predictive-search-spinner" ></span >'
           : '') +
         '</span>',
-      '</div>'
+      '</div>',
     ].join('');
   }
 
@@ -5288,7 +5280,7 @@ theme.SearchResultsTemplate = (function() {
       '<span class="icon-predictive-search-spinner"></span>',
       '</span>',
       '</div>',
-      '</div>'
+      '</div>',
     ].join('');
   }
 
@@ -5299,7 +5291,7 @@ theme.SearchResultsTemplate = (function() {
         '<span class="predictive-search-view-all__query"> &ldquo;' +
         _htmlEscape(searchQuery) +
         '&rdquo;</span>',
-      '</button>'
+      '</button>',
     ].join('');
   }
 
@@ -5309,14 +5301,14 @@ theme.SearchResultsTemplate = (function() {
     return [
       '<ul id="predictive-search-results" class="predictive-search__list" role="listbox" aria-labelledby="predictive-search">',
       products
-        .map(function(product, index) {
+        .map(function (product, index) {
           return renderProduct(normalizeProduct(product), index, resultsCount);
         })
         .join(''),
       '<li id="search-all" class="predictive-search-view-all" role="option" data-search-result>' +
         renderViewAll(searchQuery) +
         '</li>',
-      '</ul>'
+      '</ul>',
     ].join('');
   }
 
@@ -5345,7 +5337,7 @@ theme.SearchResultsTemplate = (function() {
         '</span>',
       '</div>',
       '</a>',
-      '</li>'
+      '</li>',
     ].join('');
   }
 
@@ -5380,7 +5372,7 @@ theme.SearchResultsTemplate = (function() {
       '<div class="predictive-search-item__detail predictive-search-item__detail--inline">' +
         renderProductPrice(product),
       '</div>',
-      '</dl>'
+      '</dl>',
     ].join('');
   }
   function renderProductPrice(product) {
@@ -5416,7 +5408,7 @@ theme.SearchResultsTemplate = (function() {
           : product.price) +
         '</span>',
       '</dd>',
-      '<div class="price__compare">' + renderCompareAtPrice(product) + '</div>'
+      '<div class="price__compare">' + renderCompareAtPrice(product) + '</div>',
     ].join('');
   }
 
@@ -5431,7 +5423,7 @@ theme.SearchResultsTemplate = (function() {
       '<span class="predictive-search-item__price predictive-search-item__price--compare">' +
         product.compareAtPrice +
         '</span>',
-      '</dd>'
+      '</dd>',
     ].join('');
   }
 
@@ -5446,7 +5438,7 @@ theme.SearchResultsTemplate = (function() {
           ? theme.strings.fromLowestPrice.replace('[price]', product.price)
           : product.price) +
         '</span>',
-      '</dd>'
+      '</dd>',
     ].join('');
   }
 
@@ -5459,7 +5451,7 @@ theme.SearchResultsTemplate = (function() {
       '<dt>',
       '<span class="visually-hidden">' + theme.strings.vendor + '</span>',
       '</dt>',
-      '<dd class="predictive-search-item__vendor">' + product.vendor + '</dd>'
+      '<dd class="predictive-search-item__vendor">' + product.vendor + '</dd>',
     ].join('');
   }
 
@@ -5480,7 +5472,7 @@ theme.SearchResultsTemplate = (function() {
       available: product.available,
       isOnSale: isOnSale(product),
       isPriceVaries: isPriceVaries(product),
-      isCompareVaries: isCompareVaries(product)
+      isCompareVaries: isCompareVaries(product),
     };
   }
 
@@ -5499,7 +5491,7 @@ theme.SearchResultsTemplate = (function() {
     if (image !== null) {
       image = {
         url: theme.Images.getSizedImageUrl(featuredImage.url, '100x'),
-        alt: featuredImage.alt
+        alt: featuredImage.alt,
       };
     }
 
@@ -5527,10 +5519,10 @@ theme.SearchResultsTemplate = (function() {
   function getDetailsCount() {
     var detailsList = [
       theme.settings.predictiveSearchShowPrice,
-      theme.settings.predictiveSearchShowVendor
+      theme.settings.predictiveSearchShowVendor,
     ];
 
-    var detailsCount = detailsList.reduce(function(acc, detail) {
+    var detailsCount = detailsList.reduce(function (acc, detail) {
       return acc + (detail ? 1 : 0);
     }, 0);
 
@@ -5552,7 +5544,7 @@ theme.SearchResultsTemplate = (function() {
       .replace(/'/g, '&#39;');
   }
 
-  return function(data) {
+  return function (data) {
     var products = data.products || [];
     var isLoading = data.isLoading;
     var searchQuery = data.searchQuery || '';
@@ -5567,7 +5559,7 @@ theme.SearchResultsTemplate = (function() {
 
 window.theme = window.theme || {};
 
-(function() {
+(function () {
   // (a11y) This function will be used by the Predictive Search Component
   // to announce the number of search results
   function numberOfResultsTemplateFct(data) {
@@ -5625,12 +5617,12 @@ window.theme = window.theme || {};
     searchEl.focus();
   }
 
-  window.theme.SearchPage = (function() {
+  window.theme.SearchPage = (function () {
     var selectors = {
       searchReset: '[data-search-page-predictive-search-clear]',
       searchInput: '[data-search-page-predictive-search-input]',
       searchSubmit: '[data-search-page-predictive-search-submit]',
-      searchResults: '[data-predictive-search-mount="default"]'
+      searchResults: '[data-predictive-search-mount="default"]',
     };
 
     var componentInstance;
@@ -5642,12 +5634,12 @@ window.theme = window.theme || {};
         selectors: {
           input: selectors.searchInput,
           reset: selectors.searchReset,
-          result: selectors.searchResults
+          result: selectors.searchResults,
         },
         resultTemplateFct: window.theme.SearchResultsTemplate,
         numberOfResultsTemplateFct: numberOfResultsTemplateFct,
         loadingResultsMessageTemplateFct: loadingResultsMessageTemplateFct,
-        onOpen: function(nodes) {
+        onOpen: function (nodes) {
           if (config.isTabletAndUp) {
             return;
           }
@@ -5660,11 +5652,11 @@ window.theme = window.theme || {};
 
           nodes.result.style.maxHeight = resultsMaxHeight + 'px';
         },
-        onBeforeDestroy: function(nodes) {
+        onBeforeDestroy: function (nodes) {
           // If the viewport width changes from mobile to tablet
           // reset the top position of the results
           nodes.result.style.maxHeight = '';
-        }
+        },
       });
 
       validateSearchHandler(searchInput, searchSubmit);
@@ -5680,16 +5672,16 @@ window.theme = window.theme || {};
 
     return {
       init: init,
-      unload: unload
+      unload: unload,
     };
   })();
 
-  window.theme.SearchHeader = (function() {
+  window.theme.SearchHeader = (function () {
     var selectors = {
       searchInput: '[data-predictive-search-drawer-input]',
       searchResults: '[data-predictive-search-mount="drawer"]',
       searchFormContainer: '[data-search-form-container]',
-      searchSubmit: '[data-search-form-submit]'
+      searchSubmit: '[data-search-form-submit]',
     };
 
     var componentInstance;
@@ -5700,16 +5692,16 @@ window.theme = window.theme || {};
       componentInstance = new window.Shopify.theme.PredictiveSearchComponent({
         selectors: {
           input: selectors.searchInput,
-          result: selectors.searchResults
+          result: selectors.searchResults,
         },
         resultTemplateFct: window.theme.SearchResultsTemplate,
         numberOfResultsTemplateFct: numberOfResultsTemplateFct,
         numberOfResults: config.numberOfResults,
         loadingResultsMessageTemplateFct: loadingResultsMessageTemplateFct,
-        onInputBlur: function() {
+        onInputBlur: function () {
           return false;
         },
-        onOpen: function(nodes) {
+        onOpen: function (nodes) {
           var searchInputBoundingRect = searchInput.getBoundingClientRect();
 
           // For tablet screens and up, stop the scroll area from extending past
@@ -5724,14 +5716,14 @@ window.theme = window.theme || {};
             : searchInputBoundingRect.bottom + 'px';
           nodes.result.style.maxHeight = maxHeight + 'px';
         },
-        onClose: function(nodes) {
+        onClose: function (nodes) {
           nodes.result.style.maxHeight = '';
         },
-        onBeforeDestroy: function(nodes) {
+        onBeforeDestroy: function (nodes) {
           // If the viewport width changes from mobile to tablet
           // reset the top position of the results
           nodes.result.style.top = '';
-        }
+        },
       });
 
       validateSearchHandler(searchInput, searchSubmit);
@@ -5757,20 +5749,20 @@ window.theme = window.theme || {};
     return {
       init: init,
       unload: unload,
-      clearAndClose: clearAndClose
+      clearAndClose: clearAndClose,
     };
   })();
 
-  window.theme.Search = (function() {
+  window.theme.Search = (function () {
     var classes = {
-      searchTemplate: 'template-search'
+      searchTemplate: 'template-search',
     };
     var selectors = {
-      siteHeader: '.site-header'
+      siteHeader: '.site-header',
     };
     var mediaQueryList = {
       mobile: window.matchMedia('(max-width: 767px)'),
-      tabletAndUp: window.matchMedia('(min-width: 768px)')
+      tabletAndUp: window.matchMedia('(min-width: 768px)'),
     };
 
     function init() {
@@ -5782,7 +5774,7 @@ window.theme = window.theme || {};
         return;
       }
 
-      Object.keys(mediaQueryList).forEach(function(device) {
+      Object.keys(mediaQueryList).forEach(function (device) {
         mediaQueryList[device].addListener(initSearchAccordingToViewport);
       });
 
@@ -5797,7 +5789,7 @@ window.theme = window.theme || {};
       if (mediaQueryList.mobile.matches) {
         theme.SearchHeader.init({
           numberOfResults: 4,
-          isTabletAndUp: false
+          isTabletAndUp: false,
         });
 
         if (isSearchPage()) {
@@ -5807,7 +5799,7 @@ window.theme = window.theme || {};
         // Tablet and up
         theme.SearchHeader.init({
           numberOfResults: 4,
-          isTabletAndUp: true
+          isTabletAndUp: true,
         });
 
         if (isSearchPage()) {
@@ -5827,20 +5819,20 @@ window.theme = window.theme || {};
 
     return {
       init: init,
-      unload: unload
+      unload: unload,
     };
   })();
 })();
 
 window.theme = window.theme || {};
 
-theme.SearchDrawer = (function() {
+theme.SearchDrawer = (function () {
   var selectors = {
     headerSection: '[data-header-section]',
     drawer: '[data-predictive-search-drawer]',
     drawerOpenButton: '[data-predictive-search-open-drawer]',
     headerSearchInput: '[data-predictive-search-drawer-input]',
-    predictiveSearchWrapper: '[data-predictive-search-mount="drawer"]'
+    predictiveSearchWrapper: '[data-predictive-search-mount="drawer"]',
   };
 
   var drawerInstance;
@@ -5849,12 +5841,12 @@ theme.SearchDrawer = (function() {
     setAccessibilityProps();
 
     drawerInstance = new theme.Drawers('SearchDrawer', 'top', {
-      onDrawerOpen: function() {
+      onDrawerOpen: function () {
         setHeight();
         theme.MobileNav.closeMobileNav();
         lockBodyScroll();
       },
-      onDrawerClose: function() {
+      onDrawerClose: function () {
         theme.SearchHeader.clearAndClose();
         var drawerOpenButton = document.querySelector(
           selectors.drawerOpenButton
@@ -5865,7 +5857,7 @@ theme.SearchDrawer = (function() {
         unlockBodyScroll();
       },
       withPredictiveSearch: true,
-      elementToFocusOnOpen: document.querySelector(selectors.headerSearchInput)
+      elementToFocusOnOpen: document.querySelector(selectors.headerSearchInput),
     });
   }
 
@@ -5881,8 +5873,9 @@ theme.SearchDrawer = (function() {
 
   function setHeight() {
     var searchDrawer = document.querySelector(selectors.drawer);
-    var headerHeight = document.querySelector(selectors.headerSection)
-      .offsetHeight;
+    var headerHeight = document.querySelector(
+      selectors.headerSection
+    ).offsetHeight;
 
     searchDrawer.style.height = headerHeight + 'px';
   }
@@ -5901,21 +5894,21 @@ theme.SearchDrawer = (function() {
 
   return {
     init: init,
-    close: close
+    close: close,
   };
 })();
 
-theme.Disclosure = (function() {
+theme.Disclosure = (function () {
   var selectors = {
     disclosureForm: '[data-disclosure-form]',
     disclosureList: '[data-disclosure-list]',
     disclosureToggle: '[data-disclosure-toggle]',
     disclosureInput: '[data-disclosure-input]',
-    disclosureOptions: '[data-disclosure-option]'
+    disclosureOptions: '[data-disclosure-option]',
   };
 
   var classes = {
-    listVisible: 'disclosure-list--visible'
+    listVisible: 'disclosure-list--visible',
   };
 
   function Disclosure(disclosure) {
@@ -5925,7 +5918,7 @@ theme.Disclosure = (function() {
   }
 
   Disclosure.prototype = Object.assign({}, Disclosure.prototype, {
-    _cacheSelectors: function() {
+    _cacheSelectors: function () {
       this.cache = {
         disclosureForm: this.container.closest(selectors.disclosureForm),
         disclosureList: this.container.querySelector(selectors.disclosureList),
@@ -5937,11 +5930,11 @@ theme.Disclosure = (function() {
         ),
         disclosureOptions: this.container.querySelectorAll(
           selectors.disclosureOptions
-        )
+        ),
       };
     },
 
-    _setupListeners: function() {
+    _setupListeners: function () {
       this.eventHandlers = this._setupEventHandlers();
 
       this.cache.disclosureToggle.addEventListener(
@@ -5949,7 +5942,7 @@ theme.Disclosure = (function() {
         this.eventHandlers.toggleList
       );
 
-      this.cache.disclosureOptions.forEach(function(disclosureOption) {
+      this.cache.disclosureOptions.forEach(function (disclosureOption) {
         disclosureOption.addEventListener(
           'click',
           this.eventHandlers.connectOptions
@@ -5974,24 +5967,24 @@ theme.Disclosure = (function() {
       document.body.addEventListener('click', this.eventHandlers.onBodyClick);
     },
 
-    _setupEventHandlers: function() {
+    _setupEventHandlers: function () {
       return {
         connectOptions: this._connectOptions.bind(this),
         toggleList: this._toggleList.bind(this),
         onBodyClick: this._onBodyClick.bind(this),
         onDisclosureKeyUp: this._onDisclosureKeyUp.bind(this),
         onDisclosureListFocusOut: this._onDisclosureListFocusOut.bind(this),
-        onDisclosureToggleFocusOut: this._onDisclosureToggleFocusOut.bind(this)
+        onDisclosureToggleFocusOut: this._onDisclosureToggleFocusOut.bind(this),
       };
     },
 
-    _connectOptions: function(event) {
+    _connectOptions: function (event) {
       event.preventDefault();
 
       this._submitForm(event.currentTarget.dataset.value);
     },
 
-    _onDisclosureToggleFocusOut: function(event) {
+    _onDisclosureToggleFocusOut: function (event) {
       var disclosureLostFocus =
         this.container.contains(event.relatedTarget) === false;
 
@@ -6000,7 +5993,7 @@ theme.Disclosure = (function() {
       }
     },
 
-    _onDisclosureListFocusOut: function(event) {
+    _onDisclosureListFocusOut: function (event) {
       var childInFocus = event.currentTarget.contains(event.relatedTarget);
 
       var isVisible = this.cache.disclosureList.classList.contains(
@@ -6012,13 +6005,13 @@ theme.Disclosure = (function() {
       }
     },
 
-    _onDisclosureKeyUp: function(event) {
+    _onDisclosureKeyUp: function (event) {
       if (event.which !== slate.utils.keyboardKeys.ESCAPE) return;
       this._hideList();
       this.cache.disclosureToggle.focus();
     },
 
-    _onBodyClick: function(event) {
+    _onBodyClick: function (event) {
       var isOption = this.container.contains(event.target);
       var isVisible = this.cache.disclosureList.classList.contains(
         classes.listVisible
@@ -6029,30 +6022,30 @@ theme.Disclosure = (function() {
       }
     },
 
-    _submitForm: function(value) {
+    _submitForm: function (value) {
       this.cache.disclosureInput.value = value;
       this.cache.disclosureForm.submit();
     },
 
-    _hideList: function() {
+    _hideList: function () {
       this.cache.disclosureList.classList.remove(classes.listVisible);
       this.cache.disclosureToggle.setAttribute('aria-expanded', false);
     },
 
-    _toggleList: function() {
+    _toggleList: function () {
       var ariaExpanded =
         this.cache.disclosureToggle.getAttribute('aria-expanded') === 'true';
       this.cache.disclosureList.classList.toggle(classes.listVisible);
       this.cache.disclosureToggle.setAttribute('aria-expanded', !ariaExpanded);
     },
 
-    destroy: function() {
+    destroy: function () {
       this.cache.disclosureToggle.removeEventListener(
         'click',
         this.eventHandlers.toggleList
       );
 
-      this.cache.disclosureOptions.forEach(function(disclosureOption) {
+      this.cache.disclosureOptions.forEach(function (disclosureOption) {
         disclosureOption.removeEventListener(
           'click',
           this.eventHandlers.connectOptions
@@ -6078,23 +6071,23 @@ theme.Disclosure = (function() {
         'click',
         this.eventHandlers.onBodyClick
       );
-    }
+    },
   });
 
   return Disclosure;
 })();
 
-theme.Zoom = (function() {
+theme.Zoom = (function () {
   var selectors = {
-    imageZoom: '[data-image-zoom]'
+    imageZoom: '[data-image-zoom]',
   };
 
   var classes = {
-    zoomImg: 'zoomImg'
+    zoomImg: 'zoomImg',
   };
 
   var attributes = {
-    imageZoomTarget: 'data-image-zoom-target'
+    imageZoomTarget: 'data-image-zoom-target',
   };
 
   function Zoom(container) {
@@ -6110,13 +6103,13 @@ theme.Zoom = (function() {
   }
 
   Zoom.prototype = Object.assign({}, Zoom.prototype, {
-    _cacheSelectors: function() {
+    _cacheSelectors: function () {
       this.cache = {
-        sourceImage: this.container.querySelector(selectors.imageZoom)
+        sourceImage: this.container.querySelector(selectors.imageZoom),
       };
     },
 
-    _init: function() {
+    _init: function () {
       var targetWidth = this.cache.targetImage.width;
       var targetHeight = this.cache.targetImage.height;
 
@@ -6134,12 +6127,12 @@ theme.Zoom = (function() {
         (this.cache.sourceImage.height - targetHeight) / this.sourceHeight;
     },
 
-    _start: function(e) {
+    _start: function (e) {
       this._init();
       this._move(e);
     },
 
-    _stop: function() {
+    _stop: function () {
       this.cache.targetImage.style.opacity = 0;
     },
 
@@ -6149,14 +6142,14 @@ theme.Zoom = (function() {
      * So when the mouse leaves the target image, it could
      * never go above or beyond the target image zone
      */
-    _setTopLeftMaxValues: function(top, left) {
+    _setTopLeftMaxValues: function (top, left) {
       return {
         left: Math.max(Math.min(left, this.sourceWidth), 0),
-        top: Math.max(Math.min(top, this.sourceHeight), 0)
+        top: Math.max(Math.min(top, this.sourceHeight), 0),
       };
     },
 
-    _move: function(e) {
+    _move: function (e) {
       // get left and top position within the "source image" zone
       var left =
         e.pageX -
@@ -6181,10 +6174,10 @@ theme.Zoom = (function() {
      * via the data attributes url
      * It adds all necessary CSS styles and adds to the container
      */
-    _duplicateImage: function() {
+    _duplicateImage: function () {
       this._loadImage()
         .then(
-          function(image) {
+          function (image) {
             this.cache.targetImage = image;
             image.style.width = image.width + 'px';
             image.style.height = image.height + 'px';
@@ -6212,33 +6205,34 @@ theme.Zoom = (function() {
             this.container.style.overflow = 'hidden';
           }.bind(this)
         )
-        .catch(function(error) {
+        .catch(function (error) {
           // eslint-disable-next-line no-console
           console.warn('Error fetching image', error);
         });
     },
 
-    _loadImage: function() {
+    _loadImage: function () {
       // eslint-disable-next-line
-      return new Promise(function(resolve, reject) {
+      return new Promise(
+        function (resolve, reject) {
           var image = new Image();
           image.setAttribute('role', 'presentation');
           image.setAttribute(attributes.imageZoomTarget, true);
           image.classList.add(classes.zoomImg);
           image.src = this.url;
 
-          image.addEventListener('load', function() {
+          image.addEventListener('load', function () {
             resolve(image);
           });
 
-          image.addEventListener('error', function(error) {
+          image.addEventListener('error', function (error) {
             reject(error);
           });
         }.bind(this)
       );
     },
 
-    unload: function() {
+    unload: function () {
       var targetImage = this.container.querySelector(
         '[' + attributes.imageZoomTarget + ']'
       );
@@ -6249,23 +6243,22 @@ theme.Zoom = (function() {
       this.container.removeEventListener('mouseenter', this._start);
       this.container.removeEventListener('mouseleave', this._stop);
       this.container.removeEventListener('mousemove', this._move);
-    }
+    },
   });
 
   return Zoom;
 })();
 
-
 /* ================ TEMPLATES ================ */
-(function() {
+(function () {
   var filterBys = document.querySelectorAll('[data-blog-tag-filter]');
 
   if (!filterBys.length) return;
 
   slate.utils.resizeSelects(filterBys);
 
-  filterBys.forEach(function(filterBy) {
-    filterBy.addEventListener('change', function(evt) {
+  filterBys.forEach(function (filterBy) {
+    filterBy.addEventListener('change', function (evt) {
       location.href = evt.target.value;
     });
   });
@@ -6273,11 +6266,11 @@ theme.Zoom = (function() {
 
 window.theme = theme || {};
 
-theme.customerTemplates = (function() {
+theme.customerTemplates = (function () {
   var selectors = {
     RecoverHeading: '#RecoverHeading',
     RecoverEmail: '#RecoverEmail',
-    LoginHeading: '#LoginHeading'
+    LoginHeading: '#LoginHeading',
   };
 
   function initEventListeners() {
@@ -6293,7 +6286,7 @@ theme.customerTemplates = (function() {
     if (recoverPassword) {
       recoverPassword.addEventListener(
         'click',
-        function(evt) {
+        function (evt) {
           evt.preventDefault();
           showRecoverPasswordForm();
           this.recoverHeading.setAttribute('tabindex', '-1');
@@ -6306,7 +6299,7 @@ theme.customerTemplates = (function() {
     if (hideRecoverPasswordLink) {
       hideRecoverPasswordLink.addEventListener(
         'click',
-        function(evt) {
+        function (evt) {
           evt.preventDefault();
           hideRecoverPasswordForm();
           this.loginHeading.setAttribute('tabindex', '-1');
@@ -6316,13 +6309,13 @@ theme.customerTemplates = (function() {
     }
 
     if (this.recoverHeading) {
-      this.recoverHeading.addEventListener('blur', function(evt) {
+      this.recoverHeading.addEventListener('blur', function (evt) {
         evt.target.removeAttribute('tabindex');
       });
     }
 
     if (this.loginHeading) {
-      this.loginHeading.addEventListener('blur', function(evt) {
+      this.loginHeading.addEventListener('blur', function (evt) {
         evt.target.removeAttribute('tabindex');
       });
     }
@@ -6387,7 +6380,7 @@ theme.customerTemplates = (function() {
         'AddressCountryNew',
         'AddressProvinceNew',
         {
-          hideElement: 'AddressProvinceContainerNew'
+          hideElement: 'AddressProvinceContainerNew',
         }
       );
     }
@@ -6395,7 +6388,7 @@ theme.customerTemplates = (function() {
     // Initialize each edit form's country/province selector
     document
       .querySelectorAll('.address-country-option')
-      .forEach(function(option) {
+      .forEach(function (option) {
         var formId = option.dataset.formId;
         var countrySelector = 'AddressCountry_' + formId;
         var provinceSelector = 'AddressProvince_' + formId;
@@ -6403,13 +6396,13 @@ theme.customerTemplates = (function() {
 
         // eslint-disable-next-line no-new
         new Shopify.CountryProvinceSelector(countrySelector, provinceSelector, {
-          hideElement: containerSelector
+          hideElement: containerSelector,
         });
       });
 
     // Toggle new/edit address forms
-    document.querySelectorAll('.address-new-toggle').forEach(function(button) {
-      button.addEventListener('click', function() {
+    document.querySelectorAll('.address-new-toggle').forEach(function (button) {
+      button.addEventListener('click', function () {
         var isExpanded =
           newAddressFormButton.getAttribute('aria-expanded') === 'true';
 
@@ -6419,21 +6412,23 @@ theme.customerTemplates = (function() {
       });
     });
 
-    document.querySelectorAll('.address-edit-toggle').forEach(function(button) {
-      button.addEventListener('click', function(evt) {
-        var formId = evt.target.dataset.formId;
-        var editButton = document.getElementById('EditFormButton_' + formId);
-        var editAddress = document.getElementById('EditAddress_' + formId);
-        var isExpanded = editButton.getAttribute('aria-expanded') === 'true';
+    document
+      .querySelectorAll('.address-edit-toggle')
+      .forEach(function (button) {
+        button.addEventListener('click', function (evt) {
+          var formId = evt.target.dataset.formId;
+          var editButton = document.getElementById('EditFormButton_' + formId);
+          var editAddress = document.getElementById('EditAddress_' + formId);
+          var isExpanded = editButton.getAttribute('aria-expanded') === 'true';
 
-        editAddress.classList.toggle('hide');
-        editButton.setAttribute('aria-expanded', !isExpanded);
-        editButton.focus();
+          editAddress.classList.toggle('hide');
+          editButton.setAttribute('aria-expanded', !isExpanded);
+          editButton.focus();
+        });
       });
-    });
 
-    document.querySelectorAll('.address-delete').forEach(function(button) {
-      button.addEventListener('click', function(evt) {
+    document.querySelectorAll('.address-delete').forEach(function (button) {
+      button.addEventListener('click', function (evt) {
         var target = evt.target.dataset.target;
         var confirmMessage = evt.target.dataset.confirmMessage;
 
@@ -6444,7 +6439,7 @@ theme.customerTemplates = (function() {
           )
         ) {
           Shopify.postLink(target, {
-            parameters: { _method: 'delete' }
+            parameters: { _method: 'delete' },
           });
         }
       });
@@ -6466,20 +6461,19 @@ theme.customerTemplates = (function() {
   }
 
   return {
-    init: function() {
+    init: function () {
       initEventListeners();
       checkUrlHash();
       resetPasswordSuccess();
       customerAddressForm();
-    }
+    },
   };
 })();
-
 
 /*================ SECTIONS ================*/
 window.theme = window.theme || {};
 
-theme.Cart = (function() {
+theme.Cart = (function () {
   var selectors = {
     cartCount: '[data-cart-count]',
     cartCountBubble: '[data-cart-count-bubble]',
@@ -6529,7 +6523,7 @@ theme.Cart = (function() {
     thumbnails: '.cart__image',
     unitPrice: '[data-unit-price]',
     unitPriceBaseUnit: '[data-unit-price-base-unit]',
-    unitPriceGroup: '[data-unit-price-group]'
+    unitPriceGroup: '[data-unit-price-group]',
   };
 
   var classes = {
@@ -6537,7 +6531,7 @@ theme.Cart = (function() {
     cartRemovedProduct: 'cart__removed-product',
     thumbnails: 'cart__image',
     hide: 'hide',
-    inputError: 'input--error'
+    inputError: 'input--error',
   };
 
   var attributes = {
@@ -6546,7 +6540,7 @@ theme.Cart = (function() {
     cartItemQuantity: 'data-cart-item-quantity',
     cartItemTitle: 'data-cart-item-title',
     cartItemUrl: 'data-cart-item-url',
-    quantityItem: 'data-quantity-item'
+    quantityItem: 'data-quantity-item',
   };
 
   var mediumUpQuery = '(min-width: ' + theme.breakpoints.medium + 'px)';
@@ -6562,9 +6556,8 @@ theme.Cart = (function() {
       this._handleInputQty.bind(this),
       500
     );
-    this.setQuantityFormControllers = this.setQuantityFormControllers.bind(
-      this
-    );
+    this.setQuantityFormControllers =
+      this.setQuantityFormControllers.bind(this);
     this._onNoteChange = this._onNoteChange.bind(this);
     this._onRemoveItem = this._onRemoveItem.bind(this);
 
@@ -6572,7 +6565,7 @@ theme.Cart = (function() {
       this.container.classList.add(classes.cartNoCookies);
     }
 
-    this.thumbnails.forEach(function(element) {
+    this.thumbnails.forEach(function (element) {
       element.style.cursor = 'pointer';
     });
 
@@ -6599,7 +6592,7 @@ theme.Cart = (function() {
   }
 
   Cart.prototype = Object.assign({}, Cart.prototype, {
-    _setupCartTemplates: function() {
+    _setupCartTemplates: function () {
       var cartItem = this.container.querySelector(selectors.cartItem);
       if (!cartItem) return;
 
@@ -6628,7 +6621,7 @@ theme.Cart = (function() {
         .cloneNode(true);
     },
 
-    _handleInputQty: function(evt) {
+    _handleInputQty: function (evt) {
       if (!evt.target.hasAttribute('data-quantity-input')) return;
 
       var input = evt.target;
@@ -6644,7 +6637,7 @@ theme.Cart = (function() {
 
       var isValidValue = !(value < 0 || isNaN(value));
 
-      itemQtyInputs.forEach(function(element) {
+      itemQtyInputs.forEach(function (element) {
         element.value = value;
       });
 
@@ -6661,7 +6654,7 @@ theme.Cart = (function() {
       }
     },
 
-    _updateItemQuantity: function(
+    _updateItemQuantity: function (
       itemIndex,
       itemElement,
       itemQtyInputs,
@@ -6673,20 +6666,20 @@ theme.Cart = (function() {
       var request = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;'
+          'Content-Type': 'application/json;',
         },
         body: JSON.stringify({
           line: index,
-          quantity: value
-        })
+          quantity: value,
+        }),
       };
 
       fetch('/cart/change.js', request)
-        .then(function(response) {
+        .then(function (response) {
           return response.json();
         })
         .then(
-          function(state) {
+          function (state) {
             this._setCartCountBubble(state.item_count);
 
             if (!state.item_count) {
@@ -6718,19 +6711,19 @@ theme.Cart = (function() {
           }.bind(this)
         )
         .catch(
-          function() {
+          function () {
             this._showCartError(null);
           }.bind(this)
         );
     },
 
-    getItem: function(key, state) {
-      return state.items.find(function(item) {
+    getItem: function (key, state) {
+      return state.items.find(function (item) {
         return item.key === key;
       });
     },
 
-    _liveRegionText: function(item) {
+    _liveRegionText: function (item) {
       // Dummy content for live region
       var liveRegionText =
         theme.strings.update +
@@ -6774,7 +6767,7 @@ theme.Cart = (function() {
       return liveRegionText;
     },
 
-    _updateLiveRegion: function(item) {
+    _updateLiveRegion: function (item) {
       if (!item) return;
 
       var liveRegion = this.container.querySelector(selectors.cartStatus);
@@ -6782,18 +6775,18 @@ theme.Cart = (function() {
       liveRegion.textContent = this._liveRegionText(item);
       liveRegion.setAttribute('aria-hidden', false);
 
-      setTimeout(function() {
+      setTimeout(function () {
         liveRegion.setAttribute('aria-hidden', true);
       }, 1000);
     },
 
-    _createCart: function(state) {
+    _createCart: function (state) {
       var cartDiscountList = this._createCartDiscountList(state);
 
       var cartTable = this.container.querySelector(selectors.cartLineItems);
       cartTable.innerHTML = '';
 
-      this._createLineItemList(state).forEach(function(lineItem) {
+      this._createLineItemList(state).forEach(function (lineItem) {
         cartTable.appendChild(lineItem);
       });
 
@@ -6816,44 +6809,42 @@ theme.Cart = (function() {
       } else {
         discountWrapper.innerHTML = '';
 
-        cartDiscountList.forEach(function(discountItem) {
+        cartDiscountList.forEach(function (discountItem) {
           discountWrapper.appendChild(discountItem);
         });
 
         discountWrapper.classList.remove(classes.hide);
       }
 
-      this.container.querySelector(
-        selectors.cartSubtotal
-      ).textContent = theme.Currency.formatMoney(
-        state.total_price,
-        theme.moneyFormatWithCurrency
-      );
+      this.container.querySelector(selectors.cartSubtotal).textContent =
+        theme.Currency.formatMoney(
+          state.total_price,
+          theme.moneyFormatWithCurrency
+        );
     },
 
-    _createCartDiscountList: function(cart) {
+    _createCartDiscountList: function (cart) {
       return cart.cart_level_discount_applications.map(
-        function(discount) {
+        function (discount) {
           var discountNode = this.cartDiscountTemplate.cloneNode(true);
 
           discountNode.querySelector(selectors.cartDiscountTitle).textContent =
             discount.title;
 
-          discountNode.querySelector(
-            selectors.cartDiscountAmount
-          ).textContent = theme.Currency.formatMoney(
-            discount.total_allocated_amount,
-            theme.moneyFormat
-          );
+          discountNode.querySelector(selectors.cartDiscountAmount).textContent =
+            theme.Currency.formatMoney(
+              discount.total_allocated_amount,
+              theme.moneyFormat
+            );
 
           return discountNode;
         }.bind(this)
       );
     },
 
-    _createLineItemList: function(state) {
+    _createLineItemList: function (state) {
       return state.items.map(
-        function(item, index) {
+        function (item, index) {
           var itemNode = this.itemTemplate.cloneNode(true);
 
           var itemPriceList = this.itemPriceListTemplate.cloneNode(true);
@@ -6907,7 +6898,7 @@ theme.Cart = (function() {
       );
     },
 
-    _setLineItemAttributes: function(itemNode, item, index) {
+    _setLineItemAttributes: function (itemNode, item, index) {
       itemNode.setAttribute(attributes.cartItemKey, item.key);
       itemNode.setAttribute(attributes.cartItemUrl, item.url);
       itemNode.setAttribute(attributes.cartItemTitle, item.title);
@@ -6915,7 +6906,7 @@ theme.Cart = (function() {
       itemNode.setAttribute(attributes.cartItemQuantity, item.quantity);
     },
 
-    _setLineItemImage: function(itemNode, featuredImage) {
+    _setLineItemImage: function (itemNode, featuredImage) {
       var image = itemNode.querySelector(selectors.cartItemImage);
 
       var sizedImageUrl =
@@ -6932,18 +6923,17 @@ theme.Cart = (function() {
       }
     },
 
-    _setProductDetailsList: function(item, productDetailsList) {
+    _setProductDetailsList: function (item, productDetailsList) {
       var itemDetails = item.querySelector(selectors.cartItemDetails);
 
       if (productDetailsList.length) {
         itemDetails.classList.remove(classes.hide);
-        itemDetails.innerHTML = productDetailsList.reduce(function(
+        itemDetails.innerHTML = productDetailsList.reduce(function (
           result,
           element
         ) {
           return result + element.outerHTML;
-        },
-        '');
+        }, '');
 
         return;
       }
@@ -6952,30 +6942,29 @@ theme.Cart = (function() {
       itemDetails.textContent = '';
     },
 
-    _setItemPrice: function(item, price) {
+    _setItemPrice: function (item, price) {
       item.querySelector(selectors.cartItemPrice).innerHTML = price.outerHTML;
     },
 
-    _setItemDiscountList: function(item, discountList) {
+    _setItemDiscountList: function (item, discountList) {
       var itemDiscountList = item.querySelector(selectors.cartItemDiscountList);
 
       if (discountList.length === 0) {
         itemDiscountList.innerHTML = '';
         itemDiscountList.classList.add(classes.hide);
       } else {
-        itemDiscountList.innerHTML = discountList.reduce(function(
+        itemDiscountList.innerHTML = discountList.reduce(function (
           result,
           element
         ) {
           return result + element.outerHTML;
-        },
-        '');
+        }, '');
 
         itemDiscountList.classList.remove(classes.hide);
       }
     },
 
-    _setItemRemove: function(item, title) {
+    _setItemRemove: function (item, title) {
       item
         .querySelector(selectors.cartRemove)
         .setAttribute(
@@ -6984,14 +6973,14 @@ theme.Cart = (function() {
         );
     },
 
-    _setQuantityInputs: function(itemNode, item, index) {
+    _setQuantityInputs: function (itemNode, item, index) {
       var mobileInput = itemNode.querySelector(selectors.quantityInputMobile);
       var desktopInput = itemNode.querySelector(selectors.quantityInputDesktop);
 
       mobileInput.setAttribute('id', 'updates_' + item.key);
       desktopInput.setAttribute('id', 'updates_large_' + item.key);
 
-      [mobileInput, desktopInput].forEach(function(element) {
+      [mobileInput, desktopInput].forEach(function (element) {
         element.setAttribute(attributes.quantityItem, index + 1);
         element.value = item.quantity;
       });
@@ -7005,7 +6994,7 @@ theme.Cart = (function() {
         .setAttribute('for', 'updates_large_' + item.key);
     },
 
-    setQuantityFormControllers: function() {
+    setQuantityFormControllers: function () {
       var desktopQuantityInputs = document.querySelectorAll(
         selectors.quantityInputDesktop
       );
@@ -7023,24 +7012,24 @@ theme.Cart = (function() {
       }
 
       function addNameAttribute(inputs) {
-        inputs.forEach(function(element) {
+        inputs.forEach(function (element) {
           element.setAttribute('name', 'updates[]');
         });
       }
 
       function removeNameAttribute(inputs) {
-        inputs.forEach(function(element) {
+        inputs.forEach(function (element) {
           element.removeAttribute('name');
         });
       }
     },
 
-    _setItemLinePrice: function(item, price) {
+    _setItemLinePrice: function (item, price) {
       item.querySelector(selectors.cartItemLinePrice).innerHTML =
         price.outerHTML;
     },
 
-    _createProductDetailsList: function(
+    _createProductDetailsList: function (
       product_has_only_default_variant,
       options,
       properties
@@ -7062,9 +7051,9 @@ theme.Cart = (function() {
       return optionsPropertiesHTML;
     },
 
-    _getOptionList: function(options) {
+    _getOptionList: function (options) {
       return options.map(
-        function(option) {
+        function (option) {
           var optionElement = this.itemOptionTemplate.cloneNode(true);
 
           optionElement.textContent = option.name + ': ' + option.value;
@@ -7075,12 +7064,12 @@ theme.Cart = (function() {
       );
     },
 
-    _getPropertyList: function(properties) {
+    _getPropertyList: function (properties) {
       var propertiesArray =
         properties !== null ? Object.entries(properties) : [];
 
       return propertiesArray.map(
-        function(property) {
+        function (property) {
           var propertyElement = this.itemPropertyTemplate.cloneNode(true);
 
           // Line item properties prefixed with an underscore are not to be displayed
@@ -7115,7 +7104,7 @@ theme.Cart = (function() {
       );
     },
 
-    _createItemPrice: function(original_price, final_price) {
+    _createItemPrice: function (original_price, final_price) {
       var originalPriceHTML = theme.Currency.formatMoney(
         original_price,
         theme.moneyFormat
@@ -7128,31 +7117,25 @@ theme.Cart = (function() {
           .querySelector(selectors.cartItemDiscountedPriceGroup)
           .cloneNode(true);
 
-        resultHTML.querySelector(
-          selectors.cartItemOriginalPrice
-        ).innerHTML = originalPriceHTML;
+        resultHTML.querySelector(selectors.cartItemOriginalPrice).innerHTML =
+          originalPriceHTML;
 
-        resultHTML.querySelector(
-          selectors.cartItemFinalPrice
-        ).innerHTML = theme.Currency.formatMoney(
-          final_price,
-          theme.moneyFormat
-        );
+        resultHTML.querySelector(selectors.cartItemFinalPrice).innerHTML =
+          theme.Currency.formatMoney(final_price, theme.moneyFormat);
       } else {
         resultHTML = this.itemPriceListTemplate
           .querySelector(selectors.cartItemRegularPriceGroup)
           .cloneNode(true);
 
-        resultHTML.querySelector(
-          selectors.cartItemRegularPrice
-        ).innerHTML = originalPriceHTML;
+        resultHTML.querySelector(selectors.cartItemRegularPrice).innerHTML =
+          originalPriceHTML;
       }
 
       resultHTML.classList.remove(classes.hide);
       return resultHTML;
     },
 
-    _createUnitPrice: function(unitPrice, unitPriceMeasurement) {
+    _createUnitPrice: function (unitPrice, unitPriceMeasurement) {
       var unitPriceGroup = this.itemPriceListTemplate
         .querySelector(selectors.unitPriceGroup)
         .cloneNode(true);
@@ -7162,22 +7145,20 @@ theme.Cart = (function() {
           ? unitPriceMeasurement.reference_value
           : '') + unitPriceMeasurement.reference_unit;
 
-      unitPriceGroup.querySelector(
-        selectors.unitPriceBaseUnit
-      ).textContent = unitPriceBaseUnit;
+      unitPriceGroup.querySelector(selectors.unitPriceBaseUnit).textContent =
+        unitPriceBaseUnit;
 
-      unitPriceGroup.querySelector(
-        selectors.unitPrice
-      ).innerHTML = theme.Currency.formatMoney(unitPrice, theme.moneyFormat);
+      unitPriceGroup.querySelector(selectors.unitPrice).innerHTML =
+        theme.Currency.formatMoney(unitPrice, theme.moneyFormat);
 
       unitPriceGroup.classList.remove(classes.hide);
 
       return unitPriceGroup;
     },
 
-    _createItemDiscountList: function(item) {
+    _createItemDiscountList: function (item) {
       return item.line_level_discount_allocations.map(
-        function(discount) {
+        function (discount) {
           var discountNode = this.itemDiscountTemplate.cloneNode(true);
 
           discountNode.querySelector(
@@ -7196,33 +7177,33 @@ theme.Cart = (function() {
       );
     },
 
-    _showQuantityErrorMessages: function(itemElement) {
+    _showQuantityErrorMessages: function (itemElement) {
       itemElement
         .querySelectorAll(selectors.cartQuantityErrorMessage)
-        .forEach(function(element) {
+        .forEach(function (element) {
           element.textContent = theme.strings.quantityMinimumMessage;
         });
 
       itemElement
         .querySelectorAll(selectors.cartQuantityErrorMessageWrapper)
-        .forEach(function(element) {
+        .forEach(function (element) {
           element.classList.remove(classes.hide);
         });
 
       itemElement
         .querySelectorAll(selectors.inputQty)
-        .forEach(function(element) {
+        .forEach(function (element) {
           element.classList.add(classes.inputError);
           element.focus();
         });
     },
 
-    _hideQuantityErrorMessage: function() {
+    _hideQuantityErrorMessage: function () {
       var errorMessages = document.querySelectorAll(
         selectors.cartQuantityErrorMessageWrapper
       );
 
-      errorMessages.forEach(function(element) {
+      errorMessages.forEach(function (element) {
         element.classList.add(classes.hide);
 
         element.querySelector(selectors.cartQuantityErrorMessage).textContent =
@@ -7231,12 +7212,12 @@ theme.Cart = (function() {
 
       this.container
         .querySelectorAll(selectors.inputQty)
-        .forEach(function(element) {
+        .forEach(function (element) {
           element.classList.remove(classes.inputError);
         });
     },
 
-    _handleThumbnailClick: function(evt) {
+    _handleThumbnailClick: function (evt) {
       if (!evt.target.classList.contains(classes.thumbnails)) return;
 
       window.location.href = evt.target
@@ -7244,7 +7225,7 @@ theme.Cart = (function() {
         .getAttribute('data-cart-item-url');
     },
 
-    _onNoteChange: function(evt) {
+    _onNoteChange: function (evt) {
       if (!evt.target.hasAttribute('data-cart-notes')) return;
 
       var note = evt.target.value;
@@ -7256,17 +7237,17 @@ theme.Cart = (function() {
       var request = {
         method: 'POST',
         headers: headers,
-        body: JSON.stringify({ note: note })
+        body: JSON.stringify({ note: note }),
       };
 
       fetch('/cart/update.js', request).catch(
-        function() {
+        function () {
           this._showCartError(evt.target);
         }.bind(this)
       );
     },
 
-    _showCartError: function(elementToFocus) {
+    _showCartError: function (elementToFocus) {
       document.querySelector(selectors.cartErrorMessage).textContent =
         theme.strings.cartError;
 
@@ -7278,14 +7259,14 @@ theme.Cart = (function() {
       elementToFocus.focus();
     },
 
-    _hideCartError: function() {
+    _hideCartError: function () {
       document
         .querySelector(selectors.cartErrorMessageWrapper)
         .classList.add(classes.hide);
       document.querySelector(selectors.cartErrorMessage).textContent = '';
     },
 
-    _onRemoveItem: function(evt) {
+    _onRemoveItem: function (evt) {
       if (!evt.target.hasAttribute('data-cart-remove')) return;
 
       evt.preventDefault();
@@ -7297,20 +7278,20 @@ theme.Cart = (function() {
       var request = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;'
+          'Content-Type': 'application/json;',
         },
         body: JSON.stringify({
           line: index,
-          quantity: 0
-        })
+          quantity: 0,
+        }),
       };
 
       fetch('/cart/change.js', request)
-        .then(function(response) {
+        .then(function (response) {
           return response.json();
         })
         .then(
-          function(state) {
+          function (state) {
             if (state.item_count === 0) {
               this._emptyCart();
             } else {
@@ -7322,13 +7303,13 @@ theme.Cart = (function() {
           }.bind(this)
         )
         .catch(
-          function() {
+          function () {
             this._showCartError(null);
           }.bind(this)
         );
     },
 
-    _showRemoveMessage: function(lineItem) {
+    _showRemoveMessage: function (lineItem) {
       var index = lineItem.getAttribute('data-cart-item-index');
       var removeMessage = this._getRemoveMessage(lineItem);
 
@@ -7345,7 +7326,7 @@ theme.Cart = (function() {
       this.container.querySelector('[data-removed-item-row]').focus();
     },
 
-    _getRemoveMessage: function(lineItem) {
+    _getRemoveMessage: function (lineItem) {
       var formattedMessage = this._formatRemoveMessage(lineItem);
 
       var tableCell = lineItem
@@ -7365,7 +7346,7 @@ theme.Cart = (function() {
       return lineItem;
     },
 
-    _formatRemoveMessage: function(lineItem) {
+    _formatRemoveMessage: function (lineItem) {
       var quantity = lineItem.getAttribute('data-cart-item-quantity');
       var url = lineItem.getAttribute(attributes.cartItemUrl);
       var title = lineItem.getAttribute(attributes.cartItemTitle);
@@ -7383,7 +7364,7 @@ theme.Cart = (function() {
         );
     },
 
-    _setCartCountBubble: function(quantity) {
+    _setCartCountBubble: function (quantity) {
       this.cartCountBubble =
         this.cartCountBubble ||
         document.querySelector(selectors.cartCountBubble);
@@ -7400,7 +7381,7 @@ theme.Cart = (function() {
       }
     },
 
-    _emptyCart: function() {
+    _emptyCart: function () {
       this.emptyPageContent =
         this.emptyPageContent ||
         this.container.querySelector(selectors.emptyPageContent);
@@ -7410,7 +7391,7 @@ theme.Cart = (function() {
 
       this.emptyPageContent.classList.remove(classes.hide);
       this.cartWrapper.classList.add(classes.hide);
-    }
+    },
   });
 
   return Cart;
@@ -7418,15 +7399,15 @@ theme.Cart = (function() {
 
 window.theme = window.theme || {};
 
-theme.Filters = (function() {
+theme.Filters = (function () {
   var settings = {
-    mediaQueryMediumUp: '(min-width: ' + theme.breakpoints.medium + 'px)'
+    mediaQueryMediumUp: '(min-width: ' + theme.breakpoints.medium + 'px)',
   };
 
   var selectors = {
     filterSelection: '#FilterTags',
     sortSelection: '#SortBy',
-    selectInput: '[data-select-input]'
+    selectInput: '[data-select-input]',
   };
 
   function Filters(container) {
@@ -7440,7 +7421,7 @@ theme.Filters = (function() {
     }
 
     if (this.selects.length) {
-      this.selects.forEach(function(select) {
+      this.selects.forEach(function (select) {
         select.classList.remove('hidden');
       });
     }
@@ -7462,7 +7443,7 @@ theme.Filters = (function() {
     }
 
     theme.Helpers.promiseStylesheet().then(
-      function() {
+      function () {
         this._initBreakpoints();
       }.bind(this)
     );
@@ -7470,13 +7451,13 @@ theme.Filters = (function() {
   }
 
   Filters.prototype = Object.assign({}, Filters.prototype, {
-    _initBreakpoints: function() {
+    _initBreakpoints: function () {
       if (this.mql.matches) {
         slate.utils.resizeSelects(this.selects);
       }
     },
 
-    _initParams: function() {
+    _initParams: function () {
       this.queryParams = {};
       if (location.search.length) {
         var aKeyValue;
@@ -7484,15 +7465,14 @@ theme.Filters = (function() {
         for (var i = 0; i < aCouples.length; i++) {
           aKeyValue = aCouples[i].split('=');
           if (aKeyValue.length > 1) {
-            this.queryParams[
-              decodeURIComponent(aKeyValue[0])
-            ] = decodeURIComponent(aKeyValue[1]);
+            this.queryParams[decodeURIComponent(aKeyValue[0])] =
+              decodeURIComponent(aKeyValue[1]);
           }
         }
       }
     },
 
-    _onSortChange: function() {
+    _onSortChange: function () {
       this.queryParams.sort_by = this._getSortValue();
 
       if (this.queryParams.page) {
@@ -7504,23 +7484,23 @@ theme.Filters = (function() {
       );
     },
 
-    _onFilterChange: function() {
+    _onFilterChange: function () {
       document.location.href = this._getFilterValue();
     },
 
-    _getFilterValue: function() {
+    _getFilterValue: function () {
       return this.filterSelect.value;
     },
 
-    _getSortValue: function() {
+    _getSortValue: function () {
       return this.sortSelect.value || this.defaultSort;
     },
 
-    _getDefaultSortValue: function() {
+    _getDefaultSortValue: function () {
       return this.sortSelect.dataset.defaultSortby;
     },
 
-    onUnload: function() {
+    onUnload: function () {
       if (this.filterSelect) {
         this.filterSelect.removeEventListener('change', this._onFilterChange);
       }
@@ -7530,7 +7510,7 @@ theme.Filters = (function() {
       }
 
       this.mql.removeListener(this.initBreakpoints);
-    }
+    },
   });
 
   return Filters;
@@ -7538,7 +7518,7 @@ theme.Filters = (function() {
 
 window.theme = window.theme || {};
 
-theme.HeaderSection = (function() {
+theme.HeaderSection = (function () {
   function Header() {
     theme.Header.init();
     theme.MobileNav.init();
@@ -7547,19 +7527,19 @@ theme.HeaderSection = (function() {
   }
 
   Header.prototype = Object.assign({}, Header.prototype, {
-    onUnload: function() {
+    onUnload: function () {
       theme.Header.unload();
       theme.Search.unload();
       theme.MobileNav.unload();
-    }
+    },
   });
 
   return Header;
 })();
 
-theme.Maps = (function() {
+theme.Maps = (function () {
   var config = {
-    zoom: 14
+    zoom: 14,
   };
   var apiStatus = null;
   var mapsToLoad = [];
@@ -7568,24 +7548,24 @@ theme.Maps = (function() {
     addressNoResults: theme.strings.addressNoResults,
     addressQueryLimit: theme.strings.addressQueryLimit,
     addressError: theme.strings.addressError,
-    authError: theme.strings.authError
+    authError: theme.strings.authError,
   };
 
   var selectors = {
     section: '[data-section-type="map"]',
     map: '[data-map]',
-    mapOverlay: '[data-map-overlay]'
+    mapOverlay: '[data-map-overlay]',
   };
 
   var classes = {
     mapError: 'map-section--load-error',
-    errorMsg: 'map-section__error errors text-center'
+    errorMsg: 'map-section__error errors text-center',
   };
 
   // Global function called by Google on auth errors.
   // Show an auto error message on all map instances.
   // eslint-disable-next-line camelcase, no-unused-vars
-  window.gm_authFailure = function() {
+  window.gm_authFailure = function () {
     if (!Shopify.designMode) {
       return;
     }
@@ -7623,7 +7603,7 @@ theme.Maps = (function() {
         if (typeof window.google === 'undefined') {
           theme.Helpers.getScript(
             'https://maps.googleapis.com/maps/api/js?key=' + this.key
-          ).then(function() {
+          ).then(function () {
             apiStatus = 'loaded';
             initAllMaps();
           });
@@ -7634,17 +7614,17 @@ theme.Maps = (function() {
 
   function initAllMaps() {
     // API has loaded, load all Map instances in queue
-    mapsToLoad.forEach(function(map) {
+    mapsToLoad.forEach(function (map) {
       map.createMap();
     });
   }
 
   function geolocate(map) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       var geocoder = new google.maps.Geocoder();
       var address = map.dataset.addressSetting;
 
-      geocoder.geocode({ address: address }, function(results, status) {
+      geocoder.geocode({ address: address }, function (results, status) {
         if (status !== google.maps.GeocoderStatus.OK) {
           reject(status);
         }
@@ -7655,10 +7635,10 @@ theme.Maps = (function() {
   }
 
   Map.prototype = Object.assign({}, Map.prototype, {
-    createMap: function() {
+    createMap: function () {
       return geolocate(this.map)
         .then(
-          function(results) {
+          function (results) {
             var mapOptions = {
               zoom: config.zoom,
               center: results[0].geometry.location,
@@ -7666,7 +7646,7 @@ theme.Maps = (function() {
               clickableIcons: false,
               scrollwheel: false,
               disableDoubleClickZoom: true,
-              disableDefaultUI: true
+              disableDefaultUI: true,
             };
 
             var map = (this.map = new google.maps.Map(this.map, mapOptions));
@@ -7675,14 +7655,14 @@ theme.Maps = (function() {
             //eslint-disable-next-line no-unused-vars
             var marker = new google.maps.Marker({
               map: map,
-              position: map.getCenter()
+              position: map.getCenter(),
             });
 
             google.maps.event.addDomListener(
               window,
               'resize',
               theme.Helpers.debounce(
-                function() {
+                function () {
                   google.maps.event.trigger(map, 'resize');
                   map.setCenter(center);
                   this.map.removeAttribute('style');
@@ -7693,7 +7673,7 @@ theme.Maps = (function() {
           }.bind(this)
         )
         .catch(
-          function() {
+          function () {
             var errorMessage;
 
             switch (status) {
@@ -7725,18 +7705,18 @@ theme.Maps = (function() {
         );
     },
 
-    onUnload: function() {
+    onUnload: function () {
       if (this.map) {
         google.maps.event.clearListeners(this.map, 'resize');
       }
-    }
+    },
   });
 
   return Map;
 })();
 
 /* eslint-disable no-new */
-theme.Product = (function() {
+theme.Product = (function () {
   function Product(container) {
     this.container = container;
     var sectionId = container.getAttribute('data-section-id');
@@ -7753,7 +7733,7 @@ theme.Product = (function() {
       namespace: '.slideshow-' + sectionId,
       sectionId: sectionId,
       sliderActive: false,
-      zoomEnabled: false
+      zoomEnabled: false,
     };
 
     this.selectors = {
@@ -7798,7 +7778,7 @@ theme.Product = (function() {
       salePrice: '[data-sale-price]',
       unitPrice: '[data-unit-price]',
       unitPriceBaseUnit: '[data-unit-price-base-unit]',
-      productPolicies: '[data-product-policies]'
+      productPolicies: '[data-product-policies]',
     };
 
     this.classes = {
@@ -7815,7 +7795,7 @@ theme.Product = (function() {
       productFormErrorMessageWrapperHidden:
         'product-form__error-message-wrapper--hidden',
       activeClass: 'active-thumb',
-      variantSoldOut: 'product-form--variant-sold-out'
+      variantSoldOut: 'product-form--variant-sold-out',
     };
 
     this.eventHandlers = {};
@@ -7880,12 +7860,12 @@ theme.Product = (function() {
   }
 
   Product.prototype = Object.assign({}, Product.prototype, {
-    _stringOverrides: function() {
+    _stringOverrides: function () {
       theme.productStrings = theme.productStrings || {};
       theme.strings = Object.assign({}, theme.strings, theme.productStrings);
     },
 
-    _initMobileBreakpoint: function() {
+    _initMobileBreakpoint: function () {
       if (this.mqlSmall.matches) {
         // initialize thumbnail slider on mobile if more than four thumbnails
         if (
@@ -7898,7 +7878,7 @@ theme.Product = (function() {
         // destroy image zooming if enabled
         if (this.settings.zoomEnabled) {
           this.imageZoomWrapper.forEach(
-            function(element, index) {
+            function (element, index) {
               this._destroyZoom(index);
             }.bind(this)
           );
@@ -7914,31 +7894,30 @@ theme.Product = (function() {
       }
     },
 
-    _initDesktopBreakpoint: function() {
+    _initDesktopBreakpoint: function () {
       if (this.mqlMediumUp.matches && this.settings.zoomEnabled) {
         this.imageZoomWrapper.forEach(
-          function(element, index) {
+          function (element, index) {
             this._enableZoom(element, index);
           }.bind(this)
         );
       }
     },
 
-    _initVariants: function() {
+    _initVariants: function () {
       var options = {
         container: this.container,
         enableHistoryState:
           this.container.getAttribute('data-enable-history-state') || false,
         singleOptionSelector: this.selectors.singleOptionSelector,
         originalSelectorId: this.selectors.originalSelectorId,
-        product: this.productSingleObject
+        product: this.productSingleObject,
       };
 
       this.variants = new slate.Variants(options);
 
-      this.eventHandlers.updateAvailability = this._updateAvailability.bind(
-        this
-      );
+      this.eventHandlers.updateAvailability =
+        this._updateAvailability.bind(this);
       this.eventHandlers.updateMedia = this._updateMedia.bind(this);
       this.eventHandlers.updatePrice = this._updatePrice.bind(this);
       this.eventHandlers.updateSKU = this._updateSKU.bind(this);
@@ -7961,7 +7940,7 @@ theme.Product = (function() {
       );
     },
 
-    _initMediaSwitch: function() {
+    _initMediaSwitch: function () {
       if (!document.querySelector(this.selectors.productThumbImages)) {
         return;
       }
@@ -7974,8 +7953,8 @@ theme.Product = (function() {
 
       this.eventHandlers.handleMediaFocus = this._handleMediaFocus.bind(this);
 
-      productThumbImages.forEach(function(el) {
-        el.addEventListener('click', function(evt) {
+      productThumbImages.forEach(function (el) {
+        el.addEventListener('click', function (evt) {
           evt.preventDefault();
           var mediaId = el.getAttribute('data-thumbnail-id');
 
@@ -7986,13 +7965,13 @@ theme.Product = (function() {
       });
     },
 
-    _initAddToCart: function() {
+    _initAddToCart: function () {
       var productForm = this.container.querySelector(
         this.selectors.productForm
       );
       productForm.addEventListener(
         'submit',
-        function(evt) {
+        function (evt) {
           if (this.addToCart.getAttribute('aria-disabled') === 'true') {
             evt.preventDefault();
             return;
@@ -8024,18 +8003,18 @@ theme.Product = (function() {
       );
     },
 
-    _initProductVideo: function() {
+    _initProductVideo: function () {
       var sectionId = this.settings.sectionId;
 
       var productMediaTypeVideo = this.container.querySelectorAll(
         this.selectors.productMediaTypeVideo
       );
-      productMediaTypeVideo.forEach(function(el) {
+      productMediaTypeVideo.forEach(function (el) {
         theme.ProductVideo.init(el, sectionId);
       });
     },
 
-    _initModelViewerLibraries: function() {
+    _initModelViewerLibraries: function () {
       var modelViewerElements = this.container.querySelectorAll(
         this.selectors.productMediaTypeModel
       );
@@ -8043,17 +8022,16 @@ theme.Product = (function() {
       theme.ProductModel.init(modelViewerElements, this.settings.sectionId);
     },
 
-    _initShopifyXrLaunch: function() {
-      this.eventHandlers.initShopifyXrLaunchHandler = this._initShopifyXrLaunchHandler.bind(
-        this
-      );
+    _initShopifyXrLaunch: function () {
+      this.eventHandlers.initShopifyXrLaunchHandler =
+        this._initShopifyXrLaunchHandler.bind(this);
       document.addEventListener(
         'shopify_xr_launch',
         this.eventHandlers.initShopifyXrLaunchHandler
       );
     },
 
-    _initShopifyXrLaunchHandler: function() {
+    _initShopifyXrLaunchHandler: function () {
       var currentMedia = this.container.querySelector(
         this.selectors.productMediaWrapper +
           ':not(.' +
@@ -8063,29 +8041,29 @@ theme.Product = (function() {
       currentMedia.dispatchEvent(
         new CustomEvent('xrLaunch', {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
     },
 
-    _addItemToCart: function(form) {
+    _addItemToCart: function (form) {
       var self = this;
 
       fetch('/cart/add.js', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: theme.Helpers.serialize(form)
+        body: theme.Helpers.serialize(form),
       })
-        .then(function(response) {
+        .then(function (response) {
           return response.json();
         })
-        .then(function(item) {
+        .then(function (item) {
           self._hideErrorMessage();
           self._setupCartPopup(item);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           self.previouslyFocusedElement.focus();
           self._showErrorMessage(theme.strings.cartError);
           self._handleButtonLoadingState(false);
@@ -8094,7 +8072,7 @@ theme.Product = (function() {
         });
     },
 
-    _handleButtonLoadingState: function(isLoading) {
+    _handleButtonLoadingState: function (isLoading) {
       if (isLoading) {
         this.addToCart.setAttribute('aria-disabled', true);
         this.addToCartText.classList.add(this.classes.hidden);
@@ -8118,7 +8096,7 @@ theme.Product = (function() {
       }
     },
 
-    _showErrorMessage: function(errorMessage) {
+    _showErrorMessage: function (errorMessage) {
       var errorMessageContainer = this.container.querySelector(
         this.selectors.errorMessage
       );
@@ -8135,7 +8113,7 @@ theme.Product = (function() {
       this.errorMessageWrapper.removeAttribute('aria-hidden');
     },
 
-    _hideErrorMessage: function() {
+    _hideErrorMessage: function () {
       this.errorMessageWrapper.classList.add(
         this.classes.productFormErrorMessageWrapperHidden
       );
@@ -8145,7 +8123,7 @@ theme.Product = (function() {
       }
     },
 
-    _setupCartPopup: function(item) {
+    _setupCartPopup: function (item) {
       this.cartPopup =
         this.cartPopup || document.querySelector(this.selectors.cartPopup);
       this.cartPopupWrapper =
@@ -8175,17 +8153,15 @@ theme.Product = (function() {
       this._updateCartPopupContent(item);
     },
 
-    _updateCartPopupContent: function(item) {
+    _updateCartPopupContent: function (item) {
       var self = this;
 
       var quantity = this.quantityInput ? this.quantityInput.value : 1;
 
       this.cartPopupTitle.textContent = item.product_title;
       this.cartPopupQuantity.textContent = quantity;
-      this.cartPopupQuantityLabel.textContent = theme.strings.quantityLabel.replace(
-        '[count]',
-        quantity
-      );
+      this.cartPopupQuantityLabel.textContent =
+        theme.strings.quantityLabel.replace('[count]', quantity);
 
       this._setCartPopupPlaceholder(item.featured_image.url);
       this._setCartPopupImage(item.featured_image.url, item.featured_image.alt);
@@ -8196,24 +8172,23 @@ theme.Product = (function() {
       );
 
       fetch('/cart.js')
-        .then(function(response) {
+        .then(function (response) {
           return response.json();
         })
-        .then(function(cart) {
+        .then(function (cart) {
           self._setCartQuantity(cart.item_count);
           self._setCartCountBubble(cart.item_count);
           self._showCartPopup();
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // eslint-disable-next-line no-console
           console.log(error);
         });
     },
 
-    _setupCartPopupEventListeners: function() {
-      this.eventHandlers.cartPopupWrapperKeyupHandler = this._cartPopupWrapperKeyupHandler.bind(
-        this
-      );
+    _setupCartPopupEventListeners: function () {
+      this.eventHandlers.cartPopupWrapperKeyupHandler =
+        this._cartPopupWrapperKeyupHandler.bind(this);
       this.eventHandlers.hideCartPopup = this._hideCartPopup.bind(this);
       this.eventHandlers.onBodyClick = this._onBodyClick.bind(this);
 
@@ -8232,13 +8207,13 @@ theme.Product = (function() {
       document.body.addEventListener('click', this.eventHandlers.onBodyClick);
     },
 
-    _cartPopupWrapperKeyupHandler: function(event) {
+    _cartPopupWrapperKeyupHandler: function (event) {
       if (event.keyCode === slate.utils.keyboardKeys.ESCAPE) {
         this._hideCartPopup(event);
       }
     },
 
-    _setCartPopupPlaceholder: function(imageUrl) {
+    _setCartPopupPlaceholder: function (imageUrl) {
       this.cartPopupImageWrapper =
         this.cartPopupImageWrapper ||
         document.querySelector(this.selectors.cartPopupImageWrapper);
@@ -8249,7 +8224,7 @@ theme.Product = (function() {
       }
     },
 
-    _setCartPopupImage: function(imageUrl, imageAlt) {
+    _setCartPopupImage: function (imageUrl, imageAlt) {
       if (imageUrl === null) return;
 
       this.cartPopupImageWrapper.classList.remove(this.classes.hidden);
@@ -8260,7 +8235,7 @@ theme.Product = (function() {
       image.classList.add(this.classes.cartImage);
       image.setAttribute('data-cart-popup-image', '');
 
-      image.onload = function() {
+      image.onload = function () {
         this.cartPopupImagePlaceholder.removeAttribute(
           'data-image-loading-animation'
         );
@@ -8268,7 +8243,7 @@ theme.Product = (function() {
       }.bind(this);
     },
 
-    _setCartPopupProductDetails: function(
+    _setCartPopupProductDetails: function (
       product_has_only_default_variant,
       options,
       properties
@@ -8297,10 +8272,10 @@ theme.Product = (function() {
       }
     },
 
-    _getVariantOptionList: function(variantOptions) {
+    _getVariantOptionList: function (variantOptions) {
       var variantOptionListHTML = '';
 
-      variantOptions.forEach(function(variantOption) {
+      variantOptions.forEach(function (variantOption) {
         variantOptionListHTML =
           variantOptionListHTML +
           '<li class="product-details__item product-details__item--variant-option">' +
@@ -8313,11 +8288,11 @@ theme.Product = (function() {
       return variantOptionListHTML;
     },
 
-    _getPropertyList: function(properties) {
+    _getPropertyList: function (properties) {
       var propertyListHTML = '';
       var propertiesArray = Object.entries(properties);
 
-      propertiesArray.forEach(function(property) {
+      propertiesArray.forEach(function (property) {
         // Line item properties prefixed with an underscore are not to be displayed
         if (property[0].charAt(0) === '_') return;
 
@@ -8337,7 +8312,7 @@ theme.Product = (function() {
       return propertyListHTML;
     },
 
-    _setCartQuantity: function(quantity) {
+    _setCartQuantity: function (quantity) {
       this.cartPopupCartQuantity =
         this.cartPopupCartQuantity ||
         document.querySelector(this.selectors.cartPopupCartQuantity);
@@ -8353,7 +8328,7 @@ theme.Product = (function() {
       this.cartPopupCartQuantity.setAttribute('aria-label', ariaLabel);
     },
 
-    _setCartCountBubble: function(quantity) {
+    _setCartCountBubble: function (quantity) {
       this.cartCountBubble =
         this.cartCountBubble ||
         document.querySelector(this.selectors.cartCountBubble);
@@ -8364,7 +8339,7 @@ theme.Product = (function() {
       this.cartCount.textContent = quantity;
     },
 
-    _showCartPopup: function() {
+    _showCartPopup: function () {
       theme.Helpers.prepareTransition(this.cartPopupWrapper);
 
       this.cartPopupWrapper.classList.remove(
@@ -8375,11 +8350,11 @@ theme.Product = (function() {
       slate.a11y.trapFocus({
         container: this.cartPopupWrapper,
         elementToFocus: this.cartPopup,
-        namespace: 'cartPopupFocus'
+        namespace: 'cartPopupFocus',
       });
     },
 
-    _hideCartPopup: function(event) {
+    _hideCartPopup: function (event) {
       var setFocus = event.detail === 0 ? true : false;
       theme.Helpers.prepareTransition(this.cartPopupWrapper);
       this.cartPopupWrapper.classList.add(this.classes.cartPopupWrapperHidden);
@@ -8397,7 +8372,7 @@ theme.Product = (function() {
 
       slate.a11y.removeTrapFocus({
         container: this.cartPopupWrapper,
-        namespace: 'cartPopupFocus'
+        namespace: 'cartPopupFocus',
       });
 
       if (setFocus) this.previouslyFocusedElement.focus();
@@ -8420,7 +8395,7 @@ theme.Product = (function() {
       );
     },
 
-    _onBodyClick: function(event) {
+    _onBodyClick: function (event) {
       var target = event.target;
 
       if (
@@ -8431,7 +8406,7 @@ theme.Product = (function() {
       }
     },
 
-    _setActiveThumbnail: function(mediaId) {
+    _setActiveThumbnail: function (mediaId) {
       // If there is no element passed, find it by the current product image
       if (typeof mediaId === 'undefined') {
         var productMediaWrapper = this.container.querySelector(
@@ -8448,7 +8423,7 @@ theme.Product = (function() {
 
       var activeThumbnail;
       thumbnailWrappers.forEach(
-        function(el) {
+        function (el) {
           var current = el.querySelector(
             this.selectors.productThumbImages +
               "[data-thumbnail-id='" +
@@ -8465,7 +8440,7 @@ theme.Product = (function() {
         this.selectors.productThumbImages
       );
       productThumbImages.forEach(
-        function(el) {
+        function (el) {
           el.classList.remove(this.classes.activeClass);
           el.removeAttribute('aria-current');
         }.bind(this)
@@ -8478,7 +8453,7 @@ theme.Product = (function() {
       }
     },
 
-    _adjustThumbnailSlider: function(activeThumbnail) {
+    _adjustThumbnailSlider: function (activeThumbnail) {
       var sliderItem = activeThumbnail.closest('[data-slider-item]');
       if (!sliderItem) return;
 
@@ -8488,7 +8463,7 @@ theme.Product = (function() {
         ) * 3;
 
       window.setTimeout(
-        function() {
+        function () {
           if (!this.slideshow) return;
           this.slideshow.goToSlideByIndex(slideGroupLeaderIndex);
         }.bind(this),
@@ -8496,7 +8471,7 @@ theme.Product = (function() {
       );
     },
 
-    _switchMedia: function(mediaId) {
+    _switchMedia: function (mediaId) {
       var currentMedia = this.container.querySelector(
         this.selectors.productMediaWrapper +
           ':not(.' +
@@ -8518,24 +8493,24 @@ theme.Product = (function() {
       currentMedia.dispatchEvent(
         new CustomEvent('mediaHidden', {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
       newMedia.classList.remove(this.classes.hidden);
       newMedia.dispatchEvent(
         new CustomEvent('mediaVisible', {
           bubbles: true,
-          cancelable: true
+          cancelable: true,
         })
       );
       otherMedia.forEach(
-        function(el) {
+        function (el) {
           el.classList.add(this.classes.hidden);
         }.bind(this)
       );
     },
 
-    _handleMediaFocus: function(evt) {
+    _handleMediaFocus: function (evt) {
       if (evt.keyCode !== slate.utils.keyboardKeys.ENTER) return;
 
       var mediaId = evt.currentTarget.getAttribute('data-thumbnail-id');
@@ -8546,9 +8521,9 @@ theme.Product = (function() {
       productMediaWrapper.focus();
     },
 
-    _initThumbnailSlider: function() {
+    _initThumbnailSlider: function () {
       setTimeout(
-        function() {
+        function () {
           this.slideshow = new theme.Slideshow(
             this.container.querySelector('[data-thumbnail-slider]'),
             {
@@ -8556,7 +8531,7 @@ theme.Product = (function() {
               type: 'slide',
               slideActiveClass: 'slick-active',
               slidesToShow: 3,
-              slidesToScroll: 3
+              slidesToScroll: 3,
             }
           );
 
@@ -8566,7 +8541,7 @@ theme.Product = (function() {
       );
     },
 
-    _destroyThumbnailSlider: function() {
+    _destroyThumbnailSlider: function () {
       var sliderButtons = this.container.querySelectorAll(
         '[data-slider-button]'
       );
@@ -8576,7 +8551,7 @@ theme.Product = (function() {
 
       if (sliderTrack) {
         sliderTrack.removeAttribute('style');
-        sliderItems.forEach(function(sliderItem) {
+        sliderItems.forEach(function (sliderItem) {
           var sliderItemLink = sliderItem.querySelector(
             '[data-slider-item-link]'
           );
@@ -8588,7 +8563,7 @@ theme.Product = (function() {
         });
       }
 
-      sliderButtons.forEach(function(sliderButton) {
+      sliderButtons.forEach(function (sliderButton) {
         sliderButton.removeAttribute('aria-disabled');
       });
 
@@ -8596,7 +8571,7 @@ theme.Product = (function() {
       this.slideshow = null;
     },
 
-    _liveRegionText: function(variant) {
+    _liveRegionText: function (variant) {
       // Dummy content for live region
       var liveRegionText =
         '[Availability] [Regular] [$$] [Sale] [$]. [UnitPrice] [$$$]';
@@ -8657,7 +8632,7 @@ theme.Product = (function() {
       return liveRegionText;
     },
 
-    _updateLiveRegion: function(evt) {
+    _updateLiveRegion: function (evt) {
       var variant = evt.detail.variant;
       var liveRegion = this.container.querySelector(
         this.selectors.productStatus
@@ -8665,12 +8640,12 @@ theme.Product = (function() {
       liveRegion.innerHTML = this._liveRegionText(variant);
       liveRegion.setAttribute('aria-hidden', false);
       // hide content from accessibility tree after announcement
-      setTimeout(function() {
+      setTimeout(function () {
         liveRegion.setAttribute('aria-hidden', true);
       }, 1000);
     },
 
-    _updateAddToCart: function(evt) {
+    _updateAddToCart: function (evt) {
       var variant = evt.detail.variant;
       var addToCartText = this.container.querySelector(
         this.selectors.addToCartText
@@ -8701,7 +8676,7 @@ theme.Product = (function() {
       }
     },
 
-    _updateAvailability: function(evt) {
+    _updateAvailability: function (evt) {
       // remove error message if one is showing
       this._hideErrorMessage();
 
@@ -8713,7 +8688,7 @@ theme.Product = (function() {
       this._updatePrice(evt);
     },
 
-    _updateMedia: function(evt) {
+    _updateMedia: function (evt) {
       var variant = evt.detail.variant;
       var mediaId = variant.featured_media.id;
       var sectionMediaId = this.settings.sectionId + '-' + mediaId;
@@ -8722,7 +8697,7 @@ theme.Product = (function() {
       this._setActiveThumbnail(sectionMediaId);
     },
 
-    _updatePrice: function(evt) {
+    _updatePrice: function (evt) {
       var variant = evt.detail.variant;
 
       var priceContainer = this.container.querySelector(
@@ -8797,14 +8772,14 @@ theme.Product = (function() {
       }
     },
 
-    _getBaseUnit: function(variant) {
+    _getBaseUnit: function (variant) {
       return variant.unit_price_measurement.reference_value === 1
         ? variant.unit_price_measurement.reference_unit
         : variant.unit_price_measurement.reference_value +
             variant.unit_price_measurement.reference_unit;
     },
 
-    _updateSKU: function(evt) {
+    _updateSKU: function (evt) {
       var variant = evt.detail.variant;
 
       // Update the sku
@@ -8813,16 +8788,16 @@ theme.Product = (function() {
       sku.innerHTML = variant.sku;
     },
 
-    _enableZoom: function(el, index) {
+    _enableZoom: function (el, index) {
       this.zoomPictures[index] = new theme.Zoom(el);
     },
 
-    _destroyZoom: function(index) {
+    _destroyZoom: function (index) {
       if (this.zoomPictures.length === 0) return;
       this.zoomPictures[index].unload();
     },
 
-    onUnload: function() {
+    onUnload: function () {
       this.container.removeEventListener(
         'variantChange',
         this.eventHandlers.updateAvailability
@@ -8849,13 +8824,13 @@ theme.Product = (function() {
       if (this.mqlMediumUp) {
         this.mqlMediumUp.removeListener(this.initDesktopBreakpoint);
       }
-    }
+    },
   });
 
   return Product;
 })();
 
-theme.ProductRecommendations = (function() {
+theme.ProductRecommendations = (function () {
   function ProductRecommendations(container) {
     var baseUrl = container.dataset.baseUrl;
     var productId = container.dataset.productId;
@@ -8870,10 +8845,10 @@ theme.ProductRecommendations = (function() {
     );
 
     fetch(recommendationsSectionUrl)
-      .then(function(response) {
+      .then(function (response) {
         return response.text();
       })
-      .then(function(productHtml) {
+      .then(function (productHtml) {
         if (productHtml.trim() === '') return;
 
         container.innerHTML = productHtml;
@@ -8893,17 +8868,17 @@ theme.ProductRecommendations = (function() {
   return ProductRecommendations;
 })();
 
-theme.Quotes = (function() {
+theme.Quotes = (function () {
   var config = {
     mediaQuerySmall: 'screen and (max-width: 767px)',
     mediaQueryMediumUp: 'screen and (min-width: 768px)',
-    slideCount: 0
+    slideCount: 0,
   };
 
   var defaults = {
     canUseKeyboardArrows: false,
     type: 'slide',
-    slidesToShow: 3
+    slidesToShow: 3,
   };
 
   function Quotes(container) {
@@ -8915,14 +8890,14 @@ theme.Quotes = (function() {
 
     this.mobileOptions = Object.assign({}, defaults, {
       canUseTouchEvents: true,
-      slidesToShow: 1
+      slidesToShow: 1,
     });
 
     this.desktopOptions = Object.assign({}, defaults, {
       slidesToShow: Math.min(
         defaults.slidesToShow,
         this.slider.getAttribute('data-count')
-      )
+      ),
     });
 
     this.initMobileSlider = this._initMobileSlider.bind(this);
@@ -8939,14 +8914,14 @@ theme.Quotes = (function() {
   }
 
   Quotes.prototype = Object.assign({}, Quotes.prototype, {
-    onUnload: function() {
+    onUnload: function () {
       this.mqlSmall.removeListener(this.initMobileSlider);
       this.mqlMediumUp.removeListener(this.initDesktopSlider);
       this.slideshow.destroy();
     },
 
     // eslint-disable-next-line no-unused-vars
-    onBlockSelect: function(evt) {
+    onBlockSelect: function (evt) {
       var slide = document.querySelector(
         '.quotes-slide--' + evt.detail.blockId
       );
@@ -8962,20 +8937,20 @@ theme.Quotes = (function() {
       this.slideshow.goToSlideByIndex(slideIndex);
     },
 
-    _initMobileSlider: function() {
+    _initMobileSlider: function () {
       if (this.mqlSmall.matches) {
         this._initSlider(this.mobileOptions);
       }
     },
 
-    _initDesktopSlider: function() {
+    _initDesktopSlider: function () {
       if (this.mqlMediumUp.matches) {
         this._initSlider(this.desktopOptions);
       }
     },
 
     // eslint-disable-next-line no-unused-vars
-    _initSlider: function(args) {
+    _initSlider: function (args) {
       if (this.sliderActive) {
         this.slideshow.destroy();
         this.sliderActive = false;
@@ -8983,15 +8958,15 @@ theme.Quotes = (function() {
 
       this.slideshow = new theme.Slideshow(this.container, args);
       this.sliderActive = true;
-    }
+    },
   });
 
   return Quotes;
 })();
 
-theme.SlideshowSection = (function() {
+theme.SlideshowSection = (function () {
   var selectors = {
-    sliderMobileContentIndex: '[data-slider-mobile-content-index]'
+    sliderMobileContentIndex: '[data-slider-mobile-content-index]',
   };
 
   function SlideshowSection(container) {
@@ -9006,7 +8981,7 @@ theme.SlideshowSection = (function() {
 
     this.slideshow = new theme.Slideshow(container, {
       autoplay: this.slideshowDom.getAttribute('data-autorotate') === 'true',
-      slideInterval: this.slideshowDom.getAttribute('data-speed')
+      slideInterval: this.slideshowDom.getAttribute('data-speed'),
     });
     this._setupEventListeners();
   }
@@ -9018,8 +8993,8 @@ theme.SlideshowSection.prototype = Object.assign(
   {},
   theme.SlideshowSection.prototype,
   {
-    _setupEventListeners: function() {
-      this.eventHandlers.onSliderSlideChanged = function(event) {
+    _setupEventListeners: function () {
+      this.eventHandlers.onSliderSlideChanged = function (event) {
         this._onSliderSlideChanged(event.detail);
       }.bind(this);
 
@@ -9029,10 +9004,10 @@ theme.SlideshowSection.prototype = Object.assign(
       );
     },
 
-    _onSliderSlideChanged: function(slideIndex) {
+    _onSliderSlideChanged: function (slideIndex) {
       var activeClass = 'slideshow__text-content--mobile-active';
 
-      this.sliderMobileContentIndex.forEach(function(element) {
+      this.sliderMobileContentIndex.forEach(function (element) {
         if (
           Number(element.getAttribute('data-slider-mobile-content-index')) ===
           slideIndex
@@ -9044,11 +9019,11 @@ theme.SlideshowSection.prototype = Object.assign(
       });
     },
 
-    onUnload: function() {
+    onUnload: function () {
       this.slideshow.destroy();
     },
 
-    onBlockSelect: function(evt) {
+    onBlockSelect: function (evt) {
       if (this.slideshow.adaptHeight) {
         this.slideshow.setSlideshowHeight();
       }
@@ -9064,16 +9039,16 @@ theme.SlideshowSection.prototype = Object.assign(
       this.slideshow.stopAutoplay();
     },
 
-    onBlockDeselect: function() {
+    onBlockDeselect: function () {
       // Resume auto-rotate
       this.slideshow.startAutoplay();
-    }
+    },
   }
 );
 
-theme.VideoSection = (function() {
+theme.VideoSection = (function () {
   function VideoSection(container) {
-    container.querySelectorAll('.video').forEach(function(el) {
+    container.querySelectorAll('.video').forEach(function (el) {
       theme.Video.init(el);
       theme.Video.editorLoadVideo(el.id);
     });
@@ -9083,14 +9058,14 @@ theme.VideoSection = (function() {
 })();
 
 theme.VideoSection.prototype = Object.assign({}, theme.VideoSection.prototype, {
-  onUnload: function() {
+  onUnload: function () {
     theme.Video.removeEvents();
-  }
+  },
 });
 
 theme.heros = {};
 
-theme.HeroSection = (function() {
+theme.HeroSection = (function () {
   function HeroSection(container) {
     var sectionId = container.getAttribute('data-section-id');
     var hero = '#Hero-' + sectionId;
@@ -9104,10 +9079,10 @@ window.theme = window.theme || {};
 
 var selectors = {
   disclosureLocale: '[data-disclosure-locale]',
-  disclosureCurrency: '[data-disclosure-currency]'
+  disclosureCurrency: '[data-disclosure-currency]',
 };
 
-theme.FooterSection = (function() {
+theme.FooterSection = (function () {
   function Footer(container) {
     this.container = container;
     this.cache = {};
@@ -9125,18 +9100,18 @@ theme.FooterSection = (function() {
   }
 
   Footer.prototype = Object.assign({}, Footer.prototype, {
-    cacheSelectors: function() {
+    cacheSelectors: function () {
       this.cache = {
         localeDisclosure: this.container.querySelector(
           selectors.disclosureLocale
         ),
         currencyDisclosure: this.container.querySelector(
           selectors.disclosureCurrency
-        )
+        ),
       };
     },
 
-    onUnload: function() {
+    onUnload: function () {
       if (this.cache.localeDisclosure) {
         this.localeDisclosure.destroy();
       }
@@ -9144,14 +9119,13 @@ theme.FooterSection = (function() {
       if (this.cache.currencyDisclosure) {
         this.currencyDisclosure.destroy();
       }
-    }
+    },
   });
 
   return Footer;
 })();
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   var sections = new theme.Sections();
 
   sections.register('cart-template', theme.Cart);
@@ -9174,7 +9148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   slate.rte.wrapTable({
     tables: document.querySelectorAll(tableSelectors),
-    tableWrapperClass: 'scrollable-wrapper'
+    tableWrapperClass: 'scrollable-wrapper',
   });
 
   // Theme-specific selectors to make iframes responsive
@@ -9186,7 +9160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   slate.rte.wrapIframe({
     iframes: document.querySelectorAll(iframeSelectors),
-    iframeWrapperClass: 'video-wrapper'
+    iframeWrapperClass: 'video-wrapper',
   });
 
   // Common a11y fixes
@@ -9196,15 +9170,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var inPageLink = document.querySelector('.in-page-link');
   if (inPageLink) {
-    inPageLink.addEventListener('click', function(evt) {
+    inPageLink.addEventListener('click', function (evt) {
       slate.a11y.pageLinkFocus(
         document.getElementById(evt.currentTarget.hash.substr(1))
       );
     });
   }
 
-  document.querySelectorAll('a[href="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(evt) {
+  document.querySelectorAll('a[href="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (evt) {
       evt.preventDefault();
     });
   });
@@ -9213,21 +9187,21 @@ document.addEventListener('DOMContentLoaded', function() {
     messages: {
       newWindow: theme.strings.newWindow,
       external: theme.strings.external,
-      newWindowExternal: theme.strings.newWindowExternal
+      newWindowExternal: theme.strings.newWindowExternal,
     },
     links: document.querySelectorAll(
       'a[href]:not([aria-describedby]), .product-single__thumbnail'
-    )
+    ),
   });
 
   theme.FormStatus.init();
 
   var selectors = {
     image: '[data-image]',
-    lazyloaded: '.lazyloaded'
+    lazyloaded: '.lazyloaded',
   };
 
-  document.addEventListener('lazyloaded', function(evt) {
+  document.addEventListener('lazyloaded', function (evt) {
     var image = evt.target;
 
     removeImageLoadingAnimation(image);
@@ -9268,7 +9242,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // hides the loading placeholders.
   function onLoadHideLazysizesAnimation() {
     var alreadyLazyloaded = document.querySelectorAll('.lazyloaded');
-    alreadyLazyloaded.forEach(function(image) {
+    alreadyLazyloaded.forEach(function (image) {
       removeImageLoadingAnimation(image);
     });
   }
@@ -9277,14 +9251,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener(
     'touchstart',
-    function() {
+    function () {
       theme.Helpers.setTouch();
     },
     { once: true }
   );
 
   if (document.fonts) {
-    document.fonts.ready.then(function() {
+    document.fonts.ready.then(function () {
       window.performance.mark('debut:fonts_loaded');
     });
   }

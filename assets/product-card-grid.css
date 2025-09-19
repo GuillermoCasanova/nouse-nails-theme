@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Product Card Grid
 \*------------------------------------*/
@@ -9,7 +14,6 @@
   transition: transform 0.3s ease;
   overflow: hidden;
 }
-
 
 .product-card-grid__link {
   position: relative;
@@ -45,12 +49,10 @@
 }
 
 /* Hover Image */
-.product-card-grid__link:hover  .product-card-grid__image-container,
-.product-card-grid__link:focus  .product-card-grid__image-container {
+.product-card-grid__link:hover .product-card-grid__image-container,
+.product-card-grid__link:focus .product-card-grid__image-container {
   border: 1px dotted rgb(var(--color-text));
 }
-
-
 
 /* Hover image (second image) */
 .product-card-grid__image--hover {
@@ -102,7 +104,7 @@
 
 .product-card-grid__title {
   font-size: var(--text-size-small);
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -121,12 +123,11 @@
   margin-bottom: var(--space-1);
 }
 
-
 /* Price wrapper */
 .product-card-grid__price-wrapper {
-  margin-top: 0; 
+  margin-top: 0;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: space-between;
   font-size: var(--text-size-small);
 }
@@ -138,13 +139,15 @@
 }
 
 
+
+
+
 /*------------------------------------*\
     #Sold Out Badge
 \*------------------------------------*/
- 
 
 .product-card-grid__sold-out-badge {
-  display: none; 
+  display: none;
 }
 .product-card-grid--sold-out .product-card-grid__sold-out-badge {
   display: block;
@@ -172,7 +175,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: .5rem;
+  top: 0.5rem;
   bottom: 0;
   z-index: 1;
   width: 2rem;
@@ -187,13 +190,10 @@
 
 @media screen and (min-width: 768px) {
   .product-card-grid__sold-out-badge__text {
-    top: .25rem;
+    top: 0.25rem;
     bottom: 0;
     z-index: 1;
     width: 2.5rem;
     height: 2.5rem;
   }
 }
-
-
-

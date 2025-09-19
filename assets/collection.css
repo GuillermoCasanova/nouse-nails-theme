@@ -1,7 +1,11 @@
+
+
+
+
+
 /*------------------------------------*\
     #Collection Section
 \*------------------------------------*/
-
 
 .collection-section__header {
   text-align: center;
@@ -11,16 +15,20 @@
 .collection-grid {
   margin-bottom: var(--space-8);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(max(8rem, (100% - ((2 - 1) * var(--grid-padding-main))) / 2), 100%), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(max(8rem, (100% - ((2 - 1) * var(--grid-padding-main))) / 2), 100%),
+      1fr
+    )
+  );
 }
-
 
 @media screen and (min-width: 1024px) {
   .collection-grid {
-    grid-template-columns: repeat(4,  minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-
 
 .collection-view-all {
   text-align: center;
@@ -33,6 +41,8 @@
 .collection-grid-item {
   margin-bottom: var(--space-2);
 }
+
+
 
 
 

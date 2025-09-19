@@ -1,143 +1,160 @@
+
+
+
+
+
 /*------------------------------------*\
     #Featured Blog Posts
 \*------------------------------------*/
 
 .featured-blog-posts__contain {
-    margin: auto;
+  margin: auto;
 }
 
 .featured-blog-posts__header {
-    text-align: center;
-    margin-bottom: var(--space-8);
+  text-align: center;
+  margin-bottom: var(--space-8);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Swiper Slideshow Component
 \*------------------------------------*/
 
 .featured-blog-posts__swiper {
-    width: 100%;
+  width: 100%;
 }
 
 /* Navigation styles */
 .swiper-slideshow__navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-4);
-    margin-top: var(--space-6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
 }
 
 .swiper-slideshow__nav-button {
-    background: transparent;
-    border: 1px solid var(--color-border);
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--color-text);
-    font-size: 1.25rem;
-    font-weight: bold;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .swiper-slideshow__nav-button:hover {
-    background: var(--color-background-2);
-    border-color: var(--color-text);
-    transform: scale(1.05);
+  background: var(--color-background-2);
+  border-color: var(--color-text);
+  transform: scale(1.05);
 }
 
 .swiper-slideshow__nav-button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 /* Hide navigation on desktop when grid layout is active */
 @media screen and (min-width: 768px) {
-    .swiper-slideshow__navigation {
-        display: none;
-    }
+  .swiper-slideshow__navigation {
+    display: none;
+  }
 }
+
+
+
+
 
 /*------------------------------------*\
     #Featured Blog Posts Grid
 \*------------------------------------*/
 
 .featured-blog-posts__grid {
-    align-items: stretch;
-    margin-bottom: var(--space-9);
-    position: relative;
-    margin-right: -1.5rem !important;
+  align-items: stretch;
+  margin-bottom: var(--space-9);
+  position: relative;
+  margin-right: -1.5rem !important;
 }
 
 @media screen and (min-width: 768px) {
-    .featured-blog-posts__grid {
-        margin-right: 0 !important;
-    }
+  .featured-blog-posts__grid {
+    margin-right: 0 !important;
+  }
 }
 
 .featured-blog-posts__grid .grid__item:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Swiper-specific grid styles */
 .featured-blog-posts__grid[data-swiper-slideshow] {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .featured-blog-posts__grid[data-swiper-slideshow] .swiper-wrapper {
-    display: flex;
-    transition-property: transform;
+  display: flex;
+  transition-property: transform;
 }
 
 .featured-blog-posts__grid[data-swiper-slideshow] .swiper-slide {
-    flex-shrink: 0;
-    width: 100%;
-    height: auto;
-    position: relative;
-    transition-property: transform;
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  transition-property: transform;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Blog Card
 \*------------------------------------*/
 
 .blog-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .blog-card__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .blog-card__image-container {
-    margin-bottom: var(--space-5);
-    border-radius: var(--border-radius-main);
-    overflow: hidden;
+  margin-bottom: var(--space-5);
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
 }
 
 .blog-card__excerpt {
-    margin-bottom: var(--space-7);
-    flex-grow: 1;
+  margin-bottom: var(--space-7);
+  flex-grow: 1;
 }
 
 .blog-card__title {
-    margin-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
 }
 
 .blog-card__button {
-    margin-top: auto; 
-    margin-bottom: 0; 
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .featured-blog-posts__view-all {
-    width: 100%; 
-    text-align: center; 
+  width: 100%;
+  text-align: center;
 }

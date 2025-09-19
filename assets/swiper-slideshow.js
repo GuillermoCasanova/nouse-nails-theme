@@ -9,13 +9,13 @@ class SwiperSlideshow extends HTMLElement {
     this.isInitialized = false;
     this.mediaQueries = {
       mediumUp: window.matchMedia('(min-width: 768px)'),
-      largeUp: window.matchMedia('(min-width: 1024px)')
+      largeUp: window.matchMedia('(min-width: 1024px)'),
     };
   }
 
   connectedCallback() {
     if (this.isInitialized) return;
-    
+
     this.waitForSwiper().then(() => {
       this.initializeSwiper();
     });
@@ -54,21 +54,23 @@ class SwiperSlideshow extends HTMLElement {
       desktopAutoplay: this.getAttribute('desktop-autoplay'),
       desktopAutoplayDelay: this.getAttribute('desktop-autoplay-delay'),
       desktopFreeMode: this.getAttribute('desktop-free-mode'),
-      desktopSlidesOffsetBefore: this.getAttribute('desktop-slides-offset-before'),
+      desktopSlidesOffsetBefore: this.getAttribute(
+        'desktop-slides-offset-before'
+      ),
 
       // Navigation
       showNavigation: this.getAttribute('show-navigation'),
-      
+
       // Pagination
       pagination: this.getAttribute('pagination'),
       showPagination: this.getAttribute('show-pagination'),
       numberPagination: this.getAttribute('number-pagination'),
-      
+
       // Advanced features
       grabCursor: this.getAttribute('grab-cursor'),
       allowTouchMove: this.getAttribute('allow-touch-move'),
       autoHeight: this.getAttribute('auto-height'),
-      
+
       // Scrollbar
       showScrollbar: this.getAttribute('show-scrollbar'),
     };
@@ -87,29 +89,41 @@ class SwiperSlideshow extends HTMLElement {
       slidesOffsetBefore: parseInt(attrs.slidesOffsetBefore || 0),
 
       // Navigation - Update to use our custom navigation classes
-      navigation: attrs.showNavigation === 'true' ? {
-        nextEl: '.swiper-slideshow__nav-button--next',
-        prevEl: '.swiper-slideshow__nav-button--prev',
-        lockClass: 'swiper-slideshow__nav-button--lock',
-        disabledClass: 'swiper-slideshow__nav-button--disabled'
-      } : false,
+      navigation:
+        attrs.showNavigation === 'true'
+          ? {
+              nextEl: '.swiper-slideshow__nav-button--next',
+              prevEl: '.swiper-slideshow__nav-button--prev',
+              lockClass: 'swiper-slideshow__nav-button--lock',
+              disabledClass: 'swiper-slideshow__nav-button--disabled',
+            }
+          : false,
 
       // Pagination
-      pagination: (attrs.pagination === 'true' || attrs.showPagination === 'true') ? {
-        el: '.swiper-slideshow__pagination',
-        clickable: true,
-        type: attrs.numberPagination === 'true' ? 'fraction' : 'bullets',
-        renderBullet: attrs.numberPagination === 'true' ? 
-          (index, className) => `<span class="${className}">0${index + 1}</span>` : undefined
-      } : false,
+      pagination:
+        attrs.pagination === 'true' || attrs.showPagination === 'true'
+          ? {
+              el: '.swiper-slideshow__pagination',
+              clickable: true,
+              type: attrs.numberPagination === 'true' ? 'fraction' : 'bullets',
+              renderBullet:
+                attrs.numberPagination === 'true'
+                  ? (index, className) =>
+                      `<span class="${className}">0${index + 1}</span>`
+                  : undefined,
+            }
+          : false,
 
       // Scrollbar
-      scrollbar: attrs.showScrollbar === 'true' ? {
-        el: '.swiper-scrollbar',
-        draggable: false,
-        dragSize: 'auto',
-        hide: false
-      } : false,
+      scrollbar:
+        attrs.showScrollbar === 'true'
+          ? {
+              el: '.swiper-scrollbar',
+              draggable: false,
+              dragSize: 'auto',
+              hide: false,
+            }
+          : false,
 
       // Advanced features
       grabCursor: attrs.grabCursor !== 'false',
@@ -119,11 +133,14 @@ class SwiperSlideshow extends HTMLElement {
       watchSlidesProgress: true,
 
       // Autoplay - mobile values as base
-      autoplay: attrs.autoplay === 'true' ? {
-        delay: parseInt(attrs.autoplayDelay || 5000),
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      } : false,
+      autoplay:
+        attrs.autoplay === 'true'
+          ? {
+              delay: parseInt(attrs.autoplayDelay || 5000),
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }
+          : false,
 
       // Accessibility
       a11y: {
@@ -134,26 +151,50 @@ class SwiperSlideshow extends HTMLElement {
       },
 
       // Breakpoints for responsive design - desktop overrides at 768px+
-      breakpoints: attrs.breakpoints?.value ? this.convertToObject(attrs.breakpoints.value) : {
-        768: {
-          slidesPerView: attrs.desktopSlidesPerView || attrs.slidesPerView || 'auto',
-          spaceBetween: parseInt(attrs.desktopSpaceBetween || attrs.spaceBetween || 20),
-          loop: attrs.desktopLoop === 'true' || attrs.loop === 'true' || false,
-          centeredSlides: attrs.desktopCenteredSlides === 'true' || attrs.centeredSlides === 'true' || false,
-          direction: attrs.desktopDirection || attrs.direction || 'horizontal',
-          freeMode: attrs.desktopFreeMode === 'true' || attrs.freeMode === 'true' || false,
-          slidesOffsetBefore: parseInt(attrs.desktopSlidesOffsetBefore || attrs.slidesOffsetBefore || 0),
-          autoplay: attrs.desktopAutoplay === 'true' ? {
-            delay: parseInt(attrs.desktopAutoplayDelay || attrs.autoplayDelay || 5000),
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-          } : (attrs.autoplay === 'true' ? {
-            delay: parseInt(attrs.autoplayDelay || 5000),
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-          } : false)
-        }
-      }
+      breakpoints: attrs.breakpoints?.value
+        ? this.convertToObject(attrs.breakpoints.value)
+        : {
+            768: {
+              slidesPerView:
+                attrs.desktopSlidesPerView || attrs.slidesPerView || 'auto',
+              spaceBetween: parseInt(
+                attrs.desktopSpaceBetween || attrs.spaceBetween || 20
+              ),
+              loop:
+                attrs.desktopLoop === 'true' || attrs.loop === 'true' || false,
+              centeredSlides:
+                attrs.desktopCenteredSlides === 'true' ||
+                attrs.centeredSlides === 'true' ||
+                false,
+              direction:
+                attrs.desktopDirection || attrs.direction || 'horizontal',
+              freeMode:
+                attrs.desktopFreeMode === 'true' ||
+                attrs.freeMode === 'true' ||
+                false,
+              slidesOffsetBefore: parseInt(
+                attrs.desktopSlidesOffsetBefore || attrs.slidesOffsetBefore || 0
+              ),
+              autoplay:
+                attrs.desktopAutoplay === 'true'
+                  ? {
+                      delay: parseInt(
+                        attrs.desktopAutoplayDelay ||
+                          attrs.autoplayDelay ||
+                          5000
+                      ),
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }
+                  : attrs.autoplay === 'true'
+                    ? {
+                        delay: parseInt(attrs.autoplayDelay || 5000),
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                      }
+                    : false,
+            },
+          },
     };
 
     return config;
@@ -162,7 +203,7 @@ class SwiperSlideshow extends HTMLElement {
   async waitForSwiper() {
     if (typeof Swiper !== 'undefined') return;
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const checkSwiper = () => {
         if (typeof Swiper !== 'undefined') {
           resolve();
@@ -196,14 +237,18 @@ class SwiperSlideshow extends HTMLElement {
     }
 
     // Create navigation if needed
-    if (this.getAttribute('create-elements') === 'true' && 
-        this.getAttribute('show-navigation') === 'true') {
+    if (
+      this.getAttribute('create-elements') === 'true' &&
+      this.getAttribute('show-navigation') === 'true'
+    ) {
       this.createNavigationElements(sliderContainer);
     }
 
     // Create scrollbar if needed
-    if (this.getAttribute('create-elements') === 'true' && 
-        this.getAttribute('show-scrollbar') === 'true') {
+    if (
+      this.getAttribute('create-elements') === 'true' &&
+      this.getAttribute('show-scrollbar') === 'true'
+    ) {
       this.createScrollbarElement(sliderContainer);
     }
 
@@ -236,16 +281,19 @@ class SwiperSlideshow extends HTMLElement {
 
   async setupControlledSwiper(config, thumbnailsSelector) {
     const sliderContainer = this.querySelector('[data-swiper-slideshow]');
-    
+
     if (thumbnailsSelector) {
       // Wait for the thumbnail slider to be ready
-      const thumbnailElement = document.querySelector(`[${thumbnailsSelector}]`);
+      const thumbnailElement = document.querySelector(
+        `[${thumbnailsSelector}]`
+      );
       if (thumbnailElement) {
-        const thumbnailSwiper = await this.waitForSwiperInstance(thumbnailElement);
+        const thumbnailSwiper =
+          await this.waitForSwiperInstance(thumbnailElement);
         if (thumbnailSwiper) {
           config.thumbs = {
             swiper: thumbnailSwiper,
-            multipleActiveThumbs: false
+            multipleActiveThumbs: false,
           };
         }
       }
@@ -255,7 +303,7 @@ class SwiperSlideshow extends HTMLElement {
       this.swiper = new Swiper(sliderContainer, {
         ...config,
         watchSlidesProgress: true,
-        slideToClickedSlide: true
+        slideToClickedSlide: true,
       });
     }
   }
@@ -268,7 +316,7 @@ class SwiperSlideshow extends HTMLElement {
     if (swiper) return swiper;
 
     // Wait for the swiper to be initialized
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const checkSwiper = () => {
         swiper = element.swiper || element.getSwiper?.();
         if (swiper) {
@@ -294,9 +342,11 @@ class SwiperSlideshow extends HTMLElement {
     resizeObserver.observe(this.swiper.el);
 
     this.swiper.on('slideChange', () => {
-      this.dispatchEvent(new CustomEvent('swiper:slideChange', { 
-        detail: { swiper: this.swiper } 
-      }));
+      this.dispatchEvent(
+        new CustomEvent('swiper:slideChange', {
+          detail: { swiper: this.swiper },
+        })
+      );
     });
 
     window.addEventListener('resize', this.handleResize.bind(this));
@@ -332,32 +382,33 @@ class SwiperSlideshow extends HTMLElement {
       });
       wrapper.remove();
     }
-
   }
 
   createNavigationElements(container) {
     // Create navigation container
     const navigation = document.createElement('div');
     navigation.className = 'swiper-slideshow__navigation';
-    
+
     // Create prev button
     const prevButton = document.createElement('button');
     prevButton.type = 'button';
-    prevButton.className = 'swiper-slideshow__nav-button swiper-slideshow__nav-button--prev';
+    prevButton.className =
+      'swiper-slideshow__nav-button swiper-slideshow__nav-button--prev';
     prevButton.setAttribute('aria-label', 'Previous slide');
     prevButton.innerHTML = this.getChevronLeftIcon();
-    
+
     // Create next button
     const nextButton = document.createElement('button');
     nextButton.type = 'button';
-    nextButton.className = 'swiper-slideshow__nav-button swiper-slideshow__nav-button--next';
+    nextButton.className =
+      'swiper-slideshow__nav-button swiper-slideshow__nav-button--next';
     nextButton.setAttribute('aria-label', 'Next slide');
     nextButton.innerHTML = this.getChevronRightIcon();
-    
+
     // Add buttons to navigation
     navigation.appendChild(prevButton);
     navigation.appendChild(nextButton);
-    
+
     // Add navigation after the swiper-wrapper
     const wrapper = container.querySelector('.swiper-wrapper');
     if (wrapper) {
@@ -368,7 +419,7 @@ class SwiperSlideshow extends HTMLElement {
   createScrollbarElement(container) {
     const scrollbar = document.createElement('div');
     scrollbar.className = 'swiper-scrollbar';
-    
+
     // Add scrollbar after the swiper-wrapper
     const wrapper = container.querySelector('.swiper-wrapper');
     if (wrapper) {
@@ -379,7 +430,7 @@ class SwiperSlideshow extends HTMLElement {
   createPaginationElement(container) {
     const pagination = document.createElement('div');
     pagination.className = 'swiper-slideshow__pagination';
-    
+
     const navigation = container.querySelector('.swiper-slideshow__navigation');
     if (navigation) {
       navigation.parentNode.insertBefore(pagination, navigation.nextSibling);

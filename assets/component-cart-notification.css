@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Cart Notification
 \*------------------------------------*/
@@ -26,16 +31,17 @@
   width: 100%;
   z-index: -1;
   filter: drop-shadow(
-    var(--popup-shadow-horizontal-offset)
-    var(--popup-shadow-vertical-offset)
-    var(--popup-shadow-blur-radius)
-    rgba(var(--color-shadow), var(--popup-shadow-opacity))
+    var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset)
+      var(--popup-shadow-blur-radius)
+      rgba(var(--color-shadow), var(--popup-shadow-opacity))
   );
 }
 
 /* Tablet and desktop styles */
 @media screen and (min-width: 700px) {
-  .header-wrapper:not(.header-wrapper--border-bottom) + cart-notification .cart-notification {
+  .header-wrapper:not(.header-wrapper--border-bottom)
+    + cart-notification
+    .cart-notification {
     border-top-width: var(--popup-border-width);
   }
 
@@ -48,13 +54,16 @@
 
 /* Animation states */
 .cart-notification.animate {
-  transition: transform var(--duration-short) ease,
+  transition:
+    transform var(--duration-short) ease,
     visibility 0s var(--duration-short) ease;
 }
 
 .cart-notification.active {
   transform: translateY(0);
-  transition: transform var(--duration-default) ease, visibility 0s;
+  transition:
+    transform var(--duration-default) ease,
+    visibility 0s;
   visibility: visible;
 }
 

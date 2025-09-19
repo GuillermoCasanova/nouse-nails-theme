@@ -1,4 +1,8 @@
 
+
+
+
+
 /*------------------------------------*\
     #Testimonials
 \*------------------------------------*/
@@ -7,7 +11,6 @@
   width: 100%;
   display: block;
 }
-
 
 @media screen and (max-width: 768px) {
   .testinmonials__contain {
@@ -24,6 +27,10 @@
 .testimonials__title {
   text-align: center;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Swiper Slideshow Component
@@ -79,6 +86,10 @@
   }
 }
 
+
+
+
+
 /*------------------------------------*\
     #Testimonials Grid
 \*------------------------------------*/
@@ -86,7 +97,6 @@
 .testimonials__grid {
   position: relative;
 }
-
 
 /* Swiper-specific grid styles */
 .testimonials__grid[data-swiper-slideshow] {
@@ -106,6 +116,10 @@
   transition-property: transform;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Testimonial Items
 \*------------------------------------*/
@@ -120,7 +134,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .testimonials__item, 
+  .testimonials__item,
   .testimonials__grid .testimonials__item:last-child {
     margin-bottom: var(--space-5);
     margin-top: 0;
@@ -145,6 +159,10 @@
   margin: auto;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Quote Icon
 \*------------------------------------*/
@@ -152,6 +170,10 @@
 .testimonials__quote-icon {
   margin-bottom: var(--space-5);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Quote Content
@@ -171,6 +193,10 @@
   margin-bottom: var(--space-3);
 }
 
+
+
+
+
 /*------------------------------------*\
     #Author
 \*------------------------------------*/
@@ -181,6 +207,10 @@
   text-transform: uppercase;
   font-family: var(--primary-font-family);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Empty State
@@ -197,6 +227,3 @@
   font-size: var(--font-size-base);
   color: white;
 }
-
-
-

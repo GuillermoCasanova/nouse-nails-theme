@@ -180,7 +180,7 @@
   height: 1em;
 }
 .site-header__cart-count span {
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: calc(11em / 16);
   line-height: 1;
 }
@@ -221,4 +221,4 @@
   .site-header__icon .icon-search {
     margin-right: 3px;
   }
-} 
+}

@@ -1,12 +1,17 @@
 
 
+
+
+
 /*------------------------------------*\
   #FAQS section
 \*------------------------------------*/
 
-
 .faqs-section__layout {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(20rem + var(--grid-padding-large))), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, calc(20rem + var(--grid-padding-large))), 1fr)
+  );
 }
 
 @media screen and (min-width: 768px) {
@@ -14,6 +19,9 @@
     align-items: center;
   }
 }
+
+
+
 
 
 /*------------------------------------*\
@@ -29,11 +37,10 @@
   border-bottom: 1px solid rgb(var(--color-text));
 }
 
-.faq-list__item:hover .faq-list__item__icon, 
+.faq-list__item:hover .faq-list__item__icon,
 .faq-list__item:focus .faq-list__item__icon {
   transform: translateX(0.5rem);
 }
-
 
 .faq-list__item__question {
   font-size: var(--text-size-medium);
@@ -53,14 +60,13 @@
   position: absolute;
   font-size: var(--text-size-medium);
   transition: transform 0.3s var(--main-easing);
-  right: var(--space-2);  
+  right: var(--space-2);
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
   align-items: center;
 }
-
 
 .faq-list__item[open] .faq-list__item__icon {
   transform: rotate(90deg);
@@ -82,6 +88,7 @@
 
 
 
+
 /*------------------------------------*\
   #FAQ Layout
 \*------------------------------------*/
@@ -89,6 +96,8 @@
 .faqs-list__container {
   display: grid;
 }
+
+
 
 
 
@@ -102,7 +111,6 @@
   font-size: var(--text-size-small);
   line-height: 1.4;
 }
-
 
 .comparison-table th {
   text-align: center;
@@ -136,7 +144,6 @@
   min-width: 13rem;
 }
 
-
 .comparison-table th:not(:first-child) {
   border-top: 2px solid rgb(var(--color-accent));
   border-bottom: 2px solid rgb(var(--color-accent));
@@ -165,7 +172,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .comparison-table td {
     padding: var(--space-1) var(--space-2);
   }
@@ -180,7 +186,6 @@
   border-right: 2px solid rgb(var(--color-accent));
 }
 
-
 /* Highlight column styling */
 .comparison-table th.highlight,
 .comparison-table td.highlight {
@@ -193,7 +198,7 @@
     font-size: var(--text-size-main);
   }
 
-  .comparison-table td { 
+  .comparison-table td {
     padding: var(--space-1) var(--space-2);
   }
 
@@ -205,14 +210,12 @@
 /* Table wrapper for better mobile experience */
 .table-wrapper {
   overflow-x: auto;
-  width: 100%; 
+  width: 100%;
   position: relative;
   /* Custom scrollbar styling */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: rgb(var(--color-text)) transparent; /* Firefox */
 }
-
-
 
 @media screen and (min-width: 1550px) {
   .table-wrapper {
@@ -226,10 +229,8 @@
   }
 }
 
-
 .faqs-section__questions-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-

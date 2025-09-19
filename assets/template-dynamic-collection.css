@@ -1,40 +1,43 @@
+
+
+
+
+
 /*------------------------------------*\
     #Dynamic Collection Template
 \*------------------------------------*/
 
-
 .dynamic-collection-grid_heading {
-    margin-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
 }
-
 
 .dynamic-collection-grid__product {
-    align-self: center;
+  align-self: center;
 }
 
-.dynamic-collection-grid  {
-    grid-template-columns: 1fr 1fr; 
-    row-gap: var(--grid-padding-large);
+.dynamic-collection-grid {
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--grid-padding-large);
 }
-
 
 @media screen and (min-width: 768px) {
-    .dynamic-collection-grid  {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  .dynamic-collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
-
 
 @media screen and (min-width: 1024px) {
-    .dynamic-collection-grid  {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  .dynamic-collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-
 .dynamic-collection-grid__product {
-    grid-column: span 1;
+  grid-column: span 1;
 }
+
+
+
 
 
 /*------------------------------------*\
@@ -42,26 +45,24 @@
 \*------------------------------------*/
 
 .dynamic-collection-grid__image {
-    border-radius: var(--border-radius-main);
-    overflow: hidden;
-    align-self: baseline;
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
+  align-self: baseline;
+  grid-column: span 2;
+}
+
+@media screen and (min-width: 768px) {
+  .dynamic-collection-grid__image {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dynamic-collection-grid__image.col-2 {
     grid-column: span 2;
+  }
 }
 
-@media screen and (min-width: 768px) {
-    .dynamic-collection-grid__image {
-        grid-column: span 1;
-    }
-}
-
-
-
-
-@media screen and (min-width: 768px) {
-    .dynamic-collection-grid__image.col-2 {
-        grid-column: span 2;
-    }
-}
 
 
 
@@ -70,24 +71,22 @@
     #Video Card
 \*------------------------------------*/
 
-
 .dynamic-collection-grid__video {
-    border-radius: var(--border-radius-main);
-    overflow: hidden;
-    align-self: baseline;
-    grid-template-columns: 1fr;
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
+  align-self: baseline;
+  grid-template-columns: 1fr;
+  grid-column: span 2;
+}
+
+@media screen and (min-width: 768px) {
+  .dynamic-collection-grid__video {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dynamic-collection-grid__video.col-2 {
     grid-column: span 2;
-}
-
-@media screen and (min-width: 768px) {
-    .dynamic-collection-grid__video {
-        grid-column: span 1;
-    }
-}
-
-
-@media screen and (min-width: 768px) {
-    .dynamic-collection-grid__video.col-2 {
-        grid-column: span 2;
-    }
+  }
 }

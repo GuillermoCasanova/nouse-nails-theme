@@ -1,6 +1,9 @@
 @import './normalize.css';
 
 
+
+
+
 /*------------------------------------*\
     #Reset
 \*------------------------------------*/
@@ -13,19 +16,42 @@
 }
 
 /* Reset margins and padding */
-dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
   margin: 0;
   padding: 0;
   line-height: var(--line-height-normal);
 }
 
 /* Typography resets */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
 }
 
 /* List resets */
-li, ul {
+li,
+ul {
   list-style: none;
 }
 
@@ -36,26 +62,35 @@ table {
 }
 
 /* Form element resets */
-fieldset, img {
+fieldset,
+img {
   border: 0;
 }
 
-address, caption, cite, dfn, th, var {
+address,
+caption,
+cite,
+dfn,
+th,
+var {
   font-style: normal;
   font-weight: normal;
 }
 
-caption, th {
+caption,
+th {
   text-align: left;
 }
 
 /* Quote resets */
-q:before, q:after {
+q:before,
+q:after {
   content: '';
 }
 
 /* Abbreviation resets */
-abbr, acronym {
+abbr,
+acronym {
   border: 0;
 }
 
@@ -89,7 +124,9 @@ summary::before {
   object-fit: cover;
 }
 
-p, ul, li {
+p,
+ul,
+li {
   font-size: inherit;
   line-height: inherit;
 }
@@ -98,14 +135,14 @@ div .button:last-child {
   margin-bottom: 0;
 }
 
-
-
 body {
   font-family: var(--text-font-family);
   font-size: var(--text-size-main);
   font-display: swap;
   color: rgb(var(--color-base-text-1));
 }
+
+
 
 
 
@@ -128,37 +165,39 @@ body {
 
 
 
+
+
 /*------------------------------------*\
     #Typography
 \*------------------------------------*/
 
-
 :root {
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 @media screen and (min-width: 768px) {
   :root {
-    font-size: .95rem; 
+    font-size: 0.95rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   :root {
-    font-size: .96rem; 
+    font-size: 0.96rem;
   }
 }
 
 @media screen and (min-width: 1800px) {
   :root {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 }
 
 @font-face {
   font-family: 'Mabry-Regular';
-  src: url('./mabry-regular-pro.woff2') format('woff2'),
-       url('./mabry-regular-pro.woff') format('woff');
+  src:
+    url('./mabry-regular-pro.woff2') format('woff2'),
+    url('./mabry-regular-pro.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -166,12 +205,14 @@ body {
 
 @font-face {
   font-family: 'Mabry-Medium';
-  src: url('./mabry-medium-pro.woff2') format('woff2'),
-       url('./mabry-medium-pro.woff') format('woff');
+  src:
+    url('./mabry-medium-pro.woff2') format('woff2'),
+    url('./mabry-medium-pro.woff') format('woff');
   font-weight: 500;
-  font-style: normal; 
+  font-style: normal;
   font-display: swap;
 }
+
 
 
 
@@ -180,24 +221,27 @@ body {
     #Headlines
 \*------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-bottom: 1rem;
   line-height: var(--headline-line-height);
   font-weight: 500;
   font-size: inherit;
 }
 
-h1 p, 
-h2 p, 
-h3 p, 
-h4 p, 
-h5 p, 
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
 h6 p {
   line-height: inherit;
   font-size: inherit;
 }
-
-
 
 .headline-style-display {
   font-family: var(--headline-font-family);
@@ -207,11 +251,10 @@ h6 p {
   line-height: 1.05;
 }
 
-
 .headline-style-h1 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h1); 
+  font-size: var(--headline-size-h1);
   margin-bottom: var(--space-6);
   line-height: var(--headline-line-height);
 }
@@ -219,43 +262,42 @@ h6 p {
 .headline-style-h2 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h2); 
+  font-size: var(--headline-size-h2);
   margin-bottom: var(--space-4);
-
 }
 
 .headline-style-h3 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h3); 
+  font-size: var(--headline-size-h3);
   margin-bottom: var(--space-4);
 }
 
 .headline-style-h4 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h4); 
+  font-size: var(--headline-size-h4);
   margin-bottom: var(--space-4);
 }
 
 .headline-style-h5 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h5); 
+  font-size: var(--headline-size-h5);
   margin-bottom: var(--space-4);
 }
 
 .headline-style-h6 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
-  font-size: var(--headline-size-h6); 
+  font-size: var(--headline-size-h6);
   margin-bottom: var(--space-4);
 }
 
 .text-size-xx-large {
   font-family: var(--text-font-family);
   font-weight: 400;
-  font-size: var(--text-size-xx-large); 
+  font-size: var(--text-size-xx-large);
   letter-spacing: var(--text-letter-spacing);
   line-height: var(--text-line-height);
 }
@@ -263,7 +305,7 @@ h6 p {
 .text-size-x-large {
   font-family: var(--text-font-family);
   font-weight: 400;
-  font-size: var(--text-size-x-large); 
+  font-size: var(--text-size-x-large);
   letter-spacing: var(--text-letter-spacing);
   line-height: var(--text-line-height);
 }
@@ -271,7 +313,7 @@ h6 p {
 .text-size-large {
   font-family: var(--text-font-family);
   font-weight: 400;
-  font-size: var(--text-size-large); 
+  font-size: var(--text-size-large);
   letter-spacing: var(--text-letter-spacing);
   line-height: var(--text-line-height);
 }
@@ -308,10 +350,14 @@ h6 p {
   line-height: var(--text-line-height);
 }
 
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-bottom: 0; 
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-bottom: 0;
 }
-
 
 .margin-bottom-1 {
   margin-bottom: var(--space-1);
@@ -348,6 +394,7 @@ h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
 
 
 
+
 /*------------------------------------*\
     #Default Text Selection Color 
 \*------------------------------------*/
@@ -361,7 +408,6 @@ h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-base-text-1));
 }
-
 
 
 
@@ -397,6 +443,7 @@ p {
 a {
   color: rgb(var(--color-base-text));
 }
+
 
 
 
@@ -485,6 +532,10 @@ a {
   padding: var(--padding-x-large);
 }
 
+
+
+
+
 /*------------------------------------*\
   #Overflows Hiding
 \*------------------------------------*/
@@ -494,6 +545,10 @@ a {
 .overflow-hidden {
   overflow: hidden;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Visibility
@@ -507,7 +562,7 @@ a {
   .show-for-medium-up {
     display: block;
   }
-  
+
   .hide-for-medium-up {
     display: none;
   }
@@ -525,7 +580,7 @@ a {
   .show-for-large-up {
     display: block;
   }
-  
+
   .hide-for-large-up {
     display: none;
     pointer-events: none;
@@ -583,6 +638,10 @@ h6:empty {
   pointer-events: none;
   cursor: normal;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Main Padding + Margin Top
@@ -669,6 +728,10 @@ deferred-media {
   border-radius: 50%;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Summary + Details Base
 \*------------------------------------*/
@@ -689,6 +752,10 @@ summary .icon-caret {
 summary::-webkit-details-marker {
   display: none;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Disclosure
@@ -725,6 +792,7 @@ summary::-webkit-details-marker {
     z-index: 2;
   }
 }
+
 
 
 
@@ -766,7 +834,7 @@ button:hover,
 }
 
 .button__icon {
-      margin-left: calc(var(--space-2) * 1rem);
+  margin-left: calc(var(--space-2) * 1rem);
   width: 1.5rem;
   height: 1.5rem;
 }
@@ -808,23 +876,22 @@ button:hover,
   padding: var(--space-3);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
- font-size: var(--text-size-small);
+  font-size: var(--text-size-small);
 }
 
 .button--medium {
   padding: var(--space-3);
   padding-left: var(--space-4);
   padding-right: var(--space-4);
- font-size: var(--text-size-small);
+  font-size: var(--text-size-small);
 }
 
-.button--large{
- font-size: var(--text-size-main);
- padding: var(--space-3);
- padding-left: var(--space-5);
- padding-right: var(--space-5);
+.button--large {
+  font-size: var(--text-size-main);
+  padding: var(--space-3);
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
 }
-
 
 .text-link:hover,
 .text-link:focus {
@@ -832,10 +899,12 @@ button:hover,
 }
 
 
+
+
+
 /*------------------------------------*\
   #Global Loader
 \*------------------------------------*/
-
 
 .loader {
   width: 50px;
@@ -843,18 +912,29 @@ button:hover,
   border-radius: 50%;
   padding: 6px;
   background:
-    radial-gradient(farthest-side at bottom left, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) top right/50% 50% content-box content-box,
-    radial-gradient(farthest-side at top, #0000 calc(100% - 6px), currentColor calc(100% - 5px) 99%, #0000) bottom /100% 50% content-box content-box;
+    radial-gradient(
+        farthest-side at bottom left,
+        #0000 calc(100% - 6px),
+        currentColor calc(100% - 5px) 99%,
+        #0000
+      )
+      top right/50% 50% content-box content-box,
+    radial-gradient(
+        farthest-side at top,
+        #0000 calc(100% - 6px),
+        currentColor calc(100% - 5px) 99%,
+        #0000
+      )
+      bottom / 100% 50% content-box content-box;
   background-repeat: no-repeat;
   animation: l11 1s infinite linear;
 }
 
 @keyframes l11 {
   100% {
-    transform: rotate(1turn)
+    transform: rotate(1turn);
   }
 }
-
 
 .loading__spinner {
   position: absolute;
@@ -872,7 +952,6 @@ button:hover,
   display: none;
 }
 
-
 .swym-notification-wishlist .swym-emphasis {
   font-family: var(--secondary-font-family) !important;
   text-transform: uppercase !important  ;
@@ -880,31 +959,28 @@ button:hover,
   font-size: var(--h6) !important;
 }
 
-
-
 .shopify-policy__title {
-  text-align: center; 
-  text-transform: uppercase; 
+  text-align: center;
+  text-transform: uppercase;
   margin-bottom: var(--space-8);
   font-family: var(--secondary-font-family);
 }
 
 @media screen and (min-width: 768px) {
   .shopify-policy__title {
-    font-size: var(--h6); 
+    font-size: var(--h6);
   }
 }
 
 .shopify-policy__body {
   min-height: 50vh;
-  text-align: left; 
+  text-align: left;
 }
 
-.shopify-policy__container {    
-  max-width: var(--max-width-x-small); 
+.shopify-policy__container {
+  max-width: var(--max-width-x-small);
   margin-top: var(--space-8);
 }
-
 
 .shopify-policy__body {
   margin-bottom: calc(var(--space-10) * 3);
@@ -913,14 +989,12 @@ button:hover,
 @media screen and (min-width: 768px) {
   .shopify-policy__body {
     font-size: var(--h6);
-    
   }
 }
 .shopify-policy__body h1,
 .shopify-policy__body h2,
 .shopify-policy__body h3,
 .shopify-policy__body strong {
-  
   font-family: var(--tertiary-font-family);
   font-weight: 300;
   font-size: var(--normal);
@@ -928,18 +1002,17 @@ button:hover,
   display: inline-block;
 }
 
-
-
 .brand-sticker {
-  max-width: 10rem; 
-  max-height: 10rem; 
+  max-width: 10rem;
+  max-height: 10rem;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
 }
+
 
 
 
@@ -957,35 +1030,38 @@ button:hover,
 
 
 
+
+
 /*------------------------------------*\
   #Icon
 \*------------------------------------*/
-
 
 .icon {
   transition: all 0.2s var(--default-easing);
 }
 
-.icon img, 
+.icon img,
 .icon svg {
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
 }
 
 .icon-small {
-  width: 1.2rem; 
-  height: 1.2rem; 
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .icon-medium {
-  width: 1.35rem; 
-  height: 1.35rem; 
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .icon-large {
-  width: 2rem; 
+  width: 2rem;
   height: 2rem;
 }
+
+
 
 
 
@@ -993,10 +1069,10 @@ button:hover,
   #Eyebrow
 \*------------------------------------*/
 
-
 .text-eyebrow {
   margin-bottom: var(--space-3);
 }
+
 
 
 
@@ -1011,12 +1087,10 @@ button:hover,
 }
 
 .icon-tiny {
-  width: .85rem;
-  height: .85rem;
+  width: 0.85rem;
+  height: 0.85rem;
   display: inline-block;
 }
-
-
 
 .icon-small {
   width: 1.25rem;
@@ -1030,38 +1104,35 @@ button:hover,
   display: inline-block;
 }
 
+.image-with-aspect-ratio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--aspect-ratio);
+}
 
+.image-with-aspect-ratio__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
+.image-with-aspect-ratio__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
 
-  .image-with-aspect-ratio {
-    position: relative;
-    width: 100%;
-    aspect-ratio: var(--aspect-ratio);
-  }
-
-  .image-with-aspect-ratio__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .image-with-aspect-ratio__placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
-  }
-
-  .image-with-aspect-ratio__placeholder .placeholder-svg {
-    width: 100%;
-    height: 100%;
-  }
+.image-with-aspect-ratio__placeholder .placeholder-svg {
+  width: 100%;
+  height: 100%;
+}

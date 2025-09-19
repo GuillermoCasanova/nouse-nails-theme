@@ -1,9 +1,9 @@
-window.Modals = (function() {
+window.Modals = (function () {
   function Modal(id, name, options) {
     var defaults = {
       close: '.js-modal-close',
       open: '.js-modal-open-' + name,
-      openClass: 'modal--is-active'
+      openClass: 'modal--is-active',
     };
 
     this.modal = document.getElementById(id);
@@ -11,7 +11,7 @@ window.Modals = (function() {
     if (!this.modal) return false;
 
     this.nodes = {
-      parents: [document.querySelector('html'), document.body]
+      parents: [document.querySelector('html'), document.body],
     };
 
     this.config = Object.assign(defaults, options);
@@ -25,7 +25,7 @@ window.Modals = (function() {
     this.init();
   }
 
-  Modal.prototype.init = function() {
+  Modal.prototype.init = function () {
     document
       .querySelector(this.config.open)
       .addEventListener('click', this.open.bind(this));
@@ -35,7 +35,7 @@ window.Modals = (function() {
       .addEventListener('click', this.closeModal.bind(this));
   };
 
-  Modal.prototype.open = function(evt) {
+  Modal.prototype.open = function (evt) {
     var self = this;
     // Keep track if modal was opened from a click, or called by another function
     var externalCall = false;
@@ -61,7 +61,7 @@ window.Modals = (function() {
 
     this.modal.classList.add(this.config.openClass);
 
-    this.nodes.parents.forEach(function(node) {
+    this.nodes.parents.forEach(function (node) {
       node.classList.add(self.config.openClass);
     });
 
@@ -69,13 +69,13 @@ window.Modals = (function() {
 
     slate.a11y.trapFocus({
       container: this.modal,
-      elementToFocus: this.focusOnOpen
+      elementToFocus: this.focusOnOpen,
     });
 
     this.bindEvents();
   };
 
-  Modal.prototype.closeModal = function() {
+  Modal.prototype.closeModal = function () {
     if (!this.modalIsOpen) return;
 
     document.activeElement.blur();
@@ -84,29 +84,29 @@ window.Modals = (function() {
 
     var self = this;
 
-    this.nodes.parents.forEach(function(node) {
+    this.nodes.parents.forEach(function (node) {
       node.classList.remove(self.config.openClass);
     });
 
     this.modalIsOpen = false;
 
     slate.a11y.removeTrapFocus({
-      container: this.modal
+      container: this.modal,
     });
 
     this.unbindEvents();
   };
 
-  Modal.prototype.bindEvents = function() {
+  Modal.prototype.bindEvents = function () {
     this.keyupHandler = this.keyupHandler.bind(this);
     document.body.addEventListener('keyup', this.keyupHandler);
   };
 
-  Modal.prototype.unbindEvents = function() {
+  Modal.prototype.unbindEvents = function () {
     document.body.removeEventListener('keyup', this.keyupHandler);
   };
 
-  Modal.prototype.keyupHandler = function(event) {
+  Modal.prototype.keyupHandler = function (event) {
     if (event.keyCode === 27) {
       this.closeModal();
     }
@@ -115,15 +115,14 @@ window.Modals = (function() {
   return Modal;
 })();
 
-
-(function() {
+(function () {
   var selectors = {
     loginModal: '#LoginModal',
-    loginField: '[data-login-field]'
+    loginField: '[data-login-field]',
   };
 
   var data = {
-    formError: 'data-error'
+    formError: 'data-error',
   };
 
   var loginModal = document.querySelector(selectors.loginModal);
@@ -134,7 +133,7 @@ window.Modals = (function() {
   }
 
   var passwordModal = new window.Modals('LoginModal', 'login-modal', {
-    focusOnOpen: 'Password'
+    focusOnOpen: 'Password',
   });
 
   // Open modal if errors exist

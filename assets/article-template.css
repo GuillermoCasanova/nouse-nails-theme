@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Article Template
 \*------------------------------------*/
@@ -6,6 +11,10 @@
   width: 100%;
   min-height: 100vh;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Article Hero Header
@@ -29,7 +38,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-10);
   }
-  
+
   .article-hero {
     padding: var(--space-10) 0;
   }
@@ -89,6 +98,10 @@
   height: auto;
   display: block;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Article Content
@@ -166,6 +179,10 @@
 .article-content__body li {
   margin-bottom: var(--space-2);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Article Footer
@@ -259,6 +276,10 @@
   font-size: 1.25rem;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Responsive Adjustments
 \*------------------------------------*/
@@ -268,36 +289,40 @@
     padding: var(--space-6) 0;
     margin-bottom: var(--space-8);
   }
-  
+
   .article-content {
     padding: 0 0 var(--space-8) 0;
   }
-  
+
   .article-content__wrapper {
     gap: var(--space-8);
   }
-  
+
   .article-footer {
     padding-top: var(--space-6);
     gap: var(--space-5);
   }
-  
+
   .article-footer__social {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-3);
   }
-  
+
   .article-footer__social-buttons {
     flex-wrap: wrap;
   }
-  
+
   .article-footer__back-button {
     width: 100%;
     justify-content: center;
     padding: var(--space-4);
   }
 }
+
+
+
+
 
 /*------------------------------------*\
     #Print Styles
@@ -308,12 +333,12 @@
     background: white !important;
     box-shadow: none !important;
   }
-  
+
   .article-footer__social,
   .article-footer__navigation {
     display: none !important;
   }
-  
+
   .article-content__body img {
     box-shadow: none !important;
     border: 1px solid #ccc !important;

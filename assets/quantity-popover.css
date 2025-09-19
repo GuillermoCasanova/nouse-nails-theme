@@ -1,12 +1,12 @@
-
-
-
 .product-form__quantity-wrapper {
   display: flex;
-  width: 100%; 
+  width: 100%;
   align-items: center;
   gap: 1rem;
 }
+
+
+
 
 
 /*------------------------------------*\
@@ -123,7 +123,9 @@ quantity-popover {
 /* Button styles */
 .quantity-popover__info .button-close,
 .variant-remove-total quick-order-list-remove-all-button .button,
-.quick-order-list-total__confirmation quick-order-list-remove-all-button .button,
+.quick-order-list-total__confirmation
+  quick-order-list-remove-all-button
+  .button,
 quantity-popover quick-order-list-remove-button .button {
   --shadow-opacity: 0;
   --border-opacity: 0;
@@ -224,7 +226,6 @@ quantity-popover:has(.quantity__input:focus-visible) .quantity-popover__info {
 quantity-popover .quantity__rules .divider:nth-child(2)::before {
   content: none;
 }
-
 
 .quantity-wrapper {
   border: 1px solid rgb(var(--color-text-2));

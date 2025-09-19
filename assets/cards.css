@@ -1,34 +1,37 @@
 
+
+
+
+
 /*------------------------------------*\
     #Cards
 \*------------------------------------*/
 
 .card {
-    background-color: rgb(var(--color-base-background-2));
-  }
-  
-  .card__heading {
-    margin-bottom: var(--space-4); 
-    font-weight: 300;
-  }
-  
-  .card__heading  p {
-    margin-bottom: 0; 
-  }
-  
-  .card__inner {
-    padding: var(--space-6);
-  }
-  
-  .card {
-    background-color: rgb(var(--color-base-background-1));
-  }
-  
-  .card.is-alt {
-    background-color: rgb(var(--color-base-background-2));
-  }
-  
-  .card.is-alt-2 {
-    background-color: rgb(var(--color-base-background-2));
-  }
-  
+  background-color: rgb(var(--color-base-background-2));
+}
+
+.card__heading {
+  margin-bottom: var(--space-4);
+  font-weight: 300;
+}
+
+.card__heading p {
+  margin-bottom: 0;
+}
+
+.card__inner {
+  padding: var(--space-6);
+}
+
+.card {
+  background-color: rgb(var(--color-base-background-1));
+}
+
+.card.is-alt {
+  background-color: rgb(var(--color-base-background-2));
+}
+
+.card.is-alt-2 {
+  background-color: rgb(var(--color-base-background-2));
+}

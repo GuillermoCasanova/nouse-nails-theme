@@ -1,104 +1,101 @@
 
 
+
+
+
 /*------------------------------------*\
     #Floating CTA
 \*------------------------------------*/
 
 .floating-cta {
-    position: fixed;
-    bottom: var(--space-3);
-    right: var(--space-2);
-    z-index: 1000;
-    text-decoration: none;
-    transition: all 0.7s var(--default-easing);
-    text-align: center;
-    background-color: transparent;
-    color: rgb(var(--color-base-text-1));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    width: 100%; 
-    max-width: 12rem;
+  position: fixed;
+  bottom: var(--space-3);
+  right: var(--space-2);
+  z-index: 1000;
+  text-decoration: none;
+  transition: all 0.7s var(--default-easing);
+  text-align: center;
+  background-color: transparent;
+  color: rgb(var(--color-base-text-1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 12rem;
 
-    /*Initial hidden state*/
-    transform: translateY(120%);
-    pointer-events: none;
-        
+  /*Initial hidden state*/
+  transform: translateY(120%);
+  pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
-    .floating-cta {
-        max-width: 14rem;
-    }
+  .floating-cta {
+    max-width: 14rem;
+  }
 }
 
 /* Show state when scrolled */
 .floating-cta.is-showing {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-
-.floating-cta svg  {
-    fill: var(--floating-cta-color);
-    width: 100%;
-    height: 100%;
+.floating-cta svg {
+  fill: var(--floating-cta-color);
+  width: 100%;
+  height: 100%;
 }
-
 
 .floating-cta--left {
-    left: var(--space-2);
+  left: var(--space-2);
 }
 
 .floating-cta--right {
-    right: var(--space-2);
+  right: var(--space-2);
 }
-
 
 .floating-cta__close {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: absolute;
-    top: var(--space-6); 
-    left: 0; 
-    right: 0; 
-    margin: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: var(--space-6);
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-.floating-cta__close  svg {
-    transition: all 0.3s var(--default-easing);
+.floating-cta__close svg {
+  transition: all 0.3s var(--default-easing);
 }
 
-.floating-cta__close:hover svg, 
-.floating-cta__close:focus svg{
-    transform: rotate(180deg);
+.floating-cta__close:hover svg,
+.floating-cta__close:focus svg {
+  transform: rotate(180deg);
 }
-
 
 .floating-cta__link {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    position: absolute;
-    margin: auto; 
-    width: 90%;
-    max-width: 7rem;
-    font-size: var(--text-size-small);
-    padding-bottom: var(--space-5);
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: 90%;
+  max-width: 7rem;
+  font-size: var(--text-size-small);
+  padding-bottom: var(--space-5);
 }
 
 .floating-cta__link:hover,
 .floating-cta__link:focus {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
-
 @media screen and (min-width: 768px) {
-    .floating-cta__link {
-        padding-bottom: var(--space-6);
-    }
+  .floating-cta__link {
+    padding-bottom: var(--space-6);
+  }
 }

@@ -1,3 +1,8 @@
+
+
+
+
+
 /*------------------------------------*\
     #Collection Template Section
 \*------------------------------------*/
@@ -9,6 +14,10 @@
 .collection-template__header {
   margin-bottom: var(--space-9);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Collection Header Content
@@ -33,6 +42,10 @@
   text-align: center;
   margin-bottom: var(--space-6);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Collection Hero
@@ -85,6 +98,10 @@
   font-family: var(--font-stack-mabry-med);
   font-size: var(--h2);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Filters Toolbar
@@ -191,6 +208,10 @@
   letter-spacing: 0.03em;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Collection Grid
 \*------------------------------------*/
@@ -202,6 +223,10 @@
 .collection-grid-item {
   margin-bottom: var(--space-2);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Product Card
@@ -237,6 +262,10 @@
   margin: 0;
   margin-top: auto;
 }
+
+
+
+
 
 /*------------------------------------*\
     #List View
@@ -333,6 +362,10 @@
   }
 }
 
+
+
+
+
 /*------------------------------------*\
     #Empty State
 \*------------------------------------*/
@@ -348,6 +381,10 @@
   color: var(--color-wine-dark);
   margin: 0;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Pagination
@@ -387,6 +424,10 @@
   pointer-events: none;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Responsive Adjustments
 \*------------------------------------*/
@@ -395,8 +436,8 @@
   .filters-toolbar__input-wrapper {
     min-width: 100%;
   }
-  
+
   .collection-grid-item {
     width: 100%;
   }
-} 
+}

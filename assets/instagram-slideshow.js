@@ -11,7 +11,7 @@ class InstagramSlideshow extends HTMLElement {
 
   connectedCallback() {
     if (this.isInitialized) return;
-    
+
     // Wait for Swiper to be available
     this.waitForSwiper().then(() => {
       this.initializeSwiper();
@@ -32,7 +32,7 @@ class InstagramSlideshow extends HTMLElement {
       return Promise.resolve();
     }
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const checkSwiper = () => {
         if (typeof Swiper !== 'undefined') {
           resolve();
@@ -68,15 +68,15 @@ class InstagramSlideshow extends HTMLElement {
         prevSlideMessage: 'Previous slide',
         nextSlideMessage: 'Next slide',
       },
-      
+
       // Responsive breakpoints
       breakpoints: {
         768: {
-          slidesPerView:'auto',
+          slidesPerView: 'auto',
           centeredSlides: false,
           spaceBetween: 25,
-          slidesOffsetBefore: 25
-        }
+          slidesOffsetBefore: 25,
+        },
       },
 
       // Navigation
@@ -108,8 +108,8 @@ class InstagramSlideshow extends HTMLElement {
         },
         slideChange: () => {
           this.handleSlideChange();
-        }
-      }
+        },
+      },
     });
 
     // Pause autoplay when hovering over slides
@@ -130,7 +130,8 @@ class InstagramSlideshow extends HTMLElement {
 
   handleSwiperInit() {
     // Pause videos when slide changes
-    const videos = this.swiper.slides[this.swiper.activeIndex].querySelectorAll('video');
+    const videos =
+      this.swiper.slides[this.swiper.activeIndex].querySelectorAll('video');
     videos.forEach(video => {
       if (!video.paused) {
         video.pause();
@@ -190,4 +191,3 @@ class InstagramSlideshow extends HTMLElement {
 
 // Register the custom element
 customElements.define('instagram-slideshow', InstagramSlideshow);
-

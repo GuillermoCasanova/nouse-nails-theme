@@ -1,25 +1,25 @@
 
 
 
+
+
 /*------------------------------------*\
     #Image with Text
 \*------------------------------------*/
 
-
-.image-with-text__content  {
-    align-items: center;
+.image-with-text__content {
+  align-items: center;
 }
 
 .image-with-text__media-wrapper {
-    border-radius: var(--border-radius-large); 
-    overflow: hidden;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
 }
 
 .image-with-text__text {
-   max-width: 40rem; 
+  max-width: 40rem;
 }
 
-
 .comparison-table__image img {
-    width: 100%;
+  width: 100%;
 }
