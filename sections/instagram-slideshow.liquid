@@ -8,10 +8,34 @@
   defer
 ></script>
 
+<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer='defer'></script>
 <script src='{{ 'social-video-player.js' | asset_url }}' defer='defer'></script>
 <script src='{{ 'instagram-slideshow.js' | asset_url }}' defer='defer'></script>
 
-<instagram-slideshow class='instagram-slideshow color-{{ section.settings.color_scheme }}'>
+<instagram-slideshow
+  class='instagram-slideshow color-{{ section.settings.color_scheme }}'
+  slides-per-view='1.25'
+  space-between='20'
+  loop='true'
+  centered-slides='true'
+  autoplay='{{ section.settings.autoplay }}'
+  autoplay-delay='{{ section.settings.autoplay_speed | times: 1000 }}'
+  show-navigation='true'
+  show-pagination='false'
+  effect='slide'
+  speed='600'
+  grab-cursor='true'
+  prevent-clicks='false'
+  prevent-clicks-propagation='false'
+  touch-events-target='container'
+  threshold='10'
+  touch-ratio='1'
+  touch-angle='45'
+  desktop-slides-per-view='auto'
+  desktop-centered-slides='false'
+  desktop-space-between='25'
+  desktop-slides-offset-before='25'
+>
   <div class='instagram-slideshow__contain  section-padding-small'>
     {% if section.settings.title != blank %}
       <div class='instagram-slideshow__header container-main'>
@@ -37,13 +61,15 @@
                 data-swiper-slide
               >
                 {% assign product = block.settings.product %}
-                <a
-                  href='{{ product.url }}'
+                <div
                   class='instagram-slideshow__slide__inner'
                 >
                   <div class='instagram-slideshow__slide__hover-shadow'></div>
                   {% if product != blank %}
-                    <div class='instagram-slideshow__product-link'>
+                    <a
+                      href='{{ product.url }}'
+                      class='instagram-slideshow__product-link'
+                    >
                       <div class='instagram-slideshow__product-link__image'>
                         {% if product.featured_media.preview_image %}
                           {% render 'image-with-aspect-ratio',
@@ -66,7 +92,7 @@
                           {{- product.price | money -}}
                         </span>
                       </div>
-                    </div>
+                    </a>
                   {% endif %}
                   {% if block.settings.video_url != blank %}
                     <social-video-player
@@ -142,7 +168,7 @@
                       </a>
                     </div>
                   {% endif %}
-                </a>
+                </div>
               </div>
             {% endfor %}
             {% for block in section.blocks %}
@@ -152,13 +178,16 @@
                 data-swiper-slide
               >
                 {% assign product = block.settings.product %}
-                <a
+                <div
                   href='{{ product.url }}'
                   class='instagram-slideshow__slide__inner'
                 >
                   <div class='instagram-slideshow__slide__hover-shadow'></div>
                   {% if product != blank %}
-                    <div class='instagram-slideshow__product-link'>
+                    <a
+                      href='{{ product.url }}'
+                      class='instagram-slideshow__product-link'
+                    >
                       <div class='instagram-slideshow__product-link__image'>
                         {% if product.featured_media.preview_image %}
                           {% render 'image-with-aspect-ratio',
@@ -181,7 +210,7 @@
                           {{- product.price | money -}}
                         </span>
                       </div>
-                    </div>
+                    </a>
                   {% endif %}
                   {% if block.settings.video_url != blank %}
                     <social-video-player class='instagram-slideshow__video-block'>
@@ -252,7 +281,7 @@
                       </a>
                     </div>
                   {% endif %}
-                </a>
+                </div>
               </div>
             {% endfor %}
           </div>
@@ -260,19 +289,21 @@
         {% if section.blocks.size > 1 %}
           <div class='instagram-slideshow__navigation'>
             <button
-              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--prev'
+              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--prev swiper-slideshow__nav-button swiper-slideshow__nav-button--prev'
               aria-label='Previous slide'
             >
               {% render 'icon-chevron-left' %}
             </button>
             <button
-              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--next'
+              class='instagram-slideshow__nav-button instagram-slideshow__nav-button--next swiper-slideshow__nav-button swiper-slideshow__nav-button--next'
               aria-label='Next slide'
             >
               {% render 'icon-chevron-right' %}
             </button>
           </div>
-          <div class='instagram-slideshow__pagination'></div>
+          <div
+            class='instagram-slideshow__pagination swiper-slideshow__pagination'
+          ></div>
         {% endif %}
       </div>
     {% else %}
