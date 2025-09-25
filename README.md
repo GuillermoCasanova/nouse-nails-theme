@@ -1,202 +1,326 @@
-# Product Enhancer for Shopify
+# Nous Nails - Shopify Theme
 
-This tool enhances products extracted from PDFs by searching Google for additional information and structuring the data according to your Shopify product format with metafields.
+A modern, responsive Shopify theme designed for nail and cosmetic brands. Built with performance, accessibility, and user experience in mind.
 
-## Features
+## 🎨 Brand Overview
 
-- 🔍 **Google Search Integration**: Automatically searches for each product to gather specifications
-- 📦 **Shopify Structure**: Formats products according to your example JSON structure
-- 🏷️ **Metafields Generation**: Creates comprehensive metafields including:
-  - Overview (rich text)
-  - Dimensions
-  - Color
-  - Model
-  - Brand/Marca
-  - Voltage
-  - Distributor
-  - Pies cubicos
-- ⚡ **Rate Limiting**: Built-in delays to avoid Google search rate limiting
-- 🛡️ **Error Handling**: Graceful fallback when search fails
+This theme is custom-built for Nous Nails, featuring:
 
-## Installation
+- Clean, minimalist design aesthetic
+- Mobile-first responsive approach
+- Accessibility-focused development
+- Performance-optimized code
 
-1. Install dependencies:
-```bash
-npm install
+## ✨ Key Features
+
+### 🛍️ E-commerce Functionality
+
+- **Advanced Search Modal** - Predictive search with keyboard navigation
+- **Product Galleries** - Swiper.js powered image galleries
+- **Cart Drawer** - Smooth slide-out cart functionality
+- **Variant Selection** - Radio button and dropdown variant selectors
+- **Quick Add to Cart** - Fast product additions without page reload
+
+### 📱 Responsive Design
+
+- **Mobile-First Approach** - Optimized for mobile devices
+- **Breakpoints**: 768px (tablet), 1024px (desktop)
+- **Touch-Friendly Interface** - Optimized for mobile interactions
+- **Progressive Enhancement** - Works without JavaScript
+
+### ♿ Accessibility
+
+- **WCAG Compliant** - Follows web accessibility guidelines
+- **Keyboard Navigation** - Full keyboard support throughout
+- **Screen Reader Support** - Proper ARIA labels and live regions
+- **Focus Management** - Focus trapping in modals and drawers
+
+### ⚡ Performance
+
+- **Lazy Loading** - Images load as needed
+- **CSS Optimization** - Minified and organized stylesheets
+- **JavaScript Efficiency** - Debounced functions and optimized event handling
+- **Asset Organization** - Modular CSS and JS architecture
+
+## 🏗️ Project Structure
+
+```
+nous-nails/
+├── assets/                 # CSS, JS, images, and fonts
+│   ├── base.css           # Base styles and CSS variables
+│   ├── grid.css           # Grid system
+│   ├── global.js          # Global JavaScript functions
+│   ├── theme.js           # Theme-specific JavaScript
+│   └── component-*.css    # Component-specific styles
+├── config/                # Theme configuration
+│   ├── settings_data.json # Theme settings data
+│   └── settings_schema.json # Theme settings schema
+├── layout/                # Layout templates
+│   ├── theme.liquid       # Main theme layout
+│   ├── gift_card.liquid   # Gift card layout
+│   └── password.liquid    # Password page layout
+├── locales/               # Translation files (52 languages)
+├── sections/              # Theme sections (51 sections)
+├── snippets/              # Reusable Liquid snippets (80 snippets)
+└── templates/             # Page templates
+    ├── index.json         # Homepage
+    ├── product.json       # Product pages
+    ├── collection.json    # Collection pages
+    └── search.json        # Search results
 ```
 
-2. The required dependencies are:
-- `axios`: For HTTP requests to Google
-- `cheerio`: For parsing HTML search results
+## 🎯 Core Components
 
-## Usage
+### Search Modal System
 
-### Basic Usage
+- **Location**: `assets/component-predictive-search.css` + `assets/predictive-searcj.js`
+- **Features**: Real-time search, keyboard navigation, result caching
+- **Accessibility**: ARIA labels, focus management, screen reader support
 
-```javascript
-const ProductEnhancer = require('./product-enhancer');
+### Header & Navigation
 
-const enhancer = new ProductEnhancer();
+- **Sticky Header**: Auto-hide on scroll, customizable behavior
+- **Mega Menu**: Hover-activated dropdown menus
+- **Mobile Drawer**: Slide-out navigation for mobile devices
 
-// Your products from PDF extraction
-const products = [
-  {
-    title: 'DEWALT DWD024-B3 Hammer Drill',
-    price: '199.99',
-    vendor: 'DEWALT',
-    model: 'DWD024-B3'
-  }
-];
+### Product Features
 
-// Enhance products
-const enhancedProducts = await enhancer.enhanceProducts(products);
+- **Media Gallery**: Swiper.js powered image carousels
+- **Variant Selection**: Radio buttons with visual feedback
+- **Product Forms**: AJAX-powered add to cart functionality
+
+### Cart System
+
+- **Cart Drawer**: Slide-out cart with smooth animations
+- **Cart Notifications**: Toast-style add to cart confirmations
+- **Quantity Controls**: Increment/decrement with validation
+
+## 🛠️ Development Setup
+
+### Prerequisites
+
+- Node.js (for development tools)
+- Shopify CLI (for theme development)
+- Git (for version control)
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone [repository-url]
+   cd nous-nails
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Format CSS comments** (optional)
+   ```bash
+   npm run format-css-comments
+   ```
+
+### Development Workflow
+
+1. **Local Development**
+
+   ```bash
+   shopify theme dev
+   ```
+
+2. **Deploy to Development Store**
+
+   ```bash
+   shopify theme push --development
+   ```
+
+3. **Deploy to Production**
+   ```bash
+   shopify theme push --live
+   ```
+
+## 📝 CSS Architecture
+
+### Base Styles (`assets/base.css`)
+
+- CSS custom properties (variables)
+- Typography system
+- Color palette
+- Spacing system
+- Reset styles
+
+### Component-Based CSS
+
+- **Naming Convention**: `component-[name].css`
+- **Modular Structure**: Each component has its own stylesheet
+- **Responsive Design**: Mobile-first with progressive enhancement
+
+### Key CSS Files
+
+- `base.css` - Foundation styles and variables
+- `grid.css` - Grid system and layout utilities
+- `component-header.css` - Header and navigation styles
+- `component-predictive-search.css` - Search modal styles
+- `component-cart-drawer.css` - Cart drawer styles
+- `component-product-media-gallery.css` - Product gallery styles
+
+## 🎨 Design System
+
+### Typography
+
+- **Primary Font**: Mabry (custom font files included)
+- **Font Weights**: Regular (400), Medium (500)
+- **Letter Spacing**: 4px for uppercase text
+- **Line Heights**: Optimized for readability
+
+### Color System
+
+- **CSS Variables**: Consistent color management
+- **Semantic Naming**: `--color-base-text`, `--color-base-background`
+- **Theme Support**: Easy color customization
+
+### Spacing System
+
+- **CSS Variables**: `--level1` through `--level10`
+- **Consistent Spacing**: Modular spacing scale
+- **Responsive Adjustments**: Different spacing for mobile/desktop
+
+## 🚀 JavaScript Features
+
+### Custom Elements
+
+- **SearchToggle**: Handles search modal functionality
+- **PredictiveSearch**: Manages search results and API calls
+- **MenuDrawer**: Mobile navigation drawer
+- **VariantSelects**: Product variant selection
+- **QuantityInput**: Quantity controls with validation
+
+### Performance Optimizations
+
+- **Debounced Functions**: Prevents excessive API calls
+- **Event Delegation**: Efficient event handling
+- **Lazy Loading**: Images and non-critical resources
+- **Caching**: Search results and DOM queries
+
+## 📱 Responsive Breakpoints
+
+```css
+/* Mobile First Approach */
+/* Base styles: 320px+ */
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  /* Tablet styles */
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+  /* Desktop styles */
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1300px) {
+  /* Large desktop styles */
+}
 ```
 
-### Integration with Your Workflow
+## 🔧 Customization
 
-Add this step to your automation workflow after the "Extract from File" step:
+### Theme Settings
 
-```javascript
-// In your workflow code block
-const ProductEnhancer = require('./product-enhancer');
+- **Header Settings**: Logo, navigation, sticky behavior
+- **Color Customization**: Primary and secondary colors
+- **Typography**: Font selection and sizing
+- **Layout Options**: Column counts, spacing, animations
 
-// Get products from previous step (PDF extraction)
-const productsFromPDF = input; // Your extracted products array
+### Section Configuration
 
-const enhancer = new ProductEnhancer();
-const enhancedProducts = await enhancer.enhanceProducts(productsFromPDF);
+- **Homepage Sections**: Hero, featured collections, testimonials
+- **Product Pages**: Gallery layout, variant selection, related products
+- **Collection Pages**: Grid layout, filtering, sorting
 
-// Return enhanced products for next step
-return enhancedProducts;
-```
+## 🌐 Multi-Language Support
 
-## Workflow Integration
+- **52 Language Files**: Complete localization support
+- **RTL Support**: Right-to-left language compatibility
+- **Dynamic Content**: Product descriptions, cart text, form labels
 
-Your enhanced workflow should look like this:
+## 📊 Performance Metrics
 
-1. **Google Drive Trigger** → `fileCreated`
-2. **Validate PDF Upload** → Check if file is PDF
-3. **Google Drive** → `download: file`
-4. **Extract from File** → `Extract From PDF`
-5. **Code** → **Product Enhancer** (this tool)
-6. **Next Step** → Use enhanced products (e.g., upload to Shopify)
+### Core Web Vitals Optimized
 
-## Input Format
+- **Largest Contentful Paint (LCP)**: Optimized image loading
+- **First Input Delay (FID)**: Efficient JavaScript execution
+- **Cumulative Layout Shift (CLS)**: Stable layouts and animations
 
-The enhancer expects products in this format from your PDF extraction:
+### Loading Optimizations
 
-```javascript
-[
-  {
-    title: "Product Name",
-    price: "99.99",
-    vendor: "Brand Name",
-    model: "MODEL123",
-    category: "Product Category",
-    description: "Product description"
-  }
-]
-```
+- **Critical CSS**: Above-the-fold styles inlined
+- **Lazy Loading**: Below-the-fold images deferred
+- **Asset Optimization**: Minified CSS and JavaScript
+- **Font Loading**: Optimized web font delivery
 
-## Output Format
+## 🧪 Testing
 
-The enhancer outputs products in your specified Shopify format:
+### Browser Support
 
-```javascript
-[
-  {
-    "product": {
-      "title": "Product Title",
-      "body_html": "<h2><strong>Product Title</strong></h2>...",
-      "vendor": "Product Vendor",
-      "product_type": "Product Type",
-      "status": "active",
-      "price": "9.99",
-      "inventory_quantity": 1,
-      "requires_shipping": true,
-      "published": true,
-      "metafields": [
-        {
-          "namespace": "custom",
-          "key": "overview",
-          "value": "Product overview from Google search...",
-          "type": "rich_text_field"
-        },
-        {
-          "namespace": "custom",
-          "key": "dimensions_de_product",
-          "value": "11.70\" (L) x 2.90\" (W) x 9.29\" (H)",
-          "type": "single_line_text_field"
-        }
-        // ... more metafields
-      ]
-    }
-  }
-]
-```
+- **Modern Browsers**: Chrome, Firefox, Safari, Edge
+- **Mobile Browsers**: iOS Safari, Chrome Mobile
+- **Accessibility**: Screen reader testing
+- **Performance**: Lighthouse audits
 
-## Testing
+### Quality Assurance
 
-Run the test to see the enhancer in action:
+- **Code Standards**: Consistent formatting and naming
+- **Accessibility Testing**: WCAG compliance verification
+- **Performance Testing**: Core Web Vitals monitoring
+- **Cross-Browser Testing**: Multiple device and browser testing
 
-```bash
-npm test
-```
+## 📚 Documentation
 
-This will:
-1. Process sample products
-2. Search Google for each product
-3. Generate enhanced products with metafields
-4. Save results to `enhanced-products.json`
-5. Display statistics
+### Code Comments
 
-## Configuration
+- **CSS Comments**: Organized by sections and components
+- **JavaScript Comments**: Function documentation and usage examples
+- **Liquid Comments**: Template logic explanations
 
-### Search Query Generation
+### Development Guidelines
 
-The enhancer automatically generates search queries by combining:
-- Product title
-- Brand/vendor name
-- Model number
-- Common search terms (specifications, features, dimensions)
+- **CSS Naming**: BEM methodology for class names
+- **JavaScript Patterns**: ES6+ features and modern practices
+- **Liquid Best Practices**: Efficient template logic and performance
 
-### Rate Limiting
+## 🤝 Contributing
 
-Built-in 2-second delays between searches to avoid Google rate limiting.
+### Development Standards
 
-### Error Handling
+1. **Follow existing code patterns**
+2. **Maintain responsive design principles**
+3. **Ensure accessibility compliance**
+4. **Test across multiple devices and browsers**
+5. **Optimize for performance**
 
-If Google search fails for a product, the enhancer will:
-1. Log the error
-2. Create a basic product structure with default values
-3. Continue processing other products
+### Code Organization
 
-## Metafields Generated
+- **Modular CSS**: One component per file
+- **Reusable JavaScript**: Custom elements and utilities
+- **Clean Liquid**: Efficient template logic
 
-| Key | Type | Description |
-|-----|------|-------------|
-| `overview` | `rich_text_field` | Product description from Google search |
-| `dimensions_de_product` | `single_line_text_field` | Product dimensions |
-| `color` | `single_line_text_field` | Product color |
-| `model` | `single_line_text_field` | Product model number |
-| `marca` | `single_line_text_field` | Brand name |
-| `voltaje` | `single_line_text_field` | Voltage specification |
-| `distribuidor` | `single_line_text_field` | Default distributor |
-| `pies_cubicos` | `single_line_text_field` | Default cubic feet |
+## 📄 License
 
-## Notes
+This theme is proprietary software developed for Nous Nails. All rights reserved.
 
-- **Google Search**: Uses web scraping approach. For production use, consider Google Custom Search API
-- **Rate Limiting**: 2-second delays between searches to be respectful to Google
-- **Fallback**: If search fails, creates basic structure with default values
-- **Extensibility**: Easy to add more metafields or modify search logic
+## 🆘 Support
 
-## Next Steps
+For technical support or questions about this theme:
 
-After enhancement, you can:
-1. Upload products to Shopify via API
-2. Save to database
-3. Export to CSV
-4. Send to other systems
+- Check the code comments for implementation details
+- Review the CSS architecture for styling questions
+- Examine the JavaScript custom elements for functionality
 
-The enhanced products are ready for your Shopify integration!
+---
+
+**Built with ❤️ for Nous Nails** - A modern, accessible, and performant Shopify theme.

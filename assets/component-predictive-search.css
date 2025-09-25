@@ -19,6 +19,10 @@ predictive-search {
   width: 100%;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Search Modal (Desktop)
 \*------------------------------------*/
@@ -113,6 +117,10 @@ predictive-search {
   transform: rotate(180deg);
 }
 
+
+
+
+
 /*------------------------------------*\
     #Search Input
 \*------------------------------------*/
@@ -203,6 +211,10 @@ input[type='search']::-webkit-search-results-decoration {
 .is-active .search__label {
   opacity: 0;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Predictive Search
@@ -420,6 +432,10 @@ predictive-search[loading] .predictive-search__results-list:first-child {
 .predictive-search__cta:focus {
   text-decoration: none;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Images
