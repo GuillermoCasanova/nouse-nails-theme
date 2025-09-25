@@ -41,11 +41,14 @@
   cursor: pointer;
   color: rgb(var(--color-text));
   padding: var(--space-2);
+}
+
+.announcement-bar__close svg {
   transition: all 0.4s var(--default-easing);
 }
 
-.announcement-bar__close:hover,
-.announcement-bar__close:focus {
+.announcement-bar__close:hover svg,
+.announcement-bar__close:focus svg {
   transform: scale(1.1) rotate(180deg);
 }
 

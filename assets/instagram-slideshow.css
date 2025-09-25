@@ -32,6 +32,10 @@
   color: rgba(var(--color-text), 0.7);
 }
 
+
+
+
+
 /*------------------------------------*\
     #Slider Container
 \*------------------------------------*/
@@ -74,6 +78,10 @@
   width: 100%;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Video + Image Blocks
 \*------------------------------------*/
@@ -104,6 +112,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Product Link
@@ -159,6 +171,10 @@
 .instagram-slideshow__slide__inner:hover .instagram-slideshow__product-link {
   transform: translateY(-8px);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Navigation
@@ -231,6 +247,10 @@
     margin-right: var(--space-5);
   }
 }
+
+
+
+
 
 /*------------------------------------*\
     #Empty State

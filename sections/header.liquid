@@ -230,6 +230,20 @@
       aria-label='{{ 'general.search.search' | t }}'
     >
       <div class='search-modal__content' tabindex='-1'>
+        <button
+          class='search-modal__close button-close'
+          type='button'
+          aria-label='{{ 'accessibility.close' | t }}'
+          data-modal-close
+        >
+          {% render 'icon-close' %}
+          <span class='visually-hidden'>
+            {{ 'accessibility.close' | t }}
+          </span>
+        </button>
+        <h1 class='search-modal__heading h4'>
+          {{ section.settings.search_heading }}
+        </h1>
         <predictive-search
           class='search-modal__form'
           data-loading-text='{{ 'accessibility.loading' | t }}'
@@ -241,7 +255,18 @@
             class='search search-modal__form'
           >
             <custom-input-wrapper>
-              <div class='search__input-container page-width'>
+              <div class='search__input-container'>
+                <div class='search-modal__input-character'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='99'
+                    height='117'
+                    viewBox='0 0 99 117'
+                    fill='none'
+                  >
+                    <path d="M98.9071 36.1114C98.3307 34.2384 96.3404 34.656 94.8823 34.265C94.7243 34.2226 94.5525 34.2364 94.3886 34.2127C85.7871 32.9839 77.192 31.7058 68.5801 30.5575C66.3615 30.2617 65.0776 29.2334 64.1108 27.2187C60.1608 18.9865 56.0759 10.8196 52.0146 2.64124C51.4426 1.48948 51.0621 -0.0636451 49.4021 0.0020146C47.9125 0.0607627 47.5458 1.51268 47.0082 2.59582C43.17 10.3313 39.2111 18.013 35.621 25.864C34.1486 29.0828 32.0658 30.362 28.674 30.7816C20.1316 31.8376 11.6305 33.2317 3.1181 34.5222C1.93123 34.7024 0.450472 34.619 0.0605915 36.1622C-0.287446 37.5416 0.942746 38.216 1.73974 38.9994C8.35835 45.5057 14.9863 52.0035 21.6507 58.4628C22.9454 59.7178 23.5676 61.0107 23.2004 62.8803C22.5132 66.3815 22.0214 69.9212 21.4302 73.4421C20.3851 79.667 19.3267 85.8893 18.2398 92.3166C18.1974 94.3081 19.5866 95.0328 21.7669 93.8914C25.6298 91.8688 29.504 89.8664 33.3683 87.8458C33.4353 91.7607 33.2364 95.6795 33.0552 99.6102C32.913 102.711 32.0938 104.818 29.3799 106.207C28.8049 106.502 28.2393 106.909 27.8179 107.393C26.507 108.9 25.1222 110.546 26.0088 112.678C26.8969 114.815 28.3132 116.435 30.9744 116.694C34.6901 117.054 38.0656 115.542 41.6164 115.038C44.3731 114.647 45.9124 112.842 45.5452 109.585C45.1287 105.89 44.8265 102.101 45.1696 98.419C45.716 92.5659 46.2821 86.7271 46.4396 80.8567C48.899 79.6586 50.9597 79.9089 53.3453 81.2146C53.742 81.4319 54.1408 81.6451 54.538 81.8614C54.4347 90.5743 55.2164 99.3184 55.4108 107.262C55.5649 113.513 56.2039 114.331 61.9655 115.943C65.8643 117.033 69.2107 115.913 70.4931 113.089C72.0049 109.761 70.8835 106.125 67.5424 103.892C66.6051 103.266 66.49 102.453 66.3856 101.495C65.8943 96.9799 65.7781 92.4503 65.8126 87.9159C69.3328 89.7825 72.859 91.6382 76.3851 93.4925C77.4932 94.0751 78.685 95.1839 80.028 94.0563C81.2586 93.0235 80.7477 91.6303 80.5237 90.329C78.9735 81.3272 77.474 72.316 75.8466 63.3281C75.4621 61.2052 76.0169 59.735 77.5582 58.2584C84.0257 52.0613 90.4085 45.7752 96.7761 39.4743C97.7252 38.5354 99.4162 37.7672 98.9062 36.1109L98.9071 36.1114Z" fill="#EFBDFC"/>
+                  </svg>
+                </div>
                 <input
                   class='search__input'
                   id='Search-In-Modal-1'
@@ -281,17 +306,6 @@
                   >
                     <use href="#icon-search"></use>
                   </svg>
-                </button>
-                <button
-                  class='search-modal__close button-close'
-                  type='button'
-                  aria-label='{{ 'accessibility.close' | t }}'
-                  data-modal-close
-                >
-                  {% render 'icon-close' %}
-                  <span class='visually-hidden'>
-                    {{ 'accessibility.close' | t }}
-                  </span>
                 </button>
               </div>
             </custom-input-wrapper>
@@ -425,6 +439,16 @@
       "id": "enable_language_selector",
       "default": false,
       "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "Search"
+    },
+    {
+      "type": "text",
+      "id": "search_heading",
+      "label": "Search Heading",
+      "default": "☀ LOOKING FOR SOMETHING? ☺"
     }
   ],
   "blocks": [

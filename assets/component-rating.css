@@ -32,6 +32,10 @@
   font-weight: 500;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Judge Me App
 \*------------------------------------*/
@@ -56,6 +60,10 @@
     display: block;
   }
 }
+
+
+
+
 
 /*------------------------------------*\
     #Judge Me Star
@@ -92,6 +100,10 @@
   -webkit-mask-size: contain;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Product Page Stars
 \*------------------------------------*/
@@ -106,6 +118,10 @@
 .product-rating.product-template__rating .jdgm-prev-badge__text {
   font-size: var(--text-size-tiny);
 }
+
+
+
+
 
 /*------------------------------------*\
     #Product Page Cards
