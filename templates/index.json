@@ -415,8 +415,24 @@
         "cta_text": "☀ SIGN UP & GET A FREE GEL LAMP ☺",
         "cta_url": "shopify://products/blue-algae-spf-dew-mist",
         "cta_color": "#efbdfc",
-        "position": "right"
+        "position": "right",
+        "scroll_threshold": 500
       }
+    },
+    "17591136946f6a654d": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_BHtck4": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "UQJuZt"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_BHtck4"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -430,6 +446,7 @@
     "hae_faqs_ACNzbj",
     "hae_testimonials_tLEp99",
     "featured_blog_FFNppk",
-    "floating_cta_z4EYG4"
+    "floating_cta_z4EYG4",
+    "17591136946f6a654d"
   ]
 }
