@@ -84,7 +84,9 @@
             }
           }
         },
-        "block_order": ["block_Ln8P6T"],
+        "block_order": [
+          "block_Ln8P6T"
+        ],
         "settings": {
           "mobile_nav_heading": "Shop",
           "mobile_menu_primary": "main-menu",
@@ -93,7 +95,8 @@
           "sticky_header_type": "on-scroll-up",
           "show_line_separator": true,
           "enable_country_selector": false,
-          "enable_language_selector": false
+          "enable_language_selector": false,
+          "search_heading": "☀ LOOKING FOR SOMETHING? ☺"
         }
       },
       "hae-image-with-text": {
@@ -179,7 +182,11 @@
             }
           }
         },
-        "block_order": ["image-bar-0", "image-bar-1", "image-bar-2"],
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
         "settings": {
           "section_height": "medium"
         }
@@ -260,7 +267,10 @@
             }
           }
         },
-        "block_order": ["collection_wCCpKy", "collection_wJTPLQ"],
+        "block_order": [
+          "collection_wCCpKy",
+          "collection_wJTPLQ"
+        ],
         "settings": {}
       },
       "1606088197e736fabb": {
@@ -297,7 +307,11 @@
             }
           }
         },
-        "block_order": ["callout_pBYmHY", "callout_rh8czt", "callout_QUEkYB"],
+        "block_order": [
+          "callout_pBYmHY",
+          "callout_rh8czt",
+          "callout_QUEkYB"
+        ],
         "settings": {
           "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
           "subtitle": "The Nous Standard in Nail Beauty",
@@ -619,7 +633,11 @@
             }
           }
         },
-        "block_order": ["article_dkkCUP", "article_LqD8Dd", "article_FTwhxE"],
+        "block_order": [
+          "article_dkkCUP",
+          "article_LqD8Dd",
+          "article_FTwhxE"
+        ],
         "name": "Blog posts",
         "settings": {
           "color_scheme": "",
@@ -727,7 +745,11 @@
             }
           }
         },
-        "block_order": ["quote_jHzEpU", "quote_4BinWi", "quote_LCeqTH"],
+        "block_order": [
+          "quote_jHzEpU",
+          "quote_4BinWi",
+          "quote_LCeqTH"
+        ],
         "name": "HAE Testimonials",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
@@ -833,7 +855,7 @@
       },
       "6174324309569838175": {
         "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
@@ -1118,7 +1140,11 @@
               "settings": {}
             }
           },
-          "block_order": ["image-bar-0", "image-bar-1", "image-bar-2"],
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
           "settings": {}
         },
         "footer": {
@@ -1213,7 +1239,10 @@
               }
             }
           },
-          "block_order": ["slideshow-0", "1492095993817"],
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
           "settings": {
             "slideshow_height": "medium",
             "text_size": "medium",
@@ -1265,7 +1294,9 @@
               }
             }
           },
-          "block_order": ["1492033924902-0"],
+          "block_order": [
+            "1492033924902-0"
+          ],
           "settings": {
             "title": ""
           }
