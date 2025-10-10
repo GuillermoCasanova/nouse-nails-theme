@@ -164,10 +164,9 @@
       "settings": {
         "layout": "left",
         "color_scheme": "",
-        "media_type": "image",
+        "media_type": "video",
         "media_aspect_ratio": "1/.85",
-        "image": "shopify://shop_images/image.png",
-        "video_url": "https://youtube.com/shorts/RCJod_erJfo?feature=share"
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/43b9a158454343b989022492f61e4cec.mov"
       }
     },
     "instagram_slideshow_FWNLT6": {
