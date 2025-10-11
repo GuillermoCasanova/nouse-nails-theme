@@ -208,6 +208,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/93ceb01e5dfc4c39aafb92ae26f0e48d.mov",
+            "image": "shopify://shop_images/CP_Angel_Higlight.png",
             "product": "10"
           }
         },
