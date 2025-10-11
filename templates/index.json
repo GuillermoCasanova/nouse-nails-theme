@@ -216,6 +216,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/11235a5fc5514a299153bd8e3d328a47.mov",
+            "image": "shopify://shop_images/CP_out_of_the_phone.png",
             "product": "10"
           }
         }
