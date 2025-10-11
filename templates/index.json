@@ -176,6 +176,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/09ddf525f629438b8f208eb02acfacfa.mov",
+            "image": "shopify://shop_images/CP_Big_Hands_updated.png",
             "product": "12-geometric-jelly"
           }
         },
