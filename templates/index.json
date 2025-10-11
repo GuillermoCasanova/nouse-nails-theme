@@ -203,6 +203,13 @@
         "slide_DE6BVe": {
           "type": "slide",
           "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/93ceb01e5dfc4c39aafb92ae26f0e48d.mov",
+            "product": "10"
+          }
+        },
+        "slide_CwTGyj": {
+          "type": "slide",
+          "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/11235a5fc5514a299153bd8e3d328a47.mov",
             "product": "10"
           }
@@ -213,7 +220,8 @@
         "slide_6Ww976",
         "slide_kxFa6w",
         "slide_tfqyEz",
-        "slide_DE6BVe"
+        "slide_DE6BVe",
+        "slide_CwTGyj"
       ],
       "name": "Instagram Slideshow",
       "settings": {
