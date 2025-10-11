@@ -200,6 +200,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/27db45c2f1be4d568a2e3c9d7acbe735.mov",
+            "image": "shopify://shop_images/CP_Step-by-Step-Reel.png",
             "product": "10"
           }
         },
