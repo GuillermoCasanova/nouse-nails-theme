@@ -193,6 +193,13 @@
             "product": "blue-algae-spf-dew-mist"
           }
         },
+        "slide_Mp9CNF": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/27db45c2f1be4d568a2e3c9d7acbe735.mov",
+            "product": ""
+          }
+        },
         "slide_tfqyEz": {
           "type": "slide",
           "settings": {
@@ -205,6 +212,7 @@
         "slide_exknKT",
         "slide_6Ww976",
         "slide_kxFa6w",
+        "slide_Mp9CNF",
         "slide_tfqyEz"
       ],
       "name": "Instagram Slideshow",
