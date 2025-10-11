@@ -310,7 +310,21 @@
             "answer": "<p>Easy as 1, 2, 3. Find your strip size, peel and stick, then cure for 60 seconds. Trim or buff any excess. Voilà, salon-level nails in 15 minutes.</p>"
           }
         },
+        "faq_block_ABp3fi": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Are they non-toxic?",
+            "answer": "<p>No nasties, just nail magic. We skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
+          }
+        },
         "faq_block_QL3tzy": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_N3AeaJ": {
           "type": "faq_block",
           "settings": {
             "question": "What is your question?",
@@ -342,7 +356,9 @@
       "block_order": [
         "faq_block_jRAPtz",
         "faq_block_43ptYe",
+        "faq_block_ABp3fi",
         "faq_block_QL3tzy",
+        "faq_block_N3AeaJ",
         "faq_block_6tw8qU",
         "faq_block_Uj7d8K",
         "faq_block_pBNyaQ"
