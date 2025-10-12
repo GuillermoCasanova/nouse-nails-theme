@@ -15,13 +15,21 @@
         "collapsible_section_HtK9d7": {
           "type": "collapsible_section",
           "settings": {
-            "title": "hi",
-            "content": "bye"
+            "title": "How do I apply?",
+            "content": "Start with clean, dry nails. Use the prep pad included to remove oils, then choose the strip size that fits your nail. Press it down from cuticle to tip, using the wooden stick provided to roll out any air bubbles for a smooth, sealed finish. Cure under the LED lamp for 60 seconds, then clip and gently file or buff off the excess for a perfect shape."
+          }
+        },
+        "collapsible_section_NVL3cz": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "",
+            "content": ""
           }
         }
       },
       "block_order": [
-        "collapsible_section_HtK9d7"
+        "collapsible_section_HtK9d7",
+        "collapsible_section_NVL3cz"
       ],
       "settings": {}
     }
