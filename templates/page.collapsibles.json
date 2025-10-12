@@ -130,11 +130,27 @@
             "title": "How do I return?",
             "content": "To start a return, please email hello@nousnails.com with your order number and reason for return. Once approved, our team will share the next steps and return address.\nPlease note:\nReturns must be initiated within 14 days of delivery.\nItems must be unused, unopened, and in original packaging.\nShipping fees are non-refundable, and return shipping costs are the responsibility of the customer.\nIf your item arrived damaged or defective, please email us hello@nousnails.com with photos within 5 days of receiving your package, and we’ll make it right."
           }
+        },
+        "collapsible_section_aMGLJC": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "Do you do exchanges?",
+            "content": "Due to our limited design runs, we currently don’t offer direct exchanges. If your order arrives damaged or defective, please email us with photos at hello@nousnails.com within 5 days of receiving your package, and we’ll make it right."
+          }
+        },
+        "collapsible_section_CKUf73": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "What is the refund eligibility?",
+            "content": "What determines refund eligibility? To be eligible for a refund, items must:\n1. Be unused and in original, sealed packaging\n2. Be returned within 14 days of delivery\n3. Include proof of purchase (order number or confirmation email)\n4. Please note: shipping fees are non-refundable.\nIf your item arrives damaged or defective, please email hello@nousnails.com with clear photos within 5 days of receiving your package, and our team will make it right."
+          }
         }
       },
       "block_order": [
         "collapsible_section_bgNWcU",
-        "collapsible_section_m9cHzp"
+        "collapsible_section_m9cHzp",
+        "collapsible_section_aMGLJC",
+        "collapsible_section_CKUf73"
       ],
       "name": "Collapsible Content",
       "settings": {}
