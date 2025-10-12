@@ -11,6 +11,18 @@
   "sections": {
     "main": {
       "type": "collapsibles",
+      "blocks": {
+        "collapsible_section_HtK9d7": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "hi",
+            "content": "bye"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_section_HtK9d7"
+      ],
       "settings": {}
     }
   },
