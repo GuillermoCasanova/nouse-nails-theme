@@ -32,12 +32,36 @@
             "title": "How can I remove my nails?",
             "content": "Apply a few drops of our Ctrl+Delete Vitamin Nail Serum Remover around the edges. Let it soak underneath the nail strips for a few minutes, then gently lift each strip using the wooden stick provided. No force, no pain — and your natural nails stay perfectly intact and damage-free."
           }
+        },
+        "collapsible_section_dieNwt": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "Do they damage my nails?",
+            "content": "Not at all. When removed properly, our semi-cured gel strips are non-damaging and gentle. The nail strips act like a protective barrier, shielding your natural nails from everyday wear and breakage – like a screen protector for your nails, but prettier (*hair flip*)."
+          }
+        },
+        "collapsible_section_LVUDWN": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "Is it non-toxic?",
+            "content": "Yes. Our gel strips are 10-free, meaning they’re made without the 10 nail nasties like formaldehyde, DBP, and toluene. They’re also cruelty-free and vegan, because healthy nails shouldn’t come with compromise."
+          }
+        },
+        "collapsible_section_3zriLQ": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "What are some tips to take care of them?",
+            "content": "A few things to keep your set flawless from day one:\n1. Apply on completely dry nails and follow the application steps carefully.\n2. Avoid baths, oils, or lotions 1-2 hours after application so the gel can fully set.\n3. Use the wooden stick provided to roll out any air bubbles and seal the strip before curing.\n4. Align each strip only on the nail bed. Avoid overlapping onto the cuticle to prevent lifting."
+          }
         }
       },
       "block_order": [
         "collapsible_section_HtK9d7",
         "collapsible_section_NVL3cz",
-        "collapsible_section_jeabRe"
+        "collapsible_section_jeabRe",
+        "collapsible_section_dieNwt",
+        "collapsible_section_LVUDWN",
+        "collapsible_section_3zriLQ"
       ],
       "settings": {}
     }
