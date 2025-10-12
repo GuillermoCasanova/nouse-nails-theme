@@ -72,9 +72,35 @@
         "collapsible_section_B7ximF"
       ],
       "settings": {}
+    },
+    "collapsibles_VixtCE": {
+      "type": "collapsibles",
+      "blocks": {
+        "collapsible_section_mQKUf3": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "General inquiry",
+            "content": "For all general questions or customer support, please email us at hello@nousnails.com. We’ll get back to you as soon as possible."
+          }
+        },
+        "collapsible_section_qrHb7G": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "Wholesale",
+            "content": "Interested in carrying Nous Nails? For wholesale inquiries, please reach out to hello@nousnails.com with your store name and a brief intro."
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_section_mQKUf3",
+        "collapsible_section_qrHb7G"
+      ],
+      "name": "Collapsible Content",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "collapsibles_VixtCE"
   ]
 }
