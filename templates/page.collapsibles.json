@@ -53,6 +53,13 @@
             "title": "What are some tips to take care of them?",
             "content": "A few things to keep your set flawless from day one:\n1. Apply on completely dry nails and follow the application steps carefully.\n2. Avoid baths, oils, or lotions 1-2 hours after application so the gel can fully set.\n3. Use the wooden stick provided to roll out any air bubbles and seal the strip before curing.\n4. Align each strip only on the nail bed. Avoid overlapping onto the cuticle to prevent lifting."
           }
+        },
+        "collapsible_section_B7ximF": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "How should I store my nail strips?",
+            "content": "Avoid leaving your nail strips near the LED lamp while it’s on, as the light can cure them unintentionally. Store unused strips in the black pouch they come in, and keep them in a cool, dark place for optimal results."
+          }
         }
       },
       "block_order": [
@@ -61,7 +68,8 @@
         "collapsible_section_jeabRe",
         "collapsible_section_dieNwt",
         "collapsible_section_LVUDWN",
-        "collapsible_section_3zriLQ"
+        "collapsible_section_3zriLQ",
+        "collapsible_section_B7ximF"
       ],
       "settings": {}
     }
