@@ -113,10 +113,28 @@
       ],
       "name": "Collapsible Content",
       "settings": {}
+    },
+    "collapsibles_FXWAJ9": {
+      "type": "collapsibles",
+      "blocks": {
+        "collapsible_section_bgNWcU": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "What is your return policy?",
+            "content": "We accept returns within 14 days of delivery on unopened, unused items in their original packaging. Due to hygiene reasons, we’re unable to accept returns once a product has been opened or used.\n\nIf your item arrives damaged or defective, please email hello@nousnails.com with clear photos within 5 days of receiving your package, and our team will make it right.\nWhat determines refund eligibility? To be eligible for a refund, items must:\n1. Be unused and in original, sealed packaging\n2. Be returned within 14 days of delivery\n3. Include proof of purchase (order number or confirmation email)\n4. Please note: shipping fees are non-refundable."
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_section_bgNWcU"
+      ],
+      "name": "Collapsible Content",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "collapsibles_VixtCE"
+    "collapsibles_VixtCE",
+    "collapsibles_FXWAJ9"
   ]
 }
