@@ -96,12 +96,20 @@
             "title": "PR & Collabs",
             "content": "For press, media, or brand collaborations, please contact partnerships@nousnails.com with the subject line “PR Inquiry.”"
           }
+        },
+        "collapsible_section_6VXgyX": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "Become a Creator (Earn with Nous)",
+            "content": "Love creating content? Join our Nous Creator Program to receive free products and earn commissions. You'll also receive early access to new drops. Apply at nousnails.com/creator or email us at partnerships@nousnails.com."
+          }
         }
       },
       "block_order": [
         "collapsible_section_mQKUf3",
         "collapsible_section_qrHb7G",
-        "collapsible_section_jqhe47"
+        "collapsible_section_jqhe47",
+        "collapsible_section_6VXgyX"
       ],
       "name": "Collapsible Content",
       "settings": {}
