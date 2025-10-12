@@ -89,11 +89,19 @@
             "title": "Wholesale",
             "content": "Interested in carrying Nous Nails? For wholesale inquiries, please reach out to hello@nousnails.com with your store name and a brief intro."
           }
+        },
+        "collapsible_section_jqhe47": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "PR & Collabs",
+            "content": "For press, media, or brand collaborations, please contact partnerships@nousnails.com with the subject line “PR Inquiry.”"
+          }
         }
       },
       "block_order": [
         "collapsible_section_mQKUf3",
-        "collapsible_section_qrHb7G"
+        "collapsible_section_qrHb7G",
+        "collapsible_section_jqhe47"
       ],
       "name": "Collapsible Content",
       "settings": {}
