@@ -25,11 +25,19 @@
             "title": "How long do they last?",
             "content": "Up to 14 days with proper prep and curing. For best wear, avoid soaking your hands in water or applying heavy oils around the nails within the 1-2 hours of application."
           }
+        },
+        "collapsible_section_jeabRe": {
+          "type": "collapsible_section",
+          "settings": {
+            "title": "How can I remove my nails?",
+            "content": "Apply a few drops of our Ctrl+Delete Vitamin Nail Serum Remover around the edges. Let it soak underneath the nail strips for a few minutes, then gently lift each strip using the wooden stick provided. No force, no pain — and your natural nails stay perfectly intact and damage-free."
+          }
         }
       },
       "block_order": [
         "collapsible_section_HtK9d7",
-        "collapsible_section_NVL3cz"
+        "collapsible_section_NVL3cz",
+        "collapsible_section_jeabRe"
       ],
       "settings": {}
     }
