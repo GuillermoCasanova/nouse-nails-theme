@@ -32,12 +32,28 @@
             "question": "What is your question?",
             "answer": "<p>Provide your answer here.</p>"
           }
+        },
+        "faq_block_JdF9m9": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_XTwgLF": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_8hf9f6",
         "faq_block_WCjUXV",
-        "faq_block_j79CCr"
+        "faq_block_j79CCr",
+        "faq_block_JdF9m9",
+        "faq_block_XTwgLF"
       ],
       "name": "FAQ Section",
       "settings": {
