@@ -138,10 +138,6 @@ body {
   color: rgb(var(--color-base-text-1));
 }
 
-
-
-
-
 /*------------------------------------*\
     #Animations
 \*------------------------------------*/
@@ -158,10 +154,6 @@ body {
     transition: none !important;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Typography
@@ -208,10 +200,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Headlines
@@ -387,10 +375,6 @@ h6 p {
   margin-bottom: var(--space-8);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Default Text Selection Color 
 \*------------------------------------*/
@@ -404,10 +388,6 @@ h6 p {
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-base-text-1));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Paragraphs
@@ -428,10 +408,6 @@ p {
   position: fixed;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Links
 \*------------------------------------*/
@@ -439,10 +415,6 @@ p {
 a {
   color: rgb(var(--color-base-text));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Sections
@@ -500,10 +472,6 @@ a {
   padding-bottom: var(--section-padding-large);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Paddings
 \*------------------------------------*/
@@ -528,10 +496,6 @@ a {
   padding: var(--padding-x-large);
 }
 
-
-
-
-
 /*------------------------------------*\
   #Overflows Hiding
 \*------------------------------------*/
@@ -541,10 +505,6 @@ a {
 .overflow-hidden {
   overflow: hidden;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Visibility
@@ -635,10 +595,6 @@ h6:empty {
   cursor: normal;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Main Padding + Margin Top
 \*------------------------------------*/
@@ -657,10 +613,6 @@ main {
     padding-top: var(--space-7);
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Media Component
@@ -724,10 +676,6 @@ deferred-media {
   border-radius: 50%;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Summary + Details Base
 \*------------------------------------*/
@@ -748,10 +696,6 @@ summary .icon-caret {
 summary::-webkit-details-marker {
   display: none;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Disclosure
@@ -788,10 +732,6 @@ summary::-webkit-details-marker {
     z-index: 2;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
   #Buttons 
@@ -893,10 +833,6 @@ button:hover,
 .text-link:focus {
   text-decoration: none;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Global Loader
@@ -1009,10 +945,6 @@ button:hover,
   height: 100%;
 }
 
-
-
-
-
 /*------------------------------------*\
   #Text with Icon
 \*------------------------------------*/
@@ -1023,10 +955,6 @@ button:hover,
   gap: var(--space-3);
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icon
@@ -1057,10 +985,6 @@ button:hover,
   height: 2rem;
 }
 
-
-
-
-
 /*------------------------------------*\
   #Eyebrow
 \*------------------------------------*/
@@ -1068,10 +992,6 @@ button:hover,
 .text-eyebrow {
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icons
@@ -1099,6 +1019,10 @@ button:hover,
   height: 1.75rem;
   display: inline-block;
 }
+
+/*------------------------------------*\
+  #Image with Aspect Ratio
+\*------------------------------------*/
 
 .image-with-aspect-ratio {
   position: relative;
@@ -1131,4 +1055,39 @@ button:hover,
 .image-with-aspect-ratio__placeholder .placeholder-svg {
   width: 100%;
   height: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  aspect-ratio: var(--aspect-ratio);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+#custom-green-dot-cursor {
+  transform: translateX(15px) translateY(15px);
+  transform-origin: -25% -25%;
+  opacity: 0;
+  transition:
+    transform 1s var(--default-easing),
+    opacity 1s var(--default-easing);
+}
+
+#custom-green-dot-cursor svg {
+  transform: rotate(-180deg);
+  transition: transform 2s var(--default-easing);
+}
+
+#custom-green-dot-cursor.is-active {
+  transform: rotate(0deg) translateX(0px) translateY(0px);
+  opacity: 1;
+}
+
+#custom-green-dot-cursor.is-active svg {
+  transform: rotate(0);
 }

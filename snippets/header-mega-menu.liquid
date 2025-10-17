@@ -6,20 +6,20 @@
 {% endcomment %}
 
 {%- if section.settings.menu != blank -%}
-  <nav class="header__menu">
-    <ul class="header__menu__list-menu " role="list">
+  <nav class='header__menu'>
+    <ul class='header__menu__list-menu ' role='list'>
       {%- for link in section.settings.menu.links -%}
         <li>
           {%- if link.links != blank -%}
-            <menu-drawer data-activate-on="hover">
+            <menu-drawer data-activate-on='hover'>
               <details>
                 <summary
-                  class="header__menu-item  focus-inset"
-                  id="#{{ link.title | escape }}"
+                  class='header__menu-item  focus-inset'
+                  id='#{{ link.title | escape }}'
                 >
                   <span
                     {%- if link.child_active %}
-                      class="header__active-menu-item"
+                      class='header__active-menu-item'
                     {% endif %}
                   >
                     {{- link.title | escape -}}
@@ -30,7 +30,9 @@
 
                 {% assign is_mega_menu = false %}
                 {% for block in section.blocks %}
-                  {% if block.type == 'block' and block.settings.top_level_link contains title %}
+                  {% if block.type == 'block'
+                    and block.settings.top_level_link contains title
+                  %}
                     {% assign is_mega_menu = true %}
                     {% break %}
                   {% endif %}
@@ -38,48 +40,48 @@
 
                 {% if is_mega_menu %}
                   <div
-                    class="header__mega-menu"
-                    role="region"
+                    class='header__mega-menu'
+                    role='region'
                   >
-                    <div class="header__mega-menu__inner page-width">
-                      <div class="header__mega-menu__links">
-                        <span class="header__mega-menu__title">
+                    <div class='header__mega-menu__inner page-width'>
+                      <div class='header__mega-menu__links'>
+                        <span class='header__mega-menu__title'>
                           {{- link.title | escape -}}
                         </span>
-                        <ol class="header__mega-menu__list-menu   motion-reduce">
+                        <ol class='header__mega-menu__list-menu   motion-reduce'>
                           {%- for childlink in link.links -%}
                             <li>
                               {%- if childlink.links == blank -%}
                                 <a
-                                  href="{{ childlink.url }}"
-                                  data-green-dot-cursor
-                                  class="header__mega-menu__list-item    focus-inset {% if childlink.current %} header__mega-menu__list-item--active{% endif %}"
+                                  href='{{ childlink.url }}'
+                                  data-custom-cursor
+                                  class='header__mega-menu__list-item    focus-inset {% if childlink.current %} header__mega-menu__list-item--active{% endif %}'
                                   {% if childlink.current %}
-                                    aria-current="page"
+                                    aria-current='page'
                                   {% endif %}
                                 >
                                   {{ childlink.title | escape }}
                                 </a>
                               {%- else -%}
                                 <div
-                                  class="header__mega-menu__list-item  focus-inset"
-                                  id="{{ childlink.title | escape }}"
+                                  class='header__mega-menu__list-item  focus-inset'
+                                  id='{{ childlink.title | escape }}'
                                 >
                                   {{ childlink.title | escape }}
                                 </div>
-                                <div class="header__childmenu">
+                                <div class='header__childmenu'>
                                   <ul
-                                    class="header__mega-menu__list-menu  header__childmenu__list-menu"
-                                    aria-describedby="{{ childlink.title | escape }}"
+                                    class='header__mega-menu__list-menu  header__childmenu__list-menu'
+                                    aria-describedby='{{ childlink.title | escape }}'
                                   >
                                     {%- for grandchildlink in childlink.links -%}
                                       <li>
                                         <a
-                                          href="{{ grandchildlink.url }}"
-                                          data-green-dot-cursor
-                                          class="header__mega-menu__list-item  header__childmenu__list-item focus-inset {% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                          href='{{ grandchildlink.url }}'
+                                          data-custom-cursor
+                                          class='header__mega-menu__list-item  header__childmenu__list-item focus-inset {% if grandchildlink.current %} list-menu__item--active{% endif %}'
                                           {% if grandchildlink.current %}
-                                            aria-current="page"
+                                            aria-current='page'
                                           {% endif %}
                                         >
                                           {{ grandchildlink.title | escape }}
@@ -93,77 +95,88 @@
                           {%- endfor -%}
                         </ol>
                       </div>
-                      <div class="header__mega-menu__promotions">
+                      <div class='header__mega-menu__promotions'>
                         {% for block in section.blocks %}
-                          {% if block.type == 'block' and block.settings.top_level_link contains title %}
+                          {% if block.type == 'block'
+                            and block.settings.top_level_link contains title
+                          %}
                             {% if block.settings.promotion_1_image %}
-                              <a href="{{ block.settings.promotion_1_url }}" class="mega-menu-promotion">
-                                <div class="mega-menu-promotion__image">
-                                  <div class="mega-menu-promotion__image__inner">
+                              <a
+                                href='{{ block.settings.promotion_1_url }}'
+                                class='mega-menu-promotion'
+                              >
+                                <div class='mega-menu-promotion__image'>
+                                  <div class='mega-menu-promotion__image__inner'>
                                     <img
-                                      srcset="
+                                      srcset='
                                         {% if block.settings.promotion_1_image.width >= 493 %}{{ block.settings.promotion_1_image | image_url: width: 493 }} 493w,{% endif %}
                                         {% if block.settings.promotion_1_image.width >= 600 %}{{ block.settings.promotion_1_image | image_url: width: 600 }} 600w,{% endif %}
                                         {{ block.settings.promotion_1_image | image_url }} {{ block.settings.promotion_1_image.width }}w
-                                      "
-                                      src="{{ block.settings.promotion_1_image | image_url: width: block.settings.promotion_1_image.width }}"
-                                      sizes="(min-width: 940px) 20rem, 100vw"
-                                      loading="lazy"
-                                      width="{{ block.settings.promotion_1_image.width}}"
-                                      height="{{  block.settings.promotion_1_image.width | divided_by: block.settings.promotion_1_image.aspect_ratio | ceil }}"
-                                      class="responsive-image"
+                                      '
+                                      src='{{ block.settings.promotion_1_image | image_url: width: block.settings.promotion_1_image.width }}'
+                                      sizes='(min-width: 940px) 20rem, 100vw'
+                                      loading='lazy'
+                                      width='{{ block.settings.promotion_1_image.width}}'
+                                      height='{{  block.settings.promotion_1_image.width | divided_by: block.settings.promotion_1_image.aspect_ratio | ceil }}'
+                                      class='responsive-image'
                                     >
                                   </div>
                                 </div>
-                                <div class="mega-menu-promotion__name">
+                                <div class='mega-menu-promotion__name'>
                                   {{ block.settings.promotion_1_text }}
                                 </div>
                               </a>
                             {% endif %}
                             {% if block.settings.promotion_2_image %}
-                              <a href="{{ block.settings.promotion_2_url }}" class="mega-menu-promotion">
-                                <div class="mega-menu-promotion__image">
-                                  <div class="mega-menu-promotion__image__inner">
+                              <a
+                                href='{{ block.settings.promotion_2_url }}'
+                                class='mega-menu-promotion'
+                              >
+                                <div class='mega-menu-promotion__image'>
+                                  <div class='mega-menu-promotion__image__inner'>
                                     <img
-                                      srcset="
+                                      srcset='
                                         {% if block.settings.promotion_2_image.width >= 493 %}{{ block.settings.promotion_2_image | image_url: width: 493 }} 493w,{% endif %}
                                         {% if block.settings.promotion_2_image.width >= 600 %}{{ block.settings.promotion_2_image | image_url: width: 600 }} 600w,{% endif %}
                                         {{ block.settings.promotion_2_image | image_url }} {{ block.settings.promotion_2_image.width }}w
-                                      "
-                                      src="{{ block.settings.promotion_2_image | image_url: width: block.settings.promotion_2_image.width }}"
-                                      sizes="(min-width: 940px) 20rem, 100vw"
-                                      loading="lazy"
-                                      width="{{ block.settings.promotion_2_image.width}}"
-                                      height="{{  block.settings.promotion_2_image.width | divided_by: block.settings.promotion_2_image.aspect_ratio | ceil }}"
-                                      class="responsive-image"
+                                      '
+                                      src='{{ block.settings.promotion_2_image | image_url: width: block.settings.promotion_2_image.width }}'
+                                      sizes='(min-width: 940px) 20rem, 100vw'
+                                      loading='lazy'
+                                      width='{{ block.settings.promotion_2_image.width}}'
+                                      height='{{  block.settings.promotion_2_image.width | divided_by: block.settings.promotion_2_image.aspect_ratio | ceil }}'
+                                      class='responsive-image'
                                     >
                                   </div>
                                 </div>
-                                <div class="mega-menu-promotion__name">
+                                <div class='mega-menu-promotion__name'>
                                   {{ block.settings.promotion_2_text }}
                                 </div>
                               </a>
                             {% endif %}
                             {% if block.settings.promotion_3_image %}
-                              <a href="{{ block.settings.promotion_3_url }}" class="mega-menu-promotion">
-                                <div class="mega-menu-promotion__image">
-                                  <div class="mega-menu-promotion__image__inner">
+                              <a
+                                href='{{ block.settings.promotion_3_url }}'
+                                class='mega-menu-promotion'
+                              >
+                                <div class='mega-menu-promotion__image'>
+                                  <div class='mega-menu-promotion__image__inner'>
                                     <img
-                                      srcset="
+                                      srcset='
                                         {% if block.settings.promotion_3_image.width >= 493 %}{{ block.settings.promotion_3_image | image_url: width: 493 }} 493w,{% endif %}
                                         {% if block.settings.promotion_3_image.width >= 600 %}{{ block.settings.promotion_3_image | image_url: width: 600 }} 600w,{% endif %}
                                         {{ block.settings.promotion_3_image | image_url }} {{ block.settings.promotion_3_image.width }}w
-                                      "
-                                      src="{{ block.settings.promotion_3_image | image_url: width: block.settings.promotion_3_image.width }}"
-                                      sizes="(min-width: 940px) 20rem, 100vw"
-                                      loading="lazy"
-                                      width="{{ block.settings.promotion_3_image.width}}"
-                                      height="{{  block.settings.promotion_3_image.width | divided_by: block.settings.promotion_3_image.aspect_ratio | ceil }}"
-                                      class="responsive-image"
+                                      '
+                                      src='{{ block.settings.promotion_3_image | image_url: width: block.settings.promotion_3_image.width }}'
+                                      sizes='(min-width: 940px) 20rem, 100vw'
+                                      loading='lazy'
+                                      width='{{ block.settings.promotion_3_image.width}}'
+                                      height='{{  block.settings.promotion_3_image.width | divided_by: block.settings.promotion_3_image.aspect_ratio | ceil }}'
+                                      class='responsive-image'
                                     >
                                   </div>
                                 </div>
-                                <div class="mega-menu-promotion__name">
+                                <div class='mega-menu-promotion__name'>
                                   {{ block.settings.promotion_3_text }}
                                 </div>
                               </a>
@@ -175,49 +188,49 @@
                   </div>
                 {% else %}
                   <div
-                    class="header__submenu"
-                    role="region"
-                    aria-labelledby="{{ link.title | escape }}"
+                    class='header__submenu'
+                    role='region'
+                    aria-labelledby='{{ link.title | escape }}'
                   >
-                    <div class="header__submenu__inner  page-width">
+                    <div class='header__submenu__inner  page-width'>
                       <div>
-                        <span class="header__submenu__title">
+                        <span class='header__submenu__title'>
                           {{- link.title | escape -}}
                         </span>
-                        <ol class="header__submenu__list-menu   motion-reduce">
+                        <ol class='header__submenu__list-menu   motion-reduce'>
                           {%- for childlink in link.links -%}
                             <li>
                               {%- if childlink.links == blank -%}
                                 <a
-                                  href="{{ childlink.url }}"
-                                  data-green-dot-cursor
-                                  class="header__submenu__list-item    focus-inset {% if childlink.current %} header__submenu__list-item--active{% endif %}"
+                                  href='{{ childlink.url }}'
+                                  data-custom-cursor
+                                  class='header__submenu__list-item    focus-inset {% if childlink.current %} header__submenu__list-item--active{% endif %}'
                                   {% if childlink.current %}
-                                    aria-current="page"
+                                    aria-current='page'
                                   {% endif %}
                                 >
                                   {{ childlink.title | escape }}
                                 </a>
                               {%- else -%}
                                 <div
-                                  class="header__submenu__list-item  focus-inset"
-                                  id="{{ childlink.title | escape }}"
+                                  class='header__submenu__list-item  focus-inset'
+                                  id='{{ childlink.title | escape }}'
                                 >
                                   {{ childlink.title | escape }}
                                 </div>
-                                <div class="header__childmenu">
+                                <div class='header__childmenu'>
                                   <ul
-                                    class="header__submenu__list-menu  header__childmenu__list-menu"
-                                    aria-describedby="{{ childlink.title | escape }}"
+                                    class='header__submenu__list-menu  header__childmenu__list-menu'
+                                    aria-describedby='{{ childlink.title | escape }}'
                                   >
                                     {%- for grandchildlink in childlink.links -%}
                                       <li>
                                         <a
-                                          href="{{ grandchildlink.url }}"
-                                          data-green-dot-cursor
-                                          class="header__submenu__list-item  header__childmenu__list-item focus-inset {% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                          href='{{ grandchildlink.url }}'
+                                          data-custom-cursor
+                                          class='header__submenu__list-item  header__childmenu__list-item focus-inset {% if grandchildlink.current %} list-menu__item--active{% endif %}'
                                           {% if grandchildlink.current %}
-                                            aria-current="page"
+                                            aria-current='page'
                                           {% endif %}
                                         >
                                           {{ grandchildlink.title | escape }}
@@ -231,7 +244,7 @@
                           {%- endfor -%}
                         </ol>
                       </div>
-                      <div class="header__submenu__featured-links"></div>
+                      <div class='header__submenu__featured-links'></div>
                     </div>
                   </div>
                 {% endif %}
@@ -239,15 +252,15 @@
             </menu-drawer>
           {%- else -%}
             <a
-              href="{{ link.url }}"
-              class=" header__menu-item  focus-inset"
+              href='{{ link.url }}'
+              class=' header__menu-item  focus-inset'
               {% if link.current %}
-                aria-current="page"
+                aria-current='page'
               {% endif %}
             >
               <span
                 {%- if link.current %}
-                  class="header__active-menu-item"
+                  class='header__active-menu-item'
                 {% endif %}
               >
                 {{- link.title | escape -}}

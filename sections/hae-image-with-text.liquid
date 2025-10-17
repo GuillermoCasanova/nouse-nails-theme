@@ -17,17 +17,22 @@
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         {% else %}
-          <video
-            class='responsive-video'
-            autoplay
-            loop
-            muted
-            playsinline
-            poster='{{ section.settings.video_poster | img_url }}'
+          <div
+            class='video-wrapper'
+            style='--aspect-ratio: {{ section.settings.media_aspect_ratio }};'
           >
-            <source src='{{ section.settings.video_url }}' type='video/mp4'>
-            Your browser does not support the video tag.
-          </video>
+            <video
+              class='responsive-video'
+              autoplay
+              loop
+              muted
+              playsinline
+              poster='{{ section.settings.video_poster | img_url }}'
+            >
+              <source src='{{ section.settings.video_url }}' type='video/mp4'>
+              Your browser does not support the video tag.
+            </video>
+          </div>
         {% endif %}
       </div>
       <div class='image-with-text__text'>
