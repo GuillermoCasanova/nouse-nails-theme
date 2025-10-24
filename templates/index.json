@@ -79,7 +79,7 @@
         "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
         "title": "New Arrivals",
         "collection": "new-arrivals",
-        "grid": 3,
+        "grid": 4,
         "rows": 2,
         "show_vendor": false,
         "show_view_all": true
