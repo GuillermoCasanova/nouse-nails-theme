@@ -1,3 +1,4 @@
+pr
 <section class='product-section color-{{ section.settings.color_scheme }}'>
   <product-info
     id='MainProduct-{{ section.id }}'
@@ -124,7 +125,13 @@
                         {{ product.title | escape }}
                       </h1>
                     </div>
-
+                  {%- when 'klaviyo_bis' -%}
+                    <div
+                      class='klaviyo-bis-trigger'
+                      data-klaviyo-bis-trigger
+                    >
+                      klaviyo trigger
+                    </div>
                   {%- when 'type' -%}
                     <div
                       class='product__type  text-size-medium'
@@ -626,12 +633,10 @@
 {% schema %}
 {
   "name": "Product Template",
-
   "blocks": [
     {
       "type": "@app"
     },
-
     {
       "type": "text",
       "name": "t:sections.main-product.blocks.text.name",
@@ -2051,6 +2056,17 @@
           "id": "cta_text",
           "label": "Button Text",
           "default": "Learn More"
+        }
+      ]
+    },
+    {
+      "type": "klaviyo_bis",
+      "name": "Klaviyo BIS Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "location_id",
+          "label": "Location ID"
         }
       ]
     }
