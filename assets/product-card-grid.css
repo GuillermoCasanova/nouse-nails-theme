@@ -16,6 +16,10 @@
   display: block;
 }
 
+
+
+
+
 /*------------------------------------*\
     #Image 
 \*------------------------------------*/
@@ -60,6 +64,10 @@
 .product-card-grid:hover .product-card-grid__image--hover {
   opacity: 1;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Content
@@ -125,6 +133,10 @@
   }
 }
 
+
+
+
+
 /*------------------------------------*\
     #Sold Out Badge
 \*------------------------------------*/
@@ -181,11 +193,15 @@
   }
 }
 
+
+
+
+
 /*------------------------------------*\
     #Back in Stock Button
 \*------------------------------------*/
 
-.klaviyo-bis-trigger {
+.klaviyo-bis-trigger-collection {
   display: block;
   width: 100%;
   margin-top: var(--space-3);
@@ -202,14 +218,14 @@
   transition: all 0.3s ease;
 }
 
-.klaviyo-bis-trigger:hover {
+.klaviyo-bis-trigger-collection:hover {
   background-color: rgb(var(--color-text));
   border-color: rgb(var(--color-text));
   color: rgb(var(--color-background));
 }
 
 @media screen and (min-width: 768px) {
-  .klaviyo-bis-trigger {
+  .klaviyo-bis-trigger-collection {
     font-size: var(--text-size-base);
   }
 }

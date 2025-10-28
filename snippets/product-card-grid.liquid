@@ -84,12 +84,10 @@
   </a>
   {% unless product.available %}
     <button
-      class='klaviyo-bis-trigger'
-      data-klaviyo-bis-trigger
+      type='button'
+      class='klaviyo-bis-trigger-collection'
+      data-variant-id='{{ product.selected_or_first_available_variant.id }}'
       data-product-id='{{ product.id }}'
-      data-product-handle='{{ product.handle }}'
-      data-product-variant-id='{{ product.selected_or_first_available_variant.id }}'
-      data-product-name='{{ product.title | escape }}'
     >
       {{
         'products.product.notify_me'

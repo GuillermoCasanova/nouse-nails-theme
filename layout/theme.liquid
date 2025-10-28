@@ -313,27 +313,55 @@
       });
 
       // Initialize collection page back in stock triggers
-      document.addEventListener('DOMContentLoaded', function () {
-        const triggers = document.querySelectorAll('.klaviyo-bis-trigger');
+      function initKlaviyoCollectionTriggers() {
+        const triggers = document.querySelectorAll(
+          '.klaviyo-bis-trigger-collection'
+        );
+        console.log('Found ' + triggers.length + ' Klaviyo BIS triggers');
+
         triggers.forEach(function (trigger) {
           trigger.addEventListener('click', function (e) {
             e.preventDefault();
-            const variantId = this.getAttribute('data-product-variant-id');
-            const productName = this.getAttribute('data-product-name');
+            e.stopPropagation();
+
+            const variantId = this.getAttribute('data-variant-id');
+            console.log('Klaviyo BIS clicked for variant:', variantId);
 
             if (variantId) {
-              klaviyo.push([
-                'openForm',
-                'backinstock',
-                {
-                  variant: variantId,
-                  product: productName,
-                },
-              ]);
+              // Check if Klaviyo is available and try to open the form
+              if (typeof window._klOnsite !== 'undefined') {
+                console.log('Using _klOnsite.push method');
+                window._klOnsite.push([
+                  'openForm',
+                  'backinstock',
+                  { variant: variantId },
+                ]);
+              } else if (typeof klaviyo !== 'undefined') {
+                console.log('Using klaviyo.push method');
+                klaviyo.push([
+                  'openForm',
+                  'backinstock',
+                  { variant: variantId },
+                ]);
+              } else {
+                console.error('Klaviyo not found');
+              }
             }
           });
         });
-      });
+      }
+
+      // Wait for Klaviyo to load, then initialize triggers
+      var klaviyoLoadCheck = setInterval(function () {
+        if (
+          typeof window._klOnsite !== 'undefined' ||
+          typeof klaviyo !== 'undefined'
+        ) {
+          clearInterval(klaviyoLoadCheck);
+          console.log('Klaviyo loaded, initializing collection triggers');
+          initKlaviyoCollectionTriggers();
+        }
+      }, 100);
     </script>
   </body>
 </html>
