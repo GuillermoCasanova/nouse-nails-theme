@@ -83,11 +83,19 @@
     </div>
   </a>
   {% unless product.available %}
-    <div
+    <button
       class='klaviyo-bis-trigger'
       data-klaviyo-bis-trigger
+      data-product-id='{{ product.id }}'
+      data-product-handle='{{ product.handle }}'
+      data-product-variant-id='{{ product.selected_or_first_available_variant.id }}'
+      data-product-name='{{ product.title | escape }}'
     >
-      klaviyo trigger
-    </div>
+      {{
+        'products.product.notify_me'
+        | t
+        | default: 'Notify Me When Available'
+      }}
+    </button>
   {% endunless %}
 </div>

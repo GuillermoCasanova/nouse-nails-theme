@@ -311,6 +311,29 @@
           success_text_color: '#1B9500',
         },
       });
+
+      // Initialize collection page back in stock triggers
+      document.addEventListener('DOMContentLoaded', function () {
+        const triggers = document.querySelectorAll('.klaviyo-bis-trigger');
+        triggers.forEach(function (trigger) {
+          trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            const variantId = this.getAttribute('data-product-variant-id');
+            const productName = this.getAttribute('data-product-name');
+
+            if (variantId) {
+              klaviyo.push([
+                'openForm',
+                'backinstock',
+                {
+                  variant: variantId,
+                  product: productName,
+                },
+              ]);
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
