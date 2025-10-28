@@ -34,6 +34,7 @@
     "social_snapchat_link": "",
     "social_youtube_link": "",
     "social_vimeo_link": "",
+    "klaviyo_account_id": "WDY9Vw",
     "favicon": "shopify://shop_images/Nous_Fav_Gradient.png",
     "enable_ajax": true,
     "colors_text_1": "#6d0506",
@@ -409,46 +410,6 @@
           "a9139aac-7277-4ef5-a56a-bfa72f22af41",
           "cef5cb6c-d0fd-49b8-87e5-9aba5e59c5de",
           "a2b9ed8c-aa89-4f4b-8f58-7d3c6c96d74e"
-        ],
-        "settings": {}
-      },
-      "collapsibles": {
-        "type": "collapsibles",
-        "blocks": {
-          "e88a9f30-a9fb-4a6d-8f56-7632bf047cb7": {
-            "type": "collapsible_section",
-            "settings": {
-              "title": "Shipping",
-              "content": "<b>Example title</b>\n\n<br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n<br><br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            }
-          },
-          "6386e22c-0678-409a-9fb0-d5248628f4f6": {
-            "type": "collapsible_section",
-            "settings": {
-              "title": "Returns",
-              "content": "<b>Example title</b>\n\n<br>\n\n<a href=\"/returns\">Lorem ipsum</a> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n<br><br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            }
-          },
-          "cf862467-c013-49e5-976e-55ab5ab0972b": {
-            "type": "collapsible_section",
-            "settings": {
-              "title": "Application Tips",
-              "content": "<b>Example title</b>\n\n<br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n<br><br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            }
-          },
-          "f60df461-bbd0-4dd9-9dd6-c2180f79c3db": {
-            "type": "collapsible_section",
-            "settings": {
-              "title": "Contact Us",
-              "content": "<b>Example title</b>\n\n<br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n<br><br>\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            }
-          }
-        },
-        "block_order": [
-          "e88a9f30-a9fb-4a6d-8f56-7632bf047cb7",
-          "6386e22c-0678-409a-9fb0-d5248628f4f6",
-          "cf862467-c013-49e5-976e-55ab5ab0972b",
-          "f60df461-bbd0-4dd9-9dd6-c2180f79c3db"
         ],
         "settings": {}
       },
