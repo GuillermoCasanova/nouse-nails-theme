@@ -79,19 +79,31 @@
             class: 'product-card-grid__rating'
           %}
         </div>
-
-        {% unless product.available %}
-          <button
-            type='button'
-            class='button button--secondary w-full klaviyo-bis-trigger'
-            klaviyo-bis-trigger
-            data-product-id='{{ product.id }}'
-            data-variant-id='{{ product.variants.first.id }}'
-          >
-            Notify Me
-          </button>
-        {% endunless %}
       </div>
     </div>
   </a>
+  {% unless product.available %}
+    <div
+      class='klaviyo-bis-trigger product-card-grid__bis-button'
+      data-product-id='{{ product.id }}'
+      data-variant-id='{{ product.selected_or_first_available_variant.id }}'
+    ></div>
+
+    {%- assign first_variant = product.variants.first -%}
+    {%- if first_variant.available == false -%}
+      <button
+        type='button'
+        class='button button--secondary klaviyo-bis-trigger'
+        data-klaviyo-bis-trigger
+        data-product-id='{{ product.id }}'
+        data-variant-id='{{ first_variant.id }}'
+        data-product-name='{{ product.title | escape }}'
+        data-product-url='{{ product.url | within: collection }}'
+        data-product-image='{{ product.featured_image | image_url: width: 800 }}'
+        data-sku='{{ first_variant.sku | escape }}'
+      >
+        Notify me
+      </button>
+    {%- endif -%}
+  {% endunless %}
 </div>
