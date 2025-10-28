@@ -58,6 +58,12 @@
             "product_id_enabled": true,
             "collection_id_enabled": false
           }
+        },
+        "klaviyo_bis_VMWTAy": {
+          "type": "klaviyo_bis",
+          "settings": {
+            "location_id": ""
+          }
         }
       },
       "block_order": [
@@ -69,7 +75,8 @@
         "description_rh9JAT",
         "return_policy_VABCGt",
         "buy_buttons_B47i49",
-        "rebuy_personalization_engine_rebuy_widget_D66TYi"
+        "rebuy_personalization_engine_rebuy_widget_D66TYi",
+        "klaviyo_bis_VMWTAy"
       ],
       "settings": {
         "enable_sticky_info": true,
