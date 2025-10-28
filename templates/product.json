@@ -40,7 +40,7 @@
           "type": "return_policy",
           "settings": {
             "heading": "Return Policy",
-            "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our Returns Policy.</p>"
+            "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our <a href=\"/pages/returns-exchanges\" target=\"_blank\" title=\"Returns & Exchanges\">Returns Policy</a>.</p>"
           }
         },
         "buy_buttons_B47i49": {
@@ -127,11 +127,49 @@
         "judge_me_reviews_review_widget_Pt3FqF"
       ],
       "settings": {}
+    },
+    "hae_faqs_zapPEk": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_rqcqra": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_BeX766": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_6NhEBx": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_rqcqra",
+        "faq_block_BeX766",
+        "faq_block_6NhEBx"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Frequently Asked Questions",
+        "page": ""
+      }
     }
   },
   "order": [
     "main",
+    "17570441195a98675a",
     "product_recommendations_e6WMRL",
-    "17570441195a98675a"
+    "hae_faqs_zapPEk"
   ]
 }
