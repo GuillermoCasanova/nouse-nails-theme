@@ -138,10 +138,6 @@ body {
   color: rgb(var(--color-base-text-1));
 }
 
-
-
-
-
 /*------------------------------------*\
     #Animations
 \*------------------------------------*/
@@ -158,10 +154,6 @@ body {
     transition: none !important;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Typography
@@ -189,6 +181,12 @@ body {
   }
 }
 
+@media screen and (min-width: 2000px) {
+  :root {
+    font-size: 1.075rem;
+  }
+}
+
 @font-face {
   font-family: 'Mabry-Regular';
   src:
@@ -208,10 +206,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Headlines
@@ -387,10 +381,6 @@ h6 p {
   margin-bottom: var(--space-8);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Default Text Selection Color 
 \*------------------------------------*/
@@ -404,10 +394,6 @@ h6 p {
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-base-text-1));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Paragraphs
@@ -428,10 +414,6 @@ p {
   position: fixed;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Links
 \*------------------------------------*/
@@ -439,10 +421,6 @@ p {
 a {
   color: rgb(var(--color-base-text));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Sections
@@ -500,10 +478,6 @@ a {
   padding-bottom: var(--section-padding-large);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Paddings
 \*------------------------------------*/
@@ -528,10 +502,6 @@ a {
   padding: var(--padding-x-large);
 }
 
-
-
-
-
 /*------------------------------------*\
   #Overflows Hiding
 \*------------------------------------*/
@@ -541,10 +511,6 @@ a {
 .overflow-hidden {
   overflow: hidden;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Visibility
@@ -635,10 +601,6 @@ h6:empty {
   cursor: normal;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Main Padding + Margin Top
 \*------------------------------------*/
@@ -657,10 +619,6 @@ main {
     padding-top: var(--space-7);
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Media Component
@@ -724,10 +682,6 @@ deferred-media {
   border-radius: 50%;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Summary + Details Base
 \*------------------------------------*/
@@ -748,10 +702,6 @@ summary .icon-caret {
 summary::-webkit-details-marker {
   display: none;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Disclosure
@@ -788,10 +738,6 @@ summary::-webkit-details-marker {
     z-index: 2;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
   #Buttons 
@@ -893,10 +839,6 @@ button:hover,
 .text-link:focus {
   text-decoration: none;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Global Loader
@@ -1009,10 +951,6 @@ button:hover,
   height: 100%;
 }
 
-
-
-
-
 /*------------------------------------*\
   #Text with Icon
 \*------------------------------------*/
@@ -1023,10 +961,6 @@ button:hover,
   gap: var(--space-3);
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icon
@@ -1057,10 +991,6 @@ button:hover,
   height: 2rem;
 }
 
-
-
-
-
 /*------------------------------------*\
   #Eyebrow
 \*------------------------------------*/
@@ -1068,10 +998,6 @@ button:hover,
 .text-eyebrow {
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icons
@@ -1099,10 +1025,6 @@ button:hover,
   height: 1.75rem;
   display: inline-block;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Image with Aspect Ratio
