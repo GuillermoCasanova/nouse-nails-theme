@@ -270,6 +270,12 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
+
+      klaviyo.init({
+        account: '{{ settings.klaviyo_account_id }}',
+        platform: 'shopify',
+        collection_urls: ['/collections/'],
+      });
     </script>
   </body>
 </html>

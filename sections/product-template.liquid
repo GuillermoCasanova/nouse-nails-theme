@@ -289,7 +289,26 @@
                       {{ block.shopify_attributes }}
                     >
                       <ul class='tabbed-interface__tabs' role='tablist'>
+                        {%- assign has_description = false -%}
                         {%- if product.description != blank -%}
+                          {%- assign has_description = true -%}
+                        {%- endif -%}
+                        {%- assign return_policy_blocks = section.blocks
+                          | where: 'type', 'return_policy'
+                        -%}
+                        {%- assign has_return_policy = false -%}
+                        {%- if return_policy_blocks.size > 0 -%}
+                          {%- assign has_return_policy = true -%}
+                        {%- endif -%}
+                        {%- assign tab_count = 0 -%}
+                        {%- if has_description -%}
+                          {% assign tab_count = tab_count | plus: 1 %}
+                        {%- endif -%}
+                        {%- if has_return_policy -%}
+                          {% assign tab_count = tab_count | plus: 1 %}
+                        {%- endif -%}
+
+                        {%- if has_description -%}
                           <li role='presentation'>
                             <button
                               id='tab1'
@@ -302,16 +321,17 @@
                           </li>
                         {%- endif -%}
 
-                        {%- assign return_policy_blocks = section.blocks
-                          | where: 'type', 'return_policy'
-                        -%}
-                        {%- if return_policy_blocks.size > 0 -%}
+                        {%- if has_return_policy -%}
                           <li role='presentation'>
                             <button
                               id='tab4'
                               role='tab'
                               aria-controls='tabpanel4'
-                              aria-selected='false'
+                              {% if has_description %}
+                                aria-selected='false'
+                              {% else %}
+                                aria-selected='true'
+                              {% endif %}
                             >
                               {{ return_policy_blocks.first.settings.heading }}
                             </button>
@@ -360,7 +380,9 @@
                           class='tabbed-interface__panel'
                           role='tabpanel'
                           aria-labelledby='tab4'
-                          hidden
+                          {% if has_description %}
+                            hidden
+                          {% endif %}
                         >
                           <div class='product__description'>
                             {{ return_policy_blocks.first.settings.description }}

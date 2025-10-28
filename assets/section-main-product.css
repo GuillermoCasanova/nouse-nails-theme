@@ -29,6 +29,10 @@
   padding-top: var(--space-1);
 }
 
+
+
+
+
 /*------------------------------------*\
       #Dynamic Checkout
 \*------------------------------------*/
@@ -89,6 +93,10 @@
 .shopify-payment-button__button + .shopify-payment-button__button--hidden {
   display: none;
 }
+
+
+
+
 
 /*------------------------------------*\
       #Product Form
@@ -240,6 +248,10 @@ variant-selects {
   letter-spacing: 0.1rem;
 }
 
+
+
+
+
 /*------------------------------------*\
       #Product Info
 \*------------------------------------*/
@@ -304,6 +316,10 @@ a.product__text {
 .product__type {
   margin-bottom: var(--space-2);
 }
+
+
+
+
 
 /*------------------------------------*\
       #Price
@@ -448,6 +464,10 @@ shopify-payment-terms {
   padding-right: var(--space-6);
 }
 
+
+
+
+
 /*------------------------------------*\
     #Tabbed Interface
 \*------------------------------------*/
@@ -496,6 +516,10 @@ shopify-payment-terms {
 .tabbed-interface__tabs button:focus {
   opacity: 1;
 }
+
+
+
+
 
 /*------------------------------------*\
     #Product Recipient Form

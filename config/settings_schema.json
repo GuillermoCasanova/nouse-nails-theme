@@ -163,7 +163,7 @@
             "id": "colors_background_3",
             "default": "#EEEDE8",
             "label": "Gradient Background Color"
-          },
+          }
         ],
         "role": {
           "text": "colors_text",
@@ -757,7 +757,7 @@
         "id": "social_tiktok_link",
         "label": "TikTok",
         "info": "https://www.tiktok.com/@shopify"
-      },  
+      },
       {
         "type": "text",
         "id": "social_pinterest_link",
@@ -1069,6 +1069,17 @@
           "zh-CN": "https://vimeo.com/shopify",
           "zh-TW": "https://vimeo.com/shopify"
         }
+      }
+    ]
+  },
+  {
+    "name": "Klaviyo Account ID",
+    "settings": [
+      {
+        "type": "text",
+        "id": "klaviyo_account_id",
+        "label": "Klaviyo Account ID",
+        "info": "Enter your Klaviyo account ID"
       }
     ]
   },
