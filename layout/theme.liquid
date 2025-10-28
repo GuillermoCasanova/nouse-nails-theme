@@ -278,6 +278,7 @@
       klaviyo.init({
         account: '{{ settings.klaviyo_account_id }}',
         platform: 'shopify',
+        collection_urls: ['/collections/'],
       });
       klaviyo.enable('backinstock', {
         trigger: {
