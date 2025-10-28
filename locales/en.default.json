@@ -44,7 +44,8 @@
       "label": "Pagination",
       "page": "Page {{ number }}",
       "next": "Next page",
-      "previous": "Previous page"
+      "previous": "Previous page",
+      "current_page": "Page {{ current }} of {{ total }}"
     },
     "search": {
       "search": "Search",
@@ -104,6 +105,14 @@
         "blog_title": "Blog post title",
         "blog_excerpt": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
       }
+    }
+  },
+  "hae": {
+    "copy": {
+      "ticker": "NOUS NAILS"
+    },
+    "about": {
+      "main": "About our brand"
     }
   },
   "newsletter": {
