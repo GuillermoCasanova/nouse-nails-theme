@@ -194,11 +194,6 @@
 
     <!-- CONTENT FOR HEADER -->
     {{ content_for_header }}
-
-    <script
-      async
-      src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id={{ settings.klaviyo_account_id }}'
-    ></script>
   </head>
 
   <body class='template-{{ request.page_type | handle }}'>
@@ -275,6 +270,15 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
+    </script>
+
+    <script src='https://a.klaviyo.com/media/js/onsite/onsite.js'></script>
+    <script>
+      var klaviyo = klaviyo || [];
+      klaviyo.init({
+        account: '{{ settings.klaviyo_account_id }}',
+        platform: 'shopify',
+      });
     </script>
   </body>
 </html>
