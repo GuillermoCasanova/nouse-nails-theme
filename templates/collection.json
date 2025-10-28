@@ -21,9 +21,25 @@
         "sort_enable": true,
         "tags_enable": true
       }
+    },
+    "1761618453a1fad14b": {
+      "type": "apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_X9rV4P": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": ""
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_X9rV4P"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "1761618453a1fad14b"
   ]
 }
