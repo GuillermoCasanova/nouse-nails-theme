@@ -148,6 +148,14 @@
             "text": "Easy removal",
             "text_size": "text-size-medium"
           }
+        },
+        "button_dWdbrp": {
+          "type": "button",
+          "settings": {
+            "button_label": "How To Apply",
+            "button_link": "shopify://pages/how-to",
+            "button_size": "button--medium"
+          }
         }
       },
       "block_order": [
@@ -158,7 +166,8 @@
         "text_with_icon_CcfNk9",
         "text_with_icon_CTxiK4",
         "text_with_icon_KgNHp7",
-        "text_with_icon_QfE8jK"
+        "text_with_icon_QfE8jK",
+        "button_dWdbrp"
       ],
       "name": "Image with text",
       "settings": {
