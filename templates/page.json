@@ -66,7 +66,8 @@
         "color_scheme": "",
         "media_type": "video",
         "media_aspect_ratio": "1/1",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/bc31c17c41fb4248a133fd0d5ec54a73.mov"
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/bc31c17c41fb4248a133fd0d5ec54a73.mov",
+        "video_poster": "shopify://shop_images/01_CP.png"
       }
     },
     "hae_image_with_text_GRi7tR": {
