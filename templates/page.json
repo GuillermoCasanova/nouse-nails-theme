@@ -11,10 +11,26 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "padding_size": "section-padding-small"
+      }
+    },
+    "main_page_header_z7GBQx": {
+      "type": "main-page-header",
+      "name": "Main Page Header",
+      "settings": {
+        "custom_title": "",
+        "subtitle": "",
+        "header_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
+        "padding_size": "section-padding-x-small",
+        "heading_size": "headline-style-h1",
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "main_page_header_z7GBQx"
   ]
 }
