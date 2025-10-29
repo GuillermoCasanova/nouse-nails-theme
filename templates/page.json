@@ -27,10 +27,136 @@
         "heading_size": "headline-style-h1",
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a"
       }
+    },
+    "hae_image_with_text_k47d3J": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_jenjyE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_MqwR84": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_aRDteA": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jenjyE",
+        "text_MqwR84",
+        "button_aRDteA"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "left",
+        "color_scheme": "",
+        "media_type": "video",
+        "media_aspect_ratio": "1/1",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/bc31c17c41fb4248a133fd0d5ec54a73.mov"
+      }
+    },
+    "hae_image_with_text_GRi7tR": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_riGgRC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_xBHirn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_aCJEJi": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_riGgRC",
+        "text_xBHirn",
+        "button_aCJEJi"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "right",
+        "color_scheme": "",
+        "media_type": "video",
+        "media_aspect_ratio": "1/1",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/c636a3eef91f47c79616fd88c4c5308f.mov"
+      }
+    },
+    "hae_image_with_text_WYneU9": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_HB9GAD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_yfVRQF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_txW9r8": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HB9GAD",
+        "text_yfVRQF",
+        "button_txW9r8"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "left",
+        "color_scheme": "",
+        "media_type": "video",
+        "media_aspect_ratio": "1/1",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov"
+      }
     }
   },
   "order": [
     "main",
-    "main_page_header_z7GBQx"
+    "main_page_header_z7GBQx",
+    "hae_image_with_text_k47d3J",
+    "hae_image_with_text_GRi7tR",
+    "hae_image_with_text_WYneU9"
   ]
 }
