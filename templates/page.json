@@ -34,7 +34,7 @@
         "heading_jenjyE": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "01",
             "heading_size": "headline-style-h2"
           }
         },
@@ -104,7 +104,7 @@
       "name": "Image with text",
       "settings": {
         "layout": "right",
-        "color_scheme": "",
+        "color_scheme": "scheme-6628b2c5-2a6e-43ae-9f30-7d31869aa0c7",
         "media_type": "video",
         "media_aspect_ratio": "1/1",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/c636a3eef91f47c79616fd88c4c5308f.mov"
@@ -145,7 +145,7 @@
       "name": "Image with text",
       "settings": {
         "layout": "left",
-        "color_scheme": "",
+        "color_scheme": "background-1",
         "media_type": "video",
         "media_aspect_ratio": "1/1",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov"
