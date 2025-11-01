@@ -41,14 +41,14 @@
         "text_MqwR84": {
           "type": "text",
           "settings": {
-            "text": "<p>Love nails and creating content? The Nous Creator Program is for our most dedicated, creative voices — the ones who make beauty feel effortless and real.<br/><br/>Receive <strong>monthly free nails</strong>, commissions, and exclusive perks when you're part of the Nous creator community.</p><p>Apply by emailing us your @ social handle:</p>",
+            "text": "<p>Love Nous Nails? <em><strong>Earn money</strong></em> every time someone shops through your link or code. The Nous Affiliate Program is open to everyone — no approval process, *no gatekeeping* just real rewards for sharing what you already love.</p><p>Receive tiered commissions, unlock perks, and level up as your sales grow.</p>",
             "text_size": "text-size-medium"
           }
         },
         "button_aRDteA": {
           "type": "button",
           "settings": {
-            "button_label": "Email Us",
+            "button_label": "Apply Now",
             "button_link": "mailto:partnerships@nousnails.com",
             "button_size": "button--medium"
           }
