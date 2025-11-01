@@ -111,46 +111,41 @@
         "video_url": ""
       }
     },
-    "hae_image_with_text_WYneU9": {
-      "type": "hae-image-with-text",
+    "hae_faqs_kMwEaE": {
+      "type": "hae-faqs",
       "blocks": {
-        "heading_HB9GAD": {
-          "type": "heading",
+        "faq_block_3w7UK6": {
+          "type": "faq_block",
           "settings": {
-            "heading": "03. Buff & Slay",
-            "heading_size": "headline-style-h2"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         },
-        "text_yfVRQF": {
-          "type": "text",
+        "faq_block_qDCeVR": {
+          "type": "faq_block",
           "settings": {
-            "text": "<p>Once cured, clip and file to your desired shape. Always buff in a side or downward motion for a smooth, salon-quality finish.</p><p><span style=\"text-decoration:underline\"><strong>Tips</strong></span>:<br/>• Avoid filing in an up-and-down motion, which can lift the strip after curing.<br/>• Skip lotion or oils for at least one hour post-application for maximum hold.<br/>• Your Nous nails are ready to slay — lasting up to 14+ days of chip-free shine.</p>",
-            "text_size": "text-size-medium"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         },
-        "button_txW9r8": {
-          "type": "button",
-          "disabled": true,
+        "faq_block_DtC4dQ": {
+          "type": "faq_block",
           "settings": {
-            "button_label": "Button",
-            "button_link": "",
-            "button_size": "button--medium"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         }
       },
       "block_order": [
-        "heading_HB9GAD",
-        "text_yfVRQF",
-        "button_txW9r8"
+        "faq_block_3w7UK6",
+        "faq_block_qDCeVR",
+        "faq_block_DtC4dQ"
       ],
-      "name": "Image with text",
+      "name": "FAQ Section",
       "settings": {
-        "layout": "left",
-        "color_scheme": "background-1",
-        "media_type": "video",
-        "media_aspect_ratio": "1/1",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov",
-        "video_poster": "shopify://shop_images/03_CP.png"
+        "color_scheme": "",
+        "heading": "Frequently Asked Questions",
+        "page": ""
       }
     }
   },
@@ -159,6 +154,6 @@
     "main_page_header_z7GBQx",
     "hae_image_with_text_k47d3J",
     "hae_image_with_text_GRi7tR",
-    "hae_image_with_text_WYneU9"
+    "hae_faqs_kMwEaE"
   ]
 }
