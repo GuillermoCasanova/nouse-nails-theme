@@ -41,7 +41,7 @@
         "text_MqwR84": {
           "type": "text",
           "settings": {
-            "text": "<p>Love nails and creating content? Receive <strong>monthly free nails</strong>, commissions, and exclusive perks when you share your Nous looks.</p><p>Apply by emailing us your @ social handle:</p>",
+            "text": "<p>Love nails and creating content? The Nous Creator Program is for our most dedicated, creative voices — the ones who make beauty feel effortless and real.<br/><br/>Receive <strong>monthly free nails</strong>, commissions, and exclusive perks when you're part of the Nous creator community.</p><p>Apply by emailing us your @ social handle:</p>",
             "text_size": "text-size-medium"
           }
         },
@@ -75,7 +75,7 @@
         "heading_riGgRC": {
           "type": "heading",
           "settings": {
-            "heading": "02. Cure",
+            "heading": "How It Works",
             "heading_size": "headline-style-h2"
           }
         },
@@ -105,10 +105,10 @@
       "settings": {
         "layout": "right",
         "color_scheme": "scheme-6628b2c5-2a6e-43ae-9f30-7d31869aa0c7",
-        "media_type": "video",
+        "media_type": "image",
         "media_aspect_ratio": "1/1",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/c636a3eef91f47c79616fd88c4c5308f.mov",
-        "video_poster": "shopify://shop_images/02_CP.png"
+        "image": "shopify://shop_images/QD-331_Edit.jpg",
+        "video_url": ""
       }
     },
     "hae_image_with_text_WYneU9": {
