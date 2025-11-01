@@ -34,23 +34,22 @@
         "heading_jenjyE": {
           "type": "heading",
           "settings": {
-            "heading": "01. Measure & Stick",
+            "heading": "Join the Nous Creator Program",
             "heading_size": "headline-style-h2"
           }
         },
         "text_MqwR84": {
           "type": "text",
           "settings": {
-            "text": "<p>Clean your nails with the provided prep pad. Choose the perfect size for each nail and press the gel strip smoothly from cuticle to tip. Use the wooden stick to roll out any air bubbles—press and seal the edges carefully for a flawless fit.<br/><br/><span style=\"text-decoration:underline\"><strong>Tips</strong></span>:<br/>• Use prep pad (provided) to start with clean, oil-free nails.<br/>• Pick the strip that fits your nail bed best – if in doubt, size slightly smaller rather than larger.<br/>• For smaller strips, warm it in your palms before applying, then gently stretch and adhere.<br/>• Keep off cuticles—stick to nail bed only.<br/>• Seal edges with provided wooden stick.<br/>• Don’t fold or crease the strip.</p>",
+            "text": "<p>Love nails and creating content? Earn <strong>monthly free nails</strong>, commissions, and exclusive perks when you share your Nous looks.</p>",
             "text_size": "text-size-medium"
           }
         },
         "button_aRDteA": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "Button",
-            "button_link": "",
+            "button_label": "Apply Now",
+            "button_link": "mailto:partnerships@nousnails.com",
             "button_size": "button--medium"
           }
         }
@@ -64,10 +63,10 @@
       "settings": {
         "layout": "left",
         "color_scheme": "",
-        "media_type": "video",
+        "media_type": "image",
         "media_aspect_ratio": "1/1",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/bc31c17c41fb4248a133fd0d5ec54a73.mov",
-        "video_poster": "shopify://shop_images/01_CP.png"
+        "image": "shopify://shop_images/QD-758_Edit.jpg",
+        "video_url": ""
       }
     },
     "hae_image_with_text_GRi7tR": {
