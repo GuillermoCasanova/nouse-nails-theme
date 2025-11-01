@@ -123,15 +123,15 @@
         "faq_block_R63JyP": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "When and how do I get paid?",
+            "answer": "<p>Commissions are tracked automatically through your affiliate dashboard. Payouts are processed monthly based on your total confirmed sales for that period.</p>"
           }
         },
         "faq_block_99G3Y8": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "Can I still apply for the Creator Program too?",
+            "answer": "<p>Yes! ☺︎ The Affiliate Program is open to everyone, while the <a href=\"/pages/creator-program\" target=\"_blank\" title=\"Creator Program\"><strong>Creator Program</strong></a> is invite-only for select creators who receive <em>monthly free nails</em> and other exclusive perks. You can be <strong>both</strong> — creators automatically earn affiliate commissions too.</p>"
           }
         }
       },
