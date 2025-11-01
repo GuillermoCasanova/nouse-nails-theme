@@ -147,6 +147,21 @@
         "page": "faq",
         "table_image": "shopify://shop_images/Affiliate_Gride.png"
       }
+    },
+    "hero_T9pFNb": {
+      "type": "hero",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/Affiliate_Gride_cde4dcce-65bd-4dde-9c9f-418595559caf.png",
+        "alignment": "top",
+        "hero_layout": "full_width",
+        "hero_size": "large",
+        "text_size": "medium",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -154,6 +169,7 @@
     "main_page_header_z7GBQx",
     "hae_image_with_text_k47d3J",
     "hae_image_with_text_GRi7tR",
-    "hae_faqs_kMwEaE"
+    "hae_faqs_kMwEaE",
+    "hero_T9pFNb"
   ]
 }
