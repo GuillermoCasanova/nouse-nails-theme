@@ -113,32 +113,32 @@
     "hae_faqs_kMwEaE": {
       "type": "hae-faqs",
       "blocks": {
-        "faq_block_3w7UK6": {
+        "faq_block_U7r6rD": {
           "type": "faq_block",
           "settings": {
-            "question": "How do I apply?",
-            "answer": "<p>Easy — just email us at <a href=\"mailto:partnerships@nousnails.com\" target=\"_blank\" title=\"mailto:partnerships@nousnails.com\"><strong>partnerships@nousnails.com</strong></a> with your name, social handles, and a short intro about why you’d love to join. If you’re a fit, our team will reach out with your welcome kit and next steps.</p>"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         },
-        "faq_block_qDCeVR": {
+        "faq_block_R63JyP": {
           "type": "faq_block",
           "settings": {
-            "question": "Do I need a big following to be accepted?",
-            "answer": "<p>Nope ✱ We care more about creativity, consistency, and genuine love for Nous Nails than follower count. Whether you’re just starting out or already creating regularly, we want to see your vibe. ☺</p>"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         },
-        "faq_block_DtC4dQ": {
+        "faq_block_99G3Y8": {
           "type": "faq_block",
           "settings": {
-            "question": "Do creators get paid?",
-            "answer": "<p>Creators receive <strong>free monthly nail kits</strong>, exclusive perks, and earn <strong>commissions on all sales</strong> through their unique code or link. As you grow, you’ll unlock more collab opportunities and higher-tier rewards.</p>"
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
           }
         }
       },
       "block_order": [
-        "faq_block_3w7UK6",
-        "faq_block_qDCeVR",
-        "faq_block_DtC4dQ"
+        "faq_block_U7r6rD",
+        "faq_block_R63JyP",
+        "faq_block_99G3Y8"
       ],
       "name": "FAQ Section",
       "settings": {
@@ -147,21 +147,6 @@
         "page": "faq",
         "table_image": "shopify://shop_images/Affiliate_Gride.png"
       }
-    },
-    "hero_T9pFNb": {
-      "type": "hero",
-      "name": "Image with text overlay",
-      "settings": {
-        "image": "shopify://shop_images/Affiliate_Gride_cde4dcce-65bd-4dde-9c9f-418595559caf.png",
-        "alignment": "top",
-        "hero_layout": "full_width",
-        "hero_size": "large",
-        "text_size": "medium",
-        "title": "",
-        "text": "",
-        "button_label": "",
-        "button_link": ""
-      }
     }
   },
   "order": [
@@ -169,7 +154,6 @@
     "main_page_header_z7GBQx",
     "hae_image_with_text_k47d3J",
     "hae_image_with_text_GRi7tR",
-    "hae_faqs_kMwEaE",
-    "hero_T9pFNb"
+    "hae_faqs_kMwEaE"
   ]
 }
