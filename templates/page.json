@@ -48,7 +48,7 @@
         "button_aRDteA": {
           "type": "button",
           "settings": {
-            "button_label": "Apply Now",
+            "button_label": "Email Us",
             "button_link": "mailto:partnerships@nousnails.com",
             "button_size": "button--medium"
           }
