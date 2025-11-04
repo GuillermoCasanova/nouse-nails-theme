@@ -147,7 +147,8 @@
         "color_scheme": "",
         "media_type": "video",
         "media_aspect_ratio": "1/1",
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov"
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov",
+        "video_poster": "shopify://shop_images/03_CP.png"
       }
     },
     "hae_marquee_banner_L8ggAh": {
