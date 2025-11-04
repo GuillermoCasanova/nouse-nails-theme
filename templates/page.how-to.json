@@ -47,6 +47,7 @@
         },
         "button_aRDteA": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Affilate Sign Up",
             "button_link": "mailto:partnerships@nousnails.com",
@@ -75,19 +76,20 @@
         "heading_riGgRC": {
           "type": "heading",
           "settings": {
-            "heading": "How It Works",
+            "heading": "02. Cure",
             "heading_size": "headline-style-h2"
           }
         },
         "text_xBHirn": {
           "type": "text",
           "settings": {
-            "text": "<p>1. <strong>Sign up</strong> through our affiliate portal to get your custom code or link.<br/>2. <strong>Share</strong> your Nous Nails looks or content on socials, tagging @nousnails.<br/>3. <strong>Earn cash</strong> commissions based on your monthly sales tier — plus extra perks as you grow..<br/></p><p>Perks include<strong>:<br/></strong>• Tiered commissions up to 30%<br/>• Priority for future collabs and PR boxes<br/>• Features on our site + reposts<br/>• Access to early launches and giveaways</p>",
+            "text": "<p>Plug in your Nous LED Lamp and tap to power on. Cure each hand for 60 seconds to lock in a long-lasting finish.<br/><br/><strong>Do’s & Don’ts</strong>:<br/>• <strong>Do</strong>: Keep your hand steady under the lamp until the lamp turns off.<br/>• <strong>Don’t</strong>: Remove your hand mid-curing as this can affect adhesion and shine.</p>",
             "text_size": "text-size-medium"
           }
         },
         "button_aCJEJi": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Join Affilate Program",
             "button_link": "",
@@ -116,19 +118,20 @@
         "heading_wXTbWy": {
           "type": "heading",
           "settings": {
-            "heading": "Earn as You Share ✱ Nous Affiliate Program",
+            "heading": "03. Buff & Slay",
             "heading_size": "headline-style-h2"
           }
         },
         "text_WUHNPB": {
           "type": "text",
           "settings": {
-            "text": "<p>Love Nous Nails? <em><strong>Earn money</strong></em> every time someone shops through your link or code. The Nous Affiliate Program is open to everyone — no approval process, *no gatekeeping* just real rewards for sharing what you already love.</p><p>Receive tiered commissions, unlock perks, and level up as your sales grow.</p>",
+            "text": "<p>Once cured, clip and file to your desired shape. Always buff in a side or downward motion for a smooth, salon-quality finish.</p><p><strong>Tips</strong>:<br/>Avoid filing in an up-and-down motion, which can lift the strip after curing.</p><p>Skip lotion or oils for at least one hour post-application for maximum hold.</p><p>Your Nous nails are ready to slay — lasting up to 14+ days of chip-free shine.</p>",
             "text_size": "text-size-medium"
           }
         },
         "button_4hT7rg": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Affilate Sign Up",
             "button_link": "mailto:partnerships@nousnails.com",
