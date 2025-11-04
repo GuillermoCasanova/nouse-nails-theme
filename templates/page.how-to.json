@@ -185,12 +185,28 @@
             "question": "Can I use these on extensions?",
             "answer": "<p>Yes! If you prefer a longer nail look, you can apply Nous nail strips over clear press-ons or extensions just like you would on natural nails. Be sure the base surface is clean and dry before applying.</p>"
           }
+        },
+        "faq_block_4DxKwD": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How can I make them last longer?",
+            "answer": "<p>A few pro tips:<br/>• Always start with clean, oil-free nails using the provided prep pad.<br/>• Use the wooden stick to roll out air bubbles and seal the edges before curing.<br/>• Avoid oils or soaking your hands for at least one hour after application.<br/>• For extra shine and protection, finish with a clear top coat. With good prep, your Nous nails can handle gym sessions, dish-washing, typing, and all-day life—minus the click-clack.</p>"
+          }
+        },
+        "faq_block_YWiRy3": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I remove them?",
+            "answer": "<p>Use our <a href=\"/products/ctrl-delete-nail-remover-serum\" target=\"_blank\" title=\"Ctrl+Delete Vitamin Serum Remover\"><strong>Ctrl + Delete Vitamin Serum Remover</strong></a> by applying drops between the nail strip and nail bed. Use the wooden stick to gently lift the edges, adding more remover as needed until the strip slides off completely. Once removed, you’ll notice your nails feel healthier—no harsh drilling, no salon damage, just clean removal and care.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_U7r6rD",
         "faq_block_R63JyP",
-        "faq_block_99G3Y8"
+        "faq_block_99G3Y8",
+        "faq_block_4DxKwD",
+        "faq_block_YWiRy3"
       ],
       "name": "FAQ Section",
       "settings": {
