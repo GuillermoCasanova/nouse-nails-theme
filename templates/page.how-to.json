@@ -110,6 +110,55 @@
         "video_url": ""
       }
     },
+    "hae_image_with_text_pjpXD6": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "heading_wXTbWy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Earn as You Share ✱ Nous Affiliate Program",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_WUHNPB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Love Nous Nails? <em><strong>Earn money</strong></em> every time someone shops through your link or code. The Nous Affiliate Program is open to everyone — no approval process, *no gatekeeping* just real rewards for sharing what you already love.</p><p>Receive tiered commissions, unlock perks, and level up as your sales grow.</p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_4hT7rg": {
+          "type": "button",
+          "settings": {
+            "button_label": "Affilate Sign Up",
+            "button_link": "mailto:partnerships@nousnails.com",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wXTbWy",
+        "text_WUHNPB",
+        "button_4hT7rg"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "left",
+        "color_scheme": "",
+        "media_type": "image",
+        "media_aspect_ratio": "1/1",
+        "image": "shopify://shop_images/QD-2347_Edit.jpg",
+        "video_url": ""
+      }
+    },
+    "hae_marquee_banner_L8ggAh": {
+      "type": "hae-marquee-banner",
+      "name": "News ticker banner",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "text": ""
+      }
+    },
     "hae_faqs_kMwEaE": {
       "type": "hae-faqs",
       "blocks": {
@@ -144,7 +193,7 @@
       "settings": {
         "color_scheme": "",
         "heading": "Frequently Asked Questions",
-        "page": "faq",
+        "page": "",
         "table_image": "shopify://shop_images/Affiliate_Gride.png"
       }
     }
@@ -154,6 +203,8 @@
     "main_page_header_z7GBQx",
     "hae_image_with_text_k47d3J",
     "hae_image_with_text_GRi7tR",
+    "hae_image_with_text_pjpXD6",
+    "hae_marquee_banner_L8ggAh",
     "hae_faqs_kMwEaE"
   ]
 }
