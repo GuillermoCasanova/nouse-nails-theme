@@ -143,10 +143,9 @@
       "settings": {
         "layout": "left",
         "color_scheme": "",
-        "media_type": "image",
+        "media_type": "video",
         "media_aspect_ratio": "1/1",
-        "image": "shopify://shop_images/QD-2347_Edit.jpg",
-        "video_url": ""
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov"
       }
     },
     "hae_marquee_banner_L8ggAh": {
