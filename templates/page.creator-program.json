@@ -88,6 +88,7 @@
         },
         "button_aCJEJi": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Join Affilate Program",
             "button_link": "",
