@@ -82,7 +82,7 @@
         "text_xBHirn": {
           "type": "text",
           "settings": {
-            "text": "<p>1. <strong>Sign up</strong> through our affiliate portal to get your custom code or link.<br/>2. <strong>Share</strong> your Nous Nails looks or content on socials, tagging @nousnails.<br/>3. <strong>Earn cash</strong> commissions based on your monthly sales tier — plus extra perks as you grow..<br/></p><p>Perks include<strong>:<br/></strong>• Tiered commissions up to 25%<br/>• Priority for future collabs and PR boxes<br/>• Features on our site + reposts<br/>• Access to early launches and giveaways</p>",
+            "text": "<p>1. <strong>Sign up</strong> through our affiliate portal to get your custom code or link.<br/>2. <strong>Share</strong> your Nous Nails looks or content on socials, tagging @nousnails.<br/>3. <strong>Earn cash</strong> commissions based on your monthly sales tier — plus extra perks as you grow..<br/></p><p>Perks include<strong>:<br/></strong>• Tiered commissions up to 25% (<em>for affiliates who generate over $1,000 monthly revenue</em>)<br/>• Priority for future collabs and PR boxes<br/>• Features on our site + reposts<br/>• Access to early launches and giveaways</p>",
             "text_size": "text-size-medium"
           }
         },
@@ -144,8 +144,7 @@
       "settings": {
         "color_scheme": "",
         "heading": "Frequently Asked Questions",
-        "page": "faq",
-        "table_image": "shopify://shop_images/Affiliate_Gride.png"
+        "page": "faq"
       }
     }
   },
