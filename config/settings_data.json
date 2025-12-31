@@ -213,7 +213,7 @@
           "quick_links_menu": "footer",
           "show_newsletter": true,
           "newsletter_title": "Stay Updated",
-          "newsletter_description": "<p>Sign up for 20% off your first order. Promise, we don't spam ☻</p>",
+          "newsletter_description": "<p>Sign up for 15% off your first order. Promise, we don't spam ☻</p>",
           "newsletter_placeholder": "Enter your email",
           "newsletter_button_text": "Subscribe",
           "copyright_text": "All rights reserved.",
@@ -567,7 +567,7 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "announcement_text": "<p>Sign Up for Emails to Receive 20% Off First Order | Free U.S. Shipping Over $30+</p>",
+          "announcement_text": "<p>Sign Up for Emails to Receive 15% Off First Order | Free U.S. Shipping Over $30+</p>",
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "show_close_button": true
         }
