@@ -19,8 +19,9 @@
         "smile_io_smile_landing_page_header_RaRfAq": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-header/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333",
-            "secondary_colour": "#fff",
+            "primary_colour": "#f8eee3",
+            "secondary_colour": "#6d0506",
+            "background_image": "shopify://shop_images/QD-758_Edit.jpg",
             "title_text": "",
             "description_text": "",
             "join_button_text": "",
