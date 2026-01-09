@@ -1,0 +1,336 @@
+#!/usr/bin/env node
+
+/**
+ * Critical CSS Extractor for Shopify Theme
+ * 
+ * This script scans Liquid files for <link> tags with inline-css="true" attribute,
+ * extracts the CSS files, minifies them, and writes to critical-css.liquid
+ * 
+ * Usage: 
+ *   node scripts/extract-critical-css.js
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+// Directories to scan for Liquid files
+const LIQUID_DIRS = [
+  'sections',
+  'templates',
+  'snippets',
+  'layout'
+];
+    
+    // Output file
+const OUTPUT_FILE = 'snippets/critical-css.liquid';
+
+/**
+ * Find all Liquid files in specified directories
+ */
+function findLiquidFiles(rootDir) {
+  const liquidFiles = [];
+  
+  for (const dir of LIQUID_DIRS) {
+    const dirPath = path.join(rootDir, dir);
+    if (!fs.existsSync(dirPath)) continue;
+    
+    const files = fs.readdirSync(dirPath, { recursive: true });
+    for (const file of files) {
+      if (typeof file === 'string' && file.endsWith('.liquid')) {
+        liquidFiles.push(path.join(dir, file));
+      }
+    }
+  }
+  
+  return liquidFiles;
+}
+
+/**
+ * Extract CSS filenames from link tags with inline-css="true"
+ */
+function extractInlineCSSFiles(liquidContent) {
+  const cssFiles = new Set();
+  
+  // Find all link tags, including multiline ones
+  // Match from <link to the closing >, handling attributes across multiple lines
+  // We need to be careful not to match > inside attribute values
+  let pos = 0;
+  
+  while (pos < liquidContent.length) {
+    // Find the start of a link tag
+    const linkStart = liquidContent.indexOf('<link', pos);
+    if (linkStart === -1) break;
+    
+    // Find the end of the link tag (closing >)
+    // We need to handle multiline tags, so we'll search for > that's not inside quotes
+    let linkEnd = linkStart + 5; // Start after "<link"
+    let inQuotes = false;
+    let quoteChar = null;
+    
+    while (linkEnd < liquidContent.length) {
+      const char = liquidContent[linkEnd];
+      
+      if (!inQuotes && (char === '"' || char === "'")) {
+        inQuotes = true;
+        quoteChar = char;
+      } else if (inQuotes && char === quoteChar) {
+        inQuotes = false;
+        quoteChar = null;
+      } else if (!inQuotes && char === '>') {
+        linkEnd++;
+        break;
+      }
+      
+      linkEnd++;
+    }
+    
+    if (linkEnd > liquidContent.length) break;
+    
+    // Extract the link tag
+    const linkTag = liquidContent.substring(linkStart, linkEnd);
+    
+    // Check if this link tag has inline-css="true" (case insensitive, handles quotes)
+    if (!/inline-css\s*=\s*["']?true["']?/i.test(linkTag)) {
+      pos = linkEnd;
+      continue;
+    }
+    
+    // Extract CSS filename directly from the link tag
+    // Look for the Liquid pattern: {{ 'filename.css' | asset_url }}
+    // This pattern might span multiple lines, so we normalize whitespace first
+    const normalizedTag = linkTag.replace(/\s+/g, ' ');
+    const liquidMatch = normalizedTag.match(/\{\{\s*['"]([^'"]+\.css)['"]\s*\|\s*asset_url\s*\}\}/);
+    if (liquidMatch) {
+      cssFiles.add(liquidMatch[1]);
+    }
+    
+    pos = linkEnd;
+  }
+  
+  return Array.from(cssFiles);
+}
+
+/**
+ * Read a CSS file
+ */
+function readCSSFile(filePath, rootDir) {
+  const fullPath = path.join(rootDir, 'assets', filePath);
+  try {
+    return fs.readFileSync(fullPath, 'utf8');
+  } catch (error) {
+    console.warn(`⚠️  Warning: Could not read ${filePath}: ${error.message}`);
+    return '';
+  }
+}
+
+/**
+ * Remove CSS comments only, preserving all original formatting
+ * This ensures all CSS functionality is maintained exactly as written
+ */
+function minifyCSS(css) {
+  if (!css) return '';
+  
+  let cleaned = css;
+  
+  // Remove CSS comments (/* ... */) only
+  // This preserves all whitespace, formatting, and structure
+  cleaned = cleaned.replace(/\/\*[\s\S]*?\*\//g, '');
+  
+  // Normalize line endings to be consistent
+  cleaned = cleaned.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  
+  // Remove any trailing whitespace at the end of the file
+  cleaned = cleaned.trimEnd();
+  
+  return cleaned;
+}
+
+/**
+ * Comment out link tags with inline-css="true" in a Liquid file
+ */
+function commentOutInlineCSSLinks(liquidContent) {
+  let modifiedContent = liquidContent;
+  let pos = 0;
+  const replacements = [];
+  
+  while (pos < liquidContent.length) {
+    // Find the start of a link tag
+    const linkStart = liquidContent.indexOf('<link', pos);
+    if (linkStart === -1) break;
+    
+    // Find the end of the link tag
+    let linkEnd = linkStart + 5;
+    let inQuotes = false;
+    let quoteChar = null;
+    
+    while (linkEnd < liquidContent.length) {
+      const char = liquidContent[linkEnd];
+      
+      if (!inQuotes && (char === '"' || char === "'")) {
+        inQuotes = true;
+        quoteChar = char;
+      } else if (inQuotes && char === quoteChar) {
+        inQuotes = false;
+        quoteChar = null;
+      } else if (!inQuotes && char === '>') {
+        linkEnd++;
+        break;
+      }
+      
+      linkEnd++;
+    }
+    
+    if (linkEnd > liquidContent.length) break;
+    
+    // Extract the link tag
+    const linkTag = liquidContent.substring(linkStart, linkEnd);
+    
+    // Check if this link tag has inline-css="true"
+    if (/inline-css\s*=\s*["']?true["']?/i.test(linkTag)) {
+      // Store the replacement
+      replacements.push({
+        start: linkStart,
+        end: linkEnd,
+        original: linkTag
+      });
+    }
+    
+    pos = linkEnd;
+  }
+  
+  // Apply replacements in reverse order to maintain positions
+  for (let i = replacements.length - 1; i >= 0; i--) {
+    const { start, end, original } = replacements[i];
+    const commented = `{% comment %}[INLINED]${original}{% endcomment %}`;
+    modifiedContent = modifiedContent.substring(0, start) + commented + modifiedContent.substring(end);
+  }
+  
+  return {
+    modified: modifiedContent,
+    changeCount: replacements.length
+  };
+}
+
+/**
+ * Main execution
+ */
+function main() {
+  const rootDir = path.join(__dirname, '..');
+  
+  console.log('\n🚀 Critical CSS Extractor for Shopify Theme\n');
+  console.log('📂 Scanning Liquid files for inline-css="true" attributes...\n');
+  
+  // Find all Liquid files
+  const liquidFiles = findLiquidFiles(rootDir);
+  console.log(`Found ${liquidFiles.length} Liquid file(s) to scan\n`);
+  
+  // Extract CSS files from all Liquid files and track which files have inline CSS
+  const allCSSFiles = new Set();
+  const filesWithInlineCSS = [];
+  
+  for (const liquidFile of liquidFiles) {
+    const filePath = path.join(rootDir, liquidFile);
+    try {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const cssFiles = extractInlineCSSFiles(content);
+      
+      if (cssFiles.length > 0) {
+        console.log(`📄 ${liquidFile}:`);
+        for (const cssFile of cssFiles) {
+          console.log(`   ✓ ${cssFile}`);
+          allCSSFiles.add(cssFile);
+        }
+        filesWithInlineCSS.push({ file: liquidFile, path: filePath, content });
+      }
+    } catch (error) {
+      console.warn(`⚠️  Warning: Could not read ${liquidFile}: ${error.message}`);
+    }
+  }
+  
+  if (allCSSFiles.size === 0) {
+    console.log('\n❌ No CSS files found with inline-css="true" attribute');
+    console.log('   Make sure your <link> tags have inline-css="true" set');
+    process.exit(1);
+  }
+  
+  console.log(`\n📦 Found ${allCSSFiles.size} unique CSS file(s) to process\n`);
+  
+  // Read and concatenate all CSS files
+  let combinedCSS = '';
+  const cssFileArray = Array.from(allCSSFiles).sort();
+  
+  for (const cssFile of cssFileArray) {
+    console.log(`📄 Reading: assets/${cssFile}`);
+    const cssContent = readCSSFile(cssFile, rootDir);
+    if (cssContent) {
+      combinedCSS += cssContent + '\n';
+    }
+  }
+  
+  // Remove comments from CSS (preserving all formatting)
+  console.log('\n🔧 Processing CSS (removing comments only, preserving formatting)...');
+  const cleanedCSS = minifyCSS(combinedCSS);
+  
+  // Generate the snippet
+  const header = `{% comment %}
+  Critical CSS for above-the-fold content
+  This CSS is inlined in the template to prevent FOUT
+  Full styles load asynchronously via their respective CSS files.
+  
+  Auto-generated by: scripts/extract-critical-css.js
+  Generated on: ${new Date().toISOString()}
+  Source files: ${cssFileArray.join(', ')}
+{% endcomment %}
+
+`;
+  
+  const snippet = header + cleanedCSS;
+  
+  // Write to output file
+  const outputPath = path.join(rootDir, OUTPUT_FILE);
+  try {
+    fs.writeFileSync(outputPath, snippet, 'utf8');
+    console.log(`\n✅ Success! Critical CSS written to: ${OUTPUT_FILE}`);
+    console.log(`📊 Original size: ${(combinedCSS.length / 1024).toFixed(2)} KB`);
+    console.log(`📊 Processed size: ${(cleanedCSS.length / 1024).toFixed(2)} KB`);
+    console.log(`📉 Reduction: ${((1 - cleanedCSS.length / combinedCSS.length) * 100).toFixed(1)}%`);
+    console.log(`📁 Files processed: ${cssFileArray.length}`);
+  } catch (error) {
+    console.error(`\n❌ Error writing output file:`, error.message);
+    process.exit(1);
+  }
+  
+  // Comment out inline-css="true" link tags in Liquid files
+  console.log('\n🔧 Commenting out inline-css="true" link tags in Liquid files...\n');
+  let totalCommented = 0;
+  
+  for (const { file, path: filePath, content } of filesWithInlineCSS) {
+    const result = commentOutInlineCSSLinks(content);
+    
+    if (result.changeCount > 0) {
+      try {
+        fs.writeFileSync(filePath, result.modified, 'utf8');
+        console.log(`📝 ${file}: Commented out ${result.changeCount} link tag(s)`);
+        totalCommented += result.changeCount;
+      } catch (error) {
+        console.warn(`⚠️  Warning: Could not update ${file}: ${error.message}`);
+      }
+    }
+  }
+  
+  if (totalCommented > 0) {
+    console.log(`\n✅ Commented out ${totalCommented} link tag(s) across ${filesWithInlineCSS.length} file(s)`);
+  }
+  
+  console.log('\n' + '='.repeat(60));
+  console.log('💡 Tip: Review the generated file and adjusted Liquid files.');
+  console.log('   The critical CSS is now inlined and original links are commented out.');
+  console.log('='.repeat(60) + '\n');
+}
+
+// Run the script
+if (require.main === module) {
+  main();
+}
+
+module.exports = { extractInlineCSSFiles, minifyCSS, findLiquidFiles, commentOutInlineCSSLinks };

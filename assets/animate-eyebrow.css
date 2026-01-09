@@ -1,0 +1,44 @@
+/*------------------------------------*\
+    #Animated Eyebrow
+\*------------------------------------*/
+
+.eyebrow-animated {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  position: relative;
+}
+
+.eyebrow-brackets-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.eyebrow-bracket {
+  font-weight: 700;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.eyebrow-bracket--left {
+  margin-right: 0;
+}
+
+.eyebrow-bracket--right {
+  margin-left: 0;
+}
+
+.eyebrow-text {
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.eyebrow-plus {
+  flex: 0 0 auto;
+  font-weight: 700;
+}

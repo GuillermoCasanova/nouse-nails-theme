@@ -31,9 +31,19 @@
       href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'
     >
 
+    <script
+      src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'
+      defer='defer'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'
+      defer='defer'
+    ></script>
+
     <script src='{{ 'constants.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'global.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'animate-eyebrow.js' | asset_url }}' defer='defer'></script>
 
     {%- capture seo_title -%}
       {%- if request.page_type == 'search' and search.performed == true -%}
@@ -81,6 +91,7 @@
     <!-- CSS LOADING BASE + VARIABLES -->
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'grid.css' | asset_url | stylesheet_tag }}
+    {{ 'animate-eyebrow.css' | asset_url | stylesheet_tag }}
 
     {% render 'social-meta-tags' %}
 
@@ -104,6 +115,10 @@
     %}
 
     {% render 'css-variables' %}
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      {% render 'critical-css' %}
+    </style>
 
     <style>
       {{ header_font | font_face: font_display: 'swap' }}

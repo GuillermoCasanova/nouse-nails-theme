@@ -1,12 +1,14 @@
 {
-  "name": "product-enhancer",
+  "name": "nouse-theme",
   "version": "1.0.0",
-  "description": "Enhance products with Google search data and structure according to Shopify format",
-  "main": "product-enhancer.js",
+  "description": "Nous Nails Shopify Theme",
+  "main": "theme.js",
   "scripts": {
-    "start": "node product-enhancer.js",
-    "test": "node test-enhancer.js",
-    "format-css-comments": "node format-css-comments.js"
+    "start": "node theme.js",
+    "test": "node test-theme.js",
+    "extract-critical-css": "node scripts/extract-critical-css.js",
+    "extract-critical-css:header": "node scripts/extract-critical-css.js header",
+    "extract-critical-css:product": "node scripts/extract-critical-css.js product"
   },
   "dependencies": {
     "axios": "^1.6.0",
