@@ -1008,11 +1008,11 @@
       "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26": {
         "settings": {
           "colors_text": "#6d0506",
-          "colors_text_2": "#6d0506",
+          "colors_text_2": "#f8eee3",
           "color_links": "#6d0506",
-          "color_button_primary_background": "#f8eee3",
+          "color_button_primary_background": "#6d0506",
           "color_button_primary_hover_background": "#6d0506",
-          "color_button_primary_text": "#6d0506",
+          "color_button_primary_text": "#f8eee3",
           "color_button_primary_hover_text": "#f8eee3",
           "color_button_primary_border": "#6d0506",
           "color_button_primary_hover_border": "#6d0506",
