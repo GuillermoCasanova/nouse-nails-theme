@@ -138,7 +138,7 @@
             "cert_label_3": "",
             "cert_image_4": "shopify://shop_images/Group_252.svg",
             "cert_label_4": "",
-            "padding_size": "section-padding-x-small"
+            "padding_size": "section-padding-main"
           }
         },
         "faq_j9pex9": {
@@ -149,12 +149,12 @@
             "question_1": "How to Apply & Remove",
             "answer_1": "<p>Here lies your answer. </p>",
             "question_2": "Ingredients",
-            "answer_2": "",
+            "answer_2": "<p>Here lies your answer. </p>",
             "question_3": "Shipping",
             "answer_3": "",
             "question_4": "Return & Exchange",
-            "answer_4": "",
-            "padding_size": "section-padding-x-small"
+            "answer_4": "<p>Here lies your answer. </p>",
+            "padding_size": "section-padding-main"
           }
         }
       },
