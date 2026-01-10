@@ -237,7 +237,7 @@
   width: 100%;
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 768px) {
   .cart-drawer__inner {
     overflow: scroll;
   }
@@ -301,7 +301,7 @@
   color: rgb(var(--color-brand-2));
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-drawer-items {
     padding-left: var(--space-7);
     padding-right: var(--space-7);
@@ -429,7 +429,7 @@
   padding-bottom: var(--level10);
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-drawer__inner-empty {
     padding-bottom: 0;
   }
@@ -565,7 +565,7 @@
   margin-right: 0.5rem !important;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-drawer__footer
     #dynamic-checkout-cart
     ul

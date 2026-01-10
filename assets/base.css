@@ -1120,6 +1120,11 @@ button:hover,
   aspect-ratio: var(--aspect-ratio);
 }
 
+.image-with-aspect-ratio--natural {
+  aspect-ratio: auto;
+  display: block;
+}
+
 .image-with-aspect-ratio__image {
   position: absolute;
   top: 0;
@@ -1128,6 +1133,13 @@ button:hover,
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.image-with-aspect-ratio__image--natural {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .image-with-aspect-ratio__placeholder {

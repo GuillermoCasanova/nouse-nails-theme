@@ -28,10 +28,16 @@
   assign sizes = sizes | default: '(min-width: 768px) 50vw, 100vw'
   assign widths = widths | default: '400,600,800,1200'
 
-  # Calculate aspect ratio percentage
-  assign ratio_parts = aspect_ratio | split: '/'
-  assign width = ratio_parts[0] | plus: 0
-  assign height = ratio_parts[1] | plus: 0
+  # Check if natural aspect ratio
+  assign is_natural = false
+  if aspect_ratio == 'natural'
+    assign is_natural = true
+  else
+    # Calculate aspect ratio percentage
+    assign ratio_parts = aspect_ratio | split: '/'
+    assign width = ratio_parts[0] | plus: 0
+    assign height = ratio_parts[1] | plus: 0
+  endif
 
   # Create srcset from widths
   assign width_array = widths | split: ','
@@ -45,7 +51,11 @@
   endfor
 -%}
 
-<div class="image-with-aspect-ratio {{ class }}" style="--aspect-ratio: {{ aspect_ratio }};">
+{%- if is_natural -%}
+  <div class="image-with-aspect-ratio image-with-aspect-ratio--natural {{ class }}">
+{%- else -%}
+  <div class="image-with-aspect-ratio {{ class }}" style="--aspect-ratio: {{ aspect_ratio }};">
+{%- endif -%}
   {%- if image -%}
     <img
       src="{{ image | image_url: width: width_array.first }}"
@@ -55,7 +65,7 @@
       loading="{{ loading }}"
       width="{{ image.width }}"
       height="{{ image.height }}"
-      class="image-with-aspect-ratio__image"
+      class="image-with-aspect-ratio__image{% if is_natural %} image-with-aspect-ratio__image--natural{% endif %}"
     >
   {%- else -%}
     <div class="image-with-aspect-ratio__placeholder">

@@ -138,7 +138,7 @@
   border-radius: var(--border-radius-small);
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-drawer .cart-item__image {
     width: 100%;
   }
@@ -224,7 +224,7 @@
   font-weight: 400;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-item__price-wrapper > *:only-child:not(.cart-item__discounted-prices) {
     margin-top: var(--space-3);
   }
@@ -405,7 +405,7 @@ cart-remove-button .icon-remove {
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
   .cart-items {
     border-spacing: 0;
     border-collapse: separate;

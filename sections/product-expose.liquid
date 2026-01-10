@@ -1,13 +1,5 @@
 {{ 'product-expose.css' | asset_url | stylesheet_tag }}
 <script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
-<link
-  rel='stylesheet'
-  href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
->
-<script
-  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
-  defer
-></script>
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer='defer'></script>
 
 <section class='product-expose color-{{ section.settings.color_scheme }}'>
@@ -34,6 +26,7 @@
                     space-between='0'
                     loop='true'
                     autoplay='false'
+                    effect='fade'
                     show-navigation='true'
                     show-pagination='true'
                   >
@@ -141,11 +134,13 @@
                 <div class='product-expose__certifications-grid'>
                   {% if block.settings.cert_image_1 != blank %}
                     <div class='product-expose__cert-item'>
-                      <img
-                        src='{{ block.settings.cert_image_1 | image_url: width: 200 }}'
-                        alt='{{ block.settings.cert_image_1.alt | escape }}'
-                        loading='lazy'
-                      >
+                      {% render 'image-with-aspect-ratio',
+                        image: block.settings.cert_image_1,
+                        aspect_ratio: 'natural',
+                        alt: block.settings.cert_image_1.alt,
+                        sizes: '200px',
+                        widths: '200,400'
+                      %}
                       {% if block.settings.cert_label_1 != blank %}
                         <p class='product-expose__cert-label'>
                           {{ block.settings.cert_label_1 }}
@@ -155,11 +150,13 @@
                   {% endif %}
                   {% if block.settings.cert_image_2 != blank %}
                     <div class='product-expose__cert-item'>
-                      <img
-                        src='{{ block.settings.cert_image_2 | image_url: width: 200 }}'
-                        alt='{{ block.settings.cert_image_2.alt | escape }}'
-                        loading='lazy'
-                      >
+                      {% render 'image-with-aspect-ratio',
+                        image: block.settings.cert_image_2,
+                        aspect_ratio: 'natural',
+                        alt: block.settings.cert_image_2.alt,
+                        sizes: '200px',
+                        widths: '200,400'
+                      %}
                       {% if block.settings.cert_label_2 != blank %}
                         <p class='product-expose__cert-label'>
                           {{ block.settings.cert_label_2 }}
@@ -169,11 +166,13 @@
                   {% endif %}
                   {% if block.settings.cert_image_3 != blank %}
                     <div class='product-expose__cert-item'>
-                      <img
-                        src='{{ block.settings.cert_image_3 | image_url: width: 200 }}'
-                        alt='{{ block.settings.cert_image_3.alt | escape }}'
-                        loading='lazy'
-                      >
+                      {% render 'image-with-aspect-ratio',
+                        image: block.settings.cert_image_3,
+                        aspect_ratio: 'natural',
+                        alt: block.settings.cert_image_3.alt,
+                        sizes: '200px',
+                        widths: '200,400'
+                      %}
                       {% if block.settings.cert_label_3 != blank %}
                         <p class='product-expose__cert-label'>
                           {{ block.settings.cert_label_3 }}
@@ -183,11 +182,13 @@
                   {% endif %}
                   {% if block.settings.cert_image_4 != blank %}
                     <div class='product-expose__cert-item'>
-                      <img
-                        src='{{ block.settings.cert_image_4 | image_url: width: 200 }}'
-                        alt='{{ block.settings.cert_image_4.alt | escape }}'
-                        loading='lazy'
-                      >
+                      {% render 'image-with-aspect-ratio',
+                        image: block.settings.cert_image_4,
+                        aspect_ratio: 'natural',
+                        alt: block.settings.cert_image_4.alt,
+                        sizes: '200px',
+                        widths: '200,400'
+                      %}
                       {% if block.settings.cert_label_4 != blank %}
                         <p class='product-expose__cert-label'>
                           {{ block.settings.cert_label_4 }}

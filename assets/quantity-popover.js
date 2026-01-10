@@ -5,7 +5,7 @@ if (!customElements.get('quantity-popover')) {
       constructor() {
         super();
         this.mql = window.matchMedia('(min-width: 990px)');
-        this.mqlTablet = window.matchMedia('(min-width: 700px)');
+        this.mqlTablet = window.matchMedia('(min-width: 768px)');
         this.infoButtonDesktop = this.querySelector(
           '.quantity-popover__info-button--icon-only'
         );
