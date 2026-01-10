@@ -130,9 +130,13 @@
             "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
             "certifications_heading": "Our Clean Promise",
             "heading_size": "headline-style-h4",
+            "cert_image_1": "shopify://shop_images/Non_Toxic.svg",
             "cert_label_1": "",
+            "cert_image_2": "shopify://shop_images/Group_251.svg",
             "cert_label_2": "",
+            "cert_image_3": "shopify://shop_images/Group_250.svg",
             "cert_label_3": "",
+            "cert_image_4": "shopify://shop_images/Group_252.svg",
             "cert_label_4": "",
             "padding_size": "section-padding-x-small"
           }
@@ -142,8 +146,8 @@
           "settings": {
             "color_scheme": "",
             "faq_heading": "",
-            "question_1": "What is your question?",
-            "answer_1": "<p>Provide your answer here.</p>",
+            "question_1": "HOW TO APPLY & REMOVE",
+            "answer_1": "<p>Here lies your answer. </p>",
             "question_2": "",
             "answer_2": "",
             "question_3": "",
