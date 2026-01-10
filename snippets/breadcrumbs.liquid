@@ -1,46 +1,60 @@
 {{ 'component-breadcrumbs.css' | asset_url | stylesheet_tag }}
-{% unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' %}
+{% unless template == 'index'
+  or template == 'cart'
+  or template == 'list-collections'
+  or template == '404'
+%}
   {% assign t = template | split: '.' | first %}
 
   <nav
-    class="breadcrumbs {% if template contains 'product' %}breadcrumbs--product-page {% endif %}"
-    role="navigation"
-    aria-label="breadcrumbs"
+    class='breadcrumbs {% if template contains 'product' %}breadcrumbs--product-page {% endif %}'
+    role='navigation'
+    aria-label='breadcrumbs'
   >
-    <ol class="breadcrumbs__inner container-main section-padding-small">
+    <ol class='breadcrumbs__inner container-large section-padding-small'>
       {% if template.name == 'order' or template.name == 'addresses' %}
         <li>
-          <a href="/" title="Home">Home </a>
+          <a href='/' title='Home'>Home </a>
         </li>
         <li>
-          <a href="/account" title="Account">My Account</a>
+          <a href='/account' title='Account'>My Account</a>
         </li>
       {% else %}
         <li>
-          <a href="/" title="Home">Home </a>
+          <a href='/' title='Home'>Home </a>
         </li>
       {% endif %}
 
       {% case t %}
           <li>
-            <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+            <a href='{{ page.url }}' aria-current='page'>{{ page.title }}</a>
           </li>
 
         {% when 'product' %}
           {% assign product_collections = product.collections %}
           {% if product_collections.size > 0 %}
-            {% assign gown_collection = product_collections | where: 'title', 'Gowns' | first %}
+            {% assign gown_collection = product_collections
+              | where: 'title', 'Gowns'
+              | first
+            %}
             {% if gown_collection %}
-              <li>{{ gown_collection.title | link_to: gown_collection.url }}</li>
+              <li>
+                {{ gown_collection.title | link_to: gown_collection.url }}
+              </li>
             {% else %}
               <li>
-                {{ product_collections.first.title | link_to: product_collections.first.url }}
+                {{
+                  product_collections.first.title
+                  | link_to: product_collections.first.url
+                }}
               </li>
             {% endif %}
           {% endif %}
 
           <li>
-            <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+            <a href='{{ product.url }}' aria-current='page'>
+              {{- product.title -}}
+            </a>
           </li>
 
         {% when 'collection' and collection.handle %}
@@ -48,16 +62,22 @@
             <li>{{ collection.title | link_to: collection.url }}</li>
             <li>
               {% capture tag_url %}{{ collection.url }}/{{ current_tags | join: "+" }}{% endcapture %}
-              <a href="{{ tag_url }}" aria-current="page">{{ current_tags | join: ' + ' }}</a>
+              <a href='{{ tag_url }}' aria-current='page'>
+                {{- current_tags | join: ' + ' -}}
+              </a>
             </li>
           {% else %}
             <li>
-              <a href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+              <a href='{{ collection.url }}' aria-current='page'>
+                {{- collection.title -}}
+              </a>
             </li>
           {% endif %}
         {% else %}
-          <li aria-current="page">
-            <a href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+          <li aria-current='page'>
+            <a href='{{ request.path }}' aria-current='page'>
+              {{- page_title -}}
+            </a>
           </li>
       {% endcase %}
     </ol>

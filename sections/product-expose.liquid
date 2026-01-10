@@ -206,7 +206,7 @@
             >
               <div class='product-expose__block__inner container-small'>
                 {% if block.settings.faq_heading != blank %}
-                  <h2 class='product-expose__block-heading headline-style-h4'>
+                  <h2 class='product-expose__block-heading {{ block.settings.heading_size }}'>
                     {{ block.settings.faq_heading }}
                   </h2>
                 {% endif %}
@@ -664,6 +664,38 @@
           "type": "text",
           "id": "faq_heading",
           "label": "FAQ Section Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "headline-style-h1",
+              "label": "H1"
+            },
+            {
+              "value": "headline-style-h2",
+              "label": "H2"
+            },
+            {
+              "value": "headline-style-h3",
+              "label": "H3"
+            },
+            {
+              "value": "headline-style-h4",
+              "label": "H4"
+            },
+            {
+              "value": "headline-style-h5",
+              "label": "H5"
+            },
+            {
+              "value": "headline-style-h6",
+              "label": "H6"
+            }
+          ],
+          "default": "headline-style-h4"
         },
         {
           "type": "text",

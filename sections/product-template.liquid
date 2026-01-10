@@ -85,7 +85,7 @@
         {% render 'breadcrumbs' %}
       </div>
 
-      <div class='product__contain container-main {{section.settings.section_padding}}'>
+      <div class='product__contain container-large {{section.settings.section_padding}}'>
         <div class='product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}'>
           <div class=' product__media-wrapper'>
             {% render 'product-media-gallery',
