@@ -1193,3 +1193,73 @@ button:hover,
 #custom-green-dot-cursor.is-active svg {
   transform: rotate(0);
 }
+
+/* Smartrr subscription options widget*/
+
+.smartrr-purchase-options {
+  padding: 0;
+}
+
+[data-smartrr-form-id] [data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id],
+.smartrr-grid-container [data-smartrr-selling-plans-select].smartrr-input-display-grid {
+  border-radius: 20px;
+}
+
+[data-smartrr-form-id] [data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id] {
+  padding: 8px 16px;
+
+  background-color: #FAEEE1;
+
+  border: 3px solid #D1E1E8;
+}
+
+.smartrr-selling-plan-group-label {
+  display: block;
+  font-family: var(--text-font-family);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.smartrr-plans-frequency-label,
+[data-smartrr-product-id] [data-smartrr-regular-price] {
+  color: #6D0506;
+}
+
+.smartrr-grid-container [data-smartrr-selling-plans-select].smartrr-input-display-grid {
+ padding: 8px 16px;
+}
+
+[data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id] [data-smartrr-selling-plan-group-contents] {
+  margin-bottom: 8px;
+}
+
+.smartrr-portal-navigation-bar.css-gkif7w ul li a {
+  color: white;
+}
+
+.smartrr-selling-plan-group-name,
+.smartrr-radio-group-container {
+  width: 100%;
+}
+
+.smartrr-selling-plan-group-name {
+  display: flex; 
+  justify-content: space-between;
+}
+
+[data-smartrr-selling-plan-input-display-grid] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-smartrr-selling-plan-group-plans] .smartrr-plans-frequency-label {
+  font-size: 16px;
+}
+
+.smartrr-subscription-benefits-container {
+  margin-bottom: 23px;
+}
+
+/* END Smartrr subscription options widget*/
