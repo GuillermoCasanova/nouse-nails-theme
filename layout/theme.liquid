@@ -379,6 +379,7 @@
         }
       }, 100);
     </script>
+    {% comment %} START - Smartrr Custom script {% endcomment %}
     <script>
       {% assign formatted_price = product.price | money %}
       {% assign discounted_price = product.price | times: 0.85 | round %}
@@ -444,5 +445,6 @@
         });
       })();
     </script>
+    {% comment %} START - Smartrr Custom script {% endcomment %}
   </body>
 </html>
