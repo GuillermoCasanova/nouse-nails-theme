@@ -1,25 +1,44 @@
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'forms.css' | asset_url | stylesheet_tag }}
+{{ 'template-password.css' | asset_url | stylesheet_tag }}
 
 <footer
   class='footer color-{{ section.settings.color_scheme }}'
   role='contentinfo'
 >
+  {% if section.settings.background_image != blank %}
+    <div class='footer__background-image'>
+      <img
+        src='{{ section.settings.background_image | img_url: '1920x' }}'
+        srcset='{{ section.settings.background_image | img_url: '768x' }} 768w, {{ section.settings.background_image | img_url: '1024x' }} 1024w, {{ section.settings.background_image | img_url: '1920x' }} 1920w'
+        sizes='100vw'
+        alt=''
+        width='{{ section.settings.background_image.width }}'
+        height='{{ section.settings.background_image.height }}'
+        loading='lazy'
+      >
+    </div>
+  {% endif %}
   <div class='footer__container container-main'>
     <!-- Main Footer Content -->
     <div class='footer__main'>
-      <div class='footer__grid grid grid-3'>
+      <div class='footer__grid grid grid-2'>
         <!-- Company Info Column -->
         <div class='footer__column'>
           {% if section.settings.show_company_info %}
             <div class='footer__company'>
               {% if section.settings.company_logo != blank %}
                 <div class='footer__logo'>
-                  <img
-                    src='{{ section.settings.company_logo | img_url: '200x' }}'
-                    alt='{{ shop.name }}'
-                    class='footer__logo-image'
-                    loading='lazy'
-                  >
+                  {%
+                    render 'image-with-aspect-ratio',
+                    image: section.settings.company_logo,
+                    aspect_ratio: 'natural',
+                    alt: section.settings.company_logo.alt | default: shop.name,
+                    class: 'footer__logo-image',
+                    sizes: '200px',
+                    widths: '200,400',
+                    loading: 'lazy'
+                  %}
                 </div>
               {% endif %}
 
@@ -28,78 +47,14 @@
                   {{ section.settings.company_description }}
                 </div>
               {% endif %}
-
-              {% if section.settings.show_social_icons %}
-                <div class='footer__social'>
-                  <ul class='footer__social-list'>
-                    {% if settings.social_facebook_link != blank %}
-                      <li class='footer__social-item'>
-                        <a
-                          href='{{ settings.social_facebook_link }}'
-                          class='footer__social-link'
-                          target='_blank'
-                          rel='noopener'
-                        >
-                          {% render 'icon-facebook' %}
-                          <span class='visually-hidden'>Facebook</span>
-                        </a>
-                      </li>
-                    {% endif %}
-
-                    {% if settings.social_instagram_link != blank %}
-                      <li class='footer__social-item'>
-                        <a
-                          href='{{ settings.social_instagram_link }}'
-                          class='footer__social-link'
-                          target='_blank'
-                          rel='noopener'
-                        >
-                          {% render 'icon-instagram' %}
-                          <span class='visually-hidden'>Instagram</span>
-                        </a>
-                      </li>
-                    {% endif %}
-
-                    {% if settings.social_twitter_link != blank %}
-                      <li class='footer__social-item'>
-                        <a
-                          href='{{ settings.social_twitter_link }}'
-                          class='footer__social-link'
-                          target='_blank'
-                          rel='noopener'
-                        >
-                          {% render 'icon-twitter' %}
-                          <span class='visually-hidden'>Twitter</span>
-                        </a>
-                      </li>
-                    {% endif %}
-
-                    {% if settings.social_pinterest_link != blank %}
-                      <li class='footer__social-item'>
-                        <a
-                          href='{{ settings.social_pinterest_link }}'
-                          class='footer__social-link'
-                          target='_blank'
-                          rel='noopener'
-                        >
-                          {% render 'icon-pinterest' %}
-                          <span class='visually-hidden'>Pinterest</span>
-                        </a>
-                      </li>
-                    {% endif %}
-                  </ul>
-                </div>
-              {% endif %}
             </div>
           {% endif %}
-        </div>
 
-        <!-- Quick Links Column -->
-        <div class='footer__column'>
+          <!-- Links -->
           {% if section.settings.show_quick_links %}
             <div class='footer__quick-links'>
               {% if section.settings.quick_links_title != blank %}
-                <h3 class='footer__column-title'>
+                <h3 class='footer__column-title visually-hidden'>
                   {{ section.settings.quick_links_title }}
                 </h3>
               {% endif %}
@@ -124,115 +79,111 @@
           {% if section.settings.show_newsletter %}
             <div class='footer__newsletter'>
               {% if section.settings.newsletter_title != blank %}
-                <h3 class='footer__column-title'>
+                <h3 class='footer__column-title {{ section.settings.newsletter_title_size }}'>
                   {{ section.settings.newsletter_title }}
                 </h3>
               {% endif %}
 
-              {% if section.settings.newsletter_description != blank %}
-                <div class='footer__newsletter-description'>
-                  {{ section.settings.newsletter_description }}
+              {% if section.settings.klaviyo_form_id != blank
+                and section.settings.show_newsletter
+              %}
+                <div class='footer__newsletter-form'>
+                  <div
+                    class='klaviyo-form-{{ section.settings.klaviyo_form_id }}'
+                  ></div>
                 </div>
               {% endif %}
-
-              <div class='footer__newsletter-form'>
-                {% form 'customer',
-                  id: 'footer-newsletter',
-                  novalidate: 'novalidate'
-                %}
-                  <input type='hidden' name='contact[tags]' value='newsletter'>
-
-                  <div class='footer__newsletter-input-group'>
-                    <input
-                      type='email'
-                      name='contact[email]'
-                      id='footer-newsletter-email'
-                      class='footer__newsletter-input'
-                      value='{{ form.email }}'
-                      placeholder='{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}'
-                      aria-label='{{ section.settings.newsletter_placeholder | default: 'Enter your email' }}'
-                      required
-                      autocorrect='off'
-                      autocapitalize='off'
-                    >
-                    <button
-                      type='submit'
-                      class='footer__newsletter-button button button--primary'
-                    >
-                      {{
-                        section.settings.newsletter_button_text
-                        | default: 'Subscribe'
-                      }}
-                    </button>
-                  </div>
-
-                  {% if form.posted_successfully? %}
-                    <p class='footer__newsletter-success'>
-                      {{ 'general.newsletter_form.confirmation' | t }}
-                    </p>
+            </div>
+          {% endif %}
+          {% if section.settings.show_social_icons %}
+            <!-- Social Media Icons -->
+            {% if settings.social_facebook_link != blank
+              or settings.social_twitter_link != blank
+              or settings.social_pinterest_link != blank
+              or settings.social_tiktok_link != blank
+            %}
+              <div>
+                <ul class='footer__social-list'>
+                  {% if settings.social_facebook_link != blank %}
+                    <li class='footer__social-item'>
+                      <a
+                        href='{{ settings.social_facebook_link }}'
+                        class='footer__social-link'
+                      >
+                        {% render 'icon-facebook' %}
+                      </a>
+                    </li>
                   {% endif %}
-
-                  {% if form.errors contains 'email' %}
-                    <p class='footer__newsletter-error'>
-                      {{ form.errors.messages.email }}
-                    </p>
+                  {% if settings.social_twitter_link != blank %}
+                    <li class='footer__social-item'>
+                      <a
+                        href='{{ settings.social_twitter_link }}'
+                        class='footer__social-link'
+                      >
+                        {% render 'icon-twitter' %}
+                      </a>
+                    </li>
                   {% endif %}
-                {% endform %}
+                  {% if settings.social_pinterest_link != blank %}
+                    <li class='footer__social-item'>
+                      <a
+                        href='{{ settings.social_pinterest_link }}'
+                        class='footer__social-link'
+                      >
+                        {% render 'icon-pinterest' %}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% if settings.social_tiktok_link != blank %}
+                    <li class='footer__social-item'>
+                      <a
+                        href='{{ settings.social_tiktok_link }}'
+                        class='footer__social-link'
+                      >
+                        {% render 'icon-tiktok' %}
+                      </a>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+            {% endif %}
+          {% endif %}
+          <!-- Footer Bottom -->
+          <div class='footer__bottom'>
+            <div class='footer__bottom-content'>
+              <!-- Copyright -->
+              <div class='footer__copyright'>
+                <p class='footer__copyright-text'>
+                  &copy; {{ 'now' | date: '%Y' }}
+                  {{ shop.name }}.
+                  {{
+                    section.settings.copyright_text
+                    | default: 'All rights reserved.'
+                  }}
+                </p>
+              </div>
+
+              <!-- Bottom Links -->
+              <div class='footer__bottom-links'>
+                {% if section.settings.show_bottom_menu %}
+                  <nav class='footer__bottom-nav'>
+                    <ul class='footer__bottom-nav-list'>
+                      {% for link in linklists[section.settings.bottom_menu].links %}
+                        <li class='footer__bottom-nav-item'>
+                          <a
+                            href='{{ link.url }}'
+                            class='footer__bottom-nav-link'
+                          >
+                            {{ link.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </nav>
+                {% endif %}
               </div>
             </div>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer Bottom -->
-    <div class='footer__bottom'>
-      <div class='footer__bottom-content'>
-        <!-- Copyright -->
-        <div class='footer__copyright'>
-          <p class='footer__copyright-text'>
-            &copy; {{ 'now' | date: '%Y' }}
-            {{ shop.name }}.
-            {{
-              section.settings.copyright_text
-              | default: 'All rights reserved.'
-            }}
-          </p>
-        </div>
-
-        <!-- Bottom Links -->
-        <div class='footer__bottom-links'>
-          {% if section.settings.show_payment_icons %}
-            <div class='footer__payment-icons'>
-              <span class='visually-hidden'>
-                {{- 'general.payment.method' | t -}}
-              </span>
-              <ul class='footer__payment-list'>
-                {% for type in shop.enabled_payment_types %}
-                  <li class='footer__payment-item'>
-                    {{
-                      type
-                      | payment_type_svg_tag: class: 'footer__payment-icon'
-                    }}
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-
-          {% if section.settings.show_bottom_menu %}
-            <nav class='footer__bottom-nav'>
-              <ul class='footer__bottom-nav-list'>
-                {% for link in linklists[section.settings.bottom_menu].links %}
-                  <li class='footer__bottom-nav-item'>
-                    <a href='{{ link.url }}' class='footer__bottom-nav-link'>
-                      {{ link.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </nav>
-          {% endif %}
+          </div>
         </div>
       </div>
     </div>
@@ -252,6 +203,11 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "background-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Footer background image"
     },
     {
       "type": "header",
@@ -318,23 +274,37 @@
       "label": "Newsletter title",
       "default": "Stay Updated"
     },
+
     {
-      "type": "richtext",
-      "id": "newsletter_description",
-      "label": "Newsletter description",
-      "default": "<p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>"
+      "type": "select",
+      "id": "newsletter_title_size",
+      "label": "Newsletter title size",
+      "options": [
+        {
+          "value": "headline-style-h1",
+          "label": "H1"
+        },
+        {
+          "value": "headline-style-h2",
+          "label": "H2"
+        },
+        {
+          "value": "headline-style-h3",
+          "label": "H3"
+        },
+        {
+          "value": "headline-style-h4",
+          "label": "H4"
+        }
+      ],
+      "default": "headline-style-h4"
     },
     {
       "type": "text",
-      "id": "newsletter_placeholder",
-      "label": "Email input placeholder",
-      "default": "Enter your email"
-    },
-    {
-      "type": "text",
-      "id": "newsletter_button_text",
-      "label": "Subscribe button text",
-      "default": "Subscribe"
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo Form ID",
+      "info": "Add the Klaviyo form ID to the newsletter form",
+      "default": "UQJuZt"
     },
     {
       "type": "header",
@@ -345,12 +315,6 @@
       "id": "copyright_text",
       "label": "Copyright text",
       "default": "All rights reserved."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_payment_icons",
-      "label": "Show payment method icons",
-      "default": true
     },
     {
       "type": "checkbox",
