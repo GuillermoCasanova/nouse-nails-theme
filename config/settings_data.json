@@ -28,6 +28,7 @@
     "share_pinterest": true,
     "social_twitter_link": "",
     "social_facebook_link": "",
+    "social_tiktok_link": "https://nousnails.com/",
     "social_pinterest_link": "https://nousnails.com/",
     "social_instagram_link": "https://nousnails.com/",
     "social_tumblr_link": "",
@@ -85,7 +86,9 @@
             }
           }
         },
-        "block_order": ["block_Ln8P6T"],
+        "block_order": [
+          "block_Ln8P6T"
+        ],
         "settings": {
           "mobile_nav_heading": "Shop",
           "mobile_menu_primary": "main-menu",
@@ -181,7 +184,11 @@
             }
           }
         },
-        "block_order": ["image-bar-0", "image-bar-1", "image-bar-2"],
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
         "settings": {
           "section_height": "medium"
         }
@@ -189,30 +196,21 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "show_payment_icons": true
-        }
-      },
-      "hae-footer": {
-        "type": "footer",
-        "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
-          "footer_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
-          "background_color_scheme": "",
+          "background_image": "shopify://shop_images/footer-bg.jpg",
           "show_company_info": true,
-          "company_logo": "shopify://shop_images/NOUS__Oat.png",
-          "company_description": "<p>Redefining the <em>nous standard</em>.</p>",
+          "company_logo": "shopify://shop_images/nous-logo.svg",
+          "company_description": "",
           "show_social_icons": true,
           "show_quick_links": true,
           "quick_links_title": "Quick Links",
           "quick_links_menu": "footer",
           "show_newsletter": true,
           "newsletter_title": "Stay Updated",
-          "newsletter_description": "<p>Sign up for 15% off your first order. Promise, we don't spam ☻</p>",
-          "newsletter_placeholder": "Enter your email",
-          "newsletter_button_text": "Subscribe",
+          "newsletter_title_size": "headline-style-h4",
+          "klaviyo_form_id": "UQJuZt",
           "copyright_text": "All rights reserved.",
-          "show_payment_icons": false,
-          "show_bottom_menu": false,
+          "show_bottom_menu": true,
           "bottom_menu": ""
         }
       },
@@ -262,7 +260,10 @@
             }
           }
         },
-        "block_order": ["collection_wCCpKy", "collection_wJTPLQ"],
+        "block_order": [
+          "collection_wCCpKy",
+          "collection_wJTPLQ"
+        ],
         "settings": {}
       },
       "1606088197e736fabb": {
@@ -299,7 +300,11 @@
             }
           }
         },
-        "block_order": ["callout_pBYmHY", "callout_rh8czt", "callout_QUEkYB"],
+        "block_order": [
+          "callout_pBYmHY",
+          "callout_rh8czt",
+          "callout_QUEkYB"
+        ],
         "settings": {
           "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
           "subtitle": "The Nous Standard in Nail Beauty",
@@ -581,7 +586,11 @@
             }
           }
         },
-        "block_order": ["article_dkkCUP", "article_LqD8Dd", "article_FTwhxE"],
+        "block_order": [
+          "article_dkkCUP",
+          "article_LqD8Dd",
+          "article_FTwhxE"
+        ],
         "name": "Blog posts",
         "settings": {
           "color_scheme": "",
@@ -689,7 +698,11 @@
             }
           }
         },
-        "block_order": ["quote_jHzEpU", "quote_4BinWi", "quote_LCeqTH"],
+        "block_order": [
+          "quote_jHzEpU",
+          "quote_4BinWi",
+          "quote_LCeqTH"
+        ],
         "name": "HAE Testimonials",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
@@ -1080,7 +1093,11 @@
               "settings": {}
             }
           },
-          "block_order": ["image-bar-0", "image-bar-1", "image-bar-2"],
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
           "settings": {}
         },
         "footer": {
@@ -1157,32 +1174,6 @@
             "text_size": "large"
           }
         },
-        "slideshow": {
-          "type": "slideshow",
-          "blocks": {
-            "slideshow-0": {
-              "type": "image",
-              "settings": {
-                "image": "",
-                "alignment": "center center"
-              }
-            },
-            "1492095993817": {
-              "type": "image",
-              "settings": {
-                "image": "",
-                "alignment": "center"
-              }
-            }
-          },
-          "block_order": ["slideshow-0", "1492095993817"],
-          "settings": {
-            "slideshow_height": "medium",
-            "text_size": "medium",
-            "autorotate": false,
-            "autorotate_speed": 5
-          }
-        },
         "featured-collections": {
           "type": "collection",
           "settings": {
@@ -1227,7 +1218,9 @@
               }
             }
           },
-          "block_order": ["1492033924902-0"],
+          "block_order": [
+            "1492033924902-0"
+          ],
           "settings": {
             "title": ""
           }
@@ -1287,7 +1280,6 @@
       "content_for_index": [
         "hero",
         "featured-collections",
-        "slideshow",
         "1492033924902",
         "1492096252560",
         "1492033809691"
