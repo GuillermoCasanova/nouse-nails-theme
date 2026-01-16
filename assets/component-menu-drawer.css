@@ -9,7 +9,6 @@
 
 header-drawer {
   z-index: 3;
-  display: block;
   position: static;
 }
 
@@ -20,10 +19,8 @@ header-drawer {
   outline: 0;
   z-index: 1;
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.8rem;
   height: var(--space-3) !important;
 }
 

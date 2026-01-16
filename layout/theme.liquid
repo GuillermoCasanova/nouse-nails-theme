@@ -87,6 +87,11 @@
     {% if page_description %}
       <meta name='description' content='{{ page_description | escape }}'>
     {% endif %}
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      {% render 'critical-css' %}
+    </style>
+    {% render 'css-variables' %}
 
     <!-- CSS LOADING BASE + VARIABLES -->
     {{ 'base.css' | asset_url | stylesheet_tag }}
@@ -113,13 +118,6 @@
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
-
-    {% render 'css-variables' %}
-
-    <!-- Critical CSS for above-the-fold content -->
-    <style>
-      {% render 'critical-css' %}
-    </style>
 
     <style>
       {{ header_font | font_face: font_display: 'swap' }}
