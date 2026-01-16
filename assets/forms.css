@@ -66,34 +66,24 @@ input[type='color'],
 input,
 textarea {
   -webkit-appearance: none;
-  appearance: none;
+  /* appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
-  font-size: 1.6rem;
-  width: 100%;
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
   border-radius: var(--inputs-radius);
-  height: var(--input-height);
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
   border: 1px solid rgb(var(--color-base-text-1));
   padding: 1.5rem;
-  outline: 0;
+  outline: 0; */
 }
 
-@media screen and (min-width: 940px) {
-  .field__input,
-  .select__select,
-  .customer .field input,
-  .customer select {
-    height: var(--input-height-large);
-  }
-}
+
 
 /* Field Container */
 .field {
@@ -111,8 +101,7 @@ textarea {
 .field__label,
 .customer .field label,
 label {
-  font-family: var(--primary-font-family);
-  font-size: 1.6rem;
+  /* font-family: var(--primary-font-family);
   left: calc(var(--inputs-border-width) + 2rem);
   top: calc(1rem + var(--inputs-border-width));
   margin-bottom: 0;
@@ -123,7 +112,7 @@ label {
     font-size var(--duration-short) ease;
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
-  line-height: 1.5;
+  line-height: 1.5; */
 }
 
 /* Field States */
