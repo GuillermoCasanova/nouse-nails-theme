@@ -6,7 +6,7 @@ class InstagramSlideshow extends SwiperSlideshow {
   constructor() {
     super();
   }
-
+ 
   // Remove the getConfig() method entirely - let it use the base class behavior
 
   
@@ -26,16 +26,20 @@ class InstagramSlideshow extends SwiperSlideshow {
 
     // Pause autoplay when hovering over slides
     sliderContainer.addEventListener('mouseenter', () => {
-      if (this.swiper && this.swiper.autoplay) {
+      if (this.hasAutoplay()) {
         this.swiper.autoplay.stop();
       }
     });
 
     sliderContainer.addEventListener('mouseleave', () => {
-      if (this.swiper && this.swiper.autoplay) {
+      if (this.hasAutoplay()) {
         this.swiper.autoplay.start();
       }
     });
+  }
+
+  hasAutoplay() {
+    return Boolean(this.swiper?.autoplay && this.swiper?.params?.autoplay);
   }
 
   // Instagram-specific methods

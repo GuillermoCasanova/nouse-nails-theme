@@ -31,7 +31,6 @@
 .faq-list__item {
   position: relative;
   border-bottom: 1px solid rgb(var(--color-text));
-  cursor: pointer;
   transition: all 0.3s var(--main-easing);
   position: relative;
   border-bottom: 1px solid rgb(var(--color-text));

@@ -83,9 +83,17 @@ if (!customElements.get('drawer-disclosure')) {
     constructor() {
       super();
       this.mainDetailsToggle = this.querySelector('details');
+      this.summaryToggle = this.mainDetailsToggle.querySelector('summary');
+      if (this.summaryToggle) {
+        this.summaryToggle.addEventListener(
+          'click',
+          this.toggleDrawer.bind(this)
+        );
+      }
+      this.ignoreFocusOut = false;
       this.mainDetailsToggle.addEventListener(
-        'click',
-        this.toggleDrawer.bind(this)
+        'pointerdown',
+        this.onPointerDown.bind(this)
       );
       this.querySelector('[data-drawer-content]').style.height = 0;
       this.mainDetailsToggle.addEventListener(
@@ -114,9 +122,21 @@ if (!customElements.get('drawer-disclosure')) {
       }
     }
 
-    onFocusOut() {
+    onPointerDown(event) {
+      if (this.mainDetailsToggle.contains(event.target)) {
+        this.ignoreFocusOut = true;
+      }
+    }
+
+    onFocusOut(event) {
+      const relatedTarget = event.relatedTarget;
       setTimeout(() => {
-        if (!this.contains(document.activeElement)) this.closeDrawer(this);
+        if (this.ignoreFocusOut) {
+          this.ignoreFocusOut = false;
+          return;
+        }
+        const nextFocus = relatedTarget || document.activeElement;
+        if (!nextFocus || !this.contains(nextFocus)) this.closeDrawer(this);
       });
     }
 

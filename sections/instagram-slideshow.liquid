@@ -18,8 +18,10 @@
   space-between='20'
   loop='true'
   centered-slides='true'
-  autoplay='{{ section.settings.autoplay }}'
-  autoplay-delay='{{ section.settings.autoplay_speed | times: 1000 }}'
+  {% if section.settings.autoplay %}
+    autoplay='{{ section.settings.autoplay }}'
+    autoplay-delay='{{ section.settings.autoplay_speed | times: 1000 }}'
+  {% endif %}
   show-navigation='true'
   show-pagination='false'
   effect='slide'
@@ -31,7 +33,7 @@
   threshold='10'
   touch-ratio='1'
   touch-angle='45'
-  desktop-slides-per-view='3'
+  desktop-slides-per-view='auto'
   desktop-centered-slides='false'
   desktop-space-between='25'
   desktop-slides-offset-before='25'
@@ -365,7 +367,7 @@
       "type": "checkbox",
       "id": "autoplay",
       "label": "Auto-play slides",
-      "default": true
+      "default": false
     },
     {
       "type": "range",
