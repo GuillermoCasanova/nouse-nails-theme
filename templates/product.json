@@ -109,6 +109,36 @@
           "settings": {
             "location_id": ""
           }
+        },
+        "bold_subscriptions_bsub_widget_block_3nJ3hM": {
+          "type": "shopify://apps/bold-subscriptions/blocks/bsub-widget-block/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
+          "settings": {
+            "default_subscribe": true,
+            "primary_color": "",
+            "secondary_color": "#5433EB",
+            "background_color": "",
+            "border_radius": 4,
+            "header_text": "Purchase Options",
+            "one_time_text": "One-time Purchase",
+            "recurring_text": "Subscribe and Save",
+            "prepaid_recurring_text": "Prepaid Subscribe and Save",
+            "discount_summary_text": "(Save {discount})",
+            "discount_summary_plural_text": "(Save up to {discount})",
+            "frequency_header": "Delivery Frequency",
+            "frequency_text": "delivery",
+            "prepaid_checkbox_label_text": "Prepay for subscription",
+            "billing_frequency_header": "Billing Frequency",
+            "billing_frequency_text": "{count} Orders",
+            "delivery_frequency_discount_text": "({discount} off {regular_price})",
+            "billing_frequency_discount_text": "({discount} off {regular_price})",
+            "prepaid_total_text": "Billed {price} today",
+            "prepaid_continue_as_prepaid_text": "Prepaid order will auto-renew after {count} orders",
+            "prepaid_continue_as_standard_text": "Becomes a regular subscription after {count} orders",
+            "convertible_header": "Converts to",
+            "eligible_for_subscription_header": "Eligible for Subscription",
+            "initial_dynamic_discount_text": "Save {initial_percent_discount}% ({initial_fixed_discount})",
+            "subsequent_dynamic_discounts_text": "{subsequent_percent_discount}% ({subsequent_fixed_discount}) after {order_count} order(s)"
+          }
         }
       },
       "block_order": [
@@ -123,7 +153,8 @@
         "return_policy_VABCGt",
         "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi",
-        "klaviyo_bis_VMWTAy"
+        "klaviyo_bis_VMWTAy",
+        "bold_subscriptions_bsub_widget_block_3nJ3hM"
       ],
       "settings": {
         "enable_sticky_info": true,
