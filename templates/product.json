@@ -115,7 +115,7 @@
           "settings": {
             "default_subscribe": true,
             "primary_color": "",
-            "secondary_color": "#5433EB",
+            "secondary_color": "#5433eb",
             "background_color": "",
             "border_radius": 4,
             "header_text": "Purchase Options",
@@ -139,6 +139,36 @@
             "initial_dynamic_discount_text": "Save {initial_percent_discount}% ({initial_fixed_discount})",
             "subsequent_dynamic_discounts_text": "{subsequent_percent_discount}% ({subsequent_fixed_discount}) after {order_count} order(s)"
           }
+        },
+        "bold_subscriptions_bsub_express_add_ons_UF66My": {
+          "type": "shopify://apps/bold-subscriptions/blocks/bsub-express-add-ons/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
+          "settings": {
+            "product": "{{product}}",
+            "show_while_loading": true,
+            "show_logged_out": true,
+            "show_no_subscriptions": true,
+            "show_confirmation_dialog": false,
+            "loading_text": "Checking for subscriptions",
+            "logged_out_text": "Add to your next subscription order",
+            "no_subscriptions_text": "No subscriptions to add to",
+            "widget_title": "Express Add-ons",
+            "background_color": "",
+            "text_color": "",
+            "border_radius": 8,
+            "border_color": "",
+            "border_thickness": 1,
+            "button_class_names": "button button--full-width button--primary",
+            "button_background_color": "",
+            "button_text_color": "",
+            "button_border_color": "",
+            "button_border_radius": 50,
+            "button_border_thickness": 1,
+            "button_padding": 10,
+            "dropdown_border_radius": 25,
+            "dropdown_border_color": "",
+            "dropdown_border_thickness": 1,
+            "additional_css": ".bsub__ExpressAddOnsWidget-module__details{ padding: 14px } .custom-classname { }"
+          }
         }
       },
       "block_order": [
@@ -154,7 +184,8 @@
         "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi",
         "klaviyo_bis_VMWTAy",
-        "bold_subscriptions_bsub_widget_block_3nJ3hM"
+        "bold_subscriptions_bsub_widget_block_3nJ3hM",
+        "bold_subscriptions_bsub_express_add_ons_UF66My"
       ],
       "settings": {
         "enable_sticky_info": true,
