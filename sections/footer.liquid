@@ -50,28 +50,53 @@
             </div>
           {% endif %}
 
-          <!-- Links -->
-          {% if section.settings.show_quick_links %}
-            <div class='footer__quick-links'>
-              {% if section.settings.quick_links_title != blank %}
-                <h3 class='footer__column-title visually-hidden'>
-                  {{ section.settings.quick_links_title }}
-                </h3>
-              {% endif %}
+          <div class='footer__quick-links-container'>
+            <!-- Links -->
+            {% if section.settings.show_quick_links %}
+              <div class='footer__quick-links'>
+                {% if section.settings.quick_links_title != blank %}
+                  <h3 class='footer__column-title visually-hidden'>
+                    {{ section.settings.quick_links_title }}
+                  </h3>
+                {% endif %}
 
-              {% if section.settings.quick_links_menu != blank %}
-                <ul class='footer__links-list'>
-                  {% for link in linklists[section.settings.quick_links_menu].links %}
-                    <li class='footer__links-item'>
-                      <a href='{{ link.url }}' class='footer__link'>
-                        {{ link.title }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div>
-          {% endif %}
+                {% if section.settings.quick_links_menu != blank %}
+                  <ul class='footer__links-list'>
+                    {% for link in linklists[section.settings.quick_links_menu].links %}
+                      <li class='footer__links-item'>
+                        <a href='{{ link.url }}' class='footer__link'>
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <!-- Bottom Links -->
+            {% if section.settings.show_bottom_menu %}
+              <div class='footer__quick-links'>
+                {% if section.settings.bottom_menu_title != blank %}
+                  <h3 class='footer__column-title visually-hidden'>
+                    {{ section.settings.bottom_menu_title }}
+                  </h3>
+                {% endif %}
+
+                {% if section.settings.bottom_menu != blank %}
+                  <ul class='footer__links-list'>
+                    {% for link in linklists[section.settings.bottom_menu].links %}
+                      <li class='footer__links-item'>
+                        <a href='{{ link.url }}' class='footer__link'>
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
         </div>
 
         <!-- Newsletter Column -->
@@ -102,50 +127,52 @@
               or settings.social_pinterest_link != blank
               or settings.social_tiktok_link != blank
             %}
-              <div>
-                <ul class='footer__social-list'>
-                  {% if settings.social_facebook_link != blank %}
-                    <li class='footer__social-item'>
-                      <a
-                        href='{{ settings.social_facebook_link }}'
-                        class='footer__social-link'
-                      >
-                        {% render 'icon-facebook' %}
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_twitter_link != blank %}
-                    <li class='footer__social-item'>
-                      <a
-                        href='{{ settings.social_twitter_link }}'
-                        class='footer__social-link'
-                      >
-                        {% render 'icon-twitter' %}
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_pinterest_link != blank %}
-                    <li class='footer__social-item'>
-                      <a
-                        href='{{ settings.social_pinterest_link }}'
-                        class='footer__social-link'
-                      >
-                        {% render 'icon-pinterest' %}
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_tiktok_link != blank %}
-                    <li class='footer__social-item'>
-                      <a
-                        href='{{ settings.social_tiktok_link }}'
-                        class='footer__social-link'
-                      >
-                        {% render 'icon-tiktok' %}
-                      </a>
-                    </li>
-                  {% endif %}
-                </ul>
-              </div>
+              <ul class='footer__social-list'>
+                {% if settings.social_facebook_link != blank %}
+                  <li class='footer__social-item'>
+                    <a
+                      href='{{ settings.social_facebook_link }}'
+                      class='footer__social-link'
+                      target='_blank'
+                    >
+                      {% render 'icon-facebook' %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if settings.social_twitter_link != blank %}
+                  <li class='footer__social-item'>
+                    <a
+                      href='{{ settings.social_twitter_link }}'
+                      class='footer__social-link'
+                      target='_blank'
+                    >
+                      {% render 'icon-twitter' %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if settings.social_pinterest_link != blank %}
+                  <li class='footer__social-item'>
+                    <a
+                      href='{{ settings.social_pinterest_link }}'
+                      class='footer__social-link'
+                      target='_blank'
+                    >
+                      {% render 'icon-pinterest' %}
+                    </a>
+                  </li>
+                {% endif %}
+                {% if settings.social_tiktok_link != blank %}
+                  <li class='footer__social-item'>
+                    <a
+                      href='{{ settings.social_tiktok_link }}'
+                      class='footer__social-link'
+                      target='_blank'
+                    >
+                      {% render 'icon-tiktok' %}
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
             {% endif %}
           {% endif %}
           <!-- Footer Bottom -->
@@ -161,26 +188,6 @@
                     | default: 'All rights reserved.'
                   }}
                 </p>
-              </div>
-
-              <!-- Bottom Links -->
-              <div class='footer__bottom-links'>
-                {% if section.settings.show_bottom_menu %}
-                  <nav class='footer__bottom-nav'>
-                    <ul class='footer__bottom-nav-list'>
-                      {% for link in linklists[section.settings.bottom_menu].links %}
-                        <li class='footer__bottom-nav-item'>
-                          <a
-                            href='{{ link.url }}'
-                            class='footer__bottom-nav-link'
-                          >
-                            {{ link.title }}
-                          </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </nav>
-                {% endif %}
               </div>
             </div>
           </div>
