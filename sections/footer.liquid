@@ -172,6 +172,17 @@
                     </a>
                   </li>
                 {% endif %}
+                {% if settings.social_instagram_link != blank %}
+                  <li class='footer__social-item'>
+                    <a
+                      href='{{ settings.social_instagram_link }}'
+                      class='footer__social-link'
+                      target='_blank'
+                    >
+                      {% render 'icon-instagram' %}
+                    </a>
+                  </li>
+                {% endif %}
               </ul>
             {% endif %}
           {% endif %}
