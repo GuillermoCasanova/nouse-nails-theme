@@ -10,14 +10,13 @@
 {% endcomment %}
 
 <div class='product-card-grid{% unless product.available %} product-card-grid--sold-out{% endunless %}'>
-  <a
-    href='{{ product.url | within: collection }}'
+  <div
     class='product-card-grid__link'
   >
     {% unless product.available %}
       <span class='product-card-grid__sold-out-badge'>
         <span class='product-card-grid__sold-out-badge__text'>
-          {{- 'products.product.sold_out' | t -}}
+          {{ 'products.product.sold_out' | t }}
         </span>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -30,9 +29,16 @@
         </svg>
       </span>
     {% endunless %}
-    {%- assign preview_image = product.featured_media.preview_image -%}
+
+    {% assign preview_image = product.featured_media.preview_image %}
 
     <div class='product-card-grid__image-container'>
+      <a
+        href='{{ product.url | within: collection }}'
+        class='product-card-grid__image-link'
+      >
+        View {{ product.title }}
+      </a>
       {% if preview_image %}
         <img
           class='product-card-grid__image'
@@ -44,7 +50,6 @@
           height='400'
           loading='lazy'
         >
-
         {% if product.images[1] %}
           <img
             class='product-card-grid__image product-card-grid__image--hover'
@@ -60,6 +65,16 @@
       {% else %}
         {{ 'product-1' | placeholder_svg_tag: 'product-card-grid__image' }}
       {% endif %}
+
+      {% unless product.available %}
+        <a
+          href='{{ product.url | within: collection | append: '?back-in-stock=1' }}'
+          class='klaviyo-bis-trigger-collection'
+          role='button'
+        >
+          {{ 'products.product.notify_me' | t | default: 'Vote For Restock' }}
+        </a>
+      {% endunless %}
     </div>
 
     <div class='product-card-grid__content'>
@@ -73,7 +88,6 @@
             product: product,
             show_vendor: show_vendor
           %}
-
           {% render 'product-rating',
             product: product,
             class: 'product-card-grid__rating'
@@ -81,18 +95,5 @@
         </div>
       </div>
     </div>
-  </a>
-  {% unless product.available %}
-    <a
-      href='{{ product.url | within: collection | append: '?back-in-stock=1' }}'
-      class='klaviyo-bis-trigger-collection'
-      role='button'
-    >
-      {{
-        'products.product.notify_me'
-        | t
-        | default: 'Notify Me When Available'
-      }}
-    </a>
-  {% endunless %}
+  </div>
 </div>

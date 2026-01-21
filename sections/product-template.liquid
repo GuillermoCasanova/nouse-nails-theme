@@ -143,12 +143,10 @@
                       </h1>
                     </div>
                   {%- when 'klaviyo_bis' -%}
-                    <a
+                    <div
                       class='klaviyo-bis-trigger'
                       data-klaviyo-bis-trigger
-                      href='#'
-                      role='button'
-                    ></a>
+                    ></div>
                     <script>
                       (function () {
                         var params = new URLSearchParams(
@@ -161,10 +159,9 @@
                         var run = function () {
                           setTimeout(function () {
                             var bisTrigger = document.querySelector(
-                              'a.klaviyo-bis-trigger'
+                              '#klaviyo-bis-button-container button.needsclick'
                             );
                             if (bisTrigger) {
-                              alert('trigger found');
                               var clickEvent = new MouseEvent('click', {
                                 view: window,
                                 bubbles: true,
@@ -172,7 +169,7 @@
                               });
                               bisTrigger.dispatchEvent(clickEvent);
                             }
-                          }, 3000);
+                          }, 300);
                         };
 
                         if (document.readyState === 'loading') {
