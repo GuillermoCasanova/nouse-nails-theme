@@ -99,18 +99,72 @@
             "controls": false
           }
         },
-        "image_4Y4XQG": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/other-natural-1.jpg",
-            "art_direction": "wide",
-            "media_aspect_ratio": "64/41"
-          }
-        },
         "product_HNw9rm": {
           "type": "product",
           "settings": {
             "product": "2"
+          }
+        },
+        "product_rkiDY8": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_MF3fnx": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "image_kchn3X": {
+          "type": "image",
+          "settings": {
+            "art_direction": "portrait",
+            "media_aspect_ratio": "64/41"
+          }
+        },
+        "product_DPxQ7h": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_TXEAdt": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_p97nrD": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_BXCbzx": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_b6Yf7g": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_memCUW": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "image_yE9Khg": {
+          "type": "image",
+          "settings": {
+            "art_direction": "portrait",
+            "media_aspect_ratio": "3/4"
           }
         }
       },
@@ -118,8 +172,17 @@
         "product_gfx7Rr",
         "product_qYHq4V",
         "video_embed_jHAENQ",
-        "image_4Y4XQG",
-        "product_HNw9rm"
+        "product_HNw9rm",
+        "product_rkiDY8",
+        "product_MF3fnx",
+        "image_kchn3X",
+        "product_DPxQ7h",
+        "product_TXEAdt",
+        "product_p97nrD",
+        "product_BXCbzx",
+        "product_b6Yf7g",
+        "product_memCUW",
+        "image_yE9Khg"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
@@ -129,70 +192,11 @@
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
       }
-    },
-    "dynamic_collection_grid_xVHWjB": {
-      "type": "dynamic-collection-grid",
-      "blocks": {
-        "product_dwmWqt": {
-          "type": "product",
-          "settings": {
-            "product": "01-scandi-color-theory"
-          }
-        },
-        "product_TUyPkd": {
-          "type": "product",
-          "settings": {
-            "product": "13-stars-aligned"
-          }
-        },
-        "image_P8kgae": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-05-05_at_9.50.27_PM_1.png",
-            "art_direction": "portrait",
-            "media_aspect_ratio": "3/4"
-          }
-        },
-        "product_rLYLNB": {
-          "type": "product",
-          "settings": {
-            "product": "5"
-          }
-        },
-        "product_MPVWHJ": {
-          "type": "product",
-          "settings": {
-            "product": "ctrl-delete-nail-remover-serum"
-          }
-        },
-        "product_eXzmyw": {
-          "type": "product",
-          "settings": {
-            "product": "15-wellesley"
-          }
-        }
-      },
-      "block_order": [
-        "product_dwmWqt",
-        "product_TUyPkd",
-        "image_P8kgae",
-        "product_rLYLNB",
-        "product_MPVWHJ",
-        "product_eXzmyw"
-      ],
-      "settings": {
-        "title": "",
-        "hide_title": false,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
-        "section_padding_top": "section-padding-top-small",
-        "section_padding_bottom": "section-padding-bottom-small"
-      }
     }
   },
   "order": [
     "main",
     "hae_marquee_banner_33tJkG",
-    "dynamic_collection_grid_VWfNXt",
-    "dynamic_collection_grid_xVHWjB"
+    "dynamic_collection_grid_VWfNXt"
   ]
 }
