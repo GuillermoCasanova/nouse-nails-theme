@@ -32,83 +32,9 @@
           "type": "quantity_selector",
           "settings": {}
         },
-        "smartrr_app_block_MJmBqK": {
-          "type": "shopify://apps/smartrr/blocks/app-block/feefa72b-d730-4320-ae1b-95af6a0c861e",
-          "settings": {
-            "custom_product_form": "",
-            "group_select": "radio",
-            "group_border": 1,
-            "group_border_radius": 8,
-            "group_primary_background": "#f8eee3",
-            "group_primary_text_color": "#6d0506",
-            "group_border_color": "#6d0506",
-            "show_otp": true,
-            "otp_default": false,
-            "show_prices": false,
-            "plan_select": "grid",
-            "plan_border": 1,
-            "plan_border_radius": 8,
-            "show_label": true,
-            "plan_primary_background": "#f8eee3",
-            "plan_primary_text_color": "#6d0506",
-            "plan_border_color": "#6d0506",
-            "custom_css": ""
-          }
-        },
         "description_rh9JAT": {
           "type": "description",
           "settings": {}
-        },
-        "smartrr_subscription_benefits_fRrJd3": {
-          "type": "shopify://apps/smartrr/blocks/subscription-benefits/feefa72b-d730-4320-ae1b-95af6a0c861e",
-          "settings": {
-            "list_type": "check_list",
-            "headline": "Why subscribe?",
-            "content_text": "You will have complete control over your subscriptions.\nReschedule, edit, or cancel deliveries anytime, based on your own needs.",
-            "list_item_1": "You will have complete control over your subscriptions.",
-            "list_item_2": "Reschedule, edit, or cancel deliveries anytime, based on your own needs.",
-            "list_item_3": "",
-            "list_item_4": "",
-            "background_color": "#d1e1e8",
-            "text_color": "#6d0506",
-            "icon_color": "#6d0506",
-            "padding_top": 20,
-            "padding_bottom": 20,
-            "padding_left": 20,
-            "padding_right": 20,
-            "border_radius": 20,
-            "always_show": false,
-            "custom_css": ""
-          }
-        },
-        "return_policy_VABCGt": {
-          "type": "return_policy",
-          "settings": {
-            "heading": "Return Policy",
-            "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our <a href=\"/pages/returns-exchanges\" target=\"_blank\" title=\"Returns & Exchanges\">Returns Policy</a>.</p>"
-          }
-        },
-        "buy_buttons_B47i49": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "rebuy_personalization_engine_rebuy_widget_D66TYi": {
-          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
-          "settings": {
-            "enabled": true,
-            "id": "",
-            "product_id_enabled": true,
-            "collection_id_enabled": false
-          }
-        },
-        "klaviyo_bis_VMWTAy": {
-          "type": "klaviyo_bis",
-          "settings": {
-            "location_id": ""
-          }
         },
         "bold_subscriptions_bsub_widget_block_3nJ3hM": {
           "type": "shopify://apps/bold-subscriptions/blocks/bsub-widget-block/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
@@ -140,8 +66,38 @@
             "subsequent_dynamic_discounts_text": "{subsequent_percent_discount}% ({subsequent_fixed_discount}) after {order_count} order(s)"
           }
         },
+        "return_policy_VABCGt": {
+          "type": "return_policy",
+          "settings": {
+            "heading": "Return Policy",
+            "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our <a href=\"/pages/returns-exchanges\" target=\"_blank\" title=\"Returns & Exchanges\">Returns Policy</a>.</p>"
+          }
+        },
+        "buy_buttons_B47i49": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "rebuy_personalization_engine_rebuy_widget_D66TYi": {
+          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+          "settings": {
+            "enabled": true,
+            "id": "",
+            "product_id_enabled": true,
+            "collection_id_enabled": false
+          }
+        },
+        "klaviyo_bis_VMWTAy": {
+          "type": "klaviyo_bis",
+          "settings": {
+            "location_id": ""
+          }
+        },
         "bold_subscriptions_bsub_express_add_ons_UF66My": {
           "type": "shopify://apps/bold-subscriptions/blocks/bsub-express-add-ons/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
+          "disabled": true,
           "settings": {
             "product": "{{product}}",
             "show_while_loading": true,
@@ -177,14 +133,12 @@
         "price_GLyApW",
         "rating_kRcmp6",
         "quantity_selector_g6nGM9",
-        "smartrr_app_block_MJmBqK",
         "description_rh9JAT",
-        "smartrr_subscription_benefits_fRrJd3",
+        "bold_subscriptions_bsub_widget_block_3nJ3hM",
         "return_policy_VABCGt",
         "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi",
         "klaviyo_bis_VMWTAy",
-        "bold_subscriptions_bsub_widget_block_3nJ3hM",
         "bold_subscriptions_bsub_express_add_ons_UF66My"
       ],
       "settings": {
