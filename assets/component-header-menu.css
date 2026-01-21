@@ -45,6 +45,14 @@
   font-family: var(--secondary-font-family);
 }
 
+.header__menu-summary {
+  list-style: none;
+}
+
+.header__menu-summary::-webkit-details-marker {
+  display: none;
+}
+
 @media screen and (min-width: 1024px) {
   .header__menu-item {
     padding-left: 0;
@@ -95,8 +103,8 @@
   display: none;
 }
 
-.header__menu-item::-webkit-details-marker {
-  list-style: none;
+.header__menu-summary > .header__menu-item {
+  display: inline-block;
 }
 
 .header__active-menu-item {

@@ -43,11 +43,6 @@
   transition: transform 0.3s ease;
 }
 
-/* Hover Image */
-.product-card-grid__link:hover .product-card-grid__image-container,
-.product-card-grid__link:focus .product-card-grid__image-container {
-  border: 1px dotted rgb(var(--color-text));
-}
 
 /* Hover image (second image) */
 .product-card-grid__image--hover {

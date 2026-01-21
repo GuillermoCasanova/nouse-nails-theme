@@ -39,6 +39,11 @@
                   alt: block.settings.image.alt
                 %}
               {% endif %}
+              <div class='featured-collections__column__button-wrapper'>
+                <div class='button  button--primary  button--small'>
+                  {{ block.settings.button_text }}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -50,12 +55,6 @@
               <p class='featured-collections__column__headline headline-style-h1'>
                 {{ block.settings.headline }}
               </p>
-            </div>
-
-            <div class='featured-collections__column__button-wrapper'>
-              <div class='button  button--primary  button--small'>
-                {{ block.settings.button_text }}
-              </div>
             </div>
           </div>
         </a>

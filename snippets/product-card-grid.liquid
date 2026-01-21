@@ -83,17 +83,16 @@
     </div>
   </a>
   {% unless product.available %}
-    <button
-      type='button'
+    <a
+      href='{{ product.url | within: collection | append: '?back-in-stock=1' }}'
       class='klaviyo-bis-trigger-collection'
-      data-variant-id='{{ product.selected_or_first_available_variant.id }}'
-      data-product-id='{{ product.id }}'
+      role='button'
     >
       {{
         'products.product.notify_me'
         | t
         | default: 'Notify Me When Available'
       }}
-    </button>
+    </a>
   {% endunless %}
 </div>

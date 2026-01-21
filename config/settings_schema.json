@@ -1226,5 +1226,17 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "Custom Cursor",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_green_dot_effect",
+        "label": "Enable custom sparkle cursor effect",
+        "default": true,
+        "info": "Toggles the custom sparkle cursor active on some links across the page"
+      }
+    ]
   }
 ]

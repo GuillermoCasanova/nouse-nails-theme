@@ -563,6 +563,19 @@ class MenuDrawer extends HTMLElement {
     } else {
       this.querySelectorAll('summary').forEach(summary => {
         if (activateOnHover) {
+          summary.addEventListener('click', event => {
+            const link = event.target.closest('a');
+
+            if (link) {
+              event.preventDefault();
+              event.stopPropagation();
+              window.location.href = link.href;
+              return;
+            }
+
+            event.preventDefault();
+          });
+
           summary.addEventListener('mouseenter', event => {
             this.onSummaryClick(event, true);
           });
@@ -1812,6 +1825,13 @@ function initGreenDotEffect() {
   }
 }
 
-setTimeout(() => {
-  initGreenDotEffect();
-}, 200);
+const greenDotEnabled =
+  window.theme && window.theme.settings
+    ? window.theme.settings.enableGreenDotEffect
+    : true;
+
+if (greenDotEnabled) {
+  setTimeout(() => {
+    initGreenDotEffect();
+  }, 200);
+}

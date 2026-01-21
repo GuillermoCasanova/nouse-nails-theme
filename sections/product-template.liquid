@@ -143,12 +143,45 @@
                       </h1>
                     </div>
                   {%- when 'klaviyo_bis' -%}
-                    <div
+                    <a
                       class='klaviyo-bis-trigger'
                       data-klaviyo-bis-trigger
-                    >
-                      klaviyo trigger
-                    </div>
+                      href='#'
+                      role='button'
+                    ></a>
+                    <script>
+                      (function () {
+                        var params = new URLSearchParams(
+                          window.location.search
+                        );
+                        if (params.get('back-in-stock') !== '1') {
+                          return;
+                        }
+
+                        var run = function () {
+                          setTimeout(function () {
+                            var bisTrigger = document.querySelector(
+                              'a.klaviyo-bis-trigger'
+                            );
+                            if (bisTrigger) {
+                              alert('trigger found');
+                              var clickEvent = new MouseEvent('click', {
+                                view: window,
+                                bubbles: true,
+                                cancelable: false,
+                              });
+                              bisTrigger.dispatchEvent(clickEvent);
+                            }
+                          }, 3000);
+                        };
+
+                        if (document.readyState === 'loading') {
+                          document.addEventListener('DOMContentLoaded', run);
+                        } else {
+                          run();
+                        }
+                      })();
+                    </script>
                   {%- when 'type' -%}
                     <div
                       class='product__type  text-size-medium'

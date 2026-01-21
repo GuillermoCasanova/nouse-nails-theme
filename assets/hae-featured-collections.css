@@ -107,7 +107,7 @@
 
 .featured-collections__column__headline {
   color: rgb(var(--color-accent));
-  margin-bottom: var(--space-7);
+  margin-bottom: 0;
 }
 
 .featured-collections__column__eyebrow {
@@ -127,7 +127,6 @@
   max-width: 20rem;
 }
 
-@media screen and (min-width: 748px) {
   .featured-collections__column__button-wrapper {
     position: absolute;
     bottom: 0;
@@ -135,7 +134,14 @@
     z-index: 1;
     padding: inherit;
     top: auto;
-    padding-right: var(--space-9);
-    bottom: var(--space-9);
+    padding-right: var(--space-3);
+    bottom: var(--space-3);
+    z-index: 1;
   }
-}
+
+  @media screen and (min-width: 748px) {
+    .featured-collections__column__button-wrapper {
+      padding-right: var(--space-5);
+      bottom: var(--space-5);
+    }
+  }

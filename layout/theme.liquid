@@ -179,7 +179,8 @@
         settings: {
           predictiveSearchEnabled: {{ settings.predictive_search_enabled | json }},
           predictiveSearchShowPrice: {{ settings.predictive_search_show_price | json }},
-          predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }}
+          predictiveSearchShowVendor: {{ settings.predictive_search_show_vendor | json }},
+          enableGreenDotEffect: {{ settings.enable_green_dot_effect | json }}
         },
         stylesheet: "{{ 'theme.css' | asset_url }}"
       }
@@ -286,162 +287,71 @@
       };
     </script>
 
-    <script src='https://a.klaviyo.com/media/js/onsite/onsite.js'></script>
-    <script>
-      var klaviyo = klaviyo || [];
-      klaviyo.init({
-        account: '{{ settings.klaviyo_account_id }}',
-        platform: 'shopify',
-        collection_urls: ['/collections/'],
-      });
-      klaviyo.enable('backinstock', {
-        trigger: {
-          product_page_text: 'Notify Me When Available',
-          product_page_class: 'button',
-          product_page_text_align: 'center',
-          product_page_margin: '0px',
-          replace_anchor: false,
-        },
-        modal: {
-          headline: '{product_name}',
-          body_content:
-            'Register to receive a notification when this item comes back in stock.',
-          email_field_label: 'Email',
-          button_label: 'Notify me when available',
-          subscription_success_label:
-            "You're in! We'll let you know when it's back.",
-          footer_content: '',
-          additional_styles:
-            "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue');",
-          drop_background_color: '#000',
-          background_color: '#fff',
-          text_color: '#222',
-          button_text_color: '#fff',
-          button_background_color: '#439fdb',
-          close_button_color: '#ccc',
-          error_background_color: '#fcd6d7',
-          error_text_color: '#C72E2F',
-          success_background_color: '#d3efcd',
-          success_text_color: '#1B9500',
-        },
-      });
-
-      // Initialize collection page back in stock triggers
-      function initKlaviyoCollectionTriggers() {
-        const triggers = document.querySelectorAll(
-          '.klaviyo-bis-trigger-collection'
-        );
-        console.log('Found ' + triggers.length + ' Klaviyo BIS triggers');
-
-        triggers.forEach(function (trigger) {
-          trigger.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const variantId = this.getAttribute('data-variant-id');
-            console.log('Klaviyo BIS clicked for variant:', variantId);
-
-            if (variantId) {
-              // Check if Klaviyo is available and try to open the form
-              if (typeof window._klOnsite !== 'undefined') {
-                console.log('Using _klOnsite.push method');
-                window._klOnsite.push([
-                  'openForm',
-                  'backinstock',
-                  { variant: variantId },
-                ]);
-              } else if (typeof klaviyo !== 'undefined') {
-                console.log('Using klaviyo.push method');
-                klaviyo.push([
-                  'openForm',
-                  'backinstock',
-                  { variant: variantId },
-                ]);
-              } else {
-                console.error('Klaviyo not found');
-              }
-            }
-          });
-        });
-      }
-
-      // Wait for Klaviyo to load, then initialize triggers
-      var klaviyoLoadCheck = setInterval(function () {
-        if (
-          typeof window._klOnsite !== 'undefined' ||
-          typeof klaviyo !== 'undefined'
-        ) {
-          clearInterval(klaviyoLoadCheck);
-          console.log('Klaviyo loaded, initializing collection triggers');
-          initKlaviyoCollectionTriggers();
-        }
-      }, 100);
-    </script>
     {% comment %} START - Smartrr Custom script {% endcomment %}
     <script>
-      {% assign formatted_price = product.price | money %}
-      {% assign discounted_price = product.price | times: 0.85 | round %}
-      {% assign formatted_discounted_price = discounted_price | money %}
+        {% assign formatted_price = product.price | money %}
+        {% assign discounted_price = product.price | times: 0.85 | round %}
+        {% assign formatted_discounted_price = discounted_price | money %}
 
-      (function () {
-        const TARGET_CLASS = 'smartrr-selling-plan-group-name';
-        const INJECTED_FLAG = 'data-smartrr-prices-injected';
+        (function () {
+          const TARGET_CLASS = 'smartrr-selling-plan-group-name';
+          const INJECTED_FLAG = 'data-smartrr-prices-injected';
 
-        const FULL_PRICE = "{{ formatted_price }}";
-        const DISCOUNTED_PRICE = "{{ formatted_discounted_price }}";
-        const CURRENCY_CODE = "{{ shop.currency }}";
+          const FULL_PRICE = "{{ formatted_price }}";
+          const DISCOUNTED_PRICE = "{{ formatted_discounted_price }}";
+          const CURRENCY_CODE = "{{ shop.currency }}";
 
-        function injectIntoElements(root = document) {
-          const elements = root.querySelectorAll(`.${TARGET_CLASS}:not([${INJECTED_FLAG}])`);
+          function injectIntoElements(root = document) {
+            const elements = root.querySelectorAll(`.${TARGET_CLASS}:not([${INJECTED_FLAG}])`);
 
-          elements.forEach(el => {
-            const isOTP = el.closest('.smartrr-otp') !== null;
+            elements.forEach(el => {
+              const isOTP = el.closest('.smartrr-otp') !== null;
 
-            let comparePrice = '';
-            let subscribePrice = '';
+              let comparePrice = '';
+              let subscribePrice = '';
 
-            if (isOTP) {
-              subscribePrice = FULL_PRICE;
-            } else {
-              comparePrice = FULL_PRICE;
-              subscribePrice = DISCOUNTED_PRICE;
-            }
-
-            const markup = `
-              <div
-                data-smartrr-product-id="{{ product.id }}"
-                data-smartrr-price-style=""
-                data-smartrr-currency="${CURRENCY_CODE}"
-                data-use-quantity="true"
-              >
-                <span data-smartrr-compare-price>${comparePrice}</span>
-                <span data-smartrr-subscribe-price>${subscribePrice}</span>
-                <span data-smartrr-regular-price>${comparePrice}</span>
-              </div>
-            `;
-
-            el.insertAdjacentHTML('beforeend', markup);
-            el.setAttribute(INJECTED_FLAG, 'true');
-          });
-        }
-
-        injectIntoElements();
-
-        const observer = new MutationObserver(mutations => {
-          mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-              if (node.nodeType === 1) {
-                injectIntoElements(node);
+              if (isOTP) {
+                subscribePrice = FULL_PRICE;
+              } else {
+                comparePrice = FULL_PRICE;
+                subscribePrice = DISCOUNTED_PRICE;
               }
+
+              const markup = `
+                <div
+                  data-smartrr-product-id="{{ product.id }}"
+                  data-smartrr-price-style=""
+                  data-smartrr-currency="${CURRENCY_CODE}"
+                  data-use-quantity="true"
+                >
+                  <span data-smartrr-compare-price>${comparePrice}</span>
+                  <span data-smartrr-subscribe-price>${subscribePrice}</span>
+                  <span data-smartrr-regular-price>${comparePrice}</span>
+                </div>
+              `;
+
+              el.insertAdjacentHTML('beforeend', markup);
+              el.setAttribute(INJECTED_FLAG, 'true');
+            });
+          }
+
+          injectIntoElements();
+
+          const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+              mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                  injectIntoElements(node);
+                }
+              });
             });
           });
-        });
 
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true
-        });
-      })();
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+        })();
     </script>
     {% comment %} START - Smartrr Custom script {% endcomment %}
   </body>
