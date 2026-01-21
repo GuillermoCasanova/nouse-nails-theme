@@ -28,7 +28,10 @@ class SocialVideoPlayer extends HTMLElement {
     if (this.isTouchDevice) {
       this.setupTouchEvents();
     } else {
-      this.setupHoverEvents();
+      // Setup autoplay if enabled
+      if (!this.hasAttribute('data-autoplay')) {
+        this.setupHoverEvents();
+      }
     }
 
     // Handle video events
