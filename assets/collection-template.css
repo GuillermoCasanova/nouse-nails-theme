@@ -25,6 +25,7 @@
 
 .collection-template__title {
   margin-bottom: var(--space-5);
+  text-align: left; 
 }
 
 .collection-template__description {
