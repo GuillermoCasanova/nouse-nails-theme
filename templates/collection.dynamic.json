@@ -163,8 +163,9 @@
         "video_embed_fCA47C": {
           "type": "video_embed",
           "settings": {
+            "video": "shopify://files/videos/knock knock updated.mov",
             "autoplay": "true",
-            "media_aspect_ratio": "1/1",
+            "media_aspect_ratio": "3/4",
             "controls": false
           }
         }
