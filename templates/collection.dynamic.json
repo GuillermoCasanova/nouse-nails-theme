@@ -160,11 +160,12 @@
             "product": ""
           }
         },
-        "image_yE9Khg": {
-          "type": "image",
+        "video_embed_fCA47C": {
+          "type": "video_embed",
           "settings": {
-            "art_direction": "portrait",
-            "media_aspect_ratio": "3/4"
+            "autoplay": "true",
+            "media_aspect_ratio": "1/1",
+            "controls": false
           }
         }
       },
@@ -182,7 +183,7 @@
         "product_BXCbzx",
         "product_b6Yf7g",
         "product_memCUW",
-        "image_yE9Khg"
+        "video_embed_fCA47C"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
