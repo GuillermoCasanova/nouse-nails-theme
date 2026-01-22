@@ -130,11 +130,13 @@
             "product": "led-gel-lamp"
           }
         },
-        "image_kchn3X": {
-          "type": "image",
+        "video_embed_NY7Fwq": {
+          "type": "video_embed",
           "settings": {
-            "art_direction": "portrait",
-            "media_aspect_ratio": "3/4"
+            "video": "shopify://files/videos/Friends showing Nails updated.mov",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
           }
         },
         "product_b6Yf7g": {
@@ -183,7 +185,7 @@
         "product_MF3fnx",
         "product_TXEAdt",
         "product_DPxQ7h",
-        "image_kchn3X",
+        "video_embed_NY7Fwq",
         "product_b6Yf7g",
         "product_p97nrD",
         "product_BXCbzx",
