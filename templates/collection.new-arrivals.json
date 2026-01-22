@@ -91,43 +91,43 @@
         "product_gfx7Rr": {
           "type": "product",
           "settings": {
-            "product": "11-aura-gradient"
+            "product": "2"
           }
         },
         "product_qYHq4V": {
           "type": "product",
           "settings": {
-            "product": "3"
+            "product": "01-scandi-color-theory"
           }
         },
         "product_HNw9rm": {
           "type": "product",
           "settings": {
-            "product": "2"
+            "product": "8"
           }
         },
         "product_rkiDY8": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "11-aura-gradient"
           }
         },
         "product_MF3fnx": {
           "type": "product",
           "settings": {
-            "product": ""
-          }
-        },
-        "product_DPxQ7h": {
-          "type": "product",
-          "settings": {
-            "product": ""
+            "product": "5"
           }
         },
         "product_TXEAdt": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "ctrl-delete-nail-remover-serum"
+          }
+        },
+        "product_DPxQ7h": {
+          "type": "product",
+          "settings": {
+            "product": "led-gel-lamp"
           }
         },
         "image_kchn3X": {
@@ -137,37 +137,40 @@
             "media_aspect_ratio": "3/4"
           }
         },
+        "product_b6Yf7g": {
+          "type": "product",
+          "settings": {
+            "product": "complete-starter-pack"
+          }
+        },
         "product_p97nrD": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "13-stars-aligned"
           }
         },
         "product_BXCbzx": {
           "type": "product",
           "settings": {
-            "product": ""
-          }
-        },
-        "product_b6Yf7g": {
-          "type": "product",
-          "settings": {
-            "product": ""
+            "product": "15-wellesley"
           }
         },
         "product_memCUW": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "7"
           }
         },
-        "video_embed_fCA47C": {
-          "type": "video_embed",
+        "product_VVznxU": {
+          "type": "product",
           "settings": {
-            "video": "shopify://files/videos/knock knock updated.mov",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
+            "product": "4"
+          }
+        },
+        "product_fHdPxB": {
+          "type": "product",
+          "settings": {
+            "product": "6"
           }
         }
       },
@@ -178,14 +181,15 @@
         "product_HNw9rm",
         "product_rkiDY8",
         "product_MF3fnx",
-        "product_DPxQ7h",
         "product_TXEAdt",
+        "product_DPxQ7h",
         "image_kchn3X",
+        "product_b6Yf7g",
         "product_p97nrD",
         "product_BXCbzx",
-        "product_b6Yf7g",
         "product_memCUW",
-        "video_embed_fCA47C"
+        "product_VVznxU",
+        "product_fHdPxB"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
