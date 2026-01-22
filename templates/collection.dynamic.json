@@ -24,12 +24,13 @@
             "product": "10"
           }
         },
-        "image_UKfcPE": {
-          "type": "image",
+        "video_embed_ntX3Lr": {
+          "type": "video_embed",
           "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-05-05_at_9.50.27_PM_1.png",
-            "art_direction": "portrait",
-            "media_aspect_ratio": "3/4"
+            "video": "shopify://files/videos/knock knock updated.mov",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
           }
         },
         "product_YQz4fN": {
@@ -54,7 +55,7 @@
       "block_order": [
         "product_yqFHWf",
         "product_A7FPiw",
-        "image_UKfcPE",
+        "video_embed_ntX3Lr",
         "product_YQz4fN",
         "product_Ug7cTU",
         "product_XJMdtn"
@@ -78,6 +79,15 @@
     "dynamic_collection_grid_VWfNXt": {
       "type": "dynamic-collection-grid",
       "blocks": {
+        "video_embed_jHAENQ": {
+          "type": "video_embed",
+          "settings": {
+            "video": "shopify://files/videos/knock knock updated.mov",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
+          }
+        },
         "product_gfx7Rr": {
           "type": "product",
           "settings": {
@@ -88,15 +98,6 @@
           "type": "product",
           "settings": {
             "product": "3"
-          }
-        },
-        "video_embed_jHAENQ": {
-          "type": "video_embed",
-          "settings": {
-            "video": "shopify://files/videos/Hands Catching Sand 1080p.mp4",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
           }
         },
         "product_HNw9rm": {
@@ -171,9 +172,9 @@
         }
       },
       "block_order": [
+        "video_embed_jHAENQ",
         "product_gfx7Rr",
         "product_qYHq4V",
-        "video_embed_jHAENQ",
         "product_HNw9rm",
         "product_rkiDY8",
         "product_MF3fnx",
