@@ -1,5 +1,6 @@
 {{ 'collection-template.css' | asset_url | stylesheet_tag }}
 {{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
+<script src='{{ 'collection-facets.js' | asset_url }}' defer='defer'></script>
 
 {% case section.settings.grid %}
   {% when 2 %}
@@ -20,6 +21,10 @@
   {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
   {%- assign limit = 16 -%}
+{% endif %}
+{%- assign use_load_more = false -%}
+{% if section.settings.pagination_style == 'load_more' %}
+  {%- assign use_load_more = true -%}
 {% endif %}
 
 {% paginate collection.products by limit %}
@@ -192,9 +197,16 @@
         </header>
 
         <!-- Collection Products -->
-        <div id='Collection'>
+        <div
+          id='Collection'
+          data-products-container
+          data-next-url='{% if paginate.next %}{{ paginate.next.url | escape }}{% endif %}'
+        >
           {% if section.settings.layout == 'grid' %}
-            <ul class='collection-grid grid {{ grid_class }} grid-gap-sm'>
+            <ul
+              class='collection-grid grid {{ grid_class }} grid-gap-sm'
+              data-product-grid
+            >
               {% for product in collection.products %}
                 <li class='collection-grid-item'>
                   {% render 'product-card-grid',
@@ -239,7 +251,7 @@
               {% endfor %}
             </ul>
           {% else %}
-            <ul class='collection-list'>
+            <ul class='collection-list' data-product-list>
               {% for product in collection.products %}
                 <li class='list-view-item'>
                   <a
@@ -332,7 +344,31 @@
           {% endif %}
 
           {%- if paginate.pages > 1 -%}
-            {% include 'pagination', paginate: paginate %}
+            {% if use_load_more %}
+              {% if paginate.next %}
+                <div
+                  class='collection-template__load-more'
+                  data-load-more-container
+                >
+                  <button
+                    type='button'
+                    class='collection-template__load-more-button'
+                    data-load-more
+                    data-load-next='{{ paginate.next.url | escape }}'
+                    data-load-label='{{ 'general.pagination.next' | t }}'
+                  >
+                    <div class='collection-template__load-more-button-icon'>
+                      {% render 'icon-logo-flower' %}
+                    </div>
+                    <span class='collection-template__load-more-button-label'>
+                      Load More
+                    </span>
+                  </button>
+                </div>
+              {% endif %}
+            {% else %}
+              {% include 'pagination', paginate: paginate %}
+            {% endif %}
           {%- endif -%}
         </div>
       </div>
@@ -391,6 +427,22 @@
       "min": 2,
       "max": 8,
       "step": 1
+    },
+    {
+      "type": "select",
+      "id": "pagination_style",
+      "label": "Pagination style",
+      "default": "load_more",
+      "options": [
+        {
+          "value": "load_more",
+          "label": "Load more"
+        },
+        {
+          "value": "pagination",
+          "label": "Pagination"
+        }
+      ]
     },
     {
       "type": "header",

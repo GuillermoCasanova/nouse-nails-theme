@@ -10,10 +10,6 @@
   margin-bottom: var(--space-9);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Collection Header Content
 \*------------------------------------*/
@@ -25,7 +21,7 @@
 
 .collection-template__title {
   margin-bottom: var(--space-5);
-  text-align: left; 
+  text-align: left;
 }
 
 .collection-template__description {
@@ -38,10 +34,6 @@
   text-align: center;
   margin-bottom: var(--space-6);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Collection Hero
@@ -94,10 +86,6 @@
   font-family: var(--font-stack-mabry-med);
   font-size: var(--h2);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Filters Toolbar
@@ -205,10 +193,6 @@
   letter-spacing: 0.03em;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Collection Grid
 \*------------------------------------*/
@@ -220,10 +204,6 @@
 .collection-grid-item {
   margin-bottom: var(--space-2);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Product Card
@@ -259,10 +239,6 @@
   margin: 0;
   margin-top: auto;
 }
-
-
-
-
 
 /*------------------------------------*\
     #List View
@@ -359,10 +335,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Empty State
 \*------------------------------------*/
@@ -379,9 +351,71 @@
   margin: 0;
 }
 
+/*------------------------------------*\
+    #Load More
+\*------------------------------------*/
 
+.collection-template__load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
 
+.collection-template__load-more-button {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--secondary-font-family);
+  font-size: var(--text-size-medium);
+  cursor: pointer;
+  transition: all var(--duration-default) var(--default-easing);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: rgba(var(--color-base-text-2), 0.5);
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  padding-top: var(--space-3);
+}
 
+.collection-template__load-more-button-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  margin-bottom: var(--space-3);
+  color: rgb(var(--color-text-1));
+  animation: collection-spin 2s linear infinite;
+  position: absolute;
+  top: calc(-1 * var(--space-6));
+  opacity: 0;
+}
+
+.collection-template__load-more-button.hidden {
+  display: none;
+}
+
+.collection-template__load-more-button:hover,
+.collection-template__load-more-button:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.collection-template__load-more-button.is-loading {
+  pointer-events: none;
+}
+
+.collection-template__load-more-button.is-loading
+  .collection-template__load-more-button-icon {
+  opacity: 1;
+}
+
+/* Animation */
+@keyframes collection-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /*------------------------------------*\
     #Pagination
@@ -420,10 +454,6 @@
   opacity: 0.5;
   pointer-events: none;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Responsive Adjustments
