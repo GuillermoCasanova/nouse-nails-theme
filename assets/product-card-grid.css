@@ -16,10 +16,6 @@
   display: block;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Image 
 \*------------------------------------*/
@@ -42,7 +38,6 @@
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-
 
 /* Hover image (second image) */
 .product-card-grid__image--hover {
@@ -69,10 +64,6 @@
   z-index: 1;
   opacity: 0;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Content
@@ -138,10 +129,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Sold Out Badge
 \*------------------------------------*/
@@ -198,10 +185,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Back in Stock Button
 \*------------------------------------*/
@@ -212,7 +195,7 @@
   margin-top: var(--space-3);
   padding: var(--space-3) var(--space-4);
   background-color: rgb(var(--color-base-accent-1));
-  color: rgb(var(--color-button-text));
+  color: rgb(var(--color-text-1));
   border: 2px solid rgb(var(--color-button-primary-border));
   border-radius: 100vw;
   text-align: center;
@@ -224,7 +207,7 @@
   cursor: pointer;
   transition: all 0.3s var(--default-easing);
   position: absolute;
-  bottom: var(--space-3); 
+  bottom: var(--space-3);
   width: 94%;
   left: 0;
   right: 0;
@@ -237,10 +220,4 @@
   background-color: rgb(var(--color-text));
   border-color: rgb(var(--color-text));
   color: rgb(var(--color-background));
-}
-
-@media screen and (min-width: 768px) {
-  .klaviyo-bis-trigger-collection {
-    font-size: var(--text-size-base);
-  }
 }
