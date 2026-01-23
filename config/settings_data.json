@@ -75,10 +75,10 @@
             "type": "block",
             "settings": {
               "top_level_link": "Shop All",
-              "promotion_1_image": "shopify://shop_images/Screenshot_2025-05-05_at_9.50.27_PM_1.png",
+              "promotion_1_image": "shopify://shop_images/Iced-Out-4.jpg",
               "promotion_1_text": "New Arrivals",
               "promotion_1_url": "shopify://collections/new-arrivals",
-              "promotion_2_image": "shopify://shop_images/other-natural-3.jpg",
+              "promotion_2_image": "shopify://shop_images/Stars-Aligned-3.jpg",
               "promotion_2_text": "Nail Club Subscription",
               "promotion_2_url": "shopify://collections",
               "promotion_3_text": "",
