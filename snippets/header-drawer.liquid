@@ -39,6 +39,9 @@
                           aria-expanded='false'
                         >
                           {{ link.title | escape }}
+                          <div class='menu-drawer__submenu-title__icon'>
+                            {% render 'icon-plus' %}
+                          </div>
                         </summary>
 
                         {% assign is_mega_menu = false %}
@@ -85,6 +88,7 @@
                                           id='{{ childlink.title | escape }}'
                                         >
                                           {{ childlink.title | escape }}
+                                          {% render 'icon-plus' %}
                                         </div>
                                         <div class='header__childmenu'>
                                           <ul
@@ -210,11 +214,14 @@
                         {% else %}
                           <div
                             id='link-{{ link.handle | escape }}'
-                            class='menu-drawer__submenu-wrapper'
+                            class='menu-drawer__submenu'
                             tabindex='-1'
                             data-drawer-content
                           >
-                            <div data-drawer-content-inner>
+                            <div
+                              class='menu-drawer__submenu__inner'
+                              data-drawer-content-inner
+                            >
                               <ul
                                 class='menu-drawer__submenu__list list-menu'
                                 role='list'

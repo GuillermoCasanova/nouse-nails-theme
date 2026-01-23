@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\
     #Cart Table
 \*------------------------------------*/
@@ -38,10 +33,6 @@
 .cart-items thead th {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Cart Item
@@ -121,10 +112,6 @@
   margin-top: 0;
 }
 
-
-
-
-
 /*------------------------------------*\
       #Image
   \*------------------------------------*/
@@ -164,10 +151,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Name
 \*------------------------------------*/
@@ -187,10 +170,6 @@
 .cart-item__name:hover {
   text-decoration: none;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Price
@@ -238,7 +217,7 @@
 }
 
 .cart-drawer .product-option {
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
   font-size: var(--normal);
   margin-bottom: var(--space-3);
 }
@@ -255,10 +234,6 @@
   display: inline;
   margin: 0;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Quantity
@@ -315,10 +290,6 @@
 .quantity__button .icon {
   color: rgb(var(--color-brand-2));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Remove Button

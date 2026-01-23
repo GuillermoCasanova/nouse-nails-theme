@@ -8,7 +8,8 @@
   position: relative;
   border-radius: var(--border-radius-x-large) var(--border-radius-x-large) 0 0;
   overflow: hidden;
-  z-index: 100;
+  z-index: 0;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
@@ -54,14 +55,13 @@
 
 @media screen and (min-width: 768px) {
   .footer__grid .footer__column:last-child {
-  justify-content: flex-end; 
+    justify-content: flex-end;
     flex-direction: column;
     align-items: flex-end;
     display: flex;
     padding-left: var(--space-8);
   }
 }
-
 
 /*------------------------------------*\
     #Company Information
@@ -145,23 +145,19 @@
   margin-bottom: var(--space-6);
 }
 
-
-
 /*------------------------------------*\
     #Quick Links
 \*------------------------------------*/
 
 @media screen and (min-width: 768px) {
-  
   .footer__quick-links-container {
     display: flex;
     flex-direction: row;
     gap: var(--space-9);
-    margin-top: auto; 
+    margin-top: auto;
     margin-top: var(--space-10);
   }
 }
-
 
 .footer__quick-links {
   margin-top: auto;
@@ -220,7 +216,7 @@
 }
 
 .footer__newsletter-form {
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 .footer__newsletter-form [class^='klaviyo-form'] {
   width: 100% !important;

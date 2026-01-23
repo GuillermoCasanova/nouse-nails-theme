@@ -655,7 +655,7 @@ class MenuDrawer extends HTMLElement {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const linkElement = event.target.closest('a');
 
-    if (linkElement) {
+    if (!pIsHover && linkElement) {
       // Don't interfere with link clicks
       event.stopPropagation();
       // Let the link navigation happen first, then close menus

@@ -681,3 +681,54 @@ shopify-payment-terms {
     font-size: var(--text-size-main);
   }
 }
+
+/*------------------------------------*\
+#Bold Subscriptions Widget
+\*------------------------------------*/
+
+.bsub-widget legend {
+  position: absolute;
+  opacity: 0;
+}
+.bsub-widget__wrapper {
+  background-color: rgb(var(--color-background-2));
+  color: rgb(var(--color-text-2));
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+  border: 1px solid rgb(var(--color-accent)) !important;
+}
+
+.bsub-widget__text {
+  max-width: 98%;
+}
+
+input:not(:checked) + .bsub-widget__group-header {
+  border-color: rgb(var(--color-accent)) !important;
+}
+
+input:checked + .bsub-widget__plan-header::before,
+.bsub-widget__plan-header {
+  border-radius: 100vw !important;
+}
+
+input:checked + .bsub-widget__plan-header {
+  background-color: rgb(var(--color-background)) !important;
+  border-color: rgb(var(--color-text-2)) !important;
+  color: rgb(var(--color-text)) !important;
+}
+
+input:checked + .bsub-widget__plan-header .bsub-widget__main-text,
+input:checked + .bsub-widget__plan-header svg {
+  color: rgb(var(--color-text)) !important;
+}
+
+.bsub-widget__group input:checked + .bsub-widget__plan-header {
+  border-color: rgb(var(--color-text-2)) !important;
+  opacity: 1;
+}
+
+.bsub-widget__plan-header:hover {
+  color: rgb(var(--color-text-2)) !important;
+  border: 1px solid rgb(var(--color-text-2)) !important;
+}

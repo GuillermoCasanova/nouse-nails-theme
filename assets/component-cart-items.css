@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\
     #Cart Items
 \*------------------------------------*/
@@ -43,7 +38,6 @@
 
 .cart-item__image {
   height: auto;
-  max-width: calc(10rem / var(--font-body-scale));
 }
 
 @media screen and (min-width: 768px) {
@@ -54,7 +48,6 @@
 
 .cart-item__details {
   font-size: 1.6rem;
-  line-height: calc(1 + 0.4 / var(--font-body-scale));
 }
 
 .cart-item__details > * {

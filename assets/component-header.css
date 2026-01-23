@@ -1,14 +1,9 @@
-
-
-
-
-
 /*------------------------------------*\
     #Header
   \*------------------------------------*/
 
 [data-sticky-header] {
-  z-index: 2;
+  z-index: 100;
   position: sticky;
   top: 0;
   width: 100%;
@@ -20,7 +15,7 @@
 .header-wrapper {
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 100;
   background-color: #ffffff;
   transition: all 0.3s var(--default-easing);
   overflow: visible;
@@ -177,10 +172,6 @@
   display: none;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Header Heading
   \*------------------------------------*/
@@ -233,10 +224,6 @@
   display: none;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Header Drawer Blocker
   \*------------------------------------*/
@@ -263,10 +250,6 @@
     display: none;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Header Icons
@@ -354,10 +337,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Header Icons - Cart Toggle
   \*------------------------------------*/
@@ -399,10 +378,6 @@
 .header__cart-button:focus {
   text-decoration: underline;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Header Cart - Cart Count
@@ -452,10 +427,6 @@
   top: 0;
   width: 1.25rem;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Header Border Mobile

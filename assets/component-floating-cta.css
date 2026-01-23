@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\
     #Floating CTA
 \*------------------------------------*/
@@ -11,7 +6,7 @@
   position: fixed;
   bottom: var(--space-3);
   right: var(--space-2);
-  z-index: 1000;
+  z-index: 1;
   text-decoration: none;
   transition: all 0.7s var(--default-easing);
   text-align: center;

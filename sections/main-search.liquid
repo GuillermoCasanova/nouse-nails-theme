@@ -81,11 +81,6 @@
                 <label class='search__label' for='Search-In-Template'>
                   {{- 'general.search.search' | t -}}
                 </label>
-                {% comment %}
-                  <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
-                    <use href="#icon-search"></use>
-                  </svg>
-                {% endcomment %}
                 <input name='options[prefix]' type='hidden' value='last'>
 
                 <button
@@ -93,14 +88,7 @@
                   aria-label='Search'
                   data-search-modal-toggle=''
                 >
-                  <svg
-                    class='icon icon-search'
-                    aria-hidden='true'
-                    focusable='false'
-                    role='presentation'
-                  >
-                    <use href="#icon-search"></use>
-                  </svg>
+                  {% render 'icon-search' %}
                 </button>
                 {%- if settings.predictive_search_enabled -%}
                   <div
