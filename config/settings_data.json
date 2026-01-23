@@ -84,10 +84,25 @@
               "promotion_3_text": "",
               "promotion_3_url": ""
             }
+          },
+          "block_Dz7Lnx": {
+            "type": "block",
+            "settings": {
+              "top_level_link": "New",
+              "promotion_1_image": "shopify://shop_images/Strange-Terrain-2.jpg",
+              "promotion_1_text": "",
+              "promotion_1_url": "",
+              "promotion_2_image": "shopify://shop_images/Geometric-Jelly-2.jpg",
+              "promotion_2_text": "",
+              "promotion_2_url": "",
+              "promotion_3_text": "",
+              "promotion_3_url": ""
+            }
           }
         },
         "block_order": [
-          "block_Ln8P6T"
+          "block_Ln8P6T",
+          "block_Dz7Lnx"
         ],
         "settings": {
           "mobile_nav_heading": "Shop",
