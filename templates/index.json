@@ -443,9 +443,9 @@
         "cta_url": "shopify://products/blue-algae-spf-dew-mist",
         "position": "right",
         "scroll_threshold": 500,
-        "modal_media_aspect_ratio": "1/1",
+        "modal_media_aspect_ratio": "16/9",
         "modal_heading": "* SIGN UP & GET A FREE GEL LAMP :)",
-        "modal_heading_size": "headline-style-h2",
+        "modal_heading_size": "headline-style-h4",
         "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"#\">Email Terms</a>.</p>"
       }
     },
