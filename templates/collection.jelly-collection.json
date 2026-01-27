@@ -15,191 +15,70 @@
         "product_yqFHWf": {
           "type": "product",
           "settings": {
-            "product": "9"
-          }
-        },
-        "product_A7FPiw": {
-          "type": "product",
-          "settings": {
-            "product": "art-school-star"
-          }
-        },
-        "video_embed_ntX3Lr": {
-          "type": "video_embed",
-          "settings": {
-            "video": "shopify://files/videos/knock knock updated.mov",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
-          }
-        },
-        "product_YQz4fN": {
-          "type": "product",
-          "settings": {
             "product": "14-matcha-jelly"
           }
         },
-        "product_Ug7cTU": {
+        "product_xDUBtm": {
           "type": "product",
           "settings": {
             "product": "12-geometric-jelly"
           }
         },
-        "product_XJMdtn": {
+        "product_c8TWMU": {
           "type": "product",
           "settings": {
-            "product": "8"
+            "product": "11-aura-gradient"
+          }
+        },
+        "product_rNJ4zD": {
+          "type": "product",
+          "settings": {
+            "product": "9"
+          }
+        },
+        "product_M9cqTE": {
+          "type": "product",
+          "settings": {
+            "product": "art-school-star"
+          }
+        },
+        "image_UzjJRP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NOUS-13_Edit.jpg",
+            "art_direction": "portrait",
+            "media_aspect_ratio": "3/4"
           }
         }
       },
       "block_order": [
         "product_yqFHWf",
-        "product_A7FPiw",
-        "video_embed_ntX3Lr",
-        "product_YQz4fN",
-        "product_Ug7cTU",
-        "product_XJMdtn"
+        "product_xDUBtm",
+        "product_c8TWMU",
+        "product_rNJ4zD",
+        "product_M9cqTE",
+        "image_UzjJRP"
       ],
       "settings": {
-        "title": "The Nous Standard",
+        "title": "Jelly Collection",
         "hide_title": false,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
+        "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
       }
     },
     "hae_marquee_banner_33tJkG": {
       "type": "hae-marquee-banner",
+      "disabled": true,
       "name": "News ticker banner",
       "settings": {
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "text": "Hello There!"
       }
-    },
-    "dynamic_collection_grid_VWfNXt": {
-      "type": "dynamic-collection-grid",
-      "blocks": {
-        "video_embed_jHAENQ": {
-          "type": "video_embed",
-          "settings": {
-            "video": "shopify://files/videos/Step-by-Step-Reel-USE-THIS-1x1_0bfa091b-9d62-478a-aae4-3614148158a4.MOV",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
-          }
-        },
-        "product_gfx7Rr": {
-          "type": "product",
-          "settings": {
-            "product": "11-aura-gradient"
-          }
-        },
-        "product_qYHq4V": {
-          "type": "product",
-          "settings": {
-            "product": "3"
-          }
-        },
-        "product_HNw9rm": {
-          "type": "product",
-          "settings": {
-            "product": "2"
-          }
-        },
-        "product_rkiDY8": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_MF3fnx": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "image_kchn3X": {
-          "type": "image",
-          "settings": {
-            "art_direction": "portrait",
-            "media_aspect_ratio": "64/41"
-          }
-        },
-        "product_DPxQ7h": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_TXEAdt": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_p97nrD": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_BXCbzx": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_b6Yf7g": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_memCUW": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "video_embed_fCA47C": {
-          "type": "video_embed",
-          "settings": {
-            "video": "shopify://files/videos/knock knock updated.mov",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
-          }
-        }
-      },
-      "block_order": [
-        "video_embed_jHAENQ",
-        "product_gfx7Rr",
-        "product_qYHq4V",
-        "product_HNw9rm",
-        "product_rkiDY8",
-        "product_MF3fnx",
-        "image_kchn3X",
-        "product_DPxQ7h",
-        "product_TXEAdt",
-        "product_p97nrD",
-        "product_BXCbzx",
-        "product_b6Yf7g",
-        "product_memCUW",
-        "video_embed_fCA47C"
-      ],
-      "name": "Dynamic Collection Grid",
-      "settings": {
-        "title": "",
-        "hide_title": true,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
-        "section_padding_top": "section-padding-top-small",
-        "section_padding_bottom": "section-padding-bottom-small"
-      }
     }
   },
   "order": [
     "main",
-    "hae_marquee_banner_33tJkG",
-    "dynamic_collection_grid_VWfNXt"
+    "hae_marquee_banner_33tJkG"
   ]
 }
