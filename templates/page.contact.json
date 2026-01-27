@@ -9,12 +9,24 @@
  */
 {
   "sections": {
+    "main-page-header": {
+      "type": "main-page-header",
+      "settings": {
+        "custom_title": "",
+        "subtitle": "",
+        "header_background_image": "shopify://shop_images/5_noise_2x_2.jpg",
+        "padding_size": "section-padding-main",
+        "heading_size": "headline-style-h1",
+        "color_scheme": "scheme-94eb6821-3c93-4727-b9e1-be4096d276ce"
+      }
+    },
     "main": {
       "type": "contact",
       "settings": {}
     }
   },
   "order": [
+    "main-page-header",
     "main"
   ]
 }

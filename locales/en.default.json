@@ -329,6 +329,7 @@
         "name": "Name",
         "email": "Email",
         "phone": "Phone number",
+        "message_title": "Message title",
         "comment": "Comment",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
@@ -346,6 +347,7 @@
       "name": "Name",
       "email": "Email",
       "phone": "Phone number",
+      "message_title": "Message title",
       "message": "Message",
       "submit": "Send"
     }
