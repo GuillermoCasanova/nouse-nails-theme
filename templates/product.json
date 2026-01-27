@@ -36,6 +36,13 @@
           "type": "description",
           "settings": {}
         },
+        "buy_buttons_B47i49": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
         "bold_subscriptions_bsub_widget_block_3nJ3hM": {
           "type": "shopify://apps/bold-subscriptions/blocks/bsub-widget-block/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
           "settings": {
@@ -71,13 +78,6 @@
           "settings": {
             "heading": "Return Policy",
             "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our <a href=\"/pages/returns-exchanges\" target=\"_blank\" title=\"Returns & Exchanges\">Returns Policy</a>.</p>"
-          }
-        },
-        "buy_buttons_B47i49": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
           }
         },
         "rebuy_personalization_engine_rebuy_widget_D66TYi": {
@@ -134,9 +134,9 @@
         "rating_kRcmp6",
         "quantity_selector_g6nGM9",
         "description_rh9JAT",
+        "buy_buttons_B47i49",
         "bold_subscriptions_bsub_widget_block_3nJ3hM",
         "return_policy_VABCGt",
-        "buy_buttons_B47i49",
         "rebuy_personalization_engine_rebuy_widget_D66TYi",
         "klaviyo_bis_VMWTAy",
         "bold_subscriptions_bsub_express_add_ons_UF66My"
