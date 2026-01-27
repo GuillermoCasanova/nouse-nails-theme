@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\
     #Image with Text
 \*------------------------------------*/
@@ -22,4 +17,8 @@
 
 .comparison-table__image img {
   width: 100%;
+}
+
+.image-with-text__button-wrapper {
+  margin-top: var(--space-5);
 }

@@ -138,10 +138,6 @@ body {
   color: rgb(var(--color-base-text-1));
 }
 
-
-
-
-
 /*------------------------------------*\
     #Animations
 \*------------------------------------*/
@@ -158,10 +154,6 @@ body {
     transition: none !important;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Typography
@@ -215,10 +207,6 @@ body {
   font-display: swap;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Headlines
 \*------------------------------------*/
@@ -257,7 +245,7 @@ h6 p {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h1);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   line-height: var(--headline-line-height);
 }
 
@@ -265,14 +253,14 @@ h6 p {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 
 .headline-style-h3 {
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
   font-size: var(--headline-size-h3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 
 .headline-style-h4 {
@@ -393,10 +381,6 @@ h6 p {
   margin-bottom: var(--space-8);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Default Text Selection Color 
 \*------------------------------------*/
@@ -410,10 +394,6 @@ h6 p {
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-base-text-1));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Paragraphs
@@ -434,10 +414,6 @@ p {
   position: fixed;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Links
 \*------------------------------------*/
@@ -445,10 +421,6 @@ p {
 a {
   color: rgb(var(--color-base-text));
 }
-
-
-
-
 
 /*------------------------------------*\
     #Sections
@@ -506,10 +478,6 @@ a {
   padding-bottom: var(--section-padding-large);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Paddings
 \*------------------------------------*/
@@ -534,10 +502,6 @@ a {
   padding: var(--padding-x-large);
 }
 
-
-
-
-
 /*------------------------------------*\
   #Overflows Hiding
 \*------------------------------------*/
@@ -547,10 +511,6 @@ a {
 .overflow-hidden {
   overflow: hidden;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Visibility
@@ -641,10 +601,6 @@ h6:empty {
   cursor: normal;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Main Padding + Margin Top
 \*------------------------------------*/
@@ -663,10 +619,6 @@ main {
     padding-top: var(--space-7);
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Media Component
@@ -730,10 +682,6 @@ deferred-media {
   border-radius: 50%;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Summary + Details Base
 \*------------------------------------*/
@@ -754,10 +702,6 @@ summary .icon-caret {
 summary::-webkit-details-marker {
   display: none;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Disclosure
@@ -794,10 +738,6 @@ summary::-webkit-details-marker {
     z-index: 2;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
   #Buttons 
@@ -899,10 +839,6 @@ button:hover,
 .text-link:focus {
   text-decoration: none;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Global Loader
@@ -1015,10 +951,6 @@ button:hover,
   height: 100%;
 }
 
-
-
-
-
 /*------------------------------------*\
   #Text with Icon
 \*------------------------------------*/
@@ -1029,10 +961,6 @@ button:hover,
   gap: var(--space-3);
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icon
@@ -1054,18 +982,14 @@ button:hover,
 }
 
 .icon-medium {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .icon-large {
   width: 2rem;
   height: 2rem;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Eyebrow
@@ -1074,10 +998,6 @@ button:hover,
 .text-eyebrow {
   margin-bottom: var(--space-3);
 }
-
-
-
-
 
 /*------------------------------------*\
   #Icons
@@ -1105,10 +1025,6 @@ button:hover,
   height: 1.75rem;
   display: inline-block;
 }
-
-
-
-
 
 /*------------------------------------*\
   #Image with Aspect Ratio
@@ -1200,17 +1116,22 @@ button:hover,
   padding: 0;
 }
 
-[data-smartrr-form-id] [data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id],
-.smartrr-grid-container [data-smartrr-selling-plans-select].smartrr-input-display-grid {
+[data-smartrr-form-id]
+  [data-smartrr-selling-plan-groups]
+  [data-smartrr-selling-plan-group-id],
+.smartrr-grid-container
+  [data-smartrr-selling-plans-select].smartrr-input-display-grid {
   border-radius: 20px;
 }
 
-[data-smartrr-form-id] [data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id] {
+[data-smartrr-form-id]
+  [data-smartrr-selling-plan-groups]
+  [data-smartrr-selling-plan-group-id] {
   padding: 8px 16px;
 
-  background-color: #FAEEE1;
+  background-color: #faeee1;
 
-  border: 3px solid #D1E1E8;
+  border: 3px solid #d1e1e8;
 }
 
 .smartrr-selling-plan-group-label {
@@ -1223,14 +1144,17 @@ button:hover,
 
 .smartrr-plans-frequency-label,
 [data-smartrr-product-id] [data-smartrr-regular-price] {
-  color: #6D0506;
+  color: #6d0506;
 }
 
-.smartrr-grid-container [data-smartrr-selling-plans-select].smartrr-input-display-grid {
- padding: 8px 16px;
+.smartrr-grid-container
+  [data-smartrr-selling-plans-select].smartrr-input-display-grid {
+  padding: 8px 16px;
 }
 
-[data-smartrr-selling-plan-groups] [data-smartrr-selling-plan-group-id] [data-smartrr-selling-plan-group-contents] {
+[data-smartrr-selling-plan-groups]
+  [data-smartrr-selling-plan-group-id]
+  [data-smartrr-selling-plan-group-contents] {
   margin-bottom: 8px;
 }
 
@@ -1244,14 +1168,14 @@ button:hover,
 }
 
 .smartrr-selling-plan-group-name {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
 }
 
 [data-smartrr-selling-plan-input-display-grid] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 [data-smartrr-selling-plan-group-plans] .smartrr-plans-frequency-label {

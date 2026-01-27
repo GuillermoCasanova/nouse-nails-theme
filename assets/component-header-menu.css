@@ -305,6 +305,7 @@ details.menu-open .header__submenu {
 @media only screen and (min-width: 1024px) {
   .header__mega-menu__inner {
     flex-direction: row;
+    justify-content: space-between;
     padding: var(--space-6);
   }
 }
@@ -494,7 +495,10 @@ details.menu-open .header__submenu {
 @media screen and (min-width: 1024px) {
   .header__mega-menu__promotions {
     margin-top: 0;
-    width: 55%;
+    width: 100%;
+    flex-basis: auto;
+    max-width: 29rem;
+    justify-content: flex-end;
   }
 }
 
