@@ -91,10 +91,10 @@
               "top_level_link": "New",
               "promotion_1_image": "shopify://shop_images/Strange-Terrain-2.jpg",
               "promotion_1_text": "Art School Collection",
-              "promotion_1_url": "",
+              "promotion_1_url": "shopify://collections/art-school-star-collection",
               "promotion_2_image": "shopify://shop_images/Geometric-Jelly-2.jpg",
               "promotion_2_text": "Jelly Collection",
-              "promotion_2_url": "",
+              "promotion_2_url": "shopify://collections/jelly-collection",
               "promotion_3_text": "",
               "promotion_3_url": ""
             }
