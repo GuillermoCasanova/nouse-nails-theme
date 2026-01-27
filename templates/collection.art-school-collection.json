@@ -77,6 +77,7 @@
         "image_ezEkxg": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/CP_out_of_the_phone.png",
             "art_direction": "portrait",
             "media_aspect_ratio": "64/41"
           }
