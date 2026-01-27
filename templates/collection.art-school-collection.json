@@ -24,10 +24,12 @@
             "product": "9"
           }
         },
-        "product_KCL8d8": {
-          "type": "product",
+        "video_embed_4pD9BR": {
+          "type": "video_embed",
           "settings": {
-            "product": "15-wellesley"
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
           }
         },
         "product_iJzzGA": {
@@ -36,10 +38,28 @@
             "product": "13-stars-aligned"
           }
         },
+        "product_KCL8d8": {
+          "type": "product",
+          "settings": {
+            "product": "15-wellesley"
+          }
+        },
+        "product_E7UQMi": {
+          "type": "product",
+          "settings": {
+            "product": "2"
+          }
+        },
         "product_bhGweq": {
           "type": "product",
           "settings": {
             "product": "01-scandi-color-theory"
+          }
+        },
+        "product_yjyCig": {
+          "type": "product",
+          "settings": {
+            "product": "3"
           }
         },
         "product_hnb6ed": {
@@ -54,29 +74,26 @@
             "product": "4"
           }
         },
-        "product_yjyCig": {
-          "type": "product",
+        "image_ezEkxg": {
+          "type": "image",
           "settings": {
-            "product": "3"
-          }
-        },
-        "product_E7UQMi": {
-          "type": "product",
-          "settings": {
-            "product": "2"
+            "art_direction": "portrait",
+            "media_aspect_ratio": "64/41"
           }
         }
       },
       "block_order": [
         "product_yqFHWf",
         "product_dFFDQk",
-        "product_KCL8d8",
+        "video_embed_4pD9BR",
         "product_iJzzGA",
+        "product_KCL8d8",
+        "product_E7UQMi",
         "product_bhGweq",
+        "product_yjyCig",
         "product_hnb6ed",
         "product_PnfDUk",
-        "product_yjyCig",
-        "product_E7UQMi"
+        "image_ezEkxg"
       ],
       "settings": {
         "title": "Art School Collection",
