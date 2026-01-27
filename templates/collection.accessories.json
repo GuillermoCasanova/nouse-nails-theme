@@ -24,13 +24,12 @@
             "product": "led-gel-lamp"
           }
         },
-        "video_embed_ntX3Lr": {
-          "type": "video_embed",
+        "image_8JytjG": {
+          "type": "image",
           "settings": {
-            "video": "shopify://files/videos/knock knock updated.mov",
-            "autoplay": "true",
-            "media_aspect_ratio": "3/4",
-            "controls": false
+            "image": "shopify://shop_images/NOUS-STUDIO-850_Edit.jpg",
+            "art_direction": "portrait",
+            "media_aspect_ratio": "3/4"
           }
         },
         "product_YQz4fN": {
@@ -39,25 +38,27 @@
             "product": "complete-starter-pack"
           }
         },
-        "image_CzrdDx": {
-          "type": "image",
+        "video_embed_U8B6zN": {
+          "type": "video_embed",
           "settings": {
-            "art_direction": "portrait",
-            "media_aspect_ratio": "64/41"
+            "video": "shopify://files/videos/Step-by-Step-Reel-USE-THIS-1x1_2799d65f-c71b-464a-854b-17b89190664a.MOV",
+            "autoplay": "true",
+            "media_aspect_ratio": "64/41",
+            "controls": false
           }
         }
       },
       "block_order": [
         "product_yqFHWf",
         "product_A7FPiw",
-        "video_embed_ntX3Lr",
+        "image_8JytjG",
         "product_YQz4fN",
-        "image_CzrdDx"
+        "video_embed_U8B6zN"
       ],
       "settings": {
         "title": "The Nous Standard",
         "hide_title": false,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
+        "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
       }
