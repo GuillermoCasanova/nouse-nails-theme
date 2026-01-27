@@ -8,7 +8,9 @@
   right: var(--space-2);
   z-index: 1;
   text-decoration: none;
-  transition: all 0.7s var(--default-easing);
+  transition:
+    opacity 0.7s var(--default-easing),
+    transform 0.7s var(--default-easing);
   text-align: center;
   background-color: transparent;
   color: rgb(var(--color-base-text-1));
@@ -18,6 +20,8 @@
   gap: var(--space-2);
   width: 100%;
   max-width: 12rem;
+  opacity: 0;
+  color: var(--floating-cta-color);
 
   /*Initial hidden state*/
   transform: translateY(120%);
@@ -26,7 +30,7 @@
 
 @media screen and (min-width: 768px) {
   .floating-cta {
-    max-width: 14rem;
+    max-width: 13rem;
   }
 }
 
@@ -37,10 +41,51 @@
   pointer-events: auto;
 }
 
-.floating-cta svg {
+/* ------------------------------------*\
+    #Floating CTA Trigger
+\*------------------------------------*/
+
+.floating-cta__trigger {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: var(--space-1);
+  color: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--text-size-small);
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .floating-cta__trigger {
+    display: flex;
+  }
+}
+
+.floating-cta__trigger-icon {
+  display: block;
+  width: 100%;
+}
+
+.floating-cta__trigger svg {
   fill: var(--floating-cta-color);
   width: 100%;
   height: 100%;
+}
+
+.floating-cta__trigger-text {
+  display: block;
+  line-height: 1.2;
+  position: absolute;
+  max-width: 60%;
+  color: rgb(var(--color-base-text-1));
+  margin-bottom: var(--space-6);
+  font-size: var(--text-size-tiny);
 }
 
 .floating-cta--left {
@@ -51,46 +96,165 @@
   right: var(--space-2);
 }
 
-.floating-cta__close {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+.floating-cta__trigger-close-button {
   position: absolute;
-  top: var(--space-6);
+  top: var(--space-5);
   left: 0;
-  right: 0;
   margin: auto;
+  right: 0;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  color: rgb(var(--color-base-text-1));
 }
 
-.floating-cta__close svg {
-  transition: all 0.3s var(--default-easing);
+.floating-cta__trigger-close-button svg {
+  transition: transform 0.3s var(--default-easing);
 }
 
-.floating-cta__close:hover svg,
-.floating-cta__close:focus svg {
+.floating-cta__trigger-close-button:hover svg {
   transform: rotate(180deg);
 }
 
-.floating-cta__link {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  position: absolute;
-  margin: auto;
-  width: 90%;
-  max-width: 7rem;
-  font-size: var(--text-size-small);
-  padding-bottom: var(--space-5);
+/*------------------------------------*\
+    #Floating CTA Modal
+\*------------------------------------*/
+
+.floating-cta-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  transition: all 0.3s var(--default-easing);
+  z-index: 200;
 }
 
-.floating-cta__link:hover,
-.floating-cta__link:focus {
-  opacity: 0.5;
+.floating-cta-modal.is-open {
+  pointer-events: auto;
+}
+
+.floating-cta-modal.is-open .floating-cta-modal__dialog {
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-cta-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  transform: translateY(96%);
+  transition: transform 0.3s var(--default-easing);
+  padding-top: var(--space-7);
 }
 
 @media screen and (min-width: 768px) {
-  .floating-cta__link {
-    padding-bottom: var(--space-6);
+  .floating-cta-modal__dialog {
+    padding-top: 0;
+    transform: translateY(110%);
   }
+}
+
+.floating-cta-modal__dialog__inner {
+  padding: var(--space-7) var(--space-4) var(--space-3) var(--space-4);
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .floating-cta-modal__dialog__inner {
+    padding: var(--space-7) var(--space-7) var(--space-7) var(--space-7);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .floating-cta-modal__dialog__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.floating-cta-modal__dialog__icon {
+  position: absolute;
+  top: -1.85rem;
+  width: 3.5rem;
+  color: var(--floating-cta-color);
+}
+
+@media screen and (min-width: 768px) {
+  .floating-cta-modal__dialog__icon {
+    top: 1rem;
+    width: 6rem;
+    left: 0.5rem;
+    z-index: 1;
+  }
+}
+
+.floating-cta-modal__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-4);
+  background: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+}
+
+.floating-cta-modal__close svg {
+  transition: transform 0.3s var(--default-easing);
+}
+
+.floating-cta-modal__close:hover svg {
+  transform: rotate(180deg);
+}
+
+.floating-cta-modal__title {
+  text-transform: uppercase;
+}
+
+.floating-cta-modal__dialog__media-wrapper {
+  position: relative;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .floating-cta-modal__dialog__media-wrapper {
+    display: block;
+  }
+}
+
+.floating-cta-modal__dialog__media {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  position: relative;
+  background-color: grey;
+}
+
+.floating-cta-modal__dialog__content-wrapper {
+  margin: 0 auto;
+}
+
+.floating-cta-modal__form-wrapper {
+  margin-bottom: var(--space-10);
+}
+
+.floating-cta-modal__disclaimer {
+  margin-top: var(--space-4);
+  font-size: var(--text-size-tiny);
+  line-height: 1.5;
+  color: rgb(var(--color-base-text-1));
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.floating-cta-modal__disclaimer a {
+  color: inherit;
 }
