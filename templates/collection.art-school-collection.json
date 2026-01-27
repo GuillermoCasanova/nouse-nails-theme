@@ -27,6 +27,7 @@
         "video_embed_4pD9BR": {
           "type": "video_embed",
           "settings": {
+            "video": "shopify://files/videos/Big Hands (short).mov",
             "autoplay": "true",
             "media_aspect_ratio": "3/4",
             "controls": false
