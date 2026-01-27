@@ -13,7 +13,7 @@
     transform 0.7s var(--default-easing);
   text-align: center;
   background-color: transparent;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-text));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@
   line-height: 1.2;
   position: absolute;
   max-width: 60%;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-text));
   margin-bottom: var(--space-6);
   font-size: var(--text-size-tiny);
 }
@@ -107,7 +107,7 @@
   border: none;
   color: currentColor;
   cursor: pointer;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-text));
 }
 
 .floating-cta__trigger-close-button svg {
@@ -179,6 +179,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
+    max-width: 100rem;
+    margin: 0 auto;
   }
 }
 
@@ -186,14 +188,15 @@
   position: absolute;
   top: -1.85rem;
   width: 3.5rem;
+  left: 0.25rem;
   color: var(--floating-cta-color);
 }
 
 @media screen and (min-width: 768px) {
   .floating-cta-modal__dialog__icon {
-    top: 1rem;
+    top: -1rem;
     width: 6rem;
-    left: 0.5rem;
+    left: -2rem;
     z-index: 1;
   }
 }
@@ -250,7 +253,7 @@
   margin-top: var(--space-4);
   font-size: var(--text-size-tiny);
   line-height: 1.5;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-text));
   max-width: 25rem;
   margin: 0 auto;
 }

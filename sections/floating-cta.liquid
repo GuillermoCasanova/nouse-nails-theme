@@ -57,13 +57,12 @@
           tabindex='-1'
         >
           <div
-            class='floating-cta-modal__dialog__icon'
+            class='floating-cta-modal__dialog__icon hide-for-medium-up'
             aria-hidden='true'
             style='--floating-cta-color: {{ section.settings.cta_color }};'
           >
             {% render 'icon-star-boy' %}
           </div>
-
           <button
             type='button'
             class='floating-cta-modal__close'
@@ -75,6 +74,13 @@
 
           <div class='floating-cta-modal__dialog__inner'>
             <div class='floating-cta-modal__dialog__media-wrapper'>
+              <div
+                class='floating-cta-modal__dialog__icon'
+                aria-hidden='true'
+                style='--floating-cta-color: {{ section.settings.cta_color }};'
+              >
+                {% render 'icon-star-boy' %}
+              </div>
               <div class='floating-cta-modal__dialog__media'>
                 {% render 'image-with-aspect-ratio',
                   image: section.settings.modal_media,
@@ -90,7 +96,11 @@
                 {{ section.settings.modal_heading }}
               </h2>
 
-              <div class='floating-cta-modal__form-wrapper'></div>
+              <div class='floating-cta-modal__form-wrapper'>
+                <div
+                  class='floating-cta-modal__form klaviyo-form-{{ section.settings.klaviyo_form_id }}'
+                ></div>
+              </div>
 
               <div
                 class='floating-cta-modal__disclaimer rte'
@@ -130,6 +140,7 @@
           this.onOpenModal = this.openModal.bind(this);
           this.onCloseModal = this.closeModal.bind(this);
           this.onHideTriggerClick = this.handleHideTriggerClick.bind(this);
+          this.onBackdropClick = this.handleBackdropClick.bind(this);
 
           window.addEventListener('scroll', this.onScroll, { passive: true });
           window.addEventListener('keydown', this.onKeydown);
@@ -146,6 +157,10 @@
 
           if (this.closeTriggerButton) {
               this.closeTriggerButton.addEventListener('click', this.onHideTriggerClick);
+          }
+
+          if (this.modal) {
+              this.modal.addEventListener('click', this.onBackdropClick);
           }
 
           this.handleScroll();
@@ -178,6 +193,13 @@
 
       handleKeydown(event) {
           if (event.key === 'Escape' && this.modal?.classList.contains('is-open')) {
+              this.closeModal();
+          }
+      }
+
+      handleBackdropClick(event) {
+          if (!this.modal?.classList.contains('is-open')) return;
+          if (event.target === this.modal) {
               this.closeModal();
           }
       }
@@ -234,6 +256,7 @@
               button.removeEventListener('click', this.onCloseModal);
           });
           this.closeTriggerButton?.removeEventListener('click', this.onHideTriggerClick);
+          this.modal?.removeEventListener('click', this.onBackdropClick);
       }
   }
 
@@ -346,8 +369,8 @@
       "label": "Media aspect ratio",
       "options": [
         {
-          "value": "16/9",
-          "label": "16:9 (Landscape)"
+          "value": "16/8",
+          "label": "16:8 (Landscape)"
         },
         {
           "value": "4/3",
