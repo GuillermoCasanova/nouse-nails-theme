@@ -443,6 +443,7 @@
         "cta_url": "shopify://products/blue-algae-spf-dew-mist",
         "position": "right",
         "scroll_threshold": 500,
+        "modal_media": "shopify://shop_images/QD-758_Edit.jpg",
         "modal_media_aspect_ratio": "16/9",
         "modal_heading": "* SIGN UP & GET A FREE GEL LAMP :)",
         "modal_heading_size": "headline-style-h4",
