@@ -269,22 +269,22 @@
         "faq_block_rqcqra": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "How long do they last?",
+            "answer": "<p>Up to 14 days of chip-free shine. For best results, use the prep pad, apply on dry nails, and avoid oils or baths for 1-2 hours after. They’re tough enough for everyday life—like a screen protector for your nails.</p>"
           }
         },
         "faq_block_BeX766": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "Are they non-toxic?",
+            "answer": "<p>No nasties, just nail magic. We skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
           }
         },
         "faq_block_6NhEBx": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "Do they really protect my nails?",
+            "answer": "<p>Yes! They act like a screen protector for your nails—shielding against chips and breaks while helping weak or brittle nails grow stronger, all with zero damage on removal.</p>"
           }
         }
       },
