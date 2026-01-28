@@ -166,7 +166,7 @@
           "type": "slideshow",
           "settings": {
             "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
-            "slideshow_heading": "Stick Cure Slay",
+            "slideshow_heading": "Stick. Cure. Slay.",
             "heading_size": "headline-style-h3",
             "image_1": "shopify://shop_images/Matcha-Jelly-3.jpg",
             "image_2": "shopify://shop_images/Nail-Remover.jpg",
@@ -210,13 +210,13 @@
             "color_scheme": "",
             "faq_heading": "FAQs",
             "heading_size": "headline-style-h4",
-            "question_1": "How to Apply & Remove",
-            "answer_1": "<p>Here lies your answer. </p>",
-            "question_2": "Ingredients",
-            "answer_2": "<p>Here lies your answer. </p>",
-            "question_3": "Shipping",
+            "question_1": "How to Apply",
+            "answer_1": "<p>So easy! Find your strip size, peel & stick, then cure for 60 seconds. Trim or buff any excess. Voilà, salon-level nails in 15 minutes. For a complete how-to guide, <a href=\"/pages/how-to\" target=\"_blank\" title=\"How To\"><span style=\"text-decoration:underline\">click here</span></a>.</p>",
+            "question_2": "How to Remove",
+            "answer_2": "<p>Gently lift with the provided wooden stick. For ideal results, use our <a href=\"/products/ctrl-delete-nail-remover-serum\" title=\"Ctrl+Delete Vitamin Serum Remover\">Ctrl+Delete Vitamin Remover Serum</a> for easy melt-off-the-nail removal. </p><p>No damage, just nourished nails underneath.</p>",
+            "question_3": "Ingredients",
             "answer_3": "",
-            "question_4": "Return & Exchange",
+            "question_4": "Shipping & Return Policy",
             "answer_4": "<p>Here lies your answer. </p>",
             "padding_size": "section-padding-main"
           }
