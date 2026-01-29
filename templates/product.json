@@ -286,12 +286,20 @@
             "question": "Do they really protect my nails?",
             "answer": "<p>Yes! They act like a screen protector for your nails—shielding against chips and breaks while helping weak or brittle nails grow stronger, all with zero damage on removal.</p>"
           }
+        },
+        "faq_block_ztneRX": {
+          "type": "faq_block",
+          "settings": {
+            "question": "If I sign up for subscription, can I pick my monthly design?",
+            "answer": "<p>Yes! You will receive a notification each month before your order is fulfilled so you can pick your specific nail choice. ☻</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_rqcqra",
         "faq_block_BeX766",
-        "faq_block_6NhEBx"
+        "faq_block_6NhEBx",
+        "faq_block_ztneRX"
       ],
       "name": "FAQ Section",
       "settings": {
