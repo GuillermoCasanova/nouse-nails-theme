@@ -22,7 +22,13 @@
     },
     "main": {
       "type": "contact",
-      "settings": {}
+      "settings": {
+        "form_title": "Get in touch",
+        "form_description": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+        "color_scheme": "",
+        "section_padding_top": "section-padding-top-small",
+        "section_padding_bottom": "section-padding-bottom-small"
+      }
     }
   },
   "order": [
