@@ -1,8 +1,3 @@
-
-
-
-
-
 /*------------------------------------*\    
     #Product Media Gallery
 \*------------------------------------*/
@@ -81,10 +76,6 @@ media-gallery {
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Media Icons
 \*------------------------------------*/
@@ -100,7 +91,7 @@ media-gallery {
   border-radius: 50%;
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   color: rgb(var(--color-foreground));
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   height: 3rem;
@@ -186,10 +177,6 @@ media-gallery {
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Media Toggles
 \*------------------------------------*/
@@ -253,10 +240,6 @@ media-gallery {
     0 0 0rem 0.5rem rgba(var(--color-foreground), 0.5);
   border-radius: var(--media-radius);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Media Modal
@@ -472,10 +455,6 @@ media-gallery {
     width: calc(20% - var(--space-2));
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Thumbnail
@@ -930,10 +909,6 @@ media-gallery {
   border-radius: var(--border-radius-large);
   display: block;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Swiper

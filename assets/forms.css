@@ -62,7 +62,6 @@ input,
 textarea {
   -webkit-appearance: none;
   font-family: var(--primary-font-family);
-  color: rgb(var(--color-base-text-1));
 }
 
 /* Field Container */
