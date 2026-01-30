@@ -16,6 +16,7 @@
         "layout": "grid",
         "grid": 3,
         "rows": 4,
+        "pagination_style": "load_more",
         "show_collection_image": true,
         "show_vendor": false,
         "sort_enable": true,
