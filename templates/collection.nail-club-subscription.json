@@ -60,7 +60,7 @@
       "settings": {
         "title": "The Nous Standard",
         "hide_title": false,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
+        "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
       }
@@ -125,7 +125,7 @@
       "settings": {
         "title": "",
         "hide_title": true,
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
+        "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
       }
