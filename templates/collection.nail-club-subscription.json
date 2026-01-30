@@ -17,7 +17,7 @@
         "hide_title": false,
         "color_scheme": "",
         "section_padding_top": "section-padding-top-small",
-        "section_padding_bottom": "section-padding-bottom-small"
+        "section_padding_bottom": "section-padding-bottom-x-small"
       }
     },
     "rich_text_t3Ar7A": {
@@ -25,8 +25,8 @@
       "name": "Rich text",
       "settings": {
         "full_width": false,
-        "section_title": "Talk about your brand",
-        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "section_title": "✱ Subscribe and save 15% on your order.",
+        "text": "<p>✱ To begin, click on any style below. You'll have the option to choose your style before each order is fulfilled.  Don't worry, we'll email you! ☻</p>",
         "text_size": "medium"
       }
     },
