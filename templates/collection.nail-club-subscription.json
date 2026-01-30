@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "dynamic_collection_grid_aYgBRU": {
+      "type": "dynamic-collection-grid",
+      "name": "Dynamic Collection Grid",
+      "settings": {
+        "title": "",
+        "hide_title": false,
+        "color_scheme": "",
+        "section_padding_top": "section-padding-top-small",
+        "section_padding_bottom": "section-padding-bottom-small"
+      }
+    },
     "main": {
       "type": "dynamic-collection-grid",
       "blocks": {
@@ -58,11 +69,21 @@
         "product_g6tBLV"
       ],
       "settings": {
-        "title": "The Nous Standard",
+        "title": "",
         "hide_title": false,
         "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
+      }
+    },
+    "rich_text_t3Ar7A": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "full_width": false,
+        "section_title": "Talk about your brand",
+        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "text_size": "medium"
       }
     },
     "hae_marquee_banner_33tJkG": {
@@ -132,6 +153,8 @@
     }
   },
   "order": [
+    "dynamic_collection_grid_aYgBRU",
+    "rich_text_t3Ar7A",
     "main",
     "hae_marquee_banner_33tJkG",
     "dynamic_collection_grid_VWfNXt"
