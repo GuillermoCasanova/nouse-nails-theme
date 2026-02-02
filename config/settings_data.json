@@ -13,6 +13,7 @@
     "colors_brand_2": "#f8eee3",
     "colors_base_accent_1": "#EFBDFC",
     "colors_base_accent_2": "#ff69b4",
+    "colors_base_accent_3": "#ff6100",
     "colors_base_text_1": "#6d0506",
     "colors_base_text_2": "#f8eee3",
     "show_announcement_bar": true,
@@ -172,40 +173,6 @@
           "rows": 2,
           "show_vendor": false,
           "show_view_all": false
-        }
-      },
-      "image-bar": {
-        "type": "image-bar",
-        "blocks": {
-          "image-bar-0": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "cta_label": ""
-            }
-          },
-          "image-bar-1": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "cta_label": ""
-            }
-          },
-          "image-bar-2": {
-            "type": "image",
-            "settings": {
-              "alignment": "center",
-              "cta_label": ""
-            }
-          }
-        },
-        "block_order": [
-          "image-bar-0",
-          "image-bar-1",
-          "image-bar-2"
-        ],
-        "settings": {
-          "section_height": "medium"
         }
       },
       "footer": {
