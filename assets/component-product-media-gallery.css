@@ -111,7 +111,6 @@ media-gallery {
 }
 
 .product__modal-opener--image .product__media-toggle:hover {
-  cursor: zoom-in;
 }
 
 .product__modal-opener:hover .product__media-icon {
@@ -836,6 +835,81 @@ media-gallery {
   );
   margin-right: auto;
   margin-left: auto;
+}
+
+/*------------------------------------*\
+    #Media Gallery Slideshow Navigation
+\*------------------------------------*/
+
+.product-media-gallery__main .swiper:hover .product-media-gallery__navigation {
+  opacity: 1;
+}
+
+.product-media-gallery__main .swiper-pagination-bullets {
+  margin-top: var(--space-4);
+}
+
+.product-media-gallery__main .swiper-pagination-bullet {
+  background: rgb(var(--color-button));
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.product-media-gallery__main .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.product-media-gallery__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  pointer-events: auto;
+  position: absolute;
+  z-index: 10;
+  top: 42%;
+  width: 96%;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  color: rgb(var(--color-text-2));
+  opacity: 0;
+  transition: opacity 0.3s var(--default-easing);
+}
+
+.product-media-gallery__nav-button,
+.swiper-slideshow__nav-button {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgb(var(--color-text));
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.product-media-gallery__nav-button:hover,
+.swiper-slideshow__nav-button:hover {
+  background: var(--color-background-2);
+  transform: scale(1.05);
+}
+
+.product-media-gallery__nav-button:active,
+.swiper-slideshow__nav-button:active {
+  transform: scale(0.95);
+}
+
+.product-media-gallery__pagination {
+  visibility: hidden;
+  position: absolute;
 }
 
 .product-media-container.constrain-height.media-fit-contain {
