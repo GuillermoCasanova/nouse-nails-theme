@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Nimi",
+      "email": "Sähköposti",
+      "phone": "Puhelinnumero",
+      "message_title": "Viestin otsikko",
+      "message": "Kommentti",
+      "submit": "Lähetä",
+      "post_success": "Kiitos yhteydenotostasi. Palaamme asiaan mahdollisimman pian.",
+      "error_heading": "Oikaise seuraavat:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Ilmoitus",

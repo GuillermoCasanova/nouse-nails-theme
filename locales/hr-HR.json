@@ -235,6 +235,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Ime",
+      "email": "E-mail",
+      "phone": "Broj telefona",
+      "message_title": "Naslov poruke",
+      "message": "Komentar",
+      "submit": "Pošalji",
+      "post_success": "Hvala vam što ste nas kontaktirali. Javit ćemo vam se što je prije moguće.",
+      "error_heading": "Prilagodite sljedeće:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Objava",

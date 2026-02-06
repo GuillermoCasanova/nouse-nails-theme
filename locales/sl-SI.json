@@ -241,6 +241,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Ime",
+      "email": "E-poštni naslov",
+      "phone": "Telefonska številka",
+      "message_title": "Zadeva sporočila",
+      "message": "Komentar",
+      "submit": "Pošlji",
+      "post_success": "Hvala za vaše sporočilo. Z vami bomo v stiku takoj, ko bo mogoče.",
+      "error_heading": "Prilagodite naslednje:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Obvestilo",

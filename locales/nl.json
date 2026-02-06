@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Naam",
+      "email": "E‑mail",
+      "phone": "Telefoonnummer",
+      "message_title": "Onderwerp van bericht",
+      "message": "Reactie",
+      "submit": "Sturen",
+      "post_success": "Bedankt dat je contact met ons hebt opgenomen. Je hoort zo snel mogelijk van ons.",
+      "error_heading": "Pas het volgende aan:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Aankondiging",

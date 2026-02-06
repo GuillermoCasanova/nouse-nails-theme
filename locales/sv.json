@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Namn",
+      "email": "E-postadress",
+      "phone": "Telefonnummer",
+      "message_title": "Ämnesrad",
+      "message": "Kommentar",
+      "submit": "Skicka",
+      "post_success": "Tack för att du kontaktar oss. Vi återkommer till dig så snart som möjligt.",
+      "error_heading": "Justera följande:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Meddelande",

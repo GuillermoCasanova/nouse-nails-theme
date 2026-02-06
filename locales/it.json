@@ -235,6 +235,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Numero di telefono",
+      "message_title": "Oggetto del messaggio",
+      "message": "Commenta",
+      "submit": "Invia",
+      "post_success": "Grazie per averci contattato. Ti risponderemo il prima possibile.",
+      "error_heading": "Regola quanto segue:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Annuncio",

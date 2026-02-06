@@ -235,6 +235,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Nume",
+      "email": "E-mail",
+      "phone": "Număr de telefon",
+      "message_title": "Subiectul mesajului",
+      "message": "Comentariu",
+      "submit": "Trimiteți",
+      "post_success": "Vă mulțumim că ne-ați contactat. Vom lua legătura cu dvs. cât mai curând posibil.",
+      "error_heading": "Vă rugăm să ajustați următoarele:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Anunț",

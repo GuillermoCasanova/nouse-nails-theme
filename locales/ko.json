@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "이름",
+      "email": "이메일",
+      "phone": "전화 번호",
+      "message_title": "메시지 제목",
+      "message": "댓글",
+      "submit": "보내기",
+      "post_success": "문의해 주셔서 감사드립니다. 최대한 빨리 답변드리겠습니다.",
+      "error_heading": "다음을 조정하십시오."
+    }
+  },
   "sections": {
     "header": {
       "announcement": "공지",

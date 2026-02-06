@@ -241,6 +241,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Jméno",
+      "email": "E-mail",
+      "phone": "Telefonní číslo",
+      "message_title": "Předmět zprávy",
+      "message": "Komentář",
+      "submit": "Odeslat",
+      "post_success": "Děkujeme za vaši zprávu. Ozveme se vám co nejdříve.",
+      "error_heading": "Upravte následující:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Oznámení",

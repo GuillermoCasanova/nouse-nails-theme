@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Navn",
+      "email": "E-post",
+      "phone": "Telefonnummer",
+      "message_title": "Meldingsemne",
+      "message": "Kommentar",
+      "submit": "Send",
+      "post_success": "Takk for at du kontaktet oss. Vi vil svare deg så snart som mulig.",
+      "error_heading": "Juster følgende:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Kunngjøring",

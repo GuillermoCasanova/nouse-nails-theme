@@ -73,6 +73,9 @@ class SwiperSlideshow extends HTMLElement {
 
       // Scrollbar
       showScrollbar: this.getAttribute('show-scrollbar'),
+
+      // Mousewheel (desktop horizontal scroll)
+      mousewheel: this.getAttribute('mousewheel'),
     };
 
     // Set up base configuration using mobile values as defaults
@@ -119,7 +122,7 @@ class SwiperSlideshow extends HTMLElement {
         attrs.showScrollbar === 'true'
           ? {
               el: '.swiper-scrollbar',
-              draggable: false,
+              draggable: true,
               dragSize: 'auto',
               hide: false,
             }
@@ -131,6 +134,17 @@ class SwiperSlideshow extends HTMLElement {
       autoHeight: attrs.autoHeight === 'true',
       preloadImages: true,
       watchSlidesProgress: true,
+      preventClicksPropagation: true,
+
+      // Mousewheel - maps vertical scroll to horizontal slide on desktop
+      mousewheel:
+        attrs.mousewheel === 'true'
+          ? {
+              forceToAxis: true,
+              releaseOnEdges: true,
+              sensitivity: 1,
+            }
+          : false,
 
       // Autoplay - mobile values as base
       autoplay:

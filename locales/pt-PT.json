@@ -235,6 +235,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "phone": "Número de telefone",
+      "message_title": "Assunto da mensagem",
+      "message": "Comentário",
+      "submit": "Enviar",
+      "post_success": "Obrigado por entrar em contacto connosco. Responder-lhe-emos logo que possível.",
+      "error_heading": "Ajuste o seguinte:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Comunicado",

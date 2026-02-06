@@ -241,6 +241,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Vardas",
+      "email": "El. pašto adresas",
+      "phone": "Telefono numeris",
+      "message_title": "Žinutės tema",
+      "message": "Komentuoti",
+      "submit": "Siųsti",
+      "post_success": "Dėkojame, kad su mumis susisiekėte. Atsakysime kaip galėdami greičiau.",
+      "error_heading": "Pakoreguokite toliau pateiktą informaciją."
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Skelbimas",

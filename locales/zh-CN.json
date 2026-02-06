@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "名称",
+      "email": "电子邮件",
+      "phone": "电话号码",
+      "message_title": "消息主题",
+      "message": "评论",
+      "submit": "发送",
+      "post_success": "感谢您联系我们。我们会尽快回复您。",
+      "error_heading": "请调整以下内容："
+    }
+  },
   "sections": {
     "header": {
       "announcement": "公告",

@@ -229,6 +229,18 @@
       "subtext": "404-es hiba történt."
     }
   },
+  "contact": {
+    "form": {
+      "name": "Név",
+      "email": "E-mail",
+      "phone": "Telefonszám",
+      "message_title": "Üzenet tárgya",
+      "message": "Hozzászólás",
+      "submit": "Küldés",
+      "post_success": "Köszönjük, hogy felvette velünk a kapcsolatot. Amint lehetőségünk van rá, válaszolunk.",
+      "error_heading": "Kérjük, módosítsa a következőket:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Közlemény",

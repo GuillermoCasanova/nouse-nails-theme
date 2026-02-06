@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "名前",
+      "email": "メール",
+      "phone": "電話番号",
+      "message_title": "メッセージの件名",
+      "message": "コメント",
+      "submit": "送信する",
+      "post_success": "お問い合わせいただきありがとうございます。早急に返信いたします。",
+      "error_heading": "以下を確認してください。"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "告知",

@@ -229,6 +229,18 @@
       "subtext": "404"
     }
   },
+  "contact": {
+    "form": {
+      "name": "Nama",
+      "email": "Email",
+      "phone": "Nomor telepon",
+      "message_title": "Judul pesan",
+      "message": "Komentar",
+      "submit": "Kirim",
+      "post_success": "Terima kasih telah menghubungi kami. Kami akan membalas sesegera mungkin.",
+      "error_heading": "Sesuaikan yang berikut:"
+    }
+  },
   "sections": {
     "header": {
       "announcement": "Pengumuman",
