@@ -11,7 +11,7 @@
       {%- assign formId = 'ContactForm' -%}
       {% form 'contact', id: formId %}
         {% render 'form-status', form: form, form_id: formId %}
-        {%- if form.posted_successfully == false -%}
+        {%- if form.posted_successfully != true -%}
           <div class='form-section form-section--50'>
             <custom-input-wrapper class='custom-field{% if form[name] or customer %} is-active{% endif %}'>
               <label for='{{ formId }}-name'>
