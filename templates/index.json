@@ -40,7 +40,7 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-a1f75e04-1da9-4fbd-831b-96f4b8dc69e2",
-            "collection": "",
+            "collection_url": "shopify://collections/subscription",
             "headline": "Subscribe & Save",
             "button_text": "Shop",
             "media_type": "image",
@@ -54,7 +54,7 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-94eb6821-3c93-4727-b9e1-be4096d276ce",
-            "collection": "",
+            "collection_url": "https://nousnails.com/apps/boxi/box-builder/3532",
             "headline": "Buy More, Save More",
             "button_text": "Shop",
             "media_type": "image",
