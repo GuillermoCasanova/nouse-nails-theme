@@ -813,6 +813,19 @@ button:hover,
   color: rgb(var(--color-button-secondary-hover-text));
 }
 
+.button--tertiary {
+  border: 2px solid rgb(var(--color-base-accent-1));
+  color: rgb(var(--color-base-text-1));
+  background-color: rgb(var(--color-base-accent-1));
+}
+
+.button--tertiary:focus,
+.button--tertiary:hover {
+  border-color: rgb(var(--color-base-text-1));
+  background-color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-base-text-2));
+}
+
 /* Button Sizes */
 .button--small {
   padding: var(--space-3);

@@ -749,7 +749,7 @@ input:checked + .bsub-widget__plan-header svg {
   right: 0;
   width: 100%;
   z-index: 4;
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-background-2));
   border-top: 1px solid rgba(var(--color-border), 1);
   padding: var(--space-3) var(--space-4);
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -775,7 +775,6 @@ input:checked + .bsub-widget__plan-header svg {
 .product-sticky-button__submit[disabled] {
   cursor: not-allowed;
   pointer-events: none;
-  background-color: rgba(var(--color-button-primary-background), 0.6);
   border-color: transparent;
 }
 
