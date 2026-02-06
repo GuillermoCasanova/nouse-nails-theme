@@ -40,7 +40,7 @@
           "type": "collection",
           "settings": {
             "color_scheme": "scheme-a1f75e04-1da9-4fbd-831b-96f4b8dc69e2",
-            "collection_url": "",
+            "collection_url": "shopify://collections/subscription",
             "headline": "Subscribe & Save",
             "button_text": "Shop",
             "media_type": "image",
