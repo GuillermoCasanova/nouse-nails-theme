@@ -584,8 +584,10 @@ class MenuDrawer extends HTMLElement {
             if (summary.closest('details').hasAttribute('open')) {
               // Add a delay to allow user to move mouse to mega menu
               setTimeout(() => {
-                if (summary.closest('details').hasAttribute('open') && 
-                    !summary.closest('details').matches(':hover')) {
+                if (
+                  summary.closest('details').hasAttribute('open') &&
+                  !summary.closest('details').matches(':hover')
+                ) {
                   this.closeMenuDrawer(event);
                 }
               }, 300); // 300ms delay
@@ -593,15 +595,19 @@ class MenuDrawer extends HTMLElement {
           });
 
           // Prevent closing when hovering over mega menu content
-          const megaMenuContent = summary.closest('details').querySelector('.mega-menu__content');
-          const headerMegaMenu = summary.closest('details').querySelector('.header__mega-menu');
-          
+          const megaMenuContent = summary
+            .closest('details')
+            .querySelector('.mega-menu__content');
+          const headerMegaMenu = summary
+            .closest('details')
+            .querySelector('.header__mega-menu');
+
           if (megaMenuContent) {
             megaMenuContent.addEventListener('mouseenter', () => {
               // Clear any pending close timeouts
               clearTimeout(this.closeTimeout);
             });
-            
+
             megaMenuContent.addEventListener('mouseleave', () => {
               // Close after a short delay when leaving mega menu
               this.closeTimeout = setTimeout(() => {
@@ -611,14 +617,14 @@ class MenuDrawer extends HTMLElement {
               }, 15);
             });
           }
-          
+
           // Also protect header__mega-menu
           if (headerMegaMenu) {
             headerMegaMenu.addEventListener('mouseenter', () => {
               // Clear any pending close timeouts
               clearTimeout(this.closeTimeout);
             });
-            
+
             headerMegaMenu.addEventListener('mouseleave', () => {
               // Close after a short delay when leaving mega menu
               this.closeTimeout = setTimeout(() => {
@@ -752,7 +758,7 @@ class MenuDrawer extends HTMLElement {
 
     // Add closing class for animation
     const megaMenu = this.mainDetailsToggle.querySelector('.mega-menu');
-    
+
     if (megaMenu) {
       megaMenu.classList.add('closing');
     }
@@ -761,7 +767,7 @@ class MenuDrawer extends HTMLElement {
     setTimeout(() => {
       this.mainDetailsToggle.classList.remove('menu-open');
       this.mainDetailsToggle.classList.add('menu-close');
-      
+
       if (megaMenu) {
         megaMenu.classList.remove('closing');
       }
@@ -1768,8 +1774,6 @@ class TabbedInterface extends HTMLElement {
 
 customElements.define('tabbed-interface', TabbedInterface);
 
-
-
 // Setsup custom green dot cursor across all links with "green-dot-hover prop"
 
 function initGreenDotEffect() {
@@ -1796,12 +1800,14 @@ function initGreenDotEffect() {
 
   // Move the cursor div to follow the mouse
   function moveCursor(e) {
-    cursorDiv.style.left = `${e.clientX - 20}px`; // center the circle on pointer
-    cursorDiv.style.top = `${e.clientY - 40}px`;
+    cursorDiv.style.left = `${e.clientX - 5}px`; // center the circle on pointer
+    cursorDiv.style.top = `${e.clientY - 5}px`;
   }
 
   // Add event listeners to the target elements
-  const targetElements = document.querySelectorAll('[data-custom-cursor], .swiper-pagination-bullet');
+  const targetElements = document.querySelectorAll(
+    '[data-custom-cursor], .swiper-pagination-bullet'
+  );
   if (targetElements) {
     targetElements.forEach(elem => {
       elem.addEventListener('mouseenter', function (event) {
