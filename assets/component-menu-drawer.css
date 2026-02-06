@@ -16,7 +16,6 @@ header-drawer {
   position: relative;
   align-items: center;
   justify-content: center;
-  height: var(--space-3) !important;
 }
 
 .header__icon--menu.is-close {
@@ -116,7 +115,7 @@ menu-drawer > details[open] > summary::before {
   padding: 0;
   border-left: 0;
   overflow-x: hidden;
-  height: 100vh;
+  height: 100dvh;
   z-index: 0;
   color: rgb(var(--color-base-text-2));
   top: 3.5rem;
@@ -343,7 +342,8 @@ details.menu-open .menu-drawer__submenu {
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-1);
   text-transform: uppercase;
-  margin-bottom: var(--space-2);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
   display: flex;
   align-items: center;
   justify-content: space-between;
