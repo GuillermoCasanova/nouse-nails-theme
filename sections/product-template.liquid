@@ -86,7 +86,7 @@
       </div>
 
       <div class='product__contain container-large {{section.settings.section_padding}}'>
-        <div class='product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}'>
+        <div class='product  {% if section.settings.product_images_position == 'right' %} reverse-desktop-up {% endif %} {% unless template contains 'non-shoppable' %} product--is-shoppable{% endunless %}{% if product.selected_or_first_available_variant.available == false %} product--is-sold-out{% endif %}'>
           <div class=' product__media-wrapper'>
             {% if product.selected_or_first_available_variant.available == false
             %}
@@ -108,7 +108,8 @@
             {% endif %}
             {% render 'product-media-gallery',
               variant_images: variant_images,
-              media_aspect_ratio: section.settings.slideshow_media_aspect_ratio
+              media_aspect_ratio: section.settings.slideshow_media_aspect_ratio,
+              thumbnail_aspect_ratio: section.settings.thumbnail_media_aspect_ratio
             %}
           </div>
 
@@ -120,7 +121,6 @@
               {%- assign product_form_id = 'product-form-'
                 | append: section.id
               -%}
-              {%- assign is_compact_quick_add = section.settings.show_compact_quick_add -%}
 
               {%- for block in section.blocks -%}
                 {%- case block.type -%}
@@ -333,7 +333,7 @@
                     </p>
                   {%- when 'description' -%}
                     <div
-                      class='{% if is_compact_quick_add == true %} quick-add-hidden{% endif %} tabbed-interface'
+                      class='tabbed-interface'
                       {{ block.shopify_attributes }}
                     >
                       <ul class='tabbed-interface__tabs' role='tablist'>
@@ -590,7 +590,7 @@
                       </button>
                     </modal-opener>
                   {%- when 'share' -%}
-                    <div class='{% if is_compact_quick_add == true %}quick-add-hidden{% endif %}'>
+                    <div>
                       {% liquid
                         assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
                         render 'share-button', block: block, share_link: share_url
@@ -2190,27 +2190,6 @@
       "info": "t:sections.main-product.settings.header.info"
     },
     {
-      "type": "select",
-      "id": "media_size",
-      "options": [
-        {
-          "value": "small",
-          "label": "t:sections.main-product.settings.media_size.options__1.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-product.settings.media_size.options__2.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-product.settings.media_size.options__3.label"
-        }
-      ],
-      "default": "large",
-      "label": "t:sections.main-product.settings.media_size.label",
-      "info": "t:sections.main-product.settings.media_size.info"
-    },
-    {
       "type": "checkbox",
       "id": "constrain_to_viewport",
       "default": true,
@@ -2231,30 +2210,6 @@
       ],
       "default": "contain",
       "label": "t:sections.main-product.settings.media_fit.label"
-    },
-    {
-      "type": "select",
-      "id": "gallery_layout",
-      "options": [
-        {
-          "value": "stacked",
-          "label": "t:sections.main-product.settings.gallery_layout.options__1.label"
-        },
-        {
-          "value": "columns",
-          "label": "t:sections.main-product.settings.gallery_layout.options__2.label"
-        },
-        {
-          "value": "thumbnail",
-          "label": "t:sections.main-product.settings.gallery_layout.options__3.label"
-        },
-        {
-          "value": "thumbnail_slider",
-          "label": "t:sections.main-product.settings.gallery_layout.options__4.label"
-        }
-      ],
-      "default": "stacked",
-      "label": "t:sections.main-product.settings.gallery_layout.label"
     },
     {
       "type": "select",
@@ -2310,24 +2265,39 @@
     },
     {
       "type": "select",
-      "id": "image_zoom",
+      "id": "thumbnail_media_aspect_ratio",
+      "label": "Thumbnail Aspect Ratio",
       "options": [
         {
-          "value": "lightbox",
-          "label": "t:sections.main-product.settings.image_zoom.options__1.label"
+          "value": "16/9",
+          "label": "16:9 (Landscape)"
         },
         {
-          "value": "hover",
-          "label": "t:sections.main-product.settings.image_zoom.options__2.label"
+          "value": "9/16",
+          "label": "9:16 (Portrait)"
         },
         {
-          "value": "none",
-          "label": "t:sections.main-product.settings.image_zoom.options__3.label"
+          "value": "1/1",
+          "label": "1:1 (Square)"
+        },
+        {
+          "value": "1/.85",
+          "label": "1:0.8 (Shorter Square)"
+        },
+        {
+          "value": "3/4",
+          "label": "3:4 (Portrait)"
+        },
+        {
+          "value": "4/3",
+          "label": "4:3 (Portrait - Horizontal)"
+        },
+        {
+          "value": "9/13",
+          "label": "9:13 (Portrait)"
         }
       ],
-      "default": "lightbox",
-      "label": "t:sections.main-product.settings.image_zoom.label",
-      "info": "t:sections.main-product.settings.image_zoom.info"
+      "default": "1/1"
     },
     {
       "type": "select",
@@ -2349,34 +2319,6 @@
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
     },
-    {
-      "type": "checkbox",
-      "id": "hide_variants",
-      "default": false,
-      "label": "t:sections.main-product.settings.hide_variants.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_video_looping",
-      "default": false,
-      "label": "t:sections.main-product.settings.enable_video_looping.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_custom_size_picker",
-      "default": false,
-      "label": "Show Custom Size Picker"
-    },
-    {
-      "type": "header",
-      "content": "Quick Add Modal"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_compact_quick_add",
-      "default": false,
-      "label": "Show compact quick add"
-    }
   ],
   "presets": [
     {

@@ -19,7 +19,7 @@ media-gallery {
     position: sticky;
     top: 0;
     grid-template-columns: 2fr 0.25fr;
-    gap: var(--grid-padding-small);
+    gap: var(--grid-padding-tiny);
   }
 }
 
@@ -472,7 +472,7 @@ media-gallery {
 
 @media screen and (min-width: 768px) {
   .product-media-gallery__thumbnails {
-    min-width: 4.5rem;
+    min-width: 5.5rem;
   }
 }
 

@@ -61,21 +61,20 @@
         <span class='price-item price-item--regular'> {{ money_price }} </span>
       </div>
       <div class='price__sale'>
-        <span class='price-item price-item--sale price-item--last'>
-          {{ money_price }}
-        </span>
         {%- unless product.price_varies == false
           and product.compare_at_price_varies
         %}
-          <span class='price-item price-item--regular'>
+          <s class='price-item price-item--regular'>
             {% if settings.currency_code_enabled %}
               {{ compare_at_price | money_with_currency }}
             {% else %}
               {{ compare_at_price | money_without_trailing_zeros }}
             {% endif %}
-          </span>
+          </s>
         {%- endunless -%}
-
+        <span class='price-item price-item--sale price-item--last'>
+          {{ money_price }}
+        </span>
         <span class='visually-hidden'>
           {{- 'products.product.price.sale_price' | t -}}
         </span>

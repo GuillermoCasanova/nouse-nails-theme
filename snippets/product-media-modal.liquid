@@ -35,22 +35,14 @@
       {%- liquid
         if product.selected_or_first_available_variant.featured_media != null
           assign media = product.selected_or_first_available_variant.featured_media
-          render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
+          render 'product-media', media: media, loop: false, variant_image: false
         endif
       -%}
 
       {%- for media in product.media -%}
-        {%- liquid
-          if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
-            assign variant_image = true
-          else
-            assign variant_image = false
-          endif
-
-          unless media.id == product.selected_or_first_available_variant.featured_media.id
-            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
-          endunless
-        -%}
+        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- render 'product-media', media: media, loop: false, variant_image: false -%}
+        {%- endunless -%}
       {%- endfor -%}
     </div>
   </div>

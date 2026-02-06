@@ -145,18 +145,12 @@
         "enable_sticky_info": true,
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "section_padding": "section-padding-main",
-        "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "contain",
-        "gallery_layout": "columns",
         "product_images_position": "right",
         "slideshow_media_aspect_ratio": "9/13",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "show",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "show_custom_size_picker": false,
-        "show_compact_quick_add": false
+        "thumbnail_media_aspect_ratio": "1/1",
+        "mobile_thumbnails": "show"
       }
     },
     "product_expose_37qzyW": {

@@ -225,7 +225,7 @@
     width: 100%;
     padding: var(--space-3) var(--space-2);
     font-size: var(--text-size-tiny);
-    max-width: 20rem;
+    max-width: 17rem;
     margin: auto;
   }
 }

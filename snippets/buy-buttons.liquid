@@ -43,58 +43,6 @@
         novalidate: 'novalidate',
         data-type: 'add-to-cart-form'
       -%}
-        {%- if section.settings.show_custom_size_picker -%}
-          {%- assign product_type = product.type | downcase -%}
-          {%- if product_type == 'overskirts'
-            or product_type == 'lwd'
-            or product_type == 'belts'
-            or product_type == 'bows'
-          -%}
-            <custom-select-wrapper>
-              <div class="product-form__input product-form__input--dropdown" style="pointer-events: auto;">
-                <label class="form__label" for="Option-template--16143622406249__main-0"> Size </label>
-                <div class="select" style="pointer-events: auto;">
-                  <select
-                    class="select__select"
-                    name="properties[Size]"
-                    form="{{ product_form_id }}"
-                    style="pointer-events: auto;"
-                    data-custom-select
-                    required
-                  >
-                    <option
-                      value="0"
-                      selected="selected"
-                      data-product-url=""
-                      data-option-value-id="2596114071657"
-                    >
-                      0
-                    </option>
-                    <option value="2" data-product-url="" data-option-value-id="2596114464873">2</option>
-                    <option value="4" data-product-url="" data-option-value-id="2596114825321">4</option>
-                    <option value="6" data-product-url="" data-option-value-id="2596114890857">6</option>
-                    <option value="8" data-product-url="" data-option-value-id="2596114956393">8</option>
-                    <option value="10" data-product-url="" data-option-value-id="2596114137193">10</option>
-                    <option value="12" data-product-url="" data-option-value-id="2596114202729">12</option>
-                    <option value="14" data-product-url="" data-option-value-id="2596114268265">14</option>
-                    <option value="16" data-product-url="" data-option-value-id="2596114333801">16</option>
-                    <option value="18" data-product-url="" data-option-value-id="2596114399337">18</option>
-                    <option value="20" data-product-url="" data-option-value-id="2596114497641">20</option>
-                    <option value="22" data-product-url="" data-option-value-id="2596114563177">22</option>
-                    <option value="24" data-product-url="" data-option-value-id="2596114628713">24</option>
-                    <option value="26" data-product-url="" data-option-value-id="2596114694249">26</option>
-                    <option value="28" data-product-url="" data-option-value-id="2596114759785">28</option>
-                  </select>
-                  <span class="svg-wrapper">
-                    <svg class="icon icon-caret" viewBox="0 0 10 6">
-                      <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </custom-select-wrapper>
-          {%- endif -%}
-        {%- endif -%}
         <input
           type="hidden"
           name="id"

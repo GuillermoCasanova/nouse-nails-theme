@@ -5,7 +5,7 @@
 .price {
   font-size: var(--text-size-main);
   color: inherit;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   font-family: var(--headline-font-family);
   font-weight: var(--headline-font-weight);
@@ -28,10 +28,6 @@
   margin: 0;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Price Classes
 \*------------------------------------*/
@@ -44,10 +40,6 @@
   display: initial;
   justify-content: center;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Price States
@@ -84,7 +76,6 @@
 
 .price--on-sale .price-item--regular {
   text-decoration: line-through;
-  color: rgba(var(--color-base-text-1), 0.75);
 }
 
 .unit-price {
@@ -94,7 +85,6 @@
   line-height: var(--text-line-height);
   margin-top: var(--space-1);
   text-transform: uppercase;
-  color: rgba(var(--color-base-text-1), 0.7);
 }
 
 .price.price--unavailable {
