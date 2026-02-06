@@ -17,7 +17,7 @@
   slides-per-view='1.25'
   space-between='20'
   loop='true'
-  centered-slides='false'
+  centered-slides='true'
   {% if section.settings.autoplay %}
     autoplay='{{ section.settings.autoplay }}'
     autoplay-delay='{{ section.settings.autoplay_speed | times: 1000 }}'
@@ -33,6 +33,7 @@
   threshold='10'
   touch-ratio='1'
   touch-angle='45'
+  desktop-centered-slides='true'
   desktop-slides-per-view='auto'
   desktop-centered-slides='false'
   desktop-space-between='25'

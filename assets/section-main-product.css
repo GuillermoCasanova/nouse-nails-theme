@@ -736,3 +736,57 @@ input:checked + .bsub-widget__plan-header svg {
   color: rgb(var(--color-text-2)) !important;
   border: 1px solid rgb(var(--color-text-2)) !important;
 }
+
+/*------------------------------------*\
+    #Sticky Add to Cart Button (Mobile)
+\*------------------------------------*/
+
+.product-sticky-button {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 4;
+  background-color: rgb(var(--color-background));
+  border-top: 1px solid rgba(var(--color-border), 1);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s var(--default-easing);
+}
+
+.product-sticky-button.is-hidden {
+  transform: translateY(100%);
+}
+
+.product-sticky-button__inner {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.product-sticky-button__submit {
+  width: 100%;
+  margin: 0;
+  padding: var(--space-4) var(--space-4);
+  position: relative;
+}
+
+.product-sticky-button__submit[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: rgba(var(--color-button-primary-background), 0.6);
+  border-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .product-sticky-button {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .product-sticky-button {
+    display: none !important;
+  }
+}

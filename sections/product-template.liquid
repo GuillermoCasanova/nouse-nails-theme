@@ -33,6 +33,10 @@
     <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'quick-add.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
+    <script
+      src='{{ 'product-sticky-button.js' | asset_url }}'
+      defer='defer'
+    ></script>
 
     <!-- Custom Selects -->
     <script src='{{'choices.min.js' |  asset_url}}' defer='defer'></script>
@@ -699,6 +703,55 @@
       {% endunless %}
     </div>
   </product-info>
+
+  {%- comment -%} Sticky Add to Cart Button (Mobile Only) {%- endcomment -%}
+  <product-sticky-button data-section='{{ section.id }}'>
+    <div class='product-sticky-button' data-sticky-button>
+      <div class='product-sticky-button__inner'>
+        {%- assign sticky_form_id = 'product-form-sticky-'
+          | append: section.id
+        -%}
+        <product-form
+          class='product-form'
+          data-section-id='{{ section.id }}'
+        >
+          {%- form 'product',
+            product,
+            id: sticky_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input
+              type='hidden'
+              name='id'
+              value='{{ product.selected_or_first_available_variant.id }}'
+              class='product-variant-id'
+            >
+            <button
+              type='submit'
+              name='add'
+              class='product-sticky-button__submit button button--primary button--medium'
+              id='ProductSubmitButtonSticky-{{ section.id }}'
+            >
+              <span class='product-form__submit-text'>
+                {%- if product.selected_or_first_available_variant == null -%}
+                  {{ 'products.product.unavailable' | t }}
+                {%- elsif product.selected_or_first_available_variant.available
+                    == false
+                -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          {%- endform -%}
+        </product-form>
+      </div>
+    </div>
+  </product-sticky-button>
 </section>
 
 {% schema %}
@@ -2318,7 +2371,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },
+    }
   ],
   "presets": [
     {
