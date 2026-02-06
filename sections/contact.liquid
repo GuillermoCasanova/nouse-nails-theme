@@ -1,4 +1,5 @@
 {{ 'forms.css' | asset_url | stylesheet_tag }}
+{{ 'section-contact.css' | asset_url | stylesheet_tag }}
 
 <section class='contact-form-section color-{{ section.settings.color_scheme }} {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
   <div class='contact-form-section__container container-x-small'>
@@ -11,7 +12,7 @@
       {%- assign formId = 'ContactForm' -%}
       {% form 'contact', id: formId %}
         {% render 'form-status', form: form, form_id: formId %}
-        {%- if form.posted_successfully != true -%}
+        {%- unless form.posted_successfully? -%}
           <div class='form-section form-section--50'>
             <custom-input-wrapper class='custom-field{% if form[name] or customer %} is-active{% endif %}'>
               <label for='{{ formId }}-name'>
@@ -92,7 +93,7 @@
               {{ 'contact.form.submit' | t }}
             </span>
           </button>
-        {% endif %}
+        {% endunless %}
       {% endform %}
     </div>
   </div>
