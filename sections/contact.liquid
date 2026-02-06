@@ -10,88 +10,89 @@
     <div class='contact-form form-vertical'>
       {%- assign formId = 'ContactForm' -%}
       {% form 'contact', id: formId %}
-        {% include 'form-status', form: form, form_id: formId %}
-
-        <div class='form-section form-section--50'>
-          <custom-input-wrapper class='custom-field{% if form[name] or customer %} is-active{% endif %}'>
-            <label for='{{ formId }}-name'>
-              {{- 'contact.form.name' | t -}}
-            </label>
-            <input
-              class='input--primary'
-              type='text'
-              id='{{ formId }}-name'
-              name='contact[{{ 'contact.form.name' | t }}]'
-              value='{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}'
-            >
-          </custom-input-wrapper>
-          <custom-input-wrapper class='custom-field{% if form.email or customer %} is-active{% endif %}'>
-            <label for='{{ formId }}-email'>
-              {{- 'contact.form.email' | t }}
-              <span aria-hidden='true'>*</span>
-            </label>
-            <input
-              class='input--primary'
-              type='email'
-              id='{{ formId }}-email'
-              name='contact[email]'
-              autocorrect='off'
-              autocapitalize='off'
-              value='{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}'
-              aria-required='true'
+        {% render 'form-status', form: form, form_id: formId %}
+        {%- if form.posted_successfully == false -%}
+          <div class='form-section form-section--50'>
+            <custom-input-wrapper class='custom-field{% if form[name] or customer %} is-active{% endif %}'>
+              <label for='{{ formId }}-name'>
+                {{- 'contact.form.name' | t -}}
+              </label>
+              <input
+                class='input--primary'
+                type='text'
+                id='{{ formId }}-name'
+                name='contact[{{ 'contact.form.name' | t }}]'
+                value='{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}'
+              >
+            </custom-input-wrapper>
+            <custom-input-wrapper class='custom-field{% if form.email or customer %} is-active{% endif %}'>
+              <label for='{{ formId }}-email'>
+                {{- 'contact.form.email' | t }}
+                <span aria-hidden='true'>*</span>
+              </label>
+              <input
+                class='input--primary'
+                type='email'
+                id='{{ formId }}-email'
+                name='contact[email]'
+                autocorrect='off'
+                autocapitalize='off'
+                value='{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}'
+                aria-required='true'
+                {%- if form.errors contains 'email' -%}
+                  class='input--error'
+                  aria-invalid='true'
+                  aria-describedby='{{ formId }}-email-error'
+                {%- endif -%}
+              >
               {%- if form.errors contains 'email' -%}
-                class='input--error'
-                aria-invalid='true'
-                aria-describedby='{{ formId }}-email-error'
+                <span id='{{ formId }}-email-error' class='input-error-message'>
+                  <span class='visually-hidden'>
+                    {{- 'accessibility.error' | t }}
+                  </span>
+                  {% render 'icon-error' %}
+                  <span>
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}.
+                  </span>
+                </span>
               {%- endif -%}
-            >
-            {%- if form.errors contains 'email' -%}
-              <span id='{{ formId }}-email-error' class='input-error-message'>
-                <span class='visually-hidden'>
-                  {{- 'accessibility.error' | t }}
-                </span>
-                {% render 'icon-error' %}
-                <span>
-                  {{- form.errors.translated_fields.email | capitalize }}
-                  {{ form.errors.messages.email }}.
-                </span>
-              </span>
-            {%- endif -%}
-          </custom-input-wrapper>
-        </div>
+            </custom-input-wrapper>
+          </div>
 
-        <div class='form-section'>
-          <custom-input-wrapper class='custom-field{% if form.message_title %} is-active{% endif %}'>
-            <label for='{{ formId }}-message-title'>
-              {{- 'contact.form.message_title' | t -}}
+          <div class='form-section'>
+            <custom-input-wrapper class='custom-field{% if form.message_title %} is-active{% endif %}'>
+              <label for='{{ formId }}-message-title'>
+                {{- 'contact.form.message_title' | t -}}
+              </label>
+              <input
+                class='input--primary'
+                type='text'
+                id='{{ formId }}-message-title'
+                name='contact[{{ 'contact.form.message_title' | t }}]'
+                value='{% if form.message_title %}{{ form.message_title }}{% endif %}'
+              >
+            </custom-input-wrapper>
+          </div>
+
+          <div class='form-section'>
+            <label class='field__label' for='{{ formId }}-message'>
+              {{- 'contact.form.message' | t -}}
             </label>
-            <input
-              class='input--primary'
-              type='text'
-              id='{{ formId }}-message-title'
-              name='contact[{{ 'contact.form.message_title' | t }}]'
-              value='{% if form.message_title %}{{ form.message_title }}{% endif %}'
-            >
-          </custom-input-wrapper>
-        </div>
+            <textarea
+              class='input--primary text-area textarea--large'
+              rows='10'
+              id='{{ formId }}-message'
+              name='contact[{{ 'contact.form.message' | t }}]'
+            >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
 
-        <div class='form-section'>
-          <label class='field__label' for='{{ formId }}-message'>
-            {{- 'contact.form.message' | t -}}
-          </label>
-          <textarea
-            class='input--primary text-area textarea--large'
-            rows='10'
-            id='{{ formId }}-message'
-            name='contact[{{ 'contact.form.message' | t }}]'
-          >{% if form.body %}{{ form.body }}{% endif %}</textarea>
-        </div>
-
-        <button type='submit' class='button button--secondary button--medium'>
-          <span class='button__inner'>
-            {{ 'contact.form.submit' | t }}
-          </span>
-        </button>
+          <button type='submit' class='button button--secondary button--medium'>
+            <span class='button__inner'>
+              {{ 'contact.form.submit' | t }}
+            </span>
+          </button>
+        {% endif %}
       {% endform %}
     </div>
   </div>
