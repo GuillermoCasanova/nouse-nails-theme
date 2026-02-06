@@ -29,6 +29,15 @@
         </h1>
       {% endif %}
     {% endif %}
+    {% if section.settings.richtext_content != blank %}
+      <div class='dynamic-collection-grid__richtext rte'>
+        {% if section.settings.richtext_content != blank %}
+          {{ section.settings.richtext_content }}
+        {% else %}
+          {{ collection.description }}
+        {% endif %}
+      </div>
+    {% endif %}
     <ul class='dynamic-collection-grid grid {{ grid_class }} grid-gap-md'>
       {% for block in section.blocks %}
         {% case block.type %}
@@ -101,6 +110,12 @@
       "id": "hide_title",
       "label": "Hide title",
       "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "richtext_content",
+      "label": "Rich text",
+      "info": "Optional content displayed below the title"
     },
     {
       "type": "color_scheme",
