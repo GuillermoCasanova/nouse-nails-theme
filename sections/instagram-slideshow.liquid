@@ -230,6 +230,9 @@
                           class='instagram-slideshow__video'
                           preload='metadata'
                           data-video
+                          playsinline
+                          webkit-playsinline
+                          controlsList='nofullscreen'
                           poster='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
                         >
                           <source
