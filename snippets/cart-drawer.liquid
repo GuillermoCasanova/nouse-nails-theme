@@ -106,6 +106,9 @@
                       >
                         {{ 'sections.cart.headings.product' | t }}
                       </th>
+                      <th id="CartDrawer-ColumnQuantity" role="columnheader">
+                        <span class="visually-hidden">{{ 'sections.cart.headings.quantity' | t }}</span>
+                      </th>
                       <th
                         id="CartDrawer-ColumnTotal"
                         class="right caption-with-letter-spacing"
@@ -113,9 +116,6 @@
                         role="columnheader"
                       >
                         {{ 'sections.cart.headings.total' | t }}
-                      </th>
-                      <th id="CartDrawer-ColumnQuantity" role="columnheader">
-                        <span class="visually-hidden">{{ 'sections.cart.headings.quantity' | t }}</span>
                       </th>
                     </tr>
                   </thead>
@@ -414,6 +414,23 @@
                               </svg>
                             </div>
                           </quantity-popover>
+                        </td>
+
+                        <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+                          {%- if item.original_line_price != item.final_line_price -%}
+                            <dl class="cart-item__discounted-prices">
+                              <dt class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</dt>
+                              <dd>
+                                <s class="cart-item__old-price product-option">{{ item.original_line_price | money_without_trailing_zeros }}</s>
+                              </dd>
+                              <dt class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</dt>
+                              <dd>
+                                <strong class="cart-item__final-price product-option">{{ item.final_line_price | money_without_trailing_zeros }}</strong>
+                              </dd>
+                            </dl>
+                          {%- else -%}
+                            <span class="product-option product-price">{{ item.final_line_price | money_without_trailing_zeros }}</span>
+                          {%- endif -%}
                         </td>
                       </tr>
                     {%- endfor -%}

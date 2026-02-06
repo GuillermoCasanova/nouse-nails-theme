@@ -212,8 +212,8 @@ menu-drawer > details[open] > summary::before {
   border-bottom: 1px solid rgba(var(--color-base-text-1), 0.1);
   padding-left: var(--space-7);
   padding-right: var(--space-7);
-  padding-bottom: var(--space-6);
-  flex: 1;
+  padding-bottom: var(--space-10);
+  margin-bottom: var(--space-10);
 }
 
 .menu-drawer__menu-item {

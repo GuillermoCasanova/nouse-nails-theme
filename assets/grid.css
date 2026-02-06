@@ -1,15 +1,6 @@
-
-
-
-
-
 /*------------------------------------*\
     #Grid
 \*------------------------------------*/
-
-
-
-
 
 /*------------------------------------*\
     #Grid Gaps
@@ -30,10 +21,6 @@
 .grid-gap-0 {
   gap: 0;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Grid System
@@ -202,10 +189,6 @@
   }
 }
 
-
-
-
-
 /*------------------------------------*\
     #Containers
 \*------------------------------------*/
@@ -245,4 +228,52 @@
 .page-wrapper {
   overflow: hidden;
   position: relative;
+}
+
+/*------------------------------------*\
+    #Page Width
+\*------------------------------------*/
+/* 
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  width: 100%;
+} */
+
+/*------------------------------------*\
+    #Visibility Utilities
+\*------------------------------------*/
+
+.small-hide {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .small-hide {
+    display: block !important;
+  }
+
+  .cart-items .small-hide {
+    display: table-cell !important;
+  }
+
+  .medium-hide {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .medium-hide {
+    display: block !important;
+  }
+
+  .cart-items .medium-hide {
+    display: table-cell !important;
+  }
+
+  .large-up-hide {
+    display: none !important;
+  }
 }
