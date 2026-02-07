@@ -1,0 +1,3 @@
+#!/bin/sh
+# Restore link tags after commit so working copy stays in development state
+npm run extract-critical-css:restore

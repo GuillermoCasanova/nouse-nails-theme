@@ -1,0 +1,7 @@
+#!/bin/sh
+# Run critical CSS extractor before commit (generate + comment for production)
+npm run extract-critical-css || exit 1
+
+# Stage modified files so they're included in the commit
+git add snippets/critical-css.liquid
+git add -u sections/ templates/ snippets/ layout/ 2>/dev/null || true

@@ -7,7 +7,8 @@
  * extracts the CSS files, minifies them, and writes to critical-css.liquid
  * 
  * Usage: 
- *   node scripts/extract-critical-css.js
+ *   node scripts/extract-critical-css.js           # Extract + comment (production)
+ *   node scripts/extract-critical-css.js --restore # Uncomment links (development)
  */
 
 const fs = require('fs');
@@ -212,6 +213,17 @@ function commentOutInlineCSSLinks(liquidContent) {
 }
 
 /**
+ * Restore (uncomment) link tags that were wrapped in {% comment %}[INLINED]...{% endcomment %}
+ */
+function restoreInlineCSSLinks(liquidContent) {
+  // Match {% comment %}[INLINED]<link ...>{% endcomment %} and replace with the link tag
+  const pattern = /\{%\s*comment\s*%\}\[INLINED\](<link[\s\S]*?>)\{%\s*endcomment\s*%\}/g;
+  const matches = liquidContent.match(pattern) || [];
+  const modified = liquidContent.replace(pattern, '$1');
+  return { modified, changeCount: matches.length };
+}
+
+/**
  * Main execution
  */
 function main() {
@@ -328,9 +340,55 @@ function main() {
   console.log('='.repeat(60) + '\n');
 }
 
-// Run the script
-if (require.main === module) {
-  main();
+/**
+ * Restore mode: uncomment link tags in Liquid files for development
+ */
+function runRestore() {
+  const rootDir = path.join(__dirname, '..');
+
+  console.log('\n🔄 Critical CSS Restore (development mode)\n');
+  console.log('📂 Restoring inline-css link tags in Liquid files...\n');
+
+  const liquidFiles = findLiquidFiles(rootDir);
+  let totalRestored = 0;
+
+  for (const liquidFile of liquidFiles) {
+    const filePath = path.join(rootDir, liquidFile);
+    try {
+      const content = fs.readFileSync(filePath, 'utf8');
+      const result = restoreInlineCSSLinks(content);
+
+      if (result.changeCount > 0) {
+        fs.writeFileSync(filePath, result.modified, 'utf8');
+        console.log(`📝 ${liquidFile}: Restored ${result.changeCount} link tag(s)`);
+        totalRestored += result.changeCount;
+      }
+    } catch (error) {
+      console.warn(`⚠️  Warning: Could not process ${liquidFile}: ${error.message}`);
+    }
+  }
+
+  if (totalRestored > 0) {
+    console.log(`\n✅ Restored ${totalRestored} link tag(s). Ready for development.\n`);
+  } else {
+    console.log('\n✓ No commented link tags found. Files already in development state.\n');
+  }
 }
 
-module.exports = { extractInlineCSSFiles, minifyCSS, findLiquidFiles, commentOutInlineCSSLinks };
+// Run the script
+if (require.main === module) {
+  const isRestore = process.argv.includes('--restore');
+  if (isRestore) {
+    runRestore();
+  } else {
+    main();
+  }
+}
+
+module.exports = {
+  extractInlineCSSFiles,
+  minifyCSS,
+  findLiquidFiles,
+  commentOutInlineCSSLinks,
+  restoreInlineCSSLinks
+};
