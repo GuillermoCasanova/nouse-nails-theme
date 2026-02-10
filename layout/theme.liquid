@@ -87,16 +87,17 @@
     {% if page_description %}
       <meta name='description' content='{{ page_description | escape }}'>
     {% endif %}
+
+    <!-- CSS LOADING BASE + VARIABLES -->
+    {% render 'css-variables' %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'grid.css' | asset_url | stylesheet_tag }}
+    {{ 'animate-eyebrow.css' | asset_url | stylesheet_tag }}
+
     <!-- Critical CSS for above-the-fold content -->
     <style>
       {% render 'critical-css' %}
     </style>
-    {% render 'css-variables' %}
-
-    <!-- CSS LOADING BASE + VARIABLES -->
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'grid.css' | asset_url | stylesheet_tag }}
-    {{ 'animate-eyebrow.css' | asset_url | stylesheet_tag }}
 
     {% render 'social-meta-tags' %}
 
