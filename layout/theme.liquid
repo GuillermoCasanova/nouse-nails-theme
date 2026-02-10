@@ -88,11 +88,9 @@
       <meta name='description' content='{{ page_description | escape }}'>
     {% endif %}
     <!-- Critical CSS for above-the-fold content -->
-    {% comment %}
-      <style>
-        {% render 'critical-css' %}
-      </style>
-    {% endcomment %}
+    <style>
+      {% render 'critical-css' %}
+    </style>
     {% render 'css-variables' %}
 
     <!-- CSS LOADING BASE + VARIABLES -->
