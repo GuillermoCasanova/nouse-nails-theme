@@ -6,7 +6,11 @@
     data-update-url='true'
     data-url='{{ product.url }}'
   >
-    {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    {% comment %}[INLINED]<link
+      href='{{ 'section-main-product.css' | asset_url }}'
+      rel='stylesheet'
+      inline-css='true'
+    >{% endcomment %}
 
     <!-- Component CSS -->
     {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
