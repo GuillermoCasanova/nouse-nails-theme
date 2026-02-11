@@ -148,7 +148,7 @@
         "constrain_to_viewport": false,
         "media_fit": "contain",
         "product_images_position": "right",
-        "slideshow_media_aspect_ratio": "1/1",
+        "slideshow_media_aspect_ratio": "3/4",
         "thumbnail_media_aspect_ratio": "1/1",
         "mobile_thumbnails": "show"
       }
