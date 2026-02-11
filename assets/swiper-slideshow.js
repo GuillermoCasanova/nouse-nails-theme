@@ -8,8 +8,8 @@ class SwiperSlideshow extends HTMLElement {
     this.swiper = null;
     this.isInitialized = false;
     this.mediaQueries = {
-      mediumUp: window.matchMedia('(min-width: 768px)'),
-      largeUp: window.matchMedia('(min-width: 1024px)'),
+      mediumUp: window.matchMedia('(min-width: 750px)'),
+      largeUp: window.matchMedia('(min-width: 940px)'),
     };
   }
 
@@ -57,6 +57,7 @@ class SwiperSlideshow extends HTMLElement {
       desktopSlidesOffsetBefore: this.getAttribute(
         'desktop-slides-offset-before'
       ),
+      desktopEffect: this.getAttribute('desktop-effect'),
 
       // Navigation
       showNavigation: this.getAttribute('show-navigation'),
@@ -164,11 +165,12 @@ class SwiperSlideshow extends HTMLElement {
         lastSlideMessage: 'This is the last slide',
       },
 
-      // Breakpoints for responsive design - desktop overrides at 768px+
+      // Breakpoints for responsive design - desktop overrides at 750px+
       breakpoints: attrs.breakpoints?.value
         ? this.convertToObject(attrs.breakpoints.value)
         : {
-            768: {
+            750: {
+              effect: attrs.desktopEffect || attrs.effect || 'slide',
               slidesPerView:
                 attrs.desktopSlidesPerView || attrs.slidesPerView || 'auto',
               spaceBetween: parseInt(

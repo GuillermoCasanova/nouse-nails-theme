@@ -16,7 +16,7 @@
     aspect_ratio: '4/3',
     alt: product.title,
     class: 'product-image',
-    sizes: '(min-width: 940px) 33vw, (min-width: 700px) 50vw, 100vw',
+    sizes: '(min-width: 940px) 33vw, (min-width: 750px) 50vw, 100vw',
     widths: '165,360,533,720,940,1066'
   %}
 {% endcomment %}
@@ -25,7 +25,7 @@
   assign aspect_ratio = aspect_ratio | default: '16/9'
   assign loading = loading | default: 'lazy'
   assign class = class | default: ''
-  assign sizes = sizes | default: '(min-width: 768px) 50vw, 100vw'
+  assign sizes = sizes | default: '(min-width: 750px) 50vw, 100vw'
   assign widths = widths | default: '400,600,800,1200'
 
   # Check if natural aspect ratio

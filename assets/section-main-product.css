@@ -12,7 +12,7 @@
   display: block;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .product {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
@@ -163,11 +163,26 @@ variant-selects {
   right: 1.5rem;
 }
 
+.product-form__submit,
+.product-sticky-button__submit {
+  position: relative;
+}
+
 .product-form__submit {
   margin-bottom: 1rem;
   background-color: rgb(var(--color-base-accent-1));
   width: 100%;
   border-color: rgb(var(--color-base-accent-1));
+}
+
+.product-form__submit .loading__spinner .path {
+  stroke: rgb(var(--color-text-2));
+}
+
+/* Loader: hide button text when .loading is applied (spinner visibility is toggled by JS via .hidden) */
+.product-form__submit.loading .product-form__submit-text,
+.product-sticky-button__submit.loading .product-form__submit-text {
+  visibility: hidden;
 }
 
 .product-form__submit:hover,
@@ -251,7 +266,7 @@ variant-selects {
   justify-content: flex-start;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product__info-container {
     max-width: 27rem;
     margin: auto;
@@ -291,7 +306,7 @@ a.product__text {
   font-size: var(--headline-size-h2);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product__title {
     font-size: var(--headline-size-h1);
   }
@@ -339,7 +354,7 @@ a.product__text {
   order: 3;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .product--is-shoppable .product__info-container .tabbed-interface {
     order: inherit;
   }
@@ -480,7 +495,7 @@ shopify-payment-terms {
   display: block;
   width: 100%;
   height: 1px;
-  background-color: rgb(var(--color-text));
+  background-color: rgb(var(--color-text-1));
   opacity: 0;
   position: absolute;
   bottom: -4px;
@@ -652,7 +667,7 @@ shopify-payment-terms {
   align-items: center;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
   .product__media-sold-out-badge {
     top: -2.5rem;
     left: -3.5rem;
@@ -679,7 +694,7 @@ shopify-payment-terms {
   line-height: 1;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
   .product__media-sold-out-badge__text {
     padding-bottom: 1rem;
     font-size: var(--text-size-main);
@@ -719,12 +734,12 @@ input:checked + .bsub-widget__plan-header::before,
 input:checked + .bsub-widget__plan-header {
   background-color: rgb(var(--color-background)) !important;
   border-color: rgb(var(--color-text-2)) !important;
-  color: rgb(var(--color-text)) !important;
+  color: rgb(var(--color-text-1)) !important;
 }
 
 input:checked + .bsub-widget__plan-header .bsub-widget__main-text,
 input:checked + .bsub-widget__plan-header svg {
-  color: rgb(var(--color-text)) !important;
+  color: rgb(var(--color-text-1)) !important;
 }
 
 .bsub-widget__group input:checked + .bsub-widget__plan-header {
@@ -778,13 +793,13 @@ input:checked + .bsub-widget__plan-header svg {
   border-color: transparent;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 749px) {
   .product-sticky-button {
     display: block;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-sticky-button {
     display: none !important;
   }

@@ -1,12 +1,14 @@
-{{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'component-search.css' | asset_url | stylesheet_tag }}
 {{ 'component-predictive-search.css' | asset_url | stylesheet_tag }}
 {{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
+{{ 'template-search.css' | asset_url | stylesheet_tag }}
 
-<script src='{{ 'search-form.js' | asset_url }}' defer='defer'></script>
-<script src='{{ 'main-search.js' | asset_url }}' defer='defer'></script>
+{% comment %}
+  <script src='{{ 'search-form.js' | asset_url }}' defer='defer'></script>
+  <script src='{{ 'main-search.js' | asset_url }}' defer='defer'></script>
+{% endcomment %}
+
 {%- liquid
   assign sort_by = search.sort_by | default: search.default_sort_by
   assign terms = search.terms | escape
@@ -29,12 +31,15 @@
 <div
   class='
     template-search
-     {%if search.performed == false %} no-search {% endif %}
-    search-modal__form{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding
+    color-{{ section.settings.color_scheme }}
+    {{ section.settings.section_padding_top }}
+    {{ section.settings.section_padding_bottom }}
+    {% if search.performed == false %} no-search {% endif %}
+    {% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}
   '
 >
-  <div class='template-search__header  container-main section-padding-main {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}'>
-    <h1 class='h2 center'>
+  <div class='template-search__header container-main {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}'>
+    <h1 class='{{ section.settings.heading_size }} template-search__header__heading'>
       {%- if search.performed -%}
         {{- 'templates.search.title' | t -}}
       {%- else -%}
@@ -43,7 +48,9 @@
     </h1>
     {%- if search.terms != blank -%}
       <p class='template-search__search-terms'>
-        <span>My Query:</span> "{{ search.terms | escape }}"
+        <span>{{ 'templates.search.my_query' | t }}</span> "
+        {{- search.terms | escape -}}
+        "
       </p>
     {%- endif -%}
     <div class='template-search__search'>
@@ -58,96 +65,87 @@
             <custom-input-wrapper>
               <div class='search__input-container'>
                 <input
-                  class='search__input field__input'
+                  class='search__input'
                   id='Search-In-Template'
                   type='search'
                   name='q'
                   value='{{ search.terms | escape }}'
-                  placeholder='{{ 'general.search.search' | t }}'
-                  {%- if settings.predictive_search_enabled -%}
-                    role='combobox'
-                    aria-expanded='false'
-                    aria-owns='predictive-search-results'
-                    aria-controls='predictive-search-results'
-                    aria-haspopup='listbox'
-                    aria-autocomplete='list'
-                    autocorrect='off'
-                    autocomplete='off'
-                    autocapitalize='off'
-                    spellcheck='false'
-                  {%- endif -%}
+                  role='combobox'
+                  aria-expanded='false'
+                  aria-owns='predictive-search-results-list'
+                  aria-controls='predictive-search-results-list'
+                  aria-haspopup='listbox'
+                  aria-autocomplete='list'
+                  autocorrect='off'
+                  autocomplete='off'
+                  autocapitalize='off'
+                  spellcheck='false'
                 >
-
-                <label class='search__label' for='Search-In-Template'>
-                  {{- 'general.search.search' | t -}}
+                <label
+                  data-search-input-label
+                  class='search__label'
+                  for='Search-In-Template'
+                >
+                  {{ 'general.search.search' | t }}
                 </label>
-                <input name='options[prefix]' type='hidden' value='last'>
+                <input type='hidden' name='options[prefix]' value='last'>
 
                 <button
+                  type='submit'
                   class='search__button'
-                  aria-label='Search'
-                  data-search-modal-toggle=''
+                  aria-label='{{ 'general.search.search' | t }}'
                 >
                   {% render 'icon-search' %}
                 </button>
-                {%- if settings.predictive_search_enabled -%}
-                  <div
-                    class='predictive-search predictive-search--search-template'
-                    tabindex='-1'
-                    data-predictive-search
-                  >
-                    {%- render 'loading-spinner',
-                      class: 'predictive-search__loading-state'
-                    -%}
-                  </div>
-
-                  <span
-                    class='predictive-search-status visually-hidden'
-                    role='status'
-                    aria-hidden='true'
-                  ></span>
-                {%- endif -%}
-
-                <button
-                  type='reset'
-                  class='reset__button field__button{% if search.terms == blank %} hidden{% endif %}'
-                  aria-label='{{ 'general.search.reset' | t }}'
-                >
-                  <span class='svg-wrapper'>
-                    {{- 'icon-reset.svg' | inline_asset_content -}}
-                  </span>
-                </button>
-                <button
-                  type='submit'
-                  class='search__button field__button'
-                  aria-label='{{ 'general.search.search' | t }}'
-                >
-                  <span class='svg-wrapper'>
-                    {{- 'icon-search.svg' | inline_asset_content -}}
-                  </span>
-                </button>
               </div>
             </custom-input-wrapper>
+
+            <div
+              class='predictive-search predictive-search--search-template'
+              tabindex='-1'
+              data-predictive-search
+            >
+              <div class='predictive-search__loading-state'>
+                <svg
+                  aria-hidden='true'
+                  focusable='false'
+                  role='presentation'
+                  class='spinner'
+                  viewBox='0 0 66 66'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </div>
+            </div>
+            <span
+              class='predictive-search-status visually-hidden'
+              role='status'
+              aria-hidden='true'
+            ></span>
           </form>
         </main-search>
       </predictive-search>
     </div>
-    {%- if search.performed -%}
-      {%- if search.results_count > 0 -%}
-        <p role='status'>
-          {{
-            'templates.search.results_with_count_and_term'
-            | t: terms: search.terms, count: search.results_count
-          }}
-        </p>
+    <div class='template-search__status'>
+      {%- if search.performed -%}
+        {%- if search.results_count > 0 -%}
+          <p role='status'>
+            {{
+              'templates.search.results_with_count_and_term'
+              | t: terms: search.terms, count: search.results_count
+            }}
+          </p>
+        {%- endif -%}
+        {%- if search.results_count == 0 -%}
+          <p role='status'>
+            {{ 'templates.search.no_results' | t: terms: search.terms }}
+          </p>
+        {%- endif -%}
       {%- endif -%}
-      {%- if search.results_count == 0 -%}
-        <p role='status'>
-          {{ 'templates.search.no_results' | t: terms: search.terms }}
-        </p>
-      {%- endif -%}
-    {%- endif -%}
+    </div>
   </div>
+
   {%- if search.performed -%}
     <div
       class='product-grid-container container-main'
@@ -155,7 +153,7 @@
     >
       {%- if search.results.size == 0 -%}
         <div
-          class='template-search__results collection collection--empty page-width'
+          class='template-search__results card template-search__empty-state container-x-small'
           id='product-grid'
           data-id='{{ section.id }}'
         >
@@ -193,7 +191,8 @@
                   {%- when 'product' -%}
                     {% render 'product-card-grid',
                       product: item,
-                      show_vendor: section.settings.show_vendor
+                      show_vendor: section.settings.show_vendor,
+                      show_rating: section.settings.show_rating
                     %}
                   {%- when 'article' -%}
                     {% render 'article-card',
@@ -239,16 +238,54 @@
     </div>
   {%- endif -%}
 </div>
-{% if section.settings.image_shape == 'arch' %}
-  {{ 'mask-arch.svg' | inline_asset_content }}
-{%- endif -%}
-
 {% schema %}
 {
   "name": "Search Template",
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        {
+          "value": "headline-style-h1",
+          "label": "H1"
+        },
+        {
+          "value": "headline-style-h2",
+          "label": "H2"
+        },
+        {
+          "value": "headline-style-h3",
+          "label": "H3"
+        },
+        {
+          "value": "headline-style-h4",
+          "label": "H4"
+        },
+        {
+          "value": "headline-style-h5",
+          "label": "H5"
+        }
+      ],
+      "default": "headline-style-h2"
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -259,69 +296,56 @@
       "label": "t:sections.main-search.settings.columns_desktop.label"
     },
     {
+      "type": "select",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "options": [
+        {
+          "value": "section-padding-top-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-top-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-top-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-top-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-top-main"
+    },
+    {
+      "type": "select",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "options": [
+        {
+          "value": "section-padding-bottom-x-small",
+          "label": "Extra Small"
+        },
+        {
+          "value": "section-padding-bottom-small",
+          "label": "Small"
+        },
+        {
+          "value": "section-padding-bottom-main",
+          "label": "Medium"
+        },
+        {
+          "value": "section-padding-bottom-large",
+          "label": "Large"
+        }
+      ],
+      "default": "section-padding-bottom-main"
+    },
+    {
       "type": "header",
       "content": "t:sections.main-search.settings.header__1.content"
-    },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-search.settings.image_ratio.options__1.label"
-        },
-        {
-          "value": "portrait",
-          "label": "t:sections.main-search.settings.image_ratio.options__2.label"
-        },
-        {
-          "value": "square",
-          "label": "t:sections.main-search.settings.image_ratio.options__3.label"
-        }
-      ],
-      "default": "adapt",
-      "label": "t:sections.main-search.settings.image_ratio.label"
-    },
-    {
-      "type": "select",
-      "id": "image_shape",
-      "options": [
-        {
-          "value": "default",
-          "label": "t:sections.all.image_shape.options__1.label"
-        },
-        {
-          "value": "arch",
-          "label": "t:sections.all.image_shape.options__2.label"
-        },
-        {
-          "value": "blob",
-          "label": "t:sections.all.image_shape.options__3.label"
-        },
-        {
-          "value": "chevronleft",
-          "label": "t:sections.all.image_shape.options__4.label"
-        },
-        {
-          "value": "chevronright",
-          "label": "t:sections.all.image_shape.options__5.label"
-        },
-        {
-          "value": "diamond",
-          "label": "t:sections.all.image_shape.options__6.label"
-        },
-        {
-          "value": "parallelogram",
-          "label": "t:sections.all.image_shape.options__7.label"
-        },
-        {
-          "value": "round",
-          "label": "t:sections.all.image_shape.options__8.label"
-        }
-      ],
-      "default": "default",
-      "label": "t:sections.all.image_shape.label",
-      "info": "t:sections.all.image_shape.info"
     },
     {
       "type": "checkbox",
@@ -372,30 +396,6 @@
           "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
         }
       ]
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
     }
   ],
   "presets": [

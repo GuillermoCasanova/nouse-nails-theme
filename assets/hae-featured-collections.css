@@ -26,7 +26,7 @@
 
 .featured-collections__column {
   background-color: rgb(var(--color-background));
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
 }
 
 .featured-collections__column__layout {
@@ -43,7 +43,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .featured-collections__column__layout {
     padding: var(--space-9);
   }

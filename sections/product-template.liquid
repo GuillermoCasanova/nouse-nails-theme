@@ -507,7 +507,7 @@
                                         {{ block.settings.image | image_url }} {{ block.settings.image.width }}w
                                       '
                                       src='{{ media | image_url: width: 1946 }}'
-                                      sizes='(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 700px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)'
+                                      sizes='(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 940px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)'
                                       loading='lazy'
                                       width='500'
                                       height='{{ 500 | divided_by: block.settings.image.aspect_ratio | ceil }}'

@@ -28,7 +28,7 @@
 }
 
 .product-rating__review-count {
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   font-weight: 500;
 }
 
@@ -51,10 +51,18 @@
   line-height: var(--text-line-height);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .jdgm-prev-badge__text {
     display: block;
   }
+}
+.jdgm-rev__timestamp {
+  color: rgb(var(--color-text-1)) !important;
+}
+
+.judgeme_product_reviews {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /*------------------------------------*\
@@ -101,7 +109,7 @@
 
 .jdgm-star.jdgm--off:before {
   content: '';
-  background-color: rgba(var(--color-text), 0.25);
+  background-color: rgba(var(--color-text-1), 0.25);
   -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMi4wNiAxMS42MSI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTTcuNDIuMjVsLS40Nyw0LjIxLS4wMy4yMi4yMS0uMDYsNC4zLTEuMTkuMzUsMi42Ni0zLjkxLjI4LS4yOC4wMi4xNy4yMiwyLjU3LDMuMzgtMi40MywxLjI4LTEuNzktMy41OC0uMTQtLjI4LS4xMy4yOS0xLjU4LDMuNTUtMi41Mi0xLjI2LDIuNTQtMy4zOC4xNi0uMjItLjI3LS4wMi0zLjg4LS4zLjQyLTIuNjQsNC4yLDEuMTkuMjEuMDYtLjAyLS4yMi0uNDgtNC4yMXMyLjgsMCwyLjgsMFoiLz48L3N2Zz4=')
     no-repeat center;
   mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMi4wNiAxMS42MSI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTTcuNDIuMjVsLS40Nyw0LjIxLS4wMy4yMi4yMS0uMDYsNC4zLTEuMTkuMzUsMi42Ni0zLjkxLjI4LS4yOC4wMi4xNy4yMiwyLjU3LDMuMzgtMi40MywxLjI4LTEuNzktMy41OC0uMTQtLjI4LS4xMy4yOS0xLjU4LDMuNTUtMi41Mi0xLjI2LDIuNTQtMy4zOC4xNi0uMjItLjI3LS4wMi0zLjg4LS4zLjQyLTIuNjQsNC4yLDEuMTkuMjEuMDYtLjAyLS4yMi0uNDgtNC4yMXMyLjgsMCwyLjgsMFoiLz48L3N2Zz4=')
@@ -148,13 +156,13 @@
   height: 1rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-rating.product-card-grid__rating .jdgm-prev-badge__text {
     display: block;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-rating.product-card-grid__rating {
     margin-top: -2rem;
   }

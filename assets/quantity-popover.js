@@ -4,8 +4,8 @@ if (!customElements.get('quantity-popover')) {
     class QuantityPopover extends HTMLElement {
       constructor() {
         super();
-        this.mql = window.matchMedia('(min-width: 990px)');
-        this.mqlTablet = window.matchMedia('(min-width: 768px)');
+        this.mql = window.matchMedia('(min-width: 940px)');
+        this.mqlTablet = window.matchMedia('(min-width: 750px)');
         this.infoButtonDesktop = this.querySelector(
           '.quantity-popover__info-button--icon-only'
         );

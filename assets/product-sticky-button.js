@@ -92,7 +92,7 @@ class ProductStickyButton extends HTMLElement {
   }
 
   handleScroll() {
-    if (window.innerWidth >= 768) return;
+    if (window.innerWidth >= 750) return;
 
     const scrollPosition = window.scrollY || window.pageYOffset;
     const shouldShow = scrollPosition > 200;

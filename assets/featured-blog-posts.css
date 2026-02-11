@@ -11,10 +11,6 @@
   margin-bottom: var(--space-8);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Swiper Slideshow Component
 \*------------------------------------*/
@@ -43,14 +39,14 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: var(--color-text);
+  color: var(--color-text-1);
   font-size: 1.25rem;
   font-weight: bold;
 }
 
 .swiper-slideshow__nav-button:hover {
   background: var(--color-background-2);
-  border-color: var(--color-text);
+  border-color: var(--color-text-1);
   transform: scale(1.05);
 }
 
@@ -59,15 +55,11 @@
 }
 
 /* Hide navigation on desktop when grid layout is active */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .swiper-slideshow__navigation {
     display: none;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Featured Blog Posts Grid
@@ -80,7 +72,7 @@
   margin-right: -1.5rem !important;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .featured-blog-posts__grid {
     margin-right: 0 !important;
   }
@@ -107,10 +99,6 @@
   position: relative;
   transition-property: transform;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Blog Card

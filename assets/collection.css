@@ -24,7 +24,7 @@
   );
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .collection-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

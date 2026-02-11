@@ -13,7 +13,7 @@
     transform 0.7s var(--default-easing);
   text-align: center;
   background-color: transparent;
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   pointer-events: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta {
     max-width: 13rem;
   }
@@ -61,7 +61,7 @@
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta__trigger {
     display: flex;
   }
@@ -83,7 +83,7 @@
   line-height: 1.2;
   position: absolute;
   max-width: 60%;
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   margin-bottom: var(--space-6);
   font-size: var(--text-size-tiny);
 }
@@ -107,7 +107,7 @@
   border: none;
   color: currentColor;
   cursor: pointer;
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
 }
 
 .floating-cta__trigger-close-button svg {
@@ -152,7 +152,7 @@
   padding-top: var(--space-7);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta-modal__dialog {
     padding-top: 0;
     transform: translateY(110%);
@@ -164,7 +164,7 @@
   display: flex;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta-modal__dialog__inner {
     padding: var(--space-7) var(--space-7) var(--space-7) var(--space-7);
     display: grid;
@@ -174,7 +174,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .floating-cta-modal__dialog__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,7 +192,7 @@
   color: var(--floating-cta-color);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta-modal__dialog__icon {
     top: -1rem;
     width: 6rem;
@@ -228,7 +228,7 @@
   position: relative;
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .floating-cta-modal__dialog__media-wrapper {
     display: block;
   }
@@ -252,7 +252,7 @@
   margin-top: var(--space-4);
   font-size: var(--text-size-tiny);
   line-height: 1.5;
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   max-width: 25rem;
   margin: 0 auto;
 }

@@ -40,6 +40,7 @@
   src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
   defer
 ></script>
+
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
 
 <media-gallery
@@ -57,14 +58,17 @@
 
   <swiper-slideshow
     class='product-media-gallery__main'
-    slides-per-view='1'
-    space-between='0'
+    slides-per-view='2.25'
+    space-between='20'
     centered-slides='false'
     loop='true'
     autoplay='false'
     show-navigation='true'
     show-pagination='true'
-    effect='fade'
+    desktop-slides-per-view='1'
+    effect='slide'
+    desktop-effect='fade'
+    desktop-space-between='0'
     speed='400'
     thumbnails='data-thumbnails-gallery'
   >
@@ -168,7 +172,8 @@
           {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
           <div class='swiper-slide' data-swiper-slide>
             <div class='product__media-thumbnail-wrapper'>
-              {% render 'product-thumbnail',
+              {%
+                render 'product-thumbnail',
                 media: featured_media,
                 media_count: media_count,
                 position: 1,
@@ -195,7 +200,8 @@
           -%}
             <div class='swiper-slide' data-swiper-slide>
               <div class='product__media-thumbnail-wrapper'>
-                {% render 'product-thumbnail',
+                {%
+                  render 'product-thumbnail',
                   media: media,
                   media_count: media_count,
                   position: forloop.index,

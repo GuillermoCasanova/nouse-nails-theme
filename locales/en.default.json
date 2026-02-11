@@ -316,6 +316,7 @@
         "other": "{{ count }} results found for “{{ terms }}”"
       },
       "title": "Search results",
+      "my_query": "My Query:",
       "search_for": "Search for “{{ terms }}”",
       "suggestions": "Suggestions",
       "pages": "Pages"

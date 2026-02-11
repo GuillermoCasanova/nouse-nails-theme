@@ -7,7 +7,7 @@
   display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 749px) {
   .testinmonials__contain {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -22,10 +22,6 @@
 .testimonials__title {
   text-align: center;
 }
-
-
-
-
 
 /*------------------------------------*\
     #Swiper Slideshow Component
@@ -56,12 +52,12 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: var(--color-text);
+  color: var(--color-text-1);
 }
 
 .swiper-slideshow__nav-button:hover {
   background: var(--color-background-2);
-  border-color: var(--color-text);
+  border-color: var(--color-text-1);
   transform: scale(1.05);
 }
 
@@ -75,15 +71,11 @@
 }
 
 /* Hide navigation on desktop when grid layout is active */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .swiper-slideshow__navigation {
     display: none;
   }
 }
-
-
-
-
 
 /*------------------------------------*\
     #Testimonials Grid
@@ -111,10 +103,6 @@
   transition-property: transform;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Testimonial Items
 \*------------------------------------*/
@@ -128,7 +116,7 @@
   margin-bottom: var(--space-5);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .testimonials__item,
   .testimonials__grid .testimonials__item:last-child {
     margin-bottom: var(--space-5);
@@ -154,10 +142,6 @@
   margin: auto;
 }
 
-
-
-
-
 /*------------------------------------*\
     #Quote Icon
 \*------------------------------------*/
@@ -165,10 +149,6 @@
 .testimonials__quote-icon {
   margin-bottom: var(--space-5);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Quote Content
@@ -188,10 +168,6 @@
   margin-bottom: var(--space-3);
 }
 
-
-
-
-
 /*------------------------------------*\
     #Author
 \*------------------------------------*/
@@ -202,10 +178,6 @@
   text-transform: uppercase;
   font-family: var(--primary-font-family);
 }
-
-
-
-
 
 /*------------------------------------*\
     #Empty State

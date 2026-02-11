@@ -54,7 +54,7 @@ header-drawer {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgb(var(--color-text));
+  background-color: rgb(var(--color-text-1));
   margin: auto;
   transition: all var(--duration-default) ease;
 }

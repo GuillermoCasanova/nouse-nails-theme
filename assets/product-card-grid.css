@@ -25,8 +25,14 @@
   width: 100%;
   padding-bottom: 100%; /* Creates square aspect ratio */
   overflow: hidden;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
   border: 1px dotted transparent;
+}
+
+@media screen and (min-width: 750px) {
+  .product-card-grid__image-container {
+    margin-bottom: var(--space-4);
+  }
 }
 
 .product-card-grid__image {
@@ -78,7 +84,7 @@
   gap: var(--space-4);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-card-grid__content {
     flex-direction: row;
   }
@@ -98,7 +104,7 @@
   margin-bottom: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-card-grid__title {
     font-size: var(--headline-size-h5);
     max-width: 73%;
@@ -110,7 +116,7 @@
 }
 
 .product-card-grid__vendor {
-  color: rgba(var(--color-text), 0.6);
+  color: rgba(var(--color-text-1), 0.6);
   margin-bottom: var(--space-1);
 }
 
@@ -123,7 +129,7 @@
   font-size: var(--text-size-small);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-card-grid__price-wrapper {
     font-size: var(--headline-size-h5);
   }
@@ -150,7 +156,7 @@
   align-items: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-card-grid--sold-out .product-card-grid__sold-out-badge {
     width: 5rem;
     height: 5rem;
@@ -175,7 +181,7 @@
   font-size: var(--text-size-tiny);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .product-card-grid__sold-out-badge__text {
     top: 0.25rem;
     bottom: 0;
@@ -197,7 +203,7 @@
   font-size: 0.6rem;
   max-width: 14rem;
   background-color: rgb(var(--color-base-accent-1));
-  color: rgb(var(--color-text-1));
+  color: rgb(var(--color-text-1-1));
   border: 1px solid rgb(var(--color-button-primary-border));
   border-radius: 100vw;
   text-align: center;
@@ -217,7 +223,7 @@
   display: block;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .klaviyo-bis-trigger-collection {
     font-size: var(--text-size-tiny);
     border: 2px solid rgb(var(--color-button-primary-border));
@@ -231,7 +237,7 @@
 }
 
 .klaviyo-bis-trigger-collection:hover {
-  background-color: rgb(var(--color-text));
-  border-color: rgb(var(--color-text));
+  background-color: rgb(var(--color-text-1));
+  border-color: rgb(var(--color-text-1));
   color: rgb(var(--color-background));
 }

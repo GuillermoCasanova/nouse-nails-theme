@@ -54,7 +54,7 @@
   transition: all 0.2s var(--default-easing);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .header__inner {
     display: flex;
     padding-top: var(--space-2);
@@ -185,7 +185,7 @@
   width: auto;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .header__heading {
     justify-self: start;
   }
@@ -245,7 +245,7 @@
   background: rgb(var(--color-base-background-2));
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   header-drawer {
     display: none;
   }
@@ -267,7 +267,7 @@
   column-gap: var(--space-3);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .header__icons {
     position: relative;
     /* top: var(--space-3);
@@ -303,7 +303,7 @@
   height: 1.5rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .header__icon:hover,
   .header__icon:focus {
     cursor: pointer;
@@ -331,7 +331,7 @@
   display: none;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .header__icon--search {
     display: block;
   }
@@ -341,7 +341,7 @@
     #Header Icons - Cart Toggle
   \*------------------------------------*/
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 940px) {
   .header__icon--cart {
     margin-right: 0;
   }
@@ -452,7 +452,7 @@
   border-radius: calc(var(--border-radius-large) * 1.5);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .menu-open + .header-border-mobile {
     display: none;
   }

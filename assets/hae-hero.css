@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .hero-header__media {
     aspect-ratio: 1/1;
   }
@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .hero-header__layout {
     flex-direction: row;
   }
@@ -92,7 +92,7 @@
   height: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .hero-header__sticker {
     right: var(--space-4);
     top: var(--space-8);

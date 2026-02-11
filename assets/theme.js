@@ -5761,8 +5761,8 @@ window.theme = window.theme || {};
       siteHeader: '.site-header',
     };
     var mediaQueryList = {
-      mobile: window.matchMedia('(max-width: 767px)'),
-      tabletAndUp: window.matchMedia('(min-width: 768px)'),
+      mobile: window.matchMedia('(max-width: 749px)'),
+      tabletAndUp: window.matchMedia('(min-width: 750px)'),
     };
 
     function init() {
@@ -7725,8 +7725,8 @@ theme.Product = (function () {
 
     this.settings = {
       // Breakpoints from src/stylesheets/global/variables.scss.liquid
-      mediaQueryMediumUp: 'screen and (min-width: 768px)',
-      mediaQuerySmall: 'screen and (max-width: 767px)',
+      mediaQueryMediumUp: 'screen and (min-width: 750px)',
+      mediaQuerySmall: 'screen and (max-width: 749px)',
       bpSmall: false,
       enableHistoryState:
         container.getAttribute('data-enable-history-state') || false,
@@ -8870,8 +8870,8 @@ theme.ProductRecommendations = (function () {
 
 theme.Quotes = (function () {
   var config = {
-    mediaQuerySmall: 'screen and (max-width: 767px)',
-    mediaQueryMediumUp: 'screen and (min-width: 768px)',
+    mediaQuerySmall: 'screen and (max-width: 749px)',
+    mediaQueryMediumUp: 'screen and (min-width: 750px)',
     slideCount: 0,
   };
 

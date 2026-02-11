@@ -59,7 +59,7 @@
   font-size: var(--headline-size-h4);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .rich-text__heading {
     font-size: var(--headline-size-h3);
   }
@@ -75,7 +75,7 @@
       #Text
   \*------------------------------------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .rich-text__text {
     font-size: var(--headline-size-h5);
   }
@@ -162,7 +162,7 @@
   table-layout: fixed;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .rte table td {
     padding-left: var(--space-4);
     padding-right: var(--space-4);

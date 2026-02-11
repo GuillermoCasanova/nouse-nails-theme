@@ -9,7 +9,7 @@
 }
 
 .announcement-bar {
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   background-color: rgb(var(--color-background));
   display: block;
   top: 0;
@@ -39,7 +39,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
   padding: var(--space-2);
 }
 

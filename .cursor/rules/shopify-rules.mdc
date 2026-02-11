@@ -163,7 +163,7 @@ backdrop-filter: blur(30px);
 
 .featured-collections__column  {
     background-color: rgb(var(--color-background));
-    color: rgb(var(--color-text));
+    color: rgb(var(--color-text-1));
 }
 
 

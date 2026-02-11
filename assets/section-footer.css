@@ -12,7 +12,7 @@
   position: relative;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer {
     padding: var(--space-10) 0 var(--space-8) 0;
   }
@@ -53,7 +53,7 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__grid .footer__column:last-child {
     justify-content: flex-end;
     flex-direction: column;
@@ -122,12 +122,12 @@
   border: 1px solid var(--color-border);
   border-radius: 50%;
   transition: all 0.3s var(--default-easing);
-  color: rgb(var(--color-text));
+  color: rgb(var(--color-text-1));
 }
 
 .footer__social-link:hover {
   background-color: var(--color-background-2);
-  border-color: rgb(var(--color-text));
+  border-color: rgb(var(--color-text-1));
   transform: translateY(-2px);
 }
 
@@ -149,7 +149,7 @@
     #Quick Links
 \*------------------------------------*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__quick-links-container {
     display: flex;
     flex-direction: row;
@@ -173,7 +173,7 @@
   margin-bottom: var(--space-10);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__links-list {
     margin-bottom: 0;
     gap: var(--space-3);
@@ -185,7 +185,7 @@
 }
 
 .footer__link {
-  color: var(--color-text);
+  color: var(--color-text-1);
   text-decoration: none;
   transition: color 0.3s var(--default-easing);
   font-size: var(--text-size-main);
@@ -209,7 +209,7 @@
   flex-direction: column;
   width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__newsletter {
     margin-top: var(--space-5);
   }
@@ -242,7 +242,7 @@
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__bottom-content {
     flex-direction: row;
     justify-content: space-between;
@@ -269,7 +269,7 @@
   align-items: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__bottom-links {
     flex-direction: row;
     gap: var(--space-8);
@@ -323,7 +323,7 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .footer__bottom-nav-list {
     justify-content: flex-end;
   }
@@ -334,7 +334,7 @@
 }
 
 .footer__bottom-nav-link {
-  color: var(--color-text);
+  color: var(--color-text-1);
   text-decoration: none;
   font-size: var(--text-size-main);
   opacity: 0.8;

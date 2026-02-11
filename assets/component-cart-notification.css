@@ -38,7 +38,7 @@
 }
 
 /* Tablet and desktop styles */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .header-wrapper:not(.header-wrapper--border-bottom)
     + cart-notification
     .cart-notification {

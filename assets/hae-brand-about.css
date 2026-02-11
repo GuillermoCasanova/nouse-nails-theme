@@ -11,7 +11,7 @@
   max-width: 46rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .brand-about__intro__text p:last-child {
     margin-bottom: 0;
   }
@@ -23,7 +23,7 @@
   column-gap: var(--space-3);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .brand-about__intro__ctas {
     text-align: right;
     display: flex;
@@ -38,13 +38,13 @@
   margin-bottom: var(--space-5);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .brand-about__intro__ctas .button {
     margin-bottom: 0;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .brand-about__intro__layout {
     grid-template-columns: 1.5fr 1fr;
   }
@@ -68,7 +68,7 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .brand-about__callout-image-wrapper {
     width: 4rem;
     height: 4rem;

@@ -4,9 +4,10 @@
   - max_height: {Number} Maximum height of the product's image (required)
   - product: {Object} Product Liquid object (required)
   - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+  - show_rating: {Boolean} Show the product rating (optional, default true)
 
   Usage:
-  {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+  {% render 'product-card-grid', product: product, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating %}
 {% endcomment %}
 
 <div class='product-card-grid{% unless product.available %} product-card-grid--sold-out{% endunless %}'>
@@ -44,7 +45,7 @@
           class='product-card-grid__image'
           src='{{ preview_image | img_url: '400x400', crop: 'center' }}'
           srcset='{{ preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ preview_image | img_url: '600x600', crop: 'center' }} 600w'
-          sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+          sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
           alt='{{ preview_image.alt | escape }}'
           width='400'
           height='400'
@@ -55,7 +56,7 @@
             class='product-card-grid__image product-card-grid__image--hover'
             src='{{ product.images[1] | img_url: '400x400', crop: 'center' }}'
             srcset='{{ product.images[1] | img_url: '200x200', crop: 'center' }} 200w, {{ product.images[1] | img_url: '400x400', crop: 'center' }} 400w, {{ product.images[1] | img_url: '600x600', crop: 'center' }} 600w'
-            sizes='(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw'
+            sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
             alt='{{ product.images[1].alt | escape }}'
             width='400'
             height='400'
@@ -88,10 +89,12 @@
             product: product,
             show_vendor: show_vendor
           %}
-          {% render 'product-rating',
-            product: product,
-            class: 'product-card-grid__rating'
-          %}
+          {% if show_rating != false %}
+            {% render 'product-rating',
+              product: product,
+              class: 'product-card-grid__rating'
+            %}
+          {% endif %}
         </div>
       </div>
     </div>

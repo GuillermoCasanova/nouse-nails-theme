@@ -54,13 +54,13 @@
   background-repeat: no-repeat;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .collection-template__hero-image {
     height: 400px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .collection-template__hero-image {
     height: 500px;
   }
@@ -99,7 +99,7 @@
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .collection-template__filters {
     padding: var(--space-8);
   }
@@ -111,7 +111,7 @@
   gap: var(--space-4);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .filters-toolbar {
     flex-direction: row;
     align-items: center;
@@ -125,7 +125,7 @@
   gap: var(--space-4);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .filters-toolbar__item-wrapper {
     flex-direction: row;
     align-items: center;
@@ -138,7 +138,7 @@
   gap: var(--space-2);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .filters-toolbar__item-child {
     flex-direction: row;
     align-items: center;
@@ -269,7 +269,7 @@
   color: inherit;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .list-view-item__link {
     flex-direction: row;
     align-items: center;
@@ -288,7 +288,7 @@
   overflow: hidden;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 750px) {
   .list-view-item__image-wrapper {
     width: 150px;
     height: 150px;
@@ -313,7 +313,7 @@
   color: black;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .list-view-item__title {
     font-size: 24px;
   }
@@ -329,7 +329,7 @@
   color: var(--color-blue);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 940px) {
   .product-price__price {
     font-size: 18px;
   }
@@ -384,7 +384,7 @@
   width: 2.35rem;
   height: 2.35rem;
   margin-bottom: var(--space-3);
-  color: rgb(var(--color-text-1));
+  color: rgb(var(--color-text-1-1));
   animation: collection-spin 2s linear infinite;
   position: absolute;
   top: calc(-1 * var(--space-6));
@@ -459,7 +459,7 @@
     #Responsive Adjustments
 \*------------------------------------*/
 
-@media (max-width: 767px) {
+@media (max-width: 749px) {
   .filters-toolbar__input-wrapper {
     min-width: 100%;
   }

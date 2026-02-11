@@ -183,7 +183,7 @@ quantity-popover volume-pricing li:nth-child(odd) {
 }
 
 /* Media queries */
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 939px) {
   .quantity-popover__info.global-settings-popup {
     left: 0;
   }
@@ -193,7 +193,7 @@ quantity-popover volume-pricing li:nth-child(odd) {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 940px) {
   .quantity-popover-container--hover:hover {
     background-color: rgba(var(--color-foreground), 0.03);
     border-radius: var(--inputs-radius-outset);
@@ -224,6 +224,6 @@ quantity-popover .quantity__rules .divider:nth-child(2)::before {
 }
 
 .quantity-wrapper {
-  border: 1px solid rgb(var(--color-text));
+  border: 1px solid rgb(var(--color-text-1));
   border-radius: var(--border-radius-small);
 }

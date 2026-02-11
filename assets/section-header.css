@@ -11,12 +11,12 @@
   position: relative;
   background-color: var(--color-body);
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header {
     border-bottom: 1px solid var(--color-border);
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header {
     padding: 0 40px;
   }
@@ -40,7 +40,7 @@
   text-align: center;
   margin: 0 auto;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .logo-align--center .site-header__logo {
     text-align: left;
     margin: 15px 0;
@@ -57,7 +57,7 @@
   display: inline-block;
   word-break: break-word;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .logo-align--center .site-header__logo-link {
     margin: 0 auto;
   }
@@ -65,7 +65,7 @@
 .site-header__logo-image {
   display: block;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header__logo-image {
     margin: 0 auto;
   }
@@ -92,7 +92,7 @@
   position: relative;
   white-space: nowrap;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__icons {
     width: auto;
     padding-right: 13px;
@@ -125,7 +125,7 @@
 .site-header__search-toggle {
   display: block;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header__account,
   .site-header__cart {
     padding: 10px 11px;
@@ -184,7 +184,7 @@
   font-size: calc(11em / 16);
   line-height: 1;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__cart-count {
     top: calc(7em / 16);
     right: 0;
@@ -209,7 +209,7 @@
 .site-header__menu {
   display: none;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 749px) {
   .site-header__icon {
     display: inline-block;
     vertical-align: middle;
@@ -217,7 +217,7 @@
     margin: 0;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 750px) {
   .site-header__icon .icon-search {
     margin-right: 3px;
   }
