@@ -63,7 +63,7 @@
         "richtext_content": "<p>✱ Subscribe and save 15% on your order.<br/><br/>✱ To begin, click on any style below. You'll have the option to choose your style before each order is fulfilled.  Don't worry, we'll email you! ☻</p>",
         "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
-        "section_padding_bottom": "section-padding-bottom-large"
+        "section_padding_bottom": "section-padding-bottom-small"
       }
     },
     "hae_marquee_banner_33tJkG": {
@@ -71,7 +71,7 @@
       "name": "News ticker banner",
       "settings": {
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
-        "text": "Hello There!"
+        "text": "15-minutes. Non-toxic. Damage-free."
       }
     },
     "dynamic_collection_grid_VWfNXt": {
