@@ -125,19 +125,20 @@ nous-nails/
 
 ### Development Workflow
 
-1. **Local Development**
+1. **Start local development**
 
    ```bash
-   shopify theme dev
+   shopify theme dev --store=hae-beauty
    ```
 
-2. **Deploy to Development Store**
+2. **Deploy to development store**
 
    ```bash
    shopify theme push --development
    ```
 
-3. **Deploy to Production**
+3. **Deploy to production**
+
    ```bash
    shopify theme push --live
    ```
