@@ -123,6 +123,13 @@ nous-nails/
    npm run format-css-comments
    ```
 
+4. **Critical CSS (local vs pushed branch)**  
+   For local dev you want **uncommented** stylesheet links; the pushed branch should keep **commented** links (critical CSS inlined). After clone or pull, run:
+   ```bash
+   npm run extract-critical-css:restore
+   ```
+   On **commit**, the pre-commit hook runs `extract-critical-css` (comments links and updates the critical snippet) and the post-commit hook runs **restore** so your working copy stays uncommented. On **push**, the pre-push hook ensures the branch has commented links and will prompt you to commit if not.
+
 ### Development Workflow
 
 1. **Start local development**
