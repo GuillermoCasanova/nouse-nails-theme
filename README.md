@@ -128,7 +128,7 @@ nous-nails/
    ```bash
    npm run extract-critical-css:restore
    ```
-   On **commit**, the pre-commit hook runs `extract-critical-css` (comments links and updates the critical snippet) and the post-commit hook runs **restore** so your working copy stays uncommented. On **push**, the pre-push hook ensures the branch has commented links and will prompt you to commit if not.
+   On **commit**, the pre-commit hook runs `extract-critical-css` (comments link tags and generates `snippets/critical-css.liquid`) so the committed/pushed version has inlined critical CSS. Run `npm run extract-critical-css:restore` yourself when you want uncommented links for local dev.
 
 ### Development Workflow
 

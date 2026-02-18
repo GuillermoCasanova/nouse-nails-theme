@@ -186,6 +186,14 @@ function commentOutInlineCSSLinks(liquidContent) {
     // Extract the link tag
     const linkTag = liquidContent.substring(linkStart, linkEnd);
     
+    // Skip if already inside {% comment %}[INLINED]...{% endcomment %} (avoid double-wrap on repeated runs)
+    const before = liquidContent.substring(Math.max(0, linkStart - 200), linkStart);
+    const lastInlined = before.lastIndexOf('[INLINED]');
+    if (lastInlined !== -1 && !before.substring(lastInlined).includes('{% endcomment %}')) {
+      pos = linkEnd;
+      continue;
+    }
+    
     // Check if this link tag has inline-css="true"
     if (/inline-css\s*=\s*["']?true["']?/i.test(linkTag)) {
       // Store the replacement
