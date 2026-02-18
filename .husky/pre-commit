@@ -1,7 +1,11 @@
 #!/bin/sh
-# Run critical CSS extractor before commit (generate + comment for production)
+# Before each commit: generate critical CSS and comment out inline-css link tags.
+# The committed (and pushed) version will have inlined critical CSS and commented <link> tags.
 npm run extract-critical-css || exit 1
 
-# Stage modified files so they're included in the commit
+# Stage all modified files so they are part of this commit
 git add snippets/critical-css.liquid
-git add -u sections/ templates/ snippets/ layout/ 2>/dev/null || true
+git add -u sections/
+git add -u layout/
+git add -u snippets/
+git add -u templates/
