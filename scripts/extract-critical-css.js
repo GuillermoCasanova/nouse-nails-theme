@@ -395,10 +395,24 @@ function runRestore() {
     }
   }
 
+  // Clear critical-css.liquid in dev mode (styles load from link tags)
+  const outputPath = path.join(rootDir, OUTPUT_FILE);
+  const clearedContent = `{% comment %}
+  Critical CSS (development mode - cleared, styles load from link tags)
+  Run: npm run extract-critical-css
+{% endcomment %}
+`;
+  try {
+    fs.writeFileSync(outputPath, clearedContent, 'utf8');
+    console.log(`📝 ${OUTPUT_FILE}: Cleared (development mode)\n`);
+  } catch (error) {
+    console.warn(`⚠️  Warning: Could not clear ${OUTPUT_FILE}: ${error.message}\n`);
+  }
+
   if (totalRestored > 0) {
-    console.log(`\n✅ Restored ${totalRestored} link tag(s). Ready for development.\n`);
+    console.log(`✅ Restored ${totalRestored} link tag(s). Ready for development.\n`);
   } else {
-    console.log('\n✓ No commented link tags found. Files already in development state.\n');
+    console.log('✓ No commented link tags found. Files already in development state.\n');
   }
 }
 
