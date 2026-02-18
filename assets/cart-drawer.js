@@ -10,7 +10,25 @@ class CartDrawer extends HTMLElement {
       'click',
       this.close.bind(this)
     );
+    this.addEventListener('submit', this.handleFormSubmit.bind(this));
     this.setHeaderCartIconAccessibility();
+  }
+
+  handleFormSubmit(evt) {
+    const form = evt.target;
+    const submitter = evt.submitter;
+    if (
+      form?.id !== 'CartDrawer-Form' ||
+      !submitter ||
+      submitter.id !== 'CartDrawer-Checkout' ||
+      submitter.getAttribute('aria-disabled') === 'true'
+    ) {
+      return;
+    }
+    const spinner = submitter.querySelector('.loading__spinner');
+    submitter.setAttribute('aria-disabled', 'true');
+    submitter.classList.add('loading');
+    if (spinner) spinner.classList.remove('hidden');
   }
 
   setHeaderCartIconAccessibility() {

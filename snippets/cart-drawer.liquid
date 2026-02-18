@@ -509,10 +509,13 @@
               disabled
             {% endif %}
           >
-            {{ 'sections.cart.checkout' | t }}
-            <div class="button_icon icon  icon-medium">
-              {% render 'icon-arrow-right' %}
-            </div>
+            <span class="cart__checkout-button-text">
+              {{ 'sections.cart.checkout' | t }}
+              <span class="button_icon icon icon-medium">
+                {% render 'icon-arrow-right' %}
+              </span>
+            </span>
+            {% render 'loading-spinner' %}
           </button>
         </div>
       </div>
