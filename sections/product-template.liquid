@@ -32,6 +32,17 @@
       {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
+    {%- assign has_klaviyo_bis = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'klaviyo_bis' -%}
+        {%- assign has_klaviyo_bis = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_klaviyo_bis -%}
+      {{ 'klaviyo-bis-form.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+
     <!-- Custom JS -->
     <script src='{{ 'product-info.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
@@ -88,6 +99,8 @@
       | where: 'attached_to_variant?', true
       | map: 'src'
     %}
+
+
     <div class='page-width  full-width'>
       <div class='quick-add-hidden'>
         {% render 'breadcrumbs' %}
@@ -709,6 +722,10 @@
       {% endunless %}
     </div>
   </product-info>
+
+  <!-- Klaviyo BIS form CSS -->
+  {{ 'klaviyo-bis-form.css' | asset_url | stylesheet_tag }}
+
 
   {%- comment -%} Sticky Add to Cart Button (Mobile Only) {%- endcomment -%}
   <product-sticky-button data-section='{{ section.id }}'>

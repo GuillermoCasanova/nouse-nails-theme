@@ -1,3 +1,0 @@
-#!/bin/sh
-# Restore link tags after push so local working copy stays in development state (uncommented)
-npm run extract-critical-css:restore

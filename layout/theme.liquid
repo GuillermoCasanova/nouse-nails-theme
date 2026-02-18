@@ -3,7 +3,10 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>
+    <meta
+      name='viewport'
+      content='width=device-width,initial-scale=1,viewport-fit=cover'
+    >
     <meta name='theme-color' content='{{ settings.color_button }}'>
     <link rel='canonical' href='{{ canonical_url }}'>
 
@@ -95,9 +98,11 @@
     {{ 'animate-eyebrow.css' | asset_url | stylesheet_tag }}
 
     <!-- Critical CSS for above-the-fold content -->
-    <style>
-      {% render 'critical-css' %}
-    </style>
+    {% comment %}
+      <style>
+        {% render 'critical-css' %}
+      </style>
+    {% endcomment %}
 
     {% render 'social-meta-tags' %}
 
