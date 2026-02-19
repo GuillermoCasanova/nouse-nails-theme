@@ -271,9 +271,13 @@
 /*------------------------------------*\
     #Cart Item Overrides (drawer-specific)
 \*------------------------------------*/
+.cart-drawer .cart-item {
+  gap: 0;
+}
 
 .cart-drawer .cart-item__details {
   grid-column: 2 / 5;
+  grid-row-start: 1;
   width: auto;
 }
 
