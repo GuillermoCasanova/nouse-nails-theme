@@ -67,7 +67,7 @@
   border-color: rgb(var(--color-brand-1)) !important;
 }
 
-[aria-modal='true'] strong {
+[aria-modal='true'] .klaviyo-form strong {
   font-size: var(--headline-size-h3) !important;
   font-family: var(--primary-font-family) !important;
 }

@@ -690,7 +690,18 @@
 }
 
 .product-offer-container {
-  max-width: 45%;
+  max-width: 50%;
+  margin: auto;
+}
+
+.product-offer-title {
+  display: none;
+  margin-bottom: var(--space-3) !important;
+}
+
+.product-offer-carousel {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .horizontal-stack button {
