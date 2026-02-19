@@ -672,3 +672,58 @@
 #smile-ui-lite-container {
   z-index: 4 !important;
 }
+
+.product-offer-carousel .product-offer-container {
+  padding: 15px 40px;
+  box-shadow: none !important;
+  text-align: center;
+  background-color: transparent !important;
+}
+
+.horizontal-stack {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.product-offer-carousel .horizontal-stack {
+  flex-direction: column !important;
+}
+
+.product-offer-container {
+  max-width: 45%;
+}
+
+.horizontal-stack button {
+  display: none !important;
+}
+
+.product-offer-price-container {
+  text-align: left;
+  color: rgb(var(--color-base-text-1)) !important;
+  font-size: var(--text-size-tiny) !important;
+}
+
+.cart-drawer-offer-product-title {
+  text-align: left;
+}
+
+.product-offer-price {
+  text-align: left;
+}
+
+.product-offer-container {
+  padding: var(--space-4) !important;
+}
+
+.product-offer-container img {
+  border-radius: var(--border-radius-small);
+  overflow: hidden;
+  border-style: none;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+
+.cart-drawer-offer-product-title {
+  margin-bottom: var(--space-2) !important;
+}
