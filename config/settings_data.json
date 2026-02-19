@@ -831,7 +831,7 @@
           "custom-cart-drawer-subtotal-text": "Subtotal",
           "custom-cart-drawer-cart-empty-cart-text": "Cart empty",
           "cart-drawer-items-element-tag": "cart-drawer-items",
-          "cart-drawer-footer-element-tag": ".cart-drawer__footer"
+          "cart-drawer-footer-element-tag": ".cart-drawer-bold-products"
         }
       }
     },
