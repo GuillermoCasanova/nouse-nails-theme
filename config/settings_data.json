@@ -820,7 +820,7 @@
         "type": "shopify://apps/bold-product-upsell/blocks/CartDrawerOffer/0ea05cdc-3862-4d90-9a1b-14eafaef80dd",
         "disabled": false,
         "settings": {
-          "cart-drawer-offer-position": "top",
+          "cart-drawer-offer-position": "middle",
           "cart-drawer-show-bold-quantity-input": false,
           "cart-drawer-custom-cart-drawer": false,
           "cart-drawer-custom-cart-drawer-preview": false,
