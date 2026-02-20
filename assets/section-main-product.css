@@ -650,6 +650,12 @@ shopify-payment-terms {
   min-width: 50vw !important;
 }
 
+@media screen and (min-width: 750px) {
+  .product__media-item-wrapper {
+    min-width: 0;
+  }
+}
+
 /*------------------------------------*\
 #Sold Out Badge
 \*------------------------------------*/
