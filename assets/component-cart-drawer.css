@@ -277,6 +277,12 @@
   grid-template-columns: auto;
 }
 
+@media screen and (min-width: 750px) {
+  .cart-drawer .cart-item {
+    gap: var(--space-5);
+  }
+}
+
 .cart-drawer .cart-item__details {
   grid-column: 2 / 5;
   grid-row-start: 1;
@@ -304,7 +310,7 @@
 
 @media screen and (min-width: 940px) {
   .cart-drawer .cart-item__image {
-    min-width: 9rem;
+    min-width: 6rem;
   }
 }
 
