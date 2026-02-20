@@ -19,7 +19,6 @@
   position: relative;
   display: flex;
   border-radius: var(--inputs-radius);
-  height: 2.5rem;
   gap: var(--space-3);
 }
 
@@ -27,6 +26,7 @@
   border: var(--inputs-border-width) solid rgb(var(--color-base-text-2));
   width: auto;
   display: inline-flex;
+  height: 2.5rem;
 }
 
 .quantity__input {

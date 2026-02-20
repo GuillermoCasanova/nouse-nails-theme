@@ -442,12 +442,18 @@ cart-items:not(.is-empty) .cart__warnings {
 /* Totals adjustments for cart page */
 .cart__footer .totals {
   margin: 0;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .tax-note {
   margin-top: var(--space-2);
   font-size: var(--text-size-small);
   opacity: 0.85;
+  text-align: right;
+  justify-content: flex-end;
+  width: 100%;
+  display: flex;
 }
 
 /* Cart table caption styling */
