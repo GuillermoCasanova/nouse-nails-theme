@@ -302,6 +302,12 @@
   }
 }
 
+@media screen and (min-width: 940px) {
+  .cart-drawer .cart-item__image {
+    min-width: 9rem;
+  }
+}
+
 .cart-drawer .cart-item__name {
   font-size: var(--text-size-main);
   font-family: var(--primary-font-family);
