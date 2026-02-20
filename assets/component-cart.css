@@ -425,6 +425,8 @@ cart-items:not(.is-empty) .cart__warnings {
 
 .cart__checkout-button {
   width: 100%;
+  background-color: rgb(var(--color-base-accent-1));
+  border-color: rgb(var(--color-base-accent-1));
 }
 
 @media screen and (min-width: 750px) {
