@@ -652,7 +652,7 @@ shopify-payment-terms {
 
 @media screen and (min-width: 750px) {
   .product__media-item-wrapper {
-    min-width: 0;
+    min-width: 0 !important;
   }
 }
 
