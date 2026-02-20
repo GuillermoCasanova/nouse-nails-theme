@@ -100,8 +100,8 @@ media-gallery {
   display: none;
   align-items: center;
   justify-content: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   position: absolute;
   right: var(--space-3);
   top: var(--space-3);
@@ -479,7 +479,7 @@ media-gallery {
   pointer-events: none;
 }
 
-@media screen and (min-width: 940px) {
+@media screen and (min-width: 750px) {
   .product-media-gallery__thumbnails {
     min-width: 5.5rem;
     visibility: visible;

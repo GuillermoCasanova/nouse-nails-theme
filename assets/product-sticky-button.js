@@ -14,6 +14,10 @@ class ProductStickyButton extends HTMLElement {
     );
     this.stickyForm = this.querySelector('form');
     this.mainFormElement = this.mainForm?.querySelector('form');
+    this.mainQuantityInput = document.querySelector(
+      `#Quantity-${this.sectionId}`
+    );
+    this.stickyQuantityInput = this.stickyForm?.querySelector('.quantity__input');
 
     if (!this.stickyButton || !this.mainForm) return;
 
@@ -22,12 +26,20 @@ class ProductStickyButton extends HTMLElement {
 
   init() {
     this.syncVariantId();
+    this.syncQuantity();
     this.syncButtonState();
 
     document.addEventListener('variant:change', () => {
       this.syncVariantId();
+      this.syncQuantity();
       this.syncButtonState();
     });
+
+    if (this.mainQuantityInput && this.stickyQuantityInput) {
+      this.mainQuantityInput.addEventListener('change', () => {
+        this.syncQuantity();
+      });
+    }
 
     // Sync variant ID right before form submission to prevent race conditions
     if (this.stickyForm) {
@@ -70,6 +82,32 @@ class ProductStickyButton extends HTMLElement {
       stickyVariantInput.value = mainVariantInput.value;
       stickyVariantInput.disabled = mainVariantInput.disabled;
     }
+  }
+
+  syncQuantity() {
+    if (!this.mainQuantityInput || !this.stickyQuantityInput) return;
+
+    this.stickyQuantityInput.value = this.mainQuantityInput.value;
+    this.stickyQuantityInput.min = this.mainQuantityInput.min;
+    this.stickyQuantityInput.step = this.mainQuantityInput.step;
+    if (this.mainQuantityInput.hasAttribute('max')) {
+      this.stickyQuantityInput.max = this.mainQuantityInput.max;
+      this.stickyQuantityInput.setAttribute(
+        'data-max',
+        this.mainQuantityInput.getAttribute('data-max') || ''
+      );
+    } else {
+      this.stickyQuantityInput.removeAttribute('max');
+      this.stickyQuantityInput.removeAttribute('data-max');
+    }
+    this.stickyQuantityInput.setAttribute(
+      'data-min',
+      this.mainQuantityInput.getAttribute('data-min') || '1'
+    );
+    this.stickyQuantityInput.setAttribute(
+      'data-cart-quantity',
+      this.mainQuantityInput.getAttribute('data-cart-quantity') || '0'
+    );
   }
 
   syncButtonState() {

@@ -751,25 +751,65 @@
               value='{{ product.selected_or_first_available_variant.id }}'
               class='product-variant-id'
             >
-            <button
-              type='submit'
-              name='add'
-              class='product-sticky-button__submit button button--tertiary button--medium'
-              id='ProductSubmitButtonSticky-{{ section.id }}'
-            >
-              <span class='product-form__submit-text'>
-                {%- if product.selected_or_first_available_variant == null -%}
-                  {{ 'products.product.unavailable' | t }}
-                {%- elsif product.selected_or_first_available_variant.available
-                    == false
-                -%}
-                  {{ 'products.product.sold_out' | t }}
-                {%- else -%}
-                  {{ 'products.product.add_to_cart' | t }}
-                {%- endif -%}
-              </span>
-              {%- render 'loading-spinner' -%}
-            </button>
+            <div class='product-sticky-button__row'>
+              <div class='product-sticky-button__quantity'>
+                <quantity-input class='quantity product-form_quantity product-sticky-button__quantity-input' data-section='{{ section.id }}'>
+                  <button class='quantity__button' name='minus' type='button'>
+                    <span class='visually-hidden'>
+                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                    </span>
+                    <span class='svg-wrapper'>
+                      {% render 'icon-minus' %}
+                    </span>
+                  </button>
+                  <input
+                    class='quantity__input'
+                    type='number'
+                    name='quantity'
+                    id='Quantity-sticky-{{ section.id }}'
+                    {% # theme-check-disable %}
+                    data-cart-quantity='{{ cart | item_count_for_variant: product.selected_or_first_available_variant.id }}'
+                    {% # theme-check-enable %}
+                    data-min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                    min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                      data-max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
+                      max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
+                    {% endif %}
+                    step='{{ product.selected_or_first_available_variant.quantity_rule.increment }}'
+                    value='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
+                    aria-label='{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}'
+                  >
+                  <button class='quantity__button' name='plus' type='button'>
+                    <span class='visually-hidden'>
+                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                    </span>
+                    <span class='svg-wrapper'>
+                      {% render 'icon-plus' %}
+                    </span>
+                  </button>
+                </quantity-input>
+              </div>
+              <button
+                type='submit'
+                name='add'
+                class='product-sticky-button__submit button button--tertiary button--medium'
+                id='ProductSubmitButtonSticky-{{ section.id }}'
+              >
+                <span class='product-form__submit-text'>
+                  {%- if product.selected_or_first_available_variant == null -%}
+                    {{ 'products.product.unavailable' | t }}
+                  {%- elsif product.selected_or_first_available_variant.available
+                      == false
+                  -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- else -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- endif -%}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            </div>
           {%- endform -%}
         </product-form>
       </div>

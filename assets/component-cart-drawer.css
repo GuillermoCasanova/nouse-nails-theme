@@ -296,6 +296,12 @@
   border-radius: var(--border-radius-small);
 }
 
+@media screen and (min-width: 750px) {
+  .cart-drawer .cart-item__image {
+    min-width: 15rem;
+  }
+}
+
 .cart-drawer .cart-item__name {
   font-size: var(--text-size-main);
   font-family: var(--primary-font-family);
