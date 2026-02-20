@@ -646,6 +646,10 @@ shopify-payment-terms {
   }
 }
 
+.product__media-item-wrapper {
+  min-width: 30vw;
+}
+
 /*------------------------------------*\
 #Sold Out Badge
 \*------------------------------------*/
