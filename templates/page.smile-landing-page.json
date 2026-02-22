@@ -38,8 +38,8 @@
         "smile_io_smile_landing_page_how_it_works_MTfRU9": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-how-it-works/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333333",
-            "secondary_colour": "#ffffff",
+            "primary_colour": "#6d0506",
+            "secondary_colour": "#f8eee3",
             "title_text": "",
             "step1_heading_text": "",
             "step1_description_text": "Join the Nous Standard and start earning instantly. ✱",
@@ -61,8 +61,8 @@
         "smile_io_smile_landing_page_earning_rule_highlight_aqgDkE": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333333",
-            "secondary_colour": "#ffffff",
+            "primary_colour": "#6d0506",
+            "secondary_colour": "#f8eee3",
             "title_text": "Ways to Earn ✱",
             "description_text": "50 points for writing a product review\n1 point per $1 spent on every order | 50 points when you sign up| 25 points for following us on Instagram | 25 points for following us on TikTok | 100 points on your birthday ☻",
             "button_text": ""
@@ -80,10 +80,10 @@
         "smile_io_smile_landing_page_redeeming_rule_highlight_tXyAkH": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-redeeming-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333333",
-            "secondary_colour": "#ffffff",
-            "title_text": "",
-            "description_text": "",
+            "primary_colour": "#6d0506",
+            "secondary_colour": "#f8eee3",
+            "title_text": "Ways to Redeem ✱",
+            "description_text": "100 points = $5 off (Minimum 200 points to redeem) | Applies to orders over $25 | Exclusive to your account",
             "button_text": ""
           }
         }
