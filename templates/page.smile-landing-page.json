@@ -63,6 +63,7 @@
           "settings": {
             "primary_colour": "#6d0506",
             "secondary_colour": "#f8eee3",
+            "image": "shopify://shop_images/Iced-Out-4.jpg",
             "title_text": "Ways to Earn ✱",
             "description_text": "Earn 50 points for a review, 1 point per $1 spent, 50 points just for signing up, 25 for following us on Instagram, 25 for TikTok, and 100 on your birthday. Because loyalty should feel fun ☻",
             "button_text": ""
@@ -82,8 +83,9 @@
           "settings": {
             "primary_colour": "#6d0506",
             "secondary_colour": "#f8eee3",
+            "image": "shopify://shop_images/OatMilkLatte-2.jpg",
             "title_text": "Ways to Redeem ✱",
-            "description_text": "100 points = $5 off (Minimum 200 points to redeem) | Applies to orders over $25 | Exclusive to your account",
+            "description_text": "Redeem 100 points for $5 off your order. Minimum 200 points required. Applies to orders over $25. Rewards are exclusive to your account.",
             "button_text": ""
           }
         }
