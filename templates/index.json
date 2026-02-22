@@ -439,13 +439,13 @@
         "klaviyo_form_id": "R5kFLb",
         "modal_color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "cta_color": "#efbdfc",
-        "cta_text": "☀ SIGN UP & GET A FREE GEL LAMP ☺",
-        "cta_url": "shopify://products/blue-algae-spf-dew-mist",
+        "cta_text": "☀ SIGN UP & GET 15% OFF FIRST ORDER ☺",
+        "cta_url": "shopify://collections/new-arrivals",
         "position": "right",
         "scroll_threshold": 500,
         "modal_media": "shopify://shop_images/QD-758_Edit.jpg",
         "modal_media_aspect_ratio": "16/9",
-        "modal_heading": "* SIGN UP & GET A FREE GEL LAMP :)",
+        "modal_heading": "☀ SIGN UP & GET 15% OFF FIRST ORDER ☺",
         "modal_heading_size": "headline-style-h4",
         "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"#\">Email Terms</a>.</p>"
       }
