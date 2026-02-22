@@ -19,7 +19,7 @@
             "secondary_colour": "#6d0506",
             "background_image": "shopify://shop_images/QD-758_Edit.jpg",
             "title_text": "The Nous Standard Rewards ✱",
-            "description_text": "Earn points every time you shop, share, and review — then turn them into $$ off your next set. \n\nBecause loyalty should look good on you. ☻",
+            "description_text": "Earn points every time you shop, share, and review — then turn them into $$ off your next set. Because loyalty should look good on you. ☻",
             "join_button_text": "",
             "login_button_text": "",
             "is_previewing_logged_in_state": false,
@@ -42,11 +42,11 @@
             "secondary_colour": "#ffffff",
             "title_text": "",
             "step1_heading_text": "",
-            "step1_description_text": "",
+            "step1_description_text": "Join the Nous Standard and start earning instantly. ✱",
             "step2_heading_text": "",
-            "step2_description_text": "",
+            "step2_description_text": "Earn while you shop, review, and follow. The more you do, the more you save. ☻",
             "step3_heading_text": "",
-            "step3_description_text": ""
+            "step3_description_text": "Turn points into $$ off your next set. Or save them for bigger rewards."
           }
         }
       },
