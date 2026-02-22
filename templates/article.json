@@ -79,15 +79,23 @@
         "faq_block_EinByk": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "Can I use these on extensions?",
+            "answer": "<p>Yes! If you prefer a longer nail look, you can apply Nous nail strips over clear press-ons or extensions just like you would on natural nails. Be sure the base surface is clean and dry before applying.</p>"
+          }
+        },
+        "faq_block_eVrWj9": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How can I make them last longer?",
+            "answer": "<p>A few pro tips:<br/>• Always start with clean, oil-free nails using the provided prep pad.<br/>• Use the wooden stick to roll out air bubbles and seal the edges before curing.<br/>• Avoid oils or soaking your hands for at least one hour after application.<br/>• For extra shine and protection, finish with a clear top coat. With good prep, your Nous nails can handle gym sessions, dish-washing, typing, and all-day life—minus the click-clack.</p>"
           }
         }
       },
       "block_order": [
         "faq_block_dkbknw",
         "faq_block_8F3RJ7",
-        "faq_block_EinByk"
+        "faq_block_EinByk",
+        "faq_block_eVrWj9"
       ],
       "name": "FAQ Section",
       "settings": {
