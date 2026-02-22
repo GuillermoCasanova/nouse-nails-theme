@@ -12,12 +12,14 @@
     "main": {
       "type": "article-template",
       "settings": {
+        "header_color_scheme": "",
         "blog_show_author": false,
         "blog_show_date": false,
         "show_share_buttons": false,
         "media_aspect_ratio": "3/4",
         "body_color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
-        "back_button_text": "BACK TO JOURNAL"
+        "back_button_text": "BACK TO JOURNAL",
+        "body_padding_size": "section-padding-small"
       }
     },
     "hae_testimonials_QUXG6q": {
@@ -56,10 +58,48 @@
         "title": "What Our Customers Say",
         "headline_size": "headline-style-h3"
       }
+    },
+    "hae_faqs_wLLdbF": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_dkbknw": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What if a strip doesn’t fit my nail exactly?",
+            "answer": "<p>If you’re between sizes, opt for the smaller one to avoid overlapping onto the skin or cuticles. Choose a strip that fits slightly inside your nail line and leave a small gap at the cuticle. Never overlap onto the skin or cuticle—adhesive only sticks properly to the nail bed, and overlap can cause early lifting.</p>"
+          }
+        },
+        "faq_block_8F3RJ7": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_EinByk": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_dkbknw",
+        "faq_block_8F3RJ7",
+        "faq_block_EinByk"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Frequently Asked Questions",
+        "page": ""
+      }
     }
   },
   "order": [
     "main",
-    "hae_testimonials_QUXG6q"
+    "hae_testimonials_QUXG6q",
+    "hae_faqs_wLLdbF"
   ]
 }
