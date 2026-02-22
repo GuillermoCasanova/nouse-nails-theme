@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "smile-landing-page": {
-      "type": "smile-landing-page",
-      "settings": {}
-    },
     "1767222322848a8096": {
       "type": "apps",
       "blocks": {
@@ -22,8 +18,8 @@
             "primary_colour": "#f8eee3",
             "secondary_colour": "#6d0506",
             "background_image": "shopify://shop_images/QD-758_Edit.jpg",
-            "title_text": "",
-            "description_text": "",
+            "title_text": "The Nous Standard Rewards ✱",
+            "description_text": "Earn points every time you shop, share, and review — then turn them into $$ off your next set. \n\nBecause loyalty should look good on you. ☻",
             "join_button_text": "",
             "login_button_text": "",
             "is_previewing_logged_in_state": false,
@@ -42,8 +38,8 @@
         "smile_io_smile_landing_page_how_it_works_MTfRU9": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-how-it-works/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333",
-            "secondary_colour": "#fff",
+            "primary_colour": "#333333",
+            "secondary_colour": "#ffffff",
             "title_text": "",
             "step1_heading_text": "",
             "step1_description_text": "",
@@ -65,8 +61,8 @@
         "smile_io_smile_landing_page_earning_rule_highlight_aqgDkE": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333",
-            "secondary_colour": "#fff",
+            "primary_colour": "#333333",
+            "secondary_colour": "#ffffff",
             "title_text": "",
             "description_text": "",
             "button_text": ""
@@ -84,8 +80,8 @@
         "smile_io_smile_landing_page_redeeming_rule_highlight_tXyAkH": {
           "type": "shopify://apps/smile-io/blocks/smile-landing-page-redeeming-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
           "settings": {
-            "primary_colour": "#333",
-            "secondary_colour": "#fff",
+            "primary_colour": "#333333",
+            "secondary_colour": "#ffffff",
             "title_text": "",
             "description_text": "",
             "button_text": ""
@@ -99,7 +95,6 @@
     }
   },
   "order": [
-    "smile-landing-page",
     "1767222322848a8096",
     "1767222291a1fe2a55",
     "17672223302378802f",
