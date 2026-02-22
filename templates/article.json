@@ -94,7 +94,14 @@
           "type": "faq_block",
           "settings": {
             "question": "How do I remove them?",
-            "answer": "<p>Use our <a href=\"https://nousnails.com/products/ctrl-delete-nail-remover-serum\" target=\"_blank\" title=\"Ctrl+Delete Vitamin Serum Remover\"><strong>Ctrl + Delete Vitamin Serum Remover</strong></a>by applying drops between the nail strip and nail bed. Use the wooden stick to gently lift the edges, adding more remover as needed until the strip slides off completely. Once removed, you’ll notice your nails feel healthier—no harsh drilling, no salon damage, just clean removal and care.</p>"
+            "answer": "<p>Use our <a href=\"https://nousnails.com/products/ctrl-delete-nail-remover-serum\" target=\"_blank\" title=\"Ctrl+Delete Vitamin Serum Remover\"><strong>Ctrl + Delete Vitamin Serum Remover</strong></a> by applying drops between the nail strip and nail bed. Use the wooden stick to gently lift the edges, adding more remover as needed until the strip slides off completely. Once removed, you’ll notice your nails feel healthier—no harsh drilling, no salon damage, just clean removal and care.</p>"
+          }
+        },
+        "faq_block_AtADzN": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Is Nous nails non-toxic, vegan, and cruelty-free?",
+            "answer": "<p>Yes ✱ We’re non-toxic and free from the top 10 most questionable ingredients—so you can shine without worry. That means <strong>no formaldehyde, HEMA, DBP, TPHP, or toluene</strong>. No nasties, just nail magic. We’re also <strong>vegan </strong>and <strong>cruelty-free</strong>. ☺︎</p>"
           }
         }
       },
@@ -103,7 +110,8 @@
         "faq_block_8F3RJ7",
         "faq_block_EinByk",
         "faq_block_eVrWj9",
-        "faq_block_RHhHbn"
+        "faq_block_RHhHbn",
+        "faq_block_AtADzN"
       ],
       "name": "FAQ Section",
       "settings": {
