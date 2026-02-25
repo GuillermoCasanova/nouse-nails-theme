@@ -382,13 +382,11 @@ cart-remove-button .icon-remove {
 }
 
 .cart-items-section .cart-item__media {
-  width: 100%;
   max-width: 8rem;
 }
 
 .cart-items-section .cart-item__details {
   width: auto;
-  max-width: 28rem;
 }
 
 @media screen and (min-width: 750px) {
