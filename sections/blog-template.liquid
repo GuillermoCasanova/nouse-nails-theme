@@ -27,46 +27,15 @@
       <div class='main-blog__grid grid grid-3 grid-gap-lg'>
         {%- for article in blog.articles -%}
           <div class='grid__item'>
-            <article
-              class='blog-card'
-              aria-labelledby='ArticleTitle-{{ article.id }}-{{ section.id }}'
-            >
-              <div class='blog-card__content'>
-                {% if section.settings.show_image and article.image %}
-                  <div class='blog-card__image-container'>
-                    {% render 'image-with-aspect-ratio',
-                      image: article.image,
-                      aspect_ratio: section.settings.media_aspect_ratio,
-                      alt: article.title,
-                      widths: '180, 360, 540, 720, 900, 1080, 1296'
-                    %}
-                  </div>
-                {% endif %}
-
-                <h2
-                  class='blog-card__title headline-style-h4'
-                  id='ArticleTitle-{{ article.id }}-{{ section.id }}'
-                >
-                  <a href='{{ article.url }}' class='blog-card__title-link'>
-                    {{ article.title }}
-                  </a>
-                </h2>
-
-                <p class='blog-card__excerpt text-size-regular'>
-                  {% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                    {{ article.content | strip_html | truncate: 150 }}
-                  {% endif %}
-                </p>
-              </div>
-              <a
-                href='{{ article.url }}'
-                class='blog-card__button button button--small button--secondary'
-              >
-                {{ 'blogs.article.read_more' | t }}
-              </a>
-            </article>
+            {%
+              render 'blog-card',
+              article: article,
+              show_image: section.settings.show_image,
+              media_aspect_ratio: section.settings.media_aspect_ratio,
+              title_id: 'ArticleTitle-' | append: article.id | append: '-' | append: section.id,
+              title_as_link: true,
+              button_style: 'primary'
+            %}
           </div>
         {%- endfor -%}
       </div>

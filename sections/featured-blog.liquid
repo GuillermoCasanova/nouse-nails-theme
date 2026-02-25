@@ -46,44 +46,16 @@
                   {{ block.shopify_attributes }}
                   data-swiper-slide
                 >
-                  <article
-                    class='blog-card'
-                    aria-labelledby='BlogTitle-{{ forloop.index0 }}-{{ section.id }}'
-                  >
-                    <div class='blog-card__content'>
-                      {% if article.image %}
-                        <div class='blog-card__image-container'>
-                          {% render 'image-with-aspect-ratio',
-                            image: article.image,
-                            aspect_ratio: section.settings.media_aspect_ratio,
-                            alt: article.title,
-                            widths: '180, 360, 540, 720, 900, 1080, 1296'
-                          %}
-                        </div>
-                      {% endif %}
-
-                      <h3
-                        class='blog-card__title headline-style-h4'
-                        id='BlogTitle-{{ forloop.index0 }}-{{ section.id }}'
-                      >
-                        {{ article.title }}
-                      </h3>
-
-                      <p class='blog-card__excerpt text-size-regular'>
-                        {% if article.excerpt.size > 0 %}
-                          {{ article.excerpt }}
-                        {% else %}
-                          {{ article.content | strip_html | truncate: 150 }}
-                        {% endif %}
-                      </p>
-                    </div>
-                    <a
-                      href='{{ article.url }}'
-                      class='blog-card__button button button--small button--primary'
-                    >
-                      {{ 'blogs.article.read_more' | t }}
-                    </a>
-                  </article>
+                  {%
+                    render 'blog-card',
+                    article: article,
+                    show_image: true,
+                    media_aspect_ratio: section.settings.media_aspect_ratio,
+                    heading_level: 'h3',
+                    title_id: 'BlogTitle-' | append: forloop.index0 | append: '-' | append: section.id,
+                    title_as_link: false,
+                    button_style: 'primary'
+                  %}
                 </div>
               {% endif %}
             {% endfor %}
