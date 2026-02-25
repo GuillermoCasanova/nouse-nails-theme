@@ -27,6 +27,7 @@
   width: auto;
   display: inline-flex;
   height: 2.5rem;
+  border-radius: var(--inputs-radius);
 }
 
 .quantity__input {
@@ -49,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(var(--color-base-text-1));
+  color: rgb(var(--color-text-1));
   padding: 0;
 }
 
@@ -222,9 +223,4 @@ quantity-popover:has(.quantity__input:focus-visible) .quantity-popover__info {
 
 quantity-popover .quantity__rules .divider:nth-child(2)::before {
   content: none;
-}
-
-.quantity-wrapper {
-  border: 1px solid rgb(var(--color-text-1));
-  border-radius: var(--border-radius-small);
 }

@@ -201,8 +201,8 @@
   transition: all 0.2s ease;
 }
 
-.quantity__button .icon {
-  color: rgb(var(--color-foreground));
+.cart-items-section .quantity__button .icon {
+  color: inherit;
 }
 
 /*------------------------------------*\

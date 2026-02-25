@@ -370,7 +370,7 @@
 }
 
 .cart-drawer .quantity__button .icon {
-  color: rgb(var(--color-brand-2));
+  color: rgb(var(--color-base-text-2));
 }
 
 .cart-drawer .discounts__discount {

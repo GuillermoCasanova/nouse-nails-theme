@@ -803,12 +803,12 @@ input:checked + .bsub-widget__plan-header svg {
 
 /* Quantity input – same structure as product page (quantity-popover.css) */
 .product-sticky-button__quantity .quantity {
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-text-2));
   position: relative;
   display: flex;
   border-radius: var(--inputs-radius);
   gap: var(--space-3);
-  border: var(--inputs-border-width) solid rgb(var(--color-base-text-2));
+  border: var(--inputs-border-width) solid rgb(var(--color-text-2));
   width: auto;
   height: 2.5rem;
   align-items: center;
