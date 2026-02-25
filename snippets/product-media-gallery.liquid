@@ -27,6 +27,7 @@
   endif
 
   assign media_width = 0.65
+  assign zoom_behavior = zoom_behavior | default: 'inside'
 -%}
 
 {{ 'component-product-media-gallery.css' | asset_url | stylesheet_tag }}
@@ -41,6 +42,7 @@
   defer
 ></script>
 
+<script src='{{ 'media-gallery.js' | asset_url }}' defer></script>
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
 
 <media-gallery
@@ -49,6 +51,7 @@
   class='product__column-sticky'
   aria-label='{{ 'products.product.media.gallery_viewer' | t }}'
   data-desktop-layout='columns'
+  data-zoom-behavior='{{ zoom_behavior }}'
 >
   <div
     id='GalleryStatus-{{ section.id }}'

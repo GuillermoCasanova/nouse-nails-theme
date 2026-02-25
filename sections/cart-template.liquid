@@ -1,3 +1,30 @@
+{{ 'component-loading-spinner.css' | asset_url | stylesheet_tag }}
+<style>
+  .cart .cart__price-cell {
+    position: relative;
+  }
+  .cart .cart__price-cell .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .cart .cart__price-cell .loading-overlay.hidden {
+    display: none;
+  }
+  .cart .cart__price-cell .loading-overlay:not(.hidden) ~ * {
+    visibility: hidden;
+  }
+  .cart .cart__price-cell .loading-overlay__spinner .spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>
 <div
   data-section-id='{{ section.id }}'
   data-section-type='cart-template'
@@ -148,12 +175,26 @@
                     </div>
                   </div>
                 </td>
-                <td class='cart__price text-right'>
+                <td class='cart__price text-right cart__price-cell'>
                   {%- assign hasDiscount = false -%}
                   {%- if item.original_price != item.final_price -%}
                     {%- assign hasDiscount = true -%}
                   {%- endif -%}
 
+                  <div class='loading-overlay hidden'>
+                    <div class='loading-overlay__spinner'>
+                      <svg
+                        aria-hidden='true'
+                        focusable='false'
+                        role='presentation'
+                        class='spinner'
+                        viewBox='0 0 66 66'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                      </svg>
+                    </div>
+                  </div>
                   <div data-cart-item-price>
                     <dl data-cart-item-price-list>
                       {%- comment -%}
@@ -345,9 +386,23 @@
                   </div>
                 </td>
                 <td
-                  class='cart__final-price text-right small--hide'
+                  class='cart__final-price text-right small--hide cart__price-cell'
                   data-cart-item-line-price
                 >
+                  <div class='loading-overlay hidden'>
+                    <div class='loading-overlay__spinner'>
+                      <svg
+                        aria-hidden='true'
+                        focusable='false'
+                        role='presentation'
+                        class='spinner'
+                        viewBox='0 0 66 66'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                      </svg>
+                    </div>
+                  </div>
                   {%- comment -%}
                     Markup template for discount item
                   {%- endcomment -%}

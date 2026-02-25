@@ -130,7 +130,8 @@
             {% render 'product-media-gallery',
               variant_images: variant_images,
               media_aspect_ratio: section.settings.slideshow_media_aspect_ratio,
-              thumbnail_aspect_ratio: section.settings.thumbnail_media_aspect_ratio
+              thumbnail_aspect_ratio: section.settings.thumbnail_media_aspect_ratio,
+              zoom_behavior: section.settings.image_zoom_behavior
             %}
           </div>
 
@@ -667,8 +668,6 @@
           </div>
         </div>
       </div>
-
-      {% render 'product-media-modal', variant_images: variant_images %}
 
       {% assign popups = section.blocks | where: 'type', 'popup' %}
       {%- for block in popups -%}
@@ -2326,6 +2325,22 @@
       ],
       "default": "contain",
       "label": "t:sections.main-product.settings.media_fit.label"
+    },
+    {
+      "type": "select",
+      "id": "image_zoom_behavior",
+      "options": [
+        {
+          "value": "inside",
+          "label": "Zoom inside image"
+        },
+        {
+          "value": "modal",
+          "label": "Zoom in modal popup"
+        }
+      ],
+      "default": "inside",
+      "label": "Image zoom"
     },
     {
       "type": "select",

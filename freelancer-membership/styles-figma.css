@@ -1,0 +1,351 @@
+/* ============================================
+   CMS Figma Design System
+   External - CyberSecurity Marketing Society
+   Colors, typography, radius from Figma variables
+   ============================================ */
+
+/* Design tokens from Figma (get_variable_defs) */
+.page--cms-figma {
+  --color-bg: #f7f1fc;
+  --color-surface: #ffffff;
+  --color-text: #000000;
+  --color-text-muted: #64748b;
+  --color-accent: #6435e7;
+  --color-accent-hover: #5528c9;
+  --color-accent-soft: #f7f1fc;
+  --color-cta: #ffda03;
+  --color-cta-hover: #e6c402;
+  --color-cta-text: #000000;
+  --color-border: #e2e8f0;
+  --color-success: #059669;
+  --radius: 18px;
+  --radius-lg: 18px;
+  --font-heading: "Poppins", var(--font-sans);
+  --font-body: "Instrument Sans", var(--font-sans);
+  --shadow: 0 2px 8px rgba(100, 53, 231, 0.08);
+  --shadow-lg: 0 4px 24px rgba(100, 53, 231, 0.12);
+}
+
+.page--cms-figma body,
+.page--cms-figma {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.page--cms-figma h1,
+.page--cms-figma h2,
+.page--cms-figma h3,
+.page--cms-figma h4 {
+  font-family: var(--font-heading);
+}
+
+.page--cms-figma h1 {
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.24;
+  font-weight: 400;
+}
+
+.page--cms-figma h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.22;
+  font-weight: 400;
+}
+
+.page--cms-figma h3 {
+  font-size: 26px;
+  line-height: 1.31;
+  font-weight: 400;
+}
+
+.page--cms-figma h4 {
+  font-size: 22px;
+  line-height: 1.27;
+  font-weight: 500;
+}
+
+.page--cms-figma p,
+.page--cms-figma li {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.page--cms-figma p.lead {
+  font-size: 18px;
+  line-height: 1.47;
+}
+
+.page--cms-figma a {
+  color: var(--color-accent);
+}
+
+.page--cms-figma a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* Header - white bar */
+.page--cms-figma .site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page--cms-figma .site-logo a:hover {
+  color: var(--color-accent);
+}
+
+/* Primary CTA - yellow button (Figma CMS Yellow) */
+.page--cms-figma .cta-primary {
+  background: var(--color-cta);
+  color: var(--color-cta-text) !important;
+  font-weight: 600;
+  border: none;
+}
+
+.page--cms-figma .cta-primary:hover {
+  background: var(--color-cta-hover);
+  color: var(--color-cta-text) !important;
+}
+
+.page--cms-figma .cta-secondary {
+  color: var(--color-accent);
+}
+
+/* Hero - purple full-bleed with grid pattern */
+.page--cms-figma .hero-cms {
+  background: var(--color-accent);
+  color: #fff;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 3rem 1.5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.page--cms-figma .hero-cms::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.page--cms-figma .hero-cms .hero-cms__inner {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page--cms-figma .hero-cms h1 {
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.page--cms-figma .hero-cms .hero-cms__graphic {
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.25rem;
+}
+
+.page--cms-figma .hero-cms .cta-primary {
+  margin-top: 0.5rem;
+}
+
+/* Intro block below hero - white (lives inside .main) */
+.page--cms-figma .intro-block {
+  padding: 0 0 1rem;
+}
+
+/* Section tint - light purple (Light Pink) */
+.page--cms-figma .section-tint {
+  background: var(--color-accent-soft);
+}
+
+/* Cards - 18px radius, subtle shadow */
+.page--cms-figma .card,
+.page--cms-figma .benefit-card,
+.page--cms-figma .rule-block {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.page--cms-figma .benefit-card {
+  border: 1px solid rgba(100, 53, 231, 0.12);
+}
+
+.page--cms-figma .benefit-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* CTA card - purple header strip (Figma style) */
+.page--cms-figma .cta-card-visual {
+  background: var(--color-surface);
+  border: 1px solid rgba(100, 53, 231, 0.2);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.page--cms-figma .cta-card-visual__icon {
+  color: var(--color-accent);
+}
+
+/* Two-column feature boxes (Why attend style) */
+.page--cms-figma .feature-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.page--cms-figma .feature-box {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.page--cms-figma .feature-box__header {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.875rem 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.page--cms-figma .feature-box__body {
+  padding: 1.25rem;
+}
+
+.page--cms-figma .feature-box__body .eligibility-visual {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page--cms-figma .feature-box--alt .feature-box__header {
+  background: var(--color-cta);
+  color: var(--color-cta-text);
+}
+
+/* Section icons - white on purple when in purple section */
+.page--cms-figma .section-icon__icon {
+  color: var(--color-accent);
+}
+
+.page--cms-figma .section-tint .section-icon__icon {
+  color: var(--color-accent);
+}
+
+/* Process timeline - yellow dots (Figma How it works) */
+.page--cms-figma .process-timeline__num {
+  background: var(--color-cta);
+  color: var(--color-cta-text);
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+.page--cms-figma .process-timeline li {
+  position: relative;
+}
+
+.page--cms-figma .process-timeline li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  width: 2px;
+  height: calc(100% + 0.5rem);
+  background: var(--color-cta);
+  opacity: 0.5;
+}
+
+/* Price callout - yellow accent */
+.page--cms-figma .price-callout {
+  background: linear-gradient(135deg, #f7f1fc 0%, rgba(255, 218, 3, 0.12) 100%);
+  border: 2px solid var(--color-cta);
+}
+
+.page--cms-figma .price-callout__amount {
+  color: var(--color-accent);
+}
+
+/* Ideal pills - purple tint */
+.page--cms-figma .ideal-pill {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+/* Rule block - purple left border */
+.page--cms-figma .rule-block {
+  border-left-color: var(--color-accent);
+}
+
+.page--cms-figma .rule-block__icon {
+  color: var(--color-accent);
+}
+
+/* Divider - purple to yellow */
+.page--cms-figma .divider {
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-cta) 100%);
+  max-width: 100px;
+}
+
+/* Purple section (full-bleed for "How it Works" style) */
+.page--cms-figma .section-purple {
+  background: var(--color-accent);
+  color: #fff;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 2.5rem 1.5rem;
+  position: relative;
+}
+
+.page--cms-figma .section-purple::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.page--cms-figma .section-purple .section-purple__inner {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.page--cms-figma .section-purple h2 {
+  color: #fff;
+  border: none;
+}
+
+.page--cms-figma .section-purple p,
+.page--cms-figma .section-purple li {
+  color: rgba(255,255,255,0.95);
+}
+
+.page--cms-figma .section-purple .process-timeline__num {
+  background: var(--color-cta);
+  color: var(--color-cta-text);
+}
+
+.page--cms-figma .section-purple .process-timeline li::after {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Footer */
+.page--cms-figma .site-footer {
+  background: var(--color-accent);
+  color: rgba(255,255,255,0.9);
+  border-top: none;
+}
+
+.page--cms-figma .site-footer a {
+  color: #fff;
+}

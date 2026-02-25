@@ -216,6 +216,19 @@
   width: 100%;
 }
 
+.header__logo svg path:last-of-type {
+  transform-origin: center;
+  transition:
+    transform 3s var(--default-easing),
+    opacity 3s var(--default-easing);
+  transform-origin: 92%;
+}
+
+.header__heading-link:hover .header__logo svg path:last-of-type,
+.header__logo:hover svg path:last-of-type {
+  transform: rotate(180deg);
+}
+
 .menu-open .header__logo {
   fill: rgb(var(--color-base-text-2));
 }

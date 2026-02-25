@@ -10,6 +10,9 @@ if (!customElements.get('media-gallery')) {
           thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
         };
         this.mql = window.matchMedia('(min-width: 750px)');
+        this.zoomBehavior = this.dataset.zoomBehavior || 'inside';
+
+        this._initImageZoom();
         if (!this.elements.thumbnails) return;
 
         this.elements.viewer.addEventListener(
@@ -151,6 +154,113 @@ if (!customElements.get('media-gallery')) {
         this.elements.viewer.sliderItems.forEach(slide =>
           slide.setAttribute('role', 'presentation')
         );
+      }
+
+      _initImageZoom() {
+        this.addEventListener('click', (e) => {
+          const wrapper = e.target.closest('[data-image-zoom-wrapper]');
+          if (!wrapper) return;
+          const zoomUrl = wrapper.getAttribute('data-zoom');
+          if (!zoomUrl) return;
+          e.preventDefault();
+          e.stopPropagation();
+          if (this.zoomBehavior === 'modal') {
+            this._openZoomOverlay(zoomUrl);
+          } else {
+            this._toggleZoomInside(wrapper, zoomUrl);
+          }
+        });
+      }
+
+      _toggleZoomInside(wrapper, zoomUrl) {
+        if (wrapper.classList.contains('product-media-gallery__zoom-inside--active')) {
+          this._closeZoomInside(wrapper);
+          return;
+        }
+        this._closeAnyZoomInside();
+        wrapper.classList.add('product-media-gallery__zoom-inside--active');
+        const img = wrapper.querySelector('[data-image-zoom]');
+        if (img && zoomUrl && img.src !== zoomUrl) {
+          wrapper.setAttribute('data-zoom-original-src', img.src || '');
+          img.src = zoomUrl;
+        }
+        this._zoomInsideWrapper = wrapper;
+        this._zoomInsideClickOutside = (e) => {
+          if (wrapper.contains(e.target)) return;
+          this._closeZoomInside(wrapper);
+          document.removeEventListener('click', this._zoomInsideClickOutside);
+          document.removeEventListener('keydown', this._zoomInsideKeydown);
+        };
+        this._zoomInsideKeydown = (e) => {
+          if (e.code === 'Escape') {
+            this._closeZoomInside(wrapper);
+            document.removeEventListener('click', this._zoomInsideClickOutside);
+            document.removeEventListener('keydown', this._zoomInsideKeydown);
+          }
+        };
+        document.addEventListener('click', this._zoomInsideClickOutside);
+        document.addEventListener('keydown', this._zoomInsideKeydown);
+      }
+
+      _closeZoomInside(wrapper) {
+        if (!wrapper) return;
+        wrapper.classList.remove('product-media-gallery__zoom-inside--active');
+        const img = wrapper.querySelector('[data-image-zoom]');
+        const originalSrc = wrapper.getAttribute('data-zoom-original-src');
+        if (img && originalSrc) {
+          img.src = originalSrc;
+          wrapper.removeAttribute('data-zoom-original-src');
+        }
+        if (this._zoomInsideClickOutside) {
+          document.removeEventListener('click', this._zoomInsideClickOutside);
+          this._zoomInsideClickOutside = null;
+        }
+        if (this._zoomInsideKeydown) {
+          document.removeEventListener('keydown', this._zoomInsideKeydown);
+          this._zoomInsideKeydown = null;
+        }
+        if (this._zoomInsideWrapper === wrapper) this._zoomInsideWrapper = null;
+      }
+
+      _closeAnyZoomInside() {
+        const active = this.querySelector('.product-media-gallery__zoom-inside--active');
+        if (active) this._closeZoomInside(active);
+      }
+
+      _openZoomOverlay(zoomUrl) {
+        if (this._zoomOverlay) return;
+        const overlay = document.createElement('div');
+        overlay.className = 'product-media-gallery__zoom-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        overlay.innerHTML = `
+          <button type="button" class="product-media-gallery__zoom-close" aria-label="Close zoom"></button>
+          <div class="product-media-gallery__zoom-backdrop"></div>
+          <img class="product-media-gallery__zoom-image" src="${zoomUrl}" alt="" loading="eager">
+        `;
+        const close = () => this._closeZoomOverlay();
+        overlay.querySelector('.product-media-gallery__zoom-close').addEventListener('click', close);
+        overlay.querySelector('.product-media-gallery__zoom-backdrop').addEventListener('click', close);
+        const onKeydown = (e) => {
+          if (e.code === 'Escape') {
+            close();
+            document.removeEventListener('keydown', onKeydown);
+          }
+        };
+        document.addEventListener('keydown', onKeydown);
+        this._zoomKeydown = onKeydown;
+        this._zoomOverlay = overlay;
+        this.appendChild(overlay);
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+      }
+
+      _closeZoomOverlay() {
+        if (!this._zoomOverlay) return;
+        if (this._zoomKeydown) document.removeEventListener('keydown', this._zoomKeydown);
+        this._zoomOverlay.classList.remove('is-open');
+        const overlay = this._zoomOverlay;
+        this._zoomOverlay = null;
+        this._zoomKeydown = null;
+        overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
       }
     }
   );

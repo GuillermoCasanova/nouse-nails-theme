@@ -268,11 +268,6 @@
   .medium-hide {
     display: block !important;
   }
-
-  .cart-items .medium-hide {
-    display: table-cell !important;
-  }
-
   .large-up-hide {
     display: none !important;
   }
