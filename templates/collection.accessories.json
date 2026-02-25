@@ -12,16 +12,16 @@
     "main": {
       "type": "dynamic-collection-grid",
       "blocks": {
-        "product_yqFHWf": {
-          "type": "product",
-          "settings": {
-            "product": "ctrl-delete-nail-remover-serum"
-          }
-        },
         "product_A7FPiw": {
           "type": "product",
           "settings": {
             "product": "led-gel-lamp"
+          }
+        },
+        "product_yqFHWf": {
+          "type": "product",
+          "settings": {
+            "product": "ctrl-delete-nail-remover-serum"
           }
         },
         "image_8JytjG": {
@@ -49,8 +49,8 @@
         }
       },
       "block_order": [
-        "product_yqFHWf",
         "product_A7FPiw",
+        "product_yqFHWf",
         "image_8JytjG",
         "product_YQz4fN",
         "video_embed_U8B6zN"
@@ -58,6 +58,7 @@
       "settings": {
         "title": "The Nous Standard",
         "hide_title": false,
+        "richtext_content": "",
         "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
