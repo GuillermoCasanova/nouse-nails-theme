@@ -329,7 +329,6 @@
 .cart-drawer .product-option {
   color: rgb(var(--color-base-text-2));
   font-size: var(--text-size-small);
-  margin-bottom: var(--space-2);
 }
 
 .cart-drawer .product-option dd {
