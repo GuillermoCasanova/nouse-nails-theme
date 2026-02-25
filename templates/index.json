@@ -401,19 +401,19 @@
         "article_RQpGmT": {
           "type": "article",
           "settings": {
-            "article": "news/how-to-apply-semi-cured-gel-nail-strips"
+            "article": "nous-blog/how-to-apply-semi-cured-gel-nail-strips"
           }
         },
         "article_g33qnH": {
           "type": "article",
           "settings": {
-            "article": "news/what-are-semi-cured-gel-nail-strips"
+            "article": "nous-blog/what-are-semi-cured-gel-nail-strips"
           }
         },
         "article_eJh9RM": {
           "type": "article",
           "settings": {
-            "article": "news/semi-cured-gel-nails-vs-press-on-nails-what-s-the-difference"
+            "article": "nous-blog/semi-cured-gel-nails-vs-press-on-nails-what-s-the-difference"
           }
         }
       },
@@ -428,7 +428,7 @@
         "title": "Tips & Tricks",
         "media_aspect_ratio": "3/4",
         "show_view_all": true,
-        "view_all_url": "shopify://blogs/news"
+        "view_all_url": "shopify://blogs/nous-blog"
       }
     },
     "floating_cta_z4EYG4": {
