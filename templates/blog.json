@@ -11,7 +11,16 @@
   "sections": {
     "main": {
       "type": "blog-template",
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "header_image": "shopify://shop_images/footer-bg.jpg",
+        "header_image_aspect_ratio": "21/9",
+        "heading_size": "headline-style-h2",
+        "padding_size": "section-padding-small",
+        "articles_per_page": 9,
+        "show_image": true,
+        "media_aspect_ratio": "3/4"
+      }
     }
   },
   "order": [
