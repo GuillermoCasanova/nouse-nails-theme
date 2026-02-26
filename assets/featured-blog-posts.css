@@ -99,3 +99,7 @@
   position: relative;
   transition-property: transform;
 }
+
+.featured-blog-posts__view-all {
+  text-align: center;
+}

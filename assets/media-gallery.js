@@ -40,6 +40,22 @@ if (!customElements.get('media-gallery')) {
           this.removeListSemantic();
       }
 
+      disconnectedCallback() {
+        if (this._zoomTapCloseBound) {
+          document.removeEventListener(
+            'pointerdown',
+            this._zoomTapCloseBound,
+            true
+          );
+          document.removeEventListener(
+            'pointerup',
+            this._zoomTapCloseBound,
+            true
+          );
+        }
+        this._closeAnyZoomInside();
+      }
+
       onSlideChanged(event) {
         const thumbnail = this.elements.thumbnails.querySelector(
           `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
@@ -157,13 +173,14 @@ if (!customElements.get('media-gallery')) {
       }
 
       _initImageZoom() {
-        this.addEventListener('click', (e) => {
+        this.addEventListener('click', e => {
           const wrapper = e.target.closest('[data-image-zoom-wrapper]');
           if (!wrapper) return;
           const zoomUrl = wrapper.getAttribute('data-zoom');
           if (!zoomUrl) return;
           e.preventDefault();
           e.stopPropagation();
+
           if (this.zoomBehavior === 'modal') {
             this._openZoomOverlay(zoomUrl);
           } else {
@@ -178,17 +195,26 @@ if (!customElements.get('media-gallery')) {
         if (!mainGallery) return null;
         const activeSlide = mainGallery.querySelector('.swiper-slide-active');
         if (!activeSlide) return null;
-        const activeWrapper = activeSlide.querySelector('[data-image-zoom-wrapper]');
-        if (!activeWrapper || activeWrapper.getAttribute('data-zoom') !== zoomUrl) return null;
+        const activeWrapper = activeSlide.querySelector(
+          '[data-image-zoom-wrapper]'
+        );
+        if (
+          !activeWrapper ||
+          activeWrapper.getAttribute('data-zoom') !== zoomUrl
+        )
+          return null;
         return activeWrapper;
       }
 
       _toggleZoomInside(wrapper, zoomUrl) {
-        if (wrapper.classList.contains('product-media-gallery__zoom-inside--active')) {
+        if (
+          wrapper.classList.contains(
+            'product-media-gallery__zoom-inside--active'
+          )
+        ) {
           this._closeZoomInside(wrapper);
           return;
         }
-        this._closeAnyZoomInside();
         wrapper.classList.add('product-media-gallery__zoom-inside--active');
         const img = wrapper.querySelector('[data-image-zoom]');
         if (img && zoomUrl && img.src !== zoomUrl) {
@@ -201,15 +227,18 @@ if (!customElements.get('media-gallery')) {
           try {
             this._zoomInsidePanzoom = Panzoom(img, {
               startScale: 2,
-              maxScale: 5,
+              maxScale: 2,
               minScale: 1,
               cursor: 'move',
+              contain: 'outside',
             });
-            this._zoomInsideWheel = (e) => {
+            this._zoomInsideWheel = e => {
               e.preventDefault();
               this._zoomInsidePanzoom.zoomWithWheel(e);
             };
-            wrapper.addEventListener('wheel', this._zoomInsideWheel, { passive: false });
+            wrapper.addEventListener('wheel', this._zoomInsideWheel, {
+              passive: false,
+            });
             panzoomApplied = true;
           } catch (err) {
             this._zoomInsidePanzoom = null;
@@ -219,13 +248,13 @@ if (!customElements.get('media-gallery')) {
           img.style.transform = 'scale(2)';
           img.style.transformOrigin = 'center center';
         }
-        this._zoomInsideClickOutside = (e) => {
+        this._zoomInsideClickOutside = e => {
           if (wrapper.contains(e.target)) return;
           this._closeZoomInside(wrapper);
           document.removeEventListener('click', this._zoomInsideClickOutside);
           document.removeEventListener('keydown', this._zoomInsideKeydown);
         };
-        this._zoomInsideKeydown = (e) => {
+        this._zoomInsideKeydown = e => {
           if (e.code === 'Escape') {
             this._closeZoomInside(wrapper);
             document.removeEventListener('click', this._zoomInsideClickOutside);
@@ -238,23 +267,34 @@ if (!customElements.get('media-gallery')) {
 
       _closeZoomInside(wrapper) {
         if (!wrapper) return;
+
         const img = wrapper.querySelector('[data-image-zoom]');
+
+        // 1. Teardown Panzoom and clear any transform so the image returns to original size/position
         if (this._zoomInsidePanzoom) {
-          if (this._zoomInsideWheel) wrapper.removeEventListener('wheel', this._zoomInsideWheel);
-          this._zoomInsidePanzoom.destroy();
+          if (this._zoomInsideWheel) {
+            wrapper.removeEventListener('wheel', this._zoomInsideWheel);
+            this._zoomInsideWheel = null;
+          }
           this._zoomInsidePanzoom.resetStyle();
+          this._zoomInsidePanzoom.destroy();
           this._zoomInsidePanzoom = null;
-          this._zoomInsideWheel = null;
-        } else if (img) {
+        }
+        if (img) {
           img.style.transform = '';
           img.style.transformOrigin = '';
+          img.style.cursor = '';
         }
+
+        // 2. Restore original image src and remove zoom state
         wrapper.classList.remove('product-media-gallery__zoom-inside--active');
         const originalSrc = wrapper.getAttribute('data-zoom-original-src');
-        if (img && originalSrc) {
+        if (originalSrc) {
           img.src = originalSrc;
           wrapper.removeAttribute('data-zoom-original-src');
         }
+
+        // 3. Remove document-level listeners
         if (this._zoomInsideClickOutside) {
           document.removeEventListener('click', this._zoomInsideClickOutside);
           this._zoomInsideClickOutside = null;
@@ -267,7 +307,9 @@ if (!customElements.get('media-gallery')) {
       }
 
       _closeAnyZoomInside() {
-        const active = this.querySelector('.product-media-gallery__zoom-inside--active');
+        const active = this.querySelector(
+          '.product-media-gallery__zoom-inside--active'
+        );
         if (active) this._closeZoomInside(active);
       }
 
@@ -284,8 +326,12 @@ if (!customElements.get('media-gallery')) {
           </div>
         `;
         const close = () => this._closeZoomOverlay();
-        overlay.querySelector('.product-media-gallery__zoom-close').addEventListener('click', close);
-        overlay.querySelector('.product-media-gallery__zoom-backdrop').addEventListener('click', close);
+        overlay
+          .querySelector('.product-media-gallery__zoom-close')
+          .addEventListener('click', close);
+        overlay
+          .querySelector('.product-media-gallery__zoom-backdrop')
+          .addEventListener('click', close);
         const resetZoomIfClick = () => {
           const pz = this._zoomOverlayPanzoom;
           if (!pz) return;
@@ -307,7 +353,7 @@ if (!customElements.get('media-gallery')) {
             pz.zoom(1, { animate: true });
           }
         };
-        const onKeydown = (e) => {
+        const onKeydown = e => {
           if (e.code === 'Escape') {
             close();
             document.removeEventListener('keydown', onKeydown);
@@ -319,29 +365,37 @@ if (!customElements.get('media-gallery')) {
         this.appendChild(overlay);
         requestAnimationFrame(() => {
           overlay.classList.add('is-open');
-          const wrap = overlay.querySelector('.product-media-gallery__zoom-image-wrap');
-          const img = overlay.querySelector('.product-media-gallery__zoom-image');
+          const wrap = overlay.querySelector(
+            '.product-media-gallery__zoom-image-wrap'
+          );
+          const img = overlay.querySelector(
+            '.product-media-gallery__zoom-image'
+          );
           if (typeof Panzoom !== 'undefined' && wrap && img) {
             this._zoomOverlayPanzoom = Panzoom(img, {
               startScale: 1,
               maxScale: 5,
               minScale: 0.5,
-              contain: 'inside',
+              contain: 'outside',
               cursor: 'move',
             });
-            wrap.addEventListener('wheel', (e) => {
-              e.preventDefault();
-              this._zoomOverlayPanzoom.zoomWithWheel(e);
-            }, { passive: false });
+            wrap.addEventListener(
+              'wheel',
+              e => {
+                e.preventDefault();
+                this._zoomOverlayPanzoom.zoomWithWheel(e);
+              },
+              { passive: false }
+            );
 
             // If the user clicks the zoomed image again, reset the zoom/pan.
             // Guard against drag gestures so panning doesn't immediately reset on mouseup.
             let pointerDown = null;
-            const onPointerDown = (e) => {
+            const onPointerDown = e => {
               if (e.button !== 0) return;
               pointerDown = { x: e.clientX, y: e.clientY };
             };
-            const onClick = (e) => {
+            const onClick = e => {
               if (!pointerDown) return resetZoomIfClick();
               const dx = Math.abs(e.clientX - pointerDown.x);
               const dy = Math.abs(e.clientY - pointerDown.y);
@@ -358,9 +412,11 @@ if (!customElements.get('media-gallery')) {
 
       _closeZoomOverlay() {
         if (!this._zoomOverlay) return;
-        if (this._zoomKeydown) document.removeEventListener('keydown', this._zoomKeydown);
+        if (this._zoomKeydown)
+          document.removeEventListener('keydown', this._zoomKeydown);
         if (this._zoomOverlayResetHandlers) {
-          const { wrap, onPointerDown, onClick } = this._zoomOverlayResetHandlers;
+          const { wrap, onPointerDown, onClick } =
+            this._zoomOverlayResetHandlers;
           wrap?.removeEventListener?.('pointerdown', onPointerDown);
           wrap?.removeEventListener?.('click', onClick);
           this._zoomOverlayResetHandlers = null;
@@ -374,7 +430,9 @@ if (!customElements.get('media-gallery')) {
         const overlay = this._zoomOverlay;
         this._zoomOverlay = null;
         this._zoomKeydown = null;
-        overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+        overlay.addEventListener('transitionend', () => overlay.remove(), {
+          once: true,
+        });
       }
     }
   );

@@ -106,7 +106,8 @@ media-gallery {
 }
 
 /* Zoom inside image container (Panzoom controls transform when script loaded) */
-.product__media-item-wrapper [data-image-zoom-wrapper].product-media-gallery__zoom-inside--active {
+.product__media-item-wrapper
+  [data-image-zoom-wrapper].product-media-gallery__zoom-inside--active {
   position: relative;
   overflow: hidden;
   cursor: move;
@@ -114,7 +115,8 @@ media-gallery {
   min-height: 12rem;
 }
 
-[data-image-zoom-wrapper].product-media-gallery__zoom-inside--active [data-image-zoom] {
+[data-image-zoom-wrapper].product-media-gallery__zoom-inside--active
+  [data-image-zoom] {
   transform-origin: center center;
   display: block;
 }
@@ -182,21 +184,21 @@ media-gallery {
     #Media Icons
 \*------------------------------------*/
 
-.product__media-icon .icon {
-  width: 1.2rem;
-  height: 1.4rem;
+.product__media-icon svg {
+  width: 80%;
+  height: 80%;
 }
 
 .product__media-icon,
 .thumbnail__badge {
   background-color: rgb(var(--color-background));
-  border-radius: 50%;
+  border-radius: var(--border-radius-small);
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   color: rgb(var(--color-foreground));
   align-items: center;
   justify-content: center;
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
   position: absolute;
   right: var(--space-3);
   top: var(--space-3);
@@ -205,6 +207,9 @@ media-gallery {
   transition:
     color var(--duration-short) ease,
     opacity var(--duration-short) ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product__media-video .product__media-icon {
@@ -698,7 +703,7 @@ media-gallery {
 
 .product__media-icon--hover:hover,
 .product__media-icon--hover:focus {
-  transform: scale(1.05);
+  transform: scale(0.95);
   cursor: zoom-in;
 }
 
@@ -1102,10 +1107,11 @@ media-gallery {
   display: block;
 }
 
-@media screen and (min-width: 940px) {
+@media screen and (min-width: 750px) {
   .product-media-gallery__main {
     margin-right: 0;
     border-radius: var(--border-radius-large);
+    margin-right: 0;
   }
 }
 
@@ -1193,4 +1199,15 @@ media-gallery .swiper-pagination-bullet.swiper-pagination-bullet-active {
     width: 100%;
     height: 100%;
   }
+}
+
+.product-media-gallery__main .swiper-slide.swiper-slide-active {
+  z-index: 1;
+}
+
+.product-media-gallery__main .swiper-slide:not(.swiper-slide-active),
+.product-media-gallery__main
+  .swiper-slide:not(.swiper-slide-active)
+  .product__media {
+  pointer-events: none !important;
 }

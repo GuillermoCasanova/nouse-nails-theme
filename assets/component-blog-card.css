@@ -22,7 +22,6 @@
 }
 
 .blog-card__excerpt {
-  margin-bottom: var(--space-3);
   flex-grow: 1;
 }
 
