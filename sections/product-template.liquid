@@ -100,7 +100,6 @@
       | map: 'src'
     %}
 
-
     <div class='page-width  full-width'>
       <div class='quick-add-hidden'>
         {% render 'breadcrumbs' %}
@@ -725,7 +724,6 @@
   <!-- Klaviyo BIS form CSS -->
   {{ 'klaviyo-bis-form.css' | asset_url | stylesheet_tag }}
 
-
   {%- comment -%} Sticky Add to Cart Button (Mobile Only) {%- endcomment -%}
   <product-sticky-button data-section='{{ section.id }}'>
     <div class='product-sticky-button' data-sticky-button>
@@ -752,10 +750,17 @@
             >
             <div class='product-sticky-button__row'>
               <div class='product-sticky-button__quantity'>
-                <quantity-input class='quantity product-form_quantity product-sticky-button__quantity-input' data-section='{{ section.id }}'>
+                <quantity-input
+                  class='quantity product-form_quantity product-sticky-button__quantity-input'
+                  data-section='{{ section.id }}'
+                >
                   <button class='quantity__button' name='minus' type='button'>
                     <span class='visually-hidden'>
-                      {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                      {{-
+                        'products.product.quantity.decrease'
+                        | t: product: product.title
+                        | escape
+                      -}}
                     </span>
                     <span class='svg-wrapper'>
                       {% render 'icon-minus' %}
@@ -771,7 +776,9 @@
                     {% # theme-check-enable %}
                     data-min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
                     min='{{ product.selected_or_first_available_variant.quantity_rule.min }}'
-                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                    {% if product.selected_or_first_available_variant.quantity_rule.max
+                        != null
+                    %}
                       data-max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
                       max='{{ product.selected_or_first_available_variant.quantity_rule.max }}'
                     {% endif %}
@@ -781,7 +788,11 @@
                   >
                   <button class='quantity__button' name='plus' type='button'>
                     <span class='visually-hidden'>
-                      {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      {{-
+                        'products.product.quantity.increase'
+                        | t: product: product.title
+                        | escape
+                      -}}
                     </span>
                     <span class='svg-wrapper'>
                       {% render 'icon-plus' %}

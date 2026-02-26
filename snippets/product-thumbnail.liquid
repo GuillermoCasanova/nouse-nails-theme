@@ -99,7 +99,7 @@
 
 {% if zoom == true %}
   <span
-    class='product__media-icon motion-reduce quick-add-hidden product__media-icon--hover'
+    class='product__media-icon  quick-add-hidden '
     aria-hidden='true'
   >
     {%- liquid
@@ -119,7 +119,10 @@
 <div
   class='product__media media media--transparent global-media-settings {{ class }}{% if zoom == true and media.media_type == "image" %} js-zoom-enabled{% endif %}'
   style='aspect-ratio: {{ aspect_ratio }};'
-  {% if zoom == true and media.media_type == 'image' %} data-image-zoom-wrapper data-zoom='{{ media.preview_image | image_url: width: 1024 }}'{% endif %}
+  {% if zoom == true and media.media_type == 'image' %}
+    data-image-zoom-wrapper
+    data-zoom='{{ media.preview_image | image_url: width: 1024 }}'
+  {% endif %}
 >
   <img
     srcset='
@@ -146,7 +149,9 @@
     {% if zoom == true %}
       class='image-magnify-hover'
     {% endif %}
-    {% if zoom == true and media.media_type == 'image' %} data-image-zoom{% endif %}
+    {% if zoom == true and media.media_type == 'image' %}
+      data-image-zoom
+    {% endif %}
     alt='{{ media.preview_image.alt | escape }}'
   >
 </div>
