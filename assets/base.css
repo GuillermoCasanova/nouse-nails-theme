@@ -419,7 +419,7 @@ p {
 \*------------------------------------*/
 
 a {
-  color: rgb(var(--color-base-text));
+  color: inherit;
 }
 
 /*------------------------------------*\
@@ -444,6 +444,14 @@ a {
 .section-padding-large {
   padding-top: var(--section-padding-large);
   padding-bottom: var(--section-padding-large);
+}
+
+.section-padding-top-none {
+  padding-top: 0;
+}
+
+.section-padding-bottom-none {
+  padding-bottom: 0;
 }
 
 .section-padding-top-x-small {

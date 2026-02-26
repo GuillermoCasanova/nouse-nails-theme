@@ -225,7 +225,8 @@ function commentOutInlineCSSLinks(liquidContent) {
  */
 function restoreInlineCSSLinks(liquidContent) {
   // Match {% comment %}[INLINED]<link ...>{% endcomment %} and replace with the link tag
-  const pattern = /\{%\s*comment\s*%\}\[INLINED\](<link[\s\S]*?>)\{%\s*endcomment\s*%\}/g;
+  // Allow optional whitespace/newlines after {% comment %} and before [INLINED], and before {% endcomment %}
+  const pattern = /\{%\s*comment\s*%\}\s*\[INLINED\](<link[\s\S]*?>)\s*\{%\s*endcomment\s*%\}/g;
   const matches = liquidContent.match(pattern) || [];
   const modified = liquidContent.replace(pattern, '$1');
   return { modified, changeCount: matches.length };

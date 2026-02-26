@@ -6,7 +6,7 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
 <section class='cart-items-section color-{{ section.settings.color_scheme }} {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
-  <cart-items class='container-small{% if cart == empty %} is-empty{% endif %}'>
+  <cart-items class='container-x-small {% if cart == empty %} is-empty{% endif %}'>
     <div class='title-wrapper-with-link'>
       <h1 class='title title--primary'>{{ 'sections.cart.title' | t }}</h1>
       <a
@@ -462,6 +462,10 @@
       "label": "Section Padding Top",
       "options": [
         {
+          "value": "section-padding-top-none",
+          "label": "None"
+        },
+        {
           "value": "section-padding-top-x-small",
           "label": "Extra Small"
         },
@@ -485,6 +489,10 @@
       "id": "section_padding_bottom",
       "label": "Section Padding Bottom",
       "options": [
+        {
+          "value": "section-padding-bottom-none",
+          "label": "None"
+        },
         {
           "value": "section-padding-bottom-x-small",
           "label": "Extra Small"

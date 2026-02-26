@@ -5,7 +5,7 @@
 
 <section class='cart-footer-section color-{{ section.settings.color_scheme }} {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
   <div
-    class='container-main{% if cart == empty %} is-empty{% endif %}'
+    class='container-x-small {% if cart == empty %} is-empty{% endif %}'
     id='main-cart-footer'
     data-id='{{ section.id }}'
   >
@@ -170,6 +170,10 @@
       "label": "Section Padding Top",
       "options": [
         {
+          "value": "section-padding-top-none",
+          "label": "None"
+        },
+        {
           "value": "section-padding-top-x-small",
           "label": "Extra Small"
         },
@@ -193,6 +197,10 @@
       "id": "section_padding_bottom",
       "label": "Section Padding Bottom",
       "options": [
+        {
+          "value": "section-padding-bottom-none",
+          "label": "None"
+        },
         {
           "value": "section-padding-bottom-x-small",
           "label": "Extra Small"

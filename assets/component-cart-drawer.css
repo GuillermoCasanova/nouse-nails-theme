@@ -272,9 +272,14 @@
     #Cart Item Overrides (drawer-specific)
 \*------------------------------------*/
 .cart-drawer .cart-item {
-  gap: var(--space-6);
-  margin-bottom: var(--space-4);
-  grid-template-columns: auto;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+@media screen and (min-width: 750px) {
+  .cart-drawer .cart-item {
+    grid-template-columns: auto;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -388,8 +393,16 @@
   aspect-ratio: 1/1;
 }
 
-.cart-drawer .cart-item__media {
-  max-width: 10rem;
+@media screen and (min-width: 750px) {
+  .cart-drawer .cart-item__media {
+    margin-right: -1rem;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .cart-drawer .cart-item__media {
+    margin-right: -3rem;
+  }
 }
 
 /*------------------------------------*\
@@ -399,8 +412,8 @@
 .cart-drawer-items {
   flex: 1;
   overflow: auto;
-  padding: var(--space-6);
-  padding-top: var(--space-8);
+  padding: var(--space-4);
+  padding-top: var(--space-7);
   background-color: rgb(var(--color-brand-1));
   color: rgb(var(--color-brand-2));
 }
