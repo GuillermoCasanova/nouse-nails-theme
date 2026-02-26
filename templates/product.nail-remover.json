@@ -147,6 +147,7 @@
         "section_padding": "section-padding-main",
         "constrain_to_viewport": false,
         "media_fit": "contain",
+        "image_zoom_behavior": "inside",
         "product_images_position": "right",
         "slideshow_media_aspect_ratio": "1/1",
         "thumbnail_media_aspect_ratio": "1/1",
@@ -222,6 +223,7 @@
         "certifications_y9R9tj",
         "faq_j9pex9"
       ],
+      "disabled": true,
       "name": "Product Expose",
       "settings": {}
     },
