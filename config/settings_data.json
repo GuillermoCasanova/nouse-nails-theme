@@ -81,7 +81,7 @@
               "promotion_1_url": "shopify://collections/new-arrivals",
               "promotion_2_image": "shopify://shop_images/Stars-Aligned-3.jpg",
               "promotion_2_text": "Nail Club Subscription",
-              "promotion_2_url": "shopify://collections",
+              "promotion_2_url": "shopify://collections/subscription",
               "promotion_3_text": "",
               "promotion_3_url": ""
             }
@@ -328,11 +328,7 @@
       },
       "blog-template": {
         "type": "blog-template",
-        "settings": {
-          "layout": "grid",
-          "blog_show_author": false,
-          "blog_show_date": true
-        }
+        "settings": {}
       },
       "press": {
         "type": "press",
