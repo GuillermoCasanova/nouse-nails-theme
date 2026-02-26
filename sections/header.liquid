@@ -5,66 +5,79 @@
   onload="this.media='all'"
 >
 
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-menu-drawer.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
 {% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-menu-drawer.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
-<link
   rel='stylesheet'
   href='{{ 'component-cart-notification.css' | asset_url }}'
   media='print'
   onload="this.media='all'"
->
+  inline-css='true'
+>{% endcomment %}
 <link
   rel='stylesheet'
   href='{{ 'component-cart-items.css' | asset_url }}'
   media='print'
   onload="this.media='all'"
 >
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-header.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
 {% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-header.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
-<link
   rel='stylesheet'
   href='{{ 'component-header-menu.css' | asset_url }}'
   media='print'
   onload="this.media='all'"
->
-<link
+  inline-css='true'
+>{% endcomment %}
+{% comment %}[INLINED]<link
   rel='stylesheet'
   href='{{ 'component-mega-menu.css' | asset_url }}'
   media='print'
   onload="this.media='all'"
->
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-predictive-search.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
   inline-css='true'
 >{% endcomment %}
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-cart-drawer.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-predictive-search.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-cart-drawer.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
 
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-cart.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-cart.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
 <link
   rel='stylesheet'
   href='{{ 'component-totals.css' | asset_url }}'
