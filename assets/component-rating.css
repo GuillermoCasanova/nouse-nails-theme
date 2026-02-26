@@ -60,9 +60,9 @@
   color: rgb(var(--color-text-1)) !important;
 }
 
-.judgeme_product_reviews {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.jdgm-rev-widg {
+  padding-left: var(--space-6) !important;
+  padding-right: var(--space-6) !important;
 }
 
 /*------------------------------------*\
@@ -166,4 +166,17 @@
   .product-rating.product-card-grid__rating {
     margin-top: -2rem;
   }
+}
+
+/*------------------------------------*\
+    #Reviews Pagination
+\*------------------------------------*/
+
+.jdgm-paginate__page.jdgm-curt {
+  color: rgb(var(--color-text-1)) !important;
+}
+
+.jdgm-paginate__page {
+  color: rgb(var(--color-text-1)) !important;
+  font-size: inherit !important;
 }
