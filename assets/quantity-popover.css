@@ -23,7 +23,6 @@
 }
 
 .quantity.product-form_quantity {
-  border: var(--inputs-border-width) solid rgb(var(--color-base-text-2));
   width: auto;
   display: inline-flex;
   height: 2.5rem;

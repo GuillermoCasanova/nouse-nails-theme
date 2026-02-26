@@ -147,7 +147,7 @@
   z-index: 1;
   width: 100%;
   text-align: center;
-  transform: translateY(96%);
+  transform: translateY(115%);
   transition: transform 0.3s var(--default-easing);
   padding-top: var(--space-7);
 }
