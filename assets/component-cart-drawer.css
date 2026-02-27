@@ -700,7 +700,7 @@
 }
 
 .product-offer-carousel .product-offer-container {
-  padding: 15px 40px;
+  padding: 0 !important;
   box-shadow: none !important;
   text-align: center;
   background-color: transparent !important;
@@ -716,7 +716,7 @@
 }
 
 .product-offer-container {
-  max-width: 50%;
+  max-width: 35%;
   margin: auto;
 }
 
@@ -752,10 +752,6 @@
   display: none !important;
 }
 
-.product-offer-container {
-  padding: var(--space-4) !important;
-}
-
 .product-offer-container img {
   border-radius: var(--border-radius-small);
   overflow: hidden;
@@ -767,4 +763,12 @@
 
 .cart-drawer-offer-product-title {
   margin-bottom: var(--space-2) !important;
+}
+
+.totals__items {
+  font-size: var(--text-size-small) !important;
+}
+
+.product-offer-carousel .product-offer-add-to-cart-button {
+  font-size: var(--text-size-tiny) !important;
 }
