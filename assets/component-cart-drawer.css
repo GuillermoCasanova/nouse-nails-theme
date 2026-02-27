@@ -731,6 +731,10 @@
 }
 
 .horizontal-stack button {
+  background-color: rgb(var(--color-base-text-1)) !important;
+  font-size: var(--text-size-tiny) !important;
+  border: none !important;
+  color: rgb(var(--color-base-text-2)) !important;
 }
 
 .product-offer-price-container {
@@ -743,8 +747,9 @@
   text-align: left;
 }
 
-.product-offer-price {
+.product-offer-carousel .product-offer-price {
   text-align: left;
+  display: none !important;
 }
 
 .product-offer-container {
