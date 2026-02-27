@@ -791,22 +791,6 @@
           "cart-sync-interval": 1
         }
       },
-      "7944482028155771153": {
-        "type": "shopify://apps/bold-product-upsell/blocks/Offer/0ea05cdc-3862-4d90-9a1b-14eafaef80dd",
-        "disabled": false,
-        "settings": {
-          "offer-modal-preview": false,
-          "offer-preview-product": "",
-          "title-font-size": 24,
-          "subtitle-font-size": 12,
-          "product-title-font-size": 15,
-          "title-color": "#121212",
-          "subtitle-color": "#343333",
-          "product-title-color": "#121212",
-          "modal-background-color": "#FFFFFF",
-          "modal-border-color": "#DEDEDE"
-        }
-      },
       "12526071353035850722": {
         "type": "shopify://apps/amp-back-in-stock/blocks/app-embed/bfa6a8c4-24e2-411a-9396-e35031b33f34",
         "disabled": true,
@@ -814,7 +798,7 @@
       },
       "15948790894311257021": {
         "type": "shopify://apps/bold-product-upsell/blocks/CartDrawerOffer/0ea05cdc-3862-4d90-9a1b-14eafaef80dd",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "cart-drawer-offer-position": "bottom",
           "cart-drawer-show-bold-quantity-input": false,
@@ -828,6 +812,22 @@
           "custom-cart-drawer-cart-empty-cart-text": "Cart empty",
           "cart-drawer-items-element-tag": "cart-drawer-items",
           "cart-drawer-footer-element-tag": ".cart-drawer-bold-products"
+        }
+      },
+      "7944482028155771153": {
+        "type": "shopify://apps/bold-product-upsell/blocks/Offer/0ea05cdc-3862-4d90-9a1b-14eafaef80dd",
+        "disabled": true,
+        "settings": {
+          "offer-modal-preview": false,
+          "offer-preview-product": "",
+          "title-font-size": 24,
+          "subtitle-font-size": 12,
+          "product-title-font-size": 15,
+          "title-color": "#121212",
+          "subtitle-color": "#343333",
+          "product-title-color": "#121212",
+          "modal-background-color": "#ffffff",
+          "modal-border-color": "#dedede"
         }
       }
     },
