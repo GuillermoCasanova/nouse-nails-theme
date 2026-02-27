@@ -727,7 +727,7 @@
 
 .product-offer-carousel {
   margin-bottom: 0 !important;
-  padding: 0 !important;
+  padding: var(--space-4) !important;
 }
 
 .horizontal-stack button {
