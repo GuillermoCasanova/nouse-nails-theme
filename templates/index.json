@@ -33,6 +33,19 @@
         "text": "15-minutes. Non-toxic. Damage-free."
       }
     },
+    "collection_qMBnrM": {
+      "type": "collection",
+      "name": "Featured collection",
+      "settings": {
+        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
+        "title": "New Arrivals",
+        "collection": "new-arrivals",
+        "grid": 4,
+        "rows": 2,
+        "show_vendor": false,
+        "show_view_all": true
+      }
+    },
     "hae_featured_collections_n8rk6P": {
       "type": "hae-featured-collections",
       "blocks": {
@@ -71,19 +84,6 @@
       ],
       "name": "Collection Callouts",
       "settings": {}
-    },
-    "collection_qMBnrM": {
-      "type": "collection",
-      "name": "Featured collection",
-      "settings": {
-        "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
-        "title": "New Arrivals",
-        "collection": "new-arrivals",
-        "grid": 4,
-        "rows": 2,
-        "show_vendor": false,
-        "show_view_all": true
-      }
     },
     "hae_image_with_text_cijUpU": {
       "type": "hae-image-with-text",
@@ -454,8 +454,8 @@
   "order": [
     "hae_hero_JXfJYD",
     "hae_marquee_banner_QJ6KwN",
-    "hae_featured_collections_n8rk6P",
     "collection_qMBnrM",
+    "hae_featured_collections_n8rk6P",
     "hae_image_with_text_cijUpU",
     "instagram_slideshow_FWNLT6",
     "hae_brand_about_zarK7i",
