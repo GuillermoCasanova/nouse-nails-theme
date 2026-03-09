@@ -829,6 +829,11 @@
           "modal-background-color": "#ffffff",
           "modal-border-color": "#dedede"
         }
+      },
+      "4146198581824321198": {
+        "type": "shopify://apps/postscript-sms-marketing/blocks/sdk/019be67b-1a2f-7589-97a3-72f1751f443e",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
@@ -1242,11 +1247,7 @@
         },
         "blog-template": {
           "type": "blog-template",
-          "settings": {
-            "layout": "grid",
-            "blog_show_author": true,
-            "blog_show_date": false
-          }
+          "settings": {}
         },
         "article-template": {
           "type": "article-template",
