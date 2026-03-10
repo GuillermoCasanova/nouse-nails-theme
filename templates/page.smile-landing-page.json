@@ -75,6 +75,26 @@
       ],
       "settings": {}
     },
+    "apps_HDp4NW": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_landing_page_earning_rule_highlight_RzqpJQ": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#6d0506",
+            "secondary_colour": "#f8eee3",
+            "image": "shopify://shop_images/Iced-Out-4.jpg",
+            "title_text": "Ways to Earn ✱",
+            "description_text": "Earn 50 points for a review, 1 point per $1 spent, 50 points just for signing up, 25 for following us on Instagram, 25 for TikTok, and 100 on your birthday. Because loyalty should feel fun ☻",
+            "button_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_landing_page_earning_rule_highlight_RzqpJQ"
+      ],
+      "settings": {}
+    },
     "17672223451d6d482b": {
       "type": "apps",
       "blocks": {
@@ -100,6 +120,7 @@
     "1767222322848a8096",
     "1767222291a1fe2a55",
     "17672223302378802f",
-    "17672223451d6d482b"
+    "17672223451d6d482b",
+    "apps_HDp4NW"
   ]
 }
