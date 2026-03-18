@@ -30,7 +30,7 @@
 }
 
 @media screen and (min-width: 940px) {
-  .product.reverse-desktop-up > div:last-child {
+  .product.reverse-desktop-up > .product__info-wrapper {
     order: -1;
   }
 }
