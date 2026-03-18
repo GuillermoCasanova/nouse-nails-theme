@@ -29,6 +29,12 @@
   padding-top: var(--space-1);
 }
 
+@media screen and (min-width: 940px) {
+  .product.reverse-desktop-up > div:last-child {
+    order: -1;
+  }
+}
+
 /*------------------------------------*\
       #Dynamic Checkout
 \*------------------------------------*/

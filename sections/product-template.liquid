@@ -7,10 +7,10 @@
     data-url='{{ product.url }}'
   >
     {% comment %}[CSS-INLINE: section-main-product.css | <link
-        href='{{ 'section-main-product.css' | asset_url }}'
-        rel='stylesheet'
-        inline-css='true'
-      >]{% endcomment %}
+      href='{{ 'section-main-product.css' | asset_url }}'
+      rel='stylesheet'
+      inline-css='true'
+    >]{% endcomment %}
 <style>
 
 
@@ -39,6 +39,12 @@
 
 .product__contain {
   padding-top: var(--space-1);
+}
+
+@media screen and (min-width: 940px) {
+  .product.reverse-desktop-up > div:last-child {
+    order: -1;
+  }
 }
 
 
@@ -887,12 +893,11 @@ input:checked + .bsub-widget__plan-header svg {
 </style>
 {% comment %}[/CSS-INLINE]{% endcomment %}
 
-    <!-- Component CSS -->
     {% comment %}[CSS-INLINE: component-rating.css | <link
-        rel='stylesheet'
-        href='{{ 'component-rating.css' | asset_url }}'
-        inline-css='true'
-      >]{% endcomment %}
+      rel='stylesheet'
+      href='{{ 'component-rating.css' | asset_url }}'
+      inline-css='true'
+    >]{% endcomment %}
 <style>
 
 
@@ -1066,6 +1071,7 @@ input:checked + .bsub-widget__plan-header svg {
 }
 </style>
 {% comment %}[/CSS-INLINE]{% endcomment %}
+
     {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
     {%- assign has_klaviyo_bis = false -%}
