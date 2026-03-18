@@ -1,18 +1,17 @@
-<link
+{% comment %}[INLINED]<link
   rel='stylesheet'
   href='{{ 'component-rating.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
->
+  inline-css='true'
+>{% endcomment %}
 
 <!-- Rating section -->
-<div class="product-rating {{ class }}">
+<div class='product-rating {{ class }}'>
   <!-- Start of Judge.me code -->
   <div
-    style="{{ jm_style }}"
-    class="jdgm-widget jdgm-preview-badge"
-    data-id="{{ product.id }}"
-    data-auto-install="false"
+    style='{{ jm_style }}'
+    class='jdgm-widget jdgm-preview-badge'
+    data-id='{{ product.id }}'
+    data-auto-install='false'
   >
     {{ product.metafields.judgeme.badge }}
   </div>

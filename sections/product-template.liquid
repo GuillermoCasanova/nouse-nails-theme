@@ -15,12 +15,11 @@
     {% endcomment %}
 
     <!-- Component CSS -->
-    <link
+    {% comment %}[INLINED]<link
       rel='stylesheet'
       href='{{ 'component-rating.css' | asset_url }}'
-      media='print'
-      onload="this.media='all'"
-    >
+      inline-css='true'
+    >{% endcomment %}
     {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
     {%- assign has_klaviyo_bis = false -%}
