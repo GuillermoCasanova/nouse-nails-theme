@@ -12,7 +12,7 @@
       {{ section.settings.hero-image | image_url: width: 1024 }} 1024w,
       {{ section.settings.hero-image | image_url: width: 1440 }} 1440w
     '
-    imagesizes='50vw'
+    imagesizes='(max-width: 749px) 100vw, 50vw'
   >
 {%- endif -%}
 
@@ -65,7 +65,7 @@
               {{ section.settings.hero-image | image_url: width: 1024 }} 1024w,
               {{ section.settings.hero-image | image_url: width: 1440 }} 1440w
             '
-            sizes='50vw'
+            sizes='(max-width: 749px) 100vw, 50vw'
             alt='{{ section.settings.hero-image.alt | default: 'Featured content' }}'
             width='{{ section.settings.hero-image.width | default: 1440 }}'
             height='{{ section.settings.hero-image.height | default: 800 }}'
