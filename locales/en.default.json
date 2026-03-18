@@ -637,6 +637,12 @@
   "shopify": {
     "page_titles": {
       "create_account": "Sign Up"
+    },
+    "checkout": {
+      "contact": {
+        "phone_label": "Phone - get support and updates via text",
+        "phone_rollup_accessibility_label": "Phone - get support and updates via text"
+      }
     }
   }
 }
