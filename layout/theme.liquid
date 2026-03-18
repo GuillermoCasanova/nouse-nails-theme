@@ -92,8 +92,8 @@
     <!-- CSS LOADING BASE + VARIABLES -->
     {% render 'css-variables' %}
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'grid.css' | asset_url | stylesheet_tag }}
-    {{ 'animate-eyebrow.css' | asset_url | stylesheet_tag }}
+    {% comment %}[INLINED]<link href='{{ 'grid.css' | asset_url }}' rel='stylesheet' inline-css='true'>{% endcomment %}
+    {% comment %}[INLINED]<link href='{{ 'animate-eyebrow.css' | asset_url }}' rel='stylesheet' inline-css='true'>{% endcomment %}
 
     <!-- Critical CSS for above-the-fold content -->
     <style>

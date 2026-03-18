@@ -1,4 +1,4 @@
-{{ 'component-announcement-bar.css' | asset_url | stylesheet_tag }}
+{% comment %}[INLINED]<link href='{{ 'component-announcement-bar.css' | asset_url }}' rel='stylesheet' inline-css='true'>{% endcomment %}
 
 <announcement-bar class='announcement-bar color-{{ section.settings.color_scheme }}'>
   <div class='announcement-bar__contain container-main'>

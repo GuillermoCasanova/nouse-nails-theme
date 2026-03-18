@@ -1,4 +1,4 @@
-{{ 'hae-hero.css' | asset_url | stylesheet_tag }}
+{% comment %}[INLINED]<link href='{{ 'hae-hero.css' | asset_url }}' rel='stylesheet' inline-css='true'>{% endcomment %}
 
 {%- if section.settings.media_type == 'image' and section.settings.hero-image != blank -%}
   <link
