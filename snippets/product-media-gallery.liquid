@@ -33,22 +33,6 @@
 {{ 'component-product-media-gallery.css' | asset_url | stylesheet_tag }}
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
-<link
-  rel='stylesheet'
-  href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
->
-<script
-  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
-  defer
-></script>
-
-<script
-  src='https://unpkg.com/@panzoom/panzoom@4.6.1/dist/panzoom.min.js'
-  defer
-></script>
-<script src='{{ 'media-gallery.js' | asset_url }}' defer></script>
-<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
-
 <media-gallery
   id='MediaGallery-{{ section.id }}'
   role='region'
@@ -233,3 +217,14 @@
     </div>
   </swiper-slideshow>
 </media-gallery>
+<script src='{{ 'media-gallery.js' | asset_url }}' defer></script>
+<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
+
+<script
+  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  defer
+></script>
+<script
+  src='https://unpkg.com/@panzoom/panzoom@4.6.1/dist/panzoom.min.js'
+  defer
+></script>
