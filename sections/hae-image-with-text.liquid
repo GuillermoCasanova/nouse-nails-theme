@@ -1,9 +1,29 @@
-<link
-  rel='stylesheet'
-  href='{{ 'image-with-text.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
->
+<style>
+  /*------------------------------------*\
+    #Image with Text
+\*------------------------------------*/
+
+  .image-with-text__content {
+    align-items: center;
+  }
+
+  .image-with-text__media-wrapper {
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+  }
+
+  .image-with-text__text {
+    max-width: 40rem;
+  }
+
+  .comparison-table__image img {
+    width: 100%;
+  }
+
+  .image-with-text__button-wrapper {
+    margin-top: var(--space-5);
+  }
+</style>
 
 <section class='image-with-text color-{{ section.settings.color_scheme }}'>
   <div class='image-with-text__container container-small section-padding-small'>
