@@ -6,36 +6,22 @@
     data-update-url='true'
     data-url='{{ product.url }}'
   >
-    {% comment %}[INLINED]<link
-      href='{{ 'section-main-product.css' | asset_url }}'
-      rel='stylesheet'
-      inline-css='true'
-    >{% endcomment %}
+    {% comment %}
+      [INLINED]<link
+        href='{{ 'section-main-product.css' | asset_url }}'
+        rel='stylesheet'
+        inline-css='true'
+      >
+    {% endcomment %}
 
     <!-- Component CSS -->
-    {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
     <link
       rel='stylesheet'
       href='{{ 'component-rating.css' | asset_url }}'
       media='print'
       onload="this.media='all'"
     >
-    {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-    {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {{ 'component-price.css' | asset_url | stylesheet_tag }}
-    {{ 'component-modal.css' | asset_url | stylesheet_tag }}
-    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-
-    {% unless product.has_only_default_variant %}
-      {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-      {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
-      {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-    {% endunless %}
-
-    {%- if product.quantity_price_breaks_configured? -%}
-      {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-    {%- endif -%}
 
     {%- assign has_klaviyo_bis = false -%}
     {%- for block in section.blocks -%}
@@ -51,18 +37,10 @@
     <!-- Custom JS -->
     <script src='{{ 'product-info.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'product-form.js' | asset_url }}' defer='defer'></script>
-    <script src='{{ 'quick-add.js' | asset_url }}' defer='defer'></script>
     <script
       src='{{ 'product-sticky-button.js' | asset_url }}'
       defer='defer'
     ></script>
-
-    <!-- Custom Selects -->
-    <script src='{{'choices.min.js' |  asset_url}}' defer='defer'></script>
-    <script src='{{ 'custom-selects.js' | asset_url }}' defer='defer'></script>
-    {{ 'nice-select2.css' | asset_url | stylesheet_tag }}
-
-    <script src='{{ 'magnify2.js' | asset_url }}' defer='defer'></script>
 
     {%- if product.quantity_price_breaks_configured? -%}
       <script src='{{ 'show-more.js' | asset_url }}' defer='defer'></script>
@@ -80,24 +58,6 @@
       | where: 'media_type', 'model'
       | first
     -%}
-
-    {%- if first_3d_model -%}
-      {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-      <link
-        id='ModelViewerStyle'
-        rel='stylesheet'
-        href='https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css'
-        media='print'
-        onload="this.media='all'"
-      >
-      <link
-        id='ModelViewerOverride'
-        rel='stylesheet'
-        href='{{ 'component-model-viewer-ui.css' | asset_url }}'
-        media='print'
-        onload="this.media='all'"
-      >
-    {%- endif -%}
 
     {% assign variant_images = product.images
       | where: 'attached_to_variant?', true
@@ -488,8 +448,13 @@
 
                         <div class='modal__inner'>
                           <div class='modal__close'>
-                            <button data-modal-close aria-label="{{ 'accessibility.close' | t }}">
-                              <span aria-hidden='true'>{% render 'icon-close' %}</span>
+                            <button
+                              data-modal-close
+                              aria-label='{{ 'accessibility.close' | t }}'
+                            >
+                              <span aria-hidden='true'>
+                                {%- render 'icon-close' -%}
+                              </span>
                             </button>
                           </div>
                           <div class='modal__content'>

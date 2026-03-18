@@ -176,8 +176,16 @@ class SocialVideoPlayer extends HTMLElement {
   async playVideo() {
     if (!this.video || this.isPlaying) return;
 
+    // Lazily assign src from data-src on first play so the browser doesn't
+    // fetch all video files on page load
+    const source = this.video.querySelector('source[data-src]');
+    if (source) {
+      source.src = source.dataset.src;
+      source.removeAttribute('data-src');
+      this.video.load();
+    }
+
     try {
-      // Reset to beginning if video has ended
       if (this.video.ended) {
         this.video.currentTime = 0;
       }

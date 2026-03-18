@@ -1,11 +1,13 @@
-{{ 'collection-template.css' | asset_url | stylesheet_tag }}
-<link
+{% comment %}[INLINED]<link
+  href='{{ 'collection-template.css' | asset_url }}'
+  inline-css='true'
+>{% endcomment %}
+
+{% comment %}[INLINED]<link
   rel='stylesheet'
   href='{{ 'product-card-grid.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
->
-<script src='{{ 'collection-facets.js' | asset_url }}' defer='defer'></script>
+  inline-css='true'
+>{% endcomment %}
 
 {% case section.settings.grid %}
   {% when 2 %}

@@ -133,7 +133,7 @@ class SwiperSlideshow extends HTMLElement {
       grabCursor: attrs.grabCursor !== 'false',
       allowTouchMove: attrs.allowTouchMove !== 'false',
       autoHeight: attrs.autoHeight === 'true',
-      preloadImages: true,
+      preloadImages: false,
       watchSlidesProgress: true,
       preventClicksPropagation: true,
 
