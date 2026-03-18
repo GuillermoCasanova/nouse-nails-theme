@@ -1,10 +1,20 @@
-{{ 'featured-blog-posts.css' | asset_url | stylesheet_tag }}
-{{ 'component-blog-card.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'featured-blog-posts.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'component-blog-card.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 {{ 'vendor-swiper.css' | asset_url | stylesheet_tag }}
 
 <script
-  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'
   defer
 ></script>
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>

@@ -1,4 +1,9 @@
-{{ 'forms.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'forms.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 {{ 'section-contact.css' | asset_url | stylesheet_tag }}
 
 <section class='contact-form-section color-{{ section.settings.color_scheme }} {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>

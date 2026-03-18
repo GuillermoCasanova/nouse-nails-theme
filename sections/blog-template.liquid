@@ -1,5 +1,10 @@
 {{ 'template-blog.css' | asset_url | stylesheet_tag }}
-{{ 'component-blog-card.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'component-blog-card.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 <section class='main-blog color-{{ section.settings.color_scheme }}'>
   <div class='main-blog__contain container-main {{ section.settings.padding_size }}'>

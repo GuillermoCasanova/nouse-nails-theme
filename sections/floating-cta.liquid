@@ -1,4 +1,9 @@
-{{ 'component-floating-cta.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'component-floating-cta.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 <div class='floating-cta-container'>
   {%- if section.settings.enable_floating_cta -%}

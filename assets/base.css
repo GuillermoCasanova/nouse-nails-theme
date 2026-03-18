@@ -1208,3 +1208,16 @@ button:hover,
 }
 
 /* END Smartrr subscription options widget*/
+
+/*------------------------------------*\
+    #Swiper
+\*------------------------------------*/
+
+.swiper-slideshow__nav-button {
+  font-size: 2rem;
+}
+
+.swiper-scrollbar-drag {
+  height: 3px;
+  background: var(--color-primary);
+}

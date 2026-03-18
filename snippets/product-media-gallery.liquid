@@ -31,7 +31,7 @@
 -%}
 
 {{ 'component-product-media-gallery.css' | asset_url | stylesheet_tag }}
-{{ 'swiper.css' | asset_url | stylesheet_tag }}
+{{ 'vendor-swiper.css' | asset_url | stylesheet_tag }}
 
 <media-gallery
   id='MediaGallery-{{ section.id }}'
@@ -221,7 +221,7 @@
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
 
 <script
-  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'
   defer
 ></script>
 <script

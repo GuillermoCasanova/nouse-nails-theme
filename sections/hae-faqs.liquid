@@ -1,6 +1,11 @@
 {% comment %} <link rel="stylesheet" href="{{ 'section-faqs-list.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
 <script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
-{{ 'faqs.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'faqs.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 <!-- FAQs Section -->
 <section class='faqs-section color-{{ section.settings.color_scheme }}'>
