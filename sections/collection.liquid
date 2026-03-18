@@ -1,5 +1,15 @@
-{{ 'collection.css' | asset_url | stylesheet_tag }}
-{{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'collection.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
+<link
+  rel='stylesheet'
+  href='{{ 'product-card-grid.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 <section class='collection-section color-{{ section.settings.color_scheme }}'>
   <div class='collection_contain  container-main section-padding-small'>

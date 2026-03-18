@@ -15,7 +15,12 @@
     <!-- Component CSS -->
     {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
     {{ 'component-slider.css' | asset_url | stylesheet_tag }}
-    {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+    <link
+      rel='stylesheet'
+      href='{{ 'component-rating.css' | asset_url }}'
+      media='print'
+      onload="this.media='all'"
+    >
     {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
     {{ 'component-card.css' | asset_url | stylesheet_tag }}
     {{ 'component-price.css' | asset_url | stylesheet_tag }}

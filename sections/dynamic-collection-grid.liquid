@@ -1,7 +1,17 @@
-{{ 'collection.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'collection.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 {{ 'template-dynamic-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'product-card-grid.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'product-card-grid.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 {{ 'component-video.css' | asset_url | stylesheet_tag }}
 
 <!-- Loop through and display blocks -->
