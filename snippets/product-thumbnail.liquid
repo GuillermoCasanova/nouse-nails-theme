@@ -47,9 +47,12 @@
         '
         src='{{ media | image_url: width: 1946 }}'
         sizes='(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 940px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)'
-        {% unless lazy_load == false %}
+        {% if lazy_load == false %}
+          fetchpriority='high'
+          loading='eager'
+        {% else %}
           loading='lazy'
-        {% endunless %}
+        {% endif %}
         width='973'
         height='{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}'
         alt='{{ media.preview_image.alt | escape }}'
@@ -86,9 +89,12 @@
         '
         src='{{ media | image_url: width: 1946 }}'
         sizes='(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 940px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)'
-        {% unless lazy_load == false %}
+        {% if lazy_load == false %}
+          fetchpriority='high'
+          loading='eager'
+        {% else %}
           loading='lazy'
-        {% endunless %}
+        {% endif %}
         width='973'
         height='{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}'
         alt='{{ media.preview_image.alt | escape }}'

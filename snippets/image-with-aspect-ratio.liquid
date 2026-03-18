@@ -6,6 +6,7 @@
   - alt: {String} Alt text for the image
   - class: {String} Additional CSS classes
   - loading: {String} Loading attribute ('lazy', 'eager', 'auto')
+  - fetchpriority: {String} Fetch priority ('high', 'low', 'auto') — set 'high' for LCP images
   - sizes: {String} Sizes attribute for responsive images
   - widths: {String} Comma-separated list of widths for srcset
   - placeholder: {Boolean} Show placeholder if no image
@@ -24,6 +25,7 @@
 {%- liquid
   assign aspect_ratio = aspect_ratio | default: '16/9'
   assign loading = loading | default: 'lazy'
+  assign fetchpriority = fetchpriority | default: ''
   assign class = class | default: ''
   assign sizes = sizes | default: '(min-width: 750px) 50vw, 100vw'
   assign widths = widths | default: '200, 400,600,800, 1000'
@@ -63,6 +65,7 @@
       sizes="{{ sizes }}"
       alt="{{ alt | default: image.alt | escape }}"
       loading="{{ loading }}"
+      {% if fetchpriority != '' %}fetchpriority="{{ fetchpriority }}"{% endif %}
       width="{{ image.width }}"
       height="{{ image.height }}"
       class="image-with-aspect-ratio__image{% if is_natural %} image-with-aspect-ratio__image--natural{% endif %}"
