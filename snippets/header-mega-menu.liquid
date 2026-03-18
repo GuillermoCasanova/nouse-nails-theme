@@ -51,6 +51,7 @@
                   <div
                     class='header__mega-menu'
                     role='region'
+                    aria-label='{{ link.title | escape }}'
                   >
                     <div class='header__mega-menu__inner page-width'>
                       <div class='header__mega-menu__links'>
@@ -114,6 +115,7 @@
                               <a
                                 href='{{ block.settings.promotion_1_url }}'
                                 class='mega-menu-promotion'
+                                aria-label='{{ block.settings.promotion_1_text | escape }}'
                               >
                                 <div class='mega-menu-promotion__image'>
                                   <div class='mega-menu-promotion__image__inner'>
@@ -129,6 +131,7 @@
                                       width='{{ block.settings.promotion_1_image.width}}'
                                       height='{{  block.settings.promotion_1_image.width | divided_by: block.settings.promotion_1_image.aspect_ratio | ceil }}'
                                       class='responsive-image'
+                                      alt='{{ block.settings.promotion_1_image.alt | default: block.settings.promotion_1_text | escape }}'
                                     >
                                   </div>
                                 </div>
@@ -141,6 +144,7 @@
                               <a
                                 href='{{ block.settings.promotion_2_url }}'
                                 class='mega-menu-promotion'
+                                aria-label='{{ block.settings.promotion_2_text | escape }}'
                               >
                                 <div class='mega-menu-promotion__image'>
                                   <div class='mega-menu-promotion__image__inner'>
@@ -156,6 +160,7 @@
                                       width='{{ block.settings.promotion_2_image.width}}'
                                       height='{{  block.settings.promotion_2_image.width | divided_by: block.settings.promotion_2_image.aspect_ratio | ceil }}'
                                       class='responsive-image'
+                                      alt='{{ block.settings.promotion_2_image.alt | default: block.settings.promotion_2_text | escape }}'
                                     >
                                   </div>
                                 </div>
@@ -168,6 +173,7 @@
                               <a
                                 href='{{ block.settings.promotion_3_url }}'
                                 class='mega-menu-promotion'
+                                aria-label='{{ block.settings.promotion_3_text | escape }}'
                               >
                                 <div class='mega-menu-promotion__image'>
                                   <div class='mega-menu-promotion__image__inner'>
@@ -183,6 +189,7 @@
                                       width='{{ block.settings.promotion_3_image.width}}'
                                       height='{{  block.settings.promotion_3_image.width | divided_by: block.settings.promotion_3_image.aspect_ratio | ceil }}'
                                       class='responsive-image'
+                                      alt='{{ block.settings.promotion_3_image.alt | default: block.settings.promotion_3_text | escape }}'
                                     >
                                   </div>
                                 </div>

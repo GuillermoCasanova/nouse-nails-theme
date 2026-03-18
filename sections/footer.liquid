@@ -61,15 +61,17 @@
                 {% endif %}
 
                 {% if section.settings.quick_links_menu != blank %}
-                  <ul class='footer__links-list'>
-                    {% for link in linklists[section.settings.quick_links_menu].links %}
-                      <li class='footer__links-item'>
-                        <a href='{{ link.url }}' class='footer__link'>
-                          {{ link.title }}
-                        </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+                  <nav aria-label='{{ section.settings.quick_links_title | default: 'Quick links' | escape }}'>
+                    <ul class='footer__links-list'>
+                      {% for link in linklists[section.settings.quick_links_menu].links %}
+                        <li class='footer__links-item'>
+                          <a href='{{ link.url }}' class='footer__link'>
+                            {{ link.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </nav>
                 {% endif %}
               </div>
             {% endif %}
@@ -84,15 +86,17 @@
                 {% endif %}
 
                 {% if section.settings.bottom_menu != blank %}
-                  <ul class='footer__links-list'>
-                    {% for link in linklists[section.settings.bottom_menu].links %}
-                      <li class='footer__links-item'>
-                        <a href='{{ link.url }}' class='footer__link'>
-                          {{ link.title }}
-                        </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+                  <nav aria-label='{{ section.settings.bottom_menu_title | default: 'Footer menu' | escape }}'>
+                    <ul class='footer__links-list'>
+                      {% for link in linklists[section.settings.bottom_menu].links %}
+                        <li class='footer__links-item'>
+                          <a href='{{ link.url }}' class='footer__link'>
+                            {{ link.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </nav>
                 {% endif %}
               </div>
             {% endif %}
@@ -126,6 +130,7 @@
               or settings.social_twitter_link != blank
               or settings.social_pinterest_link != blank
               or settings.social_tiktok_link != blank
+              or settings.social_instagram_link != blank
             %}
               <ul class='footer__social-list'>
                 {% if settings.social_facebook_link != blank %}
@@ -134,6 +139,8 @@
                       href='{{ settings.social_facebook_link }}'
                       class='footer__social-link'
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label="{{ 'general.social.links.facebook' | t }}"
                     >
                       {% render 'icon-facebook' %}
                     </a>
@@ -145,6 +152,8 @@
                       href='{{ settings.social_twitter_link }}'
                       class='footer__social-link'
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label="{{ 'general.social.links.twitter' | t }}"
                     >
                       {% render 'icon-twitter' %}
                     </a>
@@ -156,6 +165,8 @@
                       href='{{ settings.social_pinterest_link }}'
                       class='footer__social-link'
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label="{{ 'general.social.links.pinterest' | t }}"
                     >
                       {% render 'icon-pinterest' %}
                     </a>
@@ -167,6 +178,8 @@
                       href='{{ settings.social_tiktok_link }}'
                       class='footer__social-link'
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label="{{ 'general.social.links.tiktok' | t }}"
                     >
                       {% render 'icon-tiktok' %}
                     </a>
@@ -178,6 +191,8 @@
                       href='{{ settings.social_instagram_link }}'
                       class='footer__social-link'
                       target='_blank'
+                      rel='noopener noreferrer'
+                      aria-label="{{ 'general.social.links.instagram' | t }}"
                     >
                       {% render 'icon-instagram' %}
                     </a>

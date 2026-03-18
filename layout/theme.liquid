@@ -8,10 +8,16 @@
       content='width=device-width,initial-scale=1,viewport-fit=cover'
     >
     <meta name='theme-color' content='{{ settings.color_button }}'>
-    <link rel='canonical' href='{{ canonical_url }}'>
 
     {%- if canonical_url != blank -%}
       <link rel='canonical' href='{{ canonical_url }}'>
+    {%- endif -%}
+
+    <link rel='sitemap' type='application/xml' href='/sitemap.xml'>
+
+    {%- comment -%}Noindex tag-filtered collection pages and search results to prevent duplicate content indexing{%- endcomment -%}
+    {%- if current_tags or request.page_type == 'search' -%}
+      <meta name='robots' content='noindex, follow'>
     {%- endif -%}
 
     {%- if settings.favicon != blank -%}
@@ -101,6 +107,64 @@
     </style>
 
     {% render 'social-meta-tags' %}
+
+    {%- comment -%}Organization + WebSite structured data for brand entity and sitelinks search box{%- endcomment -%}
+    {%- liquid
+      assign org_same_as = ''
+      if settings.social_facebook_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_facebook_link | append: '",'
+      endif
+      if settings.social_twitter_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_twitter_link | append: '",'
+      endif
+      if settings.social_instagram_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_instagram_link | append: '",'
+      endif
+      if settings.social_pinterest_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_pinterest_link | append: '",'
+      endif
+      if settings.social_tiktok_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_tiktok_link | append: '",'
+      endif
+      if settings.social_youtube_link != blank
+        assign org_same_as = org_same_as | append: '"' | append: settings.social_youtube_link | append: '",'
+      endif
+      assign org_same_as = org_same_as | remove_last: ','
+    -%}
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": {{ shop.url | append: '/#organization' | json }},
+          "name": {{ shop.name | json }},
+          "url": {{ shop.url | json }},
+          "logo": {
+            "@type": "ImageObject",
+            "url": {{ settings.logo | img_url: 'master' | prepend: 'https:' | json }}
+          }
+          {%- if org_same_as != blank -%}
+          ,"sameAs": [{{ org_same_as }}]
+          {%- endif -%}
+        },
+        {
+          "@type": "WebSite",
+          "@id": {{ shop.url | append: '/#website' | json }},
+          "name": {{ shop.name | json }},
+          "url": {{ shop.url | json }},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "{{ shop.url }}/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
 
     {{ content_for_header }}
 

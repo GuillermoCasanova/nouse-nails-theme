@@ -1,10 +1,6 @@
 {{ 'article-template.css' | asset_url | stylesheet_tag }}
 
-<article
-  class='article-template'
-  itemscope
-  itemtype='http://schema.org/Article'
->
+<article class='article-template'>
   <!-- Hero Header Section -->
   <header class='article-hero color-{{ section.settings.header_color_scheme }}'>
     <div class='article-hero__container container-main'>
@@ -18,10 +14,7 @@
           </time>
         {% endif %}
 
-        <h1
-          class='article-hero__title headline-style-display'
-          itemprop='headline'
-        >
+        <h1 class='article-hero__title headline-style-display'>
           {{ article.title }}
         </h1>
 
@@ -47,7 +40,7 @@
   <div class='article-content color-{{ section.settings.body_color_scheme }}'>
     <div class='article-content__container container-main {{ section.settings.body_padding_size }}'>
       <div class='article-content__wrapper'>
-        <div class='article-content__body' itemprop='articleBody'>
+        <div class='article-content__body'>
           {{ article.content }}
         </div>
 
@@ -112,6 +105,40 @@
     </div>
   </div>
 </article>
+
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ article.title | json }},
+  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "author": {
+    "@type": "Person",
+    "name": {{ article.author | json }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ settings.logo | img_url: 'master' | prepend: 'https:' | json }}
+    }
+  },
+  "url": {{ shop.url | append: article.url | json }}
+  {%- if article.image -%}
+  ,"image": {
+    "@type": "ImageObject",
+    "url": {{ article.image | img_url: 'master' | prepend: 'https:' | json }},
+    "width": {{ article.image.width }},
+    "height": {{ article.image.height }}
+  }
+  {%- endif -%}
+  {%- if article.excerpt.size > 0 -%}
+  ,"description": {{ article.excerpt | strip_html | json }}
+  {%- endif -%}
+}
+</script>
 
 {% schema %}
 {
