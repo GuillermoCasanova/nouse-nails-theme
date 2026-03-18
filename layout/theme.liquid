@@ -23,25 +23,23 @@
     {%- endif -%}
 
     <link rel='preconnect' href='https://cdn.shopify.com' crossorigin>
+    <link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>
     {% comment %} <link rel="preconnect" href="https://monorail-edge.shopifysvc.com"> {% endcomment %}
 
-    <script
-      src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'
-      defer='defer'
-    ></script>
     <link
-      rel='stylesheet'
-      href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'
+      rel='preload'
+      href='{{ 'mabry-medium-pro.woff2' | asset_url }}'
+      as='font'
+      type='font/woff2'
+      crossorigin
     >
-
-    <script
-      src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'
-      defer='defer'
-    ></script>
-    <script
-      src='https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js'
-      defer='defer'
-    ></script>
+    <link
+      rel='preload'
+      href='{{ 'mabry-regular-pro.woff2' | asset_url }}'
+      as='font'
+      type='font/woff2'
+      crossorigin
+    >
 
     <script src='{{ 'constants.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
@@ -200,19 +198,6 @@
       ></script>
     {%- endif -%}
 
-    <script type='text/javascript'>
-      if (window.MSInputMethodContext && document.documentMode) {
-        var scripts = document.getElementsByTagName('script')[0];
-        var polyfill = document.createElement('script');
-        polyfill.defer = true;
-        polyfill.src = "{{ 'ie11CustomProperties.min.js' | asset_url }}";
-
-        scripts.parentNode.insertBefore(polyfill, scripts);
-      }
-    </script>
-
-    <!-- CONTENT FOR HEADER -->
-    {{ content_for_header }}
   </head>
 
   <body class='template-{{ request.page_type | handle }}'>

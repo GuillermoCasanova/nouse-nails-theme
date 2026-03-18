@@ -1,6 +1,16 @@
 {{ 'product-expose.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'
+  media='print'
+  onload="this.media='all'"
+>
 
 <script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
+<script
+  src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'
+  defer
+></script>
 <script src='{{ 'swiper-slideshow.js' | asset_url }}' defer='defer'></script>
 
 <section class='product-expose color-{{ section.settings.color_scheme }}'>
