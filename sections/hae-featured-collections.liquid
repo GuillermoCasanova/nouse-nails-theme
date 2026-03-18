@@ -1,4 +1,9 @@
-{{ 'hae-featured-collections.css' | asset_url | stylesheet_tag }}
+<link
+  rel='stylesheet'
+  href='{{ 'hae-featured-collections.css' | asset_url }}'
+  media='print'
+  onload="this.media='all'"
+>
 
 <section class='featured-collections'>
   <h2 class='visually-hidden'>Featured Collections</h2>
