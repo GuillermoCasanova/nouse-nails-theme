@@ -225,7 +225,7 @@ function main() {
       fileChanged = true;
     }
 
-    if (fileChanged) {
+    if (fileChanged && modified !== content) {
       try {
         fs.writeFileSync(filePath, modified, 'utf8');
         totalFilesUpdated++;
@@ -236,7 +236,7 @@ function main() {
   }
 
   // Clear critical-css.liquid — CSS is now owned per-file
-  clearCriticalCSSSnippet(rootDir, 'per-file inline mode — CSS lives in each section/snippet/layout');
+  clearCriticalCSSSnippet(rootDir);
 
   console.log(`\n✅ Inlined ${totalLinksInlined} CSS file(s) across ${totalFilesUpdated} Liquid file(s)`);
   console.log(`   Unique files: ${[...cssFilesSeen].sort().join(', ')}`);
@@ -281,7 +281,7 @@ function runRestore() {
     }
   }
 
-  clearCriticalCSSSnippet(rootDir, 'development mode — styles load from <link> tags');
+  clearCriticalCSSSnippet(rootDir);
 
   if (totalRestored > 0) {
     console.log(`\n✅ Restored ${totalRestored} <link> tag(s). Ready for development.\n`);
@@ -294,16 +294,19 @@ function runRestore() {
 // Shared helpers
 // ─────────────────────────────────────────────────────────────────────────────
 
-function clearCriticalCSSSnippet(rootDir, modeNote) {
+function clearCriticalCSSSnippet(rootDir) {
   const outputPath = path.join(rootDir, CRITICAL_CSS_SNIPPET);
-  const content = `{% comment %}
-  critical-css.liquid — cleared (${modeNote})
+  // Static content — no timestamp so repeated runs never produce a git diff.
+  const desired = `{% comment %}
+  critical-css.liquid is intentionally empty.
+  CSS is inlined per-file by scripts/extract-critical-css.js.
   Run: npm run extract-critical-css
-  Updated: ${new Date().toISOString()}
 {% endcomment %}
 `;
   try {
-    fs.writeFileSync(outputPath, content, 'utf8');
+    const existing = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
+    if (existing === desired) return; // already correct — skip write
+    fs.writeFileSync(outputPath, desired, 'utf8');
     console.log(`\n📝 ${CRITICAL_CSS_SNIPPET}: cleared`);
   } catch (e) {
     console.warn(`⚠️  Could not clear ${CRITICAL_CSS_SNIPPET}: ${e.message}`);
