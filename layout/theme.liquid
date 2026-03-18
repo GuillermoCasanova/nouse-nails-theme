@@ -273,8 +273,12 @@
 }
 
 @media screen and (min-width: 940px) {
+  .reverse-desktop-up > div:first-child {
+    grid-column: 2;
+  }
   .reverse-desktop-up > div:last-child {
-    order: -1;
+    grid-column: 1;
+    grid-row: 1;
   }
 }
 
@@ -562,73 +566,5 @@
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       };
     </script>
-
-    {% comment %} START - Smartrr Custom script {% endcomment %}
-    <script>
-        {% assign formatted_price = product.price | money %}
-        {% assign discounted_price = product.price | times: 0.85 | round %}
-        {% assign formatted_discounted_price = discounted_price | money %}
-
-        (function () {
-          const TARGET_CLASS = 'smartrr-selling-plan-group-name';
-          const INJECTED_FLAG = 'data-smartrr-prices-injected';
-
-          const FULL_PRICE = "{{ formatted_price }}";
-          const DISCOUNTED_PRICE = "{{ formatted_discounted_price }}";
-          const CURRENCY_CODE = "{{ shop.currency }}";
-
-          function injectIntoElements(root = document) {
-            const elements = root.querySelectorAll(`.${TARGET_CLASS}:not([${INJECTED_FLAG}])`);
-
-            elements.forEach(el => {
-              const isOTP = el.closest('.smartrr-otp') !== null;
-
-              let comparePrice = '';
-              let subscribePrice = '';
-
-              if (isOTP) {
-                subscribePrice = FULL_PRICE;
-              } else {
-                comparePrice = FULL_PRICE;
-                subscribePrice = DISCOUNTED_PRICE;
-              }
-
-              const markup = `
-                <div
-                  data-smartrr-product-id="{{ product.id }}"
-                  data-smartrr-price-style=""
-                  data-smartrr-currency="${CURRENCY_CODE}"
-                  data-use-quantity="true"
-                >
-                  <span data-smartrr-compare-price>${comparePrice}</span>
-                  <span data-smartrr-subscribe-price>${subscribePrice}</span>
-                  <span data-smartrr-regular-price>${comparePrice}</span>
-                </div>
-              `;
-
-              el.insertAdjacentHTML('beforeend', markup);
-              el.setAttribute(INJECTED_FLAG, 'true');
-            });
-          }
-
-          injectIntoElements();
-
-          const observer = new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-              mutation.addedNodes.forEach(node => {
-                if (node.nodeType === 1) {
-                  injectIntoElements(node);
-                }
-              });
-            });
-          });
-
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true
-          });
-        })();
-    </script>
-    {% comment %} START - Smartrr Custom script {% endcomment %}
   </body>
 </html>

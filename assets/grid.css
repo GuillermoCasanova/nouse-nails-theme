@@ -184,8 +184,12 @@
 }
 
 @media screen and (min-width: 940px) {
+  .reverse-desktop-up > div:first-child {
+    grid-column: 2;
+  }
   .reverse-desktop-up > div:last-child {
-    order: -1;
+    grid-column: 1;
+    grid-row: 1;
   }
 }
 
