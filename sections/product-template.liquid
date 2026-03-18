@@ -483,8 +483,8 @@
 
                         <div class='modal__inner'>
                           <div class='modal__close'>
-                            <button data-modal-close>
-                              {% render 'icon-close' %}
+                            <button data-modal-close aria-label="{{ 'accessibility.close' | t }}">
+                              <span aria-hidden='true'>{% render 'icon-close' %}</span>
                             </button>
                           </div>
                           <div class='modal__content'>

@@ -5,69 +5,85 @@
   onload="this.media='all'"
 >
 
-{% comment %}[INLINED]<link
+{% comment %}
+  [INLINED]<link
     rel='stylesheet'
     href='{{ 'component-menu-drawer.css' | asset_url }}'
     media='print'
     onload="this.media='all'"
     inline-css='true'
-  >{% endcomment %}
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-cart-notification.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-cart-notification.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
 <link
   rel='stylesheet'
   href='{{ 'component-cart-items.css' | asset_url }}'
   media='print'
   onload="this.media='all'"
 >
-{% comment %}[INLINED]<link
+{% comment %}
+  [INLINED]<link
     rel='stylesheet'
     href='{{ 'component-header.css' | asset_url }}'
     media='print'
     onload="this.media='all'"
     inline-css='true'
-  >{% endcomment %}
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-header-menu.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
-{% comment %}[INLINED]<link
-  rel='stylesheet'
-  href='{{ 'component-mega-menu.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
-  inline-css='true'
->{% endcomment %}
-{% comment %}[INLINED]<link
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-header-menu.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
+    rel='stylesheet'
+    href='{{ 'component-mega-menu.css' | asset_url }}'
+    media='print'
+    onload="this.media='all'"
+    inline-css='true'
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
     rel='stylesheet'
     href='{{ 'component-predictive-search.css' | asset_url }}'
     media='print'
     onload="this.media='all'"
     inline-css='true'
-  >{% endcomment %}
-{% comment %}[INLINED]<link
+  >
+{% endcomment %}
+{% comment %}
+  [INLINED]<link
     rel='stylesheet'
     href='{{ 'component-cart-drawer.css' | asset_url }}'
     media='print'
     onload="this.media='all'"
     inline-css='true'
-  >{% endcomment %}
+  >
+{% endcomment %}
 
-{% comment %}[INLINED]<link
+{% comment %}
+  [INLINED]<link
     rel='stylesheet'
     href='{{ 'component-cart.css' | asset_url }}'
     media='print'
     onload="this.media='all'"
     inline-css='true'
-  >{% endcomment %}
+  >
+{% endcomment %}
 <link
   rel='stylesheet'
   href='{{ 'component-totals.css' | asset_url }}'
@@ -168,8 +184,9 @@
             aria-expanded='false'
             aria-haspopup='dialog'
             aria-controls='search-modal'
+            aria-label='Search'
           >
-            <span class='icon-small'>
+            <span class='icon-small' aria-hidden='true'>
               {% render 'icon-search' %}
             </span>
           </button>
@@ -201,6 +218,7 @@
           class='header__icon header__icon--cart link focus-inset'
           id='cart-icon-bubble'
           data-cart-toggle
+          aria-label='{{ 'templates.cart.cart' | t }}'
         >
           {% render 'icon-bag' %}
           <span
