@@ -7,11 +7,11 @@
     data-url='{{ product.url }}'
   >
     {% comment %}
-                        [CSS-INLINE: section-main-product.css | {% comment %}[CSS-INLINE: section-main-product.css | <link
-                          href='{{ 'section-main-product.css' | asset_url }}'
-                          rel='stylesheet'
-                          inline-css='true'
-                        >]{% endcomment %}
+                              [CSS-INLINE: section-main-product.css | {% comment %}[CSS-INLINE: section-main-product.css | <link
+                                href='{{ 'section-main-product.css' | asset_url }}'
+                                rel='stylesheet'
+                                inline-css='true'
+                              >]{% endcomment %}
 <style>
 
 
@@ -1753,11 +1753,11 @@ input:checked + .bsub-widget__plan-header svg {
     {% comment %}[/CSS-INLINE]{% endcomment %}
 
     {% comment %}
-                        [CSS-INLINE: component-rating.css | {% comment %}[CSS-INLINE: component-rating.css | <link
-                          rel='stylesheet'
-                          href='{{ 'component-rating.css' | asset_url }}'
-                          inline-css='true'
-                        >]{% endcomment %}
+                              [CSS-INLINE: component-rating.css | {% comment %}[CSS-INLINE: component-rating.css | <link
+                                rel='stylesheet'
+                                href='{{ 'component-rating.css' | asset_url }}'
+                                inline-css='true'
+                              >]{% endcomment %}
 <style>
 
 
@@ -2092,7 +2092,12 @@ input:checked + .bsub-widget__plan-header svg {
     </style>
     {% comment %}[/CSS-INLINE]{% endcomment %}
 
-    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    <link
+      rel='stylesheet'
+      href='{{ 'component-price.css' | asset_url }}'
+      media='print'
+      onload="this.media='all'"
+    >
 
     {%- assign has_klaviyo_bis = false -%}
     {%- for block in section.blocks -%}
@@ -2102,7 +2107,12 @@ input:checked + .bsub-widget__plan-header svg {
       {%- endif -%}
     {%- endfor -%}
     {%- if has_klaviyo_bis -%}
-      {{ 'klaviyo-bis-form.css' | asset_url | stylesheet_tag }}
+      <link
+        rel='stylesheet'
+        href='{{ 'klaviyo-bis-form.css' | asset_url }}'
+        media='print'
+        onload="this.media='all'"
+      >
     {%- endif -%}
 
     {%- assign first_3d_model = product.media
@@ -2565,7 +2575,7 @@ input:checked + .bsub-widget__plan-header svg {
                         product: product,
                         product_form_id: product_form_id,
                         section_id: section.id,
-                        show_pickup_availability: true
+                        show_pickup_availability: false
                       -%}
                     {% endif %}
                   {%- when 'rating' -%}

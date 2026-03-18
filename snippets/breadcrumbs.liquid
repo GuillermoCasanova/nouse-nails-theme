@@ -1,4 +1,4 @@
-{{ 'component-breadcrumbs.css' | asset_url | stylesheet_tag }}
+<link rel='stylesheet' href='{{ 'component-breadcrumbs.css' | asset_url }}' media='print' onload="this.media='all'">
 {% unless template == 'index'
   or template == 'cart'
   or template == 'list-collections'
