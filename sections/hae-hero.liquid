@@ -1,21 +1,5 @@
 {% comment %}[INLINED]<link href='{{ 'hae-hero.css' | asset_url }}' rel='stylesheet' inline-css='true'>{% endcomment %}
 
-{%- if section.settings.media_type == 'image' and section.settings.hero-image != blank -%}
-  <link
-    rel='preload'
-    as='image'
-    fetchpriority='high'
-    href='{{ section.settings.hero-image | image_url: width: 1440 }}'
-    imagesrcset='
-      {{ section.settings.hero-image | image_url: width: 425 }} 425w,
-      {{ section.settings.hero-image | image_url: width: 768 }} 768w,
-      {{ section.settings.hero-image | image_url: width: 1024 }} 1024w,
-      {{ section.settings.hero-image | image_url: width: 1440 }} 1440w
-    '
-    imagesizes='(max-width: 749px) 100vw, 50vw'
-  >
-{%- endif -%}
-
 <section class='hero-header  color-{{ section.settings.color_scheme }}'>
   <div class='hero-header__layout  grid grid-2'>
     <div class='hero-header__left-column  section-padding-small'>
@@ -56,22 +40,19 @@
         {% endif %}
 
         {% if section.settings.media_type == 'image' %}
-          <img
-            class='responsive-image'
-            src='{{ section.settings.hero-image | image_url: width: 1440 }}'
-            srcset='
-              {{ section.settings.hero-image | image_url: width: 425 }} 425w,
-              {{ section.settings.hero-image | image_url: width: 768 }} 768w,
-              {{ section.settings.hero-image | image_url: width: 1024 }} 1024w,
-              {{ section.settings.hero-image | image_url: width: 1440 }} 1440w
-            '
-            sizes='(max-width: 749px) 100vw, 50vw'
-            alt='{{ section.settings.hero-image.alt | default: 'Featured content' }}'
-            width='{{ section.settings.hero-image.width | default: 1440 }}'
-            height='{{ section.settings.hero-image.height | default: 800 }}'
-            fetchpriority='high'
-            loading='eager'
-          >
+          {{
+            section.settings['hero-image']
+            | image_url: width: 1440
+            | image_tag:
+              class: 'responsive-image',
+              loading: 'eager',
+              fetchpriority: 'high',
+              preload: true,
+              sizes: '(max-width: 749px) 100vw, 50vw',
+              widths: '425, 768, 1024, 1440',
+              alt: section.settings['hero-image'].alt
+            | default: 'Featured content'
+          }}
         {% else %}
           <video
             class='responsive-video'
