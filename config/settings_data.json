@@ -17,10 +17,6 @@
     "colors_base_text_1": "#6d0506",
     "colors_base_text_2": "#f8eee3",
     "show_announcement_bar": true,
-    "type_header_font": "helvetica_n7",
-    "type_header_base_size": 26,
-    "type_base_font": "helvetica_n4",
-    "type_base_size": 15,
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
@@ -101,10 +97,7 @@
             }
           }
         },
-        "block_order": [
-          "block_Ln8P6T",
-          "block_Dz7Lnx"
-        ],
+        "block_order": ["block_Ln8P6T", "block_Dz7Lnx"],
         "settings": {
           "mobile_nav_heading": "Shop",
           "mobile_menu_primary": "main-menu",
@@ -240,10 +233,7 @@
             }
           }
         },
-        "block_order": [
-          "collection_wCCpKy",
-          "collection_wJTPLQ"
-        ],
+        "block_order": ["collection_wCCpKy", "collection_wJTPLQ"],
         "settings": {}
       },
       "1606088197e736fabb": {
@@ -280,11 +270,7 @@
             }
           }
         },
-        "block_order": [
-          "callout_pBYmHY",
-          "callout_rh8czt",
-          "callout_QUEkYB"
-        ],
+        "block_order": ["callout_pBYmHY", "callout_rh8czt", "callout_QUEkYB"],
         "settings": {
           "color_scheme": "scheme-bcc14177-2f35-42c6-9cb2-e793cb929778",
           "subtitle": "The Nous Standard in Nail Beauty",
@@ -559,11 +545,7 @@
             }
           }
         },
-        "block_order": [
-          "article_dkkCUP",
-          "article_LqD8Dd",
-          "article_FTwhxE"
-        ],
+        "block_order": ["article_dkkCUP", "article_LqD8Dd", "article_FTwhxE"],
         "name": "Blog posts",
         "settings": {
           "color_scheme": "",
@@ -671,11 +653,7 @@
             }
           }
         },
-        "block_order": [
-          "quote_jHzEpU",
-          "quote_4BinWi",
-          "quote_LCeqTH"
-        ],
+        "block_order": ["quote_jHzEpU", "quote_4BinWi", "quote_LCeqTH"],
         "name": "HAE Testimonials",
         "settings": {
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
@@ -1121,10 +1099,6 @@
       "color_image_overlay": "#3d3d3d",
       "image_overlay_opacity": 40,
       "color_body_bg": "#f8f8f8",
-      "type_header_font": "muli_n6",
-      "type_header_base_size": 26,
-      "type_base_font": "muli_n4",
-      "type_base_size": 18,
       "share_facebook": true,
       "share_twitter": true,
       "share_pinterest": true,
@@ -1205,9 +1179,7 @@
               }
             }
           },
-          "block_order": [
-            "1492033924902-0"
-          ],
+          "block_order": ["1492033924902-0"],
           "settings": {
             "title": ""
           }

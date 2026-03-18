@@ -131,67 +131,41 @@
       assign org_same_as = org_same_as | remove_last: ','
     -%}
     <script type='application/ld+json'>
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": {{ shop.url | append: '/#organization' | json }},
-          "name": {{ shop.name | json }},
-          "url": {{ shop.url | json }},
-          "logo": {
-            "@type": "ImageObject",
-            "url": {{ settings.logo | img_url: 'master' | prepend: 'https:' | json }}
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": {{ shop.url | append: '/#organization' | json }},
+            "name": {{ shop.name | json }},
+            "url": {{ shop.url | json }},
+            "logo": {
+              "@type": "ImageObject",
+              "url": {{ settings.logo | img_url: 'master' | prepend: 'https:' | json }}
+            }
+            {%- if org_same_as != blank -%}
+            ,"sameAs": [{{ org_same_as }}]
+            {%- endif -%}
+          },
+          {
+            "@type": "WebSite",
+            "@id": {{ shop.url | append: '/#website' | json }},
+            "name": {{ shop.name | json }},
+            "url": {{ shop.url | json }},
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "{{ shop.url }}/search?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
           }
-          {%- if org_same_as != blank -%}
-          ,"sameAs": [{{ org_same_as }}]
-          {%- endif -%}
-        },
-        {
-          "@type": "WebSite",
-          "@id": {{ shop.url | append: '/#website' | json }},
-          "name": {{ shop.name | json }},
-          "url": {{ shop.url | json }},
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "{{ shop.url }}/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
-        }
-      ]
-    }
+        ]
+      }
     </script>
 
     {{ content_for_header }}
-
-    {%- assign header_font = settings.type_header_font -%}
-    {%- assign base_font = settings.type_base_font -%}
-    {%- assign base_font_bolder = base_font
-      | font_modify: 'weight', 'bolder'
-    -%}
-    {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
-    {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
-    {%- assign base_font_bold_italic = base_font_bold
-      | font_modify: 'style', 'italic'
-    -%}
-
-    {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    <style>
-      {{ header_font | font_face: font_display: 'swap' }}
-      {{ base_font | font_face: font_display: 'swap' }}
-      {{ base_font_bold | font_face: font_display: 'swap' }}
-      {{ base_font_bolder | font_face: font_display: 'swap' }}
-      {{ base_font_italic | font_face: font_display: 'swap' }}
-      {{ base_font_bold_italic | font_face: font_display: 'swap' }}
-    </style>
 
     <script>
       var theme = {
@@ -260,7 +234,6 @@
         defer='defer'
       ></script>
     {%- endif -%}
-
   </head>
 
   <body class='template-{{ request.page_type | handle }}'>
