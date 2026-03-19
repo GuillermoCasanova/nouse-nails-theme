@@ -130,6 +130,10 @@ media-gallery {
   border-radius: var(--border-radius-small);
 }
 
+.product__media:not(.product-media-gallery__thumbnail) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 @media screen and (min-width: 940px) {
   .product__media {
     border-radius: 0;
@@ -564,12 +568,6 @@ media-gallery {
 /*------------------------------------*\
     #Thumbnail
 \*------------------------------------*/
-
-.thumbnail {
-}
-
-.thumbnail-list__item {
-}
 
 .product-media-gallery__thumbnails {
   display: block;
