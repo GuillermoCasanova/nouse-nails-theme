@@ -4,14 +4,7 @@
   media='print'
   onload="this.media='all'"
 >
-{{ 'vendor-swiper.css' | asset_url | stylesheet_tag }}
-
 <script src='{{ 'details-disclosure.js' | asset_url }}' defer='defer'></script>
-<script
-  src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'
-  defer
-></script>
-<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer='defer'></script>
 
 <section class='product-expose color-{{ section.settings.color_scheme }}'>
   <div class='product-expose__contain container-main section-padding-main'>

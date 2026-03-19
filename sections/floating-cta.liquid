@@ -1,9 +1,269 @@
-<link
+{% comment %}[CSS-INLINE: component-floating-cta.css | <link
   rel='stylesheet'
   href='{{ 'component-floating-cta.css' | asset_url }}'
-  media='print'
-  onload="this.media='all'"
->
+  inline-css='true'
+>]{% endcomment %}
+<style>
+
+
+.floating-cta {
+  position: fixed;
+  bottom: var(--space-3);
+  right: var(--space-2);
+  z-index: 1;
+  text-decoration: none;
+  transition:
+    opacity 0.7s var(--default-easing),
+    transform 0.7s var(--default-easing);
+  text-align: center;
+  background-color: transparent;
+  color: rgb(var(--color-text-1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 12rem;
+  opacity: 0;
+  color: var(--floating-cta-color);
+
+  
+  transform: translateY(120%);
+  pointer-events: none;
+}
+
+@media screen and (min-width: 750px) {
+  .floating-cta {
+    max-width: 13rem;
+  }
+}
+
+
+.floating-cta.is-showing {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+
+.floating-cta__trigger {
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: var(--space-1);
+  color: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--text-size-small);
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .floating-cta__trigger {
+    display: flex;
+  }
+}
+
+.floating-cta__trigger-icon {
+  display: block;
+  width: 100%;
+}
+
+.floating-cta__trigger svg {
+  fill: var(--floating-cta-color);
+  width: 100%;
+  height: 100%;
+}
+
+.floating-cta__trigger-text {
+  display: block;
+  line-height: 1.2;
+  position: absolute;
+  max-width: 60%;
+  color: rgb(var(--color-text-1));
+  margin-bottom: var(--space-6);
+  font-size: var(--text-size-tiny);
+}
+
+.floating-cta--left {
+  left: var(--space-2);
+}
+
+.floating-cta--right {
+  right: var(--space-2);
+}
+
+.floating-cta__trigger-close-button {
+  position: absolute;
+  top: var(--space-5);
+  left: 0;
+  margin: auto;
+  right: 0;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  color: rgb(var(--color-text-1));
+}
+
+.floating-cta__trigger-close-button svg {
+  transition: transform 0.3s var(--default-easing);
+}
+
+.floating-cta__trigger-close-button:hover svg {
+  transform: rotate(180deg);
+}
+
+
+
+.floating-cta-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  transition: all 0.3s var(--default-easing);
+  z-index: 200;
+}
+
+.floating-cta-modal.is-open {
+  pointer-events: auto;
+}
+
+.floating-cta-modal.is-open .floating-cta-modal__dialog {
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.floating-cta-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  transform: translateY(115%);
+  transition: transform 0.3s var(--default-easing);
+  padding-top: var(--space-7);
+}
+
+@media screen and (min-width: 750px) {
+  .floating-cta-modal__dialog {
+    padding-top: 0;
+    transform: translateY(110%);
+  }
+}
+
+.floating-cta-modal__dialog__inner {
+  padding: var(--space-7) var(--space-4) var(--space-3) var(--space-4);
+  display: flex;
+}
+
+@media screen and (min-width: 750px) {
+  .floating-cta-modal__dialog__inner {
+    padding: var(--space-7) var(--space-7) var(--space-7) var(--space-7);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .floating-cta-modal__dialog__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    max-width: 100rem;
+    margin: 0 auto;
+  }
+}
+
+.floating-cta-modal__dialog__icon {
+  position: absolute;
+  top: -1.85rem;
+  width: 3.5rem;
+  left: 0.25rem;
+  color: var(--floating-cta-color);
+}
+
+@media screen and (min-width: 750px) {
+  .floating-cta-modal__dialog__icon {
+    top: -1rem;
+    width: 6rem;
+    left: -2rem;
+    z-index: 1;
+  }
+}
+
+.floating-cta-modal__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-1);
+  background: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+}
+
+.floating-cta-modal__close svg {
+  transition: transform 0.3s var(--default-easing);
+}
+
+.floating-cta-modal__close:hover svg {
+  transform: rotate(180deg);
+}
+
+.floating-cta-modal__title {
+  text-transform: uppercase;
+}
+
+.floating-cta-modal__dialog__media-wrapper {
+  position: relative;
+  display: none;
+}
+@media screen and (min-width: 750px) {
+  .floating-cta-modal__dialog__media-wrapper {
+    display: block;
+  }
+}
+
+.floating-cta-modal__dialog__media {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  position: relative;
+  background-color: grey;
+}
+
+.floating-cta-modal__dialog__content-wrapper {
+  margin: 0 auto;
+}
+
+.floating-cta-modal__form-wrapper {
+}
+
+.floating-cta-modal__disclaimer {
+  margin-top: var(--space-4);
+  font-size: var(--text-size-tiny);
+  line-height: 1.5;
+  color: rgb(var(--color-text-1));
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+.floating-cta-modal__disclaimer a {
+  color: inherit;
+}
+</style>
+{% comment %}[/CSS-INLINE]{% endcomment %}
 
 <div class='floating-cta-container'>
   {%- if section.settings.enable_floating_cta -%}
@@ -132,9 +392,13 @@
           this.closeButtons = this.querySelectorAll('[data-floating-cta-close]');
           this.closeTriggerButton = this.querySelector('[data-close-floating-cta-trigger]');
           this.isVisible = false;
-          this.hasAutoOpened = false;
           this.isDismissed = false;
-          this.scrollThreshold = {{ section.settings.scroll_threshold }}; // pixels to scroll before showing
+          this.klaviyoFormReady = false;
+          this.klaviyoObserver = null;
+          this.formContainer = this.querySelector('.klaviyo-form-{{ section.settings.klaviyo_form_id }}');
+          this.scrollThreshold = {{ section.settings.scroll_threshold }};
+          this.sessionKey = 'floating-cta-seen';
+          this.hasAutoOpened = sessionStorage.getItem(this.sessionKey) !== null;
 
           this.init();
       }
@@ -168,14 +432,43 @@
               this.modal.addEventListener('click', this.onBackdropClick);
           }
 
-          this.handleScroll();
+          this.waitForKlaviyo();
+      }
+
+      waitForKlaviyo() {
+          if (!this.formContainer) return;
+
+          if (this.formContainer.children.length > 0) {
+              this.klaviyoFormReady = true;
+              this.handleScroll();
+              return;
+          }
+
+          this.klaviyoObserver = new MutationObserver((mutations, observer) => {
+              for (const mutation of mutations) {
+                  if (mutation.addedNodes.length > 0) {
+                      this.klaviyoFormReady = true;
+                      observer.disconnect();
+                      this.handleScroll();
+                      return;
+                  }
+              }
+          });
+
+          this.klaviyoObserver.observe(this.formContainer, { childList: true, subtree: true });
+
+          setTimeout(() => {
+              if (!this.klaviyoFormReady) {
+                  this.klaviyoObserver?.disconnect();
+              }
+          }, 8000);
       }
 
       handleScroll() {
           const scrollY = window.scrollY || window.pageYOffset;
           const isModalOpen = this.modal?.classList.contains('is-open');
 
-          if (scrollY >= this.scrollThreshold) {
+          if (scrollY >= this.scrollThreshold && this.klaviyoFormReady) {
               if (!this.hasAutoOpened) {
                   this.hasAutoOpened = true;
                   this.hideCta();
@@ -233,6 +526,7 @@
 
       closeModal() {
           if (!this.modal) return;
+          sessionStorage.setItem(this.sessionKey, '1');
           this.modal.classList.remove('is-open');
           this.modal.setAttribute('aria-hidden', 'true');
           this.triggerButton?.setAttribute('aria-expanded', 'false');
@@ -245,6 +539,7 @@
       }
 
       handleHideTriggerClick() {
+          sessionStorage.setItem(this.sessionKey, '1');
           this.isDismissed = true;
           this.hideCta();
       }
@@ -262,6 +557,7 @@
           });
           this.closeTriggerButton?.removeEventListener('click', this.onHideTriggerClick);
           this.modal?.removeEventListener('click', this.onBackdropClick);
+          this.klaviyoObserver?.disconnect();
       }
   }
 

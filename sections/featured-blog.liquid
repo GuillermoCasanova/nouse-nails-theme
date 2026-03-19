@@ -11,14 +11,6 @@
   onload="this.media='all'"
 >
 
-{{ 'vendor-swiper.css' | asset_url | stylesheet_tag }}
-
-<script
-  src='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js'
-  defer
-></script>
-<script src='{{ 'swiper-slideshow.js' | asset_url }}' defer></script>
-
 <section class='featured-blog-posts color-{{ section.settings.color_scheme }}'>
   <div class='featured-blog-posts__contain container-small section-padding-small'>
     {% if section.settings.title != blank %}

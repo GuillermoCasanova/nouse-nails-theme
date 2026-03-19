@@ -203,13 +203,15 @@
 
 .floating-cta-modal__close {
   position: absolute;
-  top: var(--space-5);
-  right: var(--space-4);
+  top: var(--space-2);
+  right: var(--space-1);
   background: transparent;
   border: none;
   color: currentColor;
   cursor: pointer;
   padding: 0;
+  width: 3rem;
+  height: 3rem;
 }
 
 .floating-cta-modal__close svg {
