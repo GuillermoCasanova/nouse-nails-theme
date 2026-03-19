@@ -26,6 +26,7 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
+    "clean-css": "^5.3.3",
     "husky": "^9.1.7",
     "prettier": "^3.6.2"
   }

@@ -16,6 +16,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const CleanCSS = require('clean-css');
+
+const cleanCSS = new CleanCSS({ level: 2 });
 
 const LIQUID_DIRS = ['sections', 'templates', 'snippets', 'layout'];
 const CRITICAL_CSS_SNIPPET = 'snippets/critical-css.liquid';
@@ -153,13 +156,13 @@ function readCSSFile(filename, rootDir) {
   }
 }
 
-/** Strip CSS block comments; preserve all other formatting. */
+/** Minify CSS: strip comments, collapse whitespace, optimise rules. */
 function processCSS(css) {
-  return css
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
-    .trimEnd();
+  const result = cleanCSS.minify(css);
+  if (result.errors && result.errors.length) {
+    result.errors.forEach(e => console.warn(`  ⚠️  CSS minify error: ${e}`));
+  }
+  return result.styles || css.replace(/\/\*[\s\S]*?\*\//g, '').trim();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
