@@ -43,22 +43,22 @@
       {% if preview_image %}
         {{
           preview_image
-          | image_url: width: 360
+          | image_url: width: 340
           | image_tag:
             class: 'product-card-grid__image',
-            sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 291px',
-            widths: '180, 240, 320, 360',
+            sizes: '(max-width: 749px) calc(50vw - 1.75rem), (max-width: 939px) calc(50vw - 2.5rem), calc(25vw - 2.5rem)',
+            widths: '140, 170, 220, 280, 340',
             loading: 'lazy',
             alt: preview_image.alt
         }}
         {% if product.images[1] %}
           {{
             product.images[1]
-            | image_url: width: 360
+            | image_url: width: 340
             | image_tag:
               class: 'product-card-grid__image product-card-grid__image--hover',
-              sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 291px',
-              widths: '180, 240, 320, 360',
+              sizes: '(max-width: 749px) calc(50vw - 1.75rem), (max-width: 939px) calc(50vw - 2.5rem), calc(25vw - 2.5rem)',
+              widths: '140, 170, 220, 280, 340',
               loading: 'lazy',
               alt: product.images[1].alt
           }}

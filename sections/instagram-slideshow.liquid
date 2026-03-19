@@ -109,7 +109,7 @@
                           playsinline
                           webkit-playsinline
                           controlsList='nofullscreen'
-                          poster='{{ block.settings.image | image_url: width: 400, format: "webp" }}'
+                          poster='{{ block.settings.image | image_url: width: 360, format: "webp" }}'
                         >
                           <source
                             data-src='{{ block.settings.video_url }}'
@@ -124,11 +124,11 @@
                       <div class='instagram-slideshow__image-container'>
                         {{
                           block.settings.image
-                          | image_url: width: 600
+                          | image_url: width: 640
                           | image_tag:
                             class: 'instagram-slideshow__image responsive-image',
-                            sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
-                            widths: '200, 400, 600',
+                            sizes: '(max-width: 749px) 78vw, (max-width: 939px) 40vw, 20vw',
+                            widths: '240, 320, 420, 640',
                             loading: 'lazy',
                             alt: block.settings.image.alt
                         }}
@@ -145,11 +145,11 @@
                           {% if product.featured_media.preview_image %}
                             {{
                               product.featured_media.preview_image
-                              | image_url: width: 600
+                              | image_url: width: 640
                               | image_tag:
                                 class: 'instagram-slideshow__product-image responsive-image',
-                                sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
-                                widths: '200, 400, 600',
+                                sizes: '(max-width: 749px) 78vw, (max-width: 939px) 40vw, 20vw',
+                                widths: '240, 320, 420, 640',
                                 loading: 'lazy',
                                 alt: product.featured_media.preview_image.alt
                             }}
