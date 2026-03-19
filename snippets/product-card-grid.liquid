@@ -41,27 +41,27 @@
         View {{ product.title }}
       </a>
       {% if preview_image %}
-        <img
-          class='product-card-grid__image'
-          src='{{ preview_image | img_url: '400x400', crop: 'center' }}'
-          srcset='{{ preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ preview_image | img_url: '600x600', crop: 'center' }} 600w'
-          sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
-          alt='{{ preview_image.alt | escape }}'
-          width='400'
-          height='400'
-          loading='lazy'
-        >
+        {{
+          preview_image
+          | image_url: width: 400
+          | image_tag:
+            class: 'product-card-grid__image',
+            sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
+            widths: '150, 300, 400, 500',
+            loading: 'lazy',
+            alt: preview_image.alt
+        }}
         {% if product.images[1] %}
-          <img
-            class='product-card-grid__image product-card-grid__image--hover'
-            src='{{ product.images[1] | img_url: '400x400', crop: 'center' }}'
-            srcset='{{ product.images[1] | img_url: '200x200', crop: 'center' }} 200w, {{ product.images[1] | img_url: '400x400', crop: 'center' }} 400w, {{ product.images[1] | img_url: '600x600', crop: 'center' }} 600w'
-            sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
-            alt='{{ product.images[1].alt | escape }}'
-            width='400'
-            height='400'
-            loading='lazy'
-          >
+          {{
+            product.images[1]
+            | image_url: width: 400
+            | image_tag:
+              class: 'product-card-grid__image product-card-grid__image--hover',
+              sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
+              widths: '150, 300, 400, 500',
+              loading: 'lazy',
+              alt: product.images[1].alt
+          }}
         {% endif %}
       {% else %}
         {{ 'product-1' | placeholder_svg_tag: 'product-card-grid__image' }}

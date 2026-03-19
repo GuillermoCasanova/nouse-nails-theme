@@ -73,7 +73,9 @@
                           {% render 'image-with-aspect-ratio',
                             image: product.featured_media.preview_image,
                             aspect_ratio: '1/1',
-                            alt: product.title
+                            alt: product.title,
+                            sizes: '4rem',
+                            widths: '60, 80, 120'
                           %}
                         {% else %}
                           {{
@@ -107,7 +109,7 @@
                           playsinline
                           webkit-playsinline
                           controlsList='nofullscreen'
-                          poster='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
+                          poster='{{ block.settings.image | image_url: width: 400, format: "webp" }}'
                         >
                           <source
                             data-src='{{ block.settings.video_url }}'
@@ -120,16 +122,16 @@
                   {% elsif block.settings.image != blank %}
                     <div class='instagram-slideshow__image-block'>
                       <div class='instagram-slideshow__image-container'>
-                        <img
-                          class='instagram-slideshow__image responsive-image'
-                          src='{{ block.settings.image | img_url: '400x400', crop: 'center' }}'
-                          srcset='{{ block.settings.image | img_url: '200x200', crop: 'center' }} 200w, {{ block.settings.image | img_url: '400x400', crop: 'center' }} 400w, {{ block.settings.image | img_url: '600x600', crop: 'center' }} 600w'
-                          sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
-                          alt='{{ block.settings.image.alt | escape }}'
-                          width='400'
-                          height='400'
-                          loading='lazy'
-                        >
+                        {{
+                          block.settings.image
+                          | image_url: width: 600
+                          | image_tag:
+                            class: 'instagram-slideshow__image responsive-image',
+                            sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
+                            widths: '200, 400, 600',
+                            loading: 'lazy',
+                            alt: block.settings.image.alt
+                        }}
                       </div>
                     </div>
                   {% elsif block.settings.product != blank %}
@@ -141,16 +143,16 @@
                       >
                         <div class='instagram-slideshow__product-image-container'>
                           {% if product.featured_media.preview_image %}
-                            <img
-                              class='instagram-slideshow__product-image responsive-image'
-                              src='{{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }}'
-                              srcset='{{ product.featured_media.preview_image | img_url: '200x200', crop: 'center' }} 200w, {{ product.featured_media.preview_image | img_url: '400x400', crop: 'center' }} 400w, {{ product.featured_media.preview_image | img_url: '600x600', crop: 'center' }} 600w'
-                              sizes='(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw'
-                              alt='{{ product.featured_media.preview_image.alt | escape }}'
-                              width='400'
-                              height='400'
-                              loading='lazy'
-                            >
+                            {{
+                              product.featured_media.preview_image
+                              | image_url: width: 600
+                              | image_tag:
+                                class: 'instagram-slideshow__product-image responsive-image',
+                                sizes: '(max-width: 750px) 50vw, (max-width: 940px) 33vw, 25vw',
+                                widths: '200, 400, 600',
+                                loading: 'lazy',
+                                alt: product.featured_media.preview_image.alt
+                            }}
                           {% else %}
                             {{
                               'product-1'

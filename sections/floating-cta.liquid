@@ -92,7 +92,9 @@
               <div class='floating-cta-modal__dialog__media'>
                 {% render 'image-with-aspect-ratio',
                   image: section.settings.modal_media,
-                  aspect_ratio: section.settings.modal_media_aspect_ratio
+                  aspect_ratio: section.settings.modal_media_aspect_ratio,
+                  sizes: '(min-width: 940px) calc(50vw - 4rem), 0px',
+                  widths: '300, 450, 600, 700'
                 %}
               </div>
             </div>
