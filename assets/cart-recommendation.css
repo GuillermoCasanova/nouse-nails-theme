@@ -56,12 +56,22 @@
   white-space: nowrap;
   color: rgb(var(--color-button-primary-hover-text));
   background-color: rgb(var(--color-button-primary-hover-background));
+  position: relative;
 }
 
 .cart-recommendation__button:hover,
 .cart-recommendation__button:focus {
   color: rgb(var(--color-button-primary-text));
   background-color: rgb(var(--color-button-primary-background));
+}
+
+.cart-recommendation__button.loading span {
+  visibility: hidden;
+}
+
+.cart-recommendation__button .loading__spinner {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .cart-recommendation__form {

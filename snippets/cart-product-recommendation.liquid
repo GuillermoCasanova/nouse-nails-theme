@@ -54,11 +54,14 @@
               class="cart-recommendation__button button button--small button--secondary"
               {%- unless recommended_product.available %} disabled{%- endunless -%}
             >
-              {%- if recommended_product.available -%}
-                ADD TO CART
-              {%- else -%}
-                SOLD OUT
-              {%- endif -%}
+              <span>
+                {%- if recommended_product.available -%}
+                  ADD TO CART
+                {%- else -%}
+                  SOLD OUT
+                {%- endif -%}
+              </span>
+              {%- render 'loading-spinner' -%}
             </button>
           </form>
         </product-form>
