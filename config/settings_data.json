@@ -35,6 +35,8 @@
     "klaviyo_account_id": "WDY9Vw",
     "favicon": "shopify://shop_images/Nous_Fav_Gradient.png",
     "enable_ajax": true,
+    "enable_cart_recommendation": true,
+    "cart_recommendation_product": "led-gel-lamp",
     "colors_text_1": "#6d0506",
     "color_text": "#000000",
     "color_body_text": "#000000",
