@@ -1023,6 +1023,29 @@
     ]
   },
   {
+    "name": "Cart Recommendations",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_recommendation",
+        "label": "Enable cart product recommendation",
+        "default": false
+      },
+      {
+        "type": "product",
+        "id": "cart_recommendation_product",
+        "label": "Recommended product",
+        "info": "Select a product to recommend when it's not already in the cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_recommendation_title",
+        "label": "Recommendation title",
+        "default": "You might also like"
+      }
+    ]
+  },
+  {
     "name": "Custom Cursor",
     "settings": [
       {

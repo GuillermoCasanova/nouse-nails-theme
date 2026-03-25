@@ -1,0 +1,68 @@
+{%- liquid
+  assign recommended_product = all_products[settings.cart_recommendation_product]
+  assign show_recommendation = false
+  
+  if settings.enable_cart_recommendation and recommended_product and cart.item_count > 0
+    assign product_in_cart = false
+    for item in cart.items
+      if item.product.id == recommended_product.id
+        assign product_in_cart = true
+        break
+      endif
+    endfor
+    
+    unless product_in_cart
+      assign show_recommendation = true
+    endunless
+  endif
+-%}
+
+{%- if show_recommendation -%}
+  <div class="cart-recommendation">
+    {%- if settings.cart_recommendation_title != blank -%}
+      <h3 class="cart-recommendation__title">{{ settings.cart_recommendation_title }}</h3>
+    {%- endif -%}
+    
+    <div class="cart-recommendation__product">
+      <div class="cart-recommendation__image">
+        {%- if recommended_product.featured_media -%}
+          {{
+            recommended_product.featured_media
+            | image_url: width: 120
+            | image_tag:
+              loading: 'lazy',
+              alt: recommended_product.title,
+              width: '60',
+              height: '60'
+          }}
+        {%- endif -%}
+      </div>
+      
+      <div class="cart-recommendation__details">
+        <h4 class="cart-recommendation__product-title">{{ recommended_product.title }}</h4>
+        <div class="cart-recommendation__price">
+          {{ recommended_product.price | money }}
+        </div>
+      </div>
+      
+      <div class="cart-recommendation__actions">
+        <product-form class="cart-recommendation__form">
+          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ recommended_product.selected_or_first_available_variant.id }}">
+            <button
+              type="submit"
+              class="cart-recommendation__button button button--small button--secondary"
+              {%- unless recommended_product.available %} disabled{%- endunless -%}
+            >
+              {%- if recommended_product.available -%}
+                ADD TO CART
+              {%- else -%}
+                SOLD OUT
+              {%- endif -%}
+            </button>
+          </form>
+        </product-form>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

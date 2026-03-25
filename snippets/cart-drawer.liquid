@@ -5,6 +5,7 @@
   {% render 'cart-drawer' %}
 {% endcomment %}
 
+{{ 'cart-recommendation.css' | asset_url | stylesheet_tag }}
 <link rel='stylesheet' href='{{ 'quantity-popover.css' | asset_url }}' media='print' onload="this.media='all'">
 <link rel='stylesheet' href='{{ 'component-loading-spinner.css' | asset_url }}' media='print' onload="this.media='all'">
 
@@ -577,6 +578,8 @@
         </form>
       </cart-drawer-items>
 
+      {%- render 'cart-product-recommendation' -%}
+      
       <div class='cart-drawer__footer '>
         <div class='cart-drawer-bold-products'></div>
 

@@ -2,6 +2,7 @@
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'cart-recommendation.css' | asset_url | stylesheet_tag }}
 
 <section class='cart-footer-section color-{{ section.settings.color_scheme }} {{ section.settings.section_padding_top }} {{ section.settings.section_padding_bottom }}'>
   <div
@@ -11,6 +12,8 @@
   >
     <div>
       <div class='cart__footer'>
+        {%- render 'cart-product-recommendation' -%}
+        
         {%- if settings.show_cart_note -%}
           <cart-note class='cart__note field'>
             <label for='Cart-note'>{{ 'sections.cart.note' | t }}</label>
