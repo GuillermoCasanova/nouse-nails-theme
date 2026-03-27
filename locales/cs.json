@@ -158,7 +158,7 @@
       "view_full_details": "Zobrazit veškeré podrobnosti",
       "include_taxes": "Včetně daní.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Poštovné<\/a> se vypočítá na pokladně.",
-      "choose_options": "Výběr možností",
+      "choose_options": "Rychlé zobrazení",
       "choose_product_options": "Zvolte možnosti pro: {{ product_name }}"
     },
     "modal": {

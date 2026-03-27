@@ -80,42 +80,11 @@
       {% endunless %}
 
       {%- if product.available -%}
-        <modal-opener data-modal='#QuickAdd-{{ product.id }}'>
-          <button
-            id='{{ product_form_id }}-submit'
-            type='submit'
-            name='add'
-            class='quick-add__submit button button--full-width button--secondary button--small'
-            aria-haspopup='dialog'
-            aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}'
-            data-product-url='{{ product.url }}'
-          >
-            {{ 'products.product.choose_options' | t }}
-            {%- render 'loading-spinner' -%}
-          </button>
-        </modal-opener>
-        <quick-add-modal id='QuickAdd-{{ product.id }}' class='quick-add-modal'>
-          <div
-            role='dialog'
-            aria-label='{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}'
-            aria-modal='true'
-            class='quick-add-modal__content global-settings-popup'
-            tabindex='-1'
-          >
-            <button
-              id='ModalClose-{{ product.id }}'
-              type='button'
-              class='quick-add-modal__toggle'
-              aria-label='{{ 'accessibility.close' | t }}'
-            >
-              {%- render 'icon-close' -%}
-            </button>
-            <div
-              id='QuickAddInfo-{{ product.id }}'
-              class='quick-add-modal__content-info'
-            ></div>
-          </div>
-        </quick-add-modal>
+        {% render 'quick-add',
+          card_product: product,
+          product_form_id: product_form_id,
+          section: section
+        %}
       {%- endif -%}
     </div>
 

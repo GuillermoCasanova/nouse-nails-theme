@@ -158,7 +158,7 @@
       "view_full_details": "Zobraziť všetky podrobnosti",
       "include_taxes": "Vrátane dane.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Doprava<\/a> sa vypočíta pri platbe.",
-      "choose_options": "Vybrať možnosti",
+      "choose_options": "Rýchly náhľad",
       "choose_product_options": "Vyberte možnosti pre: {{ product_name }}"
     },
     "modal": {

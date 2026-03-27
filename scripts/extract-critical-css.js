@@ -100,7 +100,7 @@ function findTargets(content) {
   //    {% comment %}[CSS-INLINE: file.css | <link ...>]{% endcomment %}
   //    <style>...</style>
   //    {% comment %}[/CSS-INLINE]{% endcomment %}
-  const blockRe = /\{%\s*comment\s*%\}\[CSS-INLINE:\s*[^\]|]+\|\s*(<link[\s\S]*?>)\s*\]\s*\{%\s*endcomment\s*%\}[\s\S]*?\{%\s*comment\s*%\}\[\/CSS-INLINE\]\s*\{%\s*endcomment\s*%\}/g;
+  const blockRe = /\{%\s*comment\s*%\}[\s\S]*?\[CSS-INLINE:\s*[^\]|]+\|\s*(<link[\s\S]*?>)\s*\][\s\S]*?\{%\s*endcomment\s*%\}[\s\S]*?\{%\s*comment\s*%\}\[\/CSS-INLINE\]\s*\{%\s*endcomment\s*%\}/g;
   for (const m of content.matchAll(blockRe)) {
     const linkTag = m[1];
     const cssFilename = cssFilenameFromTag(linkTag);

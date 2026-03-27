@@ -156,7 +156,7 @@
       "view_full_details": "Xem toàn bộ chi tiết",
       "include_taxes": "Đã bao gồm thuế.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển<\/a> được tính khi thanh toán.",
-      "choose_options": "Chọn các tùy chọn",
+      "choose_options": "Xem nhanh",
       "choose_product_options": "Chọn tùy chọn cho {{ product_name }}"
     },
     "modal": {

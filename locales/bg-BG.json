@@ -156,7 +156,7 @@
       "view_full_details": "Покажи пълните подробности",
       "include_taxes": "С включени данъци.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Доставката<\/a> се изчислява при плащане.",
-      "choose_options": "Изберете опции",
+      "choose_options": "Бърз преглед",
       "choose_product_options": "Изберете опции за {{ product_name }}"
     },
     "modal": {
