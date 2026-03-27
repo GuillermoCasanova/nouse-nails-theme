@@ -187,7 +187,6 @@ cart-remove-button .button:after {
 }
 
 cart-remove-button .button:not([disabled]):hover {
-  color: rgb(var(--color-foreground));
 }
 
 cart-remove-button .icon-remove {

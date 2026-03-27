@@ -168,7 +168,6 @@
   text-align: center;
   border: 1px solid rgba(var(--color-foreground), 0.2);
   background: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
 }
 
 .quantity__button {
@@ -210,7 +209,6 @@ cart-remove-button .button:after {
 }
 
 cart-remove-button .button:not([disabled]):hover {
-  color: rgb(var(--color-foreground));
 }
 
 cart-remove-button .icon-remove {

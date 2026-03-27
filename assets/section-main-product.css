@@ -243,7 +243,6 @@ variant-selects {
 
 /* Overrides */
 .shopify-payment-button__more-options {
-  color: rgb(var(--color-foreground));
 }
 
 #more-payment-options-link {
@@ -472,6 +471,14 @@ shopify-payment-terms {
     #Tabbed Interface
 \*------------------------------------*/
 
+.tabbed-interface__quick-add-view-more-link {
+  display: none;
+}
+
+.tabbed-interface__quick-add-view-more-link:hover {
+  text-decoration: none;
+}
+
 .tabbed-interface__tabs {
   display: flex;
   column-gap: var(--space-5);
@@ -644,16 +651,6 @@ shopify-payment-terms {
 
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
-  }
-}
-
-.product__media-item-wrapper {
-  min-width: 50vw !important;
-}
-
-@media screen and (min-width: 750px) {
-  .product__media-item-wrapper {
-    min-width: 0 !important;
   }
 }
 
@@ -841,7 +838,6 @@ input:checked + .bsub-widget__plan-header svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(var(--color-base-text-1));
   padding: 0;
 }
 

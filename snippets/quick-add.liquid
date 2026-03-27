@@ -1,0 +1,135 @@
+<div class='quick-add-mobile-container hide-for-large-up'>
+  <product-form data-section-id='{{ section.id }}'>
+    {%- form 'product',
+      card_product,
+      id: product_form_id,
+      class: 'form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form'
+    -%}
+      <input
+        type='hidden'
+        name='id'
+        value='{{ card_product.selected_or_first_available_variant.id }}'
+        class='product-variant-id'
+        {% if card_product.selected_or_first_available_variant.available
+            == false
+        %}
+          disabled
+        {% endif %}
+      >
+      <button
+        id='{{ product_form_id }}-submit'
+        type='submit'
+        name='add'
+        class='quick-add__submit button button--primary'
+        aria-haspopup='dialog'
+        aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+        aria-live='polite'
+        data-sold-out-message='true'
+        {% if card_product.selected_or_first_available_variant.available
+            == false
+        %}
+          disabled
+        {% endif %}
+      >
+        <span class='quick-add__submit-icon icon-small'>
+          {% render 'icon-bag' %}
+          <span class='visually-hidden'>
+            {{ 'products.product.add_to_cart' | t }}
+          </span>
+        </span>
+        {%- render 'loading-spinner' -%}
+      </button>
+    {%- endform -%}
+  </product-form>
+</div>
+<div class='quick-add-desktop-container show-for-large-up'>
+  <modal-opener data-modal='#QuickAdd-{{ card_product.id }}'>
+    <button
+      type='button'
+      name='add'
+      class='quick-add__submit button button--full-width button--primary button--medium'
+      aria-haspopup='dialog'
+      aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+      data-product-url='{{ card_product.url }}'
+    >
+      <span class='quick-add__submit-text button_text'>
+        {{ 'products.product.choose_options' | t }}
+      </span>
+      {%- render 'loading-spinner' -%}
+    </button>
+  </modal-opener>
+  <product-form data-section-id='{{ section.id }}'>
+    {%- form 'product',
+      card_product,
+      id: product_form_id,
+      class: 'form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form'
+    -%}
+      <input
+        type='hidden'
+        name='id'
+        value='{{ card_product.selected_or_first_available_variant.id }}'
+        class='product-variant-id'
+        {% if card_product.selected_or_first_available_variant.available
+            == false
+        %}
+          disabled
+        {% endif %}
+      >
+      <button
+        id='{{ product_form_id }}-submit'
+        type='submit'
+        name='add'
+        class='quick-add__submit button button--tertiary button--medium'
+        aria-haspopup='dialog'
+        aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+        aria-live='polite'
+        data-sold-out-message='true'
+        {% if card_product.selected_or_first_available_variant.available
+            == false
+        %}
+          disabled
+        {% endif %}
+      >
+        <span class='quick-add__submit-text button_text'>
+          {{ 'products.product.add_to_cart' | t }}
+        </span>
+        {%- render 'loading-spinner' -%}
+      </button>
+    {%- endform -%}
+  </product-form>
+
+  <quick-add-modal
+    id='QuickAdd-{{ card_product.id }}'
+    class='quick-add-modal'
+  >
+    <div
+      role='dialog'
+      aria-label='{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}'
+      aria-modal='true'
+      class='quick-add-modal__content global-settings-popup'
+      tabindex='-1'
+    >
+      <button
+        id='ModalClose-{{ card_product.id }}'
+        type='button'
+        class='quick-add-modal__toggle'
+        aria-label='{{ 'accessibility.close' | t }}'
+      >
+        <span class='icon-tiny'>
+          {%- render 'icon-close' -%}
+        </span>
+        <span class='visually-hidden'>
+          {{ 'accessibility.close' | t }}
+        </span>
+      </button>
+      <div
+        id='QuickAddInfo-{{ card_product.id }}'
+        class='quick-add-modal__content-info'
+      ></div>
+    </div>
+  </quick-add-modal>
+</div>

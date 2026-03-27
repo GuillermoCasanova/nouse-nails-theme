@@ -323,6 +323,7 @@
   font-size: var(--text-size-main);
   font-family: var(--primary-font-family);
   margin-bottom: var(--space-3);
+  max-width: 75%;
 }
 
 .cart-drawer .cart-item__price-wrapper .cart-item__discounted-prices {

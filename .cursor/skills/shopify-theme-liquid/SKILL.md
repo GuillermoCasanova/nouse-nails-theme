@@ -79,7 +79,7 @@ Apply when working with:
 - Minimize loops and repeated logic; avoid unnecessary `all_products` or broad collection queries.
 - Use `{% paginate %}` for large collections (e.g. `paginate collection.products by 24`).
 - Images: `loading="lazy"`, appropriate `width`/`height` or `sizes`.
-- Assets: always use filters so they go through the CDN: `{{ 'base.css' | asset_url | stylesheet_tag }}`, `{{ 'theme.js' | asset_url | script_tag }}`.
+- Assets: always use filters so they go through the CDN: `{{ 'base-core.css' | asset_url | stylesheet_tag }}`, `{{ 'theme.js' | asset_url | script_tag }}`.
 
 ## File and Code Organization
 
@@ -89,7 +89,7 @@ Apply when working with:
 
 ## Cross-References in This Project
 
-- **CSS:** Check `assets/base.css` before adding new utilities or variables. Use BEM and the project's section comment style (see project rules).
+- **CSS:** Check `assets/base-core.css` before adding new utilities or variables. Font declarations are in `snippets/base-fonts.liquid`. Use BEM and the project's section comment style (see project rules).
 - **JS:** Use Shopify's AJAX patterns for cart; modern ES6+; handle errors on API calls.
 - **Project rules:** Follow `.cursor/rules/shopify-rules.mdc` for security, sanitization, and workflow details.
 

@@ -6,6 +6,7 @@
   width: 100%;
   display: block;
   position: relative;
+  min-width: 0; 
 }
 
 media-gallery {
@@ -22,6 +23,7 @@ media-gallery {
     gap: var(--grid-padding-tiny);
   }
 }
+
 
 /*------------------------------------*\
   #In-place zoom overlay
@@ -86,7 +88,7 @@ media-gallery {
   padding: 0;
   border: none;
   background-color: rgba(255, 255, 255, 0.9);
-  color: rgb(var(--color-foreground));
+  
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -113,6 +115,22 @@ media-gallery {
   cursor: move;
   width: 100%;
   min-height: 12rem;
+}
+
+
+.product__media-item-wrapper {
+  min-width: 50vw !important;
+}
+
+
+
+@media screen and (min-width: 750px) {
+  .product__media-item-wrapper {
+    min-width: 0 !important;
+    border-radius: var(--border-radius-large);
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 [data-image-zoom-wrapper].product-media-gallery__zoom-inside--active
@@ -195,10 +213,9 @@ media-gallery {
 
 .product__media-icon,
 .thumbnail__badge {
-  background-color: rgb(var(--color-background));
+  background-color: rgb(var(--color-brand-1));
   border-radius: var(--border-radius-small);
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
-  color: rgb(var(--color-foreground));
   align-items: center;
   justify-content: center;
   height: 3rem;
@@ -575,6 +592,7 @@ media-gallery {
   visibility: hidden;
   position: absolute;
   pointer-events: none;
+  min-width: 0; 
 }
 
 @media screen and (min-width: 750px) {
@@ -658,7 +676,7 @@ media-gallery {
 
 .thumbnail[aria-current] {
   box-shadow: 0 0 0rem 0.1rem rgb(var(--color-foreground));
-  border-color: rgb(var(--color-foreground));
+  border-
 }
 
 .image-magnify-full-size {
@@ -1006,7 +1024,7 @@ media-gallery {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: rgb(var(--color-text-1));
+  color: rgb(var(--color-brand-2));
   font-size: 1rem;
   font-weight: bold;
   pointer-events: all;
@@ -1098,12 +1116,12 @@ media-gallery {
   position: relative;
   margin-right: -2rem;
   display: block;
+  min-width: 0; 
 }
 
 @media screen and (min-width: 750px) {
   .product-media-gallery__main {
     margin-right: 0;
-    border-radius: var(--border-radius-large);
     margin-right: 0;
   }
 }

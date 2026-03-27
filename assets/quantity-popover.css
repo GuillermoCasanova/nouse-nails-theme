@@ -15,7 +15,6 @@
 }
 
 .quantity {
-  color: rgb(var(--color-foreground));
   position: relative;
   display: flex;
   border-radius: var(--inputs-radius);
@@ -49,8 +48,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(var(--color-text-1));
   padding: 0;
+  color: var(--color-base-text-2);
 }
 
 .quantity__button:first-child {
