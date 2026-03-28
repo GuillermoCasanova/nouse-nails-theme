@@ -70,12 +70,6 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 990px) {
-  .quick-add__submit {
-    font-size: var(--text-size-small);
-  }
-}
-
 .product-card-grid:hover .quick-add__submit,
 .product-card-grid:focus-within .quick-add__submit {
   opacity: 1;
@@ -393,12 +387,6 @@ quick-add-modal .tabbed-interface__quick-add-view-more-link {
 
   quick-add-modal .product__info-container > * {
     margin-bottom: var(--space-3);
-  }
-
-  quick-add-modal .product-form__input,
-  quick-add-modal .quantity,
-  quick-add-modal .product-form__submit {
-    font-size: 16px; /* Prevents zoom on iOS */
   }
 
   quick-add-modal .product-form__buttons {
