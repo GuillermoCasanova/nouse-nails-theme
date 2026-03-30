@@ -54,9 +54,18 @@
       aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
       data-product-url='{{ card_product.url }}'
     >
-      <span class='quick-add__submit-text button_text'>
-        {{ 'products.product.choose_options' | t }}
-      </span>
+      {%- if show_icons -%}
+        <span class='quick-add__submit-icon icon icon-small'>
+          {% render 'icon-search' %}
+          <span class='visually-hidden'>
+            {{ 'products.product.choose_options' | t }}
+          </span>
+        </span>
+      {%- else -%}
+        <span class='quick-add__submit-text button_text'>
+          {{ 'products.product.choose_options' | t }}
+        </span>
+      {%- endif -%}
       {%- render 'loading-spinner' -%}
     </button>
   </modal-opener>
@@ -94,9 +103,18 @@
           disabled
         {% endif %}
       >
-        <span class='quick-add__submit-text button_text'>
-          {{ 'products.product.add_to_cart' | t }}
-        </span>
+        {%- if show_icons -%}
+          <span class='quick-add__submit-icon icon icon-small'>
+            {% render 'icon-bag' %}
+            <span class='visually-hidden'>
+              {{ 'products.product.add_to_cart' | t }}
+            </span>
+          </span>
+        {%- else -%}
+          <span class='quick-add__submit-text button_text'>
+            {{ 'products.product.add_to_cart' | t }}
+          </span>
+        {%- endif -%}
         {%- render 'loading-spinner' -%}
       </button>
     {%- endform -%}
