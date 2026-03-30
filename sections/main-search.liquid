@@ -202,8 +202,7 @@
                     {% render 'product-card-grid',
                       product: item,
                       show_vendor: section.settings.show_vendor,
-                      show_rating: section.settings.show_rating,
-                      show_quick_add_icons: section.settings.show_quick_add_icons
+                      show_rating: section.settings.show_rating
                     %}
                   {%- when 'article' -%}
                     {% render 'article-card',
@@ -415,12 +414,6 @@
           "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
         }
       ]
-    },
-    {
-      "type": "checkbox",
-      "id": "show_quick_add_icons",
-      "label": "Show icons instead of text on quick add buttons",
-      "default": false
     }
   ],
   "presets": [

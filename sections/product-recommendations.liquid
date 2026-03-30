@@ -77,8 +77,7 @@
                   >
                     {% render 'product-card-grid',
                       product: recommendation,
-                      show_rating: section.settings.show_rating,
-                      show_quick_add_icons: section.settings.show_quick_add_icons
+                      show_rating: section.settings.show_rating
                     %}
                   </div>
                 {% endfor %}
@@ -288,12 +287,6 @@
       "id": "show_rating",
       "default": false,
       "label": "Show rating"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_quick_add_icons",
-      "label": "Show icons instead of text on quick add buttons",
-      "default": false
     }
   ],
   "presets": [

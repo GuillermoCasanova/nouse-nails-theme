@@ -1,3 +1,10 @@
+{%- comment -%}
+  Default show_icons to true if not explicitly set
+{%- endcomment -%}
+{%- unless show_icons == true -%}
+  {%- assign show_icons = false -%}
+{%- endunless -%}
+
 <div class='quick-add-mobile-container hide-for-large-up'>
   <product-form data-section-id='{{ section.id }}'>
     {%- form 'product',

@@ -57,14 +57,20 @@
       | times: section.settings.rows
     -%}
 
+    {% comment %} If grid_class is 'grid-4', set show_quick_add_icons to true {% endcomment %}
+    {%- assign show_quick_add_icons = false -%}
+    {%- if grid_class == 'grid-4' -%}
+      {%- assign show_quick_add_icons = true -%}
+    {%- endif -%}
+
     <ul class='collection-grid grid {{ grid_class }} grid-gap-sm'>
       {% for product in collection.products limit: product_limit %}
         <li class='collection-grid-item'>
           {% render 'product-card-grid',
             max_height: max_height,
             product: product,
-            show_vendor: section.settings.show_vendor,
-            show_quick_add_icons: section.settings.show_quick_add_icons
+            show_quick_add_icons: show_quick_add_icons,
+            show_vendor: section.settings.show_vendor
           %}
         </li>
       {% else %}
@@ -172,12 +178,6 @@
       "type": "checkbox",
       "id": "show_view_all",
       "label": "Show 'View all' button",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_quick_add_icons",
-      "label": "Show icons instead of text on quick add buttons",
       "default": false
     }
   ],
