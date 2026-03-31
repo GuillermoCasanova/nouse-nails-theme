@@ -113,6 +113,7 @@
   "products": {
     "product": {
       "add_to_cart": "Adicionar ao carrinho",
+      "add_to_cart_shortened": "Add",
       "description": "Descrição",
       "on_sale": "Promoção",
       "product_variants": "Variantes do produto",
@@ -158,6 +159,7 @@
       "include_taxes": "Tributo incluído.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frete<\/a> calculado no checkout.",
       "choose_options": "Visualização rápida",
+      "choose_options_shortened": "View",
       "choose_product_options": "Escolha opções para {{ product_name }}"
     },
     "modal": {

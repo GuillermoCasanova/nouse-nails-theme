@@ -113,6 +113,7 @@
   "products": {
     "product": {
       "add_to_cart": "Adăugați în coș",
+      "add_to_cart_shortened": "Add",
       "description": "Descriere",
       "on_sale": "Vânzare",
       "product_variants": "Variante de produse",
@@ -158,6 +159,7 @@
       "include_taxes": "Taxe incluse.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Taxele de expediere<\/a> sunt calculate la finalizarea comenzii.",
       "choose_options": "Vizualizare rapidă",
+      "choose_options_shortened": "View",
       "choose_product_options": "Alege opțiunile pentru {{ product_name }}"
     },
     "modal": {

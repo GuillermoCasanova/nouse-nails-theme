@@ -1,9 +1,14 @@
-{%- comment -%}
-  Default show_icons to true if not explicitly set
-{%- endcomment -%}
-{%- unless show_icons == true -%}
-  {%- assign show_icons = false -%}
-{%- endunless -%}
+{% comment %}
+  Renders a product card using "Grid" style
+  Accepts:
+  - card_product: {Object} Product Liquid object (required)
+  - product_form_id: {String} Product form ID (required)
+  - section: {Object} Section Liquid object (required)
+  - shorten_text: {Boolean} Shorten the text on the quick add button (optional, default false)
+
+  Usage:
+  {% render 'quick-add', card_product: card_product, product_form_id: product_form_id, section: section, shorten_quick_add_text: shorten_quick_add_text %}
+{% endcomment %}
 
 <div class='quick-add-mobile-container hide-for-large-up'>
   <product-form data-section-id='{{ section.id }}'>
@@ -56,23 +61,18 @@
     <button
       type='button'
       name='add'
-      class='quick-add__submit button button--full-width button--primary button--small'
+      class='quick-add__submit button button--full-width button--primary {% if shorten_text %}button--tiny{% else %}button--small{% endif %}'
       aria-haspopup='dialog'
       aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
       data-product-url='{{ card_product.url }}'
     >
-      {%- if show_icons -%}
-        <span class='quick-add__submit-icon icon icon-small'>
-          {% render 'icon-search' %}
-          <span class='visually-hidden'>
-            {{ 'products.product.choose_options' | t }}
-          </span>
-        </span>
-      {%- else -%}
-        <span class='quick-add__submit-text button_text'>
+      <span class='quick-add__submit-text button_text'>
+        {% if shorten_text %}
+          {{ 'products.product.choose_options_shortened' | t }}
+        {% else %}
           {{ 'products.product.choose_options' | t }}
-        </span>
-      {%- endif -%}
+        {% endif %}
+      </span>
       {%- render 'loading-spinner' -%}
     </button>
   </modal-opener>
@@ -99,7 +99,7 @@
         id='{{ product_form_id }}-submit'
         type='submit'
         name='add'
-        class='quick-add__submit button button--tertiary button--small'
+        class='quick-add__submit button button--tertiary {% if shorten_text %}button--tiny{% else %}button--small{% endif %}'
         aria-haspopup='dialog'
         aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
         aria-live='polite'
@@ -110,18 +110,13 @@
           disabled
         {% endif %}
       >
-        {%- if show_icons -%}
-          <span class='quick-add__submit-icon icon icon-small'>
-            {% render 'icon-bag' %}
-            <span class='visually-hidden'>
-              {{ 'products.product.add_to_cart' | t }}
-            </span>
-          </span>
-        {%- else -%}
-          <span class='quick-add__submit-text button_text'>
+        <span class='quick-add__submit-text button_text'>
+          {% if shorten_text %}
+            {{ 'products.product.add_to_cart_shortened' | t }}
+          {% else %}
             {{ 'products.product.add_to_cart' | t }}
-          </span>
-        {%- endif -%}
+          {% endif %}
+        </span>
         {%- render 'loading-spinner' -%}
       </button>
     {%- endform -%}

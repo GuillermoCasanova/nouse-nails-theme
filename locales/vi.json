@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "Thêm vào giỏ hàng",
+      "add_to_cart_shortened": "Add",
       "description": "Mô tả",
       "on_sale": "Giảm giá",
       "product_variants": "Mẫu mã sản phẩm",
@@ -157,6 +158,7 @@
       "include_taxes": "Đã bao gồm thuế.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển<\/a> được tính khi thanh toán.",
       "choose_options": "Xem nhanh",
+      "choose_options_shortened": "View",
       "choose_product_options": "Chọn tùy chọn cho {{ product_name }}"
     },
     "modal": {

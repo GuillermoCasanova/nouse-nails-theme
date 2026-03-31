@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "Sepete ekle",
+      "add_to_cart_shortened": "Add",
       "description": "Açıklama",
       "on_sale": "İndirim",
       "product_variants": "Ürün varyasyonları",
@@ -157,6 +158,7 @@
       "include_taxes": "Vergi dahildir.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Kargo<\/a>, ödeme sayfasında hesaplanır.",
       "choose_options": "Hızlı görünüm",
+      "choose_options_shortened": "View",
       "choose_product_options": "{{ product_name }} için seçenekleri belirle"
     },
     "modal": {

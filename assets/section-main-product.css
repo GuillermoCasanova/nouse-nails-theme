@@ -223,7 +223,7 @@ variant-selects {
 }
 
 .product-form__quantity-wrapper .quantity-wrapper {
-  border-radius: var(--border-radius-x-small);
+  border-radius: var(--border-radius-tiny);
 }
 
 .product-form__quantity-wrapper .quantity-wrapper .quantity__input {

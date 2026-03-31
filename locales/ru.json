@@ -114,6 +114,7 @@
   "products": {
     "product": {
       "add_to_cart": "Добавить в корзину",
+      "add_to_cart_shortened": "Add",
       "description": "Описание",
       "on_sale": "Распродажа",
       "product_variants": "Варианты товара",
@@ -159,6 +160,7 @@
       "include_taxes": "Сумма налога включена.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Стоимость доставки<\/a> рассчитывается при оформлении заказа.",
       "choose_options": "Быстрый просмотр",
+      "choose_options_shortened": "View",
       "choose_product_options": "Выберите варианты для {{ product_name }}"
     },
     "modal": {

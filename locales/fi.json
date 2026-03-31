@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "Lisää ostoskoriin",
+      "add_to_cart_shortened": "Add",
       "description": "Kuvaus",
       "on_sale": "Alennusmyynti",
       "product_variants": "Tuoteversiot",
@@ -157,6 +158,7 @@
       "include_taxes": "Sisältää veron.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut<\/a> lasketaan kassalla.",
       "choose_options": "Pikanäkymä",
+      "choose_options_shortened": "View",
       "choose_product_options": "Valitse vaihtoehtoja tuotteelle {{ product_name }}"
     },
     "modal": {

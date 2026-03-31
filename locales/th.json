@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "เพิ่มลงในตะกร้าสินค้า",
+      "add_to_cart_shortened": "Add",
       "description": "คำอธิบาย",
       "on_sale": "การลดราคา",
       "product_variants": "ตัวเลือกสินค้า",
@@ -157,6 +158,7 @@
       "include_taxes": "รวมภาษี",
       "shipping_policy_html": "<a href=\"{{ link }}\">ค่าจัดส่ง<\/a>ที่คำนวณในขั้นตอนการชำระเงิน",
       "choose_options": "ดูอย่างรวดเร็ว",
+      "choose_options_shortened": "View",
       "choose_product_options": "เลือกตัวเลือกสำหรับ {{ product_name }}"
     },
     "modal": {

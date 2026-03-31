@@ -817,6 +817,13 @@ button.loading .button_text {
 }
 
 /* Button Sizes */
+.button--tiny {
+  padding: var(--space-1);
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+  font-size: var(--text-size-tiny);
+}
+
 .button--small {
   padding: var(--space-2);
   padding-left: var(--space-3);

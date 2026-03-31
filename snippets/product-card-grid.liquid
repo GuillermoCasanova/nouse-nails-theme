@@ -5,7 +5,7 @@
   - product: {Object} Product Liquid object (required)
   - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
   - show_rating: {Boolean} Show the product rating (optional, default true)
-  - show_quick_add_icons: {Boolean} Show icons instead of text on quick add buttons (optional, default false)
+  - shorten_quick_add_text: {Boolean} Shorten the text on the quick add button (optional, default false)
 
   Usage:
   {% render 'product-card-grid', product: product, show_vendor: section.settings.show_vendor, show_rating: section.settings.show_rating %}
@@ -84,7 +84,7 @@
         {% render 'quick-add',
           card_product: product,
           product_form_id: product_form_id,
-          show_icons: show_quick_add_icons,
+          shorten_text: shorten_quick_add_text,
           section: section
         %}
       {%- endif -%}

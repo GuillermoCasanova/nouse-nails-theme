@@ -34,7 +34,7 @@ Always check base-core.css first before creating new utility / base classes. Fon
 Use BEM methodology for class naming and provided example as base. 5 breaks before comments that split up sections.
 Implement CSS custom properties for theming
 Follow mobile-first responsive design
-Organize css rules in aplhabetical order for better organization
+Always Organize css rules in aplhabetical order for better organization
 
 #### Examples:
 
@@ -49,24 +49,24 @@ Organize css rules in aplhabetical order for better organization
 }
 
 /*
-height: 8rem;
 background: #f7f6f347;
 backdrop-filter: blur(30px);
+height: 8rem;
 } */
 
 .header-wrapper {
+    height: 6rem;
     position: fixed;
     top: 0;
+    transition: all .3s var(--default-easing);
     width: 100%;
     z-index: 5;
-    height: 6rem;
-    transition: all .3s var(--default-easing);
 }
 
 @media screen and (min-width: 940px) {
-.scrolled-past-header:not(.shopify-section-header-hidden) .header-wrapper {
-    height: 8rem
-}
+    .scrolled-past-header:not(.shopify-section-header-hidden) .header-wrapper {
+        height: 8rem;
+    }
 }
 
 
@@ -78,20 +78,19 @@ backdrop-filter: blur(30px);
 
 
 .hero-header__media {
-    position: relative;
-    width: 100%;
+    aspect-ratio: 1/1.055;
     height: 100%;
     overflow: hidden;
-    aspect-ratio: 1/1.055;
+    position: relative;
     width: 100%;
 }
 
 
 .hero-header__layout {
+    align-items: center;
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
-    align-items: center;
 }
 
 
@@ -110,10 +109,10 @@ backdrop-filter: blur(30px);
 
 
 .hero-header__left-column {
-    width: 100%;
-    padding-top: var(--space-8);
-    padding-bottom: var(--space-8);
     align-items: center;
+    padding-bottom: var(--space-8);
+    padding-top: var(--space-8);
+    width: 100%;
 }
 
 
@@ -146,12 +145,12 @@ backdrop-filter: blur(30px);
 }
 
 .featured-collections__column__media {
-    position: relative;
     aspect-ratio: 1/.9;
-    width: 100%;
     border-radius: var(--border-radius-main);
-    overflow: hidden;
     margin-bottom: var(--space-9);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
 
@@ -169,17 +168,17 @@ backdrop-filter: blur(30px);
 
 
 .featured-collections__column__layout {
-    text-decoration: none;
-    position: relative;
+    display: block;
     padding-left: var(--space-9);
     padding-right: var(--space-9);
-    display: block;
+    position: relative;
+    text-decoration: none;
 }
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__layout  {
-        padding: var(--space-9);
         height: 100%;
+        padding: var(--space-9);
     }
 }
 
@@ -193,15 +192,13 @@ backdrop-filter: blur(30px);
 
 
 .featured-collections__column__sticker {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    max-width: 3rem;
-    width: 100%;
     aspect-ratio: 1/1;
-    left: calc(-1 * var(--space-7));
     bottom: calc(-1 * var(--space-7));
+    left: calc(-1 * var(--space-7));
+    max-width: 3rem;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 @media screen and (min-width: 748px) {
@@ -211,17 +208,17 @@ backdrop-filter: blur(30px);
 }
 
 .featured-collections__layout .featured-collections__column:nth-child(2) .featured-collections__column__layout  .featured-collections__column__sticker{
-    top: var(--space-9);
-    right: calc(-1 * var(--space-7));
-    left: auto;
     bottom: auto;
+    left: auto;
+    right: calc(-1 * var(--space-7));
+    top: var(--space-9);
 }
 
 
 @media screen and (min-width: 748px) {
     .featured-collections__layout .featured-collections__column:nth-child(2) .featured-collections__column__layout  .featured-collections__column__sticker{
-        left: auto;
         bottom: auto;
+        left: auto;
     }
 }
 
@@ -243,9 +240,9 @@ backdrop-filter: blur(30px);
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__text-wrapper {
+        align-items: flex-end;
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end
     }
 }
 
@@ -257,14 +254,13 @@ backdrop-filter: blur(30px);
 
 @media screen and (min-width: 748px) {
     .featured-collections__column__button-wrapper {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 1;
-        padding: inherit;
-        top: auto;
-        padding-right: var(--space-9);
         bottom: var(--space-9);
+        padding: inherit;
+        padding-right: var(--space-9);
+        position: absolute;
+        right: 0;
+        top: auto;
+        z-index: 1;
     }
 }
 
@@ -290,24 +286,24 @@ backdrop-filter: blur(30px);
 \*------------------------------------*/
 
 .hero-header__sticker {
-    max-width: 15rem;
-    right: 24px;
-    position: absolute;
-    z-index: 1;
     bottom: auto;
+    height: 100%;
+    max-width: 5rem;
+    max-width: 15rem;
     max-width: 100%;
+    position: absolute;
+    right: 24px;
     right: var(--space-2);
     top: var(--space-8);
-    max-width: 5rem;
     width: 100%;
-    height: 100%;
+    z-index: 1;
 }
 
 @media (min-width: 768px) {
     .hero-header__sticker {
+        max-width: 7rem;
         right: var(--space-4);
         top: var(--space-8);
-        max-width: 7rem;
     }
 }
 
@@ -328,7 +324,7 @@ backdrop-filter: blur(30px);
 }
 
 .image-with-text__text {
-   max-width: 40rem;
+    max-width: 40rem;
 }
 
 
@@ -364,11 +360,10 @@ There must be **exactly 5 blank lines before** each section separator comment, a
 \*------------------------------------*/
 
 .header__cart-count {
-    display: flex;
     align-items: center;
+    display: flex;
     /* ... */
 }
-
 
 
 

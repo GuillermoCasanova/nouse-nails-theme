@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "カートに追加する",
+      "add_to_cart_shortened": "Add",
       "description": "商品説明",
       "on_sale": "セール",
       "product_variants": "商品バリエーション",
@@ -157,6 +158,7 @@
       "include_taxes": "税込み。",
       "shipping_policy_html": "<a href=\"{{ link }}\">配送料<\/a>はチェックアウト時に計算されます。",
       "choose_options": "クイックビュー",
+      "choose_options_shortened": "View",
       "choose_product_options": "{{ product_name }}のオプションを選択する"
     },
     "modal": {

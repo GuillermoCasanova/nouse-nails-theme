@@ -114,6 +114,7 @@
   "products": {
     "product": {
       "add_to_cart": "Dodaj v košarico",
+      "add_to_cart_shortened": "Add",
       "description": "Opis",
       "on_sale": "Znižanje",
       "product_variants": "Različice izdelka",
@@ -159,6 +160,7 @@
       "include_taxes": "Vključno z davkom.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Dostava<\/a> se obračuna ob zaključku nakupa.",
       "choose_options": "Hiter pregled",
+      "choose_options_shortened": "View",
       "choose_product_options": "Izberite možnosti za izdelek {{ product_name }}"
     },
     "modal": {

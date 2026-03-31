@@ -177,7 +177,9 @@
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
+      "add_to_cart_shortened": "Add",
       "choose_options": "Quick View",
+      "choose_options_shortened": "View",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
       "inventory_in_stock": "In stock",

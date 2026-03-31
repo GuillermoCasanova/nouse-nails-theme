@@ -644,7 +644,7 @@ media-gallery {
   right: 0;
   top: 0;
   bottom: 0;
-  border-radius: var(--border-radius-x-small);
+  border-radius: var(--border-radius-tiny);
 }
 
 .product-media-gallery__thumbnails

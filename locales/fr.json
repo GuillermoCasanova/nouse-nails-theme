@@ -113,6 +113,7 @@
   "products": {
     "product": {
       "add_to_cart": "Ajouter au panier",
+      "add_to_cart_shortened": "Ajouter",
       "description": "Description",
       "on_sale": "Vente",
       "product_variants": "Variantes de produits",
@@ -158,6 +159,7 @@
       "include_taxes": "Taxes incluses.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Frais d'expédition<\/a> calculés à l'étape de paiement.",
       "choose_options": "Aperçu rapide",
+      "choose_options_shortened": "Voir",
       "choose_product_options": "Choisir des options pour {{ product_name }}"
     },
     "modal": {

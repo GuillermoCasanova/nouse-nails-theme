@@ -113,6 +113,7 @@
   "products": {
     "product": {
       "add_to_cart": "Dodaj u košaricu",
+      "add_to_cart_shortened": "Add",
       "description": "Opis",
       "on_sale": "Rasprodaja",
       "product_variants": "Varijante proizvoda",
@@ -158,6 +159,7 @@
       "include_taxes": "Porez je uključen.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina <\/a> se obračunava prilikom završetka kupnje.",
       "choose_options": "Brzi pregled",
+      "choose_options_shortened": "View",
       "choose_product_options": "Odaberite željene opcije za {{ product_name }}"
     },
     "modal": {

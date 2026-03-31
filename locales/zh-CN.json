@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "添加到购物车",
+      "add_to_cart_shortened": "Add",
       "description": "描述",
       "on_sale": "销售额",
       "product_variants": "产品多属性",
@@ -157,6 +158,7 @@
       "include_taxes": "含税费。",
       "shipping_policy_html": "结账时计算的<a href=\"{{ link }}\">运费<\/a>。",
       "choose_options": "快速查看",
+      "choose_options_shortened": "View",
       "choose_product_options": "选择用于 {{ product_name }} 的选项"
     },
     "modal": {

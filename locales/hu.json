@@ -112,6 +112,7 @@
   "products": {
     "product": {
       "add_to_cart": "Hozzáadás a kosárhoz",
+      "add_to_cart_shortened": "Add",
       "description": "Leírás",
       "on_sale": "Akciós",
       "product_variants": "Termékváltozatok",
@@ -157,6 +158,7 @@
       "include_taxes": "Tartalmazza az adót.",
       "shipping_policy_html": "A <a href=\"{{ link }}\">szállítási költséget<\/a> a megrendeléskor számítjuk ki.",
       "choose_options": "Gyors nézet",
+      "choose_options_shortened": "View",
       "choose_product_options": "Termékváltozatok – {{ product_name }}"
     },
     "modal": {
