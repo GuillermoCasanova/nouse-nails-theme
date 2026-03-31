@@ -69,6 +69,9 @@
   align-items: center;
   font-size: var(--text-size-tiny);
   justify-content: center;
+}
+
+.quick-add-mobile-container .quick-add__submit {
   padding: 0;
 }
 
@@ -294,10 +297,6 @@ quick-add-modal .product__info-container {
 /*------------------------------------*\
     #Typography & Content
 \*------------------------------------*/
-
-quick-add-modal .product__media:not(.product-media-gallery__thumbnail) {
-  aspect-ratio: 3 / 4 !important;
-}
 
 @media screen and (min-width: 750px) {
   quick-add-modal media-gallery {
