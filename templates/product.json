@@ -211,8 +211,8 @@
         "button_yx7Vkf": {
           "type": "button",
           "settings": {
-            "button_label": "Button",
-            "button_link": "",
+            "button_label": "How to Apply",
+            "button_link": "shopify://pages/how-to",
             "button_size": "button--medium"
           }
         }
