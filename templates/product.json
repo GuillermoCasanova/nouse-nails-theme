@@ -80,15 +80,6 @@
             "description": "<p>Returns accepted within 14 days of delivery for unused, unopened items in original packaging. Shipping fees are non-refundable and return shipping is the customer’s responsibility. For full details, see our <a href=\"/pages/returns-exchanges\" target=\"_blank\" title=\"Returns & Exchanges\">Returns Policy</a>.</p>"
           }
         },
-        "rebuy_personalization_engine_rebuy_widget_D66TYi": {
-          "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-widget/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
-          "settings": {
-            "enabled": true,
-            "id": "",
-            "product_id_enabled": true,
-            "collection_id_enabled": false
-          }
-        },
         "klaviyo_bis_VMWTAy": {
           "type": "klaviyo_bis",
           "settings": {
@@ -137,7 +128,6 @@
         "buy_buttons_B47i49",
         "bold_subscriptions_bsub_widget_block_3nJ3hM",
         "return_policy_VABCGt",
-        "rebuy_personalization_engine_rebuy_widget_D66TYi",
         "klaviyo_bis_VMWTAy",
         "bold_subscriptions_bsub_express_add_ons_UF66My"
       ],
@@ -147,10 +137,106 @@
         "section_padding": "section-padding-main",
         "constrain_to_viewport": false,
         "media_fit": "contain",
+        "image_zoom_behavior": "inside",
         "product_images_position": "right",
         "slideshow_media_aspect_ratio": "1/1",
         "thumbnail_media_aspect_ratio": "1/1",
         "mobile_thumbnails": "show"
+      }
+    },
+    "hae_image_with_text_aBNFAd": {
+      "type": "hae-image-with-text",
+      "blocks": {
+        "eyebrow_eXfEid": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "Long Lasting Salon Quality Nails At Home",
+            "text_size": "text-size-medium"
+          }
+        },
+        "heading_jFEmRp": {
+          "type": "heading",
+          "settings": {
+            "heading": "15 Min Nails in 3 Easy Steps",
+            "heading_size": "headline-style-h2"
+          }
+        },
+        "text_f6Pdp7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with NOUS. It’s the <em><strong>NOUS way of doing things.</strong></em></p>",
+            "text_size": "text-size-medium"
+          }
+        },
+        "text_with_icon_8QzVry": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/0e17a53162a56d8cf9794ffeeb9326c1.svg",
+            "text": "3 easy steps – apply, cure, buff.",
+            "text_size": "text-size-medium"
+          }
+        },
+        "text_with_icon_jx6N9P": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/c8e8a3162fda8fb7050dd3c651695e2a.svg",
+            "text": "Non Toxic",
+            "text_size": "text-size-medium"
+          }
+        },
+        "text_with_icon_TQRm3y": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/ca0e36cc52a03559d35034ca36d41412.svg",
+            "text": "Lasts 14 days",
+            "text_size": "text-size-medium"
+          }
+        },
+        "text_with_icon_TtUwjk": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/0ee9af4c0a5b1a829cf3abacf1cf0a0d.svg",
+            "text": "No nail damage",
+            "text_size": "text-size-medium"
+          }
+        },
+        "text_with_icon_rbx8zn": {
+          "type": "text_with_icon",
+          "settings": {
+            "icon": "shopify://shop_images/52e95258835c6343d583074b3a79ba14.svg",
+            "text": "Easy removal",
+            "text_size": "text-size-medium"
+          }
+        },
+        "button_yx7Vkf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_size": "button--medium"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_eXfEid",
+        "heading_jFEmRp",
+        "text_f6Pdp7",
+        "text_with_icon_8QzVry",
+        "text_with_icon_jx6N9P",
+        "text_with_icon_TQRm3y",
+        "text_with_icon_TtUwjk",
+        "text_with_icon_rbx8zn",
+        "button_yx7Vkf"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "layout": "left",
+        "color_scheme": "",
+        "media_type": "video",
+        "media_aspect_ratio": "1/1",
+        "image": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/89f4b8510ab54e1cad1767b44fa6ade4.mov",
+        "video_poster": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png"
       }
     },
     "product_expose_37qzyW": {
@@ -305,6 +391,7 @@
   },
   "order": [
     "main",
+    "hae_image_with_text_aBNFAd",
     "product_expose_37qzyW",
     "product_recommendations_e6WMRL",
     "17570441195a98675a",
