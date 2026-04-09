@@ -37,6 +37,7 @@
     "enable_ajax": true,
     "enable_cart_recommendation": true,
     "cart_recommendation_product": "led-gel-lamp",
+    "cart_recommendation_title": "Don't forget! ☻",
     "colors_text_1": "#6d0506",
     "color_text": "#000000",
     "color_body_text": "#000000",
