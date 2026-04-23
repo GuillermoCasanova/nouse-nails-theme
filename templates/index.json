@@ -445,7 +445,7 @@
         "scroll_threshold": 500,
         "modal_media": "shopify://shop_images/QD-758_Edit.jpg",
         "modal_media_aspect_ratio": "16/9",
-        "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"#\">Terms</a>.</p>"
+        "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"/pages/terms-of-service\" title=\"Terms of Service\">Terms</a>.</p>"
       }
     }
   },
