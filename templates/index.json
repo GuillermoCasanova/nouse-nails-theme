@@ -105,7 +105,7 @@
         "text_BkXNpA": {
           "type": "text",
           "settings": {
-            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous. It’s the <em><strong>Nous way of doing things.</strong></em></p>",
+            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with NOUS. It’s the <em><strong>NOUS way of doing things.</strong></em></p>",
             "text_size": "text-size-large"
           }
         },
@@ -445,9 +445,7 @@
         "scroll_threshold": 500,
         "modal_media": "shopify://shop_images/QD-758_Edit.jpg",
         "modal_media_aspect_ratio": "16/9",
-        "modal_heading": "☀ SIGN UP & GET 15% OFF FIRST ORDER ☺",
-        "modal_heading_size": "headline-style-h4",
-        "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"#\">Email Terms</a>.</p>"
+        "modal_disclaimer": "<p>*Offer valid on first subscription order for new email subscribers. Exclusions apply. By signing up, you agree to our <a href=\"#\">Terms</a>.</p>"
       }
     }
   },
