@@ -70,7 +70,11 @@
             "convertible_header": "Converts to",
             "eligible_for_subscription_header": "Eligible for Subscription",
             "initial_dynamic_discount_text": "Save {initial_percent_discount}% ({initial_fixed_discount})",
-            "subsequent_dynamic_discounts_text": "{subsequent_percent_discount}% ({subsequent_fixed_discount}) after {order_count} order(s)"
+            "subsequent_dynamic_discounts_text": "{subsequent_percent_discount}% ({subsequent_fixed_discount}) after {order_count} order(s)",
+            "enable_pdp_price_update": false,
+            "pdp_price_container_selector": "[id^=\"price-template--\"][id$=\"__main\"]",
+            "pdp_regular_price_selector": ".price__regular .price-item--regular",
+            "pdp_sale_price_selector": ".price__sale .price-item--sale"
           }
         },
         "return_policy_VABCGt": {
@@ -356,8 +360,8 @@
         "faq_block_BeX766": {
           "type": "faq_block",
           "settings": {
-            "question": "Are they non-toxic?",
-            "answer": "<p>No nasties, just nail magic. We skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
+            "question": "Are these ingredients clean?",
+            "answer": "<p>We're a clean alterntive! No nasties, just nail magic. We skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
           }
         },
         "faq_block_6NhEBx": {
