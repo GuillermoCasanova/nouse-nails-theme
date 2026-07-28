@@ -9,12 +9,6 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_size": "section-padding-small"
-      }
-    },
     "main_page_header_z7GBQx": {
       "type": "main-page-header",
       "name": "Main Page Header",
@@ -25,6 +19,12 @@
         "padding_size": "section-padding-x-small",
         "heading_size": "headline-style-h1",
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_size": "section-padding-small"
       }
     },
     "hae_image_with_text_k47d3J": {
@@ -149,8 +149,8 @@
     }
   },
   "order": [
-    "main",
     "main_page_header_z7GBQx",
+    "main",
     "hae_image_with_text_k47d3J",
     "hae_image_with_text_GRi7tR",
     "hae_faqs_kMwEaE"
