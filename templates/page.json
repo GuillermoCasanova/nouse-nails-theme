@@ -163,13 +163,21 @@
             "question": "Can I add extra nail sets to my subscription?",
             "answer": "<p>Yes! Click <strong>Add Product</strong> if you'd like to receive additional nail sets with every subscription order.</p><p>You'll have two options:</p><p>✱ <strong>Add to Subscription</strong> - Adds another recurring nail set to all future subscription orders.</p><p>✱ <strong>Add to Next Order Only</strong> - Adds a one-time nail set to your next order only.</p>"
           }
+        },
+        "faq_block_AcEp4V": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I skip or pause my subscription?",
+            "answer": "<p>Yes! You can skip upcoming orders, pause your subscription, change your renewal date, or update your payment method anytime through your subscription portal.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_PcF74i",
         "faq_block_U7r6rD",
         "faq_block_R63JyP",
-        "faq_block_Wh8Y3z"
+        "faq_block_Wh8Y3z",
+        "faq_block_AcEp4V"
       ],
       "name": "FAQ Section",
       "settings": {
