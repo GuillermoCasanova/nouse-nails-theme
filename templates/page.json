@@ -157,11 +157,11 @@
             "answer": "<p>✱ <strong>Swap Product</strong> replaces your current recurring nail design.</p><p>✱ <strong>Add Product</strong> adds another recurring nail set to your subscription. It does <strong>not</strong> replace your current design.</p>"
           }
         },
-        "faq_block_99G3Y8": {
+        "faq_block_Wh8Y3z": {
           "type": "faq_block",
           "settings": {
-            "question": "Can I still apply for the Creator Program too?",
-            "answer": "<p>Yes! ☺︎ The Affiliate Program is open to everyone, while the <a href=\"/pages/creator-program\" target=\"_blank\" title=\"Creator Program\"><strong>Creator Program</strong></a> is invite-only for select creators who receive <em>monthly free nails</em> and other exclusive perks. You can be <strong>both</strong> — creators automatically earn affiliate commissions too.</p>"
+            "question": "Can I add extra nail sets to my subscription?",
+            "answer": "<p>Yes! Click <strong>Add Product</strong> if you'd like to receive additional nail sets with every subscription order.</p><p>You'll have two options:</p><p>✱ <strong>Add to Subscription</strong> - Adds another recurring nail set to all future subscription orders.</p><p>✱ <strong>Add to Next Order Only</strong> - Adds a one-time nail set to your next order only.</p>"
           }
         }
       },
@@ -169,7 +169,7 @@
         "faq_block_PcF74i",
         "faq_block_U7r6rD",
         "faq_block_R63JyP",
-        "faq_block_99G3Y8"
+        "faq_block_Wh8Y3z"
       ],
       "name": "FAQ Section",
       "settings": {
