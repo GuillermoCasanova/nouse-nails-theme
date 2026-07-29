@@ -139,22 +139,22 @@
         "faq_block_PcF74i": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "How do I change my next manicure?",
+            "answer": "<p>Log into your subscription account above, scroll down to <strong>Products in my subscription</strong>, click <strong>Edit</strong>, then select <strong>Swap Product</strong> to choose a new design for your next order.</p>"
           }
         },
         "faq_block_U7r6rD": {
           "type": "faq_block",
           "settings": {
-            "question": "How do I join the affiliate program?",
-            "answer": "<p>It’s simple. Anyone can join. ✱ Just click the <strong>“</strong><span style=\"text-decoration:underline\"><strong>Join Affiliate Program</strong></span><strong>”</strong> button and sign up through our affiliate portal. You’ll receive your unique link and code to start sharing immediately.</p>"
+            "question": "Can I change my nail design every month?",
+            "answer": "<p>Yes! You can swap your upcoming manicure before your next renewal by selecting <strong>Swap Product</strong> in your subscription portal.</p>"
           }
         },
         "faq_block_R63JyP": {
           "type": "faq_block",
           "settings": {
-            "question": "When and how do I get paid?",
-            "answer": "<p>Commissions are tracked automatically through your affiliate dashboard. Payouts are processed monthly based on your total confirmed sales for that period.</p>"
+            "question": "What's the difference between \"Swap Product\" and \"Add Product\"?",
+            "answer": "<p>✱ <strong>Swap Product</strong> replaces your current recurring nail design.</p><p>✱ <strong>Add Product</strong> adds another recurring nail set to your subscription. It does <strong>not</strong> replace your current design.</p>"
           }
         },
         "faq_block_99G3Y8": {
