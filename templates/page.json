@@ -33,39 +33,29 @@
         "heading_jenjyE": {
           "type": "heading",
           "settings": {
-            "heading": "Earn as You Share ✱ Nous Affiliate Program",
+            "heading": "How to Update Your Subscription ☻",
             "heading_size": "headline-style-h2"
           }
         },
         "text_MqwR84": {
           "type": "text",
           "settings": {
-            "text": "<p>Love Nous Nails? <em><strong>Earn money</strong></em> every time someone shops through your link or code. The Nous Affiliate Program is open to everyone — no approval process, *no gatekeeping* just real rewards for sharing what you already love.</p><p>Receive tiered commissions, unlock perks, and level up as your sales grow.</p>",
+            "text": "<p>1. Log into your subscription account (above)</p><p>2. Scroll down to \"<strong>Products in my subscription</strong>\"</p><p>3. To swap upcoming design, click on \"<strong>Swap Product</strong>\"</p><p>4. <em>(Optional)</em> To receive <strong>additional</strong> nail sets with every subscription order, click \"<strong>Add Product</strong>.\" <strong>Please note: Add Product does not replace your current design</strong>. It adds another recurring product to your subscription and may increase your recurring order total until removed.</p>",
             "text_size": "text-size-medium"
-          }
-        },
-        "button_aRDteA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Affilate Sign Up",
-            "button_link": "mailto:partnerships@nousnails.com",
-            "button_size": "button--medium"
           }
         }
       },
       "block_order": [
         "heading_jenjyE",
-        "text_MqwR84",
-        "button_aRDteA"
+        "text_MqwR84"
       ],
-      "disabled": true,
       "name": "Image with text",
       "settings": {
         "layout": "left",
-        "color_scheme": "",
+        "color_scheme": "scheme-38cadf72-7f29-4186-8b19-cfda33c52e01",
         "media_type": "image",
         "media_aspect_ratio": "1/1",
-        "image": "shopify://shop_images/QD-2347_Edit.jpg",
+        "image": "shopify://shop_images/Subscription.jpg",
         "video_url": ""
       }
     },
