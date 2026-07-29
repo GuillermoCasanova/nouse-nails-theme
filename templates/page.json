@@ -58,6 +58,7 @@
         "text_MqwR84",
         "button_aRDteA"
       ],
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "layout": "left",
@@ -99,6 +100,7 @@
         "text_xBHirn",
         "button_aCJEJi"
       ],
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "layout": "right",
@@ -139,6 +141,7 @@
         "faq_block_R63JyP",
         "faq_block_99G3Y8"
       ],
+      "disabled": true,
       "name": "FAQ Section",
       "settings": {
         "color_scheme": "",
