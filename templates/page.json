@@ -72,7 +72,7 @@
         "text_npaMUC": {
           "type": "text",
           "settings": {
-            "text": "<p>Want to receive additional nail sets with your subscription?</p><p>1. To receive <strong>additional</strong> nail sets with every subscription order, click \"<strong>Add Product</strong>.\" <strong>Please note: Add Product does not replace your current design</strong>. </p><p>2. You can choose an option of:<br/>✱ <strong>Add to Subscription</strong> - Which will add a recurring additional product.<br/>✱ <strong>Add to Next Order Only</strong> - Which will add the additional product for a one-time only. </p>",
+            "text": "<p>Want to receive additional nail sets with your subscription?</p><p>1. To receive <strong>additional</strong> nail sets with every subscription order, click \"<strong>Add Product</strong>.\" <strong>Please note: Add Product does not replace your current design</strong>. </p><p>2. You can choose an option of:<br/>✱ <strong>Add to Subscription</strong> - Adds another recurring product.<br/>✱ <strong>Add to Next Order Only</strong> - Adds the product to your next order only (one-time). </p>",
             "text_size": "text-size-medium"
           }
         }
