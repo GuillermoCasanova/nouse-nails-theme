@@ -170,6 +170,27 @@
             "question": "Can I skip or pause my subscription?",
             "answer": "<p>Yes! You can skip upcoming orders, pause your subscription, change your renewal date, or update your payment method anytime through your subscription portal.</p>"
           }
+        },
+        "faq_block_JCGzkx": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I cancel my subscription?",
+            "answer": "<p>Absolutely. You can cancel your subscription at any time through your subscription portal.</p>"
+          }
+        },
+        "faq_block_ix7jnw": {
+          "type": "faq_block",
+          "settings": {
+            "question": "I didn't receive my login link. What should I do?",
+            "answer": "<p>Please make sure you're using the same email address you used to place your subscription order. If you still don't receive your one-time login link, check your spam or promotions folder before reaching out to us.</p>"
+          }
+        },
+        "faq_block_MgNKW3": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Still have questions?",
+            "answer": "<p>We're always happy to help! 💌 Reach out to us anytime at <a href=\"mailto:hello@nousnails.com\" target=\"_blank\" title=\"mailto:hello@nousnails.com\"><span style=\"text-decoration:underline\"><strong>hello@nousnails.com</strong></span></a> and our team will get back to you as soon as possible.</p>"
+          }
         }
       },
       "block_order": [
@@ -177,7 +198,10 @@
         "faq_block_U7r6rD",
         "faq_block_R63JyP",
         "faq_block_Wh8Y3z",
-        "faq_block_AcEp4V"
+        "faq_block_AcEp4V",
+        "faq_block_JCGzkx",
+        "faq_block_ix7jnw",
+        "faq_block_MgNKW3"
       ],
       "name": "FAQ Section",
       "settings": {
