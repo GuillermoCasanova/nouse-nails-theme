@@ -33,14 +33,14 @@
         "heading_jenjyE": {
           "type": "heading",
           "settings": {
-            "heading": "How to Update Your Subscription ☻",
+            "heading": "How to Update Your Next Subscription Order ☻",
             "heading_size": "headline-style-h2"
           }
         },
         "text_MqwR84": {
           "type": "text",
           "settings": {
-            "text": "<p>1. Log into your subscription account (above)</p><p>2. Scroll down to \"<strong>Products in my subscription</strong>\"</p><p>3. To swap upcoming design, click on \"<strong>Swap Product</strong>\"</p><p>4. <em>(Optional)</em> To receive <strong>additional</strong> nail sets with every subscription order, click \"<strong>Add Product</strong>.\" <strong>Please note: Add Product does not replace your current design</strong>. It adds another recurring product to your subscription and may increase your recurring order total until removed.</p>",
+            "text": "<p>1. Log into your subscription account (above)</p><p>2. Scroll down to \"<strong>Products in my subscription</strong>\"</p><p>3. To change your next manicure, click \"<strong>Swap Product.</strong>\"</p><p>4. <em>(Optional)</em> To receive <strong>additional</strong> nail sets with every subscription order, click \"<strong>Add Product</strong>.\" <br/></p><p>⚠️ <strong>Please note: Add Product does not replace your current design</strong>. It adds another recurring product to your subscription and may increase your recurring order total until removed.</p>",
             "text_size": "text-size-medium"
           }
         }
