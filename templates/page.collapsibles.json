@@ -154,15 +154,15 @@
         "faq_block_jW97yk": {
           "type": "faq_block",
           "settings": {
-            "question": "My order arrived damaged.",
-            "answer": "<p>Please email us within <strong>5 days of delivery</strong> with photos of the damaged item and packaging. We'll make it right. ☻</p>"
+            "question": "Can I pause or skip my subscription?",
+            "answer": "<p>Yes. You can skip, pause, or manage upcoming orders from your subscription portal.</p>"
           }
         },
         "faq_block_zHqxKj": {
           "type": "faq_block",
           "settings": {
-            "question": "How do I start a return?",
-            "answer": "<p>To start a return, please read the <a href=\"/pages/returns-exchanges\" title=\"Returns & Exchanges\">full directions here</a>.</p>"
+            "question": "I didn't receive my login link.",
+            "answer": "<p>Check your spam or promotions folder first. If you still can't find it, contact us and we'll help.</p>"
           }
         }
       },
