@@ -123,10 +123,18 @@
             "question": "How do I remove NOUS nails?",
             "answer": "<p>Apply <a href=\"/products/ctrl-delete-nail-remover-serum\" title=\"Ctrl+Delete Vitamin Serum Remover\">NOUS Remover Serum</a> around the edges of each nail. Let sit for 30-60 secs. Gently lift the strip using the wooden stick as the serum works underneath. Never force or peel the strips off.</p>"
           }
+        },
+        "faq_block_87WbcU": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Will these damage my nails?",
+            "answer": "<p>No. When applied and removed correctly, NOUS is designed to be a damage-free alternative to traditional gel manicures.</p>"
+          }
         }
       },
       "block_order": [
-        "faq_block_WLpRxf"
+        "faq_block_WLpRxf",
+        "faq_block_87WbcU"
       ],
       "name": "FAQ Section",
       "settings": {
