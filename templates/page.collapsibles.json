@@ -189,13 +189,21 @@
             "question": "Can I change or cancel my order?",
             "answer": "<p>If your order hasn't shipped yet, please contact us via email <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a> as soon as possible. Once an order has been fulfilled, we're unable to make changes.</p>"
           }
+        },
+        "faq_block_j3F9UW": {
+          "type": "faq_block",
+          "settings": {
+            "question": "My package says \"Delivered,\" but I haven't received it.",
+            "answer": "<p>Once your order leaves our warehouse, you'll receive a USPS tracking number via email. From that point forward, your shipment is in the care of USPS.</p><p>If your tracking shows <strong>Delivered</strong> but you can't locate your package, we recommend:<br/>✱ Waiting up to <strong>24 hours</strong>, as USPS may mark packages as delivered before the final drop-off.<br/>✱ Checking your mailbox, parcel lockers, front door, side entrances, and with neighbors.<br/>✱ Contacting your local USPS Post Office with your tracking number, as they can often provide GPS delivery information and additional delivery details.</p><p>Please note that <strong>NOUS is not responsible for packages that are lost, delayed, stolen, or marked as delivered by the shipping carrier.</strong></p><p>While we're unable to replace or refund orders due to carrier delivery issues, if you need help locating your package, feel free to email us at <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a> and we'll do our best to assist.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_XJjWNn",
         "faq_block_M6A9iw",
         "faq_block_b3aVh7",
-        "faq_block_dr368i"
+        "faq_block_dr368i",
+        "faq_block_j3F9UW"
       ],
       "name": "FAQ Section",
       "settings": {
