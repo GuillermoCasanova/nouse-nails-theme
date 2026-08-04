@@ -24,6 +24,13 @@
     "hae_faqs_rafz9D": {
       "type": "hae-faqs",
       "blocks": {
+        "faq_block_J3hiRY": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I apply the nail strips?",
+            "answer": "<p>Here's <a href=\"https://nousnails.com/pages/how-to\" title=\"https://nousnails.com/pages/how-to\">full directions</a> for application. </p><p>1. Clean nails with prep pad</p><p>2. Apply nail sticker, if you're in between sizes opt for a slightly smaller size. Stick, size and slightly stretch to fit.</p><p>3. Smooth out any air bubbles with the wooden stick provided.</p><p>4. Clip and Buff. Buff in a gentle downward motion to avoid lifting.</p>"
+          }
+        },
         "faq_block_8hf9f6": {
           "type": "faq_block",
           "settings": {
@@ -58,14 +65,31 @@
             "question": "Can I use these on extensions?",
             "answer": "<p>Yes, you can watch our <a href=\"https://www.instagram.com/reel/DWFsiO4jQJV/\" target=\"_blank\" title=\"https://www.instagram.com/reel/DWFsiO4jQJV/\">reel </a>here! If you prefer a longer nail look, you can apply Nous nail strips over clear press-ons or extensions just like you would on natural nails. Be sure the base surface is clean and dry before applying.</p>"
           }
+        },
+        "faq_block_URhXE3": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "<p>Provide your answer here.</p>"
+          }
+        },
+        "faq_block_3rGCJV": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How long should I cure my nails?",
+            "answer": "<p>Cure each hand for <strong>60 seconds</strong> using the NOUS LED Lamp.</p>"
+          }
         }
       },
       "block_order": [
+        "faq_block_J3hiRY",
         "faq_block_8hf9f6",
         "faq_block_WCjUXV",
         "faq_block_j79CCr",
         "faq_block_JdF9m9",
-        "faq_block_XTwgLF"
+        "faq_block_XTwgLF",
+        "faq_block_URhXE3",
+        "faq_block_3rGCJV"
       ],
       "name": "FAQ Section",
       "settings": {
