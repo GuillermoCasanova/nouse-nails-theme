@@ -113,10 +113,32 @@
         "heading": "Application & Wear",
         "page": ""
       }
+    },
+    "hae_faqs_3mEEKA": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_WLpRxf": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I remove NOUS nails?",
+            "answer": "<p>Apply <a href=\"/products/ctrl-delete-nail-remover-serum\" title=\"Ctrl+Delete Vitamin Serum Remover\">NOUS Remover Serum</a> around the edges of each nail. Let sit for 30-60 secs. Gently lift the strip using the wooden stick as the serum works underneath. Never force or peel the strips off.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_WLpRxf"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Application & Wear",
+        "page": ""
+      }
     }
   },
   "order": [
     "main_page_header_LHhYJi",
-    "hae_faqs_rafz9D"
+    "hae_faqs_rafz9D",
+    "hae_faqs_3mEEKA"
   ]
 }
