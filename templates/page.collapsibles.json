@@ -140,15 +140,15 @@
         "faq_block_W3P79K": {
           "type": "faq_block",
           "settings": {
-            "question": "Do you offer exchanges?",
-            "answer": "<p>Due to our limited design runs, we currently do not offer direct exchanges.</p>"
+            "question": "Can I choose a different nail design each month?",
+            "answer": "<p>Yes! Under <strong>Products in My Subscription</strong>, click <strong>Swap Product</strong> to choose your next manicure.</p>"
           }
         },
         "faq_block_XtMFFd": {
           "type": "faq_block",
           "settings": {
-            "question": "Are shipping fees refundable?",
-            "answer": "<p>No. Original shipping costs are non-refundable, and return shipping is the customer's responsibility.</p>"
+            "question": "What's the difference between \"Swap Product\" and \"Add Product\"?",
+            "answer": "<p>✱ <strong>Swap Product</strong> replaces your next subscription design.<br/>✱ <strong>Add Product</strong> adds another recurring product and does <strong>not</strong> replace your existing subscription.</p>"
           }
         },
         "faq_block_jW97yk": {
