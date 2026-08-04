@@ -76,8 +76,8 @@
         "faq_block_3rGCJV": {
           "type": "faq_block",
           "settings": {
-            "question": "How long should I cure my nails?",
-            "answer": "<p>Cure each hand for <strong>60 seconds</strong> using the NOUS LED Lamp.</p>"
+            "question": "How do I use the LED lamp?",
+            "answer": "<p>Please ensure the following:<br/>✱ The USB-C cable is fully connected<br/>✱ The lamp is plugged into a power source while using.<br/>✱ Turn on by tapping the top of the lamp. The lamp turns on for 60 sec for each cure.</p>"
           }
         }
       },
