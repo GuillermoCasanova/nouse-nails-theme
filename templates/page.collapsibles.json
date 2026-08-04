@@ -66,18 +66,18 @@
             "answer": "<p>Yes, you can watch our <a href=\"https://www.instagram.com/reel/DWFsiO4jQJV/\" target=\"_blank\" title=\"https://www.instagram.com/reel/DWFsiO4jQJV/\">reel </a>here! If you prefer a longer nail look, you can apply Nous nail strips over clear press-ons or extensions just like you would on natural nails. Be sure the base surface is clean and dry before applying.</p>"
           }
         },
-        "faq_block_URhXE3": {
-          "type": "faq_block",
-          "settings": {
-            "question": "Can I use another LED nail lamp?",
-            "answer": "<p>Yes! Most standard LED nail lamps will cure NOUS gel strips. However, we recommend using the <a href=\"/products/led-gel-lamp\" title=\"LED Gel Lamp\"><strong>NOUS LED Lamp</strong></a> for the curing time and results we designed our system around.</p>"
-          }
-        },
         "faq_block_3rGCJV": {
           "type": "faq_block",
           "settings": {
             "question": "How do I use the LED lamp?",
             "answer": "<p>Please ensure the following:<br/>✱ The USB-C cable is fully connected<br/>✱ The lamp is plugged into a power source while using.<br/>✱ Turn on by tapping the top of the lamp. The lamp turns on for 60 sec for each cure.</p>"
+          }
+        },
+        "faq_block_URhXE3": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I use another LED nail lamp?",
+            "answer": "<p>Yes! Most standard LED nail lamps will cure NOUS gel strips. However, we recommend using the <a href=\"/products/led-gel-lamp\" title=\"LED Gel Lamp\"><strong>NOUS LED Lamp</strong></a> for the curing time and results we designed our system around.</p>"
           }
         }
       },
@@ -88,8 +88,8 @@
         "faq_block_j79CCr",
         "faq_block_JdF9m9",
         "faq_block_XTwgLF",
-        "faq_block_URhXE3",
-        "faq_block_3rGCJV"
+        "faq_block_3rGCJV",
+        "faq_block_URhXE3"
       ],
       "name": "FAQ Section",
       "settings": {
