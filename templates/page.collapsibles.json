@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "main_page_header_LHhYJi": {
+      "type": "main-page-header",
+      "name": "Main Page Header",
+      "settings": {
+        "custom_title": "",
+        "subtitle": "",
+        "header_background_image": "shopify://shop_images/5_noise_2x_2_9d2ed623-5eaf-438b-a68e-da2c862a27c2.jpg",
+        "padding_size": "section-padding-x-small",
+        "heading_size": "headline-style-h1",
+        "color_scheme": ""
+      }
+    },
     "hae_faqs_rafz9D": {
       "type": "hae-faqs",
       "blocks": {
@@ -64,6 +76,7 @@
     }
   },
   "order": [
+    "main_page_header_LHhYJi",
     "hae_faqs_rafz9D"
   ]
 }
