@@ -127,6 +127,59 @@
         "page": ""
       }
     },
+    "hae_faqs_t6UT8e": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_QhkAUH": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I manage my subscription?",
+            "answer": "<p>Go to <a href=\"/pages/manage-subscriptions\" title=\"Manage Subscriptions\">Manage Subscription</a> page and enter your email associated with your subscription purchase. We'll send you a secure one-time login link to access your portal.</p>"
+          }
+        },
+        "faq_block_W3P79K": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Do you offer exchanges?",
+            "answer": "<p>Due to our limited design runs, we currently do not offer direct exchanges.</p>"
+          }
+        },
+        "faq_block_XtMFFd": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Are shipping fees refundable?",
+            "answer": "<p>No. Original shipping costs are non-refundable, and return shipping is the customer's responsibility.</p>"
+          }
+        },
+        "faq_block_jW97yk": {
+          "type": "faq_block",
+          "settings": {
+            "question": "My order arrived damaged.",
+            "answer": "<p>Please email us within <strong>5 days of delivery</strong> with photos of the damaged item and packaging. We'll make it right. ☻</p>"
+          }
+        },
+        "faq_block_zHqxKj": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How do I start a return?",
+            "answer": "<p>To start a return, please read the <a href=\"/pages/returns-exchanges\" title=\"Returns & Exchanges\">full directions here</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_QhkAUH",
+        "faq_block_W3P79K",
+        "faq_block_XtMFFd",
+        "faq_block_jW97yk",
+        "faq_block_zHqxKj"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Subscription",
+        "page": ""
+      }
+    },
     "hae_faqs_rafz9D": {
       "type": "hae-faqs",
       "blocks": {
@@ -270,6 +323,7 @@
     "main_page_header_LHhYJi",
     "hae_faqs_aLUQh6",
     "hae_faqs_7indUi",
+    "hae_faqs_t6UT8e",
     "hae_faqs_rafz9D",
     "hae_faqs_3mEEKA"
   ]
