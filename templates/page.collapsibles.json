@@ -91,7 +91,7 @@
           "type": "faq_block",
           "settings": {
             "question": "Can I cure it in the sun?",
-            "answer": "<p>Yes! However, please note depending on sun index availability in your region or season may depend. A <strong>10 min sun cure</strong> will suffice if you are walking with bright sun in the daytime.</p>"
+            "answer": "<p>Yes! A <strong>10 min sun cure</strong> will suffice if you are walking with bright sun in the daytime.<br/>✱ However, please note depending on sun index availability in your region or season may vary the outcome. </p>"
           }
         }
       },
