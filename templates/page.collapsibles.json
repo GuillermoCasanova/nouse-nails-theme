@@ -384,7 +384,7 @@
           "type": "faq_block",
           "settings": {
             "question": "How can I contact NOUS?",
-            "answer": "<p>✱ For general questions, use our contact form or email <a><strong>hello@nousnails.com</strong></a>.<br/>✱ For PR, partnerships, or wholesale inquiries, email <a><strong>partnerships@nousnails.com</strong></a></p>"
+            "answer": "<p>✱ For general questions, use our contact form or email <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a>.<br/>✱ For PR, partnerships, or wholesale inquiries, email <a href=\"mailto:partnerships@nousnails.com\" title=\"mailto:partnerships@nousnails.com\">partnerships@nousnails.com</a>.</p>"
           }
         },
         "faq_block_k8TFdn": {
