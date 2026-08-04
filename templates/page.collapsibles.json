@@ -27,15 +27,15 @@
         "faq_block_8hf9f6": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "How long do NOUS nails last?",
+            "answer": "<p>With proper application, NOUS nails typically last <strong>up to 14+ days</strong> with salon-quality shine.</p>"
           }
         },
         "faq_block_WCjUXV": {
           "type": "faq_block",
           "settings": {
-            "question": "What is your question?",
-            "answer": "<p>Provide your answer here.</p>"
+            "question": "How do I choose the right nail size?",
+            "answer": "<p>Choose the strip that fits your nail <strong>edge to edge</strong> without touching your skin or cuticle. If you're between sizes, always choose the slightly smaller strip.</p><p>Nail Hack: Watch our <a href=\"https://www.instagram.com/reel/DW5Ti29jVZO/\" target=\"_blank\" title=\"https://www.instagram.com/reel/DW5Ti29jVZO/\">reel </a>here. Warm it up to make it more flexible by rubbing it in the palm of your hands or place it briefly over a warm mug of coffee. Once softened, apply and gently stretch to fit. <em>Note: </em>this only works for slightly smaller strips; overstretching can tear the film or distort the artwork.</p>"
           }
         },
         "faq_block_j79CCr": {
@@ -70,7 +70,7 @@
       "name": "FAQ Section",
       "settings": {
         "color_scheme": "",
-        "heading": "Frequently Asked Questions",
+        "heading": "Application & Wear",
         "page": ""
       }
     }
