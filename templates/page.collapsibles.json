@@ -130,11 +130,19 @@
             "question": "Will these damage my nails?",
             "answer": "<p>No. When applied and removed correctly, NOUS is designed to be a damage-free alternative to traditional gel manicures.</p>"
           }
+        },
+        "faq_block_pnpCGV": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I shower or wash dishes?",
+            "answer": "<p>Yes. Once fully cured, your nails are water-resistant and made for everyday wear. We do recommend to avoid taking a bath or applying oils at least 1 hour after application.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_WLpRxf",
-        "faq_block_87WbcU"
+        "faq_block_87WbcU",
+        "faq_block_pnpCGV"
       ],
       "name": "FAQ Section",
       "settings": {
