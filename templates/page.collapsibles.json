@@ -362,6 +362,51 @@
         "heading": "Affiliate Program",
         "page": ""
       }
+    },
+    "hae_faqs_6hyjMK": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_k7RVwf": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Are NOUS products vegan and cruelty-free?",
+            "answer": "<p>Yes. NOUS products are vegan and cruelty-free.</p>"
+          }
+        },
+        "faq_block_LkqiVf": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Are your products HEMA-free?",
+            "answer": "<p>No Nasties, Just Nail Magic. We left out the top 10 most questionable ingredients—so you can shine without worry. That means no formaldehyde, HEMA, DBP, TPHP, or toluene. Ever.</p>"
+          }
+        },
+        "faq_block_adWKPa": {
+          "type": "faq_block",
+          "settings": {
+            "question": "What discount does my audience receive?",
+            "answer": "<p>Your personalized affiliate code gives your followers <strong>20% off</strong> their purchase.</p>"
+          }
+        },
+        "faq_block_k8TFdn": {
+          "type": "faq_block",
+          "settings": {
+            "question": "When do I get paid?",
+            "answer": "<p>Affiliate commissions are paid according to our affiliate platform's payout schedule once a month, within the first week of month.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_k7RVwf",
+        "faq_block_LkqiVf",
+        "faq_block_adWKPa",
+        "faq_block_k8TFdn"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "General",
+        "page": ""
+      }
     }
   },
   "order": [
@@ -371,6 +416,7 @@
     "hae_faqs_t6UT8e",
     "hae_faqs_rafz9D",
     "hae_faqs_3mEEKA",
-    "hae_faqs_3CJB7y"
+    "hae_faqs_3CJB7y",
+    "hae_faqs_6hyjMK"
   ]
 }
