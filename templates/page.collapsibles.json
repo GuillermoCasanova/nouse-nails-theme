@@ -325,28 +325,28 @@
           "type": "faq_block",
           "settings": {
             "question": "How do I join the affiliate program?",
-            "answer": "<p>Simply apply through on our <a href=\"https://nousnails.goaffpro.com/\" target=\"_blank\" title=\"https://nousnails.goaffpro.com/\">affiliate page</a></p>"
+            "answer": "<p>Simply apply through on our <a href=\"https://nousnails.goaffpro.com/\" target=\"_blank\" title=\"https://nousnails.goaffpro.com/\">affiliate page</a>.</p>"
           }
         },
         "faq_block_PBKbyd": {
           "type": "faq_block",
           "settings": {
-            "question": "Will these damage my nails?",
-            "answer": "<p>No. When applied and removed correctly, NOUS is designed to be a damage-free alternative to traditional gel manicures.</p>"
+            "question": "How much commission do affiliates earn?",
+            "answer": "<p>Affiliates earn <strong>15% commission</strong> on every qualifying sale generated through their link or code. Top-performing affiliates can unlock higher commission tiers and additional perks.</p>"
           }
         },
         "faq_block_4nXkeX": {
           "type": "faq_block",
           "settings": {
-            "question": "Can I shower or wash dishes?",
-            "answer": "<p>Yes. Once fully cured, your nails are water-resistant and made for everyday wear. We do recommend to avoid taking a bath or applying oils at least 1 hour after application.</p>"
+            "question": "What discount does my audience receive?",
+            "answer": "<p>Your personalized affiliate code gives your followers <strong>20% off</strong> their purchase.</p>"
           }
         },
         "faq_block_X3U9Gx": {
           "type": "faq_block",
           "settings": {
-            "question": "Can I apply cuticle oil?",
-            "answer": "<p>Absolutely. We recommend waiting at least one hour after application before using oils or lotions.</p>"
+            "question": "When do I get paid?",
+            "answer": "<p>Affiliate commissions are paid according to our affiliate platform's payout schedule once a month, within the first week of month.</p>"
           }
         }
       },
