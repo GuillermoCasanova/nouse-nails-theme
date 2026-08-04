@@ -162,7 +162,7 @@
           "type": "faq_block",
           "settings": {
             "question": "I didn't receive my login link.",
-            "answer": "<p>Check your spam or promotions folder first. If you still can't find it, contact us and we'll help.</p>"
+            "answer": "<p>Check your spam or promotions folder first. If you still can't find it, contact us at <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a> and we'll help.</p>"
           }
         }
       },
