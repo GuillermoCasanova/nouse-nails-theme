@@ -87,22 +87,22 @@
         "faq_block_M9w4i8": {
           "type": "faq_block",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "<p>Standard U.S. shipping generally arrives within <strong>5–7 business days.</strong></p>"
+            "question": "Do you offer exchanges?",
+            "answer": "<p>Due to our limited design runs, we currently do not offer direct exchanges.</p>"
           }
         },
         "faq_block_pV9MRa": {
           "type": "faq_block",
           "settings": {
-            "question": "Do you ship internationally?",
-            "answer": "<p>At this time, we only ship within the United States.</p>"
+            "question": "Are shipping fees refundable?",
+            "answer": "<p>No. Original shipping costs are non-refundable, and return shipping is the customer's responsibility.</p>"
           }
         },
         "faq_block_QX7HFj": {
           "type": "faq_block",
           "settings": {
-            "question": "Can I change or cancel my order?",
-            "answer": "<p>If your order hasn't shipped yet, please contact us via email <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a> as soon as possible. Once an order has been fulfilled, we're unable to make changes.</p>"
+            "question": "My order arrived damaged.",
+            "answer": "<p>Please email us within <strong>5 days of delivery</strong> with photos of the damaged item and packaging. We'll make it right. ☻</p>"
           }
         },
         "faq_block_hqYr7n": {
