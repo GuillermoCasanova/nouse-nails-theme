@@ -137,12 +137,20 @@
             "question": "Can I shower or wash dishes?",
             "answer": "<p>Yes. Once fully cured, your nails are water-resistant and made for everyday wear. We do recommend to avoid taking a bath or applying oils at least 1 hour after application.</p>"
           }
+        },
+        "faq_block_f8BxHe": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I apply cuticle oil?",
+            "answer": "<p>Absolutely. We recommend waiting at least one hour after application before using oils or lotions.</p>"
+          }
         }
       },
       "block_order": [
         "faq_block_WLpRxf",
         "faq_block_87WbcU",
-        "faq_block_pnpCGV"
+        "faq_block_pnpCGV",
+        "faq_block_f8BxHe"
       ],
       "name": "FAQ Section",
       "settings": {
@@ -150,11 +158,57 @@
         "heading": "Application & Wear",
         "page": ""
       }
+    },
+    "hae_faqs_aLUQh6": {
+      "type": "hae-faqs",
+      "blocks": {
+        "faq_block_XJjWNn": {
+          "type": "faq_block",
+          "settings": {
+            "question": "When will my order ship?",
+            "answer": "<p>Orders are typically processed within <strong>1–2 business days</strong>. Once your order ships, you will receive a tracking number via email.</p>"
+          }
+        },
+        "faq_block_M6A9iw": {
+          "type": "faq_block",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Standard U.S. shipping generally arrives within <strong>5–7 business days.</strong></p>"
+          }
+        },
+        "faq_block_b3aVh7": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>At this time, we only ship within the United States.</p>"
+          }
+        },
+        "faq_block_dr368i": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I change or cancel my order?",
+            "answer": "<p>If your order hasn't shipped yet, please contact us via email <a href=\"mailto:hello@nousnails.com\" title=\"mailto:hello@nousnails.com\">hello@nousnails.com</a> as soon as possible. Once an order has been fulfilled, we're unable to make changes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_block_XJjWNn",
+        "faq_block_M6A9iw",
+        "faq_block_b3aVh7",
+        "faq_block_dr368i"
+      ],
+      "name": "FAQ Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Orders & Shipping",
+        "page": ""
+      }
     }
   },
   "order": [
     "main_page_header_LHhYJi",
     "hae_faqs_rafz9D",
-    "hae_faqs_3mEEKA"
+    "hae_faqs_3mEEKA",
+    "hae_faqs_aLUQh6"
   ]
 }
