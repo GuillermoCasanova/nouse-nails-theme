@@ -86,6 +86,13 @@
             "question": "Is the curing lamp harmful?",
             "answer": "<p>No, our curing lamp is not UV. We use LED for curing.</p>"
           }
+        },
+        "faq_block_EgWMT9": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Can I cure it in the sun?",
+            "answer": "<p>Yes! However, please note depending on sun index availability in your region or season may depend. A <strong>10 min sun cure</strong> will suffice if you are walking with bright sun in the daytime.</p>"
+          }
         }
       },
       "block_order": [
@@ -97,7 +104,8 @@
         "faq_block_XTwgLF",
         "faq_block_3rGCJV",
         "faq_block_URhXE3",
-        "faq_block_dYbTQj"
+        "faq_block_dYbTQj",
+        "faq_block_EgWMT9"
       ],
       "name": "FAQ Section",
       "settings": {
