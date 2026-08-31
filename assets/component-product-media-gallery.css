@@ -990,7 +990,6 @@ media-gallery {
   justify-content: space-between;
   align-items: center;
   gap: var(--space-4);
-  pointer-events: auto;
   position: absolute;
   z-index: 10;
   top: 42%;
@@ -1002,6 +1001,12 @@ media-gallery {
   opacity: 0;
   transition: opacity 0.3s var(--default-easing);
   pointer-events: none;
+}
+
+@media screen and (min-width: 750px) {
+  .product-media-gallery__navigation {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 940px) {
@@ -1028,6 +1033,14 @@ media-gallery {
   font-size: 1rem;
   font-weight: bold;
   pointer-events: all;
+  position: relative;
+  z-index: 11;
+}
+
+.product-media-gallery__main .product-media-gallery__nav-button::before {
+  content: '';
+  position: absolute;
+  inset: -1.25rem;
 }
 
 .product-media-gallery__nav-button:hover,

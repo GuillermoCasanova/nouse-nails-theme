@@ -107,6 +107,38 @@ summary::before {
   pointer-events: none !important;
 }
 
+.skip-link {
+  background-color: rgb(var(--color-button-primary-background));
+  border: 2px solid rgb(var(--color-button-primary-border));
+  border-radius: 100vw;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  color: rgb(var(--color-button-primary-text));
+  height: 1px;
+  left: 1rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  text-decoration: none;
+  text-transform: none;
+  top: 1rem;
+  white-space: nowrap;
+  width: 1px;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  overflow: visible;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  padding: var(--space-2) var(--space-4);
+  position: fixed;
+  width: auto;
+}
+
 .responsive-image {
   position: absolute;
   top: 0;

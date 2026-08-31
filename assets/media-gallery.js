@@ -174,6 +174,15 @@ if (!customElements.get('media-gallery')) {
 
       _initImageZoom() {
         this.addEventListener('click', e => {
+          if (
+            e.target.closest(
+              '.product-media-gallery__nav-button, .swiper-slideshow__nav-button'
+            )
+          ) {
+            return;
+          }
+          if (e.target.closest('.product-media-gallery__thumbnails')) return;
+
           const wrapper = e.target.closest('[data-image-zoom-wrapper]');
           if (!wrapper) return;
           const zoomUrl = wrapper.getAttribute('data-zoom');

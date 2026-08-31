@@ -105,6 +105,15 @@
         "blog_title": "Blog post title",
         "blog_excerpt": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
       }
+    },
+    "accessibility": {
+      "skip_to_content": "Skip to content.",
+      "unit_price_separator": "per",
+      "link_messages": {
+        "new_window": "Opens in a new window.",
+        "external": "Opens external website.",
+        "new_window_and_external": "Opens in a new window and external website."
+      }
     }
   },
   "hae": {

@@ -135,7 +135,9 @@ class SwiperSlideshow extends HTMLElement {
       autoHeight: attrs.autoHeight === 'true',
       preloadImages: false,
       watchSlidesProgress: true,
+      preventClicks: true,
       preventClicksPropagation: true,
+      threshold: 5,
 
       // Mousewheel - maps vertical scroll to horizontal slide on desktop
       mousewheel:
@@ -270,6 +272,16 @@ class SwiperSlideshow extends HTMLElement {
 
     const config = this.getConfig();
 
+    if (this.isThumbnailGallery()) {
+      this.applyThumbnailGalleryConfig(config);
+    }
+
+    if (this.isProductGalleryMain()) {
+      this.applyProductGalleryMainConfig(config);
+    }
+
+    this.scopeNavigationElements(config);
+
     // Add observer to handle resize and update properly
     config.observer = true;
     config.observeParents = true;
@@ -303,9 +315,9 @@ class SwiperSlideshow extends HTMLElement {
       const thumbnailElement = document.querySelector(
         `[${thumbnailsSelector}]`
       );
+      let thumbnailSwiper = null;
       if (thumbnailElement) {
-        const thumbnailSwiper =
-          await this.waitForSwiperInstance(thumbnailElement);
+        thumbnailSwiper = await this.waitForSwiperInstance(thumbnailElement);
         if (thumbnailSwiper) {
           config.thumbs = {
             swiper: thumbnailSwiper,
@@ -314,6 +326,10 @@ class SwiperSlideshow extends HTMLElement {
         }
       }
       this.swiper = new Swiper(sliderContainer, config);
+
+      if (thumbnailSwiper) {
+        this.bindThumbnailClicks(thumbnailSwiper, this.swiper);
+      }
     } else {
       // Initialize as a thumbnail slider
       this.swiper = new Swiper(sliderContainer, {
@@ -322,6 +338,68 @@ class SwiperSlideshow extends HTMLElement {
         slideToClickedSlide: true,
       });
     }
+  }
+
+  isThumbnailGallery() {
+    return this.hasAttribute('data-thumbnails-gallery');
+  }
+
+  isProductGalleryMain() {
+    return this.classList.contains('product-media-gallery__main');
+  }
+
+  applyThumbnailGalleryConfig(config) {
+    config.slideToClickedSlide = true;
+    config.preventClicks = false;
+    config.preventClicksPropagation = false;
+    config.threshold = 10;
+    config.simulateTouch = true;
+
+    if (config.breakpoints?.[750]) {
+      config.breakpoints[750].allowTouchMove = false;
+    }
+  }
+
+  applyProductGalleryMainConfig(config) {
+    config.preventClicks = false;
+    config.preventClicksPropagation = false;
+    config.threshold = 10;
+    config.fadeEffect = { crossFade: true };
+
+    if (config.breakpoints?.[750]) {
+      config.breakpoints[750].loop = false;
+    }
+  }
+
+  scopeNavigationElements(config) {
+    if (!config.navigation) return;
+
+    const prevEl = this.querySelector('.swiper-slideshow__nav-button--prev');
+    const nextEl = this.querySelector('.swiper-slideshow__nav-button--next');
+
+    if (prevEl && nextEl) {
+      config.navigation = {
+        ...config.navigation,
+        prevEl,
+        nextEl,
+      };
+    }
+  }
+
+  bindThumbnailClicks(thumbnailSwiper, mainSwiper) {
+    thumbnailSwiper.el.addEventListener('click', e => {
+      const slide = e.target.closest('.swiper-slide');
+      if (!slide || !thumbnailSwiper.el.contains(slide)) return;
+
+      const index = Array.from(thumbnailSwiper.slides).indexOf(slide);
+      if (index < 0) return;
+
+      if (mainSwiper.params.loop) {
+        mainSwiper.slideToLoop(index);
+      } else {
+        mainSwiper.slideTo(index);
+      }
+    });
   }
 
   async waitForSwiperInstance(element) {
