@@ -243,61 +243,84 @@
 <script>
   (function () {
     const html = document.documentElement;
-    const link = document.getElementById('CookiebotFooterLink');
+    const US_TERRITORIES = ['US', 'PR', 'GU', 'VI', 'AS', 'MP'];
 
-    function isUsVisitor() {
+    function gdprApplies() {
+      return Boolean(
+        window.Cookiebot &&
+          Cookiebot.regulations &&
+          Cookiebot.regulations.gdprApplies
+      );
+    }
+
+    function shouldSuppressAutoBanner() {
+      if (window.__cookiebotOpenedFromFooter) return false;
       if (window.Cookiebot) {
+        if (gdprApplies()) return false;
         const country = String(Cookiebot.userCountry || '').toUpperCase();
-        const ccpa = Boolean(
-          Cookiebot.regulations && Cookiebot.regulations.ccpaApplies
-        );
-        if (country || ccpa) return country === 'US' || ccpa;
+        if (US_TERRITORIES.includes(country)) return true;
+        if (Cookiebot.regulations && Cookiebot.regulations.ccpaApplies) {
+          return true;
+        }
+        if (Cookiebot.isOutsideEU) return true;
       }
       return html.hasAttribute('data-cookiebot-us-market');
     }
 
     function suppressBanner() {
       html.setAttribute('data-cookiebot-suppress-banner', '');
-      if (window.Cookiebot && typeof Cookiebot.hide === 'function') {
-        Cookiebot.hide();
-      }
     }
 
-    function allowAutoBanner() {
+    function allowBanner() {
       html.removeAttribute('data-cookiebot-suppress-banner');
     }
 
     function applyGeo() {
-      if (window.__cookiebotOpenedFromFooter) return;
-      if (isUsVisitor()) suppressBanner();
-      else allowAutoBanner();
+      if (shouldSuppressAutoBanner()) suppressBanner();
+      else allowBanner();
+    }
+
+    function dialogIsVisible() {
+      const dialog = document.getElementById('CybotCookiebotDialog');
+      if (dialog && getComputedStyle(dialog).display !== 'none') return true;
+      const ucRoot = document.getElementById('usercentrics-root');
+      return Boolean(ucRoot && getComputedStyle(ucRoot).display !== 'none');
     }
 
     function openCookiebot() {
+      allowBanner();
+      if (window.UC_UI && typeof UC_UI.showFirstLayer === 'function') {
+        UC_UI.showFirstLayer();
+      }
       if (window.Cookiebot) {
         if (typeof Cookiebot.show === 'function') Cookiebot.show();
         if (typeof Cookiebot.renew === 'function') Cookiebot.renew();
-        return;
-      }
-      if (window.UC_UI && typeof UC_UI.showFirstLayer === 'function') {
-        UC_UI.showFirstLayer();
       }
     }
 
     function openDialog(event) {
       event.preventDefault();
       window.__cookiebotOpenedFromFooter = true;
-      html.removeAttribute('data-cookiebot-suppress-banner');
       openCookiebot();
       requestAnimationFrame(openCookiebot);
+
+      let attempts = 0;
+      const timer = setInterval(function () {
+        attempts += 1;
+        openCookiebot();
+        if (dialogIsVisible() || attempts >= 20) clearInterval(timer);
+      }, 250);
     }
 
-    if (link) link.addEventListener('click', openDialog);
+    document.addEventListener('click', function (event) {
+      const trigger = event.target.closest(
+        '#CookiebotFooterLink, a[href="#cookie-settings"], a[href$="#cookie-settings"]'
+      );
+      if (trigger) openDialog(event);
+    });
 
     window.addEventListener('CookiebotOnDialogDisplay', function () {
-      if (!window.__cookiebotOpenedFromFooter && isUsVisitor()) {
-        suppressBanner();
-      }
+      if (shouldSuppressAutoBanner()) suppressBanner();
     });
     window.addEventListener('CookiebotOnConsentReady', applyGeo);
     window.addEventListener('CookiebotOnLoad', applyGeo);
