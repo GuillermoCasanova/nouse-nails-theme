@@ -1,0 +1,69 @@
+{% comment %}
+  Stamp data-georegions on the Cookiebot script before it runs.
+  US / territories use the US Domain Group (cookies on by default).
+  Everyone else uses the primary EU Domain Group (cookies off).
+  Do not add nousnails.com to the US group.
+{% endcomment %}
+<script>
+  (function () {
+    var GEO =
+      "{'region':'US,PR,GU,VI,AS,MP','cbid':'c44bdb4c-bee5-4991-b568-75f249d8fcc1'}";
+
+    function isCookiebotScript(node) {
+      if (!node || node.nodeName !== 'SCRIPT') return false;
+      var src = node.src || node.getAttribute('src') || '';
+      var id = node.id || '';
+      return (
+        id === 'Cookiebot' ||
+        id === 'CookieDeclaration' ||
+        /cookiebot\.com/i.test(src) ||
+        /consentcdn\.cookiebot\.com/i.test(src)
+      );
+    }
+
+    function apply(node) {
+      if (!isCookiebotScript(node)) return;
+      if (node.getAttribute('data-georegions') !== GEO) {
+        node.setAttribute('data-georegions', GEO);
+      }
+    }
+
+    function scan(root) {
+      if (!root || !root.querySelectorAll) return;
+      var scripts = root.querySelectorAll('script');
+      for (var i = 0; i < scripts.length; i++) apply(scripts[i]);
+    }
+
+    var srcDesc = Object.getOwnPropertyDescriptor(
+      HTMLScriptElement.prototype,
+      'src'
+    );
+    if (srcDesc && srcDesc.set) {
+      Object.defineProperty(HTMLScriptElement.prototype, 'src', {
+        configurable: true,
+        enumerable: srcDesc.enumerable,
+        get: srcDesc.get,
+        set: function (value) {
+          srcDesc.set.call(this, value);
+          apply(this);
+        }
+      });
+    }
+
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var nodes = mutations[i].addedNodes;
+        for (var j = 0; j < nodes.length; j++) {
+          apply(nodes[j]);
+          scan(nodes[j]);
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+    scan(document);
+  })();
+</script>
