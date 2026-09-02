@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nous Nails — ADA / WCAG 2.1 Audit</title>
+  <style>
+    :root {
+      --ink: #1c1212;
+      --muted: #6b5858;
+      --line: #eadfd6;
+      --paper: #fffdf9;
+      --cream: #f6efe6;
+      --burgundy: #6d0506;
+      --burgundy-soft: #f8e8e8;
+      --critical: #9f1239;
+      --serious: #c2410c;
+      --moderate: #1d4ed8;
+      --pass: #047857;
+      --review: #6d28d9;
+      --shadow: 0 12px 40px rgba(28, 18, 18, 0.08);
+      --radius: 16px;
+      --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.55;
+    }
+    a { color: var(--burgundy); }
+    a:focus-visible, button:focus-visible, select:focus-visible, .status:focus-within {
+      outline: 3px solid var(--burgundy);
+      outline-offset: 2px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -40px;
+      background: var(--burgundy);
+      color: #fff;
+      padding: 0.5rem 0.8rem;
+      z-index: 20;
+    }
+    .skip:focus { top: 1rem; }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    nav.toc {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow: auto;
+      padding: 1.5rem 1.1rem;
+      background: var(--paper);
+      border-right: 1px solid var(--line);
+    }
+    nav.toc h1 {
+      font-size: 0.95rem;
+      margin: 0 0 0.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    nav.toc p.meta { margin: 0 0 1.2rem; color: var(--muted); font-size: 0.8rem; }
+    nav.toc a {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      padding: 0.35rem 0.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    nav.toc a:hover { background: var(--cream); }
+    nav.toc .group { margin: 0.8rem 0 0.3rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+    main { padding: 2rem clamp(1rem, 3vw, 3rem) 4rem; max-width: 1080px; }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.6rem 1.3rem;
+      box-shadow: var(--shadow);
+    }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--burgundy); font-weight: 700; margin: 0 0 0.4rem; }
+    .hero h2 { margin: 0 0 0.6rem; font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; }
+    .hero .lede { margin: 0 0 1.1rem; color: var(--muted); max-width: 46rem; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .stat {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 0.85rem 0.9rem;
+    }
+    .stat b { display: block; font-size: 1.6rem; line-height: 1; }
+    .stat span { font-size: 0.78rem; color: var(--muted); }
+    .stat.critical b { color: var(--critical); }
+    .stat.serious b { color: var(--serious); }
+    .stat.moderate b { color: var(--moderate); }
+    .stat.score b { color: var(--burgundy); }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin: 1.2rem 0 0.4rem;
+    }
+    .toolbar input[type="search"], .toolbar select, .toolbar button, .issue-card select {
+      font: inherit;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+    }
+    .toolbar button { cursor: pointer; }
+    .toolbar button.primary { background: var(--burgundy); color: #fff; border-color: var(--burgundy); }
+    .hint { font-size: 0.82rem; color: var(--muted); margin: 0 0 1.4rem; }
+
+    .progress {
+      height: 8px;
+      background: #eadfd6;
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 0.8rem 0 0;
+    }
+    .progress > span { display: block; height: 100%; background: var(--pass); width: 0; transition: width 0.2s ease; }
+
+    .how-to {
+      margin: 1.4rem 0;
+      background: #fff7e8;
+      border: 1px solid #f1deba;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+    }
+    .how-to summary { cursor: pointer; font-weight: 650; }
+    .how-to pre {
+      background: #1c1212;
+      color: #f6efe6;
+      padding: 0.8rem;
+      border-radius: 10px;
+      overflow: auto;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+
+    h3.section {
+      margin: 2rem 0 0.8rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.12rem 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pill.critical { background: #ffe4e8; color: var(--critical); }
+    .pill.serious { background: #ffedd5; color: var(--serious); }
+    .pill.moderate { background: #dbeafe; color: var(--moderate); }
+    .pill.pass { background: #d1fae5; color: var(--pass); }
+    .pill.review { background: #ede9fe; color: var(--review); }
+
+    .issue-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.05rem 1.15rem 1.1rem;
+      margin: 0 0 0.8rem;
+      box-shadow: var(--shadow);
+    }
+    .issue-card.done { opacity: 0.62; }
+    .issue-card header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.8rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .issue-card h4 { margin: 0; font-size: 1.05rem; max-width: 42rem; }
+    .issue-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.45rem 0 0.7rem; }
+    .tag {
+      font-size: 0.75rem;
+      background: var(--cream);
+      border-radius: 999px;
+      padding: 0.15rem 0.5rem;
+      color: var(--muted);
+    }
+    .issue-card dl { margin: 0; display: grid; gap: 0.45rem; }
+    .issue-card dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+    .issue-card dd { margin: 0; }
+    .issue-card pre, .issue-card code {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+    .issue-card pre {
+      background: #1c1212;
+      color: #f6efe6;
+      padding: 0.75rem;
+      border-radius: 10px;
+      overflow: auto;
+    }
+    .shot {
+      margin-top: 0.8rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #eee;
+    }
+    .shot img { display: block; width: 100%; height: auto; }
+    .notes {
+      margin-top: 0.8rem;
+      width: 100%;
+      min-height: 4.2rem;
+      border: 1px dashed #d7c7ba;
+      border-radius: 10px;
+      padding: 0.6rem 0.7rem;
+      font: inherit;
+      background: #fffaf3;
+    }
+    .notes:empty:before { content: attr(data-placeholder); color: #a08b8b; }
+
+    table { width: 100%; border-collapse: collapse; background: var(--paper); border-radius: 12px; overflow: hidden; }
+    th, td { text-align: left; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.92rem; }
+    th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--cream); }
+    .pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.8rem; }
+    .page-card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .page-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .page-card .body { padding: 0.8rem 0.9rem 1rem; }
+    .page-card h4 { margin: 0 0 0.3rem; }
+    .page-card p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 12px; padding: 0.7rem 0.8rem; margin: 0 0 0.45rem;
+    }
+    .checklist input { margin-top: 0.25rem; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    footer.note { margin-top: 2.5rem; color: var(--muted); font-size: 0.85rem; }
+
+    @media (max-width: 860px) {
+      .shell { grid-template-columns: 1fr; }
+      nav.toc { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+    @media print {
+      nav.toc, .toolbar, .how-to, .notes, .skip { display: none !important; }
+      .shell { display: block; }
+      .issue-card { break-inside: avoid; box-shadow: none; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to report</a>
+  <div class="shell">
+    <nav class="toc" aria-label="Report sections">
+      <h1>Nous ADA audit</h1>
+      <p class="meta">WCAG 2.1 A/AA · 2 Sep 2026</p>
+      <a href="#overview">Overview</a>
+      <a href="#passing">What already works</a>
+      <p class="group">Findings</p>
+      <a href="#critical">Critical</a>
+      <a href="#serious">Serious</a>
+      <a href="#moderate">Moderate</a>
+      <a href="#review">Needs review</a>
+      <p class="group">Context</p>
+      <a href="#pages">Pages audited</a>
+      <a href="#fixes">Fix checklist</a>
+      <a href="#files">Theme files</a>
+    </nav>
+
+    <main id="content">
+      <header class="hero">
+        <p class="kicker">Accessibility report</p>
+        <h2>ADA / WCAG 2.1 audit of nousnails.com</h2>
+        <p class="lede">
+          Automated axe-core 4.13 scan plus keyboard and visual review of Home, New Arrivals, Product, How To, Contact, and Cart.
+          Webflow Designer was not connected (Shopify theme). Mark items as you work — status and notes stay in this browser.
+        </p>
+        <div class="stats" id="stats"></div>
+        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+        <p class="hint" id="progressLabel" style="margin:0.45rem 0 0">Progress updates as you change issue status.</p>
+      </header>
+
+      <details class="how-to">
+        <summary>How to update this report</summary>
+        <p>Open <code>docs/ada-audit/index.html</code> in a browser. Status dropdowns and notes save automatically in <code>localStorage</code> (this machine/browser only).</p>
+        <ul>
+          <li>To edit findings themselves, change the <code>REPORT</code> object at the bottom of this HTML file (titles, fixes, files, screenshots).</li>
+          <li>Use <strong>Export progress</strong> to download a JSON of statuses and notes, then paste it back later with <strong>Import progress</strong>.</li>
+          <li>Screenshots live in <code>docs/ada-audit/images/</code>.</li>
+        </ul>
+      </details>
+
+      <div class="toolbar">
+        <input type="search" id="q" placeholder="Filter issues…" aria-label="Filter issues">
+        <select id="severity" aria-label="Filter by severity">
+          <option value="all">All severities</option>
+          <option value="critical">Critical</option>
+          <option value="serious">Serious</option>
+          <option value="moderate">Moderate</option>
+        </select>
+        <select id="status" aria-label="Filter by status">
+          <option value="all">All statuses</option>
+          <option value="open">Open</option>
+          <option value="in-progress">In progress</option>
+          <option value="done">Done</option>
+        </select>
+        <button type="button" id="exportBtn" class="primary">Export progress</button>
+        <button type="button" id="importBtn">Import progress</button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </div>
+      <p class="hint">Scoring starts at 100: −10 per critical type, −5 per serious, −2 per moderate. Done items are excluded from the live score.</p>
+
+      <section id="overview">
+        <h3 class="section">Pages at a glance</h3>
+        <table>
+          <thead>
+            <tr><th>Page</th><th>URL</th><th>Axe</th><th>Score</th></tr>
+          </thead>
+          <tbody id="pageTable"></tbody>
+        </table>
+      </section>
+
+      <section id="passing">
+        <h3 class="section"><span class="pill pass">Pass</span> What already works</h3>
+        <ul id="passingList"></ul>
+        <figure class="shot">
+          <img src="images/ada_skip_to_content.webp" alt="Skip to content link visible after the first Tab press">
+        </figure>
+      </section>
+
+      <div id="issueSections"></div>
+
+      <section id="review">
+        <h3 class="section"><span class="pill review">Review</span> Needs review (not counted as failures)</h3>
+        <table>
+          <thead><tr><th>Check</th><th>Notes</th></tr></thead>
+          <tbody id="reviewTable"></tbody>
+        </table>
+      </section>
+
+      <section id="pages">
+        <h3 class="section">Pages audited</h3>
+        <div class="pages" id="pageCards"></div>
+      </section>
+
+      <section id="fixes">
+        <h3 class="section">Prioritized fix checklist</h3>
+        <div id="fixList"></div>
+      </section>
+
+      <section id="files">
+        <h3 class="section">Theme files to touch</h3>
+        <table>
+          <thead><tr><th>File</th><th>Change</th></tr></thead>
+          <tbody id="fileTable"></tbody>
+        </table>
+      </section>
+
+      <footer class="note">
+        This is an automated plus expert review, not a legal certification.
+        ADA conformance is typically shown with WCAG 2.1 AA plus manual screen-reader testing.
+        Resources:
+        <a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG 2.1 quickref</a> ·
+        <a href="https://nousnails.com/">nousnails.com</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    /* =====================================================================
+       EDIT THIS OBJECT to update the report. Status/notes are stored
+       separately in localStorage and will not overwrite these fields.
+       ===================================================================== */
+    const REPORT = {
+      site: "https://nousnails.com/",
+      date: "2 September 2026",
+      standard: "WCAG 2.1 Level A / AA",
+      overall: 36,
+      passing: [
+        "Skip link “Skip to content.” appears on first Tab (layout/theme.liquid)",
+        "html lang=\"en\" is set",
+        "Main landmark (#MainContent) is present",
+        "Visible focus rings on skip link, banner close, logo, nav, search, and cart",
+        "Logical tab order: skip → announcement close → logo → nav → search → cart",
+        "Visible buttons have accessible names",
+        "Form controls have labels, aria-label, or associated label",
+        "FAQ uses native details/summary (Enter/Space works)",
+        "No positive tabindex values"
+      ],
+      pages: [
+        { name: "Home", url: "/", axe: "6 rules / 9 nodes", score: 42, img: "images/home.webp", note: "Hero, marquee, Instagram videos, empty collection eyebrows, and floating CTA are concentrated here." },
+        { name: "New Arrivals", url: "/collections/new-arrivals", axe: "2 / 4", score: 58, img: "images/collection.webp", note: "Same header issues. Duplicate quick-add IDs appear on this grid." },
+        { name: "Product — Matcha Jelly", url: "/products/matcha-jelly", axe: "3 / 5", score: 54, img: "images/product.webp", note: "Add to cart and Shop Pay are named. Quantity −/+ are slightly under 24px. Bold Subscriptions leaves focusable content in aria-hidden." },
+        { name: "How To / FAQ", url: "/pages/how-to", axe: "2 / 4", score: 56, img: "images/how-to.webp", note: "Native details accordion is keyboard OK. aria-label on summary hides the question." },
+        { name: "Contact", url: "/pages/contact", axe: "3 / 5", score: 58, img: "images/contact.webp", note: "Form labels passed automated checks. Heading order skips h2 into footer h3s." },
+        { name: "Cart", url: "/cart", axe: "2 / 4", score: 60, img: "images/cart.webp", note: "Empty state is clear. Multiple h1s. Confirm focus trap when the drawer is open." }
+      ],
+      issues: [
+        {
+          id: "missing-alt",
+          severity: "critical",
+          title: "Images missing alternative text",
+          wcag: "1.1.1 Non-text Content (A)",
+          pages: "Home (hero) · all pages (promo / product images)",
+          files: "sections/hae-hero.liquid, snippets/product-card-grid.liquid",
+          issue: "img elements have no alt attribute. Shopify image_tag omits alt when the asset has no alt in admin. The fallback in hae-hero.liquid is applied to the whole tag, not the alt string.",
+          impact: "Screen readers announce the filename or skip the image; product and hero photos are not described.",
+          current: "| image_tag:\n    class: 'responsive-image',\n    alt: section.settings['hero-image'].alt\n| default: 'Featured content'",
+          fix: "Always pass a non-empty alt, e.g. alt: section.settings['hero-image'].alt | default: section.settings['header-text'] | strip_html | truncate: 125. For product cards: alt: preview_image.alt | default: product.title. Missing files: Iced-Out-4.jpg, Stars-Aligned-3.jpg, Strange-Terrain-2.jpg, Geometric-Jelly-2.jpg. Confirm 19 empty alt=\"\" images on Home are truly decorative.",
+          img: "images/ada_hero.webp",
+          imgAlt: "Homepage hero section"
+        },
+        {
+          id: "duplicate-ids",
+          severity: "critical",
+          title: "Duplicate IDs used by aria-labelledby",
+          wcag: "4.1.1 Parsing / 4.1.2 Name, Role, Value (A)",
+          pages: "Collection grids / Home product cards",
+          files: "snippets/quick-add.liquid (~lines 34 and 99)",
+          issue: "Quick-add submit buttons reuse product-form-{id}-submit twice per card (mobile + desktop). Also duplicated: BlogTitle- (3 times).",
+          impact: "aria-labelledby pointing at a duplicated id is ambiguous. axe flagged duplicate-id-aria on collection-style pages.",
+          current: "id='{{ product_form_id }}-submit' on both mobile and desktop buttons",
+          fix: "Unique ids per instance: product-form-{{ product.id }}-submit-mobile / -desktop. Keep one accessible name source."
+        },
+        {
+          id: "nested-mega-menu",
+          severity: "serious",
+          title: "Nested interactive controls in the header mega menu",
+          wcag: "4.1.2 Name, Role, Value (A)",
+          pages: "Every page",
+          files: "snippets/header-mega-menu.liquid",
+          issue: "summary.header__menu-summary wraps an inner a.header__menu-item (Shop All, New).",
+          impact: "Screen readers and keyboard users get two controls in one. Tab may focus both the disclosure and the link.",
+          current: "<summary><a href=\"...\">Shop All</a></summary>",
+          fix: "Put the link text in the summary (no inner a), or use a button for the disclosure and a separate link. Do not nest a inside summary."
+        },
+        {
+          id: "aria-hidden-focus",
+          severity: "serious",
+          title: "Focusable content inside aria-hidden=\"true\"",
+          wcag: "4.1.2 Name, Role, Value (A)",
+          pages: "Home (floating CTA) · Product (Bold Subscriptions)",
+          files: "sections/floating-cta.liquid · third-party Bold widget",
+          issue: "Floating CTA modal stays in the tab order while aria-hidden=\"true\". Product page Bold Subscriptions collapsible has the same pattern.",
+          impact: "Keyboard users can tab into a hidden dialog that screen readers are told to ignore.",
+          current: "aria-hidden=\"true\" on #FloatingCtaModal-… while close/form controls remain focusable",
+          fix: "When closed, set inert or tabindex=\"-1\" on focusable descendants. Open state: aria-hidden=\"false\" and trap focus."
+        },
+        {
+          id: "marquee-motion",
+          severity: "serious",
+          title: "Auto-scrolling marquee with no pause control",
+          wcag: "2.2.2 Pause, Stop, Hide (A)",
+          pages: "Home",
+          files: "sections/hae-marquee-banner.liquid, assets/marquee-banner.css",
+          issue: "Infinite 60s ticker with no pause/stop and no prefers-reduced-motion override.",
+          impact: "Users with vestibular disorders or who need more time to read cannot stop the motion.",
+          current: "animation-iteration-count: infinite",
+          fix: "@media (prefers-reduced-motion: reduce) { .marquee-banner__text { animation: none; white-space: normal; } } Add a pause control if motion stays on by default."
+        },
+        {
+          id: "autoplay-video",
+          severity: "serious",
+          title: "Autoplaying videos without captions or pause",
+          wcag: "1.2.1 Video-only (A), 2.2.2 Pause, Stop, Hide (A)",
+          pages: "Home (19 videos, 0 tracks)",
+          files: "sections/hae-hero.liquid, sections/instagram-slideshow.liquid",
+          issue: "autoplay loop muted videos with no controls and no caption tracks.",
+          impact: "Motion cannot be paused. Informative clips need captions; decorative loops should be aria-hidden and honor reduced motion.",
+          current: "<video autoplay loop muted playsinline> with no <track>",
+          fix: "Decorative: aria-hidden=\"true\" and pause on prefers-reduced-motion. Informative: <track kind=\"captions\"> plus a pause control."
+        },
+        {
+          id: "touch-targets",
+          severity: "serious",
+          title: "Search and cart touch targets are too small",
+          wcag: "2.5.8 Target Size Minimum (AA, 2.2); 2.5.5 is AAA at 44×44",
+          pages: "Header on every page · product quantity −/+",
+          files: "sections/header.liquid",
+          issue: "Header Search 19×19 px, Cart 19×19 px. Quantity −/+ are 23×31 px.",
+          impact: "Hard to tap accurately on mobile; adjacent targets increase mis-taps.",
+          current: ".header__icon without min-width/min-height",
+          fix: "min-width/min-height: 44px (or at least 24px) with padding on .header__icon.",
+          img: "images/ada_keyboard_focus_cart.webp",
+          imgAlt: "Keyboard focus on the header cart icon"
+        },
+        {
+          id: "faq-aria-label",
+          severity: "serious",
+          title: "FAQ aria-label overrides the visible question",
+          wcag: "2.5.3 Label in Name (A), 4.1.2 Name, Role, Value",
+          pages: "How To / FAQ · product FAQs",
+          files: "sections/hae-faqs.liquid",
+          issue: "summary uses aria-label=\"Open FAQ answer for question {{ forloop.index }}\" which replaces the visible question as the accessible name.",
+          impact: "Screen readers hear “question 1” instead of “How long do they last?” Keyboard still works via native details.",
+          current: "aria-label='Open FAQ answer for question {{ forloop.index }}'",
+          fix: "Remove aria-label, or set aria-label to include the real question. Prefer visible text as the name.",
+          img: "images/ada_faq_accordion.webp",
+          imgAlt: "FAQ accordion on the How To page"
+        },
+        {
+          id: "empty-headings",
+          severity: "moderate",
+          title: "Empty headings in Featured Collections",
+          wcag: "1.3.1 Info and Relationships / 2.4.6 Headings and Labels",
+          pages: "Home",
+          files: "sections/hae-featured-collections.liquid",
+          issue: "h3.featured-collections__column__eyebrow is bound to collection.title, which is empty for these blocks.",
+          impact: "Screen readers announce an empty heading.",
+          current: "<h3 class='featured-collections__column__eyebrow'>{{ block.settings.collection.title }}</h3>",
+          fix: "Do not render the h3 when the title is blank, or use a p instead of a heading."
+        },
+        {
+          id: "multiple-h1",
+          severity: "moderate",
+          title: "Multiple h1 elements on every page",
+          wcag: "1.3.1 Info and Relationships",
+          pages: "All · Cart has three",
+          files: "sections/header.liquid / search drawer",
+          issue: "Search drawer heading “LOOKING FOR SOMETHING?” is always in the DOM as an h1 alongside the page h1. Cart also has “My Cart” and “Your cart is empty” as h1s.",
+          impact: "Confusing document outline for assistive tech.",
+          current: "Search drawer uses h1 even while closed",
+          fix: "Demote the search heading to h2, or only expose it when the drawer is open. Keep one page h1."
+        },
+        {
+          id: "landmarks",
+          severity: "moderate",
+          title: "Content outside landmarks",
+          wcag: "Best practice (axe region); related to 1.3.1",
+          pages: "All",
+          files: "layout/theme.liquid, announcement bar",
+          issue: "Skip link and announcement bar are not inside header / main / nav.",
+          impact: "Landmark navigation misses promo content. Skip links are commonly exempt.",
+          current: "Announcement bar sits outside header",
+          fix: "Include the announcement bar in header or wrap it in role=\"banner\". Low priority."
+        },
+        {
+          id: "floating-cta-role",
+          severity: "moderate",
+          title: "Invalid role=\"dialog\" on the floating CTA launcher",
+          wcag: "4.1.2 / ARIA in HTML",
+          pages: "Home",
+          files: "sections/floating-cta.liquid",
+          issue: "Persistent corner widget uses role=\"dialog\" aria-modal=\"true\". aria-describedby=\"floating-cta-description\" points at a missing id.",
+          impact: "AT is told the rest of the page is inert when it is not.",
+          current: "<aside class=\"floating-cta\" role=\"dialog\" aria-modal=\"true\">",
+          fix: "Use complementary (or no role) on the launcher. Keep dialog only on the open modal. Add the describedby target or remove the attribute.",
+          img: "images/ada_email_popup.webp",
+          imgAlt: "Email signup popup and sticky widget"
+        },
+        {
+          id: "heading-skip",
+          severity: "moderate",
+          title: "Contact page heading skip (h1 → h3)",
+          wcag: "1.3.1 Info and Relationships",
+          pages: "Contact (and other short pages)",
+          files: "sections/footer.liquid",
+          issue: "Footer “Quick Links” / “Stay Updated” are h3 after the page h1 with no h2 in between.",
+          impact: "Skipped heading level in the outline.",
+          current: "<h3 class=\"footer__column-title\">Quick Links</h3>",
+          fix: "Use h2 for footer column titles, or keep visual style with sequential heading levels."
+        },
+        {
+          id: "hover-image",
+          severity: "moderate",
+          title: "Product-card hover image swap has no keyboard equivalent",
+          wcag: "1.4.13 Content on Hover or Focus / 2.1.1 Keyboard",
+          pages: "Home, collections",
+          files: "snippets/product-card-grid.liquid",
+          issue: "Hover swaps the product photo; keyboard and touch users never see the second image.",
+          impact: "Information available only on hover.",
+          current: ".product-card-grid__image--hover shown on hover only",
+          fix: "Show the second image on :focus-within, or drop hover-only content."
+        },
+        {
+          id: "popup-labels",
+          severity: "moderate",
+          title: "Email popup / sticky widget — icon-only close and submit",
+          wcag: "2.4.6 Headings and Labels",
+          pages: "Home overlay",
+          files: "sections/floating-cta.liquid",
+          issue: "Close is an X; submit is an arrow. Theme already adds aria-label on the floating CTA close.",
+          impact: "Visible name is missing; programmatic name is present.",
+          current: "Icon-only close/submit",
+          fix: "Keep aria-label; consider visible Close / Subscribe text.",
+          img: "images/ada_email_popup.webp",
+          imgAlt: "Email signup popup"
+        }
+      ],
+      review: [
+        { check: "Color contrast", notes: "14–31 nodes could not be measured because of background gradients (Instagram slideshow titles/prices). Hero italic “small talk” is rgb(109, 5, 6) on cream — likely passes 4.5:1. Verify overlay text on photos with a contrast picker." },
+        { check: "Video captions", notes: "axe cannot tell decorative vs informative. Treat autoplay product videos as serious until marked decorative." },
+        { check: "aria-valid-attr-value", notes: "Search toggle aria-controls=\"search-modal\" and floating CTA aria-controls — axe cannot confirm the popup id while closed. Verify the ids exist." },
+        { check: "Third-party iframe", notes: "Shopify web-pixel sandbox iframe has no title. Low priority; not theme-owned." },
+        { check: "Cookiebot", notes: "Markup is in the DOM (cookiebot-us-banner-suppress). A visible cookie banner did not appear during the US visual pass." }
+      ],
+      fixes: [
+        { id: "fix-alt", group: "Quick wins", text: "Hero and product image_tag: always output alt with product.title / heading fallback" },
+        { id: "fix-menu", group: "Quick wins", text: "Mega menu: stop wrapping a in summary" },
+        { id: "fix-ids", group: "Quick wins", text: "Quick-add: unique button ids" },
+        { id: "fix-faq", group: "Quick wins", text: "FAQs: remove generic aria-label on summary" },
+        { id: "fix-marquee", group: "Quick wins", text: "Marquee: prefers-reduced-motion: reduce { animation: none; }" },
+        { id: "fix-cta", group: "Quick wins", text: "Floating CTA: complementary on launcher; inert on closed modal" },
+        { id: "fix-h3", group: "Quick wins", text: "Empty h3: wrap in if collection.title != blank" },
+        { id: "fix-h1", group: "Quick wins", text: "Search drawer h1: demote to h2" },
+        { id: "fix-targets", group: "Design / content", text: "Increase search/cart hit area to 44×44" },
+        { id: "fix-pause", group: "Design / content", text: "Pause control (or static text) for marquee" },
+        { id: "fix-captions", group: "Design / content", text: "Captions or aria-hidden on looping videos" },
+        { id: "fix-admin-alt", group: "Design / content", text: "Fill image alt text in Shopify admin" },
+        { id: "fix-bold", group: "Third-party", text: "Bold Subscriptions collapsible aria-hidden + focus" },
+        { id: "fix-pixel", group: "Third-party", text: "Shopify pixel iframe title (optional)" }
+      ],
+      files: [
+        ["sections/hae-hero.liquid", "Non-empty alt on image_tag"],
+        ["snippets/product-card-grid.liquid", "alt: product.title fallback"],
+        ["snippets/header-mega-menu.liquid", "Don’t nest link inside summary"],
+        ["snippets/quick-add.liquid", "Unique ids"],
+        ["sections/hae-faqs.liquid", "Drop or rewrite aria-label"],
+        ["sections/hae-marquee-banner.liquid / assets/marquee-banner.css", "Reduced-motion + pause"],
+        ["sections/floating-cta.liquid", "Correct roles; inert when closed"],
+        ["sections/hae-featured-collections.liquid", "Skip empty h3"],
+        ["sections/header.liquid / search drawer", "Single h1 per page"],
+        ["sections/instagram-slideshow.liquid", "aria-hidden or captions on videos"]
+      ]
+    };
+
+    const STORAGE_KEY = "nous-ada-audit-v1";
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { issues: {}, fixes: {} }; }
+      catch { return { issues: {}, fixes: {} }; }
+    }
+    function saveState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    const WEIGHT = { critical: 10, serious: 5, moderate: 2 };
+
+    function liveScore(state) {
+      let score = 100;
+      for (const issue of REPORT.issues) {
+        if (state.issues[issue.id]?.status === "done") continue;
+        score -= WEIGHT[issue.severity] || 0;
+      }
+      return Math.max(0, score);
+    }
+
+    function counts(state) {
+      const open = { critical: 0, serious: 0, moderate: 0 };
+      let done = 0;
+      for (const issue of REPORT.issues) {
+        if (state.issues[issue.id]?.status === "done") done += 1;
+        else open[issue.severity] += 1;
+      }
+      return { open, done, total: REPORT.issues.length };
+    }
+
+    function renderStats(state) {
+      const c = counts(state);
+      const score = liveScore(state);
+      document.getElementById("stats").innerHTML = `
+        <div class="stat score"><b>${score}/100</b><span>Live score</span></div>
+        <div class="stat critical"><b>${c.open.critical}</b><span>Critical open</span></div>
+        <div class="stat serious"><b>${c.open.serious}</b><span>Serious open</span></div>
+        <div class="stat moderate"><b>${c.open.moderate}</b><span>Moderate open</span></div>
+      `;
+      const pct = Math.round((c.done / c.total) * 100);
+      document.getElementById("progressBar").style.width = pct + "%";
+      document.getElementById("progressLabel").textContent =
+        `${c.done} of ${c.total} issues marked done (${pct}%). Original overall score was ${REPORT.overall}/100.`;
+    }
+
+    function issueCard(issue, state) {
+      const st = state.issues[issue.id] || { status: "open", notes: "" };
+      const img = issue.img
+        ? `<figure class="shot"><img src="${issue.img}" alt="${issue.imgAlt || ""}"></figure>`
+        : "";
+      return `
+        <article class="issue-card ${st.status === "done" ? "done" : ""}" data-id="${issue.id}" data-severity="${issue.severity}" data-status="${st.status}" id="issue-${issue.id}">
+          <header>
+            <h4>${issue.title}</h4>
+            <label class="status">
+              <span class="visually-hidden">Status for ${issue.title}</span>
+              <select data-issue="${issue.id}" aria-label="Status for ${issue.title}">
+                <option value="open" ${st.status === "open" ? "selected" : ""}>Open</option>
+                <option value="in-progress" ${st.status === "in-progress" ? "selected" : ""}>In progress</option>
+                <option value="done" ${st.status === "done" ? "selected" : ""}>Done</option>
+              </select>
+            </label>
+          </header>
+          <div class="issue-meta">
+            <span class="pill ${issue.severity}">${issue.severity}</span>
+            <span class="tag">${issue.wcag}</span>
+            <span class="tag">${issue.pages}</span>
+          </div>
+          <dl>
+            <div><dt>Issue</dt><dd>${issue.issue}</dd></div>
+            <div><dt>Impact</dt><dd>${issue.impact}</dd></div>
+            <div><dt>Theme file</dt><dd><code>${issue.files}</code></dd></div>
+            <div><dt>Current</dt><dd><pre>${issue.current.replace(/</g, "&lt;")}</pre></dd></div>
+            <div><dt>Fix</dt><dd>${issue.fix}</dd></div>
+          </dl>
+          ${img}
+          <div class="notes" contenteditable="true" data-notes="${issue.id}" data-placeholder="Add a note (owner, PR, retest result)…">${st.notes || ""}</div>
+        </article>
+      `;
+    }
+
+    function renderIssues(state) {
+      const groups = [
+        ["critical", "Must fix — blocks screen-reader or assistive-tech users"],
+        ["serious", "Should fix — keyboard, motion, or mobile impact"],
+        ["moderate", "Consider fixing — structure and consistency"]
+      ];
+      const q = document.getElementById("q").value.trim().toLowerCase();
+      const sev = document.getElementById("severity").value;
+      const status = document.getElementById("status").value;
+
+      document.getElementById("issueSections").innerHTML = groups.map(([key, blurb]) => {
+        const items = REPORT.issues.filter((issue) => {
+          if (issue.severity !== key) return false;
+          if (sev !== "all" && issue.severity !== sev) return false;
+          const st = state.issues[issue.id]?.status || "open";
+          if (status !== "all" && st !== status) return false;
+          if (q) {
+            const hay = [issue.title, issue.issue, issue.fix, issue.files, issue.wcag].join(" ").toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          return true;
+        });
+        if (!items.length) return "";
+        return `<section id="${key}">
+          <h3 class="section"><span class="pill ${key}">${key}</span> ${blurb} (${items.length})</h3>
+          ${items.map((issue) => issueCard(issue, state)).join("")}
+        </section>`;
+      }).join("");
+    }
+
+    function renderStatic() {
+      document.getElementById("pageTable").innerHTML = REPORT.pages.map((p) =>
+        `<tr><td>${p.name}</td><td><a href="${REPORT.site.replace(/\/$/, "")}${p.url}" target="_blank" rel="noreferrer">${p.url}</a></td><td>${p.axe}</td><td><strong>${p.score}/100</strong></td></tr>`
+      ).join("");
+      document.getElementById("passingList").innerHTML = REPORT.passing.map((t) => `<li>${t}</li>`).join("");
+      document.getElementById("reviewTable").innerHTML = REPORT.review.map((r) =>
+        `<tr><td><strong>${r.check}</strong></td><td>${r.notes}</td></tr>`
+      ).join("");
+      document.getElementById("pageCards").innerHTML = REPORT.pages.map((p) => `
+        <article class="page-card">
+          <img src="${p.img}" alt="${p.name} screenshot">
+          <div class="body">
+            <h4>${p.name} · ${p.score}/100</h4>
+            <p>${p.note}</p>
+          </div>
+        </article>
+      `).join("");
+      document.getElementById("fileTable").innerHTML = REPORT.files.map(([f, c]) =>
+        `<tr><td><code>${f}</code></td><td>${c}</td></tr>`
+      ).join("");
+    }
+
+    function renderFixes(state) {
+      const groups = [...new Set(REPORT.fixes.map((f) => f.group))];
+      document.getElementById("fixList").innerHTML = groups.map((group) => {
+        const items = REPORT.fixes.filter((f) => f.group === group).map((fix) => {
+          const checked = state.fixes[fix.id] ? "checked" : "";
+          return `<li><input type="checkbox" id="${fix.id}" data-fix="${fix.id}" ${checked}><label for="${fix.id}">${fix.text}</label></li>`;
+        }).join("");
+        return `<h4 class="group" style="margin:1rem 0 0.4rem">${group}</h4><ul class="checklist">${items}</ul>`;
+      }).join("");
+    }
+
+    function bind(state) {
+      document.getElementById("issueSections").addEventListener("change", (e) => {
+        if (e.target.matches("select[data-issue]")) {
+          state.issues[e.target.dataset.issue] = state.issues[e.target.dataset.issue] || {};
+          state.issues[e.target.dataset.issue].status = e.target.value;
+          saveState(state);
+          renderStats(state);
+          renderIssues(state);
+        }
+      });
+      document.getElementById("issueSections").addEventListener("input", (e) => {
+        if (e.target.matches("[data-notes]")) {
+          state.issues[e.target.dataset.notes] = state.issues[e.target.dataset.notes] || { status: "open" };
+          state.issues[e.target.dataset.notes].notes = e.target.innerHTML;
+          saveState(state);
+        }
+      });
+      document.getElementById("fixes").addEventListener("change", (e) => {
+        if (e.target.matches("[data-fix]")) {
+          state.fixes[e.target.dataset.fix] = e.target.checked;
+          saveState(state);
+        }
+      });
+      ["q", "severity", "status"].forEach((id) => {
+        document.getElementById(id).addEventListener("input", () => renderIssues(state));
+        document.getElementById(id).addEventListener("change", () => renderIssues(state));
+      });
+      document.getElementById("exportBtn").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "nous-ada-audit-progress.json";
+        a.click();
+      });
+      document.getElementById("importBtn").addEventListener("click", () => document.getElementById("importFile").click());
+      document.getElementById("importFile").addEventListener("change", async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const next = JSON.parse(await file.text());
+        saveState(next);
+        location.reload();
+      });
+    }
+
+    const state = loadState();
+    renderStatic();
+    renderStats(state);
+    renderIssues(state);
+    renderFixes(state);
+    bind(state);
+  </script>
+</body>
+</html>

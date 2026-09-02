@@ -1,5 +1,9 @@
 # ADA / WCAG 2.1 Accessibility Audit
 
+**Interactive review page:** open [`docs/ada-audit/index.html`](ada-audit/index.html) in a browser to filter issues, mark status, and add notes.
+
+This markdown file is a static copy of the same findings.
+
 **Site:** [https://nousnails.com/](https://nousnails.com/)  
 **Date:** 2 September 2026  
 **Standard:** WCAG 2.1 Level A and AA (the usual ADA Title III target)  
@@ -22,7 +26,7 @@ Webflow Designer was not connected (this is a Shopify theme). The audit was run 
 SITE-WIDE ACCESSIBILITY AUDIT: nousnails.com
 ═══════════════════════════════════════════════════
 
-OVERALL SCORE: 47/100
+OVERALL SCORE: 36/100
 
 Pages audited: 6
 Unique issue types: 15
