@@ -244,6 +244,20 @@
   (function () {
     const html = document.documentElement;
     const US_TERRITORIES = ['US', 'PR', 'GU', 'VI', 'AS', 'MP'];
+    let waitingForCookiebot = null;
+
+    function userOpened() {
+      return Boolean(
+        window.__cookiebotOpenedFromFooter ||
+          html.classList.contains('cookiebot-user-opened')
+      );
+    }
+
+    function markUserOpened() {
+      window.__cookiebotOpenedFromFooter = true;
+      html.classList.add('cookiebot-user-opened');
+      html.removeAttribute('data-cookiebot-suppress-banner');
+    }
 
     function gdprApplies() {
       return Boolean(
@@ -254,7 +268,7 @@
     }
 
     function shouldSuppressAutoBanner() {
-      if (window.__cookiebotOpenedFromFooter) return false;
+      if (userOpened()) return false;
       if (window.Cookiebot) {
         if (gdprApplies()) return false;
         const country = String(Cookiebot.userCountry || '').toUpperCase();
@@ -267,61 +281,72 @@
       return html.hasAttribute('data-cookiebot-us-market');
     }
 
-    function suppressBanner() {
-      html.setAttribute('data-cookiebot-suppress-banner', '');
-    }
-
-    function allowBanner() {
-      html.removeAttribute('data-cookiebot-suppress-banner');
-    }
-
     function applyGeo() {
-      if (shouldSuppressAutoBanner()) suppressBanner();
-      else allowBanner();
+      if (shouldSuppressAutoBanner()) {
+        html.setAttribute('data-cookiebot-suppress-banner', '');
+      } else {
+        html.removeAttribute('data-cookiebot-suppress-banner');
+      }
     }
 
-    function dialogIsVisible() {
-      const dialog = document.getElementById('CybotCookiebotDialog');
-      if (dialog && getComputedStyle(dialog).display !== 'none') return true;
-      const ucRoot = document.getElementById('usercentrics-root');
-      return Boolean(ucRoot && getComputedStyle(ucRoot).display !== 'none');
+    function dialogIsPresent() {
+      return Boolean(document.getElementById('CybotCookiebotDialog'));
     }
 
-    function openCookiebot() {
-      allowBanner();
+    function openCookiebotOnce() {
+      markUserOpened();
+
+      if (dialogIsPresent()) return true;
+
       if (window.UC_UI && typeof UC_UI.showFirstLayer === 'function') {
         UC_UI.showFirstLayer();
+        return true;
       }
-      if (window.Cookiebot) {
-        if (typeof Cookiebot.show === 'function') Cookiebot.show();
-        if (typeof Cookiebot.renew === 'function') Cookiebot.renew();
+
+      if (!window.Cookiebot) return false;
+
+      if (Cookiebot.hasResponse && typeof Cookiebot.renew === 'function') {
+        Cookiebot.renew();
+      } else if (typeof Cookiebot.show === 'function') {
+        Cookiebot.show();
       }
+
+      return true;
     }
 
     function openDialog(event) {
       event.preventDefault();
-      window.__cookiebotOpenedFromFooter = true;
-      openCookiebot();
-      requestAnimationFrame(openCookiebot);
+      event.stopPropagation();
+      if (openCookiebotOnce()) return;
+      if (waitingForCookiebot) return;
 
-      let attempts = 0;
-      const timer = setInterval(function () {
-        attempts += 1;
-        openCookiebot();
-        if (dialogIsVisible() || attempts >= 20) clearInterval(timer);
-      }, 250);
+      waitingForCookiebot = setInterval(function () {
+        if (openCookiebotOnce()) {
+          clearInterval(waitingForCookiebot);
+          waitingForCookiebot = null;
+        }
+      }, 200);
+
+      setTimeout(function () {
+        if (waitingForCookiebot) {
+          clearInterval(waitingForCookiebot);
+          waitingForCookiebot = null;
+        }
+      }, 8000);
     }
 
-    document.addEventListener('click', function (event) {
-      const trigger = event.target.closest(
-        '#CookiebotFooterLink, a[href="#cookie-settings"], a[href$="#cookie-settings"]'
-      );
-      if (trigger) openDialog(event);
-    });
+    document.addEventListener(
+      'click',
+      function (event) {
+        const trigger = event.target.closest(
+          '#CookiebotFooterLink, a[href="#cookie-settings"], a[href$="#cookie-settings"]'
+        );
+        if (trigger) openDialog(event);
+      },
+      true
+    );
 
-    window.addEventListener('CookiebotOnDialogDisplay', function () {
-      if (shouldSuppressAutoBanner()) suppressBanner();
-    });
+    window.addEventListener('CookiebotOnDialogDisplay', applyGeo);
     window.addEventListener('CookiebotOnConsentReady', applyGeo);
     window.addEventListener('CookiebotOnLoad', applyGeo);
 

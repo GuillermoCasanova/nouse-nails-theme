@@ -21,10 +21,14 @@
       until they open it from the footer link.
     {%- endcomment -%}
     <style id='cookiebot-us-banner-suppress'>
-      html[data-cookiebot-suppress-banner] #CybotCookiebotDialog,
-      html[data-cookiebot-suppress-banner] #CybotCookiebotDialogBodyUnderlay,
-      html[data-cookiebot-suppress-banner] #CookiebotWidget,
-      html[data-cookiebot-suppress-banner] #usercentrics-root {
+      html[data-cookiebot-suppress-banner]:not(.cookiebot-user-opened)
+        #CybotCookiebotDialog,
+      html[data-cookiebot-suppress-banner]:not(.cookiebot-user-opened)
+        #CybotCookiebotDialogBodyUnderlay,
+      html[data-cookiebot-suppress-banner]:not(.cookiebot-user-opened)
+        #CookiebotWidget,
+      html[data-cookiebot-suppress-banner]:not(.cookiebot-user-opened)
+        #usercentrics-root {
         display: none !important;
       }
     </style>

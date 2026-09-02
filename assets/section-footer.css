@@ -233,13 +233,20 @@
 .footer__bottom {
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+@media screen and (min-width: 750px) {
+  .footer__bottom {
+    padding-bottom: 0;
+  }
 }
 
 .footer__bottom-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
 }
 
@@ -256,8 +263,8 @@
 .footer__copyright {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: var(--space-3) var(--space-5);
   flex-shrink: 0;
 }
