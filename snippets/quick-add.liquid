@@ -31,12 +31,12 @@
         {% endif %}
       >
       <button
-        id='{{ product_form_id }}-submit'
+        id='{{ product_form_id }}-submit-mobile'
         type='submit'
         name='add'
         class='quick-add__submit button button--primary'
         aria-haspopup='dialog'
-        aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+        aria-labelledby='{{ product_form_id }}-submit-mobile title-{{ section.id }}-{{ card_product.id }}'
         aria-live='polite'
         data-sold-out-message='true'
         {% if card_product.selected_or_first_available_variant.available
@@ -59,11 +59,12 @@
 <div class='quick-add-desktop-container show-for-large-up'>
   <modal-opener data-modal='#QuickAdd-{{ card_product.id }}'>
     <button
+      id='{{ product_form_id }}-choose-options'
       type='button'
       name='add'
       class='quick-add__submit button button--full-width button--primary {% if shorten_text %}button--tiny{% else %}button--small{% endif %}'
       aria-haspopup='dialog'
-      aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+      aria-labelledby='{{ product_form_id }}-choose-options title-{{ section.id }}-{{ card_product.id }}'
       data-product-url='{{ card_product.url }}'
     >
       <span class='quick-add__submit-text button_text'>
@@ -96,12 +97,12 @@
         {% endif %}
       >
       <button
-        id='{{ product_form_id }}-submit'
+        id='{{ product_form_id }}-submit-desktop'
         type='submit'
         name='add'
         class='quick-add__submit button button--tertiary {% if shorten_text %}button--tiny{% else %}button--small{% endif %}'
         aria-haspopup='dialog'
-        aria-labelledby='{{ product_form_id }}-submit title-{{ section.id }}-{{ card_product.id }}'
+        aria-labelledby='{{ product_form_id }}-submit-desktop title-{{ section.id }}-{{ card_product.id }}'
         aria-live='polite'
         data-sold-out-message='true'
         {% if card_product.selected_or_first_available_variant.available

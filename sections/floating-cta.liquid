@@ -16,12 +16,8 @@
         class='floating-cta floating-cta--{{ section.settings.position }}'
         style='--floating-cta-color: {{ section.settings.cta_color }};'
         data-floating-cta
-        role='dialog'
-        aria-modal='true'
-        aria-labelledby='floating-cta-title'
-        aria-describedby='floating-cta-description'
-        tabindex='0'
-        aria-label='Floating CTA'
+        role='complementary'
+        aria-label='{{ section.settings.cta_text | escape }}'
       >
         <button
           type='button'
@@ -54,6 +50,7 @@
         id='{{ modal_id }}'
         data-floating-cta-modal
         aria-hidden='true'
+        inert
       >
         <div
           class='floating-cta-modal__dialog color-{{ section.settings.modal_color_scheme }}'
@@ -258,6 +255,7 @@
           if (!this.modal) return;
           this.modal.classList.add('is-open');
           this.modal.setAttribute('aria-hidden', 'false');
+          this.modal.removeAttribute('inert');
           this.triggerButton?.setAttribute('aria-expanded', 'true');
           this.input?.focus();
       }
@@ -267,6 +265,7 @@
           sessionStorage.setItem(this.sessionKey, '1');
           this.modal.classList.remove('is-open');
           this.modal.setAttribute('aria-hidden', 'true');
+          this.modal.setAttribute('inert', '');
           this.triggerButton?.setAttribute('aria-expanded', 'false');
           this.triggerButton?.focus();
 

@@ -16,14 +16,11 @@
                 <summary
                   class='header__menu-summary focus-inset'
                   id='#{{ link.title | escape }}'
+                  {% if link.current %}
+                    aria-current='page'
+                  {% endif %}
                 >
-                  <a
-                    href='{{ link.url }}'
-                    class='header__menu-item'
-                    {% if link.current %}
-                      aria-current='page'
-                    {% endif %}
-                  >
+                  <span class='header__menu-item'>
                     <span
                       {%- if link.current or link.child_active %}
                         class='header__active-menu-item'
@@ -32,7 +29,7 @@
                       {{- link.title | escape -}}
                     </span>
                     {% render 'icon-plus' %}
-                  </a>
+                  </span>
                 </summary>
 
                 {% assign title = link.title | escape %}

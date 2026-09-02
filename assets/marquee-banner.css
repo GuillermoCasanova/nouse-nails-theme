@@ -51,3 +51,11 @@
 .marquee-banner__text span {
   display: inline-block;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-banner__text {
+    -webkit-animation: none;
+    animation: none;
+    white-space: normal;
+  }
+}
