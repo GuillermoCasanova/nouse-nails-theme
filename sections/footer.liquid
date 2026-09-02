@@ -155,7 +155,7 @@
                       class='footer__social-link'
                       target='_blank'
                       rel='noopener noreferrer'
-                      aria-label="{{ 'general.social.links.facebook' | t }}"
+                      aria-label='{{ 'general.social.links.facebook' | t }}'
                     >
                       {% render 'icon-facebook' %}
                     </a>
@@ -168,7 +168,7 @@
                       class='footer__social-link'
                       target='_blank'
                       rel='noopener noreferrer'
-                      aria-label="{{ 'general.social.links.twitter' | t }}"
+                      aria-label='{{ 'general.social.links.twitter' | t }}'
                     >
                       {% render 'icon-twitter' %}
                     </a>
@@ -181,7 +181,7 @@
                       class='footer__social-link'
                       target='_blank'
                       rel='noopener noreferrer'
-                      aria-label="{{ 'general.social.links.pinterest' | t }}"
+                      aria-label='{{ 'general.social.links.pinterest' | t }}'
                     >
                       {% render 'icon-pinterest' %}
                     </a>
@@ -194,7 +194,7 @@
                       class='footer__social-link'
                       target='_blank'
                       rel='noopener noreferrer'
-                      aria-label="{{ 'general.social.links.tiktok' | t }}"
+                      aria-label='{{ 'general.social.links.tiktok' | t }}'
                     >
                       {% render 'icon-tiktok' %}
                     </a>
@@ -207,7 +207,7 @@
                       class='footer__social-link'
                       target='_blank'
                       rel='noopener noreferrer'
-                      aria-label="{{ 'general.social.links.instagram' | t }}"
+                      aria-label='{{ 'general.social.links.instagram' | t }}'
                     >
                       {% render 'icon-instagram' %}
                     </a>
@@ -221,6 +221,8 @@
             <div class='footer__bottom-content'>
               <!-- Copyright -->
               <div class='footer__copyright'>
+                {% render 'cookiebot-footer-link' %}
+
                 <p class='footer__copyright-text'>
                   &copy; {{ 'now' | date: '%Y' }}
                   {{ shop.name }}.
@@ -237,6 +239,81 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    const html = document.documentElement;
+    const item = document.getElementById('CookiebotFooterItem');
+    const link = document.getElementById('CookiebotFooterLink');
+
+    function isUsVisitor() {
+      if (window.Cookiebot) {
+        const country = String(Cookiebot.userCountry || '').toUpperCase();
+        const ccpa = Boolean(
+          Cookiebot.regulations && Cookiebot.regulations.ccpaApplies
+        );
+        if (country || ccpa) return country === 'US' || ccpa;
+      }
+      return html.hasAttribute('data-cookiebot-us-market');
+    }
+
+    function showFooterLink(show) {
+      if (!item) return;
+      item.hidden = !show;
+    }
+
+    function suppressBanner() {
+      html.setAttribute('data-cookiebot-suppress-banner', '');
+      showFooterLink(true);
+      if (window.Cookiebot && typeof Cookiebot.hide === 'function') {
+        Cookiebot.hide();
+      }
+    }
+
+    function allowAutoBanner() {
+      html.removeAttribute('data-cookiebot-suppress-banner');
+      showFooterLink(false);
+    }
+
+    function applyGeo() {
+      if (window.__cookiebotOpenedFromFooter) return;
+      if (isUsVisitor()) suppressBanner();
+      else allowAutoBanner();
+    }
+
+    function openCookiebot() {
+      if (window.Cookiebot) {
+        if (typeof Cookiebot.show === 'function') Cookiebot.show();
+        if (typeof Cookiebot.renew === 'function') Cookiebot.renew();
+        return;
+      }
+      if (window.UC_UI && typeof UC_UI.showFirstLayer === 'function') {
+        UC_UI.showFirstLayer();
+      }
+    }
+
+    function openDialog(event) {
+      event.preventDefault();
+      window.__cookiebotOpenedFromFooter = true;
+      html.removeAttribute('data-cookiebot-suppress-banner');
+      showFooterLink(true);
+      openCookiebot();
+      requestAnimationFrame(openCookiebot);
+    }
+
+    if (link) link.addEventListener('click', openDialog);
+
+    window.addEventListener('CookiebotOnDialogDisplay', function () {
+      if (!window.__cookiebotOpenedFromFooter && isUsVisitor()) {
+        suppressBanner();
+      }
+    });
+    window.addEventListener('CookiebotOnConsentReady', applyGeo);
+    window.addEventListener('CookiebotOnLoad', applyGeo);
+
+    if (window.Cookiebot && Cookiebot.userCountry) applyGeo();
+  })();
+</script>
 
 {% schema %}
 {
@@ -375,6 +452,13 @@
       "id": "bottom_menu",
       "label": "Bottom navigation menu",
       "info": "This menu will appear at the bottom of the footer"
+    },
+    {
+      "type": "text",
+      "id": "cookiebot_link_label",
+      "label": "US cookie settings link",
+      "default": "My Privacy Choices",
+      "info": "Shown next to the copyright for US and California visitors. Opens Cookiebot."
     }
   ],
   "presets": [

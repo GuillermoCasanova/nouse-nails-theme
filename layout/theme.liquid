@@ -1,5 +1,12 @@
 <!doctype html>
-<html class='no-js' lang='{{ shop.locale }}'>
+<html
+  class='no-js'
+  lang='{{ shop.locale }}'
+  {% if localization.country.iso_code == 'US' %}
+    data-cookiebot-us-market
+    data-cookiebot-suppress-banner
+  {% endif %}
+>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -8,6 +15,19 @@
       content='width=device-width,initial-scale=1,viewport-fit=cover'
     >
     <meta name='theme-color' content='{{ settings.color_button }}'>
+
+    {%- comment -%}
+      Hide Cookiebot's first-layer banner and privacy widget for US visitors
+      until they open it from the footer link.
+    {%- endcomment -%}
+    <style id='cookiebot-us-banner-suppress'>
+      html[data-cookiebot-suppress-banner] #CybotCookiebotDialog,
+      html[data-cookiebot-suppress-banner] #CybotCookiebotDialogBodyUnderlay,
+      html[data-cookiebot-suppress-banner] #CookiebotWidget,
+      html[data-cookiebot-suppress-banner] #usercentrics-root {
+        display: none !important;
+      }
+    </style>
 
     {%- if canonical_url != blank -%}
       <link rel='canonical' href='{{ canonical_url }}'>
