@@ -1,14 +1,8 @@
 {% comment %}
-  US / California Cookiebot opt-out link.
-  Sits next to the copyright line. Opens Cookiebot on click.
+  Cookiebot privacy-choices link. Always visible so visitors in any
+  region can reopen or change consent from the footer.
 {% endcomment %}
-<span
-  id='CookiebotFooterItem'
-  class='footer__privacy-choices'
-  {% unless localization.country.iso_code == 'US' %}
-    hidden
-  {% endunless %}
->
+<span id='CookiebotFooterItem' class='footer__privacy-choices'>
   <a
     id='CookiebotFooterLink'
     class='footer__privacy-choices-link'

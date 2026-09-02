@@ -243,7 +243,6 @@
 <script>
   (function () {
     const html = document.documentElement;
-    const item = document.getElementById('CookiebotFooterItem');
     const link = document.getElementById('CookiebotFooterLink');
 
     function isUsVisitor() {
@@ -257,14 +256,8 @@
       return html.hasAttribute('data-cookiebot-us-market');
     }
 
-    function showFooterLink(show) {
-      if (!item) return;
-      item.hidden = !show;
-    }
-
     function suppressBanner() {
       html.setAttribute('data-cookiebot-suppress-banner', '');
-      showFooterLink(true);
       if (window.Cookiebot && typeof Cookiebot.hide === 'function') {
         Cookiebot.hide();
       }
@@ -272,7 +265,6 @@
 
     function allowAutoBanner() {
       html.removeAttribute('data-cookiebot-suppress-banner');
-      showFooterLink(false);
     }
 
     function applyGeo() {
@@ -296,7 +288,6 @@
       event.preventDefault();
       window.__cookiebotOpenedFromFooter = true;
       html.removeAttribute('data-cookiebot-suppress-banner');
-      showFooterLink(true);
       openCookiebot();
       requestAnimationFrame(openCookiebot);
     }
@@ -456,9 +447,9 @@
     {
       "type": "text",
       "id": "cookiebot_link_label",
-      "label": "US cookie settings link",
+      "label": "Cookie settings link",
       "default": "My Privacy Choices",
-      "info": "Shown next to the copyright for US and California visitors. Opens Cookiebot."
+      "info": "Always shown next to the copyright. Opens Cookiebot so visitors can change consent."
     }
   ],
   "presets": [

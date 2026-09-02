@@ -274,10 +274,6 @@
   opacity: 0.8;
 }
 
-.footer__privacy-choices[hidden] {
-  display: none;
-}
-
 .footer__privacy-choices-link {
   display: inline-flex;
   align-items: center;
