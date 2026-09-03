@@ -410,17 +410,17 @@
             "article": "nous-blog/what-are-semi-cured-gel-nail-strips"
           }
         },
-        "article_eJh9RM": {
+        "article_JEchJQ": {
           "type": "article",
           "settings": {
-            "article": "nous-blog/semi-cured-gel-nails-vs-press-on-nails-what-s-the-difference"
+            "article": "nous-blog/gel-nail-strips-vs-gel-polish"
           }
         }
       },
       "block_order": [
         "article_RQpGmT",
         "article_g33qnH",
-        "article_eJh9RM"
+        "article_JEchJQ"
       ],
       "name": "Blog posts",
       "settings": {
