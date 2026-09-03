@@ -90,11 +90,15 @@
 
 .instagram-slideshow__video-container,
 .instagram-slideshow__image-container {
-  position: absolute;
   height: 100%;
-  width: 100%;
   object-fit: cover;
-  background-color: #550707;
+  position: absolute;
+  width: 100%;
+}
+
+.instagram-slideshow__video-container:not(.is-media-loaded),
+.instagram-slideshow__image-container:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .instagram-slideshow__video {

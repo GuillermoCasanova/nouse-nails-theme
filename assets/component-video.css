@@ -8,9 +8,13 @@
 \*------------------------------------*/
 
 .video-with-aspect-ratio {
+  aspect-ratio: var(--aspect-ratio);
   position: relative;
   width: 100%;
-  aspect-ratio: var(--aspect-ratio);
+}
+
+.video-with-aspect-ratio:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .video-with-aspect-ratio__inner {

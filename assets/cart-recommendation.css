@@ -17,11 +17,15 @@
 }
 
 .cart-recommendation__image {
-  flex-shrink: 0;
-  width: 60px;
-  height: 60px;
   border-radius: 4px;
+  flex-shrink: 0;
+  height: 60px;
   overflow: hidden;
+  width: 60px;
+}
+
+.cart-recommendation__image:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .cart-recommendation__image img {

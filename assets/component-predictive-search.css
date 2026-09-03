@@ -465,6 +465,10 @@ predictive-search[loading] .predictive-search__results-list:first-child {
   position: relative;
 }
 
+.predictive-search__image:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
+}
+
 .predictive-search__image img {
   height: 100%;
   left: 0;

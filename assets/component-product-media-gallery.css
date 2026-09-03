@@ -148,8 +148,8 @@ media-gallery {
   border-radius: var(--border-radius-small);
 }
 
-.product__media:not(.product-media-gallery__thumbnail) {
-  background-color: rgba(0, 0, 0, 0.1);
+.product__media:not(.product-media-gallery__thumbnail):not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 @media screen and (min-width: 940px) {

@@ -275,7 +275,10 @@
   border-radius: var(--border-radius-large);
   overflow: hidden;
   position: relative;
-  background-color: grey;
+}
+
+.floating-cta-modal__dialog__media:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .floating-cta-modal__dialog__content-wrapper {
@@ -296,10 +299,10 @@
 }
 
 /*------------------------------------*\
-    #Klaviyo Form
+    #Klaviyo Form (Floating CTA modal only)
 \*------------------------------------*/
 
-.klaviyo-form {
+.floating-cta-modal .klaviyo-form {
   max-width: 36rem !important;
   margin-right: auto;
   margin-left: auto;
@@ -308,31 +311,31 @@
   font-family: var(--primary-font-family) !important;
 }
 
-.klaviyo-form h1,
-.klaviyo-form h2,
-.klaviyo-form h3,
-.klaviyo-form h4,
-.klaviyo-form h5,
-.klaviyo-form h6 {
+.floating-cta-modal .klaviyo-form h1,
+.floating-cta-modal .klaviyo-form h2,
+.floating-cta-modal .klaviyo-form h3,
+.floating-cta-modal .klaviyo-form h4,
+.floating-cta-modal .klaviyo-form h5,
+.floating-cta-modal .klaviyo-form h6 {
   color: rgb(var(--color-text-1)) !important;
   font-family: var(--primary-font-family) !important;
 }
 
-.klaviyo-form p {
+.floating-cta-modal .klaviyo-form p {
   color: rgb(var(--color-text-1)) !important;
   font-family: var(--primary-font-family) !important;
   margin-bottom: var(--space-3) !important;
 }
 
-.klaviyo-form .needsclick {
+.floating-cta-modal .klaviyo-form .needsclick {
   min-height: auto !important;
 }
 
-.klaviyo-form input:needs .klaviyo-form form {
+.floating-cta-modal .klaviyo-form input:needs .floating-cta-modal .klaviyo-form form {
   padding: 0 !important;
 }
 
-.klaviyo-form input {
+.floating-cta-modal .klaviyo-form input {
   background: rgb(var(--color-text-1)) !important;
   border-radius: 100vw !important;
   overflow: hidden;
@@ -349,14 +352,14 @@
 }
 
 @media screen and (min-width: 750px) {
-  .klaviyo-form input {
+  .floating-cta-modal .klaviyo-form input {
     height: 4.5rem !important;
     font-size: var(--text-size-medium) !important;
   }
 }
 
-.klaviyo-form form button.go777694700,
-.klaviyo-form .klaviyo-form-button.floating-cta-modal__subscribe {
+.floating-cta-modal .klaviyo-form form button.go777694700,
+.floating-cta-modal .klaviyo-form .klaviyo-form-button.floating-cta-modal__subscribe {
   width: auto !important;
   min-width: 2.75rem;
   min-height: 2.75rem;
@@ -384,47 +387,40 @@
 }
 
 @media screen and (min-width: 750px) {
-  .klaviyo-form form button:not([aria-label='Copy coupon code']):not(.floating-cta-modal__subscribe) {
+  .floating-cta-modal .klaviyo-form form button:not([aria-label='Copy coupon code']):not(.floating-cta-modal__subscribe) {
     width: 3.75rem !important;
     height: 3.75rem !important;
     right: var(--space-1);
   }
 }
 
-.needsclick:has(button),
-[data-testid='form-component'] {
+.floating-cta-modal .needsclick:has(button),
+.floating-cta-modal [data-testid='form-component'] {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.klaviyo-form form button:hover,
-.klaviyo-form form button:focus {
+.floating-cta-modal .klaviyo-form form button:hover,
+.floating-cta-modal .klaviyo-form form button:focus {
   background: rgb(var(--color-background)) !important;
   color: rgb(var(--color-accent)) !important;
   border-color: rgb(var(--color-background)) !important;
 }
 
-.klaviyo-form form [data-testid='form-row'],
-.klaviyo-form form [data-testid='form-component'] {
+.floating-cta-modal .klaviyo-form form [data-testid='form-row'],
+.floating-cta-modal .klaviyo-form form [data-testid='form-component'] {
   padding: 0 !important;
 }
 
-.template-password-screen__newsletter_subheading {
-  font-size: var(--text-size-small);
-  max-width: 36rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.needsclick.go248563387 {
+.floating-cta-modal .needsclick.go248563387 {
   height: auto !important;
 }
 
-button.go777694700 {
+.floating-cta-modal button.go777694700 {
   background-color: transparent !important;
 }
 
-.klaviyo-form form button[role='combobox'] {
+.floating-cta-modal .klaviyo-form form button[role='combobox'] {
   background: transparent !important;
   border: none !important;
   left: 1rem !important;
@@ -434,25 +430,22 @@ button.go777694700 {
   top: 0.25rem;
 }
 
-.klaviyo-form form button[role='combobox'] {
-  border: none !important;
-}
-.klaviyo-form form button[role='combobox']:hover,
-.klaviyo-form form button[role='combobox']:focus {
+.floating-cta-modal .klaviyo-form form button[role='combobox']:hover,
+.floating-cta-modal .klaviyo-form form button[role='combobox']:focus {
   background: transparent !important;
   border: none !important;
 }
 
-input[type='tel'] {
+.floating-cta-modal input[type='tel'] {
   padding-left: 5rem !important;
 }
 
-.go248563387.go248563387.go248563387,
-.go248563387.go248563387.go248563387:hover {
+.floating-cta-modal .go248563387.go248563387.go248563387,
+.floating-cta-modal .go248563387.go248563387.go248563387:hover {
   border: none !important;
 }
 
-div.needsclick [data-testid='form-row']:nth-child(4) button {
+.floating-cta-modal div.needsclick [data-testid='form-row']:nth-child(4) button {
   position: relative;
   width: 100% !important;
   background: transparent !important;
@@ -466,11 +459,11 @@ div.needsclick [data-testid='form-row']:nth-child(4) button {
   font-size: var(--text-size-main) !important;
 }
 
-div.needsclick [data-testid='form-row']:nth-child(4) button:hover,
-div.needsclick [data-testid='form-row']:nth-child(4) button:focus {
+.floating-cta-modal div.needsclick [data-testid='form-row']:nth-child(4) button:hover,
+.floating-cta-modal div.needsclick [data-testid='form-row']:nth-child(4) button:focus {
   text-decoration: underline;
 }
 
-div.needsclick [data-testid='form-row']:nth-child(1) p {
+.floating-cta-modal div.needsclick [data-testid='form-row']:nth-child(1) p {
   font-size: var(--headline-size-h4) !important;
 }

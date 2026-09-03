@@ -10,6 +10,10 @@
       --color-background-2: {{ scheme.settings.colors_background_2.red }}, {{ scheme.settings.colors_background_2.green }}, {{ scheme.settings.colors_background_2.blue }};
       --color-background-3: {{ scheme.settings.colors_background_3.red }}, {{ scheme.settings.colors_background_3.green }}, {{ scheme.settings.colors_background_3.blue }};
 
+      /* 8% darker than the scheme background; shown while images and videos load */
+      --color-media-placeholder: rgb(0 0 0 / 8%);
+      --color-media-placeholder: color-mix(in srgb, rgb(var(--color-background)) 92%, black);
+
       /* Text Colors */
       --color-text-1: {{ scheme.settings.colors_text.red }}, {{ scheme.settings.colors_text.green }}, {{ scheme.settings.colors_text.blue }};
       --color-text-2: {{ scheme.settings.colors_text_2.red }}, {{ scheme.settings.colors_text_2.green }}, {{ scheme.settings.colors_text_2.blue }};

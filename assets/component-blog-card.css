@@ -16,9 +16,13 @@
 }
 
 .blog-card__image-container {
-  margin-bottom: var(--space-5);
   border-radius: var(--border-radius-main);
+  margin-bottom: var(--space-5);
   overflow: hidden;
+}
+
+.blog-card__image-container:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .blog-card__excerpt {

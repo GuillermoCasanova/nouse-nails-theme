@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+.hero-header__media:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
+}
+
 .hero-header__media .accessible-video {
   height: 100%;
 }

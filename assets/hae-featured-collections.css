@@ -12,12 +12,16 @@
 }
 
 .featured-collections__column__media {
-  position: relative;
   aspect-ratio: 1/0.9;
-  width: 100%;
   border-radius: var(--border-radius-main);
-  overflow: hidden;
   margin-bottom: var(--space-8);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.featured-collections__column__media:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .featured-collections__column__media > accessible-video {

@@ -1,27 +1,26 @@
 /**
- * Klaviyo BIS form overrides
- * Targets Klaviyo-injected elements to match theme spacing and layout.
+ * Klaviyo Back-in-Stock modal overrides
+ * Scoped to product pages only — avoids affecting footer or floating CTA forms.
  */
 
-/* Elements with data-testid starting with "klaviyo" – negative space-8 */
-[data-testid^='klaviyo'],
-[aria-modal='true'] .klaviyo-form > .needsclick {
+body.template-product [aria-modal='true'] [data-testid^='klaviyo'],
+body.template-product [aria-modal='true'] .klaviyo-form > .needsclick {
   padding: var(--space-8) !important;
 }
 
-[aria-modal='true'] .klaviyo-form {
+body.template-product [aria-modal='true'] .klaviyo-form {
   min-width: 38vw !important;
 }
 
-[aria-modal='true'] .klaviyo-form-version-cid_6 {
+body.template-product [aria-modal='true'] .klaviyo-form-version-cid_6 {
   padding: 0 !important;
 }
 
-[aria-modal='true'] .klaviyo-form-version-cid_6 form {
+body.template-product [aria-modal='true'] .klaviyo-form-version-cid_6 form {
   padding: 0 !important;
 }
 
-[data-testid='form-row'] h1 * {
+body.template-product [aria-modal='true'] [data-testid='form-row'] h1 * {
   padding-top: var(--space-4) !important;
   display: block !important;
   font-size: var(--headline-size-h4) !important;
@@ -31,28 +30,28 @@
   font-family: var(--primary-font-family) !important;
 }
 
-[aria-modal='true'] .klaviyo-form input[type='email'] {
+body.template-product [aria-modal='true'] .klaviyo-form input[type='email'] {
   background-color: white !important;
   height: 5rem !important;
   border: 2px solid rgb(var(--color-base-text-1)) !important;
 }
 
-[aria-modal='true'] .klaviyo-form [for^='opt_in_promotional_email__10__11'] {
+body.template-product [aria-modal='true'] .klaviyo-form [for^='opt_in_promotional_email__10__11'] {
   margin-bottom: var(--space-4) !important;
 }
 
-[aria-modal='true'] .needsclick {
+body.template-product [aria-modal='true'] .needsclick {
   color: rgb(var(--color-brand-1)) !important;
 }
 
-[aria-modal='true'] .klaviyo-form fieldset {
+body.template-product [aria-modal='true'] .klaviyo-form fieldset {
   display: flex !important;
   flex-direction: row !important;
   width: 100% !important;
   color: rgb(var(--color-brand-2)) !important;
 }
 
-[aria-modal='true'] .klaviyo-form button {
+body.template-product [aria-modal='true'] .klaviyo-form button {
   height: 5rem !important;
   transition: all 0.2s var(--default-easing) !important;
   font-family: var(--primary-font-family) !important;
@@ -60,29 +59,30 @@
   letter-spacing: 0.085rem !important;
 }
 
-[aria-modal='true'] [data-testid='form-row'] button:hover,
-[aria-modal='true'] [data-testid='form-row'] button:focus {
+body.template-product [aria-modal='true'] [data-testid='form-row'] button:hover,
+body.template-product [aria-modal='true'] [data-testid='form-row'] button:focus {
   background-color: rgb(var(--color-brand-1)) !important;
   color: rgb(var(--color-brand-2)) !important;
   border-color: rgb(var(--color-brand-1)) !important;
 }
 
-[aria-modal='true'] .klaviyo-form strong {
+body.template-product [aria-modal='true'] .klaviyo-form strong {
   font-size: var(--headline-size-h3) !important;
   font-family: var(--primary-font-family) !important;
 }
-[aria-modal='true'] > .needsclick {
+
+body.template-product [aria-modal='true'] > .needsclick {
   border-radius: var(--border-radius-main) !important;
   overflow: hidden !important;
   font-family: var(--primary-font-family) !important;
 }
 
-[aria-modal='true'] button[aria-label='Close dialog'] {
+body.template-product [aria-modal='true'] button[aria-label='Close dialog'] {
   width: 3rem !important;
   height: 3rem !important;
 }
 
-[aria-modal='true'] [aria-label='Close dialog'] svg {
+body.template-product [aria-modal='true'] [aria-label='Close dialog'] svg {
   width: 100% !important;
   height: 100% !important;
   fill: rgb(var(--color-brand-1)) !important;
@@ -90,11 +90,11 @@
   transition: transform 0.2s var(--default-easing) !important;
 }
 
-[aria-modal='true'] [aria-label='Close dialog'] svg path {
+body.template-product [aria-modal='true'] [aria-label='Close dialog'] svg path {
   fill: rgb(var(--color-brand-1)) !important;
   color: rgb(var(--color-brand-1)) !important;
 }
 
-[aria-modal='true'] [aria-label='Close dialog']:hover svg {
+body.template-product [aria-modal='true'] [aria-label='Close dialog']:hover svg {
   transform: rotate(90deg) !important;
 }

@@ -392,6 +392,11 @@
 
 .cart-drawer .cart-item__image-inner {
   aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.cart-drawer .cart-item__image-inner:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 @media screen and (min-width: 750px) {

@@ -1978,3 +1978,148 @@ if (document.body) {
 } else {
   document.addEventListener('DOMContentLoaded', initHiddenAriaWidgetPatch);
 }
+
+const MEDIA_PLACEHOLDER_SELECTOR = [
+  '.accessible-video',
+  'accessible-video',
+  '.blog-card__image-container',
+  '.card__media',
+  '.cart-item__image-container',
+  '.cart-item__image-inner',
+  '.cart-recommendation__image',
+  '.collection-grid-item__overlay',
+  '.dynamic-collection-grid__image',
+  '.dynamic-collection-grid__video',
+  '.featured-collections__column__media',
+  '.floating-cta-modal__dialog__media',
+  '.hero-header__media',
+  '.image-with-aspect-ratio',
+  '.image-with-text__media',
+  '.image-with-text__media-wrapper',
+  '.instagram-slideshow__image-container',
+  '.instagram-slideshow__product-link__image',
+  '.instagram-slideshow__video-container',
+  '.media',
+  '.mega-menu-promotion__image__inner',
+  '.predictive-search__image',
+  '.product-card-grid__image-container',
+  '.product-card__image',
+  '.product__media',
+  '.product__media-item-wrapper',
+  '.text-page-header_background',
+  '.video-wrapper',
+  '.video-with-aspect-ratio'
+].join(',');
+
+const MEDIA_PLACEHOLDER_SKIP_SELECTOR = [
+  '.featured-collections__column__sticker',
+  '.footer__logo',
+  '.header__logo',
+  '.hero-header__sticker',
+  '.icon',
+  '.image-with-aspect-ratio--natural',
+  '.product-expose__cert-item',
+  '.text-with-icon_icon'
+].join(',');
+
+const MEDIA_LOADED_CLASS = 'is-media-loaded';
+
+function markMediaPlaceholderLoaded(media) {
+  if (!media) return;
+  media.classList.add(MEDIA_LOADED_CLASS);
+
+  let node = media.parentElement;
+  while (node && node !== document.documentElement) {
+    if (node.matches(MEDIA_PLACEHOLDER_SELECTOR)) {
+      node.classList.add(MEDIA_LOADED_CLASS);
+    }
+    node = node.parentElement;
+  }
+}
+
+function unmarkMediaPlaceholder(media) {
+  if (!media) return;
+  media.classList.remove(MEDIA_LOADED_CLASS);
+
+  let node = media.parentElement;
+  while (node && node !== document.documentElement) {
+    if (node.matches(MEDIA_PLACEHOLDER_SELECTOR)) {
+      const stillLoaded = node.querySelector(
+        `img.${MEDIA_LOADED_CLASS}, video.${MEDIA_LOADED_CLASS}`
+      );
+      if (!stillLoaded) node.classList.remove(MEDIA_LOADED_CLASS);
+    }
+    node = node.parentElement;
+  }
+}
+
+function isPlaceholderImageReady(img) {
+  return img.complete && img.naturalWidth > 0;
+}
+
+function isPlaceholderVideoReady(video) {
+  return video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA;
+}
+
+const boundPlaceholderMedia = new WeakSet();
+
+function bindPlaceholderMedia(media) {
+  if (!media || boundPlaceholderMedia.has(media)) return;
+  if (media.closest(MEDIA_PLACEHOLDER_SKIP_SELECTOR)) return;
+  if (!media.closest(MEDIA_PLACEHOLDER_SELECTOR)) return;
+
+  boundPlaceholderMedia.add(media);
+
+  if (media.tagName === 'IMG') {
+    if (isPlaceholderImageReady(media)) markMediaPlaceholderLoaded(media);
+    media.addEventListener('load', () => markMediaPlaceholderLoaded(media));
+    media.addEventListener('error', () => unmarkMediaPlaceholder(media));
+    return;
+  }
+
+  if (media.tagName === 'VIDEO') {
+    if (isPlaceholderVideoReady(media)) markMediaPlaceholderLoaded(media);
+    media.addEventListener('loadeddata', () => markMediaPlaceholderLoaded(media));
+    media.addEventListener('playing', () => markMediaPlaceholderLoaded(media));
+  }
+}
+
+function scanPlaceholderMedia(root) {
+  if (!root) return;
+  if (root.tagName === 'IMG' || root.tagName === 'VIDEO') {
+    bindPlaceholderMedia(root);
+  }
+  root.querySelectorAll?.('img, video').forEach(bindPlaceholderMedia);
+}
+
+function initMediaPlaceholders() {
+  scanPlaceholderMedia(document);
+
+  new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      if (mutation.type === 'attributes') {
+        const target = mutation.target;
+        if (!(target instanceof HTMLImageElement)) continue;
+        if (!boundPlaceholderMedia.has(target)) continue;
+        if (!isPlaceholderImageReady(target)) unmarkMediaPlaceholder(target);
+        continue;
+      }
+
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeType !== 1) return;
+        scanPlaceholderMedia(node);
+      });
+    }
+  }).observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['src', 'srcset']
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMediaPlaceholders);
+} else {
+  initMediaPlaceholders();
+}

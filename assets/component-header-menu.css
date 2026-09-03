@@ -395,7 +395,10 @@ details.menu-open .header__submenu {
 
 .mega-menu-promotion__image__inner {
   padding-bottom: 130%;
-  background-color: rgb(var(--color-base-background-2));
+}
+
+.mega-menu-promotion__image__inner:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 @media screen and (min-width: 940px) {

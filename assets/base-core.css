@@ -644,9 +644,12 @@ main {
 
 .media {
   display: block;
-  background-color: rgba(var(--color-base-background-2), 0.5);
-  position: relative;
   overflow: hidden;
+  position: relative;
+}
+
+.media:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .media--transparent {
@@ -1082,13 +1085,18 @@ button.loading .button_text {
 \*------------------------------------*/
 
 .image-with-aspect-ratio {
+  aspect-ratio: var(--aspect-ratio);
   position: relative;
   width: 100%;
-  aspect-ratio: var(--aspect-ratio);
+}
+
+.image-with-aspect-ratio:not(.image-with-aspect-ratio--natural):not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .image-with-aspect-ratio--natural {
   aspect-ratio: auto;
+  background-color: transparent;
   display: block;
 }
 
@@ -1110,15 +1118,15 @@ button.loading .button_text {
 }
 
 .image-with-aspect-ratio__placeholder {
+  align-items: center;
+  background-color: var(--color-media-placeholder);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f4f4f4;
 }
 
 .image-with-aspect-ratio__placeholder .placeholder-svg {
@@ -1127,15 +1135,57 @@ button.loading .button_text {
 }
 
 .video-wrapper {
-  position: relative;
   aspect-ratio: var(--aspect-ratio);
+  position: relative;
+}
+
+.video-wrapper:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
 }
 
 .video-wrapper video {
-  width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
+  width: 100%;
+}
+
+/*------------------------------------*\
+  #Media load placeholder
+\*------------------------------------*/
+
+.accessible-video:not(.is-media-loaded),
+.blog-card__image-container:not(.is-media-loaded),
+.card__media:not(.is-media-loaded),
+.cart-item__image-container:not(.is-media-loaded),
+.cart-item__image-inner:not(.is-media-loaded),
+.cart-recommendation__image:not(.is-media-loaded),
+.collection-grid-item__overlay:not(.is-media-loaded),
+.dynamic-collection-grid__image:not(.is-media-loaded),
+.dynamic-collection-grid__video:not(.is-media-loaded),
+.featured-collections__column__media:not(.is-media-loaded),
+.floating-cta-modal__dialog__media:not(.is-media-loaded),
+.hero-header__media:not(.is-media-loaded),
+.image-with-text__media:not(.is-media-loaded),
+.image-with-text__media-wrapper:not(.is-media-loaded),
+.instagram-slideshow__image-container:not(.is-media-loaded),
+.instagram-slideshow__product-link__image:not(.is-media-loaded),
+.instagram-slideshow__video-container:not(.is-media-loaded),
+.mega-menu-promotion__image__inner:not(.is-media-loaded),
+.predictive-search__image:not(.is-media-loaded),
+.product-card-grid__image-container:not(.is-media-loaded),
+.product-card__image:not(.is-media-loaded),
+.product__media:not(.is-media-loaded),
+.product__media-item-wrapper:not(.is-media-loaded),
+.text-page-header_background:not(.is-media-loaded),
+.video-with-aspect-ratio:not(.is-media-loaded) {
+  background-color: var(--color-media-placeholder);
+}
+
+.featured-collections__column__sticker .image-with-aspect-ratio,
+.footer__logo .image-with-aspect-ratio,
+.hero-header__sticker .image-with-aspect-ratio {
+  background-color: transparent;
 }
 
 #custom-green-dot-cursor {
