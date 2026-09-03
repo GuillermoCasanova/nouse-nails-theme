@@ -48,18 +48,12 @@
             class='video-wrapper'
             style='--aspect-ratio: {{ section.settings.media_aspect_ratio }};'
           >
-            <video
-              class='responsive-video'
-              autoplay
-              loop
-              muted
-              preload='none'
-              playsinline
-              poster='{{ section.settings.video_poster | image_url: width: 720 }}'
-            >
-              <source src='{{ section.settings.video_url }}' type='video/mp4'>
-              Your browser does not support the video tag.
-            </video>
+            {% render 'accessible-video',
+              src: section.settings.video_url,
+              caption: section.settings.video_caption,
+              poster: section.settings.video_poster,
+              preload: 'none'
+            %}
           </div>
         {% endif %}
       </div>
@@ -210,6 +204,16 @@
       "id": "video_url",
       "label": "Video URL",
       "info": "MP4 format required"
+    },
+    {
+      "type": "paragraph",
+      "content": "Video caption is for accessibility, not an on-screen subtitle. Leave it blank if the video is decorative — it will be hidden from screen readers. If the video conveys information (a product demo, technique, etc.), add a short description so assistive technology can announce it. Informative videos also show a pause control. All videos pause automatically when a visitor prefers reduced motion."
+    },
+    {
+      "type": "textarea",
+      "id": "video_caption",
+      "label": "Video Caption",
+      "info": "Required for informative video. Leave blank for decorative video (hidden from screen readers)."
     },
     {
       "type": "image_picker",

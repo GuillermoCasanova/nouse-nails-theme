@@ -106,6 +106,57 @@
   object-fit: cover;
 }
 
+.instagram-slideshow__video-container .accessible-video__control {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 0;
+  border-radius: 50%;
+  bottom: auto;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 2.75rem;
+  justify-content: center;
+  left: auto;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+  position: absolute;
+  right: var(--space-3);
+  top: var(--space-3);
+  width: 2.75rem;
+  z-index: 3;
+}
+
+.instagram-slideshow__video-container .accessible-video__control:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.instagram-slideshow__video-container .accessible-video__icon {
+  align-items: center;
+  display: flex;
+  height: 1rem;
+  justify-content: center;
+  width: 1rem;
+}
+
+.instagram-slideshow__video-container .accessible-video__icon[hidden] {
+  display: none;
+}
+
+.instagram-slideshow__video-container .accessible-video__icon .icon {
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+.instagram-slideshow__video-container .accessible-video__icon--play .icon {
+  height: 1rem;
+  margin-left: 0.125rem;
+  width: 0.7rem;
+}
+
 /*------------------------------------*\
     #Product Link
 \*------------------------------------*/

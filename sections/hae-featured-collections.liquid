@@ -12,10 +12,7 @@
       <div
         class='featured-collections__column color-{{ block.settings.color_scheme }}'
       >
-        <a
-          class='featured-collections__column__layout section-padding-small'
-          href='{{ block.settings.collection_url }}'
-        >
+        <div class='featured-collections__column__layout section-padding-small'>
           <div class='featured-collections__column__media-wrapper'>
             <div class='featured-collections__column__sticker'>
               {% render 'floating-sticker',
@@ -28,15 +25,11 @@
               {% if block.settings.media_type == 'video'
                 and block.settings.video_url != blank
               %}
-                <video
-                  class='responsive-image'
-                  autoplay
-                  loop
-                  muted
-                  playsinline
-                >
-                  <source src='{{ block.settings.video_url }}' type='video/mp4'>
-                </video>
+                {% render 'accessible-video',
+                  src: block.settings.video_url,
+                  caption: block.settings.video_caption,
+                  class: 'responsive-image'
+                %}
               {% else %}
                 {% render 'image-with-aspect-ratio',
                   image: block.settings.image,
@@ -59,11 +52,16 @@
               <h3
                 class='featured-collections__column__headline headline-style-h1'
               >
-                {{ block.settings.headline }}
+                <a
+                  class='featured-collections__column__heading-link'
+                  href='{{ block.settings.collection_url }}'
+                >
+                  {{ block.settings.headline }}
+                </a>
               </h3>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -113,6 +111,16 @@
           "type": "text",
           "id": "video_url",
           "label": "Video URL"
+        },
+        {
+          "type": "paragraph",
+          "content": "Video caption is for accessibility, not an on-screen subtitle. Leave it blank if the video is decorative — it will be hidden from screen readers. If the video conveys information (a product demo, technique, etc.), add a short description so assistive technology can announce it. Informative videos also show a pause control. All videos pause automatically when a visitor prefers reduced motion."
+        },
+        {
+          "type": "textarea",
+          "id": "video_caption",
+          "label": "Video Caption",
+          "info": "Required for informative video. Leave blank for decorative video (hidden from screen readers)."
         },
         {
           "type": "image_picker",

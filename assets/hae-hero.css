@@ -8,11 +8,20 @@
 \*------------------------------------*/
 
 .hero-header__media {
-  position: relative;
-  width: 100%;
+  aspect-ratio: 1/1;
   height: 100%;
   overflow: hidden;
-  aspect-ratio: 1/1;
+  position: relative;
+  width: 100%;
+}
+
+.hero-header__media .accessible-video {
+  height: 100%;
+}
+
+.hero-header__media .accessible-video__video {
+  height: 100%;
+  object-fit: cover;
   width: 100%;
 }
 

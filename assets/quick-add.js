@@ -32,8 +32,6 @@ if (!customElements.get('quick-add-modal')) {
         opener.classList.add('loading');
         opener.querySelector('.loading__spinner').classList.remove('hidden');
 
-        super.show(opener);
-
         fetch(opener.getAttribute('data-product-url'))
           .then(response => response.text())
           .then(responseText => {
@@ -42,6 +40,7 @@ if (!customElements.get('quick-add-modal')) {
               'text/html'
             );
             const productElement = responseHTML.querySelector('product-info');
+            if (!productElement) return;
 
             this.preprocessHTML(productElement);
             HTMLUpdateUtility.setInnerHTML(
@@ -54,10 +53,7 @@ if (!customElements.get('quick-add-modal')) {
             }
             if (window.ProductModel) window.ProductModel.loadShopifyXR();
 
-            this.activateFocusTrap();
-          })
-          .catch(() => {
-            this.hide();
+            super.show(opener);
           })
           .finally(() => {
             opener.removeAttribute('aria-disabled');

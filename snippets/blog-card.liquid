@@ -86,9 +86,9 @@
   </div>
   <a
     href='{{ article.url }}'
-    aria-label=' Read More: {{ article.title }}'
     class='blog-card__button button button--small button--{{ button_style }}'
   >
-    {{ 'blogs.article.read_more' | t }}
+    {{ 'blogs.article.read_more' | t -}}
+    <span class='visually-hidden'>: {{ article.title }}</span>
   </a>
 </article>

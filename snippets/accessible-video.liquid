@@ -1,0 +1,343 @@
+{% doc %}
+  Renders an autoplay video with an accessibility caption, reduced-motion
+  pause, and a pause control when the video is informative.
+
+  @param {string} [src] - Direct MP4 URL
+  @param {object} [video] - Shopify-hosted video object
+  @param {string} [caption] - Accessible caption. Blank = decorative (aria-hidden)
+  @param {image} [poster] - Poster image object
+  @param {string} [class] - Extra classes on the video element
+  @param {string} [wrapper_class] - Extra classes on the wrapper
+  @param {boolean} [autoplay] - Autoplay when reduced motion is not requested. Default true
+  @param {boolean} [loop] - Loop the video. Default true
+  @param {boolean} [muted] - Mute the video. Default true
+  @param {boolean} [controls] - Show native controls. Default false
+  @param {string} [preload] - Preload attribute. Default metadata
+
+  @example
+  {% render 'accessible-video',
+    src: block.settings.video_url,
+    caption: block.settings.video_caption
+  %}
+{% enddoc %}
+
+{%- liquid
+  assign caption_text = caption | default: '' | strip
+  if caption_text != blank
+    assign is_informative = true
+  else
+    assign is_informative = false
+  endif
+
+  if autoplay == false or autoplay == 'false'
+    assign should_autoplay = false
+  else
+    assign should_autoplay = true
+  endif
+
+  if loop == false or loop == 'false'
+    assign should_loop = false
+  else
+    assign should_loop = true
+  endif
+
+  if muted == false or muted == 'false'
+    assign should_mute = false
+  else
+    assign should_mute = true
+  endif
+
+  if controls == true or controls == 'true'
+    assign show_native_controls = true
+  else
+    assign show_native_controls = false
+  endif
+
+  if is_informative and show_native_controls == false
+    assign show_pause_control = true
+  else
+    assign show_pause_control = false
+  endif
+
+  assign preload_value = preload | default: 'metadata'
+  assign video_class = class | default: ''
+  assign extra_wrapper_class = wrapper_class | default: ''
+
+  assign poster_url = ''
+  if poster != blank
+    if poster.width != blank
+      assign poster_url = poster | image_url: width: 720
+    else
+      assign poster_url = poster
+    endif
+  endif
+
+  assign has_video = false
+  if video != blank or src != blank
+    assign has_video = true
+  endif
+-%}
+
+{%- if has_video -%}
+  <accessible-video
+    class='accessible-video {{ extra_wrapper_class }}'
+    {% if should_autoplay %}
+      data-autoplay
+    {% endif %}
+  >
+    <video
+      class='accessible-video__video {{ video_class }}'
+      {% if should_autoplay %}
+        autoplay
+      {% endif %}
+      {% if should_loop %}
+        loop
+      {% endif %}
+      {% if should_mute %}
+        muted
+      {% endif %}
+      {% if show_native_controls %}
+        controls
+      {% endif %}
+      playsinline
+      preload='{{ preload_value }}'
+      {% if poster_url != blank %}
+        poster='{{ poster_url }}'
+      {% endif %}
+      {% if is_informative %}
+        aria-label='{{ caption_text | escape }}'
+      {% else %}
+        aria-hidden='true'
+      {% endif %}
+    >
+      {%- if video != blank -%}
+        {%- for source in video.sources -%}
+          <source src='{{ source.url }}' type='{{ source.mime_type }}'>
+        {%- endfor -%}
+      {%- else -%}
+        <source src='{{ src }}' type='video/mp4'>
+      {%- endif -%}
+    </video>
+    {%- if show_pause_control -%}
+      <button
+        type='button'
+        class='accessible-video__control'
+        data-accessible-video-toggle
+        aria-label='{{ 'accessibility.pause_video' | t }}'
+        data-label-pause='{{ 'accessibility.pause_video' | t }}'
+        data-label-play='{{ 'accessibility.play_video' | t }}'
+      >
+        <span class='accessible-video__icon accessible-video__icon--pause' data-icon-pause>
+          {% render 'icon-pause' %}
+        </span>
+        <span
+          class='accessible-video__icon accessible-video__icon--play'
+          data-icon-play
+          hidden
+        >
+          {% render 'icon-play' %}
+        </span>
+      </button>
+    {%- endif -%}
+    <script>
+      (function (script) {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var host = script.parentElement;
+        var video = host && host.querySelector('video');
+        if (!video) return;
+        video.autoplay = false;
+        video.removeAttribute('autoplay');
+        video.pause();
+      })(document.currentScript);
+    </script>
+  </accessible-video>
+{%- endif -%}
+
+{% stylesheet %}
+  /*------------------------------------*\
+      #Accessible Video
+  \*------------------------------------*/
+
+  accessible-video,
+  .accessible-video {
+    display: block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  .accessible-video__video {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .video-wrapper accessible-video,
+  .video-wrapper .accessible-video {
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .accessible-video__control {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.55);
+    border: 0;
+    border-radius: 50%;
+    bottom: var(--space-3);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    height: 2.75rem;
+    justify-content: center;
+    left: var(--space-3);
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0;
+    pointer-events: auto;
+    position: absolute;
+    width: 2.75rem;
+    z-index: 2;
+  }
+
+  .accessible-video__control:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .accessible-video__icon {
+    align-items: center;
+    display: flex;
+    height: 1rem;
+    justify-content: center;
+    width: 1rem;
+  }
+
+  .accessible-video__icon[hidden] {
+    display: none;
+  }
+
+  .accessible-video__icon .icon {
+    fill: currentColor;
+    height: 100%;
+    width: 100%;
+  }
+
+  .accessible-video__icon--play .icon {
+    height: 1rem;
+    margin-left: 0.125rem;
+    width: 0.7rem;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('accessible-video')) {
+    class AccessibleVideo extends HTMLElement {
+      connectedCallback() {
+        this.video = this.querySelector('video');
+        this.toggle = this.querySelector('[data-accessible-video-toggle]');
+        if (!this.video) return;
+
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        this.onReducedMotionChange = this.handleReducedMotionChange.bind(this);
+        this.onToggle = this.handleToggle.bind(this);
+        this.onPlay = this.syncControl.bind(this);
+        this.onPause = this.syncControl.bind(this);
+
+        this.applyReducedMotion(this.reducedMotion.matches);
+
+        if (typeof this.reducedMotion.addEventListener === 'function') {
+          this.reducedMotion.addEventListener('change', this.onReducedMotionChange);
+        } else {
+          this.reducedMotion.addListener(this.onReducedMotionChange);
+        }
+
+        if (this.toggle) {
+          this.toggle.addEventListener('click', this.onToggle);
+          this.video.addEventListener('play', this.onPlay);
+          this.video.addEventListener('pause', this.onPause);
+          this.syncControl();
+        }
+      }
+
+      disconnectedCallback() {
+        if (this.reducedMotion) {
+          if (typeof this.reducedMotion.removeEventListener === 'function') {
+            this.reducedMotion.removeEventListener(
+              'change',
+              this.onReducedMotionChange
+            );
+          } else {
+            this.reducedMotion.removeListener(this.onReducedMotionChange);
+          }
+        }
+
+        if (this.toggle) {
+          this.toggle.removeEventListener('click', this.onToggle);
+        }
+
+        if (this.video) {
+          this.video.removeEventListener('play', this.onPlay);
+          this.video.removeEventListener('pause', this.onPause);
+        }
+      }
+
+      handleReducedMotionChange(event) {
+        this.applyReducedMotion(event.matches);
+      }
+
+      applyReducedMotion(matches) {
+        if (matches) {
+          this.pauseVideo();
+          return;
+        }
+
+        if (this.hasAttribute('data-autoplay')) {
+          this.playVideo();
+        }
+      }
+
+      handleToggle(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (this.video.paused) {
+          this.playVideo();
+        } else {
+          this.pauseVideo();
+        }
+      }
+
+      playVideo() {
+        const playPromise = this.video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(function () {});
+        }
+      }
+
+      pauseVideo() {
+        this.video.pause();
+      }
+
+      syncControl() {
+        if (!this.toggle) return;
+
+        const paused = this.video.paused;
+        const pauseIcon = this.toggle.querySelector('[data-icon-pause]');
+        const playIcon = this.toggle.querySelector('[data-icon-play]');
+        const label = paused
+          ? this.toggle.getAttribute('data-label-play')
+          : this.toggle.getAttribute('data-label-pause');
+
+        this.toggle.setAttribute('aria-label', label);
+
+        if (pauseIcon) pauseIcon.hidden = paused;
+        if (playIcon) playIcon.hidden = !paused;
+      }
+    }
+
+    customElements.define('accessible-video', AccessibleVideo);
+  }
+{% endjavascript %}

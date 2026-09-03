@@ -111,6 +111,13 @@
                     height='480'
                     frameborder='0'
                     allowfullscreen
+                    {% if block.settings.video_caption != blank %}
+                      title='{{ block.settings.video_caption | escape }}'
+                    {% else %}
+                      title='Video'
+                      aria-hidden='true'
+                      tabindex='-1'
+                    {% endif %}
                   ></iframe>
                 {% else %}
                   {% if block.settings.video_url.type == 'youtube' %}
@@ -120,6 +127,13 @@
                       height='480'
                       frameborder='0'
                       allowfullscreen
+                      {% if block.settings.video_caption != blank %}
+                        title='{{ block.settings.video_caption | escape }}'
+                      {% else %}
+                        title='YouTube video'
+                        aria-hidden='true'
+                        tabindex='-1'
+                      {% endif %}
                     ></iframe>
                   {% endif %}
                   {% if block.settings.video_url.type == 'vimeo' %}
@@ -129,6 +143,13 @@
                       height='480'
                       frameborder='0'
                       allowfullscreen
+                      {% if block.settings.video_caption != blank %}
+                        title='{{ block.settings.video_caption | escape }}'
+                      {% else %}
+                        title='Vimeo video'
+                        aria-hidden='true'
+                        tabindex='-1'
+                      {% endif %}
                     ></iframe>
                   {% endif %}
                 {% endif %}
@@ -381,9 +402,9 @@
                       <a
                         href='{{ article.url }}'
                         class='btn btn--tertiary btn--small'
-                        aria-label='{{ 'blogs.article.read_more_title' | t: title: article.title }}'
                       >
-                        {{ 'blogs.article.read_more' | t }}
+                        {{ 'blogs.article.read_more' | t -}}
+                        <span class='visually-hidden'>: {{ article.title }}</span>
                       </a>
                     </li>
 
@@ -454,7 +475,11 @@
                   <ul class='list--inline article__meta-buttons'>
                     <li>
                       <a href='#' class='btn btn--tertiary btn--small'>
-                        {{ 'blogs.article.read_more' | t }}
+                        {{ 'blogs.article.read_more' | t -}}
+                        <span class='visually-hidden'>
+                          {{- ': ' -}}
+                          {{- 'homepage.onboarding.blog_title' | t -}}
+                        </span>
                       </a>
                     </li>
 
@@ -1691,6 +1716,16 @@
             "zh-TW": "YouTube 或 Vimeo 連結"
           },
           "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "paragraph",
+          "content": "Video caption is for accessibility, not an on-screen subtitle. Leave it blank if the video is decorative — it will be hidden from screen readers. If the video conveys information, add a short description so assistive technology can announce it (used as the iframe title)."
+        },
+        {
+          "type": "textarea",
+          "id": "video_caption",
+          "label": "Video Caption",
+          "info": "Required for informative video. Leave blank for decorative video (hidden from screen readers)."
         },
         {
           "type": "select",

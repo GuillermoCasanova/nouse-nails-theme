@@ -110,6 +110,11 @@
                           webkit-playsinline
                           controlsList='nofullscreen'
                           poster='{{ block.settings.image | image_url: width: 360, format: "webp" }}'
+                          {% if block.settings.video_caption != blank %}
+                            aria-label='{{ block.settings.video_caption | escape }}'
+                          {% else %}
+                            aria-hidden='true'
+                          {% endif %}
                         >
                           <source
                             data-src='{{ block.settings.video_url }}'
@@ -117,6 +122,30 @@
                           >
                           Your browser does not support the video tag.
                         </video>
+                        {% if block.settings.video_caption != blank %}
+                          <button
+                            type='button'
+                            class='accessible-video__control'
+                            data-social-video-toggle
+                            aria-label='{{ 'accessibility.pause_video' | t }}'
+                            data-label-pause='{{ 'accessibility.pause_video' | t }}'
+                            data-label-play='{{ 'accessibility.play_video' | t }}'
+                          >
+                            <span
+                              class='accessible-video__icon accessible-video__icon--pause'
+                              data-icon-pause
+                            >
+                              {% render 'icon-pause' %}
+                            </span>
+                            <span
+                              class='accessible-video__icon accessible-video__icon--play'
+                              data-icon-play
+                              hidden
+                            >
+                              {% render 'icon-play' %}
+                            </span>
+                          </button>
+                        {% endif %}
                       </div>
                     </social-video-player>
                   {% elsif block.settings.image != blank %}
@@ -299,6 +328,16 @@
           "type": "url",
           "id": "video_url",
           "label": "Video URL"
+        },
+        {
+          "type": "paragraph",
+          "content": "Video caption is for accessibility, not an on-screen subtitle. Leave it blank if the video is decorative — it will be hidden from screen readers. If the video conveys information (a product demo, technique, etc.), add a short description so assistive technology can announce it. Informative videos also show a pause control. All videos pause automatically when a visitor prefers reduced motion."
+        },
+        {
+          "type": "textarea",
+          "id": "video_caption",
+          "label": "Video Caption",
+          "info": "Required for informative video. Leave blank for decorative video (hidden from screen readers)."
         },
         {
           "type": "image_picker",

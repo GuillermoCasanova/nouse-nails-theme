@@ -1,27 +1,26 @@
-{% comment %}
-  Renders a video with a configurable aspect ratio
-  Accepts:
-  - video: {Object} Video object from Shopify
-  - aspect_ratio: {String} Aspect ratio (e.g., '16/9', '4/3', '1/1')
-  - autoplay: {Boolean} Whether to autoplay the video
-  - loop: {Boolean} Whether to loop the video
-  - controls: {Boolean} Whether to show video controls
-  - muted: {Boolean} Whether to mute the video
-  - class: {String} Additional CSS classes
-  - placeholder_image: {Object} Optional placeholder image
-  - motion_reduce: {Boolean} Whether to add motion-reduce class
+{% doc %}
+  Renders a video with a configurable aspect ratio, accessibility caption,
+  reduced-motion pause, and a pause control when the video is informative.
 
-  Usage:
+  @param {object} video - Shopify-hosted video object
+  @param {string} [aspect_ratio] - Aspect ratio (e.g. '16/9'). Default 16/9
+  @param {boolean} [autoplay] - Whether to autoplay the video
+  @param {boolean} [loop] - Whether to loop the video
+  @param {boolean} [controls] - Whether to show native video controls
+  @param {boolean} [muted] - Whether to mute the video
+  @param {string} [class] - Additional CSS classes
+  @param {image} [placeholder_image] - Optional placeholder image
+  @param {boolean} [motion_reduce] - Whether to add motion-reduce class
+  @param {string} [caption] - Accessible caption. Blank = decorative (aria-hidden)
+
+  @example
   {% render 'video-with-aspect-ratio',
     video: block.settings.video,
     aspect_ratio: '16/9',
     autoplay: true,
-    loop: true,
-    muted: true,
-    controls: false,
-    motion_reduce: true
+    caption: block.settings.video_caption
   %}
-{% endcomment %}
+{% enddoc %}
 
 {%- liquid
   assign aspect_ratio = aspect_ratio | default: '16/9'
@@ -32,12 +31,6 @@
   assign class = class | default: ''
   assign motion_reduce = motion_reduce | default: false
 
-  # Calculate aspect ratio percentage
-  assign ratio_parts = aspect_ratio | split: '/'
-  assign width = ratio_parts[0] | plus: 0
-  assign height = ratio_parts[1] | plus: 0
-
-  # Set video class
   assign video_class = ''
   if motion_reduce
     assign video_class = 'motion-reduce'
@@ -47,32 +40,22 @@
 <div class="video-with-aspect-ratio {{ class }}" style="--aspect-ratio: {{ aspect_ratio }};">
   <div class="video-with-aspect-ratio__inner">
     {%- if video != blank -%}
-      <video
-        class="video-with-aspect-ratio__video {{ video_class }}"
-        {% if autoplay %}
-          autoplay
-        {% endif %}
-        {% if loop %}
-          loop
-        {% endif %}
-        {% if controls %}
-          controls
-        {% endif %}
-        {% if muted %}
-          muted
-        {% endif %}
-        preload="metadata"
-        playsinline
-      >
-        <source src="{{ video.sources[1].url }}" type="{{ video.sources[1].mime_type }}">
-        <source src="{{ video.sources[0].url }}" type="{{ video.sources[0].mime_type }}">
-        Your browser does not support the video tag.
-      </video>
+      {% render 'accessible-video',
+        video: video,
+        caption: caption,
+        class: video_class,
+        autoplay: autoplay,
+        loop: loop,
+        muted: muted,
+        controls: controls
+      %}
     {%- elsif placeholder_image != blank -%}
       <img
         src="{{ placeholder_image | image_url: width: 800 }}"
         alt="{{ placeholder_image.alt | escape }}"
         loading="lazy"
+        width="800"
+        height="800"
         class="video-with-aspect-ratio__placeholder-image"
       >
     {%- else -%}
