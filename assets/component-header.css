@@ -419,7 +419,7 @@
   margin: auto;
   padding-top: 1px;
   position: absolute;
-  right: -0.5rem;
+  right: -0.25rem;
   text-decoration: none !important;
   width: 1rem;
   transition: all 0.2s var(--default-easing);
