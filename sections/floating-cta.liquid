@@ -10,10 +10,8 @@
 <style>
   .floating-cta {
     visibility: hidden;
-    transition:
-      opacity 0.7s var(--default-easing),
-      transform 0.7s var(--default-easing),
-      visibility 0s linear 0.7s;
+    transition: opacity 0.7s var(--default-easing),
+      transform 0.7s var(--default-easing), visibility 0s linear 0.7s;
   }
   .floating-cta.is-showing {
     visibility: visible;
@@ -21,9 +19,7 @@
   }
   .floating-cta-modal {
     visibility: hidden;
-    transition:
-      visibility 0s linear 0.3s,
-      pointer-events 0s linear 0.3s;
+    transition: visibility 0s linear 0.3s, pointer-events 0s linear 0.3s;
   }
   .floating-cta-modal.is-open {
     visibility: visible;
@@ -87,8 +83,12 @@
           data-close-floating-cta-trigger
           aria-label='{{ 'accessibility.close' | t }}'
         >
-          <span class='icon icon-tiny' aria-hidden='true'>{% render 'icon-close' %}</span>
-          <span class='floating-cta__trigger-close-label'>{{ 'accessibility.close' | t }}</span>
+          <span class='icon icon-tiny' aria-hidden='true'>
+            {%- render 'icon-close' -%}
+          </span>
+          <span class='floating-cta__trigger-close-label visually-hidden'>
+            {{- 'accessibility.close' | t -}}
+          </span>
         </button>
         <button
           type='button'
@@ -137,8 +137,12 @@
             data-floating-cta-close
             aria-label='{{ 'accessibility.close' | t }}'
           >
-            <span class='icon icon-tiny' aria-hidden='true'>{% render 'icon-close' %}</span>
-            <span class='floating-cta-modal__close-label'>{{ 'accessibility.close' | t }}</span>
+            <span class='icon icon-tiny' aria-hidden='true'>
+              {%- render 'icon-close' -%}
+            </span>
+            <span class='floating-cta-modal__close-label'>
+              {{- 'accessibility.close' | t -}}
+            </span>
           </button>
 
           <div class='floating-cta-modal__dialog__inner'>

@@ -132,10 +132,8 @@
   opacity: 0;
   visibility: hidden;
   z-index: -1;
-  transition:
-    opacity 0.3s ease 0.1s,
-    visibility 0.3s ease,
-    z-index 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   overflow-y: auto;
   padding-top: clamp(12vw, 12rem, 15vw);
 }
@@ -144,6 +142,7 @@
   opacity: 1;
   visibility: visible;
   z-index: 101;
+  pointer-events: auto;
 }
 
 /* Modal content container */
@@ -213,6 +212,11 @@
     top: var(--space-4);
     right: var(--space-4);
   }
+}
+
+.quick-add-modal__toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .quick-add-modal__toggle:hover svg {

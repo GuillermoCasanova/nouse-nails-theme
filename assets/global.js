@@ -1,8 +1,25 @@
-function getFocusableElements(container) {
-  return Array.from(
-    container.querySelectorAll(
-      "button, summary, a[href], button:enabled, [role='button'], [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe"
+const FOCUSABLE_SELECTOR =
+  "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe";
+
+function isVisibleFocusable(element) {
+  if (!element || element.hasAttribute('disabled')) return false;
+  if (element.tabIndex < 0) return false;
+  if (element.closest('[inert], [hidden], [aria-hidden="true"]')) return false;
+  if (
+    !(
+      element.offsetWidth ||
+      element.offsetHeight ||
+      element.getClientRects().length
     )
+  ) {
+    return false;
+  }
+  return window.getComputedStyle(element).visibility !== 'hidden';
+}
+
+function getFocusableElements(container) {
+  return Array.from(container.querySelectorAll(FOCUSABLE_SELECTOR)).filter(
+    isVisibleFocusable
   );
 }
 
@@ -34,61 +51,57 @@ document.querySelectorAll('[id^="Details-"] summary').forEach(summary => {
 const trapFocusHandlers = {};
 
 function trapFocus(container, elementToFocus = container) {
-  var elements = getFocusableElements(container);
-  var first = elements[0];
-  var last = elements[elements.length - 1];
-
   removeTrapFocus();
 
-  trapFocusHandlers.focusin = event => {
-    if (
-      event.target !== container &&
-      event.target !== last &&
-      event.target !== first
-    )
-      return;
-
-    document.addEventListener('keydown', trapFocusHandlers.keydown);
-  };
-
-  trapFocusHandlers.focusout = function () {
-    document.removeEventListener('keydown', trapFocusHandlers.keydown);
-  };
+  const dialog = container.querySelector('[role="dialog"]');
 
   trapFocusHandlers.keydown = function (event) {
-    if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
+    if (event.code.toUpperCase() !== 'TAB') return;
 
-    console.log(event);
-    console.log(event.target);
-    console.log(last);
+    const elements = getFocusableElements(container);
+    const first = elements[0];
+    const last = elements[elements.length - 1];
 
-    // On the last focusable element and tab forward, focus the first element.
-    if (event.target === last && !event.shiftKey) {
+    if (!first || !last) {
+      event.preventDefault();
+      (dialog || container).focus();
+      return;
+    }
+
+    const isOutside = !container.contains(event.target);
+    const isCycleStart =
+      event.target === first ||
+      event.target === container ||
+      event.target === dialog ||
+      event.target === elementToFocus;
+
+    if (event.shiftKey) {
+      if (isCycleStart || isOutside) {
+        event.preventDefault();
+        last.focus();
+      }
+    } else if (event.target === last || isOutside) {
       event.preventDefault();
       first.focus();
     }
-
-    //  On the first focusable element and tab backward, focus the last element.
-    if (
-      (event.target === container || event.target === first) &&
-      event.shiftKey
-    ) {
-      event.preventDefault();
-      last.focus();
-    }
   };
 
-  document.addEventListener('focusout', trapFocusHandlers.focusout);
-  document.addEventListener('focusin', trapFocusHandlers.focusin);
+  document.addEventListener('keydown', trapFocusHandlers.keydown);
 
-  elementToFocus.focus();
+  const focusTarget = isVisibleFocusable(elementToFocus)
+    ? elementToFocus
+    : getFocusableElements(container)[0] || dialog || container;
+
+  if (typeof focusTarget.focus === 'function') {
+    focusTarget.focus();
+  }
 
   if (
-    elementToFocus.tagName === 'INPUT' &&
-    ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
-    elementToFocus.value
+    focusTarget.tagName === 'INPUT' &&
+    ['search', 'text', 'email', 'url'].includes(focusTarget.type) &&
+    focusTarget.value
   ) {
-    elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    focusTarget.setSelectionRange(0, focusTarget.value.length);
   }
 }
 
@@ -98,6 +111,23 @@ function removeTrapFocus(elementToFocus = null) {
   document.removeEventListener('keydown', trapFocusHandlers.keydown);
 
   if (elementToFocus) elementToFocus.focus();
+}
+
+const PAGE_INERT_ATTR = 'data-modal-page-inert';
+
+function setPageInert(exceptElement, inert) {
+  Array.from(document.body.children).forEach(child => {
+    if (child === exceptElement) return;
+    if (inert) {
+      if (!child.hasAttribute('inert')) {
+        child.setAttribute(PAGE_INERT_ATTR, '');
+        child.setAttribute('inert', '');
+      }
+    } else if (child.hasAttribute(PAGE_INERT_ATTR)) {
+      child.removeAttribute('inert');
+      child.removeAttribute(PAGE_INERT_ATTR);
+    }
+  });
 }
 
 // Here run the querySelector to figure out if the browser supports :focus-visible or not and run code based on it.
@@ -1296,7 +1326,6 @@ class ModalOpener extends HTMLElement {
     if (!button) return;
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
-      console.log(modal);
       if (modal) modal.show(button);
     });
   }
@@ -1331,6 +1360,7 @@ class ModalDialog extends HTMLElement {
   connectedCallback() {
     if (this.moved) return;
     this.moved = true;
+    if (!this.hasAttribute('open')) this.setAttribute('inert', '');
     document.body.appendChild(this);
   }
 
@@ -1338,18 +1368,38 @@ class ModalDialog extends HTMLElement {
     this.openedBy = opener;
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('overflow-hidden');
+    this.removeAttribute('inert');
     this.setAttribute('open', '');
     if (popup) popup.loadContent();
-    trapFocus(this, this.querySelector('[role="dialog"]'));
+    setPageInert(this, true);
+    this.activateFocusTrap();
     window.pauseAllMedia();
   }
 
   hide() {
+    setPageInert(this, false);
     document.body.classList.remove('overflow-hidden');
     document.body.dispatchEvent(new CustomEvent('modalClosed'));
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
+    this.setAttribute('inert', '');
     window.pauseAllMedia();
+  }
+
+  activateFocusTrap() {
+    const dialog = this.querySelector('[role="dialog"]') || this;
+    const focusTarget =
+      this.querySelector('[id^="ModalClose-"]') ||
+      getFocusableElements(this)[0] ||
+      dialog;
+
+    const trap = () => {
+      if (!this.hasAttribute('open')) return;
+      trapFocus(this, focusTarget);
+    };
+
+    trap();
+    requestAnimationFrame(() => requestAnimationFrame(trap));
   }
 }
 customElements.define('modal-dialog', ModalDialog);

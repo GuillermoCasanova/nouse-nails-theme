@@ -32,6 +32,8 @@ if (!customElements.get('quick-add-modal')) {
         opener.classList.add('loading');
         opener.querySelector('.loading__spinner').classList.remove('hidden');
 
+        super.show(opener);
+
         fetch(opener.getAttribute('data-product-url'))
           .then(response => response.text())
           .then(responseText => {
@@ -52,7 +54,10 @@ if (!customElements.get('quick-add-modal')) {
             }
             if (window.ProductModel) window.ProductModel.loadShopifyXR();
 
-            super.show(opener);
+            this.activateFocusTrap();
+          })
+          .catch(() => {
+            this.hide();
           })
           .finally(() => {
             opener.removeAttribute('aria-disabled');
@@ -62,7 +67,6 @@ if (!customElements.get('quick-add-modal')) {
       }
 
       preprocessHTML(productElement) {
-        console.log(productElement);
         productElement.classList.forEach(classApplied => {
           if (classApplied.startsWith('color-') || classApplied === 'gradient')
             this.modalContent.classList.add(classApplied);

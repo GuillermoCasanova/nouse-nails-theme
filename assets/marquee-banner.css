@@ -52,6 +52,11 @@
   display: inline-block;
 }
 
+.marquee-banner:hover .marquee-banner__text {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-banner__text {
     -webkit-animation: none;
