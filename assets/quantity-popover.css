@@ -24,7 +24,9 @@
 .quantity.product-form_quantity {
   width: auto;
   display: inline-flex;
-  height: 2.5rem;
+  align-items: center;
+  min-height: 44px;
+  height: auto;
   border-radius: var(--inputs-radius);
 }
 
@@ -39,7 +41,9 @@
 }
 
 .quantity__button {
-  width: 1.5rem;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
   flex-shrink: 0;
   font-size: var(--headline-size-h4);
   border: 0;

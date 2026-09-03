@@ -851,7 +851,7 @@ class HeaderDrawer extends MenuDrawer {
   openMenuDrawer(summaryElement) {
     console.log('OPEN ELEM');
 
-    this.header = this.header || document.querySelector('header');
+    this.header = this.header || document.querySelector('.header');
     this.borderOffset =
       this.borderOffset ||
       this.closest('.header-wrapper').classList.contains(
@@ -1840,4 +1840,91 @@ if (greenDotEnabled) {
   setTimeout(() => {
     initGreenDotEffect();
   }, 200);
+}
+
+const HIDDEN_FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
+function syncAriaHiddenFocusables(container) {
+  if (!container || !(container instanceof Element)) return;
+
+  const isHidden = container.getAttribute('aria-hidden') === 'true';
+  if (isHidden) {
+    container.setAttribute('inert', '');
+    container.querySelectorAll(HIDDEN_FOCUSABLE_SELECTOR).forEach(el => {
+      if (!el.hasAttribute('data-a11y-tabindex')) {
+        el.setAttribute(
+          'data-a11y-tabindex',
+          el.hasAttribute('tabindex') ? el.getAttribute('tabindex') : '__none__'
+        );
+      }
+      el.setAttribute('tabindex', '-1');
+    });
+    return;
+  }
+
+  container.removeAttribute('inert');
+  container.querySelectorAll('[data-a11y-tabindex]').forEach(el => {
+    const original = el.getAttribute('data-a11y-tabindex');
+    if (original === '__none__') {
+      el.removeAttribute('tabindex');
+    } else {
+      el.setAttribute('tabindex', original);
+    }
+    el.removeAttribute('data-a11y-tabindex');
+  });
+}
+
+function patchHiddenAriaWidgets(root = document) {
+  root
+    .querySelectorAll('[data-bsub-collapsible-wrapper]')
+    .forEach(syncAriaHiddenFocusables);
+}
+
+function initHiddenAriaWidgetPatch() {
+  patchHiddenAriaWidgets();
+
+  const observer = new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      if (
+        mutation.type === 'attributes' &&
+        mutation.attributeName === 'aria-hidden'
+      ) {
+        const target = mutation.target;
+        if (target.matches?.('[data-bsub-collapsible-wrapper]')) {
+          syncAriaHiddenFocusables(target);
+        }
+      }
+
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType !== 1) return;
+          if (node.matches?.('[data-bsub-collapsible-wrapper]')) {
+            syncAriaHiddenFocusables(node);
+          }
+          node
+            .querySelectorAll?.('[data-bsub-collapsible-wrapper]')
+            .forEach(syncAriaHiddenFocusables);
+
+          const hiddenParent = node.closest?.(
+            '[data-bsub-collapsible-wrapper][aria-hidden="true"]'
+          );
+          if (hiddenParent) syncAriaHiddenFocusables(hiddenParent);
+        });
+      }
+    }
+  });
+
+  observer.observe(document.body, {
+    subtree: true,
+    childList: true,
+    attributes: true,
+    attributeFilter: ['aria-hidden']
+  });
+}
+
+if (document.body) {
+  initHiddenAriaWidgetPatch();
+} else {
+  document.addEventListener('DOMContentLoaded', initHiddenAriaWidgetPatch);
 }

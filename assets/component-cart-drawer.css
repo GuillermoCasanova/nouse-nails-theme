@@ -372,7 +372,7 @@
 .cart-drawer .quantity-popover-container {
   padding: 0;
   bottom: var(--space-3);
-  max-width: 8rem;
+  max-width: 12rem;
 }
 
 .cart-drawer .quantity__button .icon {

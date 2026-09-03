@@ -4,9 +4,70 @@
     inline-css='true'
   >]{% endcomment %}
 <style>
-.floating-cta{position:fixed;bottom:var(--space-3);right:var(--space-2);z-index:1;text-decoration:none;transition:opacity .7s var(--default-easing),transform .7s var(--default-easing);text-align:center;background-color:transparent;color:rgb(var(--color-text-1));display:flex;align-items:center;justify-content:center;gap:var(--space-2);width:100%;max-width:12rem;opacity:0;color:var(--floating-cta-color);transform:translateY(120%);pointer-events:none}.floating-cta.is-showing{opacity:1;transform:translateY(0);pointer-events:auto}.floating-cta__trigger{border:none;background:0 0;padding:0;align-items:center;justify-items:center;gap:var(--space-1);color:inherit;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;font-size:var(--text-size-small);display:none}@media screen and (min-width:750px){.floating-cta{max-width:13rem}.floating-cta__trigger{display:flex}}.floating-cta__trigger-icon{display:block;width:100%}.floating-cta__trigger svg{fill:var(--floating-cta-color);width:100%;height:100%}.floating-cta__trigger-text{display:block;line-height:1.2;position:absolute;max-width:60%;color:rgb(var(--color-text-1));margin-bottom:var(--space-6);font-size:var(--text-size-tiny)}.floating-cta--left{left:var(--space-2)}.floating-cta--right{right:var(--space-2)}.floating-cta__trigger-close-button{position:absolute;top:var(--space-5);left:0;margin:auto;right:0;z-index:1;background:0 0;border:none;color:currentColor;cursor:pointer;color:rgb(var(--color-text-1))}.floating-cta__trigger-close-button svg{transition:transform .3s var(--default-easing)}.floating-cta__trigger-close-button:hover svg{transform:rotate(180deg)}.floating-cta-modal{position:fixed;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;pointer-events:none;transition:all .3s var(--default-easing);z-index:200}.floating-cta-modal.is-open{pointer-events:auto}.floating-cta-modal.is-open .floating-cta-modal__dialog{pointer-events:auto;transform:translateY(0)}.floating-cta-modal__dialog{position:relative;z-index:1;width:100%;text-align:center;transform:translateY(115%);transition:transform .3s var(--default-easing);padding-top:var(--space-7)}@media screen and (min-width:750px){.floating-cta-modal__dialog{padding-top:0;transform:translateY(110%)}}.floating-cta-modal__dialog__inner{padding:var(--space-7) var(--space-4) var(--space-3) var(--space-4);display:flex}@media screen and (min-width:750px){.floating-cta-modal__dialog__inner{padding:var(--space-7) var(--space-7) var(--space-7) var(--space-7);display:grid;grid-template-columns:1fr;gap:var(--space-6);align-items:center}}@media screen and (min-width:940px){.floating-cta-modal__dialog__inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);max-width:100rem;margin:0 auto}}.floating-cta-modal__dialog__icon{position:absolute;top:-1.85rem;width:3.5rem;left:.25rem;color:var(--floating-cta-color)}@media screen and (min-width:750px){.floating-cta-modal__dialog__icon{top:-1rem;width:6rem;left:-2rem;z-index:1}}.floating-cta-modal__close{position:absolute;top:var(--space-2);right:var(--space-1);background:0 0;border:none;color:currentColor;cursor:pointer;padding:0;width:3rem;height:3rem}.floating-cta-modal__close svg{transition:transform .3s var(--default-easing)}.floating-cta-modal__close:hover svg{transform:rotate(180deg)}.floating-cta-modal__title{text-transform:uppercase}.floating-cta-modal__dialog__media-wrapper{position:relative;display:none}.floating-cta-modal__dialog__media{border-radius:var(--border-radius-large);overflow:hidden;position:relative;background-color:grey}.floating-cta-modal__dialog__content-wrapper{margin:0 auto}.floating-cta-modal__disclaimer{margin-top:var(--space-4);font-size:var(--text-size-tiny);line-height:1.5;color:rgb(var(--color-text-1));max-width:25rem;margin:0 auto}.floating-cta-modal__disclaimer a{color:inherit}.klaviyo-form{max-width:36rem!important;margin-right:auto;margin-left:auto;color:rgb(var(--color-text-1))!important;margin-bottom:0;font-family:var(--primary-font-family)!important}.klaviyo-form h1,.klaviyo-form h2,.klaviyo-form h3,.klaviyo-form h4,.klaviyo-form h5,.klaviyo-form h6{color:rgb(var(--color-text-1))!important;font-family:var(--primary-font-family)!important}.klaviyo-form p{color:rgb(var(--color-text-1))!important;font-family:var(--primary-font-family)!important;margin-bottom:var(--space-3)!important}.klaviyo-form .needsclick{min-height:auto!important}.klaviyo-form input:needs .klaviyo-form form{padding:0!important}.klaviyo-form input{background:rgb(var(--color-text-1))!important;border-radius:100vw!important;overflow:hidden;border:2px solid rgb(var(--color-accent))!important;margin-bottom:var(--space-5)!important;color:rgb(var(--color-background))!important;text-transform:uppercase!important;letter-spacing:.06rem!important;padding-left:var(--space-5)!important;font-size:var(--text-size-main)!important;height:3.75rem!important;font-family:var(--primary-font-family)!important}.klaviyo-form form button.go777694700{width:3rem!important;height:3rem!important;border-radius:100vw!important;border:2px solid rgb(var(--color-accent))!important;background:rgb(var(--color-accent))!important;color:rgb(var(--color-background))!important;font-size:1.2rem!important;font-weight:500!important;position:absolute;bottom:auto;top:.25rem;right:var(--space-2);margin-bottom:0!important;padding:0!important;transition:all .2s var(--main-easing)!important;font-size:var(--text-size-large)!important;font-family:var(--primary-font-family)!important}@media screen and (min-width:750px){.floating-cta-modal__dialog__media-wrapper{display:block}.klaviyo-form input{height:4.5rem!important;font-size:var(--text-size-medium)!important}.klaviyo-form form button:not([aria-label='Copy coupon code']){width:3.75rem!important;height:3.75rem!important;right:var(--space-1)}}.needsclick:has(button),[data-testid=form-component]{padding:0!important;margin:0!important}.klaviyo-form form button:focus,.klaviyo-form form button:hover{background:rgb(var(--color-background))!important;color:rgb(var(--color-accent))!important;border-color:rgb(var(--color-background))!important}.klaviyo-form form [data-testid=form-component],.klaviyo-form form [data-testid=form-row]{padding:0!important}.template-password-screen__newsletter_subheading{font-size:var(--text-size-small);max-width:36rem;margin-right:auto;margin-left:auto}.needsclick.go248563387{height:auto!important}button.go777694700{background-color:transparent!important}.klaviyo-form form button[role=combobox]{background:0 0!important;border:none!important;left:1rem!important;gap:0!important;position:absolute!important;width:3.5rem!important;top:.25rem}.klaviyo-form form button[role=combobox]:focus,.klaviyo-form form button[role=combobox]:hover{background:0 0!important;border:none!important}input[type=tel]{padding-left:5rem!important}.go248563387.go248563387.go248563387,.go248563387.go248563387.go248563387:hover{border:none!important}div.needsclick [data-testid=form-row]:nth-child(4) button{position:relative;width:100%!important;background:0 0!important;color:rgb(var(--color-text-1))!important;padding:var(--space-2)!important;height:auto!important;margin-top:calc(var(--space-5) * -1);margin-bottom:var(--space-2)!important;border:none!important;text-align:center!important;font-size:var(--text-size-main)!important}div.needsclick [data-testid=form-row]:nth-child(4) button:focus,div.needsclick [data-testid=form-row]:nth-child(4) button:hover{text-decoration:underline}div.needsclick [data-testid=form-row]:first-child p{font-size:var(--headline-size-h4)!important}
+.floating-cta{position:fixed;bottom:var(--space-3);right:var(--space-2);z-index:1;text-decoration:none;text-align:center;background-color:transparent;color:rgb(var(--color-text-1));display:flex;align-items:center;justify-content:center;gap:var(--space-2);width:100%;max-width:12rem;opacity:0;color:var(--floating-cta-color);transform:translateY(120%);pointer-events:none;visibility:hidden;transition:opacity .7s var(--default-easing),transform .7s var(--default-easing),visibility 0s linear .7s}.floating-cta.is-showing{opacity:1;transform:translateY(0);pointer-events:auto;visibility:visible;transition-delay:0s}.floating-cta__trigger{border:none;background:0 0;padding:0;align-items:center;justify-items:center;gap:var(--space-1);color:inherit;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;font-size:var(--text-size-small);display:none}@media screen and (min-width:750px){.floating-cta{max-width:13rem}.floating-cta__trigger{display:flex}}.floating-cta__trigger-icon{display:block;width:100%}.floating-cta__trigger svg{fill:var(--floating-cta-color);width:100%;height:100%}.floating-cta__trigger-text{display:block;line-height:1.2;position:absolute;max-width:60%;color:rgb(var(--color-text-1));margin-bottom:var(--space-6);font-size:var(--text-size-tiny)}.floating-cta--left{left:var(--space-2)}.floating-cta--right{right:var(--space-2)}.floating-cta__trigger-close-button{position:absolute;top:var(--space-5);left:0;margin:auto;right:0;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:.35rem;width:auto;min-width:2.75rem;min-height:2.75rem;height:auto;padding:.3rem .65rem;background:0 0;border:none;color:rgb(var(--color-text-1));cursor:pointer;font-family:inherit;font-size:var(--text-size-tiny);font-weight:500;letter-spacing:.04em;line-height:1;text-transform:uppercase}.floating-cta__trigger-close-button svg{transition:transform .3s var(--default-easing)}.floating-cta__trigger-close-button:hover svg{transform:rotate(180deg)}.floating-cta-modal{position:fixed;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;pointer-events:none;visibility:hidden;transition:visibility 0s linear .3s,pointer-events 0s linear .3s;z-index:200}.floating-cta-modal.is-open{pointer-events:auto;visibility:visible;transition-delay:0s}.floating-cta-modal.is-open .floating-cta-modal__dialog{pointer-events:auto;transform:translateY(0)}.floating-cta-modal__dialog{position:relative;z-index:1;width:100%;text-align:center;transform:translateY(115%);transition:transform .3s var(--default-easing);padding-top:var(--space-7)}@media screen and (min-width:750px){.floating-cta-modal__dialog{padding-top:0;transform:translateY(110%)}}.floating-cta-modal__dialog__inner{padding:var(--space-7) var(--space-4) var(--space-3) var(--space-4);display:flex}@media screen and (min-width:750px){.floating-cta-modal__dialog__inner{padding:var(--space-7) var(--space-7) var(--space-7) var(--space-7);display:grid;grid-template-columns:1fr;gap:var(--space-6);align-items:center}}@media screen and (min-width:940px){.floating-cta-modal__dialog__inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);max-width:100rem;margin:0 auto}}.floating-cta-modal__dialog__icon{position:absolute;top:-1.85rem;width:3.5rem;left:.25rem;color:var(--floating-cta-color)}@media screen and (min-width:750px){.floating-cta-modal__dialog__icon{top:-1rem;width:6rem;left:-2rem;z-index:1}}.floating-cta-modal__close{position:absolute;top:var(--space-2);right:var(--space-1);display:inline-flex;align-items:center;justify-content:center;gap:.35rem;width:auto;min-width:2.75rem;min-height:2.75rem;height:auto;padding:.3rem .65rem;background:0 0;border:none;color:currentColor;cursor:pointer;font-family:inherit;font-size:var(--text-size-tiny);font-weight:500;letter-spacing:.04em;line-height:1;text-transform:uppercase}.floating-cta-modal__close svg{transition:transform .3s var(--default-easing)}.floating-cta-modal__close:hover svg{transform:rotate(180deg)}.floating-cta-modal__title{text-transform:uppercase}.floating-cta-modal__dialog__media-wrapper{position:relative;display:none}.floating-cta-modal__dialog__media{border-radius:var(--border-radius-large);overflow:hidden;position:relative;background-color:grey}.floating-cta-modal__dialog__content-wrapper{margin:0 auto}.floating-cta-modal__disclaimer{margin-top:var(--space-4);font-size:var(--text-size-tiny);line-height:1.5;color:rgb(var(--color-text-1));max-width:25rem;margin:0 auto}.floating-cta-modal__disclaimer a{color:inherit}.klaviyo-form{max-width:36rem!important;margin-right:auto;margin-left:auto;color:rgb(var(--color-text-1))!important;margin-bottom:0;font-family:var(--primary-font-family)!important}.klaviyo-form h1,.klaviyo-form h2,.klaviyo-form h3,.klaviyo-form h4,.klaviyo-form h5,.klaviyo-form h6{color:rgb(var(--color-text-1))!important;font-family:var(--primary-font-family)!important}.klaviyo-form p{color:rgb(var(--color-text-1))!important;font-family:var(--primary-font-family)!important;margin-bottom:var(--space-3)!important}.klaviyo-form .needsclick{min-height:auto!important}.klaviyo-form input:needs .klaviyo-form form{padding:0!important}.klaviyo-form input{background:rgb(var(--color-text-1))!important;border-radius:100vw!important;overflow:hidden;border:2px solid rgb(var(--color-accent))!important;margin-bottom:var(--space-5)!important;color:rgb(var(--color-background))!important;text-transform:uppercase!important;letter-spacing:.06rem!important;padding-left:var(--space-5)!important;font-size:var(--text-size-main)!important;height:3.75rem!important;font-family:var(--primary-font-family)!important}.klaviyo-form .klaviyo-form-button.floating-cta-modal__subscribe,.klaviyo-form form button.go777694700{width:auto!important;min-width:2.75rem;min-height:2.75rem;height:auto!important;border-radius:100vw!important;border:2px solid rgb(var(--color-accent))!important;background:rgb(var(--color-accent))!important;color:rgb(var(--color-background))!important;font-size:var(--text-size-small)!important;font-weight:500!important;position:absolute;bottom:auto;top:.25rem;right:var(--space-2);margin-bottom:0!important;padding:0 .85rem!important;display:inline-flex!important;align-items:center;justify-content:center;gap:.35rem;letter-spacing:.04em;text-transform:uppercase;transition:all .2s var(--main-easing)!important;font-family:var(--primary-font-family)!important}@media screen and (min-width:750px){.floating-cta-modal__dialog__media-wrapper{display:block}.klaviyo-form input{height:4.5rem!important;font-size:var(--text-size-medium)!important}.klaviyo-form form button:not([aria-label='Copy coupon code']):not(.floating-cta-modal__subscribe){width:3.75rem!important;height:3.75rem!important;right:var(--space-1)}}.needsclick:has(button),[data-testid=form-component]{padding:0!important;margin:0!important}.klaviyo-form form button:focus,.klaviyo-form form button:hover{background:rgb(var(--color-background))!important;color:rgb(var(--color-accent))!important;border-color:rgb(var(--color-background))!important}.klaviyo-form form [data-testid=form-component],.klaviyo-form form [data-testid=form-row]{padding:0!important}.template-password-screen__newsletter_subheading{font-size:var(--text-size-small);max-width:36rem;margin-right:auto;margin-left:auto}.needsclick.go248563387{height:auto!important}button.go777694700{background-color:transparent!important}.klaviyo-form form button[role=combobox]{background:0 0!important;border:none!important;left:1rem!important;gap:0!important;position:absolute!important;width:3.5rem!important;top:.25rem}.klaviyo-form form button[role=combobox]:focus,.klaviyo-form form button[role=combobox]:hover{background:0 0!important;border:none!important}input[type=tel]{padding-left:5rem!important}.go248563387.go248563387.go248563387,.go248563387.go248563387.go248563387:hover{border:none!important}div.needsclick [data-testid=form-row]:nth-child(4) button{position:relative;width:100%!important;background:0 0!important;color:rgb(var(--color-text-1))!important;padding:var(--space-2)!important;height:auto!important;margin-top:calc(var(--space-5) * -1);margin-bottom:var(--space-2)!important;border:none!important;text-align:center!important;font-size:var(--text-size-main)!important}div.needsclick [data-testid=form-row]:nth-child(4) button:focus,div.needsclick [data-testid=form-row]:nth-child(4) button:hover{text-decoration:underline}div.needsclick [data-testid=form-row]:first-child p{font-size:var(--headline-size-h4)!important}
 </style>
 {% comment %}[/CSS-INLINE]{% endcomment %}
+<style>
+  .floating-cta {
+    visibility: hidden;
+    transition:
+      opacity 0.7s var(--default-easing),
+      transform 0.7s var(--default-easing),
+      visibility 0s linear 0.7s;
+  }
+  .floating-cta.is-showing {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  .floating-cta-modal {
+    visibility: hidden;
+    transition:
+      visibility 0s linear 0.3s,
+      pointer-events 0s linear 0.3s;
+  }
+  .floating-cta-modal.is-open {
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .floating-cta__trigger-close-button,
+  .floating-cta-modal__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: auto;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    height: auto;
+    padding: 0.3rem 0.65rem;
+    font-family: inherit;
+    font-size: var(--text-size-tiny);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .floating-cta-modal .klaviyo-form-button.floating-cta-modal__subscribe {
+    width: auto !important;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0 0.85rem !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: var(--text-size-small) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .floating-cta-modal__subscribe-icon {
+    line-height: 1;
+  }
+</style>
 
 <div class='floating-cta-container'>
   {%- if section.settings.enable_floating_cta -%}
@@ -18,14 +79,16 @@
         data-floating-cta
         role='complementary'
         aria-label='{{ section.settings.cta_text | escape }}'
+        inert
       >
         <button
           type='button'
           class='floating-cta__trigger-close-button'
           data-close-floating-cta-trigger
-          aria-label='Hide floating CTA'
+          aria-label='{{ 'accessibility.close' | t }}'
         >
-          <span class='icon icon-tiny'>{% render 'icon-close' %}</span>
+          <span class='icon icon-tiny' aria-hidden='true'>{% render 'icon-close' %}</span>
+          <span class='floating-cta__trigger-close-label'>{{ 'accessibility.close' | t }}</span>
         </button>
         <button
           type='button'
@@ -74,7 +137,8 @@
             data-floating-cta-close
             aria-label='{{ 'accessibility.close' | t }}'
           >
-            <span class='icon icon-tiny'>{% render 'icon-close' %}</span>
+            <span class='icon icon-tiny' aria-hidden='true'>{% render 'icon-close' %}</span>
+            <span class='floating-cta-modal__close-label'>{{ 'accessibility.close' | t }}</span>
           </button>
 
           <div class='floating-cta-modal__dialog__inner'>
@@ -118,12 +182,15 @@
 
 <script>
   class FloatingCta extends HTMLElement {
+      static focusableSelector =
+          'a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
       constructor() {
           super();
           this.ctaElement = this.querySelector('[data-floating-cta]');
           this.triggerButton = this.querySelector('[data-floating-cta-modal-toggle]');
           this.modal = this.querySelector('[data-floating-cta-modal]');
-          this.input = this.querySelector('[data-floating-cta-input]');
+          this.dialog = this.modal?.querySelector('[role="dialog"]');
           this.closeButtons = this.querySelectorAll('[data-floating-cta-close]');
           this.closeTriggerButton = this.querySelector('[data-close-floating-cta-trigger]');
           this.isVisible = false;
@@ -134,6 +201,7 @@
           this.scrollThreshold = {{ section.settings.scroll_threshold }};
           this.sessionKey = 'floating-cta-seen';
           this.hasAutoOpened = sessionStorage.getItem(this.sessionKey) !== null;
+          this.subscribeLabel = {{ 'newsletter.button_label' | t | json }};
 
           this.init();
       }
@@ -165,6 +233,7 @@
 
           if (this.modal) {
               this.modal.addEventListener('click', this.onBackdropClick);
+              this.setModalOpen(false);
           }
 
           this.waitForKlaviyo();
@@ -173,23 +242,20 @@
       waitForKlaviyo() {
           if (!this.formContainer) return;
 
-          if (this.formContainer.children.length > 0) {
+          const onFormUpdate = () => {
+              if (this.formContainer.children.length === 0) return;
+              const wasReady = this.klaviyoFormReady;
               this.klaviyoFormReady = true;
-              this.handleScroll();
-              return;
+              this.labelKlaviyoSubmit();
+              this.syncHiddenFocusables();
+              if (!wasReady) this.handleScroll();
+          };
+
+          if (this.formContainer.children.length > 0) {
+              onFormUpdate();
           }
 
-          this.klaviyoObserver = new MutationObserver((mutations, observer) => {
-              for (const mutation of mutations) {
-                  if (mutation.addedNodes.length > 0) {
-                      this.klaviyoFormReady = true;
-                      observer.disconnect();
-                      this.handleScroll();
-                      return;
-                  }
-              }
-          });
-
+          this.klaviyoObserver = new MutationObserver(onFormUpdate);
           this.klaviyoObserver.observe(this.formContainer, { childList: true, subtree: true });
 
           setTimeout(() => {
@@ -197,6 +263,25 @@
                   this.klaviyoObserver?.disconnect();
               }
           }, 8000);
+      }
+
+      labelKlaviyoSubmit() {
+          if (!this.formContainer || !this.subscribeLabel) return;
+
+          this.formContainer.querySelectorAll('.klaviyo-form-button').forEach((button) => {
+              if (button.getAttribute('role') === 'combobox') return;
+              if ((button.getAttribute('aria-label') || '').includes('Copy coupon')) return;
+              if (button.querySelector('.floating-cta-modal__subscribe-label')) return;
+
+              button.classList.add('floating-cta-modal__subscribe');
+              button.setAttribute('aria-label', this.subscribeLabel);
+              button.textContent = '';
+
+              const label = document.createElement('span');
+              label.className = 'floating-cta-modal__subscribe-label';
+              label.textContent = this.subscribeLabel;
+              button.appendChild(label);
+          });
       }
 
       handleScroll() {
@@ -240,38 +325,96 @@
       showCta() {
           if (this.ctaElement && !this.isVisible) {
               this.ctaElement.classList.add('is-showing');
+              this.ctaElement.removeAttribute('inert');
               this.isVisible = true;
           }
       }
 
       hideCta() {
-          if (this.ctaElement && this.isVisible) {
-              this.ctaElement.classList.remove('is-showing');
-              this.isVisible = false;
+          if (!this.ctaElement) return;
+          this.ctaElement.classList.remove('is-showing');
+          this.ctaElement.setAttribute('inert', '');
+          this.isVisible = false;
+      }
+
+      setModalOpen(isOpen) {
+          if (!this.modal) return;
+
+          this.modal.classList.toggle('is-open', isOpen);
+          this.modal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+          this.triggerButton?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+          if (isOpen) {
+              this.modal.removeAttribute('inert');
+              this.restoreFocusables(this.modal);
+          } else {
+              this.modal.setAttribute('inert', '');
+              this.suppressFocusables(this.modal);
+          }
+      }
+
+      suppressFocusables(container) {
+          container.querySelectorAll(FloatingCta.focusableSelector).forEach((el) => {
+              if (!el.hasAttribute('data-a11y-tabindex')) {
+                  el.setAttribute(
+                      'data-a11y-tabindex',
+                      el.hasAttribute('tabindex') ? el.getAttribute('tabindex') : '__none__'
+                  );
+              }
+              el.setAttribute('tabindex', '-1');
+          });
+      }
+
+      restoreFocusables(container) {
+          container.querySelectorAll('[data-a11y-tabindex]').forEach((el) => {
+              const original = el.getAttribute('data-a11y-tabindex');
+              if (original === '__none__') {
+                  el.removeAttribute('tabindex');
+              } else {
+                  el.setAttribute('tabindex', original);
+              }
+              el.removeAttribute('data-a11y-tabindex');
+          });
+      }
+
+      syncHiddenFocusables() {
+          if (this.modal && this.modal.getAttribute('aria-hidden') === 'true') {
+              this.suppressFocusables(this.modal);
           }
       }
 
       openModal() {
           if (!this.modal) return;
-          this.modal.classList.add('is-open');
-          this.modal.setAttribute('aria-hidden', 'false');
-          this.modal.removeAttribute('inert');
-          this.triggerButton?.setAttribute('aria-expanded', 'true');
-          this.input?.focus();
+          this.hideCta();
+          this.setModalOpen(true);
+
+          const focusTarget =
+              this.modal.querySelector('[data-floating-cta-close]') || this.dialog || this.modal;
+
+          requestAnimationFrame(() => {
+              if (typeof trapFocus === 'function' && this.dialog) {
+                  trapFocus(this.dialog, focusTarget);
+              } else {
+                  focusTarget.focus();
+              }
+          });
       }
 
       closeModal() {
           if (!this.modal) return;
           sessionStorage.setItem(this.sessionKey, '1');
-          this.modal.classList.remove('is-open');
-          this.modal.setAttribute('aria-hidden', 'true');
-          this.modal.setAttribute('inert', '');
-          this.triggerButton?.setAttribute('aria-expanded', 'false');
-          this.triggerButton?.focus();
+          this.setModalOpen(false);
 
           const scrollY = window.scrollY || window.pageYOffset;
-          if (scrollY >= this.scrollThreshold) {
+          const shouldShowTrigger = scrollY >= this.scrollThreshold;
+          if (shouldShowTrigger) {
               this.showCta();
+          }
+
+          if (typeof removeTrapFocus === 'function') {
+              removeTrapFocus(shouldShowTrigger ? this.triggerButton : null);
+          } else if (shouldShowTrigger) {
+              this.triggerButton?.focus();
           }
       }
 
@@ -298,7 +441,9 @@
       }
   }
 
-  customElements.define('floating-cta', FloatingCta);
+  if (!customElements.get('floating-cta')) {
+    customElements.define('floating-cta', FloatingCta);
+  }
 </script>
 
 {% schema %}

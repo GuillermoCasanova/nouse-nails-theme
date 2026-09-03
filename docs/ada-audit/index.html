@@ -416,20 +416,22 @@
         "Skip link “Skip to content.” appears on first Tab (layout/theme.liquid)",
         "html lang=\"en\" is set",
         "Main landmark (#MainContent) is present",
+        "Skip link and announcement bar sit inside the site banner landmark",
         "Visible focus rings on skip link, banner close, logo, nav, search, and cart",
         "Logical tab order: skip → announcement close → logo → nav → search → cart",
         "Visible buttons have accessible names",
         "Form controls have labels, aria-label, or associated label",
         "FAQ uses native details/summary (Enter/Space works)",
-        "No positive tabindex values"
+        "No positive tabindex values",
+        "Product-card second image shows on hover and :focus-within (keyboard)"
       ],
       pages: [
         { name: "Home", url: "/", axe: "6 rules / 9 nodes", score: 42, img: "images/home.webp", note: "Hero, marquee, Instagram videos, empty collection eyebrows, and floating CTA are concentrated here." },
         { name: "New Arrivals", url: "/collections/new-arrivals", axe: "2 / 4", score: 58, img: "images/collection.webp", note: "Same header issues. Duplicate quick-add IDs appear on this grid." },
-        { name: "Product — Matcha Jelly", url: "/products/matcha-jelly", axe: "3 / 5", score: 54, img: "images/product.webp", note: "Add to cart and Shop Pay are named. Quantity −/+ are slightly under 24px. Bold Subscriptions leaves focusable content in aria-hidden." },
+        { name: "Product — Matcha Jelly", url: "/products/matcha-jelly", axe: "3 / 5", score: 54, img: "images/product.webp", note: "Add to cart and Shop Pay are named. Quantity −/+ tap targets are 44×44. Bold Subscriptions collapsible aria-hidden + focus is fixed." },
         { name: "How To / FAQ", url: "/pages/how-to", axe: "2 / 4", score: 56, img: "images/how-to.webp", note: "Native details accordion is keyboard OK. aria-label on summary hides the question." },
         { name: "Contact", url: "/pages/contact", axe: "3 / 5", score: 58, img: "images/contact.webp", note: "Form labels passed automated checks. Heading order skips h2 into footer h3s." },
-        { name: "Cart", url: "/cart", axe: "2 / 4", score: 60, img: "images/cart.webp", note: "Empty state is clear. Multiple h1s. Confirm focus trap when the drawer is open." }
+        { name: "Cart", url: "/cart", axe: "2 / 4", score: 60, img: "images/cart.webp", note: "Empty state is clear. Single page h1. Confirm focus trap when the drawer is open." }
       ],
       issues: [
         {
@@ -475,14 +477,16 @@
         {
           id: "aria-hidden-focus",
           severity: "serious",
+          status: "done",
           title: "Focusable content inside aria-hidden=\"true\"",
           wcag: "4.1.2 Name, Role, Value (A)",
           pages: "Home (floating CTA) · Product (Bold Subscriptions)",
-          files: "sections/floating-cta.liquid · third-party Bold widget",
+          files: "sections/floating-cta.liquid · assets/global.js · assets/section-main-product.css",
           issue: "Floating CTA modal stays in the tab order while aria-hidden=\"true\". Product page Bold Subscriptions collapsible has the same pattern.",
           impact: "Keyboard users can tab into a hidden dialog that screen readers are told to ignore.",
-          current: "aria-hidden=\"true\" on #FloatingCtaModal-… while close/form controls remain focusable",
-          fix: "When closed, set inert or tabindex=\"-1\" on focusable descendants. Open state: aria-hidden=\"false\" and trap focus."
+          current: "Closed: inert + visibility:hidden + tabindex=-1 on descendants. Open: aria-hidden=false and trap focus. Bold collapsible patched the same way.",
+          fix: "Fixed. Closed floating CTA uses inert, visibility:hidden, and tabindex=-1. Bold Subscriptions collapsible is patched in theme JS/CSS.",
+          notes: "Fixed 2 Sep 2026. Closed modal/launcher and Bold collapsible are out of the tab order; opening restores focusables."
         },
         {
           id: "marquee-motion",
@@ -512,14 +516,15 @@
         {
           id: "touch-targets",
           severity: "serious",
+          status: "done",
           title: "Search and cart touch targets are too small",
           wcag: "2.5.8 Target Size Minimum (AA, 2.2); 2.5.5 is AAA at 44×44",
           pages: "Header on every page · product quantity −/+",
-          files: "sections/header.liquid",
+          files: "sections/header.liquid, assets/component-header.css, assets/quantity-popover.css",
           issue: "Header Search 19×19 px, Cart 19×19 px. Quantity −/+ are 23×31 px.",
           impact: "Hard to tap accurately on mobile; adjacent targets increase mis-taps.",
           current: ".header__icon without min-width/min-height",
-          fix: "min-width/min-height: 44px (or at least 24px) with padding on .header__icon.",
+          fix: "Fixed: min-width/min-height 44px with padding on .header__icon; quantity −/+ buttons are 44×44.",
           img: "images/ada_keyboard_focus_cart.webp",
           imgAlt: "Keyboard focus on the header cart icon"
         },
@@ -553,6 +558,7 @@
         {
           id: "multiple-h1",
           severity: "moderate",
+          status: "done",
           title: "Multiple h1 elements on every page",
           wcag: "1.3.1 Info and Relationships",
           pages: "All · Cart has three",
@@ -565,6 +571,7 @@
         {
           id: "landmarks",
           severity: "moderate",
+          status: "done",
           title: "Content outside landmarks",
           wcag: "Best practice (axe region); related to 1.3.1",
           pages: "All",
@@ -592,6 +599,7 @@
         {
           id: "heading-skip",
           severity: "moderate",
+          status: "done",
           title: "Contact page heading skip (h1 → h3)",
           wcag: "1.3.1 Info and Relationships",
           pages: "Contact (and other short pages)",
@@ -604,6 +612,7 @@
         {
           id: "hover-image",
           severity: "moderate",
+          status: "done",
           title: "Product-card hover image swap has no keyboard equivalent",
           wcag: "1.4.13 Content on Hover or Focus / 2.1.1 Keyboard",
           pages: "Home, collections",
@@ -616,6 +625,7 @@
         {
           id: "popup-labels",
           severity: "moderate",
+          status: "done",
           title: "Email popup / sticky widget — icon-only close and submit",
           wcag: "2.4.6 Headings and Labels",
           pages: "Home overlay",
@@ -641,26 +651,33 @@
         { id: "fix-ids", group: "Quick wins", text: "Quick-add: unique button ids", checked: true },
         { id: "fix-faq", group: "Quick wins", text: "FAQs: remove generic aria-label on summary", checked: true },
         { id: "fix-marquee", group: "Quick wins", text: "Marquee: prefers-reduced-motion: reduce { animation: none; }", checked: true },
-        { id: "fix-cta", group: "Quick wins", text: "Floating CTA: complementary on launcher; inert on closed modal", checked: true },
+        { id: "fix-cta", group: "Quick wins", text: "Floating CTA: complementary on launcher; inert/tabindex on closed modal; trap focus when open", checked: true },
         { id: "fix-h3", group: "Quick wins", text: "Empty h3: wrap in if collection.title != blank" },
         { id: "fix-h1", group: "Quick wins", text: "Search drawer h1: demote to h2", checked: true },
-        { id: "fix-targets", group: "Design / content", text: "Increase search/cart hit area to 44×44" },
+        { id: "fix-hover", group: "Quick wins", text: "Product cards: show hover image on :focus-within", checked: true },
+        { id: "fix-landmarks", group: "Quick wins", text: "Announcement bar + skip link inside header banner landmark", checked: true },
+        { id: "fix-targets", group: "Design / content", text: "Increase search/cart hit area to 44×44", checked: true },
         { id: "fix-pause", group: "Design / content", text: "Pause control (or static text) for marquee" },
         { id: "fix-captions", group: "Design / content", text: "Captions or aria-hidden on looping videos" },
         { id: "fix-admin-alt", group: "Design / content", text: "Fill image alt text in Shopify admin" },
-        { id: "fix-bold", group: "Third-party", text: "Bold Subscriptions collapsible aria-hidden + focus" },
+        { id: "fix-bold", group: "Third-party", text: "Bold Subscriptions collapsible aria-hidden + focus", checked: true },
         { id: "fix-pixel", group: "Third-party", text: "Shopify pixel iframe title (optional)" }
       ],
       files: [
+        ["layout/theme.liquid", "Wrap skip link, announcement bar, and header in one banner"],
         ["sections/hae-hero.liquid", "Non-empty alt on image_tag"],
         ["snippets/product-card-grid.liquid", "alt: product.title fallback"],
+        ["assets/product-card-grid.css", "Show second image on :hover and :focus-within"],
         ["snippets/header-mega-menu.liquid", "Don’t nest link inside summary"],
         ["snippets/quick-add.liquid", "Unique ids"],
         ["sections/hae-faqs.liquid", "Drop or rewrite aria-label"],
         ["sections/hae-marquee-banner.liquid / assets/marquee-banner.css", "Reduced-motion + pause"],
-        ["sections/floating-cta.liquid", "Correct roles; inert when closed"],
+        ["sections/floating-cta.liquid", "Correct roles; inert / tabindex when closed; trap focus"],
+        ["assets/global.js", "Bold collapsible: inert + tabindex while aria-hidden"],
+        ["assets/section-main-product.css", "Hide closed Bold collapsible from the tab order"],
         ["sections/hae-featured-collections.liquid", "Skip empty h3"],
         ["sections/header.liquid / search drawer", "Single h1 per page"],
+        ["sections/header.liquid / .header__icon, quantity −/+", "44×44 tap targets (fixed)"],
         ["sections/instagram-slideshow.liquid", "aria-hidden or captions on videos"]
       ]
     };
@@ -675,9 +692,11 @@
       state.fixes = state.fixes || {};
       for (const issue of REPORT.issues) {
         if (issue.status) {
-          state.issues[issue.id] = Object.assign({ notes: "" }, state.issues[issue.id], {
+          const existing = state.issues[issue.id] || {};
+          state.issues[issue.id] = {
+            notes: existing.notes || issue.notes || "",
             status: issue.status
-          });
+          };
         }
       }
       for (const fix of REPORT.fixes) {

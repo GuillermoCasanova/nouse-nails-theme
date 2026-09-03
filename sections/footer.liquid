@@ -70,9 +70,9 @@
             {% if section.settings.show_quick_links %}
               <div class='footer__quick-links'>
                 {% if section.settings.quick_links_title != blank %}
-                  <h3 class='footer__column-title visually-hidden'>
+                  <h2 class='footer__column-title visually-hidden'>
                     {{ section.settings.quick_links_title }}
-                  </h3>
+                  </h2>
                 {% endif %}
 
                 {% if section.settings.quick_links_menu != blank %}
@@ -95,9 +95,9 @@
             {% if section.settings.show_bottom_menu %}
               <div class='footer__quick-links'>
                 {% if section.settings.bottom_menu_title != blank %}
-                  <h3 class='footer__column-title visually-hidden'>
+                  <h2 class='footer__column-title visually-hidden'>
                     {{ section.settings.bottom_menu_title }}
-                  </h3>
+                  </h2>
                 {% endif %}
 
                 {% if section.settings.bottom_menu != blank %}
@@ -123,9 +123,9 @@
           {% if section.settings.show_newsletter %}
             <div class='footer__newsletter'>
               {% if section.settings.newsletter_title != blank %}
-                <h3 class='footer__column-title {{ section.settings.newsletter_title_size }}'>
+                <h2 class='footer__column-title {{ section.settings.newsletter_title_size }}'>
                   {{ section.settings.newsletter_title }}
-                </h3>
+                </h2>
               {% endif %}
 
               {% if section.settings.klaviyo_form_id != blank

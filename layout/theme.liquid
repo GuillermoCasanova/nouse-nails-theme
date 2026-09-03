@@ -315,17 +315,17 @@
   </head>
 
   <body class='template-{{ request.page_type | handle }}'>
-    <a class='skip-link in-page-link' href='#MainContent'>
-      {{- 'general.accessibility.skip_to_content' | t -}}
-    </a>
+    <header data-sticky-header>
+      <a class='skip-link in-page-link' href='#MainContent'>
+        {{- 'general.accessibility.skip_to_content' | t -}}
+      </a>
 
-    <div data-sticky-header>
       {% if settings.show_announcement_bar %}
         {% section 'announcement-bar' %}
       {% endif %}
 
       {% section 'header' %}
-    </div>
+    </header>
 
     <div class='page-wrapper drawer-page-content' id='PageContainer'>
       <main

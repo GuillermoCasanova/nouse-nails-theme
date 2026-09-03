@@ -176,8 +176,10 @@
   border: none;
   padding: 0;
   margin: 0;
-  width: 0.75rem;
-  height: 2rem;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;

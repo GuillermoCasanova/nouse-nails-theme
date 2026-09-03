@@ -57,8 +57,15 @@
   transition: opacity 0.3s ease;
 }
 
-.product-card-grid:hover .product-card-grid__image--hover {
+.product-card-grid:hover .product-card-grid__image--hover,
+.product-card-grid:focus-within .product-card-grid__image--hover {
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card-grid__image--hover {
+    transition: none;
+  }
 }
 
 .product-card-grid__image-link {

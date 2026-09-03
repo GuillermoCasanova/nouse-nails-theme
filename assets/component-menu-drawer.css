@@ -32,8 +32,10 @@ header-drawer {
   transition:
     transform 150ms ease,
     opacity 150ms ease;
-  width: 100%;
-  height: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  inset: 0;
+  margin: auto;
 }
 
 .header.menu-open .header__icon--menu:after,

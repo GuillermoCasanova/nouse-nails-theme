@@ -144,14 +144,15 @@ This fires on **every page**.
 
 ### [A11Y] Focusable content inside `aria-hidden="true"`
 
+- **Status:** Fixed
 - **Element:** Floating CTA modal `#FloatingCtaModal-template--…__floating_cta_z4EYG4`
-- **Location:** `sections/floating-cta.liquid`
+- **Location:** `sections/floating-cta.liquid`, `assets/global.js`, `assets/section-main-product.css`
 - **WCAG:** 4.1.2 Name, Role, Value (Level A)
 - **Impact:** Keyboard users can tab into a hidden dialog (close, form fields) that screen readers are told to ignore.
 
 **Also on product:** Bold Subscriptions collapsible `#bsub-sub-details-collapsible-…` is `aria-hidden="true"` while still containing a focusable control (third-party widget).
 
-**Fix:** When the modal is closed, set `inert` or `tabindex="-1"` on all focusable descendants, or remove them from the tab order in JS. Open state should set `aria-hidden="false"` and trap focus.
+**Resolution:** Closed floating CTA modal and launcher now use `inert`, `visibility: hidden`, and `tabindex="-1"` on focusable descendants. Open state sets `aria-hidden="false"` and traps focus. Bold collapsible is patched the same way in theme JS/CSS so its links leave the tab order while collapsed.
 
 ---
 
@@ -190,14 +191,13 @@ Add a pause control if the motion stays on by default.
 
 ---
 
-### [A11Y] Search and cart touch targets are too small
+### [A11Y] Search and cart touch targets are too small — **Fixed**
 
-- **Elements:** Header Search button **19×19 px**, Cart link **19×19 px**
+- **Status:** Fixed
+- **Elements:** Header Search button **19×19 px**, Cart link **19×19 px** (were)
 - **WCAG:** 2.5.8 Target Size (Minimum) (Level AA, WCAG 2.2); 2.5.5 Target Size is AAA at 44×44
 - **Impact:** Hard to tap accurately on mobile; adjacent targets increase mis-taps
-- **Fix:** `min-width` / `min-height: 44px` (or at least 24px) with padding on `.header__icon`
-
-Product quantity − / + buttons are **23×31 px** (just under 24px width).
+- **Fix applied:** `min-width` / `min-height: 44px` with padding on `.header__icon`. Quantity − / + buttons are **44×44**. Files: `sections/header.liquid`, `assets/component-header.css`, `assets/quantity-popover.css`.
 
 <img alt="Keyboard focus on header cart icon" src="/opt/cursor/artifacts/ada_keyboard_focus_cart.webp" />
 
@@ -232,13 +232,14 @@ Consider fixing. Improves structure and consistency.
 
 ---
 
-### [A11Y] Multiple `h1` elements on every page
+### [A11Y] Multiple `h1` elements on every page — **Fixed**
 
-- Search drawer heading **“LOOKING FOR SOMETHING?”** is always in the DOM as an `h1`
+- **Status:** Fixed
+- Search drawer heading **“LOOKING FOR SOMETHING?”** was always in the DOM as an `h1`
 - Page also has its real `h1` (Home “Nous Nails”, collection “The Nous Standard”, product title, etc.)
-- Cart has **three** `h1`s (search + “My Cart” + “Your cart is empty”)
+- Cart had **three** `h1`s (search + “My Cart” + “Your cart is empty”)
 - **WCAG:** 1.3.1 Info and Relationships
-- **Fix:** Change the search heading to `h2` (or hide it until the drawer opens and keep a single page `h1`)
+- **Fix applied:** Search modal heading is `h2.search-modal__heading`. Cart empty copy is `h2.cart__empty-text`; the cart page keeps one `h1` (“My Cart”). Files: `sections/header.liquid`, `sections/main-cart-items.liquid`.
 
 ---
 
@@ -309,7 +310,7 @@ Same header issues. Duplicate quick-add ids appear on this grid.
 
 <img alt="Matcha Jelly product page" src="/opt/cursor/artifacts/ada_product_matcha_jelly.png" />
 
-Add to cart and Shop Pay have visible names. Quantity −/+ are slightly under 24px. Bold Subscriptions widget leaves focusable content in `aria-hidden`. Icon-only zoom / gallery arrows have (or should keep) `aria-label`s.
+Add to cart and Shop Pay have visible names. Quantity −/+ are slightly under 24px. Bold Subscriptions collapsible `aria-hidden` + focus is fixed (theme JS/CSS patch). Icon-only zoom / gallery arrows have (or should keep) `aria-label`s.
 
 ### How To / FAQ — 56/100
 
@@ -329,7 +330,7 @@ Form labels passed automated checks. Heading order skips `h2` into footer `h3`s.
 
 <img alt="Empty cart drawer overlay" src="/opt/cursor/artifacts/ada_cart_drawer.webp" />
 
-Empty state is clear. Multiple `h1`s. Confirm focus is trapped when the **drawer** is open (drawer uses `role="dialog"` in `snippets/cart-popup.liquid` / cart drawer).
+Empty state is clear. Single page `h1`. Confirm focus is trapped when the **drawer** is open (drawer uses `role="dialog"` in `snippets/cart-popup.liquid` / cart drawer).
 
 ---
 
@@ -355,20 +356,20 @@ Cookiebot markup is in the DOM (`cookiebot-us-banner-suppress`). A visible cooki
 3. **Quick-add:** unique button ids  
 4. **FAQs:** remove generic `aria-label` on `<summary>`  
 5. **Marquee:** `prefers-reduced-motion: reduce { animation: none; }`  
-6. **Floating CTA:** `role="complementary"` on launcher; `inert` on closed modal  
+6. **Floating CTA:** `role="complementary"` on launcher; `inert` / `tabindex` on closed modal; trap focus when open — **done**  
 7. **Empty `h3`:** wrap in `{% if block.settings.collection.title != blank %}`  
-8. **Search drawer `h1`:** demote to `h2`
+8. **Search drawer `h1`:** demote to `h2` — done
 
 ### Design / content
 
-9. Increase search/cart hit area to 44×44  
+9. ~~Increase search/cart hit area to 44×44~~ **Done** — header icons and quantity −/+ are 44×44
 10. Pause control (or static text) for marquee  
 11. Captions or `aria-hidden` on looping videos  
 12. Fill image alt text in Shopify admin  
 
 ### Third-party
 
-13. Bold Subscriptions collapsible `aria-hidden` + focus  
+13. Bold Subscriptions collapsible `aria-hidden` + focus — **done**  
 14. Shopify pixel iframe title (optional)
 
 ---
@@ -383,9 +384,12 @@ Cookiebot markup is in the DOM (`cookiebot-us-banner-suppress`). A visible cooki
 | `snippets/quick-add.liquid` | Unique `id`s |
 | `sections/hae-faqs.liquid` | Drop or rewrite `aria-label` |
 | `sections/hae-marquee-banner.liquid` / `assets/marquee-banner.css` | Reduced-motion + pause |
-| `sections/floating-cta.liquid` | Correct roles; inert when closed |
+| `sections/floating-cta.liquid` | Correct roles; inert / tabindex when closed; trap focus |
+| `assets/global.js` | Bold collapsible: inert + tabindex while `aria-hidden` |
+| `assets/section-main-product.css` | Hide closed Bold collapsible from the tab order |
 | `sections/hae-featured-collections.liquid` | Skip empty `h3` |
 | `sections/header.liquid` / search drawer | Single `h1` per page |
+| `sections/header.liquid` / `.header__icon`, quantity −/+ | **Fixed:** 44×44 tap targets |
 | `sections/instagram-slideshow.liquid` | `aria-hidden` or captions on videos |
 
 ---
