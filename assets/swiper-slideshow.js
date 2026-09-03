@@ -179,7 +179,9 @@ class SwiperSlideshow extends HTMLElement {
                 attrs.desktopSpaceBetween || attrs.spaceBetween || 20
               ),
               loop:
-                attrs.desktopLoop === 'true' || attrs.loop === 'true' || false,
+                attrs.desktopLoop != null
+                  ? attrs.desktopLoop === 'true'
+                  : attrs.loop === 'true',
               centeredSlides:
                 attrs.desktopCenteredSlides === 'true' ||
                 attrs.centeredSlides === 'true' ||
@@ -366,8 +368,10 @@ class SwiperSlideshow extends HTMLElement {
     config.threshold = 10;
     config.fadeEffect = { crossFade: true };
 
-    if (config.breakpoints?.[750]) {
-      config.breakpoints[750].loop = false;
+    const desktop = config.breakpoints?.[750];
+    if (desktop?.loop && desktop.effect === 'fade') {
+      desktop.loop = false;
+      desktop.rewind = true;
     }
   }
 
