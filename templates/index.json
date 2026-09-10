@@ -18,8 +18,9 @@
         "button-text": "Shop Now",
         "button-url": "shopify://collections/new-arrivals",
         "media_type": "image",
-        "hero-image": "shopify://shop_images/Gallery_Orbit.jpg",
+        "hero-image": "shopify://shop_images/BrickButterAnika.jpg",
         "video_url": "",
+        "video_caption": "",
         "show_sticker": true,
         "floating-sticker": "stars",
         "sticker_color": "#fdf130"
@@ -58,6 +59,7 @@
             "button_text": "Shop",
             "media_type": "image",
             "video_url": "",
+            "video_caption": "",
             "image": "shopify://shop_images/NOUS-STUDIO-081_a663cf74-b8bd-4538-816e-f1c50e318a8b.jpg",
             "floating_sticker": "sun-pink",
             "sticker_color": "#efbdfc"
@@ -72,6 +74,7 @@
             "button_text": "Shop",
             "media_type": "image",
             "video_url": "",
+            "video_caption": "",
             "image": "shopify://shop_images/NOUS-STUDIO-668_EDIT.jpg",
             "floating_sticker": "sun-blue",
             "sticker_color": "#d1e1e8"
@@ -177,6 +180,7 @@
         "media_aspect_ratio": "1/1",
         "image": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/89f4b8510ab54e1cad1767b44fa6ade4.mov",
+        "video_caption": "",
         "video_poster": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png"
       }
     },
@@ -187,6 +191,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/eccd99037ec84fe0b2a88242a32be8a4.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_Big_Hands_updated.png",
             "product": "art-school-star"
           }
@@ -195,6 +200,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/cddd9276a4584ee88331509366127456.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_Coming_Soon_Commercial.png",
             "product": "strange-terrain"
           }
@@ -203,6 +209,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/6864733404a440d1b5d6635605b7f7e2.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_Friends_showing_Nails.png",
             "product": "cherry-blitz"
           }
@@ -211,6 +218,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/e0de52a24dcf4696bb9c46f5beaf4a70.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_Step-by-Step-Reel.png",
             "product": "strange-terrain"
           }
@@ -219,6 +227,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/93ceb01e5dfc4c39aafb92ae26f0e48d.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_Angel_Higlight.png",
             "product": "art-school-star"
           }
@@ -227,6 +236,7 @@
           "type": "slide",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/938fbab44f9543f1ad9a9f270a3bbbff.mov",
+            "video_caption": "",
             "image": "shopify://shop_images/CP_out_of_the_phone.png",
             "product": "iced-out"
           }
