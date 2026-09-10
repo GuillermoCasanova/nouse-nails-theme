@@ -28,6 +28,7 @@
           "type": "video_embed",
           "settings": {
             "video": "shopify://files/videos/knock knock updated.mov",
+            "video_caption": "",
             "autoplay": "true",
             "media_aspect_ratio": "3/4",
             "controls": false
@@ -39,10 +40,10 @@
             "product": "matcha-jelly"
           }
         },
-        "product_Ug7cTU": {
+        "product_A9K6Xd": {
           "type": "product",
           "settings": {
-            "product": "geometric-jelly"
+            "product": "wellesley"
           }
         },
         "product_XJMdtn": {
@@ -57,7 +58,7 @@
         "product_A7FPiw",
         "video_embed_ntX3Lr",
         "product_YQz4fN",
-        "product_Ug7cTU",
+        "product_A9K6Xd",
         "product_XJMdtn"
       ],
       "settings": {
@@ -84,6 +85,7 @@
           "type": "video_embed",
           "settings": {
             "video": "shopify://files/videos/Step-by-Step-Reel-USE-THIS_420.mov",
+            "video_caption": "",
             "autoplay": "true",
             "media_aspect_ratio": "3/4",
             "controls": false
@@ -95,16 +97,10 @@
             "product": "gallery-orbit"
           }
         },
-        "product_qYHq4V": {
+        "product_VVznxU": {
           "type": "product",
           "settings": {
-            "product": "scandi-color-theory"
-          }
-        },
-        "product_HNw9rm": {
-          "type": "product",
-          "settings": {
-            "product": "mocha-tortoise"
+            "product": "brick-butter"
           }
         },
         "product_rkiDY8": {
@@ -117,6 +113,12 @@
           "type": "product",
           "settings": {
             "product": "cherry-blitz"
+          }
+        },
+        "product_BXCbzx": {
+          "type": "product",
+          "settings": {
+            "product": "geometric-jelly"
           }
         },
         "product_p97nrD": {
@@ -135,9 +137,22 @@
           "type": "video_embed",
           "settings": {
             "video": "shopify://files/videos/Friends showing Nails updated.mov",
+            "video_caption": "",
             "autoplay": "true",
             "media_aspect_ratio": "3/4",
             "controls": false
+          }
+        },
+        "product_HNw9rm": {
+          "type": "product",
+          "settings": {
+            "product": "mocha-tortoise"
+          }
+        },
+        "product_qYHq4V": {
+          "type": "product",
+          "settings": {
+            "product": "scandi-color-theory"
           }
         },
         "product_TXEAdt": {
@@ -152,22 +167,10 @@
             "product": "complete-starter-pack"
           }
         },
-        "product_BXCbzx": {
-          "type": "product",
-          "settings": {
-            "product": "wellesley"
-          }
-        },
         "product_memCUW": {
           "type": "product",
           "settings": {
             "product": "oat-milk-latte"
-          }
-        },
-        "product_VVznxU": {
-          "type": "product",
-          "settings": {
-            "product": "brick-butter"
           }
         },
         "product_fHdPxB": {
@@ -180,18 +183,18 @@
       "block_order": [
         "video_embed_jHAENQ",
         "product_gfx7Rr",
-        "product_qYHq4V",
-        "product_HNw9rm",
+        "product_VVznxU",
         "product_rkiDY8",
         "product_MF3fnx",
+        "product_BXCbzx",
         "product_p97nrD",
         "product_DPxQ7h",
         "video_embed_NY7Fwq",
+        "product_HNw9rm",
+        "product_qYHq4V",
         "product_TXEAdt",
         "product_b6Yf7g",
-        "product_BXCbzx",
         "product_memCUW",
-        "product_VVznxU",
         "product_fHdPxB"
       ],
       "name": "Dynamic Collection Grid",
