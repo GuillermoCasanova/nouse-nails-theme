@@ -34,6 +34,12 @@
             "product": "discotheque-dots"
           }
         },
+        "product_MyjD7W": {
+          "type": "product",
+          "settings": {
+            "product": "powder-plaid"
+          }
+        },
         "product_7Hea3E": {
           "type": "product",
           "settings": {
@@ -44,12 +50,6 @@
           "type": "product",
           "settings": {
             "product": "fuzzy-future"
-          }
-        },
-        "product_MyjD7W": {
-          "type": "product",
-          "settings": {
-            "product": "powder-plaid"
           }
         },
         "product_rEykNc": {
@@ -97,9 +97,9 @@
         "video_embed_kaXLdU",
         "product_ynmhWg",
         "product_ckjRTe",
+        "product_MyjD7W",
         "product_7Hea3E",
         "product_3i4LmM",
-        "product_MyjD7W",
         "product_rEykNc",
         "product_A7gqCT",
         "video_embed_qYWbdf",
