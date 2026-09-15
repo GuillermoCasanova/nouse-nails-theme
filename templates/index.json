@@ -273,7 +273,8 @@
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/a991a6f04ef84857be3d397c4bb68863.mov",
             "video_caption": "",
-            "product": ""
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.06.37_AM.png",
+            "product": "butter-star"
           }
         },
         "slide_CwTGyj": {
@@ -283,6 +284,15 @@
             "video_caption": "",
             "image": "shopify://shop_images/CP_out_of_the_phone.png",
             "product": "iced-out"
+          }
+        },
+        "slide_MXAVCU": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/24d0293aa1e6424386bd424c8c15cf87.mov",
+            "video_caption": "",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.07.37_AM.png",
+            "product": "fuzzy-future"
           }
         }
       },
@@ -297,7 +307,8 @@
         "slide_hqpzxf",
         "slide_DE6BVe",
         "slide_HTABGW",
-        "slide_CwTGyj"
+        "slide_CwTGyj",
+        "slide_MXAVCU"
       ],
       "name": "Instagram Slideshow",
       "settings": {
