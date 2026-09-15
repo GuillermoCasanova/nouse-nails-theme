@@ -89,7 +89,7 @@
         "product_aqJJXK": {
           "type": "product",
           "settings": {
-            "product": "ctrl-delete-nail-remover-serum"
+            "product": "brick-butter"
           }
         }
       },
@@ -117,13 +117,21 @@
         "section_padding_bottom": "section-padding-bottom-small"
       }
     },
+    "hae_marquee_banner_33tJkG": {
+      "type": "hae-marquee-banner",
+      "name": "News ticker banner",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "text": "15-minutes. Clean Alternative. Damage-free."
+      }
+    },
     "main": {
       "type": "dynamic-collection-grid",
       "blocks": {
         "product_yqFHWf": {
           "type": "product",
           "settings": {
-            "product": "iced-out"
+            "product": "gallery-orbit"
           }
         },
         "product_A7FPiw": {
@@ -178,14 +186,6 @@
         "section_padding_bottom": "section-padding-bottom-small"
       }
     },
-    "hae_marquee_banner_33tJkG": {
-      "type": "hae-marquee-banner",
-      "name": "News ticker banner",
-      "settings": {
-        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
-        "text": "15-minutes. Clean Alternative. Damage-free."
-      }
-    },
     "dynamic_collection_grid_VWfNXt": {
       "type": "dynamic-collection-grid",
       "blocks": {
@@ -199,16 +199,22 @@
             "controls": false
           }
         },
-        "product_gfx7Rr": {
+        "product_DPxQ7h": {
           "type": "product",
           "settings": {
-            "product": "gallery-orbit"
+            "product": "led-gel-lamp"
           }
         },
         "product_VVznxU": {
           "type": "product",
           "settings": {
-            "product": "brick-butter"
+            "product": "ctrl-delete-nail-remover-serum"
+          }
+        },
+        "product_gfx7Rr": {
+          "type": "product",
+          "settings": {
+            "product": "iced-out"
           }
         },
         "product_rkiDY8": {
@@ -235,12 +241,6 @@
             "product": "stars-aligned"
           }
         },
-        "product_DPxQ7h": {
-          "type": "product",
-          "settings": {
-            "product": "led-gel-lamp"
-          }
-        },
         "video_embed_NY7Fwq": {
           "type": "video_embed",
           "settings": {
@@ -263,12 +263,6 @@
             "product": "scandi-color-theory"
           }
         },
-        "product_TXEAdt": {
-          "type": "product",
-          "settings": {
-            "product": "ctrl-delete-nail-remover-serum"
-          }
-        },
         "product_memCUW": {
           "type": "product",
           "settings": {
@@ -284,17 +278,16 @@
       },
       "block_order": [
         "video_embed_jHAENQ",
-        "product_gfx7Rr",
+        "product_DPxQ7h",
         "product_VVznxU",
+        "product_gfx7Rr",
         "product_rkiDY8",
         "product_MF3fnx",
         "product_BXCbzx",
         "product_p97nrD",
-        "product_DPxQ7h",
         "video_embed_NY7Fwq",
         "product_HNw9rm",
         "product_qYHq4V",
-        "product_TXEAdt",
         "product_memCUW",
         "product_fHdPxB"
       ],
@@ -311,8 +304,8 @@
   },
   "order": [
     "dynamic_collection_grid_QQVXaq",
-    "main",
     "hae_marquee_banner_33tJkG",
+    "main",
     "dynamic_collection_grid_VWfNXt"
   ]
 }
