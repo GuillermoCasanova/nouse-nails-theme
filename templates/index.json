@@ -18,7 +18,7 @@
         "button-text": "Shop Now",
         "button-url": "shopify://collections/new-arrivals",
         "media_type": "image",
-        "hero-image": "shopify://shop_images/BrickButterAnika.jpg",
+        "hero-image": "shopify://shop_images/Group_8.png",
         "video_url": "",
         "video_caption": "",
         "show_sticker": true,
@@ -60,9 +60,9 @@
             "media_type": "image",
             "video_url": "",
             "video_caption": "",
-            "image": "shopify://shop_images/NOUS-STUDIO-081_a663cf74-b8bd-4538-816e-f1c50e318a8b.jpg",
+            "image": "shopify://shop_images/Fuzzy-Future-4_6346f5cf-6939-4716-8d72-900618f5e70d.jpg",
             "floating_sticker": "sun-pink",
-            "sticker_color": "#efbdfc"
+            "sticker_color": "#D1E1E8"
           }
         },
         "collection_x6rP3q": {
@@ -75,7 +75,7 @@
             "media_type": "image",
             "video_url": "",
             "video_caption": "",
-            "image": "shopify://shop_images/NOUS-STUDIO-668_EDIT.jpg",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_9.36.22_AM.png",
             "floating_sticker": "sun-blue",
             "sticker_color": "#d1e1e8"
           }
