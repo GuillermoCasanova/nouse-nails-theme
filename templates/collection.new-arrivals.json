@@ -9,6 +9,114 @@
  */
 {
   "sections": {
+    "dynamic_collection_grid_QQVXaq": {
+      "type": "dynamic-collection-grid",
+      "blocks": {
+        "video_embed_kaXLdU": {
+          "type": "video_embed",
+          "settings": {
+            "video": "shopify://files/videos/Motorcycle Short.mov",
+            "video_caption": "",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
+          }
+        },
+        "product_ynmhWg": {
+          "type": "product",
+          "settings": {
+            "product": "double-vision"
+          }
+        },
+        "product_ckjRTe": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-dots"
+          }
+        },
+        "product_7Hea3E": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-star"
+          }
+        },
+        "product_3i4LmM": {
+          "type": "product",
+          "settings": {
+            "product": "fuzzy-future"
+          }
+        },
+        "product_MyjD7W": {
+          "type": "product",
+          "settings": {
+            "product": "powder-plaid"
+          }
+        },
+        "product_rEykNc": {
+          "type": "product",
+          "settings": {
+            "product": "pipeline"
+          }
+        },
+        "product_A7gqCT": {
+          "type": "product",
+          "settings": {
+            "product": "bright-future"
+          }
+        },
+        "video_embed_qYWbdf": {
+          "type": "video_embed",
+          "settings": {
+            "video": "shopify://files/videos/Ipod video 2 updated_e38e7c60-32c7-4655-94ff-ceb0f9a98c49.mov",
+            "video_caption": "",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
+          }
+        },
+        "product_Lcb7Kr": {
+          "type": "product",
+          "settings": {
+            "product": "butter-star"
+          }
+        },
+        "product_YtMxDd": {
+          "type": "product",
+          "settings": {
+            "product": "birthday-cake"
+          }
+        },
+        "product_aqJJXK": {
+          "type": "product",
+          "settings": {
+            "product": "ctrl-delete-nail-remover-serum"
+          }
+        }
+      },
+      "block_order": [
+        "video_embed_kaXLdU",
+        "product_ynmhWg",
+        "product_ckjRTe",
+        "product_7Hea3E",
+        "product_3i4LmM",
+        "product_MyjD7W",
+        "product_rEykNc",
+        "product_A7gqCT",
+        "video_embed_qYWbdf",
+        "product_Lcb7Kr",
+        "product_YtMxDd",
+        "product_aqJJXK"
+      ],
+      "name": "Dynamic Collection Grid",
+      "settings": {
+        "title": "The Nous Standard",
+        "hide_title": false,
+        "richtext_content": "",
+        "color_scheme": "background-1",
+        "section_padding_top": "section-padding-top-small",
+        "section_padding_bottom": "section-padding-bottom-small"
+      }
+    },
     "main": {
       "type": "dynamic-collection-grid",
       "blocks": {
@@ -62,8 +170,8 @@
         "product_XJMdtn"
       ],
       "settings": {
-        "title": "The Nous Standard",
-        "hide_title": false,
+        "title": "",
+        "hide_title": true,
         "richtext_content": "",
         "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
@@ -136,7 +244,7 @@
         "video_embed_NY7Fwq": {
           "type": "video_embed",
           "settings": {
-            "video": "shopify://files/videos/Friends showing Nails updated.mov",
+            "video": "shopify://files/videos/Angel Headphones Updated_84e18609-6298-428d-97db-12c64913c8c0.mov",
             "video_caption": "",
             "autoplay": "true",
             "media_aspect_ratio": "3/4",
@@ -159,12 +267,6 @@
           "type": "product",
           "settings": {
             "product": "ctrl-delete-nail-remover-serum"
-          }
-        },
-        "product_b6Yf7g": {
-          "type": "product",
-          "settings": {
-            "product": "complete-starter-pack"
           }
         },
         "product_memCUW": {
@@ -193,7 +295,6 @@
         "product_HNw9rm",
         "product_qYHq4V",
         "product_TXEAdt",
-        "product_b6Yf7g",
         "product_memCUW",
         "product_fHdPxB"
       ],
@@ -209,6 +310,7 @@
     }
   },
   "order": [
+    "dynamic_collection_grid_QQVXaq",
     "main",
     "hae_marquee_banner_33tJkG",
     "dynamic_collection_grid_VWfNXt"
