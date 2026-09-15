@@ -187,6 +187,24 @@
     "instagram_slideshow_FWNLT6": {
       "type": "instagram-slideshow",
       "blocks": {
+        "slide_N69bXr": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/848ec6eb3102444c867094b4a449de13.mov",
+            "video_caption": "",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.03.59_AM.png",
+            "product": "powder-plaid"
+          }
+        },
+        "slide_CFWXz6": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/8d390ea4d5e8466e9fa27c80b00db23b.mov",
+            "video_caption": "",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.04.49_AM.png",
+            "product": "discotheque-star"
+          }
+        },
         "slide_exknKT": {
           "type": "slide",
           "settings": {
@@ -203,6 +221,15 @@
             "video_caption": "",
             "image": "shopify://shop_images/CP_Coming_Soon_Commercial.png",
             "product": "strange-terrain"
+          }
+        },
+        "slide_KtmGFT": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/90a2ea73c1ac47c6a8075b12e5b9c741.mov",
+            "video_caption": "",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.05.22_AM.png",
+            "product": "powder-plaid"
           }
         },
         "slide_kxFa6w": {
@@ -223,6 +250,15 @@
             "product": "strange-terrain"
           }
         },
+        "slide_hqpzxf": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/99da220b51bc468f849d0d4c8920962b.mov",
+            "video_caption": "",
+            "image": "shopify://shop_images/Screenshot_2026-09-15_at_11.05.59_AM.png",
+            "product": "discotheque-star"
+          }
+        },
         "slide_DE6BVe": {
           "type": "slide",
           "settings": {
@@ -230,6 +266,14 @@
             "video_caption": "",
             "image": "shopify://shop_images/CP_Angel_Higlight.png",
             "product": "art-school-star"
+          }
+        },
+        "slide_HTABGW": {
+          "type": "slide",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/a991a6f04ef84857be3d397c4bb68863.mov",
+            "video_caption": "",
+            "product": ""
           }
         },
         "slide_CwTGyj": {
@@ -243,11 +287,16 @@
         }
       },
       "block_order": [
+        "slide_N69bXr",
+        "slide_CFWXz6",
         "slide_exknKT",
         "slide_6Ww976",
+        "slide_KtmGFT",
         "slide_kxFa6w",
         "slide_tfqyEz",
+        "slide_hqpzxf",
         "slide_DE6BVe",
+        "slide_HTABGW",
         "slide_CwTGyj"
       ],
       "name": "Instagram Slideshow",
