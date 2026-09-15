@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "collection-template",
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "layout": "grid",
@@ -21,6 +22,114 @@
         "show_vendor": false,
         "sort_enable": true,
         "tags_enable": true
+      }
+    },
+    "dynamic_collection_grid_7MkBUm": {
+      "type": "dynamic-collection-grid",
+      "blocks": {
+        "product_n3NngY": {
+          "type": "product",
+          "settings": {
+            "product": "fuzzy-future"
+          }
+        },
+        "product_CnR9mN": {
+          "type": "product",
+          "settings": {
+            "product": "double-vision"
+          }
+        },
+        "video_embed_h89Rjb": {
+          "type": "video_embed",
+          "settings": {
+            "video": "shopify://files/videos/Motorcycle Short.mov",
+            "video_caption": "",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
+          }
+        },
+        "product_7MQxBi": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-star"
+          }
+        },
+        "product_WCyP4J": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-dots"
+          }
+        },
+        "product_zEXnEH": {
+          "type": "product",
+          "settings": {
+            "product": "bright-future"
+          }
+        },
+        "video_embed_eMXQkt": {
+          "type": "video_embed",
+          "settings": {
+            "video": "shopify://files/videos/Angel Headphones Updated_84e18609-6298-428d-97db-12c64913c8c0.mov",
+            "video_caption": "",
+            "autoplay": "true",
+            "media_aspect_ratio": "3/4",
+            "controls": false
+          }
+        },
+        "product_FdA7dP": {
+          "type": "product",
+          "settings": {
+            "product": "powder-plaid"
+          }
+        },
+        "product_MQJJzt": {
+          "type": "product",
+          "settings": {
+            "product": "butter-star"
+          }
+        },
+        "product_HJgwQV": {
+          "type": "product",
+          "settings": {
+            "product": "wellesley"
+          }
+        },
+        "product_jftJgb": {
+          "type": "product",
+          "settings": {
+            "product": "birthday-cake"
+          }
+        },
+        "product_6zHiWr": {
+          "type": "product",
+          "settings": {
+            "product": "pipeline"
+          }
+        }
+      },
+      "block_order": [
+        "product_n3NngY",
+        "product_CnR9mN",
+        "video_embed_h89Rjb",
+        "product_7MQxBi",
+        "product_WCyP4J",
+        "product_zEXnEH",
+        "video_embed_eMXQkt",
+        "product_FdA7dP",
+        "product_MQJJzt",
+        "product_HJgwQV",
+        "product_jftJgb",
+        "product_6zHiWr"
+      ],
+      "name": "Dynamic Collection Grid",
+      "settings": {
+        "title": "Bright Future",
+        "hide_title": false,
+        "richtext_content": "",
+        "color_scheme": "",
+        "section_padding_top": "section-padding-top-small",
+        "section_padding_bottom": "section-padding-bottom-small"
       }
     },
     "1761618453a1fad14b": {
@@ -41,6 +150,7 @@
   },
   "order": [
     "main",
+    "dynamic_collection_grid_7MkBUm",
     "1761618453a1fad14b"
   ]
 }
