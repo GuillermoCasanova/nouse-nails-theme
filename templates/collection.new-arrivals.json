@@ -263,6 +263,12 @@
             "product": "scandi-color-theory"
           }
         },
+        "product_qPMeag": {
+          "type": "product",
+          "settings": {
+            "product": "powder-puff"
+          }
+        },
         "product_memCUW": {
           "type": "product",
           "settings": {
@@ -288,6 +294,7 @@
         "video_embed_NY7Fwq",
         "product_HNw9rm",
         "product_qYHq4V",
+        "product_qPMeag",
         "product_memCUW",
         "product_fHdPxB"
       ],
