@@ -106,6 +106,12 @@
           "settings": {
             "product": "pipeline"
           }
+        },
+        "product_UdXPRW": {
+          "type": "product",
+          "settings": {
+            "product": "powder-puff"
+          }
         }
       },
       "block_order": [
@@ -120,7 +126,8 @@
         "product_MQJJzt",
         "product_HJgwQV",
         "product_jftJgb",
-        "product_6zHiWr"
+        "product_6zHiWr",
+        "product_UdXPRW"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
