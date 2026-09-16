@@ -532,7 +532,7 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "announcement_text": "<p>Sign Up for Emails to Receive 15% Off First Order | Free U.S. Shipping Over $30+</p>",
+          "announcement_text": "<p>Drop II: Bright Future Collection Is Here | Free U.S. Shipping Over $30+</p>",
           "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
           "show_close_button": true
         }
