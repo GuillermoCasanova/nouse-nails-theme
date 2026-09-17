@@ -275,6 +275,12 @@
             "product": "jammy-jams"
           }
         },
+        "product_ENKNJP": {
+          "type": "product",
+          "settings": {
+            "product": "ivy-league"
+          }
+        },
         "product_memCUW": {
           "type": "product",
           "settings": {
@@ -302,6 +308,7 @@
         "product_qYHq4V",
         "product_qPMeag",
         "product_FAHjrR",
+        "product_ENKNJP",
         "product_memCUW",
         "product_fHdPxB"
       ],
