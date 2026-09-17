@@ -211,6 +211,13 @@
             "answer": "<p>Our gel strips are slightly stretchable. Gently warm the strip between your fingers and lightly stretch it for a better fit before curing. </p><p>✱ Nail Hack: Watch our <a href=\"https://www.instagram.com/reel/DW5Ti29jVZO/\" target=\"_blank\" title=\"https://www.instagram.com/reel/DW5Ti29jVZO/\">reel </a>here. Warm it up to make it more flexible by rubbing it in the palm of your hands or place it briefly over a warm mug of coffee. Once softened, apply and gently stretch to fit. <em>Note: </em>this only works for slightly smaller strips; overstretching can tear the film or distort the artwork.</p>"
           }
         },
+        "faq_block_dqPQLt": {
+          "type": "faq_block",
+          "settings": {
+            "question": "Are the nail strips meant to be mixed and matched?",
+            "answer": "<p>Yes! Each set is designed to create a maximalist, mix-and-match manicure. Since everyone’s nail beds are different, there’s no “correct” combination or order—simply choose the designs and sizes that fit each nail best.</p><p>Every set includes 30 strips in a range of sizes, so whether your nail beds are small or wide, you’ll find your perfect fit.</p><p>P.S. Don’t throw away your leftover strips! Save them to mix and match with future sets. See <a href=\"https://www.instagram.com/p/DVgq4QrODs9/\" target=\"_blank\" title=\"https://www.instagram.com/p/DVgq4QrODs9/\">tutorial video here</a>.</p>"
+          }
+        },
         "faq_block_JdF9m9": {
           "type": "faq_block",
           "settings": {
@@ -259,6 +266,7 @@
         "faq_block_8hf9f6",
         "faq_block_WCjUXV",
         "faq_block_j79CCr",
+        "faq_block_dqPQLt",
         "faq_block_JdF9m9",
         "faq_block_XTwgLF",
         "faq_block_3rGCJV",
