@@ -112,6 +112,18 @@
           "settings": {
             "product": "powder-puff"
           }
+        },
+        "product_D4PGGB": {
+          "type": "product",
+          "settings": {
+            "product": "jammy-jams"
+          }
+        },
+        "product_8T8gHy": {
+          "type": "product",
+          "settings": {
+            "product": "ivy-league"
+          }
         }
       },
       "block_order": [
@@ -127,7 +139,9 @@
         "product_HJgwQV",
         "product_jftJgb",
         "product_6zHiWr",
-        "product_UdXPRW"
+        "product_UdXPRW",
+        "product_D4PGGB",
+        "product_8T8gHy"
       ],
       "name": "Dynamic Collection Grid",
       "settings": {
