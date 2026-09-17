@@ -269,6 +269,12 @@
             "product": "powder-puff"
           }
         },
+        "product_FAHjrR": {
+          "type": "product",
+          "settings": {
+            "product": "jammy-jams"
+          }
+        },
         "product_memCUW": {
           "type": "product",
           "settings": {
@@ -295,6 +301,7 @@
         "product_HNw9rm",
         "product_qYHq4V",
         "product_qPMeag",
+        "product_FAHjrR",
         "product_memCUW",
         "product_fHdPxB"
       ],
