@@ -67,6 +67,7 @@
         "media_type": "video",
         "media_aspect_ratio": "1/1",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/bc31c17c41fb4248a133fd0d5ec54a73.mov",
+        "video_caption": "",
         "video_poster": "shopify://shop_images/01_CP.png"
       }
     },
@@ -83,7 +84,7 @@
         "text_xBHirn": {
           "type": "text",
           "settings": {
-            "text": "<p>Plug in your Nous LED Lamp and tap to power on. Cure each hand for 60 seconds to lock in a long-lasting finish.<br/><br/><strong>Do’s & Don’ts</strong>:<br/>• <strong>Do</strong>: Keep your hand steady under the lamp until the lamp turns off.<br/>• <strong>Don’t</strong>: Remove your hand mid-curing as this can affect adhesion and shine.</p>",
+            "text": "<p>Plug in your Nous LED Lamp and tap to power on. Cure each hand for 60 seconds to lock in a long-lasting finish.<br/><br/><strong>Do’s & Don’ts</strong>:<br/>• <strong>Do</strong>: Keep your hand steady under the lamp until the lamp turns off.<br/>• <strong>Don’t</strong>: Remove your hand mid-curing as this can affect adhesion and shine.<br/>• <strong>Don’t</strong>: Do not apply in the sunlight, as UV exposure can partially cure the strips before application, preventing proper adhesion and causing them to lift or fall off.</p>",
             "text_size": "text-size-medium"
           }
         },
@@ -109,6 +110,7 @@
         "media_type": "video",
         "media_aspect_ratio": "1/1",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/c636a3eef91f47c79616fd88c4c5308f.mov",
+        "video_caption": "",
         "video_poster": "shopify://shop_images/02_CP.png"
       }
     },
@@ -151,6 +153,7 @@
         "media_type": "video",
         "media_aspect_ratio": "1/1",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/a1257515919e47a6b5b22754059968e1.mov",
+        "video_caption": "",
         "video_poster": "shopify://shop_images/03_CP.png"
       }
     },
