@@ -50,19 +50,28 @@
   endif
   assign policy_modal_body = blank
   assign policy_modal_url = shop.subscription_policy.url
+  assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
 
   if policy_page != blank and policy_page.content != blank
     assign policy_modal_title = policy_page.title
     assign policy_modal_body = policy_page.content
   elsif shop.subscription_policy.body != blank
-    assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
+    assign policy_modal_title = shop.subscription_policy.title
     assign policy_modal_body = shop.subscription_policy.body
-  elsif shop.refund_policy.body != blank
-    assign policy_modal_title = shop.refund_policy.title
-    assign policy_modal_body = shop.refund_policy.body
-    assign policy_modal_url = shop.refund_policy.url
+    assign policy_modal_url = shop.subscription_policy.url
   else
-    assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
+    for policy in shop.policies
+      assign policy_title_key = policy.title | downcase
+      if policy.body == blank
+        continue
+      endif
+      if policy_title_key contains 'subscription' or policy_title_key contains 'cancel'
+        assign policy_modal_title = policy.title
+        assign policy_modal_body = policy.body
+        assign policy_modal_url = policy.url
+        break
+      endif
+    endfor
   endif
 -%}
 
