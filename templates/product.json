@@ -41,7 +41,8 @@
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
-            "subscription_policy_page": "terms-of-service"
+            "subscription_consent": "",
+            "subscription_policy_page": "cancellation-policy"
           }
         },
         "bold_subscriptions_bsub_widget_block_3nJ3hM": {
@@ -242,6 +243,7 @@
         "media_aspect_ratio": "1/1",
         "image": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png",
         "video_url": "https://cdn.shopify.com/videos/c/o/v/89f4b8510ab54e1cad1767b44fa6ade4.mov",
+        "video_caption": "",
         "video_poster": "shopify://shop_images/Step-by-Step-Reel-1x1_Cover_Photo.png"
       }
     },
