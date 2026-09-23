@@ -45,6 +45,7 @@
         },
         "bold_subscriptions_bsub_widget_block_3nJ3hM": {
           "type": "shopify://apps/bold-subscriptions/blocks/bsub-widget-block/9ceb49f0-5fe5-4b5e-943d-f8af8985167d",
+          "disabled": true,
           "settings": {
             "default_subscribe": false,
             "primary_color": "",

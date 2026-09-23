@@ -364,7 +364,8 @@ a.product__text {
   }
 }
 
-.product--is-sold-out [id*='bold_subscriptions'] {
+.product--is-sold-out [id*='bold_subscriptions'],
+.product--is-sold-out purchase-options {
   display: none;
 }
 

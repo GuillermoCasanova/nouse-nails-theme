@@ -104,6 +104,12 @@
           {{ form | payment_button }}
         {%- endif -%}
       </div>
+
+      {% render 'purchase-options',
+        product: product,
+        section_id: section_id,
+        block: block
+      %}
     {%- endform -%}
   </product-form>
 {%- else -%}

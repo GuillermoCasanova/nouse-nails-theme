@@ -267,7 +267,25 @@
       "duties_included": "Duties included.",
       "duties_and_taxes_included": "Duties and taxes included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
-      "back_to_collection": "Back to {{ title }}"
+      "back_to_collection": "Back to {{ title }}",
+      "purchase_options": {
+        "heading": "Purchase Options",
+        "one_time": "One-time Purchase",
+        "subscribe": "Subscribe and Save",
+        "save": "(Save {{ discount }})",
+        "save_up_to": "(Save up to {{ discount }})",
+        "frequency_heading": "Delivery Frequency",
+        "frequency_off": "({{ discount }} off {{ price }})",
+        "per_delivery": "{{ price }} / delivery",
+        "details_label": "Subscription details",
+        "details_heading": "Here's how it works:",
+        "details": "These prices don't include taxes or other fees. This subscription auto-renews. It can be skipped or cancelled at anytime.",
+        "cancellation_policy": "cancellation policy",
+        "subscription_policy_modal_title": "Subscription policy",
+        "subscription_policy_empty": "No subscription policy has been added in your store admin yet. Add one under Settings → Policies, or choose a page in the Buy buttons block settings.",
+        "subscription_policy_view_online": "View subscription policy",
+        "consent_html": "This item is a deferred, subscription, or recurring purchase. By continuing, I agree to the {{ policy_link }} and authorize you to charge my payment method at the prices, frequency and dates listed on this page until my order is fulfilled or I cancel, if permitted."
+      }
     },
     "modal": {
       "label": "Media gallery"

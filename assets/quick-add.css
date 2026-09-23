@@ -340,7 +340,8 @@ quick-add-modal .shopify-payment-button,
 quick-add-modal .product-sticky-button,
 quick-add-modal .installment,
 quick-add-modal .klaviyo-bis-trigger,
-quick-add-modal .bsub-widget {
+quick-add-modal .bsub-widget,
+quick-add-modal purchase-options {
   display: none;
 }
 
