@@ -40,7 +40,8 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "subscription_policy_page": "terms-of-service"
           }
         },
         "bold_subscriptions_bsub_widget_block_3nJ3hM": {

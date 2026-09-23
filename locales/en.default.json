@@ -281,9 +281,10 @@
         "details_heading": "Here's how it works:",
         "details": "These prices don't include taxes or other fees. This subscription auto-renews. It can be skipped or cancelled at anytime.",
         "cancellation_policy": "cancellation policy",
+        "cancellation_policy_modal_title": "Cancellation policy",
         "subscription_policy_modal_title": "Subscription policy",
-        "subscription_policy_empty": "Add your cancellation and subscription terms under Settings → Policies → Subscription policy, or choose a page in the Buy buttons block (Subscription policy page).",
-        "subscription_policy_view_online": "View subscription policy online",
+        "subscription_policy_empty": "Choose an Online Store page in the theme editor: Product page → Buy buttons → Cancellation policy page. Shopify does not have a separate admin setting named “Cancellation policy.”",
+        "subscription_policy_view_online": "Manage or cancel your subscription",
         "consent_html": "This item is a deferred, subscription, or recurring purchase. By continuing, I agree to the {{ policy_link }} and authorize you to charge my payment method at the prices, frequency and dates listed on this page until my order is fulfilled or I cancel, if permitted."
       }
     },

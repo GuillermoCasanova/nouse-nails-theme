@@ -49,17 +49,35 @@
     assign custom_consent = block.settings.subscription_consent
   endif
   assign policy_modal_body = blank
-  assign policy_modal_url = shop.subscription_policy.url
-  assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
+  assign policy_modal_url = blank
+  assign policy_modal_title = 'products.product.purchase_options.cancellation_policy_modal_title' | t
 
   if policy_page != blank and policy_page.content != blank
     assign policy_modal_title = policy_page.title
     assign policy_modal_body = policy_page.content
-  elsif shop.subscription_policy.body != blank
+    assign policy_modal_url = policy_page.url
+  endif
+
+  if policy_modal_body == blank
+    assign policy_page_handles = 'cancellation-policy,cancellation,subscription-cancellation,subscription-policy,terms-of-service' | split: ','
+    for handle in policy_page_handles
+      assign candidate_page = pages[handle]
+      if candidate_page != blank and candidate_page.content != blank
+        assign policy_modal_title = candidate_page.title
+        assign policy_modal_body = candidate_page.content
+        assign policy_modal_url = candidate_page.url
+        break
+      endif
+    endfor
+  endif
+
+  if policy_modal_body == blank and shop.subscription_policy.body != blank
     assign policy_modal_title = shop.subscription_policy.title
     assign policy_modal_body = shop.subscription_policy.body
     assign policy_modal_url = shop.subscription_policy.url
-  else
+  endif
+
+  if policy_modal_body == blank
     for policy in shop.policies
       assign policy_title_key = policy.title | downcase
       if policy.body == blank
@@ -72,6 +90,12 @@
         break
       endif
     endfor
+  endif
+
+  if policy_modal_url == blank and pages['manage-subscriptions'] != blank
+    assign policy_modal_url = pages['manage-subscriptions'].url
+  elsif policy_modal_url == blank and shop.subscription_policy.url != blank
+    assign policy_modal_url = shop.subscription_policy.url
   endif
 -%}
 
