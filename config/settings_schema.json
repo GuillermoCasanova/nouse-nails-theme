@@ -1035,7 +1035,13 @@
         "type": "product",
         "id": "cart_recommendation_product",
         "label": "Recommended product",
-        "info": "Select a product to recommend when it's not already in the cart"
+        "info": "Shown when it is not already in the cart. With only this product set, the current row layout is used."
+      },
+      {
+        "type": "product",
+        "id": "cart_recommendation_product_2",
+        "label": "Second recommended product",
+        "info": "Optional. When set, both products show side by side. Products already in the cart are hidden."
       },
       {
         "type": "text",

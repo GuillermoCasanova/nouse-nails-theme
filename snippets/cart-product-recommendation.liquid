@@ -1,71 +1,123 @@
 {%- liquid
-  assign recommended_product = all_products[settings.cart_recommendation_product]
-  assign show_recommendation = false
-  
-  if settings.enable_cart_recommendation and recommended_product and cart.item_count > 0
-    assign product_in_cart = false
-    for item in cart.items
-      if item.product.id == recommended_product.id
-        assign product_in_cart = true
-        break
-      endif
-    endfor
-    
-    unless product_in_cart
-      assign show_recommendation = true
-    endunless
+  assign recommendation_handles = ''
+  assign visible_count = 0
+
+  if settings.enable_cart_recommendation and cart.item_count > 0
+    assign first_product = blank
+    assign second_product = blank
+
+    if settings.cart_recommendation_product != blank
+      assign first_product = all_products[settings.cart_recommendation_product]
+    endif
+
+    if settings.cart_recommendation_product_2 != blank
+      assign second_product = all_products[settings.cart_recommendation_product_2]
+    endif
+
+    if first_product != blank
+      assign product_in_cart = false
+      for item in cart.items
+        if item.product.id == first_product.id
+          assign product_in_cart = true
+          break
+        endif
+      endfor
+      unless product_in_cart
+        assign recommendation_handles = first_product.handle | append: ','
+        assign visible_count = 1
+      endunless
+    endif
+
+    if second_product != blank and second_product.id != first_product.id
+      assign product_in_cart = false
+      for item in cart.items
+        if item.product.id == second_product.id
+          assign product_in_cart = true
+          break
+        endif
+      endfor
+      unless product_in_cart
+        assign recommendation_handles = recommendation_handles | append: second_product.handle | append: ','
+        assign visible_count = visible_count | plus: 1
+      endunless
+    endif
   endif
+
+  assign recommendation_handles = recommendation_handles | split: ','
 -%}
 
-{%- if show_recommendation -%}
-  <div class="cart-recommendation">
+{%- if visible_count > 0 -%}
+  <div class='cart-recommendation{% if visible_count > 1 %} cart-recommendation--pair{% endif %}'>
     {%- if settings.cart_recommendation_title != blank -%}
-      <h3 class="cart-recommendation__title">{{ settings.cart_recommendation_title }}</h3>
+      <h3 class='cart-recommendation__title'>{{ settings.cart_recommendation_title }}</h3>
     {%- endif -%}
-    
-    <div class="cart-recommendation__product">
-      <div class="cart-recommendation__image">
-        {%- if recommended_product.featured_media -%}
-          {{
-            recommended_product.featured_media
-            | image_url: width: 120
-            | image_tag:
-              loading: 'lazy',
-              alt: recommended_product.title,
-              width: '60',
-              height: '60'
-          }}
+
+    <div class='cart-recommendation__products'>
+      {%- for handle in recommendation_handles -%}
+        {%- if handle == blank -%}
+          {%- continue -%}
         {%- endif -%}
-      </div>
-      
-      <div class="cart-recommendation__details">
-        <h4 class="cart-recommendation__product-title">{{ recommended_product.title }}</h4>
-        <div class="cart-recommendation__price">
-          {{ recommended_product.price | money }}
+        {%- assign recommended_product = all_products[handle] -%}
+        {%- if recommended_product == blank -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        <div class='cart-recommendation__product'>
+          <div class='cart-recommendation__image'>
+            {%- if recommended_product.featured_media -%}
+              {{
+                recommended_product.featured_media
+                | image_url: width: 240
+                | image_tag:
+                  loading: 'lazy',
+                  alt: '',
+                  width: '120',
+                  height: '120'
+              }}
+            {%- endif -%}
+          </div>
+
+          <div class='cart-recommendation__content'>
+            <div class='cart-recommendation__details'>
+              <h4 class='cart-recommendation__product-title'>{{ recommended_product.title }}</h4>
+              <div class='cart-recommendation__price'>
+                {{ recommended_product.price | money_without_trailing_zeros }}
+              </div>
+            </div>
+
+            <div class='cart-recommendation__actions'>
+              <product-form class='cart-recommendation__form'>
+                <form action='{{ routes.cart_add_url }}' method='post' enctype='multipart/form-data'>
+                  <input
+                    type='hidden'
+                    name='id'
+                    value='{{ recommended_product.selected_or_first_available_variant.id }}'
+                  >
+                  <button
+                    type='submit'
+                    class='cart-recommendation__button'
+                    aria-label='Add {{ recommended_product.title | escape }} to cart'
+                    {%- unless recommended_product.available %}
+                      disabled
+                    {%- endunless -%}
+                  >
+                    <span class='cart-recommendation__button-face button button--small button--secondary'>
+                      <span class='cart-recommendation__button-label'>
+                        {%- if recommended_product.available -%}
+                          ADD TO CART
+                        {%- else -%}
+                          SOLD OUT
+                        {%- endif -%}
+                      </span>
+                      {%- render 'loading-spinner' -%}
+                    </span>
+                  </button>
+                </form>
+              </product-form>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      <div class="cart-recommendation__actions">
-        <product-form class="cart-recommendation__form">
-          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="{{ recommended_product.selected_or_first_available_variant.id }}">
-            <button
-              type="submit"
-              class="cart-recommendation__button button button--small button--secondary"
-              {%- unless recommended_product.available %} disabled{%- endunless -%}
-            >
-              <span>
-                {%- if recommended_product.available -%}
-                  ADD TO CART
-                {%- else -%}
-                  SOLD OUT
-                {%- endif -%}
-              </span>
-              {%- render 'loading-spinner' -%}
-            </button>
-          </form>
-        </product-form>
-      </div>
+      {%- endfor -%}
     </div>
   </div>
 {%- endif -%}
