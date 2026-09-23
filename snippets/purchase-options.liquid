@@ -51,12 +51,16 @@
   assign policy_modal_body = blank
   assign policy_modal_url = shop.subscription_policy.url
 
-  if policy_page != blank
+  if policy_page != blank and policy_page.content != blank
     assign policy_modal_title = policy_page.title
     assign policy_modal_body = policy_page.content
   elsif shop.subscription_policy.body != blank
     assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
     assign policy_modal_body = shop.subscription_policy.body
+  elsif shop.refund_policy.body != blank
+    assign policy_modal_title = shop.refund_policy.title
+    assign policy_modal_body = shop.refund_policy.body
+    assign policy_modal_url = shop.refund_policy.url
   else
     assign policy_modal_title = 'products.product.purchase_options.subscription_policy_modal_title' | t
   endif
