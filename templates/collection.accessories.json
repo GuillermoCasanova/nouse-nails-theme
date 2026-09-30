@@ -34,6 +34,7 @@
         },
         "product_YQz4fN": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "complete-starter-pack"
           }
@@ -42,6 +43,7 @@
           "type": "video_embed",
           "settings": {
             "video": "shopify://files/videos/Step-by-Step-Reel-USE-THIS-1x1_2799d65f-c71b-464a-854b-17b89190664a.MOV",
+            "video_caption": "",
             "autoplay": "true",
             "media_aspect_ratio": "64/41",
             "controls": false
