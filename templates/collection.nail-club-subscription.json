@@ -12,6 +12,36 @@
     "main": {
       "type": "dynamic-collection-grid",
       "blocks": {
+        "product_pHzzCX": {
+          "type": "product",
+          "settings": {
+            "product": "double-vision"
+          }
+        },
+        "product_3NX4Nc": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-dots"
+          }
+        },
+        "product_6pUBgM": {
+          "type": "product",
+          "settings": {
+            "product": "powder-plaid"
+          }
+        },
+        "product_7yzxTx": {
+          "type": "product",
+          "settings": {
+            "product": "discotheque-star"
+          }
+        },
+        "product_rpnRcG": {
+          "type": "product",
+          "settings": {
+            "product": "fuzzy-future"
+          }
+        },
         "product_yqFHWf": {
           "type": "product",
           "settings": {
@@ -50,6 +80,11 @@
         }
       },
       "block_order": [
+        "product_pHzzCX",
+        "product_3NX4Nc",
+        "product_6pUBgM",
+        "product_7yzxTx",
+        "product_rpnRcG",
         "product_yqFHWf",
         "product_A7FPiw",
         "product_YQz4fN",
@@ -60,7 +95,7 @@
       "settings": {
         "title": "Nail Club Subscription",
         "hide_title": false,
-        "richtext_content": "<p>✱ Subscribe and save 15% on your order.<br/><br/>✱ To begin, click on any style below. You'll have the option to choose your style before each order is fulfilled.  Don't worry, we'll email you! ☻</p>",
+        "richtext_content": "<p>✱ Subscribe and save 15% on your order.<br/><br/>✱ To begin, click on any style below. You'll have the option to choose your style before each order is fulfilled. &nbsp;Don't worry, we'll email you! ☻</p>",
         "color_scheme": "background-1",
         "section_padding_top": "section-padding-top-small",
         "section_padding_bottom": "section-padding-bottom-small"
