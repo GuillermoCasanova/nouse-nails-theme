@@ -187,6 +187,7 @@
     },
     "hae_marquee_banner_33tJkG": {
       "type": "hae-marquee-banner",
+      "disabled": true,
       "name": "News ticker banner",
       "settings": {
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
@@ -241,6 +242,7 @@
         "product_MF3fnx",
         "product_DPxQ7h"
       ],
+      "disabled": true,
       "name": "Dynamic Collection Grid",
       "settings": {
         "title": "",
