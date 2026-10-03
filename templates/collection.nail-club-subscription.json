@@ -72,10 +72,16 @@
             "product": "brick-butter"
           }
         },
-        "product_yqFHWf": {
+        "product_zTHbY7": {
           "type": "product",
           "settings": {
-            "product": "iced-out"
+            "product": "ctrl-delete-nail-remover-serum"
+          }
+        },
+        "product_g6tBLV": {
+          "type": "product",
+          "settings": {
+            "product": "gallery-orbit"
           }
         },
         "product_A7FPiw": {
@@ -90,10 +96,10 @@
             "product": "matcha-jelly"
           }
         },
-        "product_Ug7cTU": {
+        "product_QXDpxH": {
           "type": "product",
           "settings": {
-            "product": "geometric-jelly"
+            "product": "wellesley"
           }
         },
         "product_XJMdtn": {
@@ -102,10 +108,46 @@
             "product": "strange-terrain"
           }
         },
-        "product_g6tBLV": {
+        "product_yqFHWf": {
           "type": "product",
           "settings": {
-            "product": "gallery-orbit"
+            "product": "iced-out"
+          }
+        },
+        "product_mrearq": {
+          "type": "product",
+          "settings": {
+            "product": "aura-gradient"
+          }
+        },
+        "product_f77gNR": {
+          "type": "product",
+          "settings": {
+            "product": "cherry-blitz"
+          }
+        },
+        "product_Ug7cTU": {
+          "type": "product",
+          "settings": {
+            "product": "geometric-jelly"
+          }
+        },
+        "product_NFCK7n": {
+          "type": "product",
+          "settings": {
+            "product": "stars-aligned"
+          }
+        },
+        "product_3LMDMd": {
+          "type": "product",
+          "settings": {
+            "product": "mocha-tortoise"
+          }
+        },
+        "product_kp6mVx": {
+          "type": "product",
+          "settings": {
+            "product": "scandi-color-theory"
           }
         }
       },
@@ -120,12 +162,19 @@
         "product_igJ4mE",
         "product_EkAHY4",
         "product_NpUgYr",
-        "product_yqFHWf",
+        "product_zTHbY7",
+        "product_g6tBLV",
         "product_A7FPiw",
         "product_YQz4fN",
-        "product_Ug7cTU",
+        "product_QXDpxH",
         "product_XJMdtn",
-        "product_g6tBLV"
+        "product_yqFHWf",
+        "product_mrearq",
+        "product_f77gNR",
+        "product_Ug7cTU",
+        "product_NFCK7n",
+        "product_3LMDMd",
+        "product_kp6mVx"
       ],
       "settings": {
         "title": "Nail Club Subscription",
