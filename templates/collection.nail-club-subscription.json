@@ -42,6 +42,36 @@
             "product": "fuzzy-future"
           }
         },
+        "product_FaFxNE": {
+          "type": "product",
+          "settings": {
+            "product": "pipeline"
+          }
+        },
+        "product_PmWnx9": {
+          "type": "product",
+          "settings": {
+            "product": "bright-future"
+          }
+        },
+        "product_igJ4mE": {
+          "type": "product",
+          "settings": {
+            "product": "butter-star"
+          }
+        },
+        "product_EkAHY4": {
+          "type": "product",
+          "settings": {
+            "product": "birthday-cake"
+          }
+        },
+        "product_NpUgYr": {
+          "type": "product",
+          "settings": {
+            "product": "brick-butter"
+          }
+        },
         "product_yqFHWf": {
           "type": "product",
           "settings": {
@@ -85,6 +115,11 @@
         "product_6pUBgM",
         "product_7yzxTx",
         "product_rpnRcG",
+        "product_FaFxNE",
+        "product_PmWnx9",
+        "product_igJ4mE",
+        "product_EkAHY4",
+        "product_NpUgYr",
         "product_yqFHWf",
         "product_A7FPiw",
         "product_YQz4fN",
