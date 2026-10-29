@@ -18,7 +18,7 @@
         "button-text": "Shop Now",
         "button-url": "shopify://collections/new-arrivals",
         "media_type": "image",
-        "hero-image": "shopify://shop_images/Group_8.png",
+        "hero-image": "shopify://shop_images/Group_10.png",
         "video_url": "",
         "video_caption": "",
         "show_sticker": true,
@@ -77,7 +77,7 @@
             "video_caption": "",
             "image": "shopify://shop_images/Screenshot_2026-09-15_at_9.36.22_AM.png",
             "floating_sticker": "sun-blue",
-            "sticker_color": "#FF8FE7"
+            "sticker_color": "#ff8fe7"
           }
         }
       },
