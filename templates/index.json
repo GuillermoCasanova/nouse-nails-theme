@@ -15,7 +15,7 @@
       "settings": {
         "color_scheme": "",
         "header-text": "<p>15-min gel nails without damage or <em>small talk</em> ☻</p>",
-        "button-text": "Shop Now",
+        "button-text": "Shop Nous Nails",
         "button-url": "shopify://collections/new-arrivals",
         "media_type": "image",
         "hero-image": "shopify://shop_images/Group_10.png",
@@ -31,7 +31,7 @@
       "name": "News ticker banner",
       "settings": {
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
-        "text": "15-minutes. Clean Alternative. Damage-free."
+        "text": "15-minutes. Clean Alternative. Damage-free. NOUS NAILS."
       }
     },
     "collection_qMBnrM": {
@@ -94,7 +94,7 @@
         "eyebrow_F8CptN": {
           "type": "eyebrow",
           "settings": {
-            "text": "The Nous Way",
+            "text": "Nous is Pronounced Like \"/nu/\"",
             "text_size": "text-size-medium"
           }
         },
@@ -108,7 +108,7 @@
         "text_BkXNpA": {
           "type": "text",
           "settings": {
-            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with NOUS. It’s the <em><strong>NOUS way of doing things.</strong></em></p>",
+            "text": "<p>Did you know the average woman spends $2,160 & 48 hours a year on nails? Save your money and your time—with Nous Nails. It’s the <em><strong>NOUS way of doing things.</strong></em></p>",
             "text_size": "text-size-large"
           }
         },
@@ -364,7 +364,7 @@
       "name": "About and 3 callouts",
       "settings": {
         "color_scheme": "scheme-e24c36e3-6758-46b1-b6d4-c5f5b5a35c26",
-        "subtitle": "A Nous Standard in Nail Beauty.",
+        "subtitle": "The Nous Standard in Nail Beauty.",
         "headline_size": "headline-style-h4",
         "text": "<p>We’re building a future where nail care is clean, expressive, and affordable. Our gel strips skip the toxins, cost less, and save you time—because beauty shouldn’t come at your health or schedule.</p>",
         "text_size": "text-size-x-large",
@@ -380,7 +380,7 @@
         "faq_block_jRAPtz": {
           "type": "faq_block",
           "settings": {
-            "question": "How long do they last?",
+            "question": "How long does Nous Nails last?",
             "answer": "<p>Up to 14 days of chip-free shine. For best results, use the prep pad, apply on dry nails, and avoid oils or baths for 1-2 hours after. They’re tough enough for everyday life—like a screen protector for your nails.</p>"
           }
         },
@@ -395,21 +395,21 @@
           "type": "faq_block",
           "settings": {
             "question": "Are these a clean alternative?",
-            "answer": "<p>Yes! We skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
+            "answer": "<p>Yes! Nous Nails skip the top 10 questionable ingredients—no HEMA, DBP, TPHP, toluene, or formaldehyde. Clean, safe, and worry-free.</p>"
           }
         },
         "faq_block_QL3tzy": {
           "type": "faq_block",
           "settings": {
             "question": "How do I remove them?",
-            "answer": "<p>Gently lift with the provided wooden stick. For ideal results, use our <a href=\"/products/ctrl-delete-nail-remover-serum\" title=\"Ctrl+Delete Vitamin Serum Remover\">Ctrl+Delete Vitamin Remover Serum</a> for easy melt-off-the-nail removal. </p><p>No damage, just nourished nails underneath.</p>"
+            "answer": "<p>Gently lift with the provided wooden stick. For ideal results, use our <a href=\"/products/ctrl-delete-nail-remover-serum\" title=\"Ctrl+Delete Vitamin Serum Remover\">Ctrl+Delete Vitamin Remover Serum</a> for easy melt-off-the-nail removal.&nbsp;</p><p>No damage, just nourished nails underneath.</p>"
           }
         },
         "faq_block_N3AeaJ": {
           "type": "faq_block",
           "settings": {
             "question": "Do they really protect my nails?",
-            "answer": "<p>Yes! They act like a screen protector for your nails—shielding against chips and breaks while helping weak or brittle nails grow stronger, all with zero damage on removal.</p>"
+            "answer": "<p>Yes! Nous Nails act like a screen protector for your nails—shielding against chips and breaks while helping weak or brittle nails grow stronger, all with zero damage on removal.</p>"
           }
         }
       },
