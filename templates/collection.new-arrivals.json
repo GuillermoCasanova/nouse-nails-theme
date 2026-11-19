@@ -122,6 +122,15 @@
       "name": "News ticker banner",
       "settings": {
         "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
+        "text": "25% Off Sitewide Sale"
+      }
+    },
+    "hae_marquee_banner_6TPJjt": {
+      "type": "hae-marquee-banner",
+      "disabled": true,
+      "name": "News ticker banner",
+      "settings": {
+        "color_scheme": "scheme-cc80f6b4-b558-4219-8256-b69a754c7c0a",
         "text": "15-minutes. Clean Alternative. Damage-free. NOUS NAILS."
       }
     },
@@ -326,6 +335,7 @@
   "order": [
     "dynamic_collection_grid_QQVXaq",
     "hae_marquee_banner_33tJkG",
+    "hae_marquee_banner_6TPJjt",
     "main",
     "dynamic_collection_grid_VWfNXt"
   ]
